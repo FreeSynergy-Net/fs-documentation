@@ -33,3 +33,9 @@ Status: akzeptiert (Nutzer, 2026-11-15) · präzisiert ADR 0020 (Speicherformat)
 - Jede Domäne beschreibt ihre Tabellen in `data/<domain>/technical.md`, abgeleitet aus dem Fachstandard.
 - Der Workflow `programm-neu` erhält einen Prüfschritt: keine JSON- oder Blob-Spalte außer `original`.
 - Reihenfolge: Umbau nach der Frontend-Runde (Woche ab 2026-11-16). Bis dahin wird das Schema nicht verändert.
+
+## Nachtrag (Nutzer, 2026-11-15, aus dem Plan der neuen Programme)
+- **Ausnahme 2, Chiffrat:** Ein als verschlüsselt markiertes Feld (ADR 0067) liegt als Bytes. Die Struktur steht typisiert in Spalten (`alg`, `nonce`, `key_ref` …), nur der verschlüsselte Inhalt sind Bytes.
+- **Loro (ADR 0073):** Die typisierten Tabellen sind die Wahrheit. Loro dient nur dem Abgleich und wird nicht als zweite Wahrheit gespeichert.
+- **Medieninhalt** (Pixel, Samples, Videobilder, 3D-Puffer) liegt als Datei in fs-files, in offenen Formaten: Video AV1 (WebM), Bilder AVIF, Audio FLAC (verlustfrei) bzw. Opus (verlustbehaftet), 3D glTF. In den Tabellen steht nur ein `FileRef` mit Prüfsumme. Die Crate-Angaben werden noch belegt geprüft.
+- **Geld** ist eine Ganzzahl in der kleinsten Einheit, dazu Währung (ISO 4217) und Skala. Nie eine Kommazahl.

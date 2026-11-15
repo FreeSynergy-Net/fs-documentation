@@ -27,3 +27,8 @@ Status: akzeptiert (Nutzer, 2026-11-15) · erweitert ADR 0055 (sprechende Namen)
 ## Folgen
 - Neue Programme bekommen nur Namen nach Regel 1. Der Workflow `programm-neu` prüft das.
 - Die Umbenennung auf GitHub gibt die Strategie je Programm nach dem Befehlsplan des Koordinators frei.
+
+## Nachtrag (Nutzer, 2026-11-15): offene Standards, in Rust
+- Wir suchen **offene Standards**. Gibt es eine Umsetzung, wird sie **in Rust genutzt oder nach Rust migriert** und von uns auch auf crates.io angeboten. Keine C-Bibliotheken als Dauerlösung (Beispiel Opus: kein libopus, sondern ein Rust-Encoder, den wir unterstützen oder selbst schreiben).
+- MPL-2.0 ist nur als unveränderte Abhängigkeit erlaubt; Änderungen gehen an das jeweilige Projekt.
+- Browser: Kandidat ist Blitz (HTML/CSS) plus eine reine Rust-JS-Engine hinter dem Trait `WebEngine`. Entschieden wird nach Recherche und Spike.
