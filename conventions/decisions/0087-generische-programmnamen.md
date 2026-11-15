@@ -14,9 +14,14 @@ Status: akzeptiert (Nutzer, 2026-11-15) · erweitert ADR 0055 (sprechende Namen)
 | fs-history | fs-activity |
 | fs-streaming | fs-broadcast |
 | fs-resources | fs-inventory |
+| fs-surveys | fs-forms (Umfrage, Abstimmung, Anmeldung sind Facetten) |
+| fs-store | fs-software (Store, Marktplatz, Server-Katalog sind Facetten) |
+| fs-hub | fs-registry (wer läuft wo, Erreichbarkeit) |
 
 3. **Ablauf** nur über den Workflow `umbenennen`. Er geht durch Repo, Crates `fs-<x>-*`, Pins in anderen Repos und Katalog (`replaces`). Die Doku zieht der Workflow `doku-mitziehen` im selben Lauf mit, sonst ist das Gate ROT. Ein alter Name wird nie wieder vergeben (ADR 0080).
-4. **fs-store und fs-hub** bleiben vorerst. Das ist eine offene Nutzerfrage, denn `fs-packages` ist schon vergeben (ADR 0078).
+4. **Nachtrag (Nutzer, 2026-11-15):** Auch fs-surveys, fs-store und fs-hub werden umbenannt (siehe Tabelle); Umbenennen soll Sinn machen und logisch sein. fs-store und fs-hub zuletzt, da viele Abhängigkeiten.
+5. **Helpdesk ist eine Suite**, kein Programm: Hilfe aus fs-text, Anrufe und Nachrichten über fs-messages, Kunden aus fs-people, Rückrufe über fs-calendar, optional Tickets über fs-tasks.
+6. **Geplante Programme (Nutzer-JA):** fs-data (Tabellen), fs-paint (Rasterbilder), fs-audio (Audio). Weitere Kandidaten sind in Prüfung.
 
 ## Folgen
 - Neue Programme bekommen nur Namen nach Regel 1. Der Workflow `programm-neu` prüft das.
