@@ -1,6 +1,6 @@
 # 0087 – Programmnamen sind generisch: Fähigkeit oder Daten, nicht Gattung
 
-Status: akzeptiert (Nutzer, 2026-11-15) · erweitert ADR 0055 (sprechende Namen), 0080 (Umzug fs-wiki → fs-text) · Grundlage: Namensinventar der Strategie (Arbeitsstand, 2026-11-15)
+Status: akzeptiert (Nutzer, 2026-11-15) · ersetzt in ADR 0076 Punkt 3 „fs-store → Facette auf fs-marketplace“ (jetzt fs-software, Marktplatz ist Facette; Platzhalter fs-marketplace gelöscht) · erweitert ADR 0055 (sprechende Namen), 0080 (Umzug fs-wiki → fs-text) · Grundlage: Namensinventar der Strategie (Arbeitsstand, 2026-11-15)
 
 ## Entscheidung
 1. **Ein Programmname nennt die Fähigkeit oder die Daten**, die das Programm besitzt (z. B. tasks, files, people, calendar, maps). Er nennt keine App-Gattung und keine Bauform wie „wiki“ oder „whiteboard“. Die konkrete Ausprägung (Wiki, Buchungen, Marktplatz …) ist eine **Facette**.
