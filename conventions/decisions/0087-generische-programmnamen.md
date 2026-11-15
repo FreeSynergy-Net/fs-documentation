@@ -13,7 +13,7 @@ Status: akzeptiert (Nutzer, 2026-11-15) · ersetzt in ADR 0076 Punkt 3 „fs-sto
 | fs-messenger | fs-messages |
 | fs-history | fs-activity |
 | fs-streaming | fs-broadcast |
-| fs-resources | fs-inventory |
+| ~~fs-resources~~ | ~~fs-inventory~~ – **zurückgenommen**, fs-resources bleibt (siehe Nachtrag Ressourcen) |
 | fs-surveys | fs-forms (Umfrage, Abstimmung, Anmeldung sind Facetten) |
 | fs-store | fs-software (Store, Marktplatz, Server-Katalog sind Facetten) |
 | fs-hub | fs-registry (wer läuft wo, Erreichbarkeit) |
@@ -32,3 +32,8 @@ Status: akzeptiert (Nutzer, 2026-11-15) · ersetzt in ADR 0076 Punkt 3 „fs-sto
 - Wir suchen **offene Standards**. Gibt es eine Umsetzung, wird sie **in Rust genutzt oder nach Rust migriert** und von uns auch auf crates.io angeboten. Keine C-Bibliotheken als Dauerlösung (Beispiel Opus: kein libopus, sondern ein Rust-Encoder, den wir unterstützen oder selbst schreiben).
 - MPL-2.0 ist nur als unveränderte Abhängigkeit erlaubt; Änderungen gehen an das jeweilige Projekt.
 - Browser: Kandidat ist Blitz (HTML/CSS) plus eine reine Rust-JS-Engine hinter dem Trait `WebEngine`. Entschieden wird nach Recherche und Spike.
+
+## Nachtrag (Nutzer, 2026-11-16): Ressourcen nach ValueFlows, Katalog ist Filter
+- **fs-resources bleibt** (die Umbenennung nach fs-inventory ist zurückgenommen). Es besitzt nach ValueFlows: Arten von Sachen (ResourceSpecification, das „Produkt“), konkrete Sachen bzw. Bestand (EconomicResource), **Angebote und Gesuche** (Intent, dieselbe Form in beide Richtungen), Zusammenstellungen (Proposal/Katalog), Absprachen und Übergaben (Commitment, EconomicEvent). Die Abläufe aus ValueFlows (Recipe/Process) bleiben bei fs-workflows (ADR 0076). Ein eigenes fs-product oder fs-offers gibt es nicht.
+- **Ein Katalog ist Gruppierung und Filter:** Er erklärt, was er enthalten darf (Art aus einer festen Liste, Bedingungen aus typisierten Feldern, z. B. Preis = 0 für „kostenlos“). Eine Prüfung meldet Einträge, die nicht passen. Ein **Marktplatz** ist ein Katalog, der andere Kataloge zusammenfasst. Ein **Laden** ist eine Suite (fs-groups, fs-maps, fs-resources, ggf. fs-finance).
+- **Keine konkreten Kataloge als Programm:** Das heutige Repo fs-catalog enthält nur die Daten des Katalogs von FreeSynergy (Filter: Software, kostenlos). Es bekommt einen Namen ohne `fs-` (für Menschen **FreeSynergy.Catalog**); die genaue Repo-Schreibweise legt der Nutzer fest.
