@@ -165,3 +165,34 @@ Die Punkte 1 bis 10 des Abschnitts „KIs in Unterhaltungen“ bleiben unveränd
 - Verlassen und Beitritt sind durch Punkt 5 und 7 teils entschieden (Spätkommende bestätigen, Rückzug entfernt die KI); offen bleibt, was bei Verlassen eines Zustimmenden während der Sitzung genau geschieht.
 - Protokoll nach DSGVO: Inhalt und Speicherdauer; bezogen auf die Einwilligung in fs-people (Zweck „ki_hilfe“).
 - Rückfrage an den Nutzer: Gehen die Sicherheitsgrenzen aus ADR 0082/0056 (KI nie in Admin- oder sensible Gruppen, nie Admin, nie zustimmen oder einladen) dem „ÜBERALL“ vor? Strategie nimmt das an.
+
+## Nachtrag 2 2026-11-16: KI-Zugang je Programm und je Gruppe, für KI unsichtbar
+
+Anlass: Nutzerentscheidung 39 (16.11., über die Strategie). Frage war, ob eine KI in Admin- oder sensiblen Gruppen sein darf. Antwort des Nutzers: JA, NIE (gemeint: nie). Zusätzlich, als allgemeine Regel: Man kann KI für immer streichen. Dieser Nachtrag ergänzt den Nachtrag „KI-Helfer: Einladung, STOP KI, Zustimmung aller“ (oben, b97c77b6); dessen Punkte bleiben unverändert.
+
+**Entscheidung (Nutzer, Strategie hat gegen 0054, 0056, 0076, 0082, 0090 und groups_v1 geprüft):**
+- **(a) Schalter „KI-Zugang (MCP)“ in jedem Programm.** Standard AUS; ein Mensch muss ihn einschalten (Opt-in). Wo machbar, ist MCP ein eigenes Modul, das man gar nicht erst installiert oder lädt; dann gibt es den Schalter nur als „nicht installiert“.
+- **(b) Der Schalter ist für KI unsichtbar und unveränderbar,** auch nicht über einen Umweg. Damit kann man KI für immer streichen.
+- **(c) Beim Anlegen einer Gruppe oder eines Raums wird festgelegt: KI erlaubt ja oder nein.** Bei Admin-Gruppen und sensiblen Gruppen (Typ `sensitive`) steht es fest auf „nein“; der Mensch kann es dort nicht auf „ja“ stellen.
+
+**Präzisierungen (Strategie, zur Bestätigung):**
+1. **„Umweg“** heißt: weder über Rechte-, Gruppen-, Token-, API- oder MCP-Aufrufe lesbar oder änderbar, noch über Verlauf, Protokoll, Suche, Export oder Fehlermeldungen. Eine KI sieht nicht einmal, dass es den Schalter gibt: keine Methode nennt ihn, Zugriff wird wie „nicht vorhanden“ beantwortet (`NotFound`, gleiche Art wie bei Admin-Gruppen in 0082, Nachtrag KI-Regel). Der Schalter ist kein Recht, das man einer KI-Gruppe geben kann; kein fs-access-Token und keine Delegation kann ihn einschließen.
+2. **Protokoll:** Der Zustand des Schalters und seine Änderungen stehen im Protokoll, aber das Protokoll liefert sie an KI-Konten nie aus (festgelegt). Menschen mit Einsicht sehen sie.
+3. **Zustand je Programm UND je Gruppe oder Raum,** getrennt gespeichert. Reihenfolge, immer die strengere gewinnt: Programm AUS bedeutet nie KI. Gruppe oder Raum „nein“ bedeutet nie KI. Erst wenn beide „ja“ sind, gilt der Nachtrag „KI-Helfer“: Einladung, Zustimmung aller Anwesenden, Vorwarnung Spätkommender, STOP KI wie bisher. „ja“ ist nur eine Möglichkeit, keine Einladung und kein Recht.
+4. **Einzelplatz (ADR 0090):** Standard ebenfalls AUS; die Besitzerin schaltet ein, sonst keiner. Der Schalter ist auch dort für KI unsichtbar.
+5. **Wer setzt ihn:** nur ein Mensch mit Verwaltungsrecht (Besitzer oder Admin des Programms bzw. der Gruppe), nie eine KI und nie ein Konto mit unbekanntem KI-Status (0082: Hüllenprüfung). Jede Änderung wird protokolliert.
+6. **Verhältnis zum Notaus und zu STOP KI:** Der Schalter AUS ist die dauerhafte Fassung; der Notaus (Punkt 5, Rechte) und STOP KI wirken sofort und einmalig. Schalter auf AUS entfernt eine anwesende KI wie STOP KI (Token und Sitzung widerrufen, Protokolleintrag). Dasselbe gilt, wenn eine Gruppe nachträglich auf „nein“ gestellt wird.
+7. **Grenze (wie 0054):** Der Schalter wirkt nur, was durch unsere Programme läuft. Eine KI mit eigener Shell oder ein fremdes Programm erreicht er nicht.
+
+**Folgen und Tests.**
+- Konformitätstest je Programm in BEIDE Richtungen: (i) Schalter vorhanden, Standard AUS, bei AUS lehnt jede MCP-/API-Anfrage einer KI ab; (ii) Schalter ist für KI unsichtbar und unveränderbar (Test mit KI-Token: Lesen, Ändern, Auslesen über Protokoll, Verlauf, Export; alles `NotFound` oder abgelehnt); (iii) Gruppe „nein“ und Admin- oder sensible Gruppe: KI-Einladung nicht möglich; (iv) Programm AN und Gruppe „ja“: Einladung wie bisher.
+- Pflichtpunkt in programm-grundgeruest (Konformitätstest): „KI-Zugang-Schalter vorhanden, Standard AUS, für KI unsichtbar und unveränderbar“. Die Umsetzung in fs-release (Workflow-Datei) steht noch aus; sie liegt außerhalb von fs-documentation.
+- Ist MCP ein eigenes Modul, ändert das die Paketstruktur (ADR 0076, Programm-Grundgerüst): das Modul ist ein eigenes Paket mit Fähigkeit (`provides` bzw. `capability`, Name offen, z. B. `mcp`) im Katalog, das ein Programm optional bezieht. Fehlt das Paket, gibt es keinen Einstiegspunkt für KI; der Schalter ist dann nur Anzeige für Menschen.
+- Gruppenanlage: der Anlegen-Dialog fragt „KI erlaubt: ja/nein“, Voreinstellung „nein“; Typ `sensitive` und Admin-Gruppen zeigen das Feld fest auf „nein“. Das ergänzt die KI-Regel in 0082 (KI nie in Admin- oder sensiblen Gruppen) um eine Gruppeneigenschaft, die auch Einladungen in Räume erfasst.
+
+### Offen
+1. Wo liegt der Schalter technisch: im Rechte-Teil von fs-access (außerhalb der Reichweite der KI wie der Notaus) oder als Programm-Einstellung je Programm? Wer erzwingt „unsichtbar“ einheitlich?
+2. Wie verhindert man Umwege bei Programmen mit Plugin-Mechanik (hot plugins): Ein Plugin darf den Schalter nicht umgehen und kein eigenes MCP-Tor öffnen.
+3. Wer genau darf den Schalter setzen (Besitzer, Admin des Programms, Gruppenbesitzer) und wie wird das mit Einzelplatz und Selbstverwaltung (Türsteher) abgestimmt?
+4. Anlegen-Dialog je Gruppe und Raum: Wo wird „KI erlaubt“ gespeichert (fs-groups, groups_v1, Feld je Gruppe?) und ändert der Fixpunkt groups_v1? Nachträgliche Änderung „ja“ zu „nein“ wirkt sofort, in der Gegenrichtung nur mit Zustimmung wie bisher?
+5. Standard in Einzelplatz und bei bestehenden Installationen nach Aktualisierung: AUS; Rückfrage an den Nutzer, ob das Zurücksetzen bestehender Einschaltungen bei Updates gewünscht ist.
