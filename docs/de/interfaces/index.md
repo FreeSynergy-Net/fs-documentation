@@ -7,7 +7,7 @@ Jedes Thema hat **eine Schnittstelle, dieselbe für jeden Anbieter**, damit ein 
 ## Regeln
 
 1. **Zuerst ein Standard.** Gibt es einen, folgt die Schnittstelle ihm. Gibt es keinen, schreiben wir einen und bieten ihn anderen an.
-   **Jeder Standard hat genau ein besitzendes Programm,** den Ort der Wahrheit, und jedes andere Programm geht über dessen Schnittstelle. Kein zweites Modell derselben Sache (ADR 0050). Ein Standard mit mehreren Objektarten, wie JSCalendar, gehört pro Art: `Event` gehört `fs-calendar`, `Task` gehört `fs-tasks`.
+   **Jeder Standard hat genau ein besitzendes Programm,** den Ort der Wahrheit, und jedes andere Programm geht über dessen Schnittstelle. Kein zweites Modell derselben Sache (ADR 0050). Ein Standard mit mehreren Objektarten, wie JSCalendar, gehört pro Art: `Event` gehört `fs-calendars`, `Task` gehört `fs-tasks`.
 2. **Eine Schnittstelle ist ein Ziel.** Wir legen das Ziel fest, und es darf schärfer werden, solange wir es noch nicht ganz kennen. Als Entwurf veröffentlicht, wird sie von mindestens zwei unabhängigen Nutzenden geprüft (bei einer Anbieter-Schnittstelle: zwei Anbieter), dann als Version 1.0 festgeschrieben. Danach ändert sie sich nur durch einen Sprung zu einer neuen Version, nie durch schleichendes Wachstum.
 3. **Wie eine Elternklasse.** Jeder Anbieter bietet alle Methoden und Attribute seiner Schnittstelle an. Fehlt einem Anbieter etwas, suchen wir einen Weg, es trotzdem funktionieren zu lassen. Gibt es wirklich keinen, antwortet er ausdrücklich „nicht möglich“. Wir denken darüber nach, wie etwas gehen kann, bevor wir sagen, dass es nicht geht.
 4. **Ein Frontend nutzt, was es will.** Die Engine darf mehr anbieten, als ein Frontend braucht.
@@ -24,25 +24,25 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 
 | Thema | Wofür | Standardbasis | Besitzer | Status |
 |-------|----------------|---------------|---------|--------|
-| Nachrichten | Jemandem etwas sagen, [KIs eingeschlossen](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP und ACP für Agenten | `fs-messenger` | Vertragsentwurf |
+| Nachrichten | Jemandem etwas sagen, [KIs eingeschlossen](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP und ACP für Agenten | `fs-messages` | Vertragsentwurf |
 | Personen | Wissen, wer jemand ist und wie man ihn erreicht, mit [Rollen](roles.md) | JSContact | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Schnittstellen-Entwurf, Anbieter vorhanden |
 | Gruppen | Zusammengehören und festlegen, wer was darf | AS2 `Group`, SCIM | [`fs-groups`](../programs/platform/groups.md) | Schnittstellen-Entwurf, Code in Arbeit |
-| Termine | Irgendwo zu irgendeiner Zeit sein | JSCalendar `Event` | `fs-calendar` | Kern vorhanden |
+| Termine | Irgendwo zu irgendeiner Zeit sein | JSCalendar `Event` | `fs-calendars` | Kern vorhanden |
 | Aufgaben | Wissen, was als Nächstes zu tun ist | JSCalendar `Task`, RFC 9253 | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) | Kern vorhanden, Schnittstellen-Entwurf |
-| Verlauf | Sich merken, was ich oder wir getan haben | AS2-Aktivitäten | [`fs-activity`](https://github.com/FreeSynergy/fs-activity) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
+| Verlauf | Sich merken, was ich oder wir getan haben | AS2-Aktivitäten | [`fs-activities`](https://github.com/FreeSynergy/fs-activity) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
 | Ressourcen | Wissen, was wir haben und brauchen | Lücke | [`fs-resources`](https://github.com/FreeSynergy/fs-resources) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
 | Dateien | Alles behalten und wiederfinden | AS2 `Document` | [`fs-files`](../programs/apps/files/design.md) | vorläufiger Schnittstellen-Entwurf, Code in Arbeit |
-| Texte | Gemeinsam schreiben und wissen | eigene Spezifikation (ADR 0031, 0033) | `fs-wiki` | Kern vorhanden |
+| Texte | Gemeinsam schreiben und wissen | eigene Spezifikation (ADR 0031, 0033) | `fs-texts` | Kern vorhanden |
 | Orte | Wissen, wo etwas ist | GeoJSON | `fs-maps` | Kern vorhanden |
-| Entscheidungen | Fragen und gemeinsam entscheiden | AS2 `Question`; darüber hinaus Lücke | [`fs-surveys`](https://github.com/FreeSynergy/fs-surveys) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
-| Boards | Visuell denken | Lücke, eigene Spezifikation | [`fs-whiteboard`](https://github.com/FreeSynergy/fs-whiteboard) | Schnittstellen-Entwurf, Kern vorhanden |
-| Live-Medien | Etwas zeigen, während es passiert | WHIP, WHEP, Enhanced RTMP | [`fs-streaming`](https://github.com/FreeSynergy/fs-streaming) | Schnittstellen-Entwurf, Code in Arbeit |
+| Entscheidungen | Fragen und gemeinsam entscheiden | AS2 `Question`; darüber hinaus Lücke | [`fs-forms`](https://github.com/FreeSynergy/fs-surveys) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
+| Boards | Visuell denken | Lücke, eigene Spezifikation | [`fs-draw`](https://github.com/FreeSynergy/fs-whiteboard) | Schnittstellen-Entwurf, Kern vorhanden |
+| Live-Medien | Etwas zeigen, während es passiert | WHIP, WHEP, Enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) | Schnittstellen-Entwurf, Code in Arbeit |
 
 ## Anbieter: wer es liefert
 
 | Schnittstelle | Wofür | Mögliche Anbieter |
 |-----------|----------------|---------------------|
-| Datenbank | Objekte speichern | Turso (hinter `Store` von `fs-store`, vorhanden) |
+| Datenbank | Objekte speichern | Turso (hinter `Store` von `fs-packages`, vorhanden) |
 | Dateispeicher | Bytes speichern | lokaler Ordner, RustFS über S3, git, WebDAV |
 | Mail | Mails senden und empfangen, als Client oder Server | JMAP-, IMAP- und SMTP-Clients; eigener Server später |
 | Chat-Netzwerke | Menschen anderswo erreichen | Matrix (tuwunel), Telegram, Discord, andere |
@@ -58,7 +58,7 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 |-----------|----------------|---------------|
 | Vertrauen | Zeigen, wann eine Person sicher ist, auch gegen Betrüger und Bots; jede Person legt ihre [eigene Stufe](../programs/apps/assistant/index.md#kis-ausschlieen) fest | Web of Trust; sein Nachfolger, das [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), ist das vorgeschlagene Ziel (ADR 0052, 0054) |
 | Teilen und Berechtigungen | Wer was sehen darf; Freigaben gehen an Gruppen | Lücke, eine Spezifikation für alle. Offen: [Rollen-Privatsphäre](roles.md#offen) |
-| Hülle und Aktivitätsprotokoll | Die äußere Form und der Verlauf jedes Objekts | AS2, vorgeschlagener Besitzer `fs-store` (ADR 0050) |
+| Hülle und Aktivitätsprotokoll | Die äußere Form und der Verlauf jedes Objekts | AS2, vorgeschlagener Besitzer `fs-packages` (ADR 0050) |
 | Synchronisation | Geräte und Programme zusammenbringen | Aktivitätsprotokoll (ADR 0019) |
 | Präsenz | Sehen, was andere gerade tun | Lücke; wird nie gespeichert |
 | Suche | Programmübergreifend finden | Lücke |

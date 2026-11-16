@@ -65,5 +65,5 @@ Kein Blinc-Gegenstück. In unserer Schicht gebaut (bindet Identitätsdaten); den
 - [overlays – Übersicht](../index.md)
 - [Modal](../modal/)
 - [Encryption State](../../../primitives/feedback/encryption-state/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

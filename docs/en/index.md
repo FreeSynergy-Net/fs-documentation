@@ -37,7 +37,7 @@ That is why our programs are named for what they are. No fantasy names, no brand
 
     Remember the people who matter to you. From address book to CRM.
 
-- **[Calendar](programs/apps/calendar/index.md)**
+- **[Calendar](programs/apps/calendars/index.md)**
 
     Appointments that know their tasks and their people.
 
@@ -49,27 +49,27 @@ That is why our programs are named for what they are. No fantasy names, no brand
 
     Places and routes, on open map data.
 
-- **[Wiki](programs/apps/wiki/index.md)**
+- **[Wiki](programs/apps/texts/index.md)**
 
     Everything you know, written down together.
 
-- **[Messenger](programs/apps/messenger/index.md)**
+- **[Messenger](programs/apps/messages/index.md)**
 
     Mail, Matrix and AI participants in one place, encrypted.
 
-- **[Surveys](programs/apps/surveys/index.md)**
+- **[Surveys](programs/apps/forms/index.md)**
 
     Ask, vote, decide together, also anonymously.
 
-- **[Whiteboard](programs/apps/whiteboard/index.md)**
+- **[Whiteboard](programs/apps/draw/index.md)**
 
     Room for ideas that have no shape yet. Planned.
 
-- **[Streaming](programs/apps/streaming/index.md)**
+- **[Streaming](programs/apps/broadcast/index.md)**
 
     Video and live streams without a foreign platform. Planned.
 
-- **[History](programs/apps/activity/index.md)**
+- **[History](programs/apps/activities/index.md)**
 
     What have I, or we, done? Your data as a timeline.
 
@@ -110,7 +110,7 @@ AIs may take part, as participants, not as secret listeners. Every AI is marked,
 
 We store everything in open standards. So you can move to another program with all your data at any time, also one that is not ours. Where there is no standard yet, we write one and make it free for everyone.
 
-## FreeSynergy.Store
+## FreeSynergy.Packages
 
 One place for everything. Get the Store, and from there install any program with one click: new interfaces, themes, extensions. It keeps everything up to date and checks every file before it reaches your device.
 

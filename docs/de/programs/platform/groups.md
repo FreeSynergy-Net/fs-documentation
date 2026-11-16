@@ -81,4 +81,4 @@ Wenn Kanidm eines davon bekommt, geben wir es zurück, wie in ADR 0047 festgeleg
 
 1. Muss eine Hierarchie ein Baum sein, oder kann eine Gruppe mehrere Eltern haben? **Bestätigt von der Projektverantwortlichen (2026-11-07):** Mehrere Eltern sind erlaubt, da eine Arbeitsgruppe zu zwei Abteilungen gehören kann; Zyklen werden abgelehnt.
 2. Wer darf eine Umfrage auf eine übergeordnete Gruppe ausweiten: ihre Initiatoren oder die übergeordnete Gruppe?
-3. Wie werden Entscheidungen über Gruppenmitgliedschaft getroffen? **Entschieden (2026-11-07):** Jede Gruppe legt es selbst fest: nur auf Einladung, offen für alle oder auf Antrag mit Bestätigung; eine Abstimmung über `fs-surveys` ist möglich, wo die Gruppe sie will.
+3. Wie werden Entscheidungen über Gruppenmitgliedschaft getroffen? **Entschieden (2026-11-07):** Jede Gruppe legt es selbst fest: nur auf Einladung, offen für alle oder auf Antrag mit Bestätigung; eine Abstimmung über `fs-forms` ist möglich, wo die Gruppe sie will.

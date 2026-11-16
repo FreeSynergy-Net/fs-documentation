@@ -7,9 +7,9 @@ Each capability names its data standard (ADR 0014) and our status. The analysis 
 below are the board view. Function analysis only, own wording, nothing copied.
 
 **Owners (ADR 0050).** `fs-tasks` owns the JSCalendar `Task` and the board model. Everything else is reached through the
-owner's interface and not repeated here: events and calendar views by `fs-calendar`, files by `fs-files`, people by
+owner's interface and not repeated here: events and calendar views by `fs-calendars`, files by `fs-files`, people by
 `fs-people`, groups, members and rights by [`fs-groups`](../../platform/groups.md), history by
-[`fs-activity`](../activity/index.md), places by `fs-maps`, messages by `fs-messenger`, sign-in by the
+[`fs-activities`](../activities/index.md), places by `fs-maps`, messages by `fs-messages`, sign-in by the
 [identity wrapper](../../platform/identity.md).
 
 **Ids.** The contract (`tasks.capnp`) names the item capabilities `task.create`, `task.edit`, `task.assign`,
@@ -38,7 +38,7 @@ its core** (kanban only by plugin), so it appears only in card-level rows.
 our architecture needs it. The capability id in backticks (`<object>.<action>`) is a proposal —
 a capability is an action on the object, never a menu item or a gesture (ADR 0037).
 
-**Core facts:** a card **is** a JSCalendar 2.0 `Task`, owned by `fs-tasks`. `fs-calendar` shows it through the
+**Core facts:** a card **is** a JSCalendar 2.0 `Task`, owned by `fs-tasks`. `fs-calendars` shows it through the
 `fs-tasks` interface and has no copy or Task model. Board structure has no standard: own spec candidate no. 3 (`Project`, `Board`, `List`,
 `Relation`; owned by `fs-tasks`; a `task_link` assigns a task to exactly one list). A *column* here is the `List`
 model. Moving a card is an AS2 activity.
@@ -60,7 +60,7 @@ Data references: [projects index](../../../data/projects/index.md) ·
 | Set the status of a card (`card.setStatus`) ⚠️ column vs. status is not settled: in Ta, Ji columns are statuses, in Tr, Pl free lists | Ta, Ji, Op, Re | JSCalendar `progress`; RFC 10051 `PENDING`/`FAILED`, `VSTATUS` (vendor property until JSCalendar has it) | proposed |
 | Assign people to a card (`card.assign`) | Pl, As, Op, Re | JSCalendar `participants` (role); the person comes from the `fs-people` interface | implemented (core, as `task.assign`) |
 | Set a due date (`card.setDue`) | Tr, We, Pl, As, Op, Re | JSCalendar `due` | implemented (core; queries by due range too) |
-| Show cards with a due date in the calendar, without copying (`card.setDue` effect) | Tr, Pl, As, Op, Re (calendar views); We (iCal feed); *arch.* | same `Task`; `fs-calendar` reads it through the `fs-tasks` interface (ADR 0050) | proposed |
+| Show cards with a due date in the calendar, without copying (`card.setDue` effect) | Tr, Pl, As, Op, Re (calendar views); We (iCal feed); *arch.* | same `Task`; `fs-calendars` reads it through the `fs-tasks` interface (ADR 0050) | proposed |
 | Label cards with name and colour (`label.assign`) | Tr, We, Pl, As (tags) | JSCalendar `keywords` on the task; label name and colour defined on the board: gap → own | partly: keyword implemented (core, as `label.assign`); board colours not started |
 | Break a card into small steps with progress (`subtask.add`) — checklists (Tr, We, Pl) and subtasks (Ta, Ji, As) are counted together; Tr says cards cannot contain cards | Tr, We, Pl, Ta, Ji, As | `Relation` `kind: parent` (proposal: no `parent_id` on the Task); progress from the children | partly: relation implemented (core); progress from children not started |
 | Link cards: depends on, blocks, relates to (`relation.create`) | Ji, As, Op, Re | RFC 9253 `DEPENDS-ON`, `FINISHTOSTART` etc.; "blocks" is a **gap** (`relatedTo` only first/next/child/parent) → own `Relation` `kind` enum | partly: RFC 9253 relations implemented (core, `relation.create`); "blocks" not |
@@ -68,13 +68,13 @@ Data references: [projects index](../../../data/projects/index.md) ·
 | Comment on a card (`comment.add`) | Tr, We, Pl, Op, Re | AS2 `Note` with `inReplyTo` the card | proposed |
 | Watch a card or board and get changes (`card.watch`) | Tr, Pl, Op, Re | subscription list: gap → own | proposed |
 | Notify about changes to watched or assigned cards (`card.notify`) | Tr, We, Pl, Ta, As, Op, Re | AS2 activity as source; delivery channel is a platform matter ⚠️ not defined in data/projects | proposed |
-| Show the history of a card and a board (`card.history`) | Tr, We, Pl, Ta, Op, Re | AS2 activities of the card, read through the `fs-activity` interface (it owns history); shown as a timeline view | proposed |
+| Show the history of a card and a board (`card.history`) | Tr, We, Pl, Ta, Op, Re | AS2 activities of the card, read through the `fs-activities` interface (it owns history); shown as a timeline view | proposed |
 | Define and fill custom fields (`field.define`, `card.setField`) | We, Pl, Ji, As, Op, Re (Tr via Power-Up) | JSCalendar vendor properties `freesynergy.net:<name>`; definition lives on the board | proposed |
 | Start a board from a template (`template.apply`) | Tr, We, Pl (pro), As | own `Board` copy; JSON of the board structure | proposed |
 | Invite members to a board and give them a role — owner, contributor, observer (`member.add`, `member.role`) | Tr, We, Pl, Ta, Op, Re | membership and rights belong to `fs-groups` (ADR 0055), reached through its interface; board roles are only names for what it grants; login stays platform identity | proposed |
 | Send board events to outside systems (`webhook.create`) | Tr, We, Pl, Ta, Ji, As, Op; Re (plugin only) | AS2 activity as payload (envelope topic, index.md) | proposed |
 | Export a board (`board.export`) | We (JSON), Pl (PDF/HTML), As, Op, Re (CSV) | own board JSON + JSCalendar `Task`; CSV/PDF derived | proposed |
-| Changes appear live for everyone and work offline (`board.sync`) | We, Pl (real-time); *arch.* (ADR 0019); Ji, Pl, Op have no offline mode | `fs-store` + `fs-hub`, object-level sync; live view of others as in the roadmap | partly: `subscribe` (`TaskFeed`) implemented (core); the rest proposed |
+| Changes appear live for everyone and work offline (`board.sync`) | We, Pl (real-time); *arch.* (ADR 0019); Ji, Pl, Op have no offline mode | `fs-packages` + `fs-registry`, object-level sync; live view of others as in the roadmap | partly: `subscribe` (`TaskFeed`) implemented (core); the rest proposed |
 | Script and automate through our own contract, no separate API (`Capabilities` contract) | Tr, We, Pl, Ta, Ji, As, Op, Re (REST); *arch.* ADR 0021 | Cap'n Proto → JSON / CLI / MCP | partly: draft contract `tasks.capnp` and Rust traits done; the capnp-rpc server is not written |
 
 ## Optional (notable ideas)
@@ -102,7 +102,7 @@ Data references: [projects index](../../../data/projects/index.md) ·
 | "My cards" across all boards (`card.list` filtered) | As, Pl (dashboard), Re (my page) | stored query | proposed |
 | Rules: when a card moves, then set/notify (`rule.create`) | Tr (Butler), Ji, As; We has none | trigger = AS2 activity; rule model: gap | proposed |
 | Create a card by incoming webhook (`card.create` over contract) | We | same contract as the rest (ADR 0021) | proposed |
-| Create a card from e-mail (`card.create` from `message`) | Op (mail intake) | the message is borrowed through the `fs-messenger` interface (live reference) ⚠️ | proposed |
+| Create a card from e-mail (`card.create` from `message`) | Op (mail intake) | the message is borrowed through the `fs-messages` interface (live reference) ⚠️ | proposed |
 | Intake form that creates cards (`form.submit`) | As | gap | proposed |
 | Link commits to a card (`card.linkCommit`) | Ta, Ji, Re | JSCalendar `links`; forge side not evaluated | proposed |
 | Import a board from other tools (`board.import`) | We (Trello, CSV), Ta (Jira, Asana, Trello, GitHub), Pl (version-dependent) | mapping to be written ⚠️ | proposed |
@@ -119,17 +119,17 @@ Data references: [projects index](../../../data/projects/index.md) ·
 
 | Feature | Seen in | Why not |
 |---------|---------|---------|
-| Gantt and timeline inside the board view | Tr, Pl, As, Ta, Ji, Op, Re | a separate view of `fs-tasks` and `fs-calendar` (workbench `timeline-gantt`, [design](design.md#views)), not the board |
+| Gantt and timeline inside the board view | Tr, Pl, As, Ta, Ji, Op, Re | a separate view of `fs-tasks` and `fs-calendars` (workbench `timeline-gantt`, [design](design.md#views)), not the board |
 | Baselines, critical path | Tr, Pl, As, Ta, Ji, Op, Re | capacity and baselines belong to [`fs-resources`](../resources/index.md) ([design](design.md)); critical path: open |
-| Time tracking, stopwatch, estimates | Tr (Power-Up), Pl, Op, Re | open: `fs-tasks` or `fs-activity` ([design](design.md#open-questions)); proposed as history |
+| Time tracking, stopwatch, estimates | Tr (Power-Up), Pl, Op, Re | open: `fs-tasks` or `fs-activities` ([design](design.md#open-questions)); proposed as history |
 | Budgets, costs, cost rates | Op | not in `fs-tasks`; the project management suite may add costs (ADR 0049, to be checked) |
 | Portfolios, workloads, goals, roadmaps of several projects | As, Op, Ji | the project management suite; workloads: `fs-resources` |
-| Milestones, versions, roadmap | Ta, Op, Re, Ji | project level, the project management suite; a milestone is an `Event`, owned by `fs-calendar` |
+| Milestones, versions, roadmap | Ta, Op, Re, Ji | project level, the project management suite; a milestone is an `Event`, owned by `fs-calendars` |
 | Scrum: backlog, sprints, points, velocity, burndown | Ta, Ji, Op | not board-only; may follow in the project management suite (open) |
 | Reports and charts (cycle time, throughput) | Tr, Ta, Ji, Op, Re | the [charts component](../../../components/charts.md) in the project management suite |
-| Own calendar view or iCal feed in `fs-tasks` | Tr, Pl, As, Re, Op; We, Op, Re (iCal) | `fs-calendar` shows the same `Task` through the `fs-tasks` interface (ADR 0050) |
+| Own calendar view or iCal feed in `fs-tasks` | Tr, Pl, As, Re, Op; We, Op, Re (iCal) | `fs-calendars` shows the same `Task` through the `fs-tasks` interface (ADR 0050) |
 | Subprojects, project hierarchy | Re, Op | `Project` level, the project management suite |
-| Wiki, forums, news, meetings, documents | Ta, Op, Re | separate programs (`fs-wiki`, `fs-messenger`, `fs-files`) |
+| Wiki, forums, news, meetings, documents | Ta, Op, Re | separate programs (`fs-texts`, `fs-messages`, `fs-files`) |
 | Repository browsers | Re | not a board function |
 | Chat/push integrations built in (Slack, Telegram, 100+ services) | Ta, As, Pl | notifications go through the platform and messenger |
 | Cloud AI summaries | As, Ji | local model only (ADR 0029) |

@@ -65,5 +65,5 @@ Partly in Blinc (`cn::card`). Built in our layer because of the data binding. Ba
 - [Message Bubble](../message-bubble/)
 - [Card](../../containers/card/)
 - [Link](../../../primitives/basics/link/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

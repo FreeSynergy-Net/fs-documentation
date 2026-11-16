@@ -1,0 +1,41 @@
+# Wiki — Requirements
+
+What `FreeSynergy.Texts` must and can do, derived from the [frontends](frontends/index.md)
+(ADR 0006, 0013). Each capability names its data standard (ADR 0014) and our status.
+
+Status: `implemented` · `planned` · `proposed`
+
+## Required (common to the analysed programs)
+
+| Capability | Seen in | Data / standard | Status |
+|------------|---------|-----------------|--------|
+| Read revision history, restore a revision | Confluence, MediaWiki, Notion, Wiki.js, Tango | texts contract | proposed |
+| Trash with restore | Confluence, MediaWiki, Notion, Wiki.js | texts contract | proposed |
+| Permissions and sharing | Confluence, Notion, Wiki.js, Tango | Sharing interface (open) | proposed |
+| Spaces / folders / namespaces, order of sibling pages | Confluence, MediaWiki, Wiki.js | texts contract | proposed |
+| Templates, redirects | Confluence, MediaWiki, Wiki.js | texts contract | proposed |
+| Search with snippets and filters, prefix search | Confluence, MediaWiki, Wiki.js | texts contract | proposed |
+| Comments, talk pages | Confluence, MediaWiki, Notion | messages, with a reference to the page | proposed |
+| Attachments | Confluence, Notion, Tango | files, with a reference | proposed |
+| Labels, tags, categories | Confluence, MediaWiki, Wiki.js | shared tag field (open) | proposed |
+| Watch, notifications | Confluence, MediaWiki, Wiki.js | `subscribe` in the hub | proposed |
+
+Known defect: `editIf` reports a conflict as a text prefix, not as a typed `Problem`.
+
+## Optional (notable ideas)
+
+| Capability | Seen in | Data / standard | Status |
+|------------|---------|-----------------|--------|
+| Blocks and databases with views | Notion | open, larger decision | proposed |
+| Real-time co-editing | Wiki.js (Yjs) | open, belongs to P2P (ADR 0059) | proposed |
+| Capture clicks into a step-by-step guide | Tango | open | **planned (owner, 2026-11-09)** |
+| Record a guide from our own apps as **commands**, not only screenshots: every step is a command from the type description, so the guide is exact, translatable and can be replayed or shown as an overlay inside the app | own idea after Tango | type description (ADR 0066) | planned |
+| **The wiki is embeddable everywhere:** any program can show a page or a block (help, descriptions, knowledge base in the helpdesk widget) through the texts contract | owner, 2026-11-09 | texts contract | planned |
+| Typed notes: a tag gives a node a template of fields, inheritance between tags, table of all tagged nodes | Tana, Logseq (DB version) | type description (ADR 0066) | proposed |
+| Backlinks and unlinked mentions per page | Obsidian, Logseq | derived index over the texts contract | proposed |
+| Block references and live embeds of single blocks | Logseq | reference to a block id in the texts contract; open | proposed |
+| Canvas: free 2D board of notes, media and pages with labelled connections | Obsidian | JSON Canvas (open format) as import/export; own model open | proposed |
+
+## Not planned (deliberately)
+
+Nothing yet.

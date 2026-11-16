@@ -9,8 +9,8 @@ program, not programs themselves. This replaces the earlier plan for `fs-kanban`
 
 - **One program, personal or for a group.** A task's owner is a person or a group, and can change. Nothing is decided up front.
 - **One task, several contexts.** The same task can appear on a project board, on my personal list and in the calendar.
-- **A task stands on its own (decided, ADR 0050).** `fs-tasks` owns JSCalendar `Task`. `fs-calendar` owns `Event` and shows
-  tasks only through the interface of `fs-tasks`. `fs-calendar` no longer has a `Task` model of its own.
+- **A task stands on its own (decided, ADR 0050).** `fs-tasks` owns JSCalendar `Task`. `fs-calendars` owns `Event` and shows
+  tasks only through the interface of `fs-tasks`. `fs-calendars` no longer has a `Task` model of its own.
 
 `fs-projectmanagement` is a suite on top: tasks, history, resources, surveys, whiteboard, wiki.
 
@@ -23,7 +23,7 @@ program, not programs themselves. This replaces the earlier plan for `fs-kanban`
 | Extended status | RFC 10051 | |
 | Board, column (`List`), swimlane, limit | ❌ none | **Own specification** (candidate no. 3); first model in [projects technical](../../../data/projects/technical.md) |
 | Moving a card | `Update` on `task_link`, not on the task | Moving a card on my board must not change the task for everyone |
-| Link to a decision | Gap | Lets a task say why it exists; connects to `fs-surveys` |
+| Link to a decision | Gap | Lets a task say why it exists; connects to `fs-forms` |
 
 ## Open-source gaps worth closing
 
@@ -71,4 +71,4 @@ programs. See [planned components](../../../components/planned.md).
 ## Open questions
 
 1. Are columns statuses? The analysed tools differ: in some, they are; in others, free lists. We propose optional mapping.
-2. Time tracking: part of `fs-tasks`, or of `fs-activity`? We propose recording it as history.
+2. Time tracking: part of `fs-tasks`, or of `fs-activities`? We propose recording it as history.

@@ -65,5 +65,5 @@ No Blinc equivalent. Built in our layer (binds identity data); the generic dialo
 - [overlays – overview](../index.md)
 - [Modal](../modal/)
 - [Encryption State](../../../primitives/feedback/encryption-state/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

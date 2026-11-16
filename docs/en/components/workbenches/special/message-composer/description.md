@@ -69,5 +69,5 @@ Built in our layer on Blinc parts (`textarea`, `button`, `rich_text_editor`, `se
 - [Code Editor](../code-editor/)
 - [Rich Text Editor](../../fields/rich-text-editor/)
 - [Embed](../embed/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

@@ -52,4 +52,4 @@ The programs in this category are documented following the wiki schema (seven fi
 
 Overview: [Frontend directory](frontends/index.md)
 
-Reference schema: [Wiki frontends](../wiki/frontends/index.md) · [Desktop frontends](../../platform/desktop/frontends/index.md) · [Standardised data](../../../data/api.md)
+Reference schema: [Wiki frontends](../texts/frontends/index.md) · [Desktop frontends](../../platform/desktop/frontends/index.md) · [Standardised data](../../../data/api.md)

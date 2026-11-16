@@ -64,5 +64,5 @@ Kein direktes Blinc-Gegenstück (Medienbedienelemente gibt es nur für den Playe
 - [media – Übersicht](../index.md)
 - [Media Player](../media-player/)
 - [Button Group](../../../primitives/actions/button-group/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

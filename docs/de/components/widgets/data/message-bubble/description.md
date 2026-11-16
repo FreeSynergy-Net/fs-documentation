@@ -70,5 +70,5 @@ Kein Blinc-Gegenstück. In unserer Schicht gebaut auf `cn::card`-ähnlichen Prim
 - [Reaction Bar](../reaction-bar/)
 - [Link Preview](../link-preview/)
 - [Mail View](../mail-view/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

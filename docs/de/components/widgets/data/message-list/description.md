@@ -69,5 +69,5 @@ Teilweise in Blinc vorhanden: `virtual_list` existiert, aber umgekehrtes Scrolle
 - [Mail View](../mail-view/)
 - [Timeline](../timeline/)
 - [List View](../list-view/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

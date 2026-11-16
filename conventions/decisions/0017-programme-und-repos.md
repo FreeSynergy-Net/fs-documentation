@@ -19,5 +19,5 @@ bilden eine Kategorie ab, nicht ein Vorbild.
   nach einem Vorbild oder frei.
 
 ## Folgen
-- Doku-Kategorien heißen wie die Programme (`programs/apps/messenger/` = `fs-messenger`).
+- Doku-Kategorien heißen wie die Programme (`programs/apps/messages/` = `fs-messenger`).
 - Unterkategorien sind kein eigenes Programm; siehe ADR 0018 (Messenger inkl. E-Mail).

@@ -65,5 +65,5 @@ Teilweise in Blinc vorhanden (`cn::card`). In unserer Schicht gebaut wegen der D
 - [Message Bubble](../message-bubble/)
 - [Card](../../containers/card/)
 - [Link](../../../primitives/basics/link/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

@@ -89,4 +89,4 @@ Felder (Vorschlag, Schema `kind = "font"`):
 |---|---|---|
 | `font` | `font` (`<provides><font>` nennt die vollen Schnittnamen) | Spezifikation, Abschnitt „Fonts“ (laut Recherche 2026-11-16, nicht im Volltext nachgelesen) **[nicht belegt]** |
 
-**Offen:** Windows- und macOS-Pendants der Installationsziele sind nicht recherchiert **[nicht belegt]**. Die Vorschau-Form ist nicht entschieden. Die Darstellung im Store ist offen (wie bei `module`). Die Dokumentationsseite zum Store ist `docs/en/programs/platform/store.md` und `docs/de/programs/platform/store.md`; sie wird hier nur verlinkt, nicht umgebaut.
+**Offen:** Windows- und macOS-Pendants der Installationsziele sind nicht recherchiert **[nicht belegt]**. Die Vorschau-Form ist nicht entschieden. Die Darstellung im Store ist offen (wie bei `module`). Die Dokumentationsseite zum Store ist `docs/en/programs/platform/packages.md` und `docs/de/programs/platform/packages.md`; sie wird hier nur verlinkt, nicht umgebaut.

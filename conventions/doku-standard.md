@@ -661,9 +661,11 @@ All 6 files should include cross-links to each other:
 
 6. **Add the capabilities** to the category `requirements.md`.
 
-7. **Update the mkdocs.yml** navigation section if needed
+7. **Translation folders** of a program are named `locales/` (`de.mf2`, `en.mf2`), never `texts/` (clashes with the program fs-texts, ADR 0087 addendum 2026-11-16).
 
-8. **Test the documentation** locally with MkDocs
+8. **Update the mkdocs.yml** navigation section if needed
+
+9. **Test the documentation** locally with MkDocs
 
 ---
 

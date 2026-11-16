@@ -13,7 +13,7 @@ FreeSynergy Calendar keeps your events and shows them by month, week, day or as 
 
 ## How to start
 
-1. Open the program with `fs-calendar`. The window opens on the month around today.
+1. Open the program with `fs-calendars`. The window opens on the month around today.
 2. Press **New** to write your first event.
 3. Type a title and press **Save**.
 

@@ -24,22 +24,22 @@ Stand-alone apps without their own data are **facets** (ADR 0061): the gallery i
 
 | Purpose | Program | Status |
 |---------|---------|--------|
-| Keep objects, share them between programs | [`fs-store`](https://github.com/FreeSynergy/fs-store), [`fs-hub`](https://github.com/FreeSynergy/fs-hub) | Exist |
+| Keep objects, share them between programs | [`fs-packages`](https://github.com/FreeSynergy/fs-store), [`fs-registry`](https://github.com/FreeSynergy/fs-hub) | Exist |
 | Sign in, system access | [identity wrapper](../platform/identity.md) over Kanidm | Planned |
 | Belong together, decide who may do what | [`fs-groups`](../platform/groups.md) | Draft interface, code in progress, **new** |
 | Keep and find anything | [`fs-files`](files/design.md) | Provisional draft interface, code in progress |
 | Know who someone is, with roles | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Core with roles and draft interface, no GUI |
-| Be somewhere at some time | [`fs-calendar`](https://github.com/FreeSynergy/fs-calendar) | Core exists, no GUI |
+| Be somewhere at some time | [`fs-calendars`](https://github.com/FreeSynergy/fs-calendar) | Core exists, no GUI |
 | Know where | [`fs-maps`](https://github.com/FreeSynergy/fs-maps) | Core exists, no GUI |
-| Write and know together | [`fs-wiki`](https://github.com/FreeSynergy/fs-wiki) (crate `fs-text`) | Core exists; first workbench in [`fs-components`](https://github.com/FreeSynergy/fs-components) v0.0.1, app not finished |
-| Say something to someone | [`fs-messenger`](messenger/contract.md) | Draft contract |
+| Write and know together | [`fs-texts`](https://github.com/FreeSynergy/fs-wiki) (crate `fs-texts`) | Core exists; first workbench in [`fs-components`](https://github.com/FreeSynergy/fs-components) v0.0.1, app not finished |
+| Say something to someone | [`fs-messages`](messages/contract.md) | Draft contract |
 | Know what to do next | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) ([design](tasks/design.md)) | Core exists, no GUI; draft interface |
-| Remember what I or we did | [`fs-activity`](activity/index.md) | Core v0.0.1, no GUI; provisional draft interface |
+| Remember what I or we did | [`fs-activities`](activities/index.md) | Core v0.0.1, no GUI; provisional draft interface |
 | Know what we have and need | [`fs-resources`](resources/index.md) | Core v0.0.1, no GUI; provisional draft interface |
-| Ask, and decide together | [`fs-surveys`](surveys/design.md) ([repo](https://github.com/FreeSynergy/fs-surveys)) | Core v0.0.1, no GUI; draft interface |
-| Think visually | [`fs-whiteboard`](whiteboard/design.md) | Core v0.0.1 (stage 1), no GUI |
+| Ask, and decide together | [`fs-forms`](forms/design.md) ([repo](https://github.com/FreeSynergy/fs-surveys)) | Core v0.0.1, no GUI; draft interface |
+| Think visually | [`fs-draw`](draw/design.md) | Core v0.0.1 (stage 1), no GUI |
 | Talk to AI, and work with every program through it | [A messenger frontend](assistant/index.md), not a program of its own | Idea |
-| Show something, and bring it everywhere | [`fs-streaming`](streaming/design.md) | Draft interface, stage 1 in progress |
+| Show something, and bring it everywhere | [`fs-broadcast`](broadcast/design.md) | Draft interface, stage 1 in progress |
 
 [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces) holds the contracts, [`fs-release`](https://github.com/FreeSynergy/fs-release) the [release](../platform/releases.md) workflows, and `fs-capnpc`, our Cap'n Proto compiler in pure Rust, supports them all. Details of what exists are in each repository's `DESIGN.md`.
 
@@ -49,9 +49,9 @@ Stand-alone apps without their own data are **facets** (ADR 0061): the gallery i
 |------|-----------------|
 | Gallery, video library, music | `fs-files` |
 | Kanban board, task list | `fs-tasks` |
-| Timeline (Gantt) | `fs-tasks`, `fs-calendar` |
-| Timeline of what happened | `fs-activity` |
-| Result dashboards | `fs-surveys`, others, using [charts](../../components/charts.md) |
+| Timeline (Gantt) | `fs-tasks`, `fs-calendars` |
+| Timeline of what happened | `fs-activities` |
+| Result dashboards | `fs-forms`, others, using [charts](../../components/charts.md) |
 
 ## Suites
 
@@ -72,10 +72,10 @@ A program can belong to several suites.
                   fs-groups + identity wrapper, then fs-files
 2. Components     shared ones first, plus charts; each built when the next program needs it
                   GUIs for the existing cores: people, calendar, maps, wiki
-3. Work           fs-messenger with the AI frontend (we want to use it soon), GUI for fs-tasks, fs-activity, then fs-surveys, fs-resources, fs-messenger
-4. Together       live presence, fs-whiteboard
+3. Work           fs-messages with the AI frontend (we want to use it soon), GUI for fs-tasks, fs-activities, then fs-forms, fs-resources, fs-messages
+4. Together       live presence, fs-draw
 5. Suites         project management, democracy
-6. Media          gallery frontends, fs-streaming
+6. Media          gallery frontends, fs-broadcast
 ```
 
 **Components come first, then the program.** We document components early, so we know what we have. We build each only

@@ -64,5 +64,5 @@ No direct Blinc equivalent (media controls exist for the player only). Built in 
 - [media – overview](../index.md)
 - [Media Player](../media-player/)
 - [Button Group](../../../primitives/actions/button-group/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

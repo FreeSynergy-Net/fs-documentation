@@ -28,7 +28,7 @@ Programs in this category are documented following the wiki scheme (seven files 
 
 Overview: [skin directory](frontends/index.md)
 
-Reference scheme: [wiki skins](../../apps/wiki/frontends/index.md) · [desktop skins](../../platform/desktop/frontends/index.md) · [standardized data](../../../data/api.md)
+Reference scheme: [wiki skins](../../apps/texts/frontends/index.md) · [desktop skins](../../platform/desktop/frontends/index.md) · [standardized data](../../../data/api.md)
 
 ## Mask documentation
 
@@ -45,7 +45,7 @@ Programs in this category are documented following the wiki scheme (seven files 
 
 Overview: [mask directory](frontends/index.md)
 
-Reference scheme: [wiki masks](../../apps/wiki/frontends/index.md) · [desktop masks](../../platform/desktop/frontends/index.md) · [standardized data](../../../data/api.md)
+Reference scheme: [wiki masks](../../apps/texts/frontends/index.md) · [desktop masks](../../platform/desktop/frontends/index.md) · [standardized data](../../../data/api.md)
 
 ## Frontends
 

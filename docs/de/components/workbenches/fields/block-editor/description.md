@@ -39,7 +39,7 @@ Der Blockeditor bearbeitet strukturierte Dokumente als Baum aus Blöcken (wie No
 
 ## Datenbindung
 
-Bindet ein Blockdokument (eigene Blockspezifikation, ADR 0034). Eine `.md`- oder Code-Datei ist ein Blockdokument mit **einem** Block, der auf den Text zeigt; Codemodus und Blockmodus sind zwei Ansichten desselben Modells (ADR 0042). `fs-store` ist die Wahrheit, Dateien sind Exporte.
+Bindet ein Blockdokument (eigene Blockspezifikation, ADR 0034). Eine `.md`- oder Code-Datei ist ein Blockdokument mit **einem** Block, der auf den Text zeigt; Codemodus und Blockmodus sind zwei Ansichten desselben Modells (ADR 0042). `fs-packages` ist die Wahrheit, Dateien sind Exporte.
 
 ## Abgrenzung
 

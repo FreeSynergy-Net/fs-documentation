@@ -11,7 +11,7 @@ answers: what is there to standardise?
 1. **A standard comes first.** If one exists, the interface follows it. If not, we write one and offer it to others.
    **Each standard has exactly one owning program,** the point of truth, and every other program goes through its
    interface. No second model of the same thing (ADR 0050). A standard with several kinds of object, such as JSCalendar,
-   is owned per kind: `Event` by `fs-calendar`, `Task` by `fs-tasks`.
+   is owned per kind: `Event` by `fs-calendars`, `Task` by `fs-tasks`.
 2. **An interface is a target.** We define the target, and it may get sharper while we do not know it fully yet. Published as a draft, it is tested by at least two independent users of it (for a
    provider interface: two providers), then fixed as version 1.0. After that it changes only by a jump to a new version, never by gradual growth.
 3. **Like a parent class.** Every provider offers all methods and attributes of its interface. If a provider lacks
@@ -32,25 +32,25 @@ Keeping these apart prevents much confusion:
 
 | Topic | What it is for | Standard base | Owner | Status |
 |-------|----------------|---------------|---------|--------|
-| Messages | Saying something to someone, [AIs included](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP and ACP for agents | `fs-messenger` | Draft contract |
+| Messages | Saying something to someone, [AIs included](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP and ACP for agents | `fs-messages` | Draft contract |
 | People | Knowing who someone is and how to reach them, with [roles](roles.md) | JSContact | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Draft interface, provider exists |
 | Groups | Belonging together, and deciding who may do what | AS2 `Group`, SCIM | [`fs-groups`](../programs/platform/groups.md) | Draft interface, code in progress |
-| Events | Being somewhere at some time | JSCalendar `Event` | `fs-calendar` | Core exists |
+| Events | Being somewhere at some time | JSCalendar `Event` | `fs-calendars` | Core exists |
 | Tasks | Knowing what to do next | JSCalendar `Task`, RFC 9253 | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) | Core exists, draft interface |
-| History | Remembering what I or we did | AS2 activities | [`fs-activity`](https://github.com/FreeSynergy/fs-activity) | Provisional draft interface, core exists |
+| History | Remembering what I or we did | AS2 activities | [`fs-activities`](https://github.com/FreeSynergy/fs-activity) | Provisional draft interface, core exists |
 | Resources | Knowing what we have and need | Gap | [`fs-resources`](https://github.com/FreeSynergy/fs-resources) | Provisional draft interface, core exists |
 | Files | Keeping and finding anything | AS2 `Document` | [`fs-files`](../programs/apps/files/design.md) | Provisional draft interface, code in progress |
-| Texts | Writing and knowing together | Own specification (ADR 0031, 0033) | `fs-wiki` | Core exists |
+| Texts | Writing and knowing together | Own specification (ADR 0031, 0033) | `fs-texts` | Core exists |
 | Places | Knowing where | GeoJSON | `fs-maps` | Core exists |
-| Decisions | Asking, and deciding together | AS2 `Question`; gap beyond it | [`fs-surveys`](https://github.com/FreeSynergy/fs-surveys) | Provisional draft interface, core exists |
-| Boards | Thinking visually | Gap, own specification | [`fs-whiteboard`](https://github.com/FreeSynergy/fs-whiteboard) | Draft interface, core exists |
-| Live media | Showing something as it happens | WHIP, WHEP, enhanced RTMP | [`fs-streaming`](https://github.com/FreeSynergy/fs-streaming) | Draft interface, code in progress |
+| Decisions | Asking, and deciding together | AS2 `Question`; gap beyond it | [`fs-forms`](https://github.com/FreeSynergy/fs-surveys) | Provisional draft interface, core exists |
+| Boards | Thinking visually | Gap, own specification | [`fs-draw`](https://github.com/FreeSynergy/fs-whiteboard) | Draft interface, core exists |
+| Live media | Showing something as it happens | WHIP, WHEP, enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) | Draft interface, code in progress |
 
 ## Providers: who delivers it
 
 | Interface | What it is for | Candidate providers |
 |-----------|----------------|---------------------|
-| Database | Keeping objects | Turso (behind `fs-store`'s `Store`, exists) |
+| Database | Keeping objects | Turso (behind `fs-packages`'s `Store`, exists) |
 | File storage | Keeping bytes | Local folder, RustFS over S3, git, WebDAV |
 | Mail | Sending and receiving mail, as client or server | JMAP, IMAP and SMTP clients; own server later |
 | Chat networks | Reaching people elsewhere | Matrix (tuwunel), Telegram, Discord, others |
@@ -66,7 +66,7 @@ Keeping these apart prevents much confusion:
 |-----------|----------------|---------------|
 | Trust | Showing when a person is safe, also against scammers and bots; each person sets their [own level](../programs/apps/assistant/index.md#locking-ais-out) | Web of Trust; its successor, the [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), is the proposed target (ADR 0052, 0054) |
 | Sharing and permissions | Who may see what; shares go to groups | Gap, one specification for all. Open: [role privacy](roles.md#open) |
-| Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-store` (ADR 0050) |
+| Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-packages` (ADR 0050) |
 | Sync | Bringing devices and programs together | Activity log (ADR 0019) |
 | Presence | Seeing what others do, as it happens | Gap; never stored |
 | Search | Finding across programs | Gap |

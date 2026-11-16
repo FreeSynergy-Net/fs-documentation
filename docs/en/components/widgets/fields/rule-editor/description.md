@@ -65,5 +65,5 @@ No Blinc equivalent (`repeater` is no either). Built in our layer because it bin
 - [Repeater](../../data/repeater/)
 - [Select](../../../primitives/fields/select/)
 - [Switch](../../../primitives/fields/switch/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

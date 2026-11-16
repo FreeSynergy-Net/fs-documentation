@@ -22,7 +22,7 @@ Kurze Erklärungen zu den Wörtern, die wir verwenden. Hinter den Wörtern stehe
 
 **Hub.** Das Programm, das dafür sorgt, dass sich die Programme auf einem Gerät finden, und das das Aktivitätsprotokoll führt.
 
-**Store.** FreeSynergy.Store, die App, über die du alles andere installierst, aktualisierst und erweiterst. Siehe [den Store](../programs/platform/store.md).
+**Store.** FreeSynergy.Packages, die App, über die du alles andere installierst, aktualisierst und erweiterst. Siehe [den Store](../programs/platform/packages.md).
 
 **Katalog.** Die Liste der Pakete, die eine Quelle anbietet: Name, Logo, Beschreibung, Versionen und Facetten, im offenen AppStream-Format, mit Signaturen. Siehe [ADR 0062](../decisions/0062-paket-repos-in-git.md).
 

@@ -6,13 +6,13 @@ Eine Adresse sieht so aus: `help/<programm>/<ansicht>/`, zum Beispiel `help/task
 
 ## Programme
 
-- [Store](store/index.md): alles Weitere installieren und aktuell halten.
+- [Store](packages/index.md): alles Weitere installieren und aktuell halten.
 - [Tasks](tasks/index.md)
 - [People](people/index.md)
 - [Calendar](calendar/index.md)
 - [Files](files/index.md)
 - [Maps](maps/index.md)
-- [Wiki](wiki/index.md)
+- [Wiki](texts/index.md)
 - [Groups](groups/index.md)
 
 Neu bei FreeSynergy? Fang mit [Loslegen](../start/index.md) und dem [Glossar](../start/glossary.md) an.

@@ -60,7 +60,7 @@ Bei der Wahl eines Help Desk-Systems sollten folgende Kriterien berücksichtigt 
 ## Verwandte Kategorien
 
 - [CRM](../people/) - Contact Management
-- [Messenger](../messenger/) - Kommunikation und Chat
+- [Messenger](../messages/) - Kommunikation und Chat
 - [Projektmanagement](../../suites/projectmanagement/) - Project Management
 
 ## Schnellstart

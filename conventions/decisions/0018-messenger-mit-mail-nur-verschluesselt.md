@@ -9,7 +9,7 @@ Ich habe eine Nachricht. Die Trennung kommt aus der Technik, nicht aus dem Bedar
 ## Entscheidung
 - **Eine Kategorie, ein Programm:** `FreeSynergy.Messenger` (`fs-messenger`) deckt E-Mail, Chats
   und Messenger ab. Frontends aller bekannten Vertreter liegen unter
-  `programs/apps/messenger/frontends/` (Outlook, Thunderbird, Element, Telegram, Discord, …).
+  `programs/apps/messages/frontends/` (Outlook, Thunderbird, Element, Telegram, Discord, …).
   „E-Mail“ / „Chat“ ist ein Merkmal im `index.md` des Frontends, kein eigener Ordner.
 - **Nur verschlüsselte Nachrichten.** Unverschlüsseltes wird nicht verschickt. Das Programm
   fragt aktiv nach einem verschlüsselten Weg bzw. sucht ihn (Schlüssel, Gegenstelle) — die

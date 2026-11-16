@@ -5,7 +5,7 @@
 - **Objekt = Envelope + Inhalt + Protokoll.**
   - *Envelope* (AS2 **`Profile`**, ✅): `id`, `type: Profile`, `describes` (die Schauspieler-IRI oder DID der Person, falls bekannt), `attributedTo` (wer diese Karte geschrieben hat), `to`/`cc`/`bto`/`audience` (wer sie sehen darf), `published`, `updated`.
   - *Inhalt*: das **JSContact-`Card`-JSON** (RFC 9553) — das Standardmodell ist die Quelle der Wahrheit.
-  - *Protokoll*: AS2-Aktivitäten `Create`/`Update`/`Delete` pro Karte, von `fs-store` dieselbe Transaktion geschrieben.
+  - *Protokoll*: AS2-Aktivitäten `Create`/`Update`/`Delete` pro Karte, von `fs-packages` dieselbe Transaktion geschrieben.
 - Spalten, die für Indizes **herausgezogen** werden: `id`, `uid` (JSContact), `kind` (✅ `individual`/`group`/`org`/`location`/`device`/`application`), `describes`, `name_sort` (aus `name.components`), E-Mails/Telefonnummern (normalisiert, für Hub-Zuordnung), `created_at`, `updated_at`.
 - **IDs:** UUIDv7 (RFC 9562, ADR 0027); extern `https://<instanz>/contacts/<id>`.
 - **Sensible Felder** (z. B. sexuelle Orientierung) sind markiert; markierte Daten werden nie automatisch verknüpft, verlassen das Gerät nur mit ausdrücklicher Freigabe und werden verschlüsselt gespeichert (ADR 0029).

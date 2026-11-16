@@ -28,7 +28,7 @@ Programme in dieser Kategorie werden nach dem Wiki-Schema dokumentiert (sieben D
 
 Übersicht: [Frontend-Verzeichnis](frontends/index.md)
 
-Referenz-Schema: [Wiki-Frontends](../../apps/wiki/frontends/index.md) · [Desktop-Frontends](../../platform/desktop/frontends/index.md) · [standardisierte Daten](../../../data/api.md)
+Referenz-Schema: [Wiki-Frontends](../../apps/texts/frontends/index.md) · [Desktop-Frontends](../../platform/desktop/frontends/index.md) · [standardisierte Daten](../../../data/api.md)
 
 ## Masken-Dokumentation
 
@@ -45,7 +45,7 @@ Programme in dieser Kategorie werden nach dem Wiki-Schema dokumentiert (sieben D
 
 Übersicht: [Masken-Verzeichnis](frontends/index.md)
 
-Referenz-Schema: [Wiki-Masken](../../apps/wiki/frontends/index.md) · [Desktop-Masken](../../platform/desktop/frontends/index.md) · [standardisierte Daten](../../../data/api.md)
+Referenz-Schema: [Wiki-Masken](../../apps/texts/frontends/index.md) · [Desktop-Masken](../../platform/desktop/frontends/index.md) · [standardisierte Daten](../../../data/api.md)
 
 ## Frontends
 

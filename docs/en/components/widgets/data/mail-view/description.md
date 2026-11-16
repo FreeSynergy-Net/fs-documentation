@@ -68,5 +68,5 @@ No Blinc equivalent (`description-list` is no either). Built in our layer. HTML 
 - [Description List](../description-list/)
 - [HTML View](../../../workbenches/special/html-view/)
 - [Message Bubble](../message-bubble/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

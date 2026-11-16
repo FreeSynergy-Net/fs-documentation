@@ -68,5 +68,5 @@ Kein Blinc-Gegenstück (`description-list` ist auch nicht vorhanden). In unserer
 - [Description List](../description-list/)
 - [HTML View](../../../workbenches/special/html-view/)
 - [Message Bubble](../message-bubble/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

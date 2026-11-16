@@ -65,5 +65,5 @@ Kein Blinc-Gegenstück (`repeater` ist auch nicht vorhanden). In unserer Schicht
 - [Repeater](../../data/repeater/)
 - [Select](../../../primitives/fields/select/)
 - [Switch](../../../primitives/fields/switch/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

@@ -41,7 +41,7 @@ Du weißt sofort, was drin ist. Und weil alle dieselbe Sprache sprechen, arbeite
 
     Erinnere dich an die Menschen, die dir wichtig sind. Vom Adressbuch bis zum CRM.
 
-- **[Kalender](programs/apps/calendar/index.md)**
+- **[Kalender](programs/apps/calendars/index.md)**
 
     Termine, die ihre Aufgaben und ihre Menschen kennen.
 
@@ -53,27 +53,27 @@ Du weißt sofort, was drin ist. Und weil alle dieselbe Sprache sprechen, arbeite
 
     Orte und Wege auf offenen Kartendaten.
 
-- **[Wiki](programs/apps/wiki/index.md)**
+- **[Wiki](programs/apps/texts/index.md)**
 
     Alles, was ihr wisst, gemeinsam aufgeschrieben.
 
-- **[Messenger](programs/apps/messenger/index.md)**
+- **[Messenger](programs/apps/messages/index.md)**
 
     Mail, Matrix und KI-Teilnehmer an einem Ort, verschlüsselt.
 
-- **[Umfragen](programs/apps/surveys/index.md)**
+- **[Umfragen](programs/apps/forms/index.md)**
 
     Fragen, abstimmen, gemeinsam entscheiden, auch anonym.
 
-- **[Whiteboard](programs/apps/whiteboard/index.md)**
+- **[Whiteboard](programs/apps/draw/index.md)**
 
     Platz für Ideen, die noch keine Form haben. Geplant.
 
-- **[Streaming](programs/apps/streaming/index.md)**
+- **[Streaming](programs/apps/broadcast/index.md)**
 
     Video und Livestreams ohne fremde Plattform. Geplant.
 
-- **[Verlauf](programs/apps/activity/index.md)**
+- **[Verlauf](programs/apps/activities/index.md)**
 
     Was haben wir getan? Deine Daten als Zeitleiste.
 
@@ -135,7 +135,7 @@ KIs dürfen bei uns mitarbeiten, als Teilnehmer, nicht als heimliche Zuhörer. J
 Wir speichern alles in offenen Standards. Darum kannst du jederzeit mit all deinen Daten zu einem anderen Programm wechseln, auch zu einem, das nicht von uns ist. Und wo es noch keinen Standard gibt, schreiben wir einen und stellen ihn allen frei zur Verfügung.
 
 
-## FreeSynergy.Store
+## FreeSynergy.Packages
 
 Ein Ort für alles. Hol dir den Store, und von dort installierst du jedes Programm mit einem Klick: neue Oberflächen, Themes, Erweiterungen. Er hält alles aktuell und prüft jede Datei, bevor sie auf dein Gerät kommt.
 

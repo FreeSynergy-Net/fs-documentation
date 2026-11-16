@@ -118,7 +118,7 @@ hinter dem Programm, das diesen Schlüssel hält (ADR 0045), und dieses Programm
 Entscheidung des Projektinhabers (2026-11-07). Die folgende Tabelle wurde für die frühere Idee geschrieben, einen Anbieter im Messenger selbst. Der Betreiber muss aus unseren eigenen Startoptionen
 und der Karte der Person stammen, denn die Selbstbeschreibung des Agenten ist selbst angegeben.
 
-| ACP | `fs-messenger` heute | Was nötig ist |
+| ACP | `fs-messages` heute | Was nötig ist |
 |-----|----------------------|---------------|
 | Sitzung mit einem absoluten Arbeitsordner | `Conversation` | Sitzungs-ID und Ordner beim Anbieter behalten |
 | Einen Prompt senden | `Draft.send` | Passt |
@@ -186,7 +186,7 @@ Client fragt nach und versucht es mit der Antwort erneut. Das **kann nicht unser
 Deshalb schlagen wir vor (ein Entwurf, nicht getestet):
 
 1. Ein Werkzeugaufruf erreicht den Engine, und der Engine schlägt das Risiko im Vertrag nach, nie beim Aufrufer.
-2. Braucht er eine Freigabe, legt der Engine einen Werkzeugaufruf `question` in `fs-messenger` für die Person ab.
+2. Braucht er eine Freigabe, legt der Engine einen Werkzeugaufruf `question` in `fs-messages` für die Person ab.
 3. Die Person antwortet auf ihrem eigenen Gerät mit ihrem eigenen Schlüssel. Die Antwort läuft nicht über den Client der KI.
 4. Der MCP-Aufruf gibt `input_required` mit nur einem `requestState` zurück oder ein Fehlerergebnis, das „wartend“ sagt, für Clients, die das nicht können. Der Zustand ist gegen Manipulation geschützt. Er ist an den Aufrufer gebunden, hat eine kurze Gültigkeit und einen Digest der genauen Argumente. Er ist nur einmal verwendbar, und der Engine erzwingt das.
 5. Eine Wiederholung läuft nur, wenn die Person genau diesen Argumenten zugestimmt hat. Jede Änderung fragt erneut.

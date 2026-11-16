@@ -14,7 +14,7 @@
 
 | Topic | Where it lives | Why |
 |-------|----------------|-----|
-| Wiki pages, posts with blocks | [../apps/wiki/](../../programs/apps/wiki/index.md) or the planned `documents/` domain | documents are editable works, messages are transient utterances |
+| Wiki pages, posts with blocks | [../apps/wiki/](../../programs/apps/texts/index.md) or the planned `documents/` domain | documents are editable works, messages are transient utterances |
 | Tag/comment **on a text fragment** | W3C Web Annotation Model (✅) — selector `TextQuoteSelector` | the text is not rewritten |
 | iTIP invitation and reply | [events/](../events/index.md) | protocol messages, not chat |
 | Notifications | its own domain still open ([index.md → proposed](../index.md)) | a notification points at a message but is not one |

@@ -25,18 +25,18 @@ Status is as of 2026-11-08 and kept honest. "Core" means the engine works and is
 | Program | Purpose | Repo | Status |
 |---------|---------|------|--------|
 | People | know who someone is | [fs-people](https://github.com/FreeSynergy/fs-people) | Core and a first window, `v0.0.2` |
-| Calendar | be somewhere at some time | [fs-calendar](https://github.com/FreeSynergy/fs-calendar) | Core and a first window, `v0.0.1` |
+| Calendar | be somewhere at some time | [fs-calendars](https://github.com/FreeSynergy/fs-calendar) | Core and a first window, `v0.0.1` |
 | Tasks | know what to do next | [fs-tasks](https://github.com/FreeSynergy/fs-tasks) | Core and a first window (list and status view, no real boards), `v0.0.2` |
 | Files | keep and find anything | [fs-files](https://github.com/FreeSynergy/fs-files) | Core and server, no window, `v0.0.1` |
 | Maps | know where | [fs-maps](https://github.com/FreeSynergy/fs-maps) | Core (tiles, offline regions, places), no map drawing yet, `v0.0.1` |
-| Wiki | write and know together | [fs-wiki](https://github.com/FreeSynergy/fs-wiki) | Core and a first reader window with editing, `v0.0.1` |
-| Messenger | say something to someone | [fs-messenger](https://github.com/FreeSynergy/fs-messenger) | Core, AI guard and mail connector, no window, `v0.0.1` |
+| Wiki | write and know together | [fs-texts](https://github.com/FreeSynergy/fs-wiki) | Core and a first reader window with editing, `v0.0.1` |
+| Messenger | say something to someone | [fs-messages](https://github.com/FreeSynergy/fs-messenger) | Core, AI guard and mail connector, no window, `v0.0.1` |
 | Groups | belong together | [fs-groups](https://github.com/FreeSynergy/fs-groups) | Core, no window, `v0.0.1` |
-| History | remember what I or we did | [fs-activity](https://github.com/FreeSynergy/fs-activity) | Core, no window, `v0.0.1` |
+| History | remember what I or we did | [fs-activities](https://github.com/FreeSynergy/fs-activity) | Core, no window, `v0.0.1` |
 | Resources | know what we have and need | [fs-resources](https://github.com/FreeSynergy/fs-resources) | Core, no window, `v0.0.1` |
-| Surveys | ask, and decide together | [fs-surveys](https://github.com/FreeSynergy/fs-surveys) | Core, no window, `v0.0.1` |
-| Whiteboard | think visually | [fs-whiteboard](https://github.com/FreeSynergy/fs-whiteboard) | Core (stage 1), no window, `v0.0.1` |
-| Streaming | show something, and bring it everywhere | [fs-streaming](https://github.com/FreeSynergy/fs-streaming) | Stage 1 (forward and record), tested on loopback only, `v0.0.1` |
+| Surveys | ask, and decide together | [fs-forms](https://github.com/FreeSynergy/fs-surveys) | Core, no window, `v0.0.1` |
+| Whiteboard | think visually | [fs-draw](https://github.com/FreeSynergy/fs-whiteboard) | Core (stage 1), no window, `v0.0.1` |
+| Streaming | show something, and bring it everywhere | [fs-broadcast](https://github.com/FreeSynergy/fs-streaming) | Stage 1 (forward and record), tested on loopback only, `v0.0.1` |
 | Store | install and keep everything up to date | not public yet (local repo `fs-launcher`) | Design and a small core, coming |
 
 Building blocks, which matter because everything above stands on them:
@@ -44,7 +44,7 @@ Building blocks, which matter because everything above stands on them:
 | Block | Purpose | Repo | Status |
 |-------|---------|------|--------|
 | Objects | one place for what programs keep | [fs-objects](https://github.com/FreeSynergy/fs-objects) | Working, `v0.0.1` |
-| Hub | let the programs find each other | [fs-hub](https://github.com/FreeSynergy/fs-hub) | Working on one device, Linux, `v0.0.1` |
+| Hub | let the programs find each other | [fs-registry](https://github.com/FreeSynergy/fs-hub) | Working on one device, Linux, `v0.0.1` |
 | Identity | know who is allowed in | [fs-identity](https://github.com/FreeSynergy/fs-identity) | Only a Kanidm adapter for groups, no sign-in yet, `v0.0.1` |
 | Interfaces | the contracts everything agrees on | [fs-interfaces](https://github.com/FreeSynergy/fs-interfaces) | All drafts, none 1.0, `v0.0.1` |
 | JSCalendar | the same time for everyone | [fs-jscalendar](https://github.com/FreeSynergy/fs-jscalendar) | Library, `v0.0.1` |

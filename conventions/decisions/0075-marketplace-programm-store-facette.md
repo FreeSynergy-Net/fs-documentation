@@ -1,6 +1,6 @@
 # 0075 – fs-marketplace als Programm, der Store als Facette
 
-Status: **akzeptiert** (Gründer, 2026-11-13); Code nach dem Meilenstein „Wir benutzen es selbst“; die laufenden Store-Releases bleiben unverändert · baut auf ADR 0020 (AS2-Aktivitäten), 0045 (Themen-Schnittstellen), 0068 (Fähigkeiten, Signatur-Stufen), 0071 (Versionen/Git), 0073 (Kollaboration), 0074 (Schichten)
+Status: **akzeptiert** (Gründer, 2026-11-13); Code nach dem Meilenstein „Wir benutzen es selbst“; die laufenden Store-Releases bleiben unverändert · baut auf ADR 0020 (AS2-Aktivitäten), 0045 (Themen-Schnittstellen), 0068 (Fähigkeiten, Signatur-Stufen), 0071 (Versionen/Git), 0073 (Kollaboration), 0074 (Schichten) · Nachtrag 2026-11-16: Store ist keine Facette; fs-packages hat nur seine Frontends (Einfach, Admin), siehe ADR 0087 Nachtrag
 
 Grundlage: das Brainstorming im Arbeitsordner der Strategie, nicht veröffentlicht (2026-11-13) und die Antworten des Gründers.
 

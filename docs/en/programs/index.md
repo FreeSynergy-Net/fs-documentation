@@ -11,7 +11,7 @@ Every app you see in FreeSynergy stands on a strong engine that knows its topic 
                 (several programs put together for one purpose)
                         │ uses
   ┌─────────────────────┴──────────────────────────────────────────────┐
-  │ Program  fs-people                       Program  fs-messenger     │  ← owns the data and one open standard
+  │ Program  fs-people                       Program  fs-messages     │  ← owns the data and one open standard
   │   Facets   Contacts · Users · AIs · …      Facets   Mail · Chat    │  ← look like apps of their own
   │     Frontends  simple · classic · full …     Frontends  …          │  ← how it looks; switch any time
   │     Admin frontend (every setting)           Admin frontend        │  ← the safety net
@@ -26,8 +26,8 @@ FreeSynergy sorts everything by **purpose**, not by what a tool looks like. To p
 
 | Kind | What it is | Has its own data? | Example |
 |------|------------|-------------------|---------|
-| **Program** | The engine for one topic. It owns the data and the rules, and one open standard. | Yes | `fs-people`, `fs-messenger`, `fs-tasks` |
-| **Facet** | A part of a program that looks like an app of its own: own name, own logo, own menu entry, a fixed filter on the program's data. The program defines its facets. | No | Contacts, Users, AIs and Partners in `fs-people`; Mail and Chat in `fs-messenger` |
+| **Program** | The engine for one topic. It owns the data and the rules, and one open standard. | Yes | `fs-people`, `fs-messages`, `fs-tasks` |
+| **Facet** | A part of a program that looks like an app of its own: own name, own logo, own menu entry, a fixed filter on the program's data. The program defines its facets. | No | Contacts, Users, AIs and Partners in `fs-people`; Mail and Chat in `fs-messages` |
 | **Frontend** | One way of looking at a program or a facet: very simple, classic, familiar, or complete. Many per program and per facet; you can switch. | No | A simple contact list; a full contact manager |
 | **Admin frontend** | The frontend with *every* setting. Each program and each facet has one. | No | "Contacts – Settings" |
 | **Component, workbench** | A piece of screen that shows something without knowing what the data means. Frontends are built from them. | No | A calendar grid, a file manager |
@@ -39,7 +39,7 @@ A facet is the opposite of a suite: a suite brings several programs together; a 
 
 **People look for what they need, not for how it is built.** Someone wants their contacts, not "people records with the role contact". Someone wants e-mail, and does not need to know that the same engine also carries chats from Matrix. Facets give each need its own app, with a name that says what it is.
 
-**One engine keeps everything together.** Because Contacts and Users are both `fs-people`, a person you know and the account they sign in with are the same record. Because Mail and Chat are both `fs-messenger`, a conversation can move from one to the other. Separate programs would copy the data and drift apart.
+**One engine keeps everything together.** Because Contacts and Users are both `fs-people`, a person you know and the account they sign in with are the same record. Because Mail and Chat are both `fs-messages`, a conversation can move from one to the other. Separate programs would copy the data and drift apart.
 
 **Frontends let everyone choose.** The engine can do far more than any one screen shows. One person wants three buttons, another wants every detail, a third wants something that feels like the program they already know. All of them work on the same data, and can switch at any time.
 
@@ -47,31 +47,31 @@ A facet is the opposite of a suite: a suite brings several programs together; a 
 
 ## In the store
 
-[FreeSynergy.Store](platform/store.md) lists every facet as an app with its own logo. Installing an app installs the program behind it; installing a second facet of the same program adds only its menu entry and frontends.
+[FreeSynergy.Packages](platform/packages.md) lists every facet as an app with its own logo. Installing an app installs the program behind it; installing a second facet of the same program adds only its menu entry and frontends.
 
 ## Planned facets
 
 | Program | Facets (proposed) |
 |---------|-------------------|
 | `fs-people` | Contacts, Users, AIs, Partners (leads, customers, suppliers), Team, Members |
-| `fs-messenger` | Mail, Chat, possibly Forum |
+| `fs-messages` | Mail, Chat, possibly Forum |
 | `fs-files` | Gallery, Music, Videos, Documents |
 | `fs-tasks` | To-dos, Tickets |
-| `fs-calendar` | Calendar, Booking (with `fs-resources`) |
+| `fs-calendars` | Calendar, Booking (with `fs-resources`) |
 
 ## Categories
 
 | Category | Content | Analysed programs |
 |----------|---------|-------------------|
-| [Wiki](apps/wiki/) | Wiki and knowledge systems | complete (7 programs) |
-| [Messenger](apps/messenger/) | Chat, e-mail, social networks | complete (7 programs) |
+| [Wiki](apps/texts/) | Wiki and knowledge systems | complete (7 programs) |
+| [Messenger](apps/messages/) | Chat, e-mail, social networks | complete (7 programs) |
 | [Desktop](platform/desktop/) | Desktop programs, dashboards, start pages | complete (12 programs) |
-| [Whiteboards](apps/whiteboard/) | Collaborative whiteboards | complete (6 programs) |
+| [Whiteboards](apps/draw/) | Collaborative whiteboards | complete (6 programs) |
 | [Helpdesk](apps/helpdesk/) | Tickets and support | complete (8 programs) |
 | [Project management](suites/projectmanagement/) | Tasks, boards, projects | complete (8 programs) |
 | [Contacts](apps/people/) | Contact management | complete (4 programs) |
 | [CRM](suites/crm/) | Customer relationships | complete (6 programs) |
-| [Calendar](apps/calendar/) | Appointments and planning | complete (6 programs) |
+| [Calendar](apps/calendars/) | Appointments and planning | complete (6 programs) |
 | [Maps](apps/maps/) | Maps and geodata | complete (7 programs) |
 | [ERP](suites/erp/) | Resource planning | complete (6 programs) |
 | [Workflows](suites/workflows/) | Automation and integration | complete (6 programs) |
@@ -79,10 +79,10 @@ A facet is the opposite of a suite: a suite brings several programs together; a 
 | [Marketing](apps/marketing/) | Marketing and analytics | complete (6 programs) |
 | [Marketplaces](suites/marketplace/) | Marketplace software and third-party marketplaces | complete (6 programs) |
 | [Photo galleries](apps/gallery/) | Image and video collections | complete (8 programs) |
-| [Streaming](apps/streaming/) | Encoders, media servers, multistreaming | complete (10 programs) |
+| [Streaming](apps/broadcast/) | Encoders, media servers, multistreaming | complete (10 programs) |
 
 
-How each category's well-known programs are analysed (functions only, nothing copied, ADR 0012, 0013) is described in the frontends index of each category, for example [Wiki](apps/wiki/frontends/index.md).
+How each category's well-known programs are analysed (functions only, nothing copied, ADR 0012, 0013) is described in the frontends index of each category, for example [Wiki](apps/texts/frontends/index.md).
 
 ## Cross-references to system areas
 

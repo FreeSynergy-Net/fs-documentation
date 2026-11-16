@@ -22,7 +22,7 @@ Short explanations of the words we use. Behind the words are decisions you can r
 
 **Hub.** The program that lets the programs on one device find each other and keeps the activity log.
 
-**Store.** FreeSynergy.Store, the app from which you install, update and extend everything else. See [the Store](../programs/platform/store.md).
+**Store.** FreeSynergy.Packages, the app from which you install, update and extend everything else. See [the Store](../programs/platform/packages.md).
 
 **Catalog.** The list of packages a source offers: name, logo, description, versions and facets, in the open AppStream format, with signatures. See [ADR 0062](../decisions/0062-paket-repos-in-git.md).
 

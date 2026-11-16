@@ -67,8 +67,8 @@ When choosing a project management tool, consider the following criteria:
 ## Related Categories
 
 - [Helpdesk](../../apps/helpdesk/) - Support and ticket systems
-- [Messenger](../../apps/messenger/) - Communication and chat
-- [Whiteboards](../../apps/whiteboard/) - Collaborative whiteboards
+- [Messenger](../../apps/messages/) - Communication and chat
+- [Whiteboards](../../apps/draw/) - Collaborative whiteboards
 
 ## Quick Start
 

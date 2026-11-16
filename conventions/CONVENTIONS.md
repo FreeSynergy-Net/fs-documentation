@@ -29,10 +29,10 @@ Fremdprojekte, Lizenz, Repos, Messenger)
 - **100 % Rust**, keine doppelten Crates; Blinc, Turso, Web of Trust, Kanidm, Zentinel werden
   genutzt und unterstützt (ADR 0015).
 - **`MIT OR Apache-2.0`, für immer kostenlos**, keine Armutsdiskriminierung (ADR 0016).
-- **Programm = Kategorie**: `FreeSynergy.Messenger`, Repo `fs-messenger`; jedes Programm läuft
+- **Programm = Kategorie**: `FreeSynergy.Messenger`, Repo `fs-messages`; jedes Programm läuft
   allein, zusammen teilen sie die Arbeit über Standarddaten (ADR 0017).
 - **Nur `docs/en/` wird gepflegt**, `de/` übersetzt llama (ADR 0011).
-- **Daten:** `fs-store` je Programm, `fs-hub` je Gerät, Abgleich auf Objektebene (ADR 0019);
+- **Daten:** `fs-packages` je Programm, `fs-registry` je Gerät, Abgleich auf Objektebene (ADR 0019);
   Objekt = AS2-Hülle + Fachstandard + Aktivitätsprotokoll, Leihen = Live-Verweis, Regeln werden
   angesagt (ADR 0020). Programm ohne Hub speichert lokal, wahlweise verschlüsselt (ADR 0024).
 - **Schnittstelle:** Cap'n Proto ist der Vertrag, JSON/CLI/MCP daraus erzeugt (ADR 0021);
@@ -186,6 +186,7 @@ Festgelegte Grenzfälle:
 - **Nicht übersetzt:** `temp/`, `todo/`, `conventions/`, `scripts/`.
 - **Deutsch erlaubt und erwünscht:** Beschlüsse, Pläne, Prompts, Fragen an Agenten
   (`conventions/`, `temp/`, `todo/`) und der Gesprächsverkehr.
+- **Übersetzungsordner der Programme heißen `locales/`** (`de.mf2`, `en.mf2`), nie `texts/`: der Name kollidiert mit dem Programm fs-texts (ADR 0087 Nachtrag 2026-11-16).
 - Nie über Sprachbäume hinweg verlinken: in `en/` zeigt jeder Verweis auf `en/`.
 
 ## 5. Skripte (`scripts/`) – Schattenbaum

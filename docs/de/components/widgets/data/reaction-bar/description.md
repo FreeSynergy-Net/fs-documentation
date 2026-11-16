@@ -64,5 +64,5 @@ Teilweise in Blinc vorhanden (`badge`, `toggle_group`). In unserer Schicht gebau
 - [Message Bubble](../message-bubble/)
 - [Emoji Picker](../../fields/emoji-picker/)
 - [Badge](../../../primitives/feedback/badge/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

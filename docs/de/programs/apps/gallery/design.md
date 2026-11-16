@@ -45,7 +45,7 @@ Optional und **nur lokal**: Fotos und Gesichtsdaten verlassen das Gerät nie zur
 | Metadaten lesen | `kamadak-exif` 0.6 oder `nom-exif` 3.8 (liest auch Video-Metadaten, zu prüfen) |
 | Moderne Formate | `ravif` 0.13, `jxl-oxide` 0.12 |
 
-Video-Poster brauchen einen Decoder, was dieselbe Frage aufwirft wie [Streaming](../streaming/design.md#kodierung). Deshalb sind Video-Poster nicht in Stufe 1.
+Video-Poster brauchen einen Decoder, was dieselbe Frage aufwirft wie [Streaming](../broadcast/design.md#kodierung). Deshalb sind Video-Poster nicht in Stufe 1.
 
 ## Schnittstellen-Skizze
 

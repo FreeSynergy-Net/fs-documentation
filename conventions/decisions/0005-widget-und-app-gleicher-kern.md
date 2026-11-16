@@ -38,4 +38,4 @@ Adresse, eine Datei oder eine Einstellung braucht, ist App.
 - Neue Widgets nehmen keine App-Features in den Steckbrief auf. Umgekehrt gilt: Wo die App
   etwas anzeigt, verweist sie auf das Widget, statt die Ansicht neu zu erklären.
 - Betroffene Doku: `components/fields/date-picker/`, `components/data/calendar-view/`,
-  `programs/apps/calendar/`. Zuordnung der Bausteine bleibt `conventions/CONVENTIONS.md` §3.
+  `programs/apps/calendars/`. Zuordnung der Bausteine bleibt `conventions/CONVENTIONS.md` §3.

@@ -4,7 +4,7 @@ Status: akzeptiert (2026-11-06) · ergänzt ADR 0005, 0021, 0037, 0049, 0054, 00
 
 ## Entscheidung (Nutzer)
 1. **Der Admin, der installiert, ist der oberste Admin.** In den Gruppen kann er weiteren den Admin-Status geben.
-2. **Gespiegelt wird nach Option B.** Verschachtelung geht nur dorthin, wo Rechte wirklich weitergegeben werden. In unseren Gruppen ist die Weitergabe einstellbar.
+2. **Gespiegelt wird nach Option B.** Verschachtelung geht nur dorthin, wo Rechte wirklich weitergegeben werden. In unseren Gruppen ist die Weitergabe einstellbar. Nachtrag zur Verschachtelung: siehe ADR 0082 Nachtrag 2026-11-16.
    **Bei Kanidm geht das nicht:** Dort werden Rechte immer vom Kind nach oben weitergegeben. Wo das nicht gewollt ist, gibt es dort eine **flache Liste**. Das gilt nur für Kanidm.
 3. **Andere Richtung:** Wer es andersherum braucht, baut den Baum andersherum auf, statt einzelne Ausnahmen zu vergeben.
 4. **Eine Workbench gibt immer einen Kontext zurück;** sie läuft nicht für sich allein. Aber aus einer Workbench wird schnell eine App (etwa Editor oder Schreibprogramm): Die Workbench füllt

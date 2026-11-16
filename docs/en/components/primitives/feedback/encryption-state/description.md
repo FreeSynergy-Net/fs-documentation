@@ -67,5 +67,5 @@ Partly in Blinc (`cn::badge` plus a link), but the data binding makes it our lay
 - [Message Status](../message-status/)
 - [Link](../../basics/link/)
 - [Key Verification](../../../widgets/overlays/key-verification/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../basics/base.md)

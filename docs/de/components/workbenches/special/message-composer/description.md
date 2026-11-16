@@ -69,5 +69,5 @@ In unserer Schicht gebaut auf Blinc-Teilen (`textarea`, `button`, `rich_text_edi
 - [Code Editor](../code-editor/)
 - [Rich Text Editor](../../fields/rich-text-editor/)
 - [Embed](../embed/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

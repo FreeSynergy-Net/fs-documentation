@@ -64,5 +64,5 @@ Upstream in Blinc: backlog **a782b47** (`html_view()` phased plan; `embed` has n
 - [special – overview](../index.md)
 - [Embed](../embed/)
 - [Mail View](../../../widgets/data/mail-view/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

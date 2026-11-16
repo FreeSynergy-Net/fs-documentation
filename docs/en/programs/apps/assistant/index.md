@@ -119,7 +119,7 @@ behind the program that holds that key (ADR 0045), and that program starts the s
 reading of the owner's decision (2026-11-07). The table below was written for the earlier idea, a provider inside the messenger. The operator must come from our own launch settings and the
 person's card, because the agent's self-description is self-reported.
 
-| ACP | `fs-messenger` today | What is needed |
+| ACP | `fs-messages` today | What is needed |
 |-----|----------------------|----------------|
 | Session, with an absolute working folder | `Conversation` | Keep the session id and folder in the provider |
 | Sending a prompt | `Draft.send` | Fits |
@@ -191,7 +191,7 @@ client asks, then retries with the answer. This **cannot be our brake**. The ans
 So we propose (a design, not tested):
 
 1. A tool call reaches the engine, and the engine looks up the risk from the contract, never from the caller.
-2. If it needs release, the engine puts a `question` tool call into `fs-messenger`, for the person.
+2. If it needs release, the engine puts a `question` tool call into `fs-messages`, for the person.
 3. The person answers on their own device, with their own key. The answer does not pass through the AI's client.
 4. The MCP call returns `input_required` with only a `requestState`, or an error result that says "waiting" for clients that
    cannot do this. The state is protected against tampering. It is bound to the caller, a short expiry and a digest of the exact

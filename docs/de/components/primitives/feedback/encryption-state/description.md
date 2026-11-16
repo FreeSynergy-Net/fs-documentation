@@ -67,5 +67,5 @@ Teilweise in Blinc vorhanden (`cn::badge` plus ein Link), aber die Datenbindung 
 - [Message Status](../message-status/)
 - [Link](../../basics/link/)
 - [Key Verification](../../../widgets/overlays/key-verification/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../basics/base.md)

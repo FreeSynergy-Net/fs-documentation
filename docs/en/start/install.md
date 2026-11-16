@@ -4,7 +4,7 @@
 
 ## The idea: get the Store once, then everything from the Store
 
-You install one program by hand, [FreeSynergy.Store](../programs/platform/store.md). After that you install, update and remove every other FreeSynergy program from there, with one click and with every file checked before it reaches your machine. You should not have to download things by hand over and over.
+You install one program by hand, [FreeSynergy.Packages](../programs/platform/packages.md). After that you install, update and remove every other FreeSynergy program from there, with one click and with every file checked before it reaches your machine. You should not have to download things by hand over and over.
 
 ## Step 1: get the Store
 
@@ -21,7 +21,7 @@ Pick the newest release marked "Pre-release". On 2026-11-08 the releases (up to 
 Packages for Debian and Ubuntu (`.deb`), Arch, AppImage and macOS (`.dmg`) are not in these releases; earlier builds had them. Windows is not built yet. If you use a macOS build later: it is not signed with a paid Apple certificate, so open the app once, then System Settings > Privacy & Security > "Open Anyway". The OpenPGP signatures and checksums are the trust path.
 
 !!! warning "State on 2026-11-08"
-    Always take the newest release in the list. Version numbers were reset to `0.0.N` ([ADR 0064](../decisions/0064-versionen-ab-0-0-1.md)): `0.0.N` means development, `0.1.0` means a person can use it, `1.0.0` means two independent users of its interface. The earlier builds (`0.1.0-rc.N`) were removed. If you installed one as an rpm, remove it once (`sudo dnf remove fs-store`) before installing the new one, because the new number is lower and would not count as an update.
+    Always take the newest release in the list. Version numbers were reset to `0.0.N` ([ADR 0064](../decisions/0064-versionen-ab-0-0-1.md)): `0.0.N` means development, `0.1.0` means a person can use it, `1.0.0` means two independent users of its interface. The earlier builds (`0.1.0-rc.N`) were removed. If you installed one as an rpm, remove it once (`sudo dnf remove fs-packages`) before installing the new one, because the new number is lower and would not count as an update.
 
 ## Step 2: check the signature
 
@@ -49,18 +49,18 @@ Do not trust the key file only because it came with the release. Compare the fin
 ## Step 3: install the Store
 
 - **Fedora:** `sudo dnf install ./fs-store-*.rpm` (root is asked by your system, not by us).
-- **Without root (no `sudo`):** the `.tar.gz` holds one folder with the program `fs-store`. Unpack it into your home folder and run it from there:
+- **Without root (no `sudo`):** the `.tar.gz` holds one folder with the program `fs-packages`. Unpack it into your home folder and run it from there:
 
   ```bash
   tar xzf fs-store-*-linux-x86_64.tar.gz     # or ...-linux-aarch64.tar.gz
   mkdir -p ~/.local/bin
   cp fs-store-*/fs-store ~/.local/bin/
-  fs-store                                    # opens the window; if "command not found", use ~/.local/bin/fs-store
+  fs-packages                                    # opens the window; if "command not found", use ~/.local/bin/fs-store
   ```
 
   Programs you install from the Store this way also go to your home folder (`~/.local`), so nothing needs root.
 
-The Store is one program, `fs-store`. Started without arguments it opens its window. On the command line it works like `git`: `fs-store sources`, `fs-store available`, `fs-store install <package>`, `fs-store installed`. See [the Store](../programs/platform/store.md) for what works today.
+The Store is one program, `fs-packages`. Started without arguments it opens its window. On the command line it works like `git`: `fs-packages sources`, `fs-packages available`, `fs-packages install <package>`, `fs-packages installed`. See [the Store](../programs/platform/packages.md) for what works today.
 
 ## Step 4: everything else from the Store
 
@@ -69,15 +69,15 @@ Install the programs you want from the Store, for example Tasks or People. The S
 In the window, or on the command line:
 
 ```bash
-fs-store install fs-tasks
-fs-store install fs-people
-fs-store installed
+fs-packages install fs-tasks
+fs-packages install fs-people
+fs-packages installed
 ```
 
 ## What is not there yet
 
 - A finished app for ordinary users. The windows are provisional and say so.
-- A small catalog: the repository [fs-catalog](https://github.com/FreeSynergy/fs-catalog) offers the Store, Tasks and People so far (2026-11-08).
+- A small catalog: the repository [Catalog](https://github.com/FreeSynergy/fs-catalog) offers the Store, Tasks and People so far (2026-11-08).
 - Windows, and sign-in. See the [overall plan](../programs/apps/roadmap.md) for what comes next.
 
 Found something broken or unclear? See [How to help](help.md).

@@ -5,7 +5,7 @@
 - **Object = envelope + content + log.**
   - *Envelope* (AS2 **`Profile`**, ✅): `id`, `type: Profile`, `describes` (the person's actor IRI or DID, if known), `attributedTo` (who wrote this card), `to`/`cc`/`bto`/`audience` (who may see it), `published`, `updated`.
   - *Content*: the **JSContact `Card`** JSON (RFC 9553) — the standard model is the source of truth.
-  - *Log*: AS2 activities `Create`/`Update`/`Delete` per card, written by `fs-store` in the same transaction.
+  - *Log*: AS2 activities `Create`/`Update`/`Delete` per card, written by `fs-packages` in the same transaction.
 - Columns **extracted** for indexes: `id`, `uid` (JSContact), `kind` (✅ `individual`/`group`/`org`/`location`/`device`/`application`), `describes`, `name_sort` (from `name.components`), emails/phones (normalised, for hub matching), `created_at`, `updated_at`.
 - **IDs:** UUIDv7 (RFC 9562, ADR 0027); externally `https://<instance>/contacts/<id>`.
 - **Sensitive fields** (e.g. sexual orientation) are marked; marked data is never auto-linked, leaves the device only with explicit release and is stored encrypted (ADR 0029).

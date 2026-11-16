@@ -21,21 +21,21 @@ Ob Ansichten wie Galerie oder Kanban *zusätzlich* als eigenständige Programme 
 
 | Zweck | Programm | Status |
 |-------|----------|--------|
-| Objekte halten, zwischen Programmen teilen | [`fs-store`](https://github.com/FreeSynergy/fs-store), [`fs-hub`](https://github.com/FreeSynergy/fs-hub) | Vorhanden |
+| Objekte halten, zwischen Programmen teilen | [`fs-packages`](https://github.com/FreeSynergy/fs-store), [`fs-registry`](https://github.com/FreeSynergy/fs-hub) | Vorhanden |
 | Anmelden, Systemzugang | [Identitäts-Wrapper](../platform/identity.md) über Kanidm | Geplant |
 | Zusammengehören, entscheiden, wer was darf | [`fs-groups`](../platform/groups.md) | Geplant, **neu** |
 | Alles halten und finden | [`fs-files`](files/design.md) | Geplant |
 | Wissen, wer jemand ist, mit Rollen | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Kern vorhanden, keine GUI |
-| Irgendwo zu einer Zeit sein | [`fs-calendar`](https://github.com/FreeSynergy/fs-calendar) | Kern vorhanden, keine GUI |
+| Irgendwo zu einer Zeit sein | [`fs-calendars`](https://github.com/FreeSynergy/fs-calendar) | Kern vorhanden, keine GUI |
 | Wissen, wo | [`fs-maps`](https://github.com/FreeSynergy/fs-maps) | Kern vorhanden, keine GUI |
-| Gemeinsam schreiben und wissen | [`fs-wiki`](https://github.com/FreeSynergy/fs-wiki) (Crate `fs-text`) | Kern vorhanden, keine GUI |
-| Jemandem etwas sagen | [`fs-messenger`](messenger/contract.md) | Vertragsentwurf |
+| Gemeinsam schreiben und wissen | [`fs-texts`](https://github.com/FreeSynergy/fs-wiki) (Crate `fs-texts`) | Kern vorhanden, keine GUI |
+| Jemandem etwas sagen | [`fs-messages`](messages/contract.md) | Vertragsentwurf |
 | Wissen, was als Nächstes zu tun ist | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) ([Design](tasks/design.md)) | Kern vorhanden, keine GUI; Schnittstelle als Entwurf |
-| Erinnern, was ich oder wir getan haben | [`fs-activity`](activity/index.md) | Geplant, **neu**; eventuell eine Ansicht |
+| Erinnern, was ich oder wir getan haben | [`fs-activities`](activities/index.md) | Geplant, **neu**; eventuell eine Ansicht |
 | Wissen, was wir haben und brauchen | [`fs-resources`](resources/index.md) | Geplant, **neu** |
-| Fragen und gemeinsam entscheiden | [`fs-surveys`](surveys/design.md) | Geplant |
-| Visuell denken | [`fs-whiteboard`](whiteboard/design.md) | Geplant |
-| Etwas zeigen und überall hinbringen | [`fs-streaming`](streaming/design.md) | Geplant |
+| Fragen und gemeinsam entscheiden | [`fs-forms`](forms/design.md) | Geplant |
+| Visuell denken | [`fs-draw`](draw/design.md) | Geplant |
+| Etwas zeigen und überall hinbringen | [`fs-broadcast`](broadcast/design.md) | Geplant |
 
 `fs-capnpc`, unser Cap'n-Proto-Compiler in reinem Rust, unterstützt sie alle. Details zu dem, was existiert, stehen in der `DESIGN.md` jedes Repositorys.
 
@@ -45,9 +45,9 @@ Ob Ansichten wie Galerie oder Kanban *zusätzlich* als eigenständige Programme 
 |---------|-----------------|
 | Galerie, Videothek, Musik | `fs-files` |
 | Kanban-Board, Aufgabenliste | `fs-tasks` |
-| Zeitleiste (Gantt) | `fs-tasks`, `fs-calendar` |
-| Zeitleiste dessen, was passiert ist | `fs-activity` |
-| Ergebnis-Dashboards | `fs-surveys`, andere, mit [Diagrammen](../../components/charts.md) |
+| Zeitleiste (Gantt) | `fs-tasks`, `fs-calendars` |
+| Zeitleiste dessen, was passiert ist | `fs-activities` |
+| Ergebnis-Dashboards | `fs-forms`, andere, mit [Diagrammen](../../components/charts.md) |
 
 ## Suiten
 
@@ -68,10 +68,10 @@ Ein Programm kann zu mehreren Suiten gehören.
                   fs-groups + identity wrapper, then fs-files
 2. Components     shared ones first, plus charts; each built when the next program needs it
                   GUIs for the existing cores: people, calendar, maps, wiki
-3. Work           GUI for fs-tasks, fs-activity, then fs-surveys, fs-resources, fs-messenger
-4. Together       live presence, fs-whiteboard
+3. Work           GUI for fs-tasks, fs-activities, then fs-forms, fs-resources, fs-messages
+4. Together       live presence, fs-draw
 5. Suites         project management, democracy
-6. Media          gallery frontends, fs-streaming
+6. Media          gallery frontends, fs-broadcast
 ```
 
 **Zuerst kommen die Komponenten, dann das Programm.** Wir dokumentieren Komponenten früh, damit wir wissen, was wir haben. Gebaut wird jede erst, wenn das nächste Programm sie braucht, denn Komponenten ohne echten Nutzer bekommen ihre Schnittstelle meist falsch.

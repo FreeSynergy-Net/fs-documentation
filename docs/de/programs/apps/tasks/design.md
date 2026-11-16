@@ -8,7 +8,7 @@ Eine Person will wissen, was als Nächstes zu tun ist. Ein Board, eine Liste und
 
 - **Ein Programm, persönlich oder für eine Gruppe.** Der Besitzer einer Aufgabe ist eine Person oder eine Gruppe und kann wechseln. Nichts wird von vornherein festgelegt.
 - **Eine Aufgabe, mehrere Zusammenhänge.** Dieselbe Aufgabe kann auf einem Projekt-Board, auf meiner persönlichen Liste und im Kalender erscheinen.
-- **Eine Aufgabe steht für sich (entschieden, ADR 0050).** `fs-tasks` besitzt JSCalendar `Task`. `fs-calendar` besitzt `Event` und zeigt Aufgaben nur über die Schnittstelle von `fs-tasks`. `fs-calendar` hat kein eigenes `Task`-Modell mehr.
+- **Eine Aufgabe steht für sich (entschieden, ADR 0050).** `fs-tasks` besitzt JSCalendar `Task`. `fs-calendars` besitzt `Event` und zeigt Aufgaben nur über die Schnittstelle von `fs-tasks`. `fs-calendars` hat kein eigenes `Task`-Modell mehr.
 
 `fs-projectmanagement` ist eine Suite darüber: Aufgaben, Verlauf, Ressourcen, Umfragen, Whiteboard, Wiki.
 
@@ -21,7 +21,7 @@ Eine Person will wissen, was als Nächstes zu tun ist. Ein Board, eine Liste und
 | Erweiterter Status | RFC 10051 | |
 | Board, Spalte (`List`), Swimlane, Limit | ❌ keiner | **Eigene Spezifikation** (Kandidat Nr. 3); erstes Modell in [Projekte, technisch](../../../data/projects/technical.md) |
 | Karte verschieben | `Update` auf `task_link`, nicht auf der Aufgabe | Eine Karte auf meinem Board zu verschieben darf die Aufgabe für alle nicht ändern |
-| Verknüpfung zu einer Entscheidung | Lücke | Lässt eine Aufgabe sagen, warum sie existiert; verbindet mit `fs-surveys` |
+| Verknüpfung zu einer Entscheidung | Lücke | Lässt eine Aufgabe sagen, warum sie existiert; verbindet mit `fs-forms` |
 
 ## Open-Source-Lücken, die sich zu schließen lohnen
 
@@ -55,4 +55,4 @@ Workbench `kanban-board` sowie eine kompakte Ansicht „Meine nächsten Aufgaben
 ## Offene Fragen
 
 1. Sind Spalten Status? Die analysierten Werkzeuge unterscheiden sich: Bei manchen sind sie Status, bei anderen freie Listen. Wir schlagen eine optionale Zuordnung vor.
-2. Zeiterfassung: Teil von `fs-tasks` oder von `fs-activity`? Wir schlagen vor, sie als Verlauf zu erfassen.
+2. Zeiterfassung: Teil von `fs-tasks` oder von `fs-activities`? Wir schlagen vor, sie als Verlauf zu erfassen.

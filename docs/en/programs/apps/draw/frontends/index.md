@@ -1,0 +1,43 @@
+# Draw — Frontends
+
+Frontends of well-known programs in this category, analysed for their **functions** — nothing is copied (ADR 0013). A program is documented here because it is widely learned or because it has a notable idea. Our own program for this category is `FreeSynergy.Draw` (ADR 0017); its capabilities and status live in [requirements](../requirements.md).
+
+## Programs
+
+| Program | Versions | What it is |
+|---------|----------|------------|
+| [draw.io](drawio/index.md) | [latest](drawio/latest/description.md) | draw.io (diagrams.net) is a free diagram tool for flowcharts, network plans, UML and BPMN. |
+| [Excalidraw](excalidraw/index.md) | [latest](excalidraw/latest/description.md) | Excalidraw is a free, open-source collaborative whiteboard in a hand-drawn style. |
+| [FigJam](figjam/index.md) | [latest](figjam/latest/description.md) | FigJam is the whiteboard product of Figma. |
+| [Miro](miro/index.md) | [latest](miro/latest/description.md) | Miro is the commercial online whiteboard (SaaS) for visual collaboration: infinite canvas, shapes/sticky notes, frames, template library (retros, workshops, customer journeys), voting/timer and boa… |
+| [Mural](mural/index.md) | [latest](mural/latest/description.md) | Mural is the workshop whiteboard suite (SaaS) with strong facilitation: canvas with shapes/notes, "Facilitation Sequence" (moderation flows), participation control and templates. |
+| [OpenBoard](openboard/index.md) | [latest](openboard/latest/description.md) | OpenBoard is a free interactive whiteboard tool (C++, Qt) for teaching and presentations: multi-page "boards", pens/text/images, integrated browser, document and note tools, offline-first with a lo… |
+| [tldraw](tldraw/index.md) | [latest](tldraw/latest/description.md) | tldraw is an open-source infinite-canvas whiteboard library and app in TypeScript: ready to use on tldraw.com and as a React SDK (`tldraw`) for your own canvas applications. |
+
+## File set per program (ADR 0012)
+
+```
+programs/apps/draw/frontends/<program>/
+├── index.md        what it is, notable ideas, documented versions, sources
+├── changelog.md    changes between documented versions (≥ 2 versions)
+└── <version>/
+    ├── description.md    required · Detailed description, differentiation, who it suits
+    ├── features.md       required · What the program can do — and what not
+    ├── layout.md         required · Window structure, regions, panels
+    ├── menus.md          required · Menu structure, context menus, menus by role
+    ├── shortcuts.md      required · Keyboard shortcuts
+    ├── api.md            required · APIs and protocols, authentication, rate limits
+    ├── themes/index.md   required · Themes: colours, typography, spacing — what can be rebuilt
+    ├── interaction.md    if needed · Hover, focus, drag, gestures (finger, mouse, pen)
+    ├── states.md         if needed · UI states and transitions
+    ├── events.md         if needed · Events to the outside (webhooks, push, streams)
+    ├── limits.md         if needed · Known limitations
+    ├── i18n.md           if needed · Localisation, writing direction
+    ├── dependencies.md   if needed · Which of our components a frontend in this style needs
+    ├── dialogs.md        if needed · Every dialog: purpose, fields, buttons, default, cancel
+    ├── workflows.md      if needed · Step-by-step workflows: goal, prerequisites, steps, failures, undo
+    ├── acceptance.md     if needed · Acceptance checklist: each workflow as a yes/no click test
+    └── gaps.md           if needed · What our program cannot do for these workflows, and what it needs
+```
+
+Protocols (Matrix, IMAP, CalDAV, …) are not frontends; they are described under [data](../../../../data/standards.md).

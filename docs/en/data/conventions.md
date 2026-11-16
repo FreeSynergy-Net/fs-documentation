@@ -66,7 +66,7 @@ data/<domain>/<standard>/mapping.md          optional, our fields ↔ standard f
 
 - cross-references within a program: relative (`[api.md](api.md)`)
 - references across areas: relative with `../` (from `data/`: `[Gestures](../interactions/gestures/)`)
-- category index always as a directory link (from `data/`: `[Messenger](../programs/apps/messenger/)`)
+- category index always as a directory link (from `data/`: `[Messenger](../programs/apps/messages/)`)
 - every file ends with a `## See also` section
 - no links to files that do not exist — exception: cross-references
   within one's own language version (rule 6 of the language convention)

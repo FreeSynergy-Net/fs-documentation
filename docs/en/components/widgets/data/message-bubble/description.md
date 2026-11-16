@@ -70,5 +70,5 @@ No Blinc equivalent. Built in our layer on `cn::card`-like primitives. Backlog i
 - [Reaction Bar](../reaction-bar/)
 - [Link Preview](../link-preview/)
 - [Mail View](../mail-view/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

@@ -64,5 +64,5 @@ Partly in Blinc (`badge`, `toggle_group`). Built in our layer because of the rea
 - [Message Bubble](../message-bubble/)
 - [Emoji Picker](../../fields/emoji-picker/)
 - [Badge](../../../primitives/feedback/badge/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

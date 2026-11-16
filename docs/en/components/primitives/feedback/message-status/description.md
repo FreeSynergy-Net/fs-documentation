@@ -36,7 +36,7 @@ A message status shows how far a sent message has come: being sent, sent, delive
 
 ## Data binding
 
-Binds the **message state**: MIMI message-status draft `-02`, ActivityStreams `Read`, Matrix `m.receipt`, mail DSN/MDN. In the representation register (ADR 0023): `MessageState → message-status | text`. The state is stored **locally** in `fs-store` (ADR 0037), so previews work without a Matrix or mail server behind them. ⚠️ Whether `sending` is a stored state or only a UI state is open.
+Binds the **message state**: MIMI message-status draft `-02`, ActivityStreams `Read`, Matrix `m.receipt`, mail DSN/MDN. In the representation register (ADR 0023): `MessageState → message-status | text`. The state is stored **locally** in `fs-packages` (ADR 0037), so previews work without a Matrix or mail server behind them. ⚠️ Whether `sending` is a stored state or only a UI state is open.
 
 ## Distinction
 
@@ -65,5 +65,5 @@ Not in Blinc (`cn::badge` is the closest, no direct equivalent). Built in our la
 - [Badge](../badge/)
 - [Encryption State](../encryption-state/)
 - [Message Bubble](../../../widgets/data/message-bubble/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../basics/base.md)

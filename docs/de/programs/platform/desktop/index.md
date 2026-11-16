@@ -94,8 +94,8 @@ Bei der Wahl einer Desktop-Anwendung solltest du folgende Kriterien berücksicht
 
 ## Verwandte Kategorien
 
-- [Messenger](../../apps/messenger/) - Kommunikation und Chat
-- [Wiki](../../apps/wiki/) - Wissensmanagement und Dokumentation
+- [Messenger](../../apps/messages/) - Kommunikation und Chat
+- [Wiki](../../apps/texts/) - Wissensmanagement und Dokumentation
 - [Projektmanagement](../../suites/projectmanagement/) - Projektmanagement
 
 ## Schnellstart

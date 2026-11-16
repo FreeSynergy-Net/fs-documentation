@@ -10,7 +10,7 @@ So erreichen FreeSynergy-Programme dich. Ein gemeinsamer Satz an Build- und Ver�
 - Jede Veröffentlichung kommt mit Prüfsummen, einer OpenPGP-Signatur, einer Software Bill of Materials und Build-Provenienz, sodass du siehst, was drinsteckt und wer es gebaut hat.
 - Wir sagen offen, was wir noch nicht können. macOS- und Windows-Builds sind nicht von den Plattformherstellern signiert, und das Repository erklärt, wie du sie trotzdem öffnest.
 - Veröffentlichungen beginnen als Entwürfe und werden nie automatisch veröffentlicht.
-- Die Store-App, FreeSynergy.Store, soll jedes Paket ohne gültige Signatur ablehnen. Sie ist noch nicht öffentlich, und es gibt nichts zum Herunterladen.
+- Die Store-App, FreeSynergy.Packages, soll jedes Paket ohne gültige Signatur ablehnen. Sie ist noch nicht öffentlich, und es gibt nichts zum Herunterladen.
 
 ## Wo es heute steht
 

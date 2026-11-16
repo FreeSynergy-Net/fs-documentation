@@ -1,6 +1,6 @@
 # 0076 – Das Grundmodell: Akteure, Ressourcen, Orte, Zeit, Ziele, Abläufe, Ereignisse
 
-Status: **akzeptiert** (Gründer, 2026-11-13) · ersetzt die Einordnung „Workflow = Facette von Tasks“ und „Store = Facette von Files“ · baut auf ADR 0020 (AS2), 0045 (Themen-Schnittstellen), 0050 (ein Programm, eine Schnittstelle), 0066 (Befehle), 0068 (Fähigkeiten), 0074 (Schichten, Programm-Manifest), 0075 (Marketplace)
+Status: **akzeptiert** (Gründer, 2026-11-13) · ersetzt die Einordnung „Workflow = Facette von Tasks“ und „Store = Facette von Files“ · baut auf ADR 0020 (AS2), 0045 (Themen-Schnittstellen), 0050 (ein Programm, eine Schnittstelle), 0066 (Befehle), 0068 (Fähigkeiten), 0074 (Schichten, Programm-Manifest), 0075 (Marketplace) · Nachtrag 2026-11-16: Store ist keine Facette; fs-packages hat nur seine Frontends (Einfach, Admin), siehe ADR 0087 Nachtrag
 
 ## Warum
 

@@ -69,5 +69,5 @@ Partly in Blinc: `virtual_list` exists, but reverse scrolling and bottom anchori
 - [Mail View](../mail-view/)
 - [Timeline](../timeline/)
 - [List View](../list-view/)
-- [Messenger requirements](../../../../programs/apps/messenger/requirements.md)
+- [Messenger requirements](../../../../programs/apps/messages/requirements.md)
 - [Base component](../../../primitives/basics/base.md)

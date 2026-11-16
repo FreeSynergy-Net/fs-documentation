@@ -64,5 +64,5 @@ Upstream in Blinc: Backlog **a782b47** (phasenweiser Plan für `html_view()`; `e
 - [special – Übersicht](../index.md)
 - [Embed](../embed/)
 - [Mail View](../../../widgets/data/mail-view/)
-- [Messenger-Anforderungen](../../../../programs/apps/messenger/requirements.md)
+- [Messenger-Anforderungen](../../../../programs/apps/messages/requirements.md)
 - [Basiskomponente](../../../primitives/basics/base.md)

@@ -13,7 +13,7 @@ FreeSynergy Calendar speichert deine Termine und zeigt sie nach Monat, Woche, Ta
 
 ## So fängst du an
 
-1. Öffne das Programm mit `fs-calendar`. Das Fenster öffnet sich auf den Monat um heute.
+1. Öffne das Programm mit `fs-calendars`. Das Fenster öffnet sich auf den Monat um heute.
 2. Drücke **New**, um deinen ersten Termin zu schreiben.
 3. Tippe einen Titel und drücke **Save**.
 

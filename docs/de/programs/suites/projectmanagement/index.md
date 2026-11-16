@@ -65,8 +65,8 @@ Bei der Wahl eines Projektmanagement-Tools sollten folgende Kriterien berücksic
 ## Verwandte Kategorien
 
 - [Helpdesk](../../apps/helpdesk/) - Support und Ticketsysteme
-- [Messenger](../../apps/messenger/) - Kommunikation und Chat
-- [Whiteboards](../../apps/whiteboard/) - Kollaborative Whiteboards
+- [Messenger](../../apps/messages/) - Kommunikation und Chat
+- [Whiteboards](../../apps/draw/) - Kollaborative Whiteboards
 
 ## Schnellstart
 

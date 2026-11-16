@@ -6,7 +6,7 @@
 
 Zwei Dinge werden getrennt gehalten: **was wir über eine Datei wissen** und **wo ihre Bytes liegen**.
 
-- **Metadaten** sind ein Objekt in `fs-store`, wie alle anderen Daten: Name, Medientyp, Größe, Prüfsumme, Ordner, Freigabe.
+- **Metadaten** sind ein Objekt in `fs-packages`, wie alle anderen Daten: Name, Medientyp, Größe, Prüfsumme, Ordner, Freigabe.
 - **Bytes** liegen in einem Speicher-Backend hinter einer Schnittstelle. Welches Backend verwendet wird, macht für das Programm, die Frontends und andere Programme keinen Unterschied.
 
 Andere Programme verweisen auf eine Datei über ihre Objekt-ID und lesen sie über die Fähigkeit `Blob` in `common.capnp`. Sie sehen nie Pfade oder Backends.
@@ -105,9 +105,9 @@ Workbench `file-manager` mit der kompakten Variante `file-picker`, überall eing
 
 ## Stufen
 
-1. Lokaler Ordner, Metadaten in `fs-store`, durchsuchen, verschieben, umbenennen, löschen mit Papierkorb, Suche nach Name, wiederaufnehmbarer Upload.
+1. Lokaler Ordner, Metadaten in `fs-packages`, durchsuchen, verschieben, umbenennen, löschen mit Papierkorb, Suche nach Name, wiederaufnehmbarer Upload.
 2. S3-Backend, Teilen, Versionen, Verschlüsselung auf dem Client.
-3. Sync zwischen Geräten über `fs-hub`, Konfliktbehandlung, WebDAV.
+3. Sync zwischen Geräten über `fs-registry`, Konfliktbehandlung, WebDAV.
 
 ## Offene Fragen
 
@@ -115,4 +115,4 @@ Workbench `file-manager` mit der kompakten Variante `file-picker`, überall eing
 2. **Ist ein Ordner hier dasselbe wie „Ordner = Gruppe = Verteiler“ aus ADR 0037?** Wenn ja, wäre das Teilen eines Ordners gleich dem Teilen mit einer Gruppe. Dafür braucht es eine Entscheidung.
 3. **Freigabemodell:** Dateien, Galerie, Kanban und Umfragen brauchen es alle. Wir schlagen eine gemeinsame Spezifikation vor statt vier Lösungen.
 4. **Verschlüsselung:** Sollen Bytes auf S3 immer auf dem Client verschlüsselt werden, mit dem Schlüsseltresor (ADR 0024)? Wir schlagen ja vor.
-5. **Liegen die Daten an einem Ort?** Bytes liegen bewusst außerhalb von `fs-store`, daher müssen Sicherungen beides abdecken.
+5. **Liegen die Daten an einem Ort?** Bytes liegen bewusst außerhalb von `fs-packages`, daher müssen Sicherungen beides abdecken.
