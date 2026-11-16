@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16T05:46:29.443100+00:00",
+  "last_run": "2026-11-16T12:15:50.348970+00:00",
   "entries": {
     "components/blinc-cn-components.md": {
       "status": "VERIFIED",
@@ -48136,7 +48136,7 @@
     },
     "programs/apps/tasks/frontends/index.md": {
       "status": "PENDING",
-      "en_hash": "13679a3f93229743",
+      "en_hash": "d71c510d9ca7b930",
       "de_hash": null,
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
@@ -48145,7 +48145,7 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 3903,
+      "en_bytes": 4151,
       "de_bytes": null
     },
     "programs/apps/tasks/frontends/jira/index.md": {
@@ -48852,7 +48852,7 @@
     },
     "programs/apps/tasks/index.md": {
       "status": "PENDING",
-      "en_hash": "b6605be6562a30da",
+      "en_hash": "360a8050681e34ec",
       "de_hash": "5bcd2ab9380c717d",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
@@ -48862,7 +48862,7 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 4320,
+      "en_bytes": 4536,
       "de_bytes": 3332
     },
     "programs/apps/tasks/requirements.md": {
@@ -53146,6 +53146,174 @@
       "note": null,
       "history": [],
       "en_bytes": 3232,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/index.md": {
+      "status": "PENDING",
+      "en_hash": "5313bf3f6e4fb530",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 4292,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/acceptance.md": {
+      "status": "PENDING",
+      "en_hash": "f041e751ff9c7dcc",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1636,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "29529bc6f42f05e4",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1524,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "493311a641b0bc8e",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1772,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/dialogs.md": {
+      "status": "PENDING",
+      "en_hash": "261c80529fcdcede",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2494,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "33e066fc5b581cb1",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3581,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/gaps.md": {
+      "status": "PENDING",
+      "en_hash": "456b82031ffa1459",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2111,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "8df17942a3a729c4",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3732,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "33ff7dc63aa20472",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2008,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "cf059cb53b4819e8",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1922,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "bf70b731246181e1",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3866,
+      "de_bytes": null
+    },
+    "programs/apps/tasks/frontends/vikunja/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "56e357a5b634e56b",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:49.632187+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 4538,
       "de_bytes": null
     }
   }

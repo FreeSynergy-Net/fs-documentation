@@ -1,6 +1,6 @@
 # Übersetzungsliste – der Übersetzungs-Checker für den ganzen Baum
 
-Stand: 2026-11-16 05:46 UTC · 2533 Dateien verfolgt · 1888 offen · 483 bestätigt
+Stand: 2026-11-16 12:15 UTC · 2545 Dateien verfolgt · 1900 offen · 483 bestätigt
 
 Erzeugt von `python3 scripts/doc_sync.py --en docs/en --de docs/de \`
     `--state temp/sync_state.json --list temp/translation-queue.md`
@@ -37,7 +37,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 | Abschnitt | Dateien |
 |-----------|---------|
 | A. `en/` fehlt – aus `de/` übersetzen | 0 |
-| B. `de/` fehlt – englische Quelle nachziehen | 353 |
+| B. `de/` fehlt – englische Quelle nachziehen | 365 |
 | C. `en/` ist eine Kopie von `de/` – unübersetzt | 0 |
 | D. `en/` enthält noch deutschen Text – Rest übersetzen | 29 |
 | D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) | 4 |
@@ -47,7 +47,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 | H. Beide Seiten da, kein Befund – lesen und bestätigen | 1208 |
 | 🗑️ gelöscht (tombstone) | 162 |
 
-## B. `de/` fehlt – englische Quelle nachziehen – 353 Dateien
+## B. `de/` fehlt – englische Quelle nachziehen – 365 Dateien
 
 ### `components/styles/` · 3
 
@@ -525,7 +525,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ### `programs/apps/tasks/frontends/` · 1
 
-- [ ] `programs/apps/tasks/frontends/index.md` · 3.8k
+- [ ] `programs/apps/tasks/frontends/index.md` · 4.1k
 
 ### `programs/apps/tasks/frontends/jira/` · 1
 
@@ -630,6 +630,24 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/apps/tasks/frontends/todoist/latest/layout.md` · 145b
 - [ ] `programs/apps/tasks/frontends/todoist/latest/menus.md` · 35b
 - [ ] `programs/apps/tasks/frontends/todoist/latest/shortcuts.md` · 92b
+
+### `programs/apps/tasks/frontends/vikunja/` · 1
+
+- [ ] `programs/apps/tasks/frontends/vikunja/index.md` · 4.2k
+
+### `programs/apps/tasks/frontends/vikunja/latest/` · 11
+
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/acceptance.md` · 1.6k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/api.md` · 1.5k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/description.md` · 1.7k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/dialogs.md` · 2.4k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/features.md` · 3.5k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/gaps.md` · 2.1k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/layout.md` · 3.6k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/menus.md` · 2.0k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/shortcuts.md` · 1.9k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/states.md` · 3.8k
+- [ ] `programs/apps/tasks/frontends/vikunja/latest/workflows.md` · 4.4k
 
 ### `programs/apps/whiteboard/frontends/figjam/` · 1
 
@@ -764,7 +782,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ### `programs/apps/tasks/` · 1
 
-- [ ] `programs/apps/tasks/index.md` · 4.2k · Parität: headings 6 vs 5; links en-only=['frontends/index.md', 'frontends/jira/index.md', 'frontends/linear/index.md'] de-only=[] · L7 DE prose in EN: ['ein', 'ein'] · auch: parity
+- [ ] `programs/apps/tasks/index.md` · 4.4k · Parität: headings 6 vs 5; links en-only=['frontends/index.md', 'frontends/jira/index.md', 'frontends/linear/index.md'] de-only=[] · L7 DE prose in EN: ['ein', 'ein'] · auch: parity
 
 ### `programs/apps/tasks/frontends/jira/latest/` · 1
 
@@ -1449,7 +1467,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 ### `programs/apps/tasks/` · 3
 
 - [ ] `programs/apps/tasks/design.md` · 3.9k · Parität: headings 9 vs 8
-- [ ] `programs/apps/tasks/index.md` · 4.2k · Parität: headings 6 vs 5; links en-only=['frontends/index.md', 'frontends/jira/index.md', 'frontends/linear/index.md'] de-only=[] · auch: en_german
+- [ ] `programs/apps/tasks/index.md` · 4.4k · Parität: headings 6 vs 5; links en-only=['frontends/index.md', 'frontends/jira/index.md', 'frontends/linear/index.md'] de-only=[] · auch: en_german
 - [ ] `programs/apps/tasks/requirements.md` · 15.9k · Parität: table rows 80 vs 71; links en-only=['../../components/charts.md', '../platform/groups.md', '../platform/identity.md'] de-only=['../suites/projectmanagement/frontends/jira/index.md']
 
 ### `programs/apps/whiteboard/` · 3
@@ -4092,7 +4110,6 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ## Changelog
 
-- 2026-11-05 16:19 · Lauf: 1537 verfolgt, 458 offen, 1072 bestätigt · needs_en=423 needs_de=5 parity=13 review=17
 - 2026-11-05 16:19 · Lauf: 1537 verfolgt, 441 offen, 1089 bestätigt · needs_en=423 needs_de=5 parity=13
 - 2026-11-05 16:21 · Lauf: 1537 verfolgt, 441 offen, 1089 bestätigt · needs_en=423 needs_de=2 parity=13 review=3
 - 2026-11-05 16:23 · Lauf: 1537 verfolgt, 441 offen, 1089 bestätigt · needs_en=423 parity=13 review=5
@@ -4133,3 +4150,4 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - 2026-11-16 05:18 · Lauf: 2545 verfolgt, 1876 offen, 483 bestätigt · needs_de=341 en_german=29 code_german=4 de_english=182 parity=218 review=1208
 - 2026-11-16 05:18 · Lauf: 2521 verfolgt, 1876 offen, 483 bestätigt · needs_de=341 en_german=29 code_german=4 de_english=182 parity=218 review=1208
 - 2026-11-16 05:46 · Lauf: 2533 verfolgt, 1888 offen, 483 bestätigt · needs_de=353 en_german=29 code_german=4 de_english=182 parity=218 review=1208
+- 2026-11-16 12:15 · Lauf: 2545 verfolgt, 1900 offen, 483 bestätigt · needs_de=365 en_german=29 code_german=4 de_english=182 parity=218 review=1208

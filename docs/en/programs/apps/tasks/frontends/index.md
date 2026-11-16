@@ -13,6 +13,7 @@ Frontends of well-known programs in this category, analysed for their **function
 | [Taskwarrior](taskwarrior/index.md) | [latest](taskwarrior/latest/description.md) | Taskwarrior is a command-line to-do manager. |
 | [Things 3](things-3/index.md) | [latest](things-3/latest/description.md) | Things 3 is a personal to-do app for Mac, iPhone, iPad, Apple Watch and Vision Pro, built around a small set of fixed lists and a calm, fast capture flow. |
 | [Todoist](todoist/index.md) | [latest](todoist/latest/description.md) | Todoist is a cross-platform task manager with projects, sections, labels, priorities and natural-language dates. |
+| [Vikunja](vikunja/index.md) | [latest](vikunja/latest/description.md) | Vikunja is an open-source task and project manager with lists, tables, kanban boards and Gantt charts per project, labels, sharing with users, teams and links, and an API. |
 
 ## File set per program (ADR 0012)
 
