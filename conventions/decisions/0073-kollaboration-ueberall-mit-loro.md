@@ -67,3 +67,19 @@ Wasm-Größe von `loro-crdt` und Leistung bei großen Seiten/vielen Peers sind *
 
 ## English summary
 **Decision (draft):** Loro (MIT, Rust core plus Wasm) behind our own `CollabDoc` interface; yrs documented as the alternative; `y-sync` and `diamond-types` not used. Awareness is always visible (who is in the document); cursors and selections are visible by default and everyone can turn their own off; presence is ephemeral and never stored. Change stream as AS2 with the CRDT bytes as payload; transport Cap'n Proto plus iroh. Every change is signed and rights are checked before import. History is kept in full by default, with no automatic trimming (only on explicit request or a limit the human sets); "really delete" is mandatory (remove from history / rewrite) with an honest warning that peers holding an old state may still have the data. The Loro document (snapshot plus changes) is the truth for shared objects, held in the owner's store (so ADR 0042 still holds); task objects and query indexes are projections recomputed after each merge, JSCalendar/iCal are exports; purely local use is a document with one participant. Tasks have no referee: the engine checks cycles and WIP limits after a merge, shows conflicts (`Readiness::Conflict` for cycles created by a merge) and never silently rejects; planning data (earliest start, slack, critical path) is computed, not stored; the Gantt is nominal and says so, a working-time calendar comes later from `fs-calendar` through its interface. The block id (UUIDv7) is metadata on the block-tree node, not the internal CRDT node id. A small spike measures Wasm size and speed once the wiki is under way. **Status: draft; code only after round 3b and the wiki.**
+
+## Nachtrag 2026-11-16: Papierkorb-Frist
+
+Anlass: Nutzerentscheidung 2026-11-16: „Papierkorb: JA. Nach Ablauf der Frist endgültig löschen. Die Frist wird in den Einstellungen des Programms eingestellt (dort Pflicht). Im Papierkorb steht ‚noch N Tage‘.“ Die Entscheidungen 1 bis 9 bleiben unverändert.
+
+**(1) Was §7 sagte und was jetzt gilt.** §7 hält den Verlauf voll und kennt keine automatische Kürzung. Der Papierkorb ist davon getrennt: Gelöschtes bleibt im Papierkorb und ist bis zum Ablauf wiederherstellbar. Nach Ablauf der Frist wird der Papierkorb endgültig geleert, d. h. das Objekt wird endgültig gelöscht. Die Kaskade nimmt es samt seinen Verlauf-Einträgen (`activity`, `activity_change`) mit; das ist der Purge-Pfad von v4 (`turso/purge.rs:45`) und die Kaskade des v5-Entwurfs (`review-v5-2-opus.md`, Anforderung 4). Ob der Verlauf eines Objekts ohne Ablauf des Papierkorbs getrennt geleert wird, ist nicht festgelegt (siehe Offen).
+
+**(2) Frist einstellbar.** Jedes Programm stellt die Frist in seinen Einstellungen ein; das Feld ist Pflicht. Standardwert: **30 Tage** (Empfehlung der Schicht fs-objects; Vorbild Google, Papierkorb 30 Tage, `pilot-calendar/dossier-google-outlook.md`). Dieser Standardwert gilt nur für den Papierkorb, nicht für die Kürzung des Verlaufs; §7 bleibt dafür unverändert.
+
+**(3) Anzeige und Zeitpunkt.** Im Papierkorb steht bei jedem Eintrag „noch N Tage“ (berechnet aus `purge_after`, v5-Entwurf). Die angezeigte Frist ist eine Zusage: nichts geht früher weg.
+
+**(4) Offen.**
+- Mindest- und Höchstfrist je Programm? [offen]
+- Ist „nie löschen“ als Einstellung erlaubt? [offen]
+- Aufbewahrungspflichten (Rechnungen, Buchhaltung) haben gesetzliche Fristen, die vor der Papierkorb-Frist gelten; eine Regel dafür fehlt (`object_original.keep_until` ist noch immer NULL, `pilot-calendar/PLAN.md`, ADR 0086 Punkt 4). [offen]
+- Verlauf-Purge ohne Ablauf des Papierkorbs (Protokoll allein) getrennt oder nicht? [offen]
