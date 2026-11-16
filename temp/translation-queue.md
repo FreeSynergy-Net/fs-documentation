@@ -1,6 +1,6 @@
 # Übersetzungsliste – der Übersetzungs-Checker für den ganzen Baum
 
-Stand: 2026-11-16 04:33 UTC · 2609 Dateien verfolgt · 1970 offen · 483 bestätigt
+Stand: 2026-11-16 04:38 UTC · 2521 Dateien verfolgt · 1882 offen · 483 bestätigt
 
 Erzeugt von `python3 scripts/doc_sync.py --en docs/en --de docs/de \`
     `--state temp/sync_state.json --list temp/translation-queue.md`
@@ -38,12 +38,12 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 |-----------|---------|
 | A. `en/` fehlt – aus `de/` übersetzen | 6 |
 | B. `de/` fehlt – englische Quelle nachziehen | 341 |
-| C. `en/` ist eine Kopie von `de/` – unübersetzt | 87 |
-| D. `en/` enthält noch deutschen Text – Rest übersetzen | 117 |
-| D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) | 8 |
-| E. `de/` enthält noch englischen Text – Rest rückübersetzen | 187 |
+| C. `en/` ist eine Kopie von `de/` – unübersetzt | 0 |
+| D. `en/` enthält noch deutschen Text – Rest übersetzen | 29 |
+| D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) | 4 |
+| E. `de/` enthält noch englischen Text – Rest rückübersetzen | 182 |
 | F. Form nicht gleich – Struktur abgleichen | 219 |
-| G. Deutscher Dateiname – Pfad englisch machen (ADR 0002) | 31 |
+| G. Deutscher Dateiname – Pfad englisch machen (ADR 0002) | 0 |
 | H. Beide Seiten da, kein Befund – lesen und bestätigen | 1207 |
 | 🗑️ gelöscht (tombstone) | 156 |
 
@@ -692,190 +692,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/apps/wiki/frontends/tana/latest/menus.md` · 32b
 - [ ] `programs/apps/wiki/frontends/tana/latest/shortcuts.md` · 89b
 
-## C. `en/` ist eine Kopie von `de/` – unübersetzt – 87 Dateien
-
-### `decisions/` · 87
-
-- [ ] `decisions/0001-ebenen-und-namen.md` · 1.1k · auch: en_german,rename
-- [ ] `decisions/0002-sprache.md` · 795b · auch: en_german
-- [ ] `decisions/0003-repo-schale-und-skripte.md` · 936b · auch: en_german,rename
-- [ ] `decisions/0004-komponenten-einteilung.md` · 1.0k · auch: en_german,rename
-- [ ] `decisions/0005-widget-und-app-gleicher-kern.md` · 2.6k · auch: en_german,rename
-- [ ] `decisions/0006-haaken-abbruchkriterium-und-pflichtmenge.md` · 3.2k · auch: en_german,rename
-- [ ] `decisions/0007-skins-zu-masks.md` · 1.5k · auch: en_german,code_german
-- [ ] `decisions/0008-englisch-zuerst.md` · 1.9k · auch: en_german
-- [ ] `decisions/0009-gui-blinc.md` · 4.8k · auch: en_german
-- [ ] `decisions/0010-ein-uebersetzungspruefer.md` · 4.0k · auch: en_german,rename
-- [ ] `decisions/0011-nur-englisch.md` · 1.8k · auch: en_german
-- [ ] `decisions/0012-frontends-mit-versionen.md` · 4.0k · auch: en_german,code_german
-- [ ] `decisions/0013-funktionen-analysieren-nichts-kopieren.md` · 2.1k · auch: en_german
-- [ ] `decisions/0014-standards-zuerst-as2.md` · 1.6k · auch: en_german
-- [ ] `decisions/0015-fremdprojekte-und-crates.md` · 1.8k · auch: en_german,rename
-- [ ] `decisions/0016-lizenz-mit-oder-apache.md` · 961b · auch: en_german,rename
-- [ ] `decisions/0017-programme-und-repos.md` · 1.3k · auch: en_german,rename
-- [ ] `decisions/0018-messenger-mit-mail-nur-verschluesselt.md` · 3.3k · auch: en_german
-- [ ] `decisions/0019-fs-store-und-fs-hub.md` · 3.2k · auch: en_german,rename
-- [ ] `decisions/0020-speicherformat-as2-huelle.md` · 1.5k · auch: en_german
-- [ ] `decisions/0021-schnittstellenvertrag.md` · 1.5k · auch: en_german
-- [ ] `decisions/0022-zwei-referenz-frontends.md` · 634b · auch: en_german
-- [ ] `decisions/0023-darstellungs-register-und-editoren.md` · 1.8k · auch: en_german,rename
-- [ ] `decisions/0024-programm-ohne-hub-und-schluesseltresor.md` · 1.8k · auch: en_german,rename
-- [ ] `decisions/0025-abschauen-nur-im-notfall.md` · 628b · auch: en_german,rename
-- [ ] `decisions/0026-neueste-technik.md` · 1.4k · auch: en_german
-- [ ] `decisions/0027-ids-uuidv7.md` · 483b · auch: en_german
-- [ ] `decisions/0028-namen-domains-und-hub.md` · 1.9k · auch: en_german,rename
-- [ ] `decisions/0029-schutzbeduerftige-daten.md` · 1.8k · auch: en_german
-- [ ] `decisions/0030-original-plus-huelle.md` · 848b · auch: en_german
-- [ ] `decisions/0031-texte-wiki-bibliothek.md` · 2.0k · auch: en_german
-- [ ] `decisions/0032-name-regel-und-bestand.md` · 686b · auch: en_german,rename
-- [ ] `decisions/0033-markieren-ein-mechanismus.md` · 1.7k · auch: en_german,rename
-- [ ] `decisions/0034-textstruktur-technisch.md` · 1.8k · auch: en_german
-- [ ] `decisions/0035-foederation-openid-federation.md` · 2.3k · auch: en_german
-- [ ] `decisions/0036-git-als-verteilung.md` · 1.7k · auch: en_german
-- [ ] `decisions/0037-programme-als-workbenches.md` · 1.6k · auch: en_german
-- [ ] `decisions/0038-referenz-frontends.md` · 1.1k · auch: en_german
-- [ ] `decisions/0039-drei-text-editoren.md` · 573b · auch: en_german
-- [ ] `decisions/0040-capnp-compiler-in-rust.md` · 1.4k · auch: en_german
-- [ ] `decisions/0041-rust-hygiene.md` · 1.3k · auch: en_german
-- [ ] `decisions/0042-text-ebenen-datenbank-wahrheit.md` · 2.7k · auch: en_german
-- [ ] `decisions/0043-design-patterns-schnittstellen-kleine-dateien.md` · 1.3k · auch: en_german
-- [ ] `decisions/0044-weitere-programme-und-reihenfolge.md` · 3.0k · auch: en_german,rename
-- [ ] `decisions/0045-themen-schnittstellen-als-ziele.md` · 2.7k · auch: en_german
-- [ ] `decisions/0046-speichern-ist-nicht-exportieren.md` · 1.0k · auch: en_german,rename
-- [ ] `decisions/0047-kanidm-hinter-wrapper.md` · 1.1k · auch: en_german
-- [ ] `decisions/0048-video-encoder.md` · 2.4k · auch: en_german
-- [ ] `decisions/0049-gesamtplan-programme-nach-zweck.md` · 2.4k · auch: en_german
-- [ ] `decisions/0050-ein-standard-ein-programm.md` · 3.0k · auch: en_german,rename
-- [ ] `decisions/0051-releases-nur-freie-wege.md` · 1.3k · auch: en_german
-- [ ] `decisions/0052-personen-rollen-und-vertrauen.md` · 1.2k · auch: en_german,rename
-- [ ] `decisions/0053-llm-chat-und-uebersetzung.md` · 1.2k · auch: en_german,rename
-- [ ] `decisions/0054-kis-als-markierte-teilnehmer.md` · 13.9k · auch: en_german
-- [ ] `decisions/0055-sprechende-namen-und-quellen-der-wahrheit.md` · 1.7k · auch: en_german,rename
-- [ ] `decisions/0056-admins-agenten-workbench-kanidm.md` · 5.2k · auch: en_german
-- [ ] `decisions/0057-texte-uebersetzbar.md` · 6.2k · auch: en_german
-- [ ] `decisions/0058-user-und-kontakte-trennen.md` · 3.0k · auch: en_german,rename
-- [ ] `decisions/0059-p2p-mit-iroh.md` · 3.9k · auch: en_german
-- [ ] `decisions/0060-fs-store-wird-fs-objects.md` · 1.2k · auch: en_german,rename
-- [ ] `decisions/0061-facetten.md` · 2.5k · auch: en_german
-- [ ] `decisions/0062-paket-repos-in-git.md` · 2.1k · auch: en_german
-- [ ] `decisions/0063-ein-programm-ein-befehl.md` · 2.2k · auch: en_german,rename
-- [ ] `decisions/0064-versionen-ab-0-0-1.md` · 2.2k · auch: en_german
-- [ ] `decisions/0065-standard-fensterhuelle.md` · 2.7k · auch: en_german
-- [ ] `decisions/0066-datentypen-und-vier-frontends.md` · 7.8k · auch: en_german,rename
-- [ ] `decisions/0067-tresor-und-verschluesselung.md` · 4.7k · auch: en_german,rename
-- [ ] `decisions/0068-faehigkeiten-und-spiegel.md` · 4.3k · auch: en_german,rename
-- [ ] `decisions/0069-update-schliesst-und-stellt-wieder-her.md` · 20.3k · auch: en_german,de_english,rename
-- [ ] `decisions/0070-thema-storage.md` · 22.3k · auch: en_german,de_english
-- [ ] `decisions/0071-versionen-git-backup.md` · 24.6k · auch: en_german,de_english,code_german
-- [ ] `decisions/0072-bloecke-als-quelle-fuer-texte.md` · 8.4k · auch: en_german,de_english,code_german
-- [ ] `decisions/0073-kollaboration-ueberall-mit-loro.md` · 10.4k · auch: en_german,de_english
-- [ ] `decisions/0074-stil-bausteine-bewegung-klang-menues.md` · 13.8k · auch: en_german
-- [ ] `decisions/0075-marketplace-programm-store-facette.md` · 4.5k · auch: en_german
-- [ ] `decisions/0076-grundmodell.md` · 9.6k · auch: en_german
-- [ ] `decisions/0077-katalog-arten-kind.md` · 9.9k · auch: en_german
-- [ ] `decisions/0078-paketquellen-apt-dnf.md` · 5.3k · auch: en_german
-- [ ] `decisions/0079-fs-server-server-einrichten.md` · 13.6k · auch: en_german
-- [ ] `decisions/0080-umzug-fs-wiki-nach-fs-text.md` · 10.0k · auch: en_german
-- [ ] `decisions/0081-ci-ereignisse-cloudevents.md` · 5.5k · auch: en_german
-- [ ] `decisions/0082-fs-server-verbindet.md` · 15.6k · auch: en_german
-- [ ] `decisions/0084-editor-bausteine.md` · 9.8k · auch: en_german
-- [ ] `decisions/0085-normalisierung-an-der-grenze.md` · 29.4k · auch: en_german,rename
-- [ ] `decisions/0086-gespeichert-wird-typisiert.md` · 5.1k · auch: en_german,rename
-- [ ] `decisions/0087-generische-programmnamen.md` · 5.0k · auch: en_german
-- [ ] `decisions/0089-schriften-freie-lizenzen.md` · 5.3k · auch: en_german
-
-## D. `en/` enthält noch deutschen Text – Rest übersetzen – 117 Dateien
-
-### `decisions/` · 88
-
-- [ ] `decisions/0001-ebenen-und-namen.md` · 1.1k · L4 DE prose in EN: ['eine', 'von'] · auch: copy,rename
-- [ ] `decisions/0002-sprache.md` · 795b · L6 DE prose in EN: ['der', 'immer', 'das', 'und', 'ist'] · auch: copy
-- [ ] `decisions/0003-repo-schale-und-skripte.md` · 936b · L4 German umlaut in EN word → "Pläne" · auch: copy,rename
-- [ ] `decisions/0004-komponenten-einteilung.md` · 1.0k · L4 DE prose in EN: ['die', 'komponenten', 'kategorien', 'die'] · auch: copy,rename
-- [ ] `decisions/0005-widget-und-app-gleicher-kern.md` · 2.6k · L4 DE prose in EN: ['werden', 'auswahl'] · auch: copy,rename
-- [ ] `decisions/0006-haaken-abbruchkriterium-und-pflichtmenge.md` · 3.2k · L1 DE prose in EN: ['und', 'kategorie'] · auch: copy,rename
-- [ ] `decisions/0007-skins-zu-masks.md` · 1.5k · L6 DE prose in EN: ['und', 'die', 'für', 'die', 'eines', 'den'] · auch: code_german,copy
-- [ ] `decisions/0008-englisch-zuerst.md` · 1.9k · L6 DE prose in EN: ['ist', 'der'] · auch: copy
-- [ ] `decisions/0009-gui-blinc.md` · 4.8k · L1 DE prose in EN: ['ist', 'gesetzt'] · auch: copy
-- [ ] `decisions/0010-ein-uebersetzungspruefer.md` · 4.0k · L1 DE prose in EN: ['ein', 'für', 'die'] · auch: copy,rename
-- [ ] `decisions/0011-nur-englisch.md` · 1.8k · L1 DE prose in EN: ['wird', 'wird'] · auch: copy
-- [ ] `decisions/0012-frontends-mit-versionen.md` · 4.0k · L6 DE prose in EN: ['unter', 'jeder', 'ein'] · auch: code_german,copy
-- [ ] `decisions/0013-funktionen-analysieren-nichts-kopieren.md` · 2.1k · L1 German umlaut in EN word → "auswählen" · auch: copy
-- [ ] `decisions/0014-standards-zuerst-as2.md` · 1.6k · L6 DE prose in EN: ['jedes', 'soll', 'laufen', 'und', 'der', 'ein'] · auch: copy
-- [ ] `decisions/0015-fremdprojekte-und-crates.md` · 1.8k · L1 DE prose in EN: ['die', 'und'] · auch: copy,rename
-- [ ] `decisions/0016-lizenz-mit-oder-apache.md` · 961b · L1 DE prose in EN: ['für', 'immer'] · auch: copy,rename
-- [ ] `decisions/0017-programme-und-repos.md` · 1.3k · L1 DE prose in EN: ['kategorie', 'ein'] · auch: copy,rename
-- [ ] `decisions/0018-messenger-mit-mail-nur-verschluesselt.md` · 3.3k · L1 German umlaut in EN word → "verschlüsselte" · auch: copy
-- [ ] `decisions/0019-fs-store-und-fs-hub.md` · 3.2k · L1 German umlaut in EN word → "Gerät" · auch: copy,rename
-- [ ] `decisions/0020-speicherformat-as2-huelle.md` · 1.5k · L1 German umlaut in EN word → "Hülle" · auch: copy
-- [ ] `decisions/0021-schnittstellenvertrag.md` · 1.5k · L1 German umlaut in EN word → "Zugänge" · auch: copy
-- [ ] `decisions/0022-zwei-referenz-frontends.md` · 634b · L8 DE prose in EN: ['eines', 'der', 'eines'] · auch: copy
-- [ ] `decisions/0023-darstellungs-register-und-editoren.md` · 1.8k · L8 DE prose in EN: ['und', 'lesen', 'und'] · auch: copy,rename
-- [ ] `decisions/0024-programm-ohne-hub-und-schluesseltresor.md` · 1.8k · L1 German umlaut in EN word → "Verschlüsselung" · auch: copy,rename
-- [ ] `decisions/0025-abschauen-nur-im-notfall.md` · 628b · L1 German umlaut in EN word → "äußersten" · auch: copy,rename
-- [ ] `decisions/0026-neueste-technik.md` · 1.4k · L1 DE prose in EN: ['immer', 'die'] · auch: copy
-- [ ] `decisions/0027-ids-uuidv7.md` · 483b · L7 DE prose in EN: ['ein', 'der'] · auch: copy
-- [ ] `decisions/0028-namen-domains-und-hub.md` · 1.9k · L1 DE prose in EN: ['und', 'über', 'den'] · auch: copy,rename
-- [ ] `decisions/0029-schutzbeduerftige-daten.md` · 1.8k · L1 DE prose in EN: ['müssen', 'werden'] · auch: copy
-- [ ] `decisions/0030-original-plus-huelle.md` · 848b · L1 German umlaut in EN word → "Hülle" · auch: copy
-- [ ] `decisions/0031-texte-wiki-bibliothek.md` · 2.0k · L1 DE prose in EN: ['jeder', 'ist', 'ein', 'eintrag', 'die', 'ist'] · auch: copy
-- [ ] `decisions/0032-name-regel-und-bestand.md` · 686b · L3 German umlaut in EN word → "löst" · auch: copy,rename
-- [ ] `decisions/0033-markieren-ein-mechanismus.md` · 1.7k · L1 DE prose in EN: ['ein', 'für'] · auch: copy,rename
-- [ ] `decisions/0034-textstruktur-technisch.md` · 1.8k · L3 German umlaut in EN word → "präzisiert" · auch: copy
-- [ ] `decisions/0035-foederation-openid-federation.md` · 2.3k · L1 German umlaut in EN word → "Föderation" · auch: copy
-- [ ] `decisions/0036-git-als-verteilung.md` · 1.7k · L3 DE prose in EN: ['des', 'die', 'wird'] · auch: copy
-- [ ] `decisions/0037-programme-als-workbenches.md` · 1.6k · L1 DE prose in EN: ['jedes', 'ist', 'eine', 'zeigen'] · auch: copy
-- [ ] `decisions/0038-referenz-frontends.md` · 1.1k · L6 DE prose in EN: ['nicht', 'sondern', 'zeigen'] · auch: copy
-- [ ] `decisions/0039-drei-text-editoren.md` · 573b · L6 German umlaut in EN word → "Für" · auch: copy
-- [ ] `decisions/0040-capnp-compiler-in-rust.md` · 1.4k · L6 DE prose in EN: ['die', 'ist', 'aber', 'zum', 'des', 'den'] · auch: copy
-- [ ] `decisions/0041-rust-hygiene.md` · 1.3k · L1 DE prose in EN: ['klein', 'halten'] · auch: copy
-- [ ] `decisions/0042-text-ebenen-datenbank-wahrheit.md` · 2.7k · L1 DE prose in EN: ['die', 'ist', 'die', 'sind'] · auch: copy
-- [ ] `decisions/0043-design-patterns-schnittstellen-kleine-dateien.md` · 1.3k · L3 German umlaut in EN word → "Prüfer" · auch: copy
-- [ ] `decisions/0044-weitere-programme-und-reihenfolge.md` · 3.0k · L6 DE prose in EN: ['den', 'sollen', 'folgen'] · auch: copy,rename
-- [ ] `decisions/0045-themen-schnittstellen-als-ziele.md` · 2.7k · L1 DE prose in EN: ['jedes', 'eine', 'sind'] · auch: copy
-- [ ] `decisions/0046-speichern-ist-nicht-exportieren.md` · 1.0k · L1 DE prose in EN: ['speichern', 'ist', 'nicht'] · auch: copy,rename
-- [ ] `decisions/0047-kanidm-hinter-wrapper.md` · 1.1k · L3 DE prose in EN: ['ergänzt', 'und', 'ein'] · auch: copy
-- [ ] `decisions/0048-video-encoder.md` · 2.4k · L3 DE prose in EN: ['die', 'und', 'sind'] · auch: copy
-- [ ] `decisions/0049-gesamtplan-programme-nach-zweck.md` · 2.4k · L3 German umlaut in EN word → "öffentlich" · auch: copy
-- [ ] `decisions/0050-ein-standard-ein-programm.md` · 3.0k · L1 DE prose in EN: ['ein', 'ein', 'eine'] · auch: copy,rename
-- [ ] `decisions/0051-releases-nur-freie-wege.md` · 1.3k · L3 German umlaut in EN word → "öffentlich" · auch: copy
-- [ ] `decisions/0052-personen-rollen-und-vertrauen.md` · 1.2k · L1 DE prose in EN: ['eine', 'sind', 'oder'] · auch: copy,rename
-- [ ] `decisions/0053-llm-chat-und-uebersetzung.md` · 1.2k · L1 DE prose in EN: ['und', 'nicht'] · auch: copy,rename
-- [ ] `decisions/0054-kis-als-markierte-teilnehmer.md` · 13.9k · L1 DE prose in EN: ['sind', 'der', 'ist', 'ein'] · auch: copy
-- [ ] `decisions/0055-sprechende-namen-und-quellen-der-wahrheit.md` · 1.7k · L1 DE prose in EN: ['ist', 'die', 'der', 'für'] · auch: copy,rename
-- [ ] `decisions/0056-admins-agenten-workbench-kanidm.md` · 5.2k · L1 DE prose in EN: ['werden', 'gibt'] · auch: copy
-- [ ] `decisions/0057-texte-uebersetzbar.md` · 6.2k · L1 DE prose in EN: ['ein', 'ist', 'die'] · auch: copy
-- [ ] `decisions/0058-user-und-kontakte-trennen.md` · 3.0k · L3 German umlaut in EN word → "präzisiert" · auch: copy,rename
-- [ ] `decisions/0059-p2p-mit-iroh.md` · 3.9k · L1 DE prose in EN: ['jeder', 'ist', 'ein'] · auch: copy
-- [ ] `decisions/0060-fs-store-wird-fs-objects.md` · 1.2k · L1 DE prose in EN: ['die', 'wird', 'der', 'laden'] · auch: copy,rename
-- [ ] `decisions/0061-facetten.md` · 2.5k · L1 DE prose in EN: ['ein', 'mehrere', 'jedes'] · auch: copy
-- [ ] `decisions/0062-paket-repos-in-git.md` · 2.1k · L1 DE prose in EN: ['ein', 'überall'] · auch: copy
-- [ ] `decisions/0063-ein-programm-ein-befehl.md` · 2.2k · L1 DE prose in EN: ['ein', 'ein'] · auch: copy,rename
-- [ ] `decisions/0064-versionen-ab-0-0-1.md` · 2.2k · L3 DE prose in EN: ['die', 'bleibt', 'über'] · auch: copy
-- [ ] `decisions/0065-standard-fensterhuelle.md` · 2.7k · L1 DE prose in EN: ['ein', 'für', 'jedes'] · auch: copy
-- [ ] `decisions/0066-datentypen-und-vier-frontends.md` · 7.8k · L3 DE prose in EN: ['ergänzt', 'und', 'ein', 'ein'] · auch: copy,rename
-- [ ] `decisions/0067-tresor-und-verschluesselung.md` · 4.7k · L1 DE prose in EN: ['und', 'kann', 'den'] · auch: copy,rename
-- [ ] `decisions/0068-faehigkeiten-und-spiegel.md` · 4.3k · L1 German umlaut in EN word → "Fähigkeiten" · auch: copy,rename
-- [ ] `decisions/0069-update-schliesst-und-stellt-wieder-her.md` · 20.3k · L1 DE prose in EN: ['ein', 'schließt', 'ein', 'und', 'am'] · auch: de_english,copy,rename
-- [ ] `decisions/0070-thema-storage.md` · 22.3k · L1 DE prose in EN: ['ein', 'für'] · auch: de_english,copy
-- [ ] `decisions/0071-versionen-git-backup.md` · 24.6k · L3 DE prose in EN: ['und', 'der', 'vom', 'unten', 'das', 'speichern'] · auch: de_english,code_german,copy
-- [ ] `decisions/0072-bloecke-als-quelle-fuer-texte.md` · 8.4k · L1 DE prose in EN: ['für', 'im', 'beschreibung', 'und'] · auch: de_english,code_german,copy
-- [ ] `decisions/0073-kollaboration-ueberall-mit-loro.md` · 10.4k · L1 German umlaut in EN word → "überall" · auch: de_english,copy
-- [ ] `decisions/0074-stil-bausteine-bewegung-klang-menues.md` · 13.8k · L1 German umlaut in EN word → "Menüs" · auch: copy
-- [ ] `decisions/0075-marketplace-programm-store-facette.md` · 4.5k · L3 DE prose in EN: ['dem', 'die', 'bleiben'] · auch: copy
-- [ ] `decisions/0076-grundmodell.md` · 9.6k · L1 German umlaut in EN word → "Abläufe" · auch: copy
-- [ ] `decisions/0077-katalog-arten-kind.md` · 9.9k · L3 DE prose in EN: ['den', 'und', 'sind', 'überall', 'ein', 'im'] · auch: copy
-- [ ] `decisions/0078-paketquellen-apt-dnf.md` · 5.3k · L1 DE prose in EN: ['ein', 'vom'] · auch: copy
-- [ ] `decisions/0079-fs-server-server-einrichten.md` · 13.6k · L1 DE prose in EN: ['und', 'jeder'] · auch: copy
-- [ ] `decisions/0080-umzug-fs-wiki-nach-fs-text.md` · 10.0k · L3 DE prose in EN: ['löschen', 'und', 'zum', 'die', 'sind', 'setzt'] · auch: copy
-- [ ] `decisions/0081-ci-ereignisse-cloudevents.md` · 5.5k · L3 German umlaut in EN word → "Hülle" · auch: copy
-- [ ] `decisions/0082-fs-server-verbindet.md` · 15.6k · L1 German umlaut in EN word → "außen" · auch: copy
-- [ ] `decisions/0084-editor-bausteine.md` · 9.8k · L1 DE prose in EN: ['ein', 'mehrere'] · auch: copy
-- [ ] `decisions/0085-normalisierung-an-der-grenze.md` · 29.4k · L1 DE prose in EN: ['der', 'und'] · auch: copy,rename
-- [ ] `decisions/0086-gespeichert-wird-typisiert.md` · 5.1k · L1 DE prose in EN: ['wird', 'kein', 'kein'] · auch: copy,rename
-- [ ] `decisions/0087-generische-programmnamen.md` · 5.0k · L1 DE prose in EN: ['sind', 'oder', 'nicht'] · auch: copy
-- [ ] `decisions/0089-schriften-freie-lizenzen.md` · 5.3k · L1 DE prose in EN: ['keine', 'im', 'über'] · auch: copy
-- [ ] `decisions/index.md` · 13.2k · L7 DE prose in EN: ['und', 'und']
+## D. `en/` enthält noch deutschen Text – Rest übersetzen – 29 Dateien
 
 ### `programs/` · 1
 
@@ -978,14 +795,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `start/glossary.md` · 2.4k · L9 DE prose in EN: ['ein', 'ein']
 
-## D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) – 8 Dateien
-
-### `decisions/` · 4
-
-- [ ] `decisions/0007-skins-zu-masks.md` · 1.5k · L15 German word in code → "kategorie" · Fundzeile: docs/<sprache>/programs/<ebene>/<kategorie>/masks/<programm>/ · Bezeichner ausserhalb bleiben deutsch (ADR 0002) · auch: en_german,copy
-- [ ] `decisions/0012-frontends-mit-versionen.md` · 4.0k · L31 German in code/example → "ist" · Fundzeile: ├── index.md            Pflicht · was es ist, Einordnung, warum es hie · Bezeichner ausserhalb bleiben deutsch (ADR 0002) · auch: en_german,copy
-- [ ] `decisions/0071-versionen-git-backup.md` · 24.6k · L55 German word in code → "vorhanden" · Fundzeile: # StorageCaps: versions @9 (vorhanden); neu ans Ende: namedVersions @1 · Bezeichner ausserhalb bleiben deutsch (ADR 0002) · auch: en_german,de_english,copy
-- [ ] `decisions/0072-bloecke-als-quelle-fuer-texte.md` · 8.4k · L33 German word in code → "anhängen" · Fundzeile: # interface WikiProvider (anhängen):  blocks (query :BlockQuery, curso · Bezeichner ausserhalb bleiben deutsch (ADR 0002) · auch: en_german,de_english,copy
+## D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) – 4 Dateien
 
 ### `programs/suites/democracy/frontends/adhocracy4/latest/` · 1
 
@@ -1003,15 +813,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `programs/suites/workflows/frontends/node-red/latest/api.md` · 2.0k · L46 German word in code → "geschlossen" · Fundzeile: node.warn("Ticket " + msg.payload.ticket.id + " geschlossen"); · Bezeichner ausserhalb bleiben deutsch (ADR 0002)
 
-## E. `de/` enthält noch englischen Text – Rest rückübersetzen – 187 Dateien
-
-### `decisions/` · 5
-
-- [ ] `decisions/0069-update-schliesst-und-stellt-wieder-her.md` · 20.3k · L1 DE prose in EN: ['ein', 'schließt', 'ein', 'und', 'am'] · auch: en_german,copy,rename
-- [ ] `decisions/0070-thema-storage.md` · 22.3k · L1 DE prose in EN: ['ein', 'für'] · auch: en_german,copy
-- [ ] `decisions/0071-versionen-git-backup.md` · 24.6k · L3 DE prose in EN: ['und', 'der', 'vom', 'unten', 'das', 'speichern'] · auch: en_german,code_german,copy
-- [ ] `decisions/0072-bloecke-als-quelle-fuer-texte.md` · 8.4k · L1 DE prose in EN: ['für', 'im', 'beschreibung', 'und'] · auch: en_german,code_german,copy
-- [ ] `decisions/0073-kollaboration-ueberall-mit-loro.md` · 10.4k · L1 German umlaut in EN word → "überall" · auch: en_german,copy
+## E. `de/` enthält noch englischen Text – Rest rückübersetzen – 182 Dateien
 
 ### `programs/apps/calendar/frontends/cal-com/` · 1
 
@@ -1982,42 +1784,6 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 ### `programs/suites/workflows/frontends/zapier/` · 1
 
 - [ ] `programs/suites/workflows/frontends/zapier/index.md` · 1.2k · Parität: headings 5 vs 3; table rows 11 vs 0
-
-## G. Deutscher Dateiname – Pfad englisch machen (ADR 0002) – 31 Dateien
-
-### `decisions/` · 31
-
-- [ ] `decisions/0001-ebenen-und-namen.md` · 1.1k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0003-repo-schale-und-skripte.md` · 936b · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0004-komponenten-einteilung.md` · 1.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0005-widget-und-app-gleicher-kern.md` · 2.6k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0006-haaken-abbruchkriterium-und-pflichtmenge.md` · 3.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0010-ein-uebersetzungspruefer.md` · 4.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0015-fremdprojekte-und-crates.md` · 1.8k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0016-lizenz-mit-oder-apache.md` · 961b · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0017-programme-und-repos.md` · 1.3k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0019-fs-store-und-fs-hub.md` · 3.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0023-darstellungs-register-und-editoren.md` · 1.8k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0024-programm-ohne-hub-und-schluesseltresor.md` · 1.8k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0025-abschauen-nur-im-notfall.md` · 628b · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0028-namen-domains-und-hub.md` · 1.9k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0032-name-regel-und-bestand.md` · 686b · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0033-markieren-ein-mechanismus.md` · 1.7k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0044-weitere-programme-und-reihenfolge.md` · 3.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0046-speichern-ist-nicht-exportieren.md` · 1.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0050-ein-standard-ein-programm.md` · 3.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0052-personen-rollen-und-vertrauen.md` · 1.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0053-llm-chat-und-uebersetzung.md` · 1.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0055-sprechende-namen-und-quellen-der-wahrheit.md` · 1.7k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0058-user-und-kontakte-trennen.md` · 3.0k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0060-fs-store-wird-fs-objects.md` · 1.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0063-ein-programm-ein-befehl.md` · 2.2k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0066-datentypen-und-vier-frontends.md` · 7.8k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0067-tresor-und-verschluesselung.md` · 4.7k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0068-faehigkeiten-und-spiegel.md` · 4.3k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0069-update-schliesst-und-stellt-wieder-her.md` · 20.3k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,de_english,copy
-- [ ] `decisions/0085-normalisierung-an-der-grenze.md` · 29.4k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
-- [ ] `decisions/0086-gespeichert-wird-typisiert.md` · 5.1k · Zielpfad englisch, dann Links + `mkdocs.yml` nachziehen · auch: en_german,copy
 
 ## H. Beide Seiten da, kein Befund – lesen und bestätigen – 1207 Dateien
 
@@ -4316,8 +4082,6 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ## Changelog
 
-- 2026-11-05 14:28 · Lauf: 1532 verfolgt, 621 offen, 904 bestätigt · needs_en=423 needs_de=17 parity=107 review=74
-- 2026-11-05 14:38 · Lauf: 1532 verfolgt, 638 offen, 887 bestätigt · needs_en=423 needs_de=17 parity=108 review=90
 - 2026-11-05 14:41 · Lauf: 1532 verfolgt, 548 offen, 977 bestätigt · needs_en=423 needs_de=17 parity=108
 - 2026-11-05 15:27 · Lauf: 1532 verfolgt, 554 offen, 971 bestätigt · needs_en=423 needs_de=17 parity=27 review=87
 - 2026-11-05 15:28 · Lauf: 1532 verfolgt, 467 offen, 1058 bestätigt · needs_en=423 needs_de=17 parity=27
@@ -4357,3 +4121,5 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - 2026-11-05 20:11 · Lauf: 1573 verfolgt, 349 offen, 1217 bestätigt · needs_en=297 needs_de=36 parity=16
 - 2026-11-05 20:15 · Lauf: 1573 verfolgt, 349 offen, 1217 bestätigt · needs_en=297 needs_de=36 parity=4 review=12
 - 2026-11-16 04:33 · Lauf: 2609 verfolgt, 1970 offen, 483 bestätigt · needs_en=6 needs_de=341 copy=87 en_german=117 code_german=8 de_english=187 parity=219 rename=31 review=1207
+- 2026-11-16 04:38 · Lauf: 2609 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=341 en_german=29 code_german=4 de_english=182 parity=219 review=1207
+- 2026-11-16 04:38 · Lauf: 2521 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=341 en_german=29 code_german=4 de_english=182 parity=219 review=1207
