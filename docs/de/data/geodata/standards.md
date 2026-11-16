@@ -4,7 +4,7 @@
 
 ## Stand 2026-11-05 (jüngste Standards, ADR 0026)
 
-Beleg: `temp/research/geodata-projects-profile-login.md` (2026-11-05).
+Beleg: `research/geodata-projects-profile-login.md` (2026-11-05).
 
 | Standard | Beleg | Rolle |
 |----------|-------|-------|

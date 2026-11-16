@@ -149,7 +149,7 @@ Mistakes from the earlier conversation, so they do not end up in a file:
 | schema.org version "16.0" | a made-up number. Checked: schema.org says "V30.1 \| 2026-09-16" on the pages retrieved |
 | "W3C is currently producing an Ink Annotation Module" | unevidenced, withdrawn |
 | "E-invoicing: receiving from 2025, issuing 2027/2028" | **not looked up in this round** — do not use as a deadline |
-| "ActivityPub signs with `Authorization: Signature`, reference `w3id.org/security/httpsig`" | that reference returns **HTTP 404**. **Resolved 2026-11-05:** HTTP Message Signatures **RFC 9421** (Feb 2024, ✅); object proofs **FEP-8b32** (draft, Data Integrity `eddsa-jcs-2022`, ✅); keys as `Multikey` per **FEP-521a** (final 2025-06-14, ✅). Mastodon verifies RFC 9421 since 4.5.0 (✅). Details: `temp/research/contacts-identity-standards.md` |
+| "ActivityPub signs with `Authorization: Signature`, reference `w3id.org/security/httpsig`" | that reference returns **HTTP 404**. **Resolved 2026-11-05:** HTTP Message Signatures **RFC 9421** (Feb 2024, ✅); object proofs **FEP-8b32** (draft, Data Integrity `eddsa-jcs-2022`, ✅); keys as `Multikey` per **FEP-521a** (final 2025-06-14, ✅). Mastodon verifies RFC 9421 since 4.5.0 (✅). Details: `research/contacts-identity-standards.md` |
 
 ## Decisions (2026-11-01)
 

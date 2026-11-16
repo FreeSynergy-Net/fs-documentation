@@ -2,7 +2,7 @@
 
 Status: akzeptiert (Strategie, 2026-11-11); Code erst nach 3b und Wiki/Groups · Entscheidungen der Strategie vom 2026-11-11 (Punkte 1 bis 5 unten) · erweitert das Flag `versions` aus ADR 0070 · baut auf ADR 0067 (Tresor), 0050 (Besitzer), 0069 (Zustand), 0045 (Unsupported), 0020 (AS2, Undo), 0046 (Speichern ≠ Export)
 
-Befund und Quellen: `temp/research/versionierung-backup.md` (Opus-Empfehlung), `versionierung-backup-vergleich.md`, `versionierung-backup-rust-bausteine.md` (alle Stand 2026-11-11).
+Befund und Quellen: `research/versionierung-backup.md` (Opus-Empfehlung), `versionierung-backup-vergleich.md`, `versionierung-backup-rust-bausteine.md` (alle Stand 2026-11-11).
 
 ## Voraussetzung (Regel)
 **Kein Code vor Runde 3b grün und nicht vor Wiki/Groups.** Bis dahin ist dies ein Beschluss ohne Code.

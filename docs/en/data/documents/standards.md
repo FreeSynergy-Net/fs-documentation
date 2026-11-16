@@ -1,6 +1,6 @@
 # Documents – standards
 
-> Evidence: `temp/research/documents-standards.md` (2026-11-05). Policy: newest viable standard (ADR 0026).
+> Evidence: `research/documents-standards.md` (2026-11-05). Policy: newest viable standard (ADR 0026).
 
 ## Envelope (ActivityStreams 2.0, ✅)
 

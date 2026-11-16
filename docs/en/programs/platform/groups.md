@@ -76,7 +76,7 @@ Someone gets rights only if an admin allows it. Kanidm only lists people who rea
 
 ## What we keep, what Kanidm keeps
 
-From the [Kanidm research](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/kanidm-control.md),
+From the [Kanidm research](https://github.com/FreeSynergy/fs-documentation/blob/main/research/kanidm-control.md),
 source read at 1.13.0-dev:
 
 | Need | In Kanidm? | So |

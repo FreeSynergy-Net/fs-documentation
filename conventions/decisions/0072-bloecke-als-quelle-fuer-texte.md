@@ -22,7 +22,7 @@ Ein Text steht heute oft mehrfach: die Beschreibung eines Programms im Store, ei
 
 - **Zweck-Schlüssel** sind ein offenes, dokumentiertes Vokabular: `store.*` für den Laden, `help.<thema>` für die Hilfe im Fenster (ADR 0065), `manual.*` für das Handbuch. Programme dürfen eigene Zwecke unter ihrem Namensraum anlegen (`<programm>.<zweck>`); die Standards bleiben bei uns, wir schreiben keine feste Menge vor.
 - **Kollaboration:** Die Block-Id (UUIDv7) steht als Metadatum am Knoten des Blockbaums im CRDT; die internen CRDT-Knoten-Ids sind **nicht** die Block-Id und werden nie als solche verwendet.
-- AS2/Annotation (ADR 0020, 0031): ein Block ist eine benannte Marke im `Article` der Seite (ADR 0034); die Metadaten stehen als Felder des Blocks, nicht im Fließtext. Das genaue Blockformat bleibt Teil der Spezifikation der Domäne `documents` (`temp/research/documents-standards.md`).
+- AS2/Annotation (ADR 0020, 0031): ein Block ist eine benannte Marke im `Article` der Seite (ADR 0034); die Metadaten stehen als Felder des Blocks, nicht im Fließtext. Das genaue Blockformat bleibt Teil der Spezifikation der Domäne `documents` (`research/documents-standards.md`).
 
 ### 2. Programme fragen Blöcke über die Wiki-Schnittstelle ab
 Thema `wiki` (ADR 0045): ein Programm fragt **nicht nach Seiten, sondern nach Blöcken**: „gib mir `purpose = store.summary` für `program = fs-files` in `lang = de`, sonst `en`“. Die Antwort enthält Id, Text, Sprache, `rev`, bei Übersetzungen `sourceRev` samt Kennzeichen „veraltet“; Rückfall auf die Ausgangssprache wird **als solcher gekennzeichnet** (ADR 0057), nie als deutsche Übersetzung ausgegeben.

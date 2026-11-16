@@ -2,7 +2,7 @@
 
 Stand 2026-11-05 · Grundlage: `docs/en/programs/apps/messenger/frontends/*/latest/{features,layout,menus,shortcuts}.md`
 (7 Frontends), `docs/en/programs/apps/messenger/requirements.md`, CONVENTIONS §2/§3, ADR 0005/0018/0022/0023,
-`docs/en/components/blinc-cn-components.md`, `temp/research/blinc-issues.md`.
+`docs/en/components/blinc-cn-components.md`, `research/blinc-issues.md`.
 
 Zweck: Brücke von der Frontend-Seite — welche Bausteine braucht ein Messenger-Frontend, welche
 haben wir (84 Komponenten), welche fehlen, was gehört nach Blinc. Nichts kopiert (ADR 0013); die

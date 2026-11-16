@@ -177,7 +177,7 @@ lasting role with a start and an end, in a way that any standard specifies. So t
 | Not in GoodRelations | Searched. Only "delivery lead time" |
 | Not in FIBO's products ontology | Searched `ProductsAndServices.ttl`, no hit for lead, prospect or prospective. **Only this one FIBO file was searched, not all of FIBO** |
 | Vendor use: HubSpot lifecycle stages: Subscriber, Lead, Marketing Qualified Lead, Sales Qualified Lead, Opportunity, Customer, Evangelist, Other | Read, https://knowledge.hubspot.com/records/use-lifecycle-stages . A vendor's product, not a standard |
-| Earlier note on a vendor property `lifecycle` | `temp/research/contacts-identity-standards.md` line 21. That note flags control of `freesynergy.org` as unchecked. Existing examples use `freesynergy.net` |
+| Earlier note on a vendor property `lifecycle` | `research/contacts-identity-standards.md` line 21. That note flags control of `freesynergy.org` as unchecked. Existing examples use `freesynergy.net` |
 | General web search for a lead or prospect standard | One search gave only general pages and vendor documents. A weak signal, and not proof |
 
 **Conclusion:** a gap. Ours to specify.

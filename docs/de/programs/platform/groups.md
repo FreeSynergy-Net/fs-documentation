@@ -64,7 +64,7 @@ Jemand bekommt Rechte nur, wenn ein Administrator es erlaubt. Kanidm listet nur 
 
 ## Was wir behalten, was Kanidm behält
 
-Aus der [Kanidm-Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/kanidm-control.md), Quelltext gelesen bei 1.13.0-dev:
+Aus der [Kanidm-Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/research/kanidm-control.md), Quelltext gelesen bei 1.13.0-dev:
 
 | Bedarf | In Kanidm? | Also |
 |--------|------------|------|

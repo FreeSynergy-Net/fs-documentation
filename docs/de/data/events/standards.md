@@ -2,7 +2,7 @@
 
 > Belege stehen zentral in [standards.md](../standards.md) — **nichts aus dem Web nachladen.**
 
-## Kernstandard (aktualisiert 2026-11-05, `temp/research/events-standards.md`)
+## Kernstandard (aktualisiert 2026-11-05, `research/events-standards.md`)
 
 | Standard | Beleg | Rolle |
 |----------|-------|-------|

@@ -41,7 +41,7 @@ Decisions: ADR 0020/0030 (original + envelope + log), ADR 0023 (code and block e
 | text buffer | `ropey` | MIT OR Apache-2.0 |
 | syntax highlighting | `syntect` 5.3 with `default-features = false, features = ["default-fancy"]` (pure Rust; default pulls Oniguruma = C) + `two-face` grammars | MIT |
 | structure (folding, outline) for own formats | `logos` + `rowan`, or `lelwel` | MIT/Apache |
-| ~~tree-sitter~~ | excluded: grammars are C even with `tree-sitter-c2rust` (user 2026-11-05, `temp/research/blinc-health-and-parsers.md`) | |
+| ~~tree-sitter~~ | excluded: grammars are C even with `tree-sitter-c2rust` (user 2026-11-05, `research/blinc-health-and-parsers.md`) | |
 | formatting | dprint (MIT), Biome (MIT OR Apache-2.0, crates.io outdated) | |
 | export | EPUB 3.3 / GFM writers — crates to choose | |
 | history | `gix` 0.90 (candidate) | MIT OR Apache-2.0 |

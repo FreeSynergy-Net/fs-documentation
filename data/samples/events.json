@@ -5,8 +5,8 @@
     "uid": "urn:uuid:01a1aaf0-08a0-756c-85b2-f092789b0711",
     "created": "2026-11-05T09:00:00Z",
     "updated": "2026-11-05T09:00:00Z",
-    "title": "FreeSynergy presentation – NLnet Foundation",
-    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation.",
+    "title": "FreeSynergy presentation – Beispielstiftung Offenes Netz",
+    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation (fictional sample).",
     "start": "2026-11-24T10:00:00",
     "timeZone": "Europe/Berlin",
     "duration": "PT1H",
@@ -16,14 +16,14 @@
     "participants": {
       "p1": {
         "@type": "Participant",
-        "name": "NLnet Foundation",
+        "name": "Beispielstiftung Offenes Netz",
         "kind": "group",
         "roles": {
           "attendee": true
         },
-        "email": "webcontact@nlnet.nl",
+        "email": "info@offenes-netz.example.org",
         "sendTo": {
-          "imip": "mailto:webcontact@nlnet.nl"
+          "imip": "mailto:info@offenes-netz.example.org"
         },
         "participationStatus": "needs-action",
         "expectReply": true,
@@ -44,7 +44,7 @@
       "v1": {
         "@type": "VirtualLocation",
         "name": "Video call (link to be agreed)",
-        "uri": "https://meet.example.invalid/freesynergy-nlnet"
+        "uri": "https://meet.example.invalid/freesynergy-offenes-netz"
       }
     }
   },
@@ -54,8 +54,8 @@
     "uid": "urn:uuid:01a1aaf0-0c88-7c70-9a9b-f71fdfd3e8f4",
     "created": "2026-11-05T09:00:00Z",
     "updated": "2026-11-05T09:00:00Z",
-    "title": "FreeSynergy presentation – Sovereign Tech Agency",
-    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation.",
+    "title": "FreeSynergy presentation – Agentur für Offene Infrastruktur",
+    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation (fictional sample).",
     "start": "2026-11-26T14:00:00",
     "timeZone": "Europe/Berlin",
     "duration": "PT1H",
@@ -65,14 +65,14 @@
     "participants": {
       "p1": {
         "@type": "Participant",
-        "name": "Sovereign Tech Agency",
+        "name": "Agentur für Offene Infrastruktur",
         "kind": "group",
         "roles": {
           "attendee": true
         },
-        "email": "info@sovereign.tech",
+        "email": "info@offene-infrastruktur.example.com",
         "sendTo": {
-          "imip": "mailto:info@sovereign.tech"
+          "imip": "mailto:info@offene-infrastruktur.example.com"
         },
         "participationStatus": "needs-action",
         "expectReply": true,
@@ -92,8 +92,8 @@
     "locations": {
       "l1": {
         "@type": "Location",
-        "name": "Sovereign Tech Agency GmbH",
-        "description": "Gartenstr. 7, 10115 Berlin, Germany"
+        "name": "Agentur für Offene Infrastruktur",
+        "description": "Beispielweg 2, 12345 Musterstadt, Germany"
       }
     }
   },
@@ -103,8 +103,8 @@
     "uid": "urn:uuid:01a1aaf0-1070-77db-bf78-15b5b1ee5170",
     "created": "2026-11-05T09:00:00Z",
     "updated": "2026-11-05T09:00:00Z",
-    "title": "FreeSynergy presentation – Prototype Fund (Open Knowledge Foundation Deutschland)",
-    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation.",
+    "title": "FreeSynergy presentation – Werkstatt für Freie Software",
+    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation (fictional sample).",
     "start": "2026-12-01T11:00:00",
     "timeZone": "Europe/Berlin",
     "duration": "PT1H",
@@ -114,14 +114,14 @@
     "participants": {
       "p1": {
         "@type": "Participant",
-        "name": "Prototype Fund (Open Knowledge Foundation Deutschland)",
+        "name": "Werkstatt für Freie Software",
         "kind": "group",
         "roles": {
           "attendee": true
         },
-        "email": "info@okfn.de",
+        "email": "info@freie-software.example.net",
         "sendTo": {
-          "imip": "mailto:info@okfn.de"
+          "imip": "mailto:info@freie-software.example.net"
         },
         "participationStatus": "needs-action",
         "expectReply": true,
@@ -141,8 +141,8 @@
     "locations": {
       "l1": {
         "@type": "Location",
-        "name": "Open Knowledge Foundation Deutschland e. V.",
-        "description": "Singerstr. 109, 10179 Berlin, Germany"
+        "name": "Werkstatt für Freie Software",
+        "description": "Probeallee 3, 12345 Musterstadt, Germany"
       }
     }
   },
@@ -152,8 +152,8 @@
     "uid": "urn:uuid:01a1aaf0-1458-7779-ac02-e74368fd43eb",
     "created": "2026-11-05T09:00:00Z",
     "updated": "2026-11-05T09:00:00Z",
-    "title": "FreeSynergy presentation – ZenDiS",
-    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation.",
+    "title": "FreeSynergy presentation – Zentrum für Offene Verwaltung",
+    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation (fictional sample).",
     "start": "2026-12-03T10:00:00",
     "timeZone": "Europe/Berlin",
     "duration": "PT1H",
@@ -163,14 +163,14 @@
     "participants": {
       "p1": {
         "@type": "Participant",
-        "name": "ZenDiS",
+        "name": "Zentrum für Offene Verwaltung",
         "kind": "group",
         "roles": {
           "attendee": true
         },
-        "email": "hallo@zendis.de",
+        "email": "info@offene-verwaltung.example.org",
         "sendTo": {
-          "imip": "mailto:hallo@zendis.de"
+          "imip": "mailto:info@offene-verwaltung.example.org"
         },
         "participationStatus": "needs-action",
         "expectReply": true,
@@ -190,8 +190,8 @@
     "locations": {
       "l1": {
         "@type": "Location",
-        "name": "Zentrum für Digitale Souveränität der Öffentlichen Verwaltung (ZenDiS) GmbH",
-        "description": "Suttner-Nobel-Allee 4, 44803 Bochum, Germany"
+        "name": "Zentrum für Offene Verwaltung",
+        "description": "Testgasse 16, 12345 Musterstadt, Germany"
       }
     }
   },
@@ -201,8 +201,8 @@
     "uid": "urn:uuid:01a1aaf0-1840-755c-a753-37c1fa35179c",
     "created": "2026-11-05T09:00:00Z",
     "updated": "2026-11-05T09:00:00Z",
-    "title": "FreeSynergy presentation – Open Source Business Alliance",
-    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation.",
+    "title": "FreeSynergy presentation – Allianz Digitale Souveränität",
+    "description": "Draft: introduce FreeSynergy (free Rust suite: messenger, wiki, contacts, calendar, maps; ActivityStreams 2.0, JSContact, JSCalendar) and discuss cooperation/funding. Date to be confirmed with the organisation (fictional sample).",
     "start": "2026-12-08T15:00:00",
     "timeZone": "Europe/Berlin",
     "duration": "PT1H",
@@ -212,14 +212,14 @@
     "participants": {
       "p1": {
         "@type": "Participant",
-        "name": "Open Source Business Alliance",
+        "name": "Allianz Digitale Souveränität",
         "kind": "group",
         "roles": {
           "attendee": true
         },
-        "email": "info@osb-alliance.com",
+        "email": "info@digitale-souveraenitaet.example.com",
         "sendTo": {
-          "imip": "mailto:info@osb-alliance.com"
+          "imip": "mailto:info@digitale-souveraenitaet.example.com"
         },
         "participationStatus": "needs-action",
         "expectReply": true,
@@ -239,8 +239,8 @@
     "locations": {
       "l1": {
         "@type": "Location",
-        "name": "Open Source Business Alliance – Bundesverband für digitale Souveränität e.V.",
-        "description": "Pariser Platz 6a, 10117 Berlin, Germany"
+        "name": "Allianz Digitale Souveränität",
+        "description": "Musterstraße 5, 12345 Musterstadt, Germany"
       }
     }
   }

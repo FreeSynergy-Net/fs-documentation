@@ -27,7 +27,7 @@ Who is an actor — and whom may one trust? Approach: **Web of Trust with meetin
 ## Open points
 
 - ~~review Anton's repo~~ → **done 2026-11-02**, facts in standards.md; mapping it as `mapping.md` onto `Relationship`/`publicKey` is still open
-- ~~Signature research~~ → ✅ 2026-11-05: RFC 9421, FEP-8b32, FEP-521a; DID Core/VC 2.0 status ✅ (`temp/research/contacts-identity-standards.md`)
+- ~~Signature research~~ → ✅ 2026-11-05: RFC 9421, FEP-8b32, FEP-521a; DID Core/VC 2.0 status ✅ (`research/contacts-identity-standards.md`)
 - Layers (ADR 0024): **login** = Kanidm (OAuth2/OIDC, SCIM) · **identity** = DID · **trust** = Web of Trust attestations (VC 2.0)
 - Pairwise DIDs (RLTP) vs. hub matching — open
 

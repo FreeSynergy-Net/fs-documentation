@@ -1,7 +1,7 @@
 # 0019 – Datenhaltung: `fs-store` in jedem Programm, `fs-hub` pro Gerät
 
 Status: akzeptiert (2026-11-05) ·
-Turso-Details nach Recherche `temp/research/turso-sync.md` · Protokoll §3, §21.1
+Turso-Details nach Recherche `research/turso-sync.md` · Protokoll §3, §21.1
 
 ## Kontext
 Jedes Programm soll allein laufen (lokal oder übers Web); wo das Programm ist, liegt seine
@@ -39,7 +39,7 @@ PM wird mit einem Kontakt aus Contacts angeglichen, weil beide standardisiert si
 ## Folgen
 - Neue Repos `fs-store` und `fs-hub` (ADR 0017).
 - Hub-Port/Socket festlegen; Kollision mit llama.cpp (8080) vermeiden.
-- **Turso ohne Sync** (Recherche `temp/research/turso-sync.md`, 2026-11-05): Turso-Sync spiegelt
+- **Turso ohne Sync** (Recherche `research/turso-sync.md`, 2026-11-05): Turso-Sync spiegelt
   genau eine Server-DB, führt getrennte DBs nicht zusammen, kennt kein P2P, löst Konflikte mit
   last-push-wins und kann die lokale Datei **nicht verschlüsseln** (widerspricht ADR 0024). Turso
   wird nur als eingebettete DB hinter `fs-store` genutzt (Crate `turso`, MIT, < 1.0).

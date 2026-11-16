@@ -116,9 +116,9 @@ Source: `/srv/FreeSynergy/.wt-doc-d/docs/en/programs/suites/marketplace/index.md
 
 | Number | Title | Status | Authors | Dates seen | Link |
 |---|---|---|---|---|---|
-| FEP-0837 | Federated Marketplace | DRAFT (type: Implementation) | silverpill (@silverpill@mitra.social) | received 2023-08-17; tracking issue #147 | [FEP-0837](https://fediverse.codeberg.page/fep/fep/0837/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/0837/fep-0837.md) |
-| FEP-d767 | Extend ActivityPub with Valueflows | WITHDRAWN | Lynn Foster (lynnfoster@social.coop) | received 2023-04-02; withdrawn 2024-02-03; reason not stated | [FEP-d767](https://fediverse.codeberg.page/fep/fep/d767/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/d767/fep-d767.md) |
-| FEP-c07e | add product type to object | DRAFT (type: implementation) | potato (@potatomeow@fosstodon.org) | received 2026-03-15; tracking issue #786 | [FEP-c07e](https://fediverse.codeberg.page/fep/fep/c07e/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/c07e/fep-c07e.md) |
+| FEP-0837 | Federated Marketplace | DRAFT (type: Implementation) | silverpill (Fediverse handle omitted) | received 2023-08-17; tracking issue #147 | [FEP-0837](https://fediverse.codeberg.page/fep/fep/0837/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/0837/fep-0837.md) |
+| FEP-d767 | Extend ActivityPub with Valueflows | WITHDRAWN | Lynn Foster (Fediverse handle omitted) | received 2023-04-02; withdrawn 2024-02-03; reason not stated | [FEP-d767](https://fediverse.codeberg.page/fep/fep/d767/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/d767/fep-d767.md) |
+| FEP-c07e | add product type to object | DRAFT (type: implementation) | potato (Fediverse handle omitted) | received 2026-03-15; tracking issue #786 | [FEP-c07e](https://fediverse.codeberg.page/fep/fep/c07e/), [source](https://codeberg.org/fediverse/fep/src/branch/main/fep/c07e/fep-c07e.md) |
 
 FEP-0837 content (as stated): a minimal federated marketplace built on ActivityPub and the ValueFlows vocabulary; a `Proposal` with `purpose` `offer` or `request`; an `Intent` with action values such as `transfer` or `deliverService`; an `Agreement` with `stipulates` and `stipulatesReciprocal` Commitments; a reply to a proposal is "an `Agreement` object wrapped in `Offer` activity" ([FEP-0837](https://fediverse.codeberg.page/fep/fep/0837/)). Licence CC0 1.0 ([FEP-0837](https://fediverse.codeberg.page/fep/fep/0837/)).
 

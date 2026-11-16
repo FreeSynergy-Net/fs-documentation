@@ -1,6 +1,6 @@
 # 0040 – Cap'n-Proto-Schema-Compiler in reinem Rust; Anerkennung ohne Drama
 
-Status: akzeptiert (2026-11-05) · Recherche `temp/research/capnp-codegen.md` · ADR 0013, 0015, 0021, 0025
+Status: akzeptiert (2026-11-05) · Recherche `research/capnp-codegen.md` · ADR 0013, 0015, 0021, 0025
 
 ## Kontext
 Die Laufzeit `capnp` ist reines Rust, aber `capnpc` ruft zum Einlesen des Schemas den C++-Compiler

@@ -22,7 +22,7 @@ except the notes at the end.
 | `bifrost-jmap` (Soflutionltd) | client: RFC 8620/8621/8887/9404/9425/9610/9670 + Calendars draft-26 + Sieve draft-14 |
 | JMAP Conditional Set (draft-00) | no crate; Mustang (mustang-im) implementing (PR #1634, Oct 2026) |
 
-## Notes by Opus (cross-check with temp/research/messaging-crates.md)
+## Notes by Opus (cross-check with research/messaging-crates.md)
 
 - ⚠️ **calcard licence:** `messaging-crates.md` found that Stalwart moved `calcard` into its main repo
   under `AGPL-3.0-only OR LicenseRef-SEL` (Oct 2026); the last MIT/Apache version on crates.io is

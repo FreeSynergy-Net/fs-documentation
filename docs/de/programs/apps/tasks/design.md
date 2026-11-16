@@ -25,7 +25,7 @@ Eine Person will wissen, was als Nächstes zu tun ist. Ein Board, eine Liste und
 
 ## Open-Source-Lücken, die sich zu schließen lohnen
 
-Aus der [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/projectmanagement-landscape.md): eine Entscheidung als Objekt, das mit Aufgaben verknüpft ist, eine Aufgabe in mehreren Zusammenhängen und die persönliche und gemeinsame Nutzung derselben Daten. Kapazität und Baselines gehören zu [`fs-resources`](../resources/index.md).
+Aus der [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/research/projectmanagement-landscape.md): eine Entscheidung als Objekt, das mit Aufgaben verknüpft ist, eine Aufgabe in mehreren Zusammenhängen und die persönliche und gemeinsame Nutzung derselben Daten. Kapazität und Baselines gehören zu [`fs-resources`](../resources/index.md).
 
 ## Muster
 

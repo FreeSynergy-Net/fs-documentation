@@ -27,7 +27,7 @@ Wer ist ein Akteur — und wem darf man glauben? Ansatz: **Web of Trust mit Tref
 ## Offene Punkte
 
 - ~~Antons Repo sichten~~ → **erledigt 2026-11-02**, Fakten in standards.md; als `mapping.md` auf `Relationship`/`publicKey` abbilden ist noch offen
-- ~~Signatur-Recherche~~ → ✅ 2026-11-05: RFC 9421, FEP-8b32, FEP-521a; Status DID Core/VC 2.0 ✅ (`temp/research/contacts-identity-standards.md`)
+- ~~Signatur-Recherche~~ → ✅ 2026-11-05: RFC 9421, FEP-8b32, FEP-521a; Status DID Core/VC 2.0 ✅ (`research/contacts-identity-standards.md`)
 - Schichten (ADR 0024): **Login** = Kanidm (OAuth2/OIDC, SCIM) · **Identität** = DID · **Vertrauen** = Web-of-Trust-Beglaubigungen (VC 2.0)
 - Pairwise DIDs (RLTP) vs. Hub-Zuordnung — offen
 

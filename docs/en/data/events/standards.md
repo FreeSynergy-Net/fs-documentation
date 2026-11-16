@@ -2,7 +2,7 @@
 
 > The evidence lives centrally in [standards.md](../standards.md) — **do not reload anything from the web.**
 
-## Core standard (updated 2026-11-05, `temp/research/events-standards.md`)
+## Core standard (updated 2026-11-05, `research/events-standards.md`)
 
 | Standard | Evidence | Role |
 |----------|----------|------|

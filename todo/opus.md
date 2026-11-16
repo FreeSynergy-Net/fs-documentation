@@ -159,7 +159,7 @@ Compiler fertig (Umbau ADR 0043 + Orakel 14/14), pedantic überall, fmt korrigie
       Schnittstellen-Katalog prüfen und umbauen, ADR 0045 · Opus plant, Sonnet setzt um
 - [ ] `fs-interfaces`: öffentliches Repo für alle Verträge, `temp/contracts/` zieht um (nach Freigabe) · Opus
 - [ ] ADR 0021 mit ADR 0045 abgleichen: keine schleichenden Erweiterungen nach 1.0 · Opus
-- [ ] Frontends analysieren: Files; Umfragen sind recherchiert (`temp/research/surveys-landscape.md`), `requirements.md` nachziehen · Sonnet
+- [ ] Frontends analysieren: Files; Umfragen sind recherchiert (`research/surveys-landscape.md`), `requirements.md` nachziehen · Sonnet
 - [ ] `requirements.md` von surveys, streaming, tasks an den neuen Zuschnitt angleichen · Sonnet
 - [ ] Rechtsrat H.264 (Patente, Lizenz) · Nutzer
 - [x] `fs-calendar-core`: `Task` nach `fs-tasks`, Einbindung nur über die Schnittstelle (ADR 0050) · freesynergy-32

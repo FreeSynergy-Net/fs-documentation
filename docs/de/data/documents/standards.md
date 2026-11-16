@@ -1,6 +1,6 @@
 # Dokumente – Standards
 
-> Beleg: `temp/research/documents-standards.md` (2026-11-05). Politik: jüngster gangbarer Standard (ADR 0026).
+> Beleg: `research/documents-standards.md` (2026-11-05). Politik: jüngster gangbarer Standard (ADR 0026).
 
 ## Envelope (ActivityStreams 2.0, ✅)
 

@@ -2,7 +2,7 @@
 
 **Status: Vorschlag (2026-11-06).** Diagramme sind Komponenten, die Umfragen, Projektmanagement, ERP und mehr brauchen. Wir listen alle auf, ohne zu sagen, dass wir alle bauen. Die Schnittstelle soll ein Standard sein, damit Diagramme Plugins sein können.
 
-[Vollständiger Katalog](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/charts-catalogue.md): rund 235 Diagrammtypen, sortiert nach der Frage, die sie beantworten, jeweils mit der Datenform, die sie brauchen, und einer Priorität.
+[Vollständiger Katalog](https://github.com/FreeSynergy/fs-documentation/blob/main/research/charts-catalogue.md): rund 235 Diagrammtypen, sortiert nach der Frage, die sie beantworten, jeweils mit der Datenform, die sie brauchen, und einer Priorität.
 
 ## Priorität A, nach Zweck
 

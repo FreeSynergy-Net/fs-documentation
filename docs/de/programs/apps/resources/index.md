@@ -28,7 +28,7 @@ Noch nicht vorhanden: Kosten, Unterstützung für MSPDI (ein Dateiformat für Pr
 
 ## Warum
 
-Projekte brauchen Menschen und Dinge. Ein Demokratie-Projekt im größeren Maßstab braucht das auch, und später ERP. Die [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/projectmanagement-landscape.md) zeigt, dass Kapazitätsplanung und vollständige Baselines in den untersuchten Open-Source-Werkzeugen entweder bezahlte Funktionen sind oder fehlen. Das ist also eine echte Lücke.
+Projekte brauchen Menschen und Dinge. Ein Demokratie-Projekt im größeren Maßstab braucht das auch, und später ERP. Die [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/research/projectmanagement-landscape.md) zeigt, dass Kapazitätsplanung und vollständige Baselines in den untersuchten Open-Source-Werkzeugen entweder bezahlte Funktionen sind oder fehlen. Das ist also eine echte Lücke.
 
 ## Was es abdeckt
 

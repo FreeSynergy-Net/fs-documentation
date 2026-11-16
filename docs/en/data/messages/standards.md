@@ -1,6 +1,6 @@
 # Messages – standards
 
-> Evidence: [standards.md](../standards.md) and `temp/research/messages-standards.md` (2026-11-05) —
+> Evidence: [standards.md](../standards.md) and `research/messages-standards.md` (2026-11-05) —
 > do not reload what is marked ✅. One program covers e-mail, chat and messengers, encrypted only
 > (ADR 0018); always the newest viable standard (ADR 0026).
 
