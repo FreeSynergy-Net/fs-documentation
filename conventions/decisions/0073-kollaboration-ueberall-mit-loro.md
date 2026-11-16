@@ -26,10 +26,10 @@ Mehrere Menschen (und markierte KIs, ADR 0054) sollen **gleichzeitig** am selben
 - KIs erscheinen als **markierte Teilnehmer** (ADR 0054), nie als Mensch.
 
 ### 3. Wahrheit
-Bei gemeinsam bearbeiteten Objekten ist das **Loro-Dokument (Schnappschuss plus Änderungen) die Wahrheit**. Es liegt im **Store des Besitzers** (ADR 0050); damit gilt **ADR 0042 weiter: die Datenbank hält die Wahrheit**. Task-Objekte und Abfrage-Indizes sind **daraus abgeleitete Projektionen**, nach jedem Merge neu berechnet. JSCalendar und iCal sind **Exporte** (ADR 0046). **Ohne Kollaboration** (rein lokal) ändert sich für den Menschen nichts: es ist ein Loro-Dokument mit einem einzigen Teilnehmer.
+Bei gemeinsam bearbeiteten Objekten ist das **Loro-Dokument (Schnappschuss plus Änderungen) die Wahrheit**. Es liegt im **Store des Besitzers** (ADR 0050); damit gilt **ADR 0042 weiter: die Datenbank hält die Wahrheit**. Task-Objekte und Abfrage-Indizes sind **daraus abgeleitete Projektionen**, nach jedem Merge neu berechnet. JSCalendar und iCal sind **Exporte** (ADR 0046). **Ohne Kollaboration** (rein lokal) ändert sich für den Menschen nichts: es ist ein Loro-Dokument mit einem einzigen Teilnehmer. → ersetzt durch Nachtrag 16.11.
 
 ### 3a. Datenmodell
-Ein `LoroDoc` je Seite (Wiki, ADR 0072) bzw. je Board/Projekt. Wiki-Seite: `LoroTree` der Blöcke. **Die Block-Id (UUIDv7, ADR 0072) steht als Metadatum am Knoten des Blockbaums; die internen CRDT-Knoten-Ids sind nicht die Block-Id** und werden nie als Verweis nach außen benutzt (sie überleben Export und Import nicht). Speicherformat: Loro-Snapshot als Nutzlast in einer AS2-Hülle (ADR 0020); **Export** (Markdown/HTML/AS2-JSON) ist eine getrennte, verlustbehaftete Projektion. Benannte Stände sind `Frontiers` plus AS2-`Update` (Zusammenspiel mit ADR 0071 Versionen).
+Ein `LoroDoc` je Seite (Wiki, ADR 0072) bzw. je Board/Projekt. Wiki-Seite: `LoroTree` der Blöcke. **Die Block-Id (UUIDv7, ADR 0072) steht als Metadatum am Knoten des Blockbaums; die internen CRDT-Knoten-Ids sind nicht die Block-Id** und werden nie als Verweis nach außen benutzt (sie überleben Export und Import nicht). Speicherformat: Loro-Snapshot als Nutzlast in einer AS2-Hülle (ADR 0020); **Export** (Markdown/HTML/AS2-JSON) ist eine getrennte, verlustbehaftete Projektion. Benannte Stände sind `Frontiers` plus AS2-`Update` (Zusammenspiel mit ADR 0071 Versionen). → ersetzt durch Nachtrag 16.11.
 
 ### 4. Änderungsstrom: AS2
 Lokale Änderungen werden gebündelt (`set_change_merge_interval`) und als AS2-Aktivität (`Update`, `Create`, `Add`, `Remove`, `Move`) mit `object` = Block-/Task-Id und `attributedTo` = Actor verschickt (ADR 0014/0020). Die CRDT-Bytes sind **Nutzlast**, nicht die Aktivität selbst.
@@ -46,7 +46,7 @@ Ein CRDT kennt keine Rechte. Darum: **jede Änderung ist signiert** (ADR 0059), 
 - **Ehrlicher Hinweis, immer vorher gezeigt:** **Peers, die einen alten Stand haben, können die Daten noch besitzen**; Files kann das auf fremden Geräten nicht erzwingen. Der Dialog nennt, welche bekannten Geräte/Menschen betroffen sind und welche Sicherungen den Inhalt noch halten (ADR 0071, „bleibt in Sicherungen bis …“). Ältere Peers brauchen danach einen vollständigen Snapshot statt inkrementellem Abgleich.
 
 ### 8. Aufgaben (Kanban, Plan, Gantt) ohne Schiedsrichter
-Ein `LoroDoc` je Board mit Maps und beweglichen Listen (Aufgaben, Spalten, Reihenfolge, Abhängigkeiten), **nicht serverautoritativ** (ADR 0059: kein Moderator). Das CRDT erzwingt keine Invarianten (Zyklen in Abhängigkeiten, WIP-Limits, Karte in zwei Spalten). **Die Engine prüft nach jedem Merge deterministisch, zeigt Konflikte an und bietet eine Auflösung an; sie lehnt nichts still ab.** **Planungsdaten** (frühester Start, Puffer, kritischer Pfad, Gantt-Termine) werden **berechnet statt gespeichert**. Zyklen, die erst **nach einem Merge** entstehen, bekommen `Readiness::Conflict`: sie werden **angezeigt, nicht abgelehnt**. Das Gantt rechnet **nominal** und sagt das **sichtbar** („nominal“); ein Arbeitszeit-Kalender kommt später aus `fs-calendar` **über dessen Schnittstelle**, Tasks hat keinen eigenen Kalender. Lange Beschreibungen sind eigene Wiki-Blöcke.
+Ein `LoroDoc` je Board mit Maps und beweglichen Listen (Aufgaben, Spalten, Reihenfolge, Abhängigkeiten), **nicht serverautoritativ** (ADR 0059: kein Moderator). Das CRDT erzwingt keine Invarianten (Zyklen in Abhängigkeiten, WIP-Limits, Karte in zwei Spalten). **Die Engine prüft nach jedem Merge deterministisch, zeigt Konflikte an und bietet eine Auflösung an; sie lehnt nichts still ab.** **Planungsdaten** (frühester Start, Puffer, kritischer Pfad, Gantt-Termine) werden **berechnet statt gespeichert**. Zyklen, die erst **nach einem Merge** entstehen, bekommen `Readiness::Conflict`: sie werden **angezeigt, nicht abgelehnt**. Das Gantt rechnet **nominal** und sagt das **sichtbar** („nominal“); ein Arbeitszeit-Kalender kommt später aus `fs-calendar` **über dessen Schnittstelle**, Tasks hat keinen eigenen Kalender. Lange Beschreibungen sind eigene Wiki-Blöcke. → ersetzt durch Nachtrag 16.11.
 
 ### 9. Spike vor dem Festschreiben
 Wasm-Größe von `loro-crdt` und Leistung bei großen Seiten/vielen Peers sind **nicht gemessen**. Sobald das Wiki dran ist, läuft ein **kleiner Spike** mit echten Wiki-Seiten (Größe des Wasm-Pakets, Zeit für Öffnen/Merge, Speicher). Fällt er schlecht aus, greift die dokumentierte Alternative `yrs` hinter `CollabDoc`.
@@ -84,3 +84,29 @@ Anlass: Nutzerentscheidung 2026-11-16: „Papierkorb: JA. Nach Ablauf der Frist 
 - **„Nie automatisch löschen“ ist als Einstellung erlaubt.** Der Nutzer leert dann selbst.
 - **Aufbewahrung geht vor der Frist.** Ist eine gesetzliche oder gewollte Aufbewahrung gesetzt (`keep_until`), wird das Objekt nicht automatisch gelöscht; die Anzeige lautet „aufbewahrt bis …“.
 - **Beim endgültigen Löschen nach Fristablauf geht der Verlauf des Objekts mit** (Kaskade, Punkt 1).
+
+## Nachtrag 2026-11-16: Wahrheit in typisierten Tabellen, Loro als Abgleichs-Puffer
+
+**(1) Kontext: Widerspruch.** §3 sagt „Das Loro-Dokument (Schnappschuss plus Änderungen) ist die Wahrheit“. ADR 0086 (akzeptiert, Nutzer 2026-11-15) sagt: gespeichert wird typisiert, kein JSON und kein Blob; Loro dient nur dem Abgleich und wird nicht als zweite Wahrheit gespeichert. Beides zugleich gilt nicht. Entscheidung der Strategie (16.11.): **ADR 0086 gewinnt.** §3, §3a und §8 bleiben im Wortlaut stehen und tragen je einen Verweis auf diesen Nachtrag. Die Entscheidungen 1 bis 9 gelten sonst unverändert.
+
+### Entschieden
+
+1. **Die Wahrheit sind die typisierten Tabellen** (ADR 0086). Jedes Feld hat eine Spalte mit primitivem Typ; Listen und Unterobjekte sind Untertabellen mit Fremdschlüssel. Ein Loro-Dokument ist keine Wahrheit mehr.
+2. **`CollabDoc` ist die einzige Schnittstelle.** Programme sprechen nur mit `CollabDoc`; Loro liegt dahinter. Ein Wechsel auf `yrs` (Entscheidung 1) bleibt auf diese Schnittstelle begrenzt.
+3. **Loro ist Abgleichs-Puffer.** Der Loro-Stand liegt hinter `CollabDoc` als Puffer für den Abgleich. Er wird nicht als eigene Wahrheit gespeichert.
+4. **Rückschreibung nach geprüftem Merge.** Nach jedem Merge, und erst nachdem die Rechteprüfung (§6) bestanden ist, werden die geänderten Felder in einer Transaktion in die typisierten Tabellen geschrieben: ganz oder gar nicht. Ein Merge ohne Rückschreibung gilt nicht als übernommen.
+5. **Strukturierte Daten feldweise, mit Lamport-Zähler.** Termine, Aufgaben, Zeichenelemente und andere strukturierte Daten werden feldweise abgeglichen; die Reihenfolge je Feld bestimmt ein Lamport-Zähler. Gleichzeitige Änderungen desselben Feldes werden angezeigt, nicht still verworfen (wie §8).
+6. **Loro nur für Fließtext.** Der Textinhalt von Blöcken läuft über Loro. Was kein Fließtext ist, auch die Blockstruktur (Id, Elternknoten, Reihenfolge), wird feldweise abgeglichen.
+7. **„Wirklich löschen“ läuft über `activity_change`.** Der Inhalt wird aus den Feldänderungen des Verlaufs entfernt und der Verlauf neu geschrieben (§7). Der ehrliche Hinweis auf Peers mit altem Stand bleibt. Der Papierkorb-Nachtrag oben bleibt unverändert.
+
+### Folgen
+
+- **fs-objects Schema v5** mit Migration (ADR 0086). Für **fs-texts** und **fs-draw** heißt das Migration v4→v5: Inhalte (fs-texts) und Elemente (fs-draw) liegen heute als JSON-`content` und werden feldweise in Tabellen überführt. Blöcke werden zur Tabelle mit Id, Elternknoten und Reihenfolge; ihr Textinhalt bleibt Fließtext.
+- **Tests:** (a) Rundlauf je Programm, v4 JSON nach Tabellen und zurück ohne Verlust, mit eigenen Testdaten für fs-texts und fs-draw; (b) Konflikttests: gleichzeitige Änderung desselben Feldes wird angezeigt, Änderungen an verschiedenen Feldern mischen sich; (c) abgebrochene Rückschreibung hinterlässt keinen Teilstand; (d) unerlaubte Änderung wird vor dem Import abgelehnt und nicht geschrieben; (e) „wirklich löschen“ entfernt den Inhalt aus `activity_change` und dem Puffer.
+- Umsetzung wie in den Folgen oben: Code erst nach Runde 3b und Wiki.
+
+### Offen
+
+1. Tiebreak bei gleichem Lamport-Wert und gleichzeitiger Änderung desselben Feldes: nicht entschieden. [offen]
+2. Grenze Fließtext: Marken im Rich Text (fett, Link) als Tabelle oder im Puffer? [offen]
+3. Reihenfolge: ADR 0086 setzt den Schema-Umbau nach der Frontend-Runde, dieser ADR nach Runde 3b und Wiki. Welche Bedingung gilt zuerst, ist nicht festgelegt. [offen]
