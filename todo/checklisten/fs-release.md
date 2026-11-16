@@ -18,6 +18,7 @@ Tags: `v0.0.1` bis `v0.0.6` (v0.0.6 auf `origin/main` 94b6551, 2026-11-13). Das 
 - [ ] **GRUNDSACHE** Merge nach `main`, Tag `v0.0.7`; „Bilder -> Strategie-OK -> Release“ gilt für sichtbare Änderungen
 - [ ] **GRUNDSACHE** Workflow `umbenennen` (mit B7-Fix) ist die Voraussetzung für alle sieben Umbenennungen (ADR 0087 Punkt 3)
 - [ ] **GRUNDSACHE** Alle Crates tragen die gemeinsame Version gleich dem Tag (Regel „Version = Tag“); bei jedem Lift prüfen
+- [ ] **GRUNDSACHE** `doku-mitziehen` prüft öffentliche Pfade und Adressen (ROT): Prüfschritt `scripts/check-public-paths.sh` aus fs-documentation (Branch `unreviewed/docs-public-paths`) übernehmen; findet `.scratch`, `/srv/FreeSynergy`, `/home/<user>` und fremde Adressen in docs/, conventions/, todo/; Ausnahmeliste für interne Übergaben in `scripts/public-paths-exceptions.txt`; Gegenprobe (Kopie mit eingebautem Pfad -> rot) in den Selbsttest [offen]
 - [ ] SPÄTER Kleinpunkte der Runde 2: K1 (Vergleich beim Wiedereinstieg in `upstream-update` nur im Text), K4-Rest (`release-flow` ohne `output` in allen Elternabläufen), K5 (`doku` doppelt in `umbenennen`), P1/P2 (Rundlauf-Prüfung vor `release` in `programm-neu`, Standardzweig `green`)
 - [ ] SPÄTER Das Muster „Standardzweig = green“ in den drei neuen Abläufen (R6, G2, T2) mit einem Lint finden
 - [ ] SPÄTER Lint, der in `.github/workflows` nur 40-stellige SHAs zulässt
