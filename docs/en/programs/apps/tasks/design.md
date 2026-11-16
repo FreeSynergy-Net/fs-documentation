@@ -57,6 +57,17 @@ Attachments go through `fs-files`, people through `fs-people`, groups through `f
 Workbench `kanban-board` and a compact "my next tasks", `task-list`, and `timeline-gantt`, each usable inside other
 programs. See [planned components](../../../components/planned.md).
 
+## Working together (state 0.0.8, unreleased)
+
+- **Assign and unassign:** `fs-tasks assign <id> <actor-iri>` / `unassign`, and the form field "Assigned to" in the
+  window. A person is stored as a reference (the actor IRI plus the shown name), never as a free name (ADR 0085). The
+  move to the shared `PersonRef` type waits for `fs-interfaces` (ADR 0085, consequences).
+- **Who holds what:** the board and the day list filter by holder and count tasks per person.
+- **Whole-day due dates:** stored as `T00:00:00` with `showWithoutTime`, no zone.
+- **Texts:** MessageFormat 2, German and English (ADR 0057).
+- **Not here:** own columns and boards (wire schema), the card side panel with input fields (`fs-components`),
+  comments (comment topic).
+
 ## Open questions
 
 1. Are columns statuses? The analysed tools differ: in some, they are; in others, free lists. We propose optional mapping.
