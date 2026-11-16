@@ -44,6 +44,8 @@ jobs:
           python scripts/check_components.py --lang de
           python scripts/gen_component_indexes.py --lang de --check
           python scripts/gen_frontend_indexes.py --check
+          python scripts/gen_folder_indexes.py --check
+          bash scripts/test_folder_indexes.sh
 
       - name: Publish the decision records (copied from conventions/decisions)
         run: python scripts/gen_decisions.py
