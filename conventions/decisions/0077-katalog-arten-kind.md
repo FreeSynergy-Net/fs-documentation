@@ -68,3 +68,19 @@ Entscheidet den Offen-Punkt „`module` oder `addon`“. Der `kind`-Wert `module
 | `module` | `addon` (`<extends>` erweiterter Baustein/Programm) | Unsere Zuordnung; „Some components are not standalone, but rather extend existing software“ (Spezifikation, nur zur Art `addon`) |
 
 Nutzer-JA 2026-11-14 zur Katalogart `module`. Darstellung im Store: **offen** (später mit dem Nutzer).
+
+## Nachtrag 2026-11-16: Ist-Stand korrigiert, Katalogart `font` (vorgeschlagen, Entwurf; Strategie setzt den Status)
+Der Ist-Stand in „Kontext“ ist überholt und wird hier korrigiert; der Text oben bleibt als Verlauf stehen. Geprüft am `origin/main` von `fs-catalog` (2026-11-16):
+- `scripts/schema_base.py` kennt `KINDS = program, frontend, component, theme, server, icon-theme` (AppStream: `desktop-application`, `desktop-application`, `addon`, `addon`, `service`, `icon-theme`). `NEW_KINDS` = `server`, `icon-theme`.
+- `packages.toml` auf `main` enthält sieben Programme (`kind = "program"`) und den Eintrag `zentinel` mit `kind = "server"`. Der CHANGELOG nennt `zentinel` unter „Unreleased (unreviewed/catalog-zentinel)“.
+- Abweichung zu §1: Das Schema auf `main` kennt `component`, das §1 nicht übernimmt; `motion`, `sound-theme`, `haptics`, `shortcuts`, `language`, `module` und `workflow` kennt das Schema auf `main` noch nicht. Die Angleichung ist offen (Folge für fs-catalog, nicht in diesem ADR entschieden).
+
+**Katalogart `font` (Vorschlag):** Eine Schriftfamilie mit allen ihren Schnitten ist ein Katalogeintrag mit `kind = "font"`. AppStream-Typ: `font` (Spezifikation, Abschnitt „Fonts“, laut Recherche 2026-11-16 gelesen; `<provides><font>` nennt die vollen Schnittnamen). Die Zuordnung ist damit nicht unsere eigene, sondern folgt der Spezifikation.
+
+Felder (Vorschlag, Schema `kind = "font"`):
+- `license` als SPDX-Kennung. Jede freie Schriftlizenz ist erlaubt. Unfreie oder unklare Lizenzen werden gemeldet, nicht gespiegelt.
+- `family` (Familienname) und `faces` (Liste der Schnitte mit Dateiname und Prüfsumme).
+- `preview` (Vorschau-Text oder Bild; Form offen).
+- `install` mit den Zielen `~/.local/share/fonts` und fontconfig für Linux.
+
+**Offen:** Windows- und macOS-Pendants der Installationsziele sind nicht recherchiert **[nicht belegt]**. Die Vorschau-Form ist nicht entschieden. Die Darstellung im Store ist offen (wie bei `module`). Die Dokumentationsseite zum Store ist `docs/en/programs/platform/store.md` und `docs/de/programs/platform/store.md`; sie wird hier nur verlinkt, nicht umgebaut.

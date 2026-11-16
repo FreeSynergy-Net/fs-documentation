@@ -95,3 +95,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0086 | Gespeichert wird typisiert: Fachstandards in typisierte Tabellen, kein JSON/Blob; nur Empfangenes behält sein Original mit Aufbewahrungsregel | akzeptiert (Nutzer, 2026-11-15) |
 | 0087 | Programmnamen sind generisch (Fähigkeit/Daten, nicht Gattung); wiki→text, whiteboard→draw, messenger→messages, history→activity, streaming→broadcast, surveys→forms, store→software, hub→registry; resources bleibt (Nachtrag 16.11.: ValueFlows, Katalog ist Gruppierung und Filter, Daten-Repo fs-catalog → `FreeSynergy/Catalog`) | akzeptiert (Nutzer, 2026-11-15; Nachträge 15.11. und 16.11.) |
 | 0088 | Web-Zugang der Programme und automatisches DNS (Arbeitstitel) | reserviert (kein Dokument) |
+| 0089 | Schriften: freie Lizenzen, keine Schrift im Release, Installation über fs-software | vorgeschlagen (Entwurf; Nutzerentscheidung 2026-11-16) |
