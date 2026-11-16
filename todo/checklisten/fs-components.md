@@ -29,7 +29,7 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] SPÄTER U4/U5 sind vorbeugend geändert, nicht im Bild nachgestellt (CHANGELOG 0.0.20)
 - [ ] SPÄTER Bildabweichung am Tabellenrand unten (feiner Strich unter der letzten Zeile in `standard-notion-u1u2u7u8-seite.png`) ansehen [offen]
 
-## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Kopf 61b7b05 (Volllauf `/tmp/full-rich-stufe1b.log`: 276 Testbinaries ok, keine Fehler); Review Opus 2026-11-16 `/srv/FreeSynergy/.scratch/review-u3-stufe1-opus.md`)
+## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Tag-Kandidat v0.0.22, Kopf bc04d58; Volllauf `/tmp/full-rich-stufe1c.log` mit Exit-Code im CHANGELOG des Kopfes; Reviews Opus 2026-11-16 `/srv/FreeSynergy/.scratch/review-u3-stufe1-opus.md` und `review-u3-stufe1-r2-opus.md`)
 Stufe 1 (Absatz, Überschriften, Listen, Aufgaben, Code, Zitat, Linie, Kürzel, Cursor über Blöcke) ist gebaut; auf `main` ist nichts davon, kein Tag. Erledigt mit Beleg, aus dem Review:
 - [x] **GRUNDSACHE** Blocker B1: Raw-Block hatte mehrere Startpunkte, Eingaben gingen still verloren (Beispiele `- a\n- b\nlazy`, Tabelle im Zitat). Behoben (Commit 7c1d5b2), Konformitätsfälle „lazy list item“ und „table in a quote“, Test `a_raw_block_can_be_typed_in`; Gegenprobe: ohne `starts.clear()` rot (Mutation auf Kopie, `.scratch/u3-mut.sh`)
 - [x] **GRUNDSACHE** Speicherform mit Maskierung (`save_form`, Rundlauf lesen-schreiben-lesen für alle Knotenarten, in Listen und Zitaten); Gegenprobe: Maskierung aus = rot (Commit 7c1d5b2, Test `write_then_read_gives_the_same_tree`)
@@ -37,8 +37,21 @@ Stufe 1 (Absatz, Überschriften, Listen, Aufgaben, Code, Zitat, Linie, Kürzel, 
 - [x] **GRUNDSACHE** Konformität „Nummer zählt nicht als Inhalt“ enger (`#.` statt Streichen; Liste zu Absätzen fällt durch) und `tick`-Wächter geschärft (Commits 7c1d5b2, e1b3322; Gegenproben rot)
 - [x] **GRUNDSACHE** Theme je Bildtest isoliert (Sperre) und Theme-Wächter an jedem Bild; Gegenprobe: Sperre entfernt bzw. Standard-Test mit Craft-Aufbau = rot; Bilder parallel und seriell byte-gleich (Commit 1828275, Ordner `.scratch/u3-stufe1-bilder/20261116-0207/`)
 - [x] **GRUNDSACHE** Craft-Cursor als eigenes Token `--cursor` (`Palette::cursor`), Kontrast 7,9:1 (Craft) und 3,6:1 (Standard), nicht Textfarbe; Code-Grund Craft 1,37:1 (`--code-ground`); Markierungsspalte 28 px; Luft um die Linie halbiert; Hoch/Runter laufen über die Linie; Häkchen aus dem Stil der Fläche; Fokuszähler bei `Drop`; Bild b3 zeigt den Cursor am Ende der Codezeile; Doku Version 2 (de/en), CHANGELOG
+- [x] **GRUNDSACHE** Review Runde 2, A1: Zahl wird als `1\. x` gespeichert (gültiges CommonMark-Escape), Leser nimmt es zurück; feste Erwartung, Rundlauf, Gegenprobe (Schreiber zurück auf `\1. x`) rot (Kopf bc04d58)
+- [x] **GRUNDSACHE** Review Runde 2, A3: `save_form()` und `take_save_ops()` am Trait `TextEditor` (Standardmethoden, Vertrag 2) und an `RichSurface`; `document()`/`take_ops()` als Live-Form dokumentiert; Test mit Gegenprobe (Live-Form = Überschrift) (Kopf bc04d58)
+- [x] **GRUNDSACHE** Linie in Craft: Luft über und unter der Linie mindestens 9 px in jedem Stil (`Look::rule_gap`), im Bild gemessen; Gegenprobe `RULE_GAP` 0 = Craft rot; Bilder `.scratch/u3-stufe1-bilder/20261116-0223/` (Kopf bc04d58)
 - [ ] **GRUNDSACHE** Opus-Review der Korrekturen, danach Bilder zum Strategie-OK, Merge und Tag (Regel „Bilder vor Release“)
 - [ ] **GRUNDSACHE** Dieselbe Theme-Wächter-Regel in den Workflow `testlauf` (macht ein anderer Agent)
+- [ ] SPÄTER Zahl-Maske `1\. x`: der Text hinter den Ziffern liegt in der Quelle ein Byte weiter als im Text (Startpunkt ist der des ersten Bytes); Klick/Eingabe hinter der Zahl in einem solchen Absatz trifft um 1 daneben, bis neu gelesen wird (Lücke je Blatt im Startpunkt-Modell)
+- [ ] SPÄTER `RichBlock::node` ist `pub` (`block.rs:13`): Änderung ohne `touch()` möglich; kapseln
+- [ ] SPÄTER `Session::new` auf leerem Dokument erzeugt eine `InsertBlock`-Operation ohne Eingabe
+- [ ] SPÄTER Code scrollt nicht seitlich (lange Zeile; steht in DESIGN.md, fehlte in der Liste)
+- [ ] SPÄTER Enter in einem Raw-Block teilt die Quelle (steht in DESIGN.md, fehlte in der Liste)
+- [ ] SPÄTER Schrift-Rückfall (steht in DESIGN.md, fehlte in der Liste)
+- [ ] SPÄTER Pos1 auf einer Folgezeile (umbrochener Absatz) ist ungetestet
+- [ ] SPÄTER Theme-Wächter für Standard positiv gegen den erwarteten Grund (250,250,250) prüfen (heute nur „nicht der Craft-Grund“; Stufe 2)
+- [ ] SPÄTER Häkchen per Pixel prüfen: Pixel in `on_accent` im angehakten Kästchen > N, Gegenprobe offenes Kästchen = 0 (heute zählt der Test nur Akzentpixel; Stufe 2)
+- [ ] SPÄTER `check_rust_rules`: Dateien über 200 Zeilen (Warnungen, u. a. `fs-components-rich/tests/scenes.rs`, `fs-components-editor/src/rich/*`)
 - [ ] SPÄTER IME und echtes Fenster unter Wayland: ein echter Fensterlauf mit Komposition (`ü` per Tottaste, Emoji-Auswahl, chinesische Eingabe), Protokoll Tastenfolge, erwartetes Markdown, Bild mit Cursor (bisher nur Blincs Handler-Register, nie ein echtes Fenster)
 - [ ] SPÄTER Graphem-Cursor statt `char` (`unicode-segmentation` oder Blincs Cluster), Gegenprobe Emoji-Familie und Kombinationszeichen
 - [ ] SPÄTER Lange Seiten: 2000 Blöcke / 50000 Zeichen, Zeit je Taste unter 16 ms messen (Geometrie wird bei jeder Taste ganz neu gesetzt, `offset_in` misst je Klick jedes Präfix neu); danach nur geänderte Blöcke neu setzen bzw. sichtbaren Bereich zeichnen
