@@ -6,7 +6,7 @@ fs-icons ist ein Daten-Repo (SVG-Sätze), kein Programm. „Grundsache“: Progr
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Repo mit `manifest.toml`, Satz `homarrlabs` (MIT), Tests, `package.toml`, Containerfile (Commit 91a34d3 auf `origin/main`)
 - [x] **GRUNDSACHE** Bau-Gate-Dateien, deny.toml (Commits 8a32967 bis 10e6ebe auf `origin/main`)
-- [x] Entwurf der Programm-Icons (7 Programme in Farbe und symbolisch): Commit 0ee1f9d auf `unreviewed/program-icons-serious`, Urteile mit Bildern `/srv/FreeSynergy/.scratch/icons-6/uebersicht.png` und `alt-neu.png` (nur lokal, nicht auf origin)
+- [x] Entwurf der Programm-Icons (7 Programme in Farbe und symbolisch): (Commit 0ee1f9d) auf `unreviewed/program-icons-serious`, Urteile mit Bildern `/srv/FreeSynergy/.scratch/icons-6/uebersicht.png` und `alt-neu.png` (nur lokal, nicht auf origin)
 
 ## Offen
 - [ ] **GRUNDSACHE** Lokale Branches sichern (nur auf diesem Rechner, nicht auf origin): `revive-icons`/`research-iconsets`/`research-signpath` (c5c4c4d: Sätze `freesynergy-theme`, `freesynergy-legacy`, We10X und Rust-Sync-Werkzeug entfernt), `unreviewed/program-icons-serious` (0ee1f9d), `unreviewed/program-icons` (22baad0, WIP), `unreviewed/program-icons-final` (6821533, WIP „nicht reviewt“)

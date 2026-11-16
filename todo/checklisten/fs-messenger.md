@@ -6,7 +6,7 @@ Tags auf GitHub: `v0.0.1`, `v0.0.2` (2026-11-08). Die lokalen Tags `v0.1.0` bis 
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Programmkern ohne Oberfläche: Modell, Ablage als AS2-`Note`, Konversationen, Lesemarke, Entwürfe, Suche, Änderungsstrom (Tag `v0.0.1`, `DESIGN.md` Abschnitt State)
 - [x] **GRUNDSACHE** KI-Wächter `fs-messenger-guard` und Verschlüsselung im Ruhezustand (Tag `v0.0.2`, Commit 6c38e3f)
-- [x] **GRUNDSACHE** Anbieter für Mail und Matrix als eigene Crates (`crates/fs-messenger-mail`, `crates/fs-messenger-matrix` auf `main`)
+- [x] **GRUNDSACHE** Anbieter für Mail und Matrix als eigene Crates (af440af `crates/fs-messenger-mail/src/lib.rs`, 863bda0 `crates/fs-messenger-matrix/src/lib.rs`; beide auf `main`)
 - [x] **GRUNDSACHE** Export einer Unterhaltung als JSON Lines (AS2 `Note`) (`DESIGN.md` „Accepted ideas“ Nr. 10)
 
 ## Grundsache: startet, einfache Dinge, beenden, Frontend

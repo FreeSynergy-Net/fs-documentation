@@ -8,7 +8,7 @@ fs-documentation hat keine Tags und keinen Release. Die Seite wird per `mkdocs` 
 - [x] **GRUNDSACHE** ADR 0087 „Programmnamen sind generisch“ mit Umbenennungstabelle, Monatsziel Punkt 7, geplanten Programmen (Commits c85146b9, f27b06d7, 3c72a963, 6e6bab51, 3d218dca)
 - [x] **GRUNDSACHE** Nutzertest fs-wiki 0.0.12 (U1 bis U8) festgehalten (Commit 971ad9e2)
 - [x] **GRUNDSACHE** Ordner `todo/checklisten/` mit Regeln und fs-workflows (Commit 5891b1eb)
-- [x] **GRUNDSACHE** Doku je Programm in `docs/{de,en}/programs/apps/<programm>/` (Stand: wiki 95/126, whiteboard 46/53, messenger 102/151, history 1/24, streaming 74/109, resources 1/31, surveys 3/39 Dateien; Zählung aus `git ls-tree origin/main`)
+- [ ] [offen] **GRUNDSACHE** Doku je Programm in `docs/{de,en}/programs/apps/<programm>/` (Stand: wiki 95/126, whiteboard 46/53, messenger 102/151, history 1/24, streaming 74/109, resources 1/31, surveys 3/39 Dateien; Zählung aus `git ls-tree origin/main`) - kein Beleg für Vollständigkeit; nur Teilstände gezählt, daher zurückgesetzt
 
 ## Grundsache: Doku zieht mit
 - [ ] **GRUNDSACHE** Ordner nach der Umbenennung verschieben (`git mv`, de und en): wiki → text, whiteboard → draw, messenger → messages, history → activity, streaming → broadcast, resources → inventory, surveys → forms; Navigation ist ordnerbasiert (awesome-pages)

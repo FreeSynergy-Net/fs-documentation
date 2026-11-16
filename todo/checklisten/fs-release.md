@@ -5,7 +5,7 @@ Tags: `v0.0.1` bis `v0.0.6` (v0.0.6 auf `origin/main` 94b6551, 2026-11-13). Das 
 
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Gemeinsame Bau-Workflows (CI und Release), Signaturschlüssel, Tags 0.0.1 bis 0.0.6 (Tags `v0.0.1` bis `v0.0.6`)
-- [x] **GRUNDSACHE** Workflow-Dateien (`.yaml`) auf `origin/main` (Zahl nicht neu gezählt; Review prüft 36 Dateien auf dem Bündel-Kopf)
+- [x] **GRUNDSACHE** Workflow-Dateien (`.yaml`) auf `origin/main` (53a88c5, 2c01b84; `workflows/agent-run.yaml`; Zahl auf origin/main aktuell 27 `.yaml`)
 - [x] Bündel 0.0.7, Runde 1: B1 bis B6 behoben (Review Runde 2: „B1-B6 sind behoben“, Commits 45ddd4e, d3c1bc5)
 - [x] Review Runde 2 (Kopf d3c1bc5): `doku-mitziehen`, `upstream-update`, `release-flow`, `review`, `programm-neu` (speicher-check) mit JA; Selbsttests grün (`test_doku_mitziehen.sh` 19 Fälle, `test_umbenennen.sh` 30 Fälle, `check_workflows.py` 36 Dateien) (`review-bundle-0.0.7-opus-r2.md`)
 - [x] SHA-Pins für alle Action- und Workflow-Verweise (Commit 0d7dee4; Pin 94b6551 als plausibel bewertet, mit Auflage S1)

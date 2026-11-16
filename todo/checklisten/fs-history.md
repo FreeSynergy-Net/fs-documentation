@@ -5,7 +5,7 @@ Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.1.1`, `v0.
 
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Programmkern: Einträge (abgeleiteter Index, keine Nutzlast), Zeitleiste, Filter, Seitenblättern, Digest, Vergessen mit Grabsteinen (Tag `v0.0.1`, `DESIGN.md` State, 49 Tests)
-- [x] **GRUNDSACHE** Beobachter über Port `ActivitySource` und Hub-Adapter `fs-history-hub` gegen einen echten Hub (`crates/fs-history-hub` auf `main`)
+- [x] **GRUNDSACHE** Beobachter über Port `ActivitySource` und Hub-Adapter `fs-history-hub` gegen einen echten Hub (e99d1aa Port `ActivitySource`, e9cc2b2 Hub-Adapter mit Test gegen echten Hub; `crates/fs-history-hub/src/lib.rs` auf `main`)
 - [x] **GRUNDSACHE** Pedantic-clippy-Gate auf `main` grün (Commit d865c44)
 
 ## Grundsache: startet, einfache Dinge, beenden, Frontend
