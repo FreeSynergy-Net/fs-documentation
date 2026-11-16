@@ -39,3 +39,14 @@ Nutzer: Wer sich einhängt, sagt, was der andere bei ihm darf. Sagt der andere n
 ## Zu klären
 - Ob nach „Trennung in zwei Einstellungen“ und „Zustimmung beider Seiten“ (Fragen B und C an den Nutzer) so gebaut wird.
 - Wo die Daten eines Users liegen: `fs-people` oder Identitäts-Wrapper.
+
+## Nachtrag 2026-11-16: Punkt 8 neu gelesen: Dienstkonten, Bots, Einladung gehört dem Programm
+
+Anlass: Nutzerfrage 57 und Entscheidung 59 (über die Strategie); ADR 0091 Nachtrag „Bot-Schlüssel stellt das Programm aus“. Punkt 8 und die Statuszeile bleiben im Wortlaut; dieser Nachtrag legt sie so aus.
+
+1. **Punkt 8 gilt für Menschen.** „In Kanidm stehen nur Menschen, die die Rechte haben“ bleibt für alle, die sich anmelden. Ausnahme sind technisch nötige Dienstkonten (zum Beispiel der Türsteher `fs_doorkeeper` und das Dienstkonto, das fs-identity zum Verwalten nutzt). Sie stehen NICHT in fs-people (Entscheidung 57.2: „nur Hilfsprogramme, wie eine Schnittstelle“), sind keine Personen und nie eine KI.
+2. **Bots haben kein Kanidm-Konto.** Der Bot ist kein Dienstkonto im Sinne von Punkt 1. Eine KI steht nie in Kanidm (Punkt 6 und ADR 0091). Der Bot bekommt seinen Schlüssel von dem Programm, das ihn einlädt. Fs-identity hält nur, dass es den Bot gibt und wer sein Halter ist. Ein zentraler Schlüssel für mehrere Programme ist ausgeschlossen.
+3. **Türsteher.** Der Türsteher führt nur Aufnahmen aus. Er lädt keine Bots ein, gibt keine Bot-Schlüssel aus und verwaltet keine. Einladung und Schlüssel eines Bots gehören dem Programm, in dem er handeln soll.
+
+### Offen
+- Welche Dienstkonten genau als „technisch nötig“ gelten (Liste führt fs-identity bzw. das Manifest) und wie sie neben Menschen angezeigt werden.
