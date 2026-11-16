@@ -35429,6 +35429,716 @@
       "history": [],
       "en_bytes": 2033,
       "de_bytes": null
+    },
+    "programs/apps/marketing/frontends/listmonk/index.md": {
+      "status": "PENDING",
+      "en_hash": "5513b7aafbdd8a99",
+      "de_hash": "506229189e61cb0c",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1933,
+      "de_bytes": 2399
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "523cf164f5e81a94",
+      "de_hash": "04f64a3cb698524c",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 189,
+      "de_bytes": 527
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "083958ae6cf33ae9",
+      "de_hash": "a3ed0db9768fd8b8",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 660,
+      "de_bytes": 1065
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "482f3cea22671c9f",
+      "de_hash": "feffb4cbc1e8d976",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 482,
+      "de_bytes": 854
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "190067b7ec030494",
+      "de_hash": "6bc33bab9d5e0957",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 37,
+      "de_bytes": 360
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "d9df3b6db7790f00",
+      "de_hash": "f5093ac34e18cba1",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 117,
+      "de_bytes": 465
+    },
+    "programs/apps/marketing/frontends/listmonk/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "4183f72081a250a0",
+      "de_hash": "4831d7fcdf8de72d",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 53,
+      "de_bytes": 373
+    },
+    "programs/apps/marketing/frontends/umami/index.md": {
+      "status": "PENDING",
+      "en_hash": "72344a5da38123d9",
+      "de_hash": "d9388c6ca778a4c2",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2031,
+      "de_bytes": 2509
+    },
+    "programs/apps/marketing/frontends/umami/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "569dda1bd39d1413",
+      "de_hash": "013ba69b43f677b1",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 286,
+      "de_bytes": 622
+    },
+    "programs/apps/marketing/frontends/umami/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "2cf6a1bfe2002640",
+      "de_hash": "540e867980177cad",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 753,
+      "de_bytes": 1187
+    },
+    "programs/apps/marketing/frontends/umami/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "82ad9f00880e6e74",
+      "de_hash": "edf3dc7b24769f4c",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 663,
+      "de_bytes": 1131
+    },
+    "programs/apps/marketing/frontends/umami/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "6fc0f7bab578aaf3",
+      "de_hash": "6880bcf934b98e1c",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 56,
+      "de_bytes": 384
+    },
+    "programs/apps/marketing/frontends/umami/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "484e8e57e5eb7e13",
+      "de_hash": "4140a33af6e875d5",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 121,
+      "de_bytes": 460
+    },
+    "programs/apps/marketing/frontends/umami/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "3c3d40ad66a46219",
+      "de_hash": "6b27d2fdab54d9ea",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 71,
+      "de_bytes": 403
+    },
+    "programs/platform/desktop/frontends/alfred/index.md": {
+      "status": "PENDING",
+      "en_hash": "58695edc5502bcbd",
+      "de_hash": "f26f0d758c23d251",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1776,
+      "de_bytes": 2288
+    },
+    "programs/platform/desktop/frontends/alfred/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "2df75738e3c644b4",
+      "de_hash": "fccba9f7cd0d4626",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 169,
+      "de_bytes": 512
+    },
+    "programs/platform/desktop/frontends/alfred/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "fdaa3253958a174d",
+      "de_hash": "e8b66bbff5ae73c1",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 561,
+      "de_bytes": 981
+    },
+    "programs/platform/desktop/frontends/alfred/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "e0777fc47da89bf6",
+      "de_hash": "1d16e5d6563fd57d",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 681,
+      "de_bytes": 1173
+    },
+    "programs/platform/desktop/frontends/alfred/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "dc0ec4223009c5bf",
+      "de_hash": "7b41fbddd81d93d5",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 169,
+      "de_bytes": 530
+    },
+    "programs/platform/desktop/frontends/alfred/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "edbe24ffb3d4c23a",
+      "de_hash": "2a5df4919c018a9a",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 38,
+      "de_bytes": 361
+    },
+    "programs/platform/desktop/frontends/alfred/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "aed369fa2d8fc2ef",
+      "de_hash": "b6c8ec1a81804e0e",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 137,
+      "de_bytes": 484
+    },
+    "programs/platform/desktop/frontends/kde-plasma/index.md": {
+      "status": "PENDING",
+      "en_hash": "8287aad1cea496ea",
+      "de_hash": "0abf30c46071a958",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1927,
+      "de_bytes": 2440
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "abf43f5a8fc70010",
+      "de_hash": "bae894f1a5bab3cc",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 310,
+      "de_bytes": 697
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "e4fb02e44278acbe",
+      "de_hash": "2033eb3beafd72b7",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 706,
+      "de_bytes": 1202
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "e9048f3c60f820fe",
+      "de_hash": "23657afe402002ed",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 687,
+      "de_bytes": 1136
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "41dd6cc6c837739f",
+      "de_hash": "ca2adbaf691558cc",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 216,
+      "de_bytes": 577
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "b21c1027b0eff3d8",
+      "de_hash": "3cc533cf413f3ec2",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 143,
+      "de_bytes": 470
+    },
+    "programs/platform/desktop/frontends/kde-plasma/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "d42b4ba2d741699b",
+      "de_hash": "013072ffe7612ef5",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 224,
+      "de_bytes": 554
+    },
+    "programs/platform/desktop/frontends/raycast/index.md": {
+      "status": "PENDING",
+      "en_hash": "1f2ac8140e376e37",
+      "de_hash": "642218b78a232a23",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1891,
+      "de_bytes": 2330
+    },
+    "programs/platform/desktop/frontends/raycast/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "0b887ac6b55da4ac",
+      "de_hash": "93fffc2edeb665a0",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 361,
+      "de_bytes": 729
+    },
+    "programs/platform/desktop/frontends/raycast/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "c81077df0fdb4f4f",
+      "de_hash": "e9516689b3765845",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 686,
+      "de_bytes": 1124
+    },
+    "programs/platform/desktop/frontends/raycast/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "d9fa4f34adb529c4",
+      "de_hash": "ff3cf8e2f5166f55",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 889,
+      "de_bytes": 1327
+    },
+    "programs/platform/desktop/frontends/raycast/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "ccbf8b3373d35240",
+      "de_hash": "b59925135710d851",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 243,
+      "de_bytes": 608
+    },
+    "programs/platform/desktop/frontends/raycast/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "83071e00ee9597d2",
+      "de_hash": "15c6bdf73bc1ff2a",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 132,
+      "de_bytes": 481
+    },
+    "programs/platform/desktop/frontends/raycast/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "7ecf45e5d5fcbd2e",
+      "de_hash": "cf3f9569918a8e50",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 147,
+      "de_bytes": 493
+    },
+    "programs/suites/crm/frontends/attio/index.md": {
+      "status": "PENDING",
+      "en_hash": "594042d6137229fb",
+      "de_hash": "649adeaa12e50367",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2261,
+      "de_bytes": 2777
+    },
+    "programs/suites/crm/frontends/attio/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "9118509d5d997590",
+      "de_hash": "6ad3d09fc24dbfd3",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 175,
+      "de_bytes": 519
+    },
+    "programs/suites/crm/frontends/attio/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "78d731d1021d10f4",
+      "de_hash": "f695abb6dbd12521",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 618,
+      "de_bytes": 1040
+    },
+    "programs/suites/crm/frontends/attio/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "14631a172c314277",
+      "de_hash": "2d09b74d3842d07f",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 588,
+      "de_bytes": 1020
+    },
+    "programs/suites/crm/frontends/attio/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "60001de850f5ca94",
+      "de_hash": "6a849f070557604f",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 34,
+      "de_bytes": 357
+    },
+    "programs/suites/crm/frontends/attio/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "8dcfbee50dddf947",
+      "de_hash": "cfa6f79c82574423",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 33,
+      "de_bytes": 357
+    },
+    "programs/suites/crm/frontends/attio/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "21083d24beeb9833",
+      "de_hash": "afaf4e2ebcb99bf1",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 50,
+      "de_bytes": 370
+    },
+    "programs/suites/crm/frontends/twenty/index.md": {
+      "status": "PENDING",
+      "en_hash": "c612481391eeb581",
+      "de_hash": "feec819e6a182061",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2424,
+      "de_bytes": 2919
+    },
+    "programs/suites/crm/frontends/twenty/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "96a901b3fe6f73fc",
+      "de_hash": "cd959edca158fd98",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 250,
+      "de_bytes": 597
+    },
+    "programs/suites/crm/frontends/twenty/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "8c3067d31b93745e",
+      "de_hash": "ca4f4908fe4e49be",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 753,
+      "de_bytes": 1189
+    },
+    "programs/suites/crm/frontends/twenty/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "dc80426b123b0477",
+      "de_hash": "56325108fde37d87",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 530,
+      "de_bytes": 933
+    },
+    "programs/suites/crm/frontends/twenty/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "97541ba65ca0faa0",
+      "de_hash": "55e81e7e0dd29857",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 101,
+      "de_bytes": 425
+    },
+    "programs/suites/crm/frontends/twenty/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "f0dcc82a4ae54083",
+      "de_hash": "14fdf373df4da70e",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 34,
+      "de_bytes": 358
+    },
+    "programs/suites/crm/frontends/twenty/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "3ea9800a65afec8c",
+      "de_hash": "2abd0d0e59ef7f55",
+      "first_seen": "2026-11-16T01:52:37.671715+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 51,
+      "de_bytes": 371
     }
   }
 }
