@@ -72,14 +72,15 @@ Wasm-Größe von `loro-crdt` und Leistung bei großen Seiten/vielen Peers sind *
 
 Anlass: Nutzerentscheidung 2026-11-16: „Papierkorb: JA. Nach Ablauf der Frist endgültig löschen. Die Frist wird in den Einstellungen des Programms eingestellt (dort Pflicht). Im Papierkorb steht ‚noch N Tage‘.“ Die Entscheidungen 1 bis 9 bleiben unverändert.
 
-**(1) Was §7 sagte und was jetzt gilt.** §7 hält den Verlauf voll und kennt keine automatische Kürzung. Der Papierkorb ist davon getrennt: Gelöschtes bleibt im Papierkorb und ist bis zum Ablauf wiederherstellbar. Nach Ablauf der Frist wird der Papierkorb endgültig geleert, d. h. das Objekt wird endgültig gelöscht. Die Kaskade nimmt es samt seinen Verlauf-Einträgen (`activity`, `activity_change`) mit; das ist der Purge-Pfad von v4 (`turso/purge.rs:45`) und die Kaskade des v5-Entwurfs (`review-v5-2-opus.md`, Anforderung 4). Ob der Verlauf eines Objekts ohne Ablauf des Papierkorbs getrennt geleert wird, ist nicht festgelegt (siehe Offen).
+**(1) Was §7 sagte und was jetzt gilt.** §7 hält den Verlauf voll und kennt keine automatische Kürzung. Der Papierkorb ist davon getrennt: Gelöschtes bleibt im Papierkorb und ist bis zum Ablauf wiederherstellbar. Nach Ablauf der Frist wird der Papierkorb endgültig geleert, d. h. das Objekt wird endgültig gelöscht. Die Kaskade nimmt es samt seinem Verlauf (`activity`, `activity_change`) mit; das ist der Purge-Pfad von v4 (`turso/purge.rs:45`) und die Kaskade des v5-Entwurfs (`review-v5-2-opus.md`, Anforderung 4). Der Verlauf-Purge allein (ADR 0029) bleibt davon getrennt.
 
 **(2) Frist einstellbar.** Jedes Programm stellt die Frist in seinen Einstellungen ein; das Feld ist Pflicht. Standardwert: **30 Tage** (Empfehlung der Schicht fs-objects; Vorbild Google, Papierkorb 30 Tage, `pilot-calendar/dossier-google-outlook.md`). Dieser Standardwert gilt nur für den Papierkorb, nicht für die Kürzung des Verlaufs; §7 bleibt dafür unverändert.
 
 **(3) Anzeige und Zeitpunkt.** Im Papierkorb steht bei jedem Eintrag „noch N Tage“ (berechnet aus `purge_after`, v5-Entwurf). Die angezeigte Frist ist eine Zusage: nichts geht früher weg.
 
-**(4) Offen.**
-- Mindest- und Höchstfrist je Programm? [offen]
-- Ist „nie löschen“ als Einstellung erlaubt? [offen]
-- Aufbewahrungspflichten (Rechnungen, Buchhaltung) haben gesetzliche Fristen, die vor der Papierkorb-Frist gelten; eine Regel dafür fehlt (`object_original.keep_until` ist noch immer NULL, `pilot-calendar/PLAN.md`, ADR 0086 Punkt 4). [offen]
-- Verlauf-Purge ohne Ablauf des Papierkorbs (Protokoll allein) getrennt oder nicht? [offen]
+### Entschieden
+
+- **Standard 30 Tage, Mindestfrist 1 Tag, keine Höchstfrist.**
+- **„Nie automatisch löschen“ ist als Einstellung erlaubt.** Der Nutzer leert dann selbst.
+- **Aufbewahrung geht vor der Frist.** Ist eine gesetzliche oder gewollte Aufbewahrung gesetzt (`keep_until`), wird das Objekt nicht automatisch gelöscht; die Anzeige lautet „aufbewahrt bis …“.
+- **Beim endgültigen Löschen nach Fristablauf geht der Verlauf des Objekts mit** (Kaskade, Punkt 1).
