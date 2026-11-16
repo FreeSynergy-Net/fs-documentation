@@ -8,7 +8,7 @@ Ein Programm installierst du von Hand: [FreeSynergy.Packages](../programs/platfo
 
 ## Schritt 1: den Store holen
 
-Der Store wird als **Pre-release** auf GitHub veröffentlicht: <https://github.com/FreeSynergy/fs-store/releases>.
+Der Store wird als **Pre-release** auf GitHub veröffentlicht: <https://github.com/FreeSynergy/fs-packages/releases>.
 
 Wähle das neueste Release, das als „Pre-release“ markiert ist. Am 2026-11-08 enthalten die Releases (bis `v0.0.6`) diese Dateien (schau in die Liste dort, sie kann wachsen):
 
@@ -42,20 +42,20 @@ gpg --verify SHA256SUMS.txt.asc SHA256SUMS.txt                 # muss "Good sign
 sha256sum --ignore-missing -c SHA256SUMS.txt                   # jede Datei, die du heruntergeladen hast: OK
 ```
 
-Die Releases enthalten auch einen Herkunftsnachweis (SLSA), den du mit `gh attestation verify <Datei> --repo FreeSynergy/fs-store` prüfen kannst, und eine SBOM (`*.spdx.json`).
+Die Releases enthalten auch einen Herkunftsnachweis (SLSA), den du mit `gh attestation verify <Datei> --repo FreeSynergy/fs-packages` prüfen kannst, und eine SBOM (`*.spdx.json`).
 
 Vertrau der Schlüsseldatei nicht nur deshalb, weil sie mit dem Release kam. Vergleiche den Fingerabdruck mit dieser Seite und mit der Schlüsseldatei im [Dokumentations-Repository](https://github.com/FreeSynergy/fs-documentation). Schlägt eine Prüfung fehl, installiere nichts und sag uns Bescheid.
 
 ## Schritt 3: den Store installieren
 
-- **Fedora:** `sudo dnf install ./fs-store-*.rpm` (root-Rechte fragt dein System ab, nicht wir).
+- **Fedora:** `sudo dnf install ./fs-packages-*.rpm` (root-Rechte fragt dein System ab, nicht wir).
 - **Ohne root (ohne `sudo`):** Die `.tar.gz` enthält einen Ordner mit dem Programm `fs-packages`. Entpack sie in deinen Home-Ordner und starte es von dort:
 
   ```bash
-  tar xzf fs-store-*-linux-x86_64.tar.gz     # oder ...-linux-aarch64.tar.gz
+  tar xzf fs-packages-*-linux-x86_64.tar.gz     # oder ...-linux-aarch64.tar.gz
   mkdir -p ~/.local/bin
-  cp fs-store-*/fs-store ~/.local/bin/
-  fs-packages                                    # öffnet das Fenster; bei „command not found“ ~/.local/bin/fs-store aufrufen
+  cp fs-packages-*/fs-packages ~/.local/bin/
+  fs-packages                                    # öffnet das Fenster; bei „command not found“ ~/.local/bin/fs-packages aufrufen
   ```
 
   Programme, die du auf diesem Weg aus dem Store installierst, landen ebenfalls in deinem Home-Ordner (`~/.local`), es braucht also nirgends root.

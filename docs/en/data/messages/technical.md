@@ -1,6 +1,6 @@
 # Messages – technical explanation
 
-Decisions: ADR 0018 (one messenger, encrypted only, connectors), ADR 0019/0020 (`fs-packages`, envelope +
+Decisions: ADR 0018 (one messenger, encrypted only, connectors), ADR 0019/0020 (`fs-objects`, envelope +
 content + log), ADR 0027 (UUIDv7). Evidence: [standards.md](standards.md).
 
 ## Principle: original + envelope

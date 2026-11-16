@@ -10,7 +10,7 @@ Decisions: ADR 0020/0030 (original + envelope + log), ADR 0023 (code and block e
 | page (block document) | — (born here) | `Article`, `mediaType` = block format | block tree JSON, stable block IDs |
 | passage | — | named mark (ADR 0033) on a range, or a block with a name | referenced wherever it is reused |
 | collection | — | `Collection` / `OrderedCollection` | item IRIs, references to other collections, `locked` state |
-| shelf | — | instance boundary | own `fs-packages`, own rights |
+| shelf | — | instance boundary | own `fs-objects`, own rights |
 | mark (explanation, variable, …) | — | Web Annotation, one `freesynergy.net` motivation | anchor (point/range/image region) + name + type + value |
 
 - IDs UUIDv7 (ADR 0027); sensitive marking applies (ADR 0029).

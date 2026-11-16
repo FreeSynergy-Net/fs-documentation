@@ -6,7 +6,7 @@ Eine kleine Seite, die zeigt, welchen Store du hast. Du öffnest sie mit **Help*
 
 - Den Namen und die Version, zum Beispiel "FreeSynergy.Packages 0.0.N".
 - "Licence: MIT OR Apache-2.0".
-- "Project: https://github.com/FreeSynergy/fs-store".
+- "Project: https://github.com/FreeSynergy/fs-packages".
 - Einen Button **Back to the programs**.
 
 ## Was du tun kannst

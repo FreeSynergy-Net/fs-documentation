@@ -50,7 +50,7 @@ Keeping these apart prevents much confusion:
 
 | Interface | What it is for | Candidate providers |
 |-----------|----------------|---------------------|
-| Database | Keeping objects | Turso (behind `fs-packages`'s `Store`, exists) |
+| Database | Keeping objects | Turso (behind `fs-objects`'s `Store`, exists) |
 | File storage | Keeping bytes | Local folder, RustFS over S3, git, WebDAV |
 | Mail | Sending and receiving mail, as client or server | JMAP, IMAP and SMTP clients; own server later |
 | Chat networks | Reaching people elsewhere | Matrix (tuwunel), Telegram, Discord, others |
@@ -66,7 +66,7 @@ Keeping these apart prevents much confusion:
 |-----------|----------------|---------------|
 | Trust | Showing when a person is safe, also against scammers and bots; each person sets their [own level](../programs/apps/assistant/index.md#locking-ais-out) | Web of Trust; its successor, the [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), is the proposed target (ADR 0052, 0054) |
 | Sharing and permissions | Who may see what; shares go to groups | Gap, one specification for all. Open: [role privacy](roles.md#open) |
-| Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-packages` (ADR 0050) |
+| Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-objects` (ADR 0050) |
 | Sync | Bringing devices and programs together | Activity log (ADR 0019) |
 | Presence | Seeing what others do, as it happens | Gap; never stored |
 | Search | Finding across programs | Gap |

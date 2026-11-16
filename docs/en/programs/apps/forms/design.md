@@ -42,7 +42,7 @@ state its limit plainly in the interface,** without calling it fully anonymous.
 Other risks to handle:
 
 - Timing: storing the time of an answer can identify a person. So anonymous answers go into a separate ballot store with no time and
-  no id per answer, written without a log entry (`UnloggedObjects` in `fs-packages` v0.3.0), because a logged write would leave the exact time
+  no id per answer, written without a log entry (`UnloggedObjects` in `fs-objects` v0.3.0), because a logged write would leave the exact time
   on disk after a crash. Known limits: a copy of the file taken between two writes shows the difference, and old pages can stay on disk.
 - Reading results again and again would show the newest answer. **Provisional rule:** anonymous results are released in batches of at least
   `minGroup` answers (default 5, at least 3), when the survey closes or widens. Up to `minGroup - 1` answers per survey can stay held back,

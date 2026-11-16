@@ -6,7 +6,7 @@
 
 Two things are kept apart: **what we know about a file** and **where its bytes are**.
 
-- **Metadata** is an object in `fs-packages`, like all other data: name, media type, size, checksum, folder, sharing.
+- **Metadata** is an object in `fs-objects`, like all other data: name, media type, size, checksum, folder, sharing.
 - **Bytes** live in a storage backend behind one interface. Which backend is in use makes no difference to the
   program, the frontends or other programs.
 
@@ -116,7 +116,7 @@ file. See [planned components](../../../components/planned.md).
 
 ## Stages
 
-1. Local folder, metadata in `fs-packages`, browse, move, rename, delete with trash, search by name, resumable upload.
+1. Local folder, metadata in `fs-objects`, browse, move, rename, delete with trash, search by name, resumable upload.
 2. S3 backend, sharing, versions, client-side encryption.
 3. Sync between devices via `fs-registry`, conflict handling, WebDAV.
 
@@ -134,4 +134,4 @@ file. See [planned components](../../../components/planned.md).
 3. **Sharing model:** files, gallery, kanban and surveys all need it. We propose one shared specification rather than
    four solutions.
 4. **Encryption:** should bytes on S3 always be encrypted on the client, using the key vault (ADR 0024)? We propose yes.
-5. **Does the data live in one place?** Bytes are deliberately outside `fs-packages`, so backups must cover both.
+5. **Does the data live in one place?** Bytes are deliberately outside `fs-objects`, so backups must cover both.

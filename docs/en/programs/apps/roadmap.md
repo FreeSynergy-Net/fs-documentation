@@ -24,7 +24,7 @@ Stand-alone apps without their own data are **facets** (ADR 0061): the gallery i
 
 | Purpose | Program | Status |
 |---------|---------|--------|
-| Keep objects, share them between programs | [`fs-packages`](https://github.com/FreeSynergy/fs-store), [`fs-registry`](https://github.com/FreeSynergy/fs-hub) | Exist |
+| Keep objects, share them between programs | [`fs-objects`](https://github.com/FreeSynergy/fs-objects), [`fs-registry`](https://github.com/FreeSynergy/fs-hub) | Exist |
 | Sign in, system access | [identity wrapper](../platform/identity.md) over Kanidm | Planned |
 | Belong together, decide who may do what | [`fs-groups`](../platform/groups.md) | Draft interface, code in progress, **new** |
 | Keep and find anything | [`fs-files`](files/design.md) | Provisional draft interface, code in progress |

@@ -68,7 +68,7 @@ only as in the feature files: ⚠️ standard and number to verify before they g
 |------------|---------|-----------------|--------|
 | Build an adaptive-bitrate ladder with a master playlist (`rendition.create`) | Am (enterprise), Wz; not in Mt, Ms, Nr, Rr, Gs | HLS/DASH master ⚠️ | proposed · stage 2 |
 | Watermark or overlay text/images on a stream (`stream.overlay`) | Wz, Ff, Gs; Ob, Rt (scenes) | none; per-stream overlay profile = own | proposed · stage 2 |
-| Compose scenes from several sources, switch live (`scene.compose`) | Ob, Rt (Studio), Gs, Ff (filter graph) | scene = own object; kept in `fs-packages` | proposed · stage 2 |
+| Compose scenes from several sources, switch live (`scene.compose`) | Ob, Rt (Studio), Gs, Ff (filter graph) | scene = own object; kept in `fs-objects` | proposed · stage 2 |
 | Mix audio tracks, normalise loudness (`audio.mix`) | Ob, Ff, Gs, Rt | EBU R128 named by Ff ⚠️ | proposed · stage 2 |
 | Pick a hardware or software encoder (`encoder.select`) | Ff, Gs, Am, Ob | a codec provider behind the codec interface (ADR 0048); NVENC / QSV / VAAPI ⚠️ | proposed · stage 2 |
 | Grab a preview picture of a live stream (`stream.preview`) | Am, Rr | decodes one frame; image `mediaType` | proposed · stage 2 |

@@ -74,7 +74,7 @@ Data references: [projects index](../../../data/projects/index.md) ·
 | Invite members to a board and give them a role — owner, contributor, observer (`member.add`, `member.role`) | Tr, We, Pl, Ta, Op, Re | membership and rights belong to `fs-groups` (ADR 0055), reached through its interface; board roles are only names for what it grants; login stays platform identity | proposed |
 | Send board events to outside systems (`webhook.create`) | Tr, We, Pl, Ta, Ji, As, Op; Re (plugin only) | AS2 activity as payload (envelope topic, index.md) | proposed |
 | Export a board (`board.export`) | We (JSON), Pl (PDF/HTML), As, Op, Re (CSV) | own board JSON + JSCalendar `Task`; CSV/PDF derived | proposed |
-| Changes appear live for everyone and work offline (`board.sync`) | We, Pl (real-time); *arch.* (ADR 0019); Ji, Pl, Op have no offline mode | `fs-packages` + `fs-registry`, object-level sync; live view of others as in the roadmap | partly: `subscribe` (`TaskFeed`) implemented (core); the rest proposed |
+| Changes appear live for everyone and work offline (`board.sync`) | We, Pl (real-time); *arch.* (ADR 0019); Ji, Pl, Op have no offline mode | `fs-objects` + `fs-registry`, object-level sync; live view of others as in the roadmap | partly: `subscribe` (`TaskFeed`) implemented (core); the rest proposed |
 | Script and automate through our own contract, no separate API (`Capabilities` contract) | Tr, We, Pl, Ta, Ji, As, Op, Re (REST); *arch.* ADR 0021 | Cap'n Proto → JSON / CLI / MCP | partly: draft contract `tasks.capnp` and Rust traits done; the capnp-rpc server is not written |
 
 ## Optional (notable ideas)

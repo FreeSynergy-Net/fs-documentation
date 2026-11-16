@@ -55,7 +55,7 @@ Data references: [messages standards](../../../data/messages/standards.md) ·
 | Use contacts: pick recipients from the address book, open a sender's card (`contact.lookup` — borrowed, ADR 0020) | Ko, Ou, Th (address book); Di, El, Ma, Te (open profile) | JSContact RFC 9553 ([contacts](../../../data/people/index.md)), live reference into the contacts program | proposed |
 | Edit the own profile: name, picture, short text (`profile.edit`) | Di, El, Ma, Te | AS2 actor; JSContact for the own card; [profile](../../../data/profile/index.md) | proposed |
 | Rules and filters: sort, label, move, mute automatically (`rule.create`, `rule.run`) | Ko, Ou, Th (filter rules); Ma (word/user filters); Di (AutoMod) | Sieve via JMAP RFC 9661 for mail; the same rule model applied to chat ⚠️ (gap) | proposed |
-| Work offline and stay in sync across devices (`sync`) | Ko, Th (offline mode); El (synchronisation); Te (cloud) | `fs-packages` + `fs-registry`, object-level sync (ADR 0019); local, encrypted at rest (ADR 0024) | proposed |
+| Work offline and stay in sync across devices (`sync`) | Ko, Th (offline mode); El (synchronisation); Te (cloud) | `fs-objects` + `fs-registry`, object-level sync (ADR 0019); local, encrypted at rest (ADR 0024) | proposed |
 | Do not load remote content or tracking images unless the person asks (`message.open` default) | Th (tracking protection); *arch.* (privacy) | rule in our renderer; MIME `cid:` parts allowed, remote URLs blocked by default | proposed |
 
 ## Optional (notable ideas)
@@ -106,7 +106,7 @@ Data references: [messages standards](../../../data/messages/standards.md) ·
 | Mute / ignore a conversation (`conversation.ignore`) | Ou (ignore), Ap (mute) | JMAP keyword | proposed |
 | Message priority / importance (`message.priority`) | Ou | MIME `Importance` header; chat: vendor property | proposed |
 | Sending aliases per account (`account.alias`) | Ap | JMAP `Identity` | proposed |
-| Offline: choose which folders and how many days are kept (`sync.scope`) | Ou | `fs-packages` sync policy (ADR 0019) | proposed |
+| Offline: choose which folders and how many days are kept (`sync.scope`) | Ou | `fs-objects` sync policy (ADR 0019) | proposed |
 | Summarise a long message (`message.summarize`) | Ou | **local model only** (no cloud, ADR 0029) ⚠️ | proposed |
 | Screening: a first-time sender is held until the person approves or refuses them (`sender.screen`) | HEY (Screener) | contacts + trust; decision stored as JSContact vendor property; JMAP keyword for held mail | proposed |
 | Sort approved mail by kind into separate lists: people, newsletters, receipts (`message.classify` with named kinds) | HEY (Imbox, Feed, Paper Trail) | local classification, JMAP keyword / mailbox role | proposed |
@@ -116,7 +116,7 @@ Data references: [messages standards](../../../data/messages/standards.md) ·
 | Split the inbox into several lists by rules on sender, domain, recipient, subject or label (`view.save` with split) | Superhuman Mail (Split Inbox); Ou (search folders), Ap (smart mailboxes) | stored query; JMAP `Email/query` filter | proposed |
 | One command palette for all actions, opened by a single shortcut (`command.palette`) | Superhuman Mail (Cmd+K) | frontend path over the capability list (ADR 0021) | proposed |
 | Private comments on a message, visible only to team members, never sent to the sender (`message.comment`) | Spark (Team Comments) | AS2 `Note` with restricted `audience`; stored in the team's conversation, not in the mail | proposed |
-| Write a reply together (shared draft) (`draft.share`) | Spark (Shared Draft) | draft object shared over `fs-packages` sync (ADR 0019) | proposed |
+| Write a reply together (shared draft) (`draft.share`) | Spark (Shared Draft) | draft object shared over `fs-objects` sync (ADR 0019) | proposed |
 | Shared inbox: several people answer one address with roles (`inbox.share`) | Spark (Shared Inbox); Chatwoot, Zammad (helpdesk) | JMAP shared mailboxes (ACL, RFC 8621); roles by group (`group.role`) | proposed |
 | Masked addresses: create a random address per sign-up, label it, switch it off, see who leaked it (`account.alias` with mask) | Fastmail (Masked Email) | JMAP `Identity` / vendor extension ⚠️; own domain possible | proposed |
 | A topic on every message of a group conversation; replies go to the topic in view; topics can be moved, resolved, muted (`topic.set`, `topic.move`, `topic.resolve`, `topic.mute`) | Zulip; Te (topics in groups, admin-created) | AS2 `context`; Matrix `m.thread` ⚠️ no equal concept; MIMI topic | proposed |

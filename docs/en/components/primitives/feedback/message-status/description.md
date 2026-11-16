@@ -36,7 +36,7 @@ A message status shows how far a sent message has come: being sent, sent, delive
 
 ## Data binding
 
-Binds the **message state**: MIMI message-status draft `-02`, ActivityStreams `Read`, Matrix `m.receipt`, mail DSN/MDN. In the representation register (ADR 0023): `MessageState → message-status | text`. The state is stored **locally** in `fs-packages` (ADR 0037), so previews work without a Matrix or mail server behind them. ⚠️ Whether `sending` is a stored state or only a UI state is open.
+Binds the **message state**: MIMI message-status draft `-02`, ActivityStreams `Read`, Matrix `m.receipt`, mail DSN/MDN. In the representation register (ADR 0023): `MessageState → message-status | text`. The state is stored **locally** in `fs-objects` (ADR 0037), so previews work without a Matrix or mail server behind them. ⚠️ Whether `sending` is a stored state or only a UI state is open.
 
 ## Distinction
 

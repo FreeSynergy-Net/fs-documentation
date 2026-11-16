@@ -15,7 +15,7 @@ Status: `implemented` · `planned` · `proposed`
 
 | Capability | Basis | Data / standard | Status |
 |------------|-------|-----------------|--------|
-| Create and edit a survey (`survey.create`, `survey.edit`) | ⚠️ | AS2 `Collection` + own profile; the envelope belongs to `fs-packages` | proposed |
+| Create and edit a survey (`survey.create`, `survey.edit`) | ⚠️ | AS2 `Collection` + own profile; the envelope belongs to `fs-objects` | proposed |
 | Add, edit, reorder questions (`question.add`, `question.edit`, `question.move`) | ⚠️ | AS2 `Question`; gap beyond it | proposed |
 | Question types: single, multiple, text, number, date, scale (`question.types`) | ⚠️ | `oneOf`, `anyOf`; rest gap | proposed |
 | Required questions and validation (`question.validate`) | ⚠️ | gap | proposed |

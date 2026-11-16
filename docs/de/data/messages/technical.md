@@ -1,6 +1,6 @@
 # Nachrichten – technische Erklärung
 
-Entscheidungen: ADR 0018 (ein Messenger, nur verschlüsselt, Konnektoren), ADR 0019/0020 (`fs-packages`,
+Entscheidungen: ADR 0018 (ein Messenger, nur verschlüsselt, Konnektoren), ADR 0019/0020 (`fs-objects`,
 Envelope + Inhalt + Protokoll), ADR 0027 (UUIDv7). Belege: [standards.md](standards.md).
 
 ## Prinzip: Original + Envelope

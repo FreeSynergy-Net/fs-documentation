@@ -87,9 +87,9 @@ Rust hygiene (ADR 0041).
 
 ## 8. Dependencies between our repos
 - Always **git dependencies with a tag**, never local paths:
-  `fs-packages = { git = "https://github.com/FreeSynergy/fs-store", tag = "v0.2.0" }`.
+  `fs-objects = { git = "https://github.com/FreeSynergy/fs-objects", tag = "v0.2.0" }`.
 - A change in a shared repo → new tag → dependents bump the tag in the same step.
 - Working across repos on one machine: override temporarily with
-  `cargo test --config 'patch."https://github.com/FreeSynergy/fs-store".fs-store.path="../fs-store/crates/fs-store"'`
+  `cargo test --config 'patch."https://github.com/FreeSynergy/fs-objects".fs-objects.path="../fs-objects/crates/fs-objects"'`
   — never commit such paths (a fresh clone must build; check with a clone into `/tmp`).
 

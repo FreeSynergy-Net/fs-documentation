@@ -36,7 +36,7 @@ Ein Nachrichtenstatus zeigt, wie weit eine gesendete Nachricht gekommen ist: wir
 
 ## Datenbindung
 
-Bindet den **Nachrichtenzustand**: MIMI-message-status-Entwurf `-02`, ActivityStreams `Read`, Matrix `m.receipt`, Mail DSN/MDN. Im Darstellungsregister (ADR 0023): `MessageState → message-status | text`. Der Zustand wird **lokal** in `fs-packages` gespeichert (ADR 0037), damit Vorschauen ohne Matrix- oder Mailserver funktionieren. ⚠️ Offen, ob `sending` ein gespeicherter Zustand oder nur ein UI-Zustand ist.
+Bindet den **Nachrichtenzustand**: MIMI-message-status-Entwurf `-02`, ActivityStreams `Read`, Matrix `m.receipt`, Mail DSN/MDN. Im Darstellungsregister (ADR 0023): `MessageState → message-status | text`. Der Zustand wird **lokal** in `fs-objects` gespeichert (ADR 0037), damit Vorschauen ohne Matrix- oder Mailserver funktionieren. ⚠️ Offen, ob `sending` ein gespeicherter Zustand oder nur ein UI-Zustand ist.
 
 ## Abgrenzung
 

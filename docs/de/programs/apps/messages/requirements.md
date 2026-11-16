@@ -55,7 +55,7 @@ Datenverweise: [Nachrichten-Standards](../../../data/messages/standards.md) ·
 | Kontakte nutzen: Empfänger aus dem Adressbuch wählen, die Karte eines Absenders öffnen (`contact.lookup` — geliehen, ADR 0020) | Ko, Ou, Th (Adressbuch); Di, El, Ma, Te (Profil öffnen) | JSContact RFC 9553 ([Kontakte](../../../data/people/index.md)), Live-Verweis in das Kontakte-Programm | proposed |
 | Das eigene Profil bearbeiten: Name, Bild, Kurztext (`profile.edit`) | Di, El, Ma, Te | AS2-Akteur; JSContact für die eigene Karte; [Profil](../../../data/profile/index.md) | proposed |
 | Regeln und Filter: automatisch sortieren, kennzeichnen, verschieben, stummschalten (`rule.create`, `rule.run`) | Ko, Ou, Th (Filterregeln); Ma (Wort-/Nutzerfilter); Di (AutoMod) | Sieve über JMAP RFC 9661 für Mail; dasselbe Regelmodell für Chat ⚠️ (Lücke) | proposed |
-| Offline arbeiten und über Geräte hinweg synchron bleiben (`sync`) | Ko, Th (Offline-Modus); El (Synchronisierung); Te (Cloud) | `fs-packages` + `fs-registry`, Synchronisierung auf Objektebene (ADR 0019); lokal, im Ruhezustand verschlüsselt (ADR 0024) | proposed |
+| Offline arbeiten und über Geräte hinweg synchron bleiben (`sync`) | Ko, Th (Offline-Modus); El (Synchronisierung); Te (Cloud) | `fs-objects` + `fs-registry`, Synchronisierung auf Objektebene (ADR 0019); lokal, im Ruhezustand verschlüsselt (ADR 0024) | proposed |
 | Entfernte Inhalte und Tracking-Bilder nicht laden, außer die Person bittet darum (Standard von `message.open`) | Th (Tracking-Schutz); *arch.* (Datenschutz) | Regel in unserem Renderer; MIME-`cid:`-Teile erlaubt, entfernte URLs standardmäßig blockiert | proposed |
 
 ## Optional (bemerkenswerte Ideen)
@@ -106,7 +106,7 @@ Datenverweise: [Nachrichten-Standards](../../../data/messages/standards.md) ·
 | Eine Unterhaltung stummschalten / ignorieren (`conversation.ignore`) | Ou (ignorieren), Ap (stummschalten) | JMAP-Schlüsselwort | proposed |
 | Nachrichtenpriorität / Wichtigkeit (`message.priority`) | Ou | MIME-Kopfzeile `Importance`; Chat: Herstellereigenschaft | proposed |
 | Absendealiasse je Konto (`account.alias`) | Ap | JMAP `Identity` | proposed |
-| Offline: wählen, welche Ordner und wie viele Tage bleiben (`sync.scope`) | Ou | Synchronisierungsregel von `fs-packages` (ADR 0019) | proposed |
+| Offline: wählen, welche Ordner und wie viele Tage bleiben (`sync.scope`) | Ou | Synchronisierungsregel von `fs-objects` (ADR 0019) | proposed |
 | Eine lange Nachricht zusammenfassen (`message.summarize`) | Ou | **nur lokales Modell** (keine Cloud, ADR 0029) ⚠️ | proposed |
 
 ## Angenommene Ideen (Projektinhaber, 2026-11-08), Schritt für Schritt umzusetzen

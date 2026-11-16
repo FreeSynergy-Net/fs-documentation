@@ -10,7 +10,7 @@ Entscheidungen: ADR 0020/0030 (Original + Envelope + Protokoll), ADR 0023 (Code-
 | Seite (Block-Dokument) | — (hier geboren) | `Article`, `mediaType` = Blockformat | Blockbaum-JSON, stabile Block-IDs |
 | Passage | — | benannte Markierung (ADR 0033) auf einer Spanne, oder ein Block mit Namen | wird referenziert, wo immer sie wiederverwendet wird |
 | Sammlung | — | `Collection` / `OrderedCollection` | Item-IRIs, Referenzen auf andere Sammlungen, `locked`-Zustand |
-| Regal | — | Instanzgrenze | eigenes `fs-packages`, eigene Rechte |
+| Regal | — | Instanzgrenze | eigenes `fs-objects`, eigene Rechte |
 | Markierung (Erklärung, Variable, …) | — | Web Annotation, eine `freesynergy.net`-Motivation | Anker (Punkt/Spanne/Bildbereich) + Name + Typ + Wert |
 
 - IDs UUIDv7 (ADR 0027); sensible Markierung greift (ADR 0029).

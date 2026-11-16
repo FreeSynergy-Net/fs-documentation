@@ -46,7 +46,7 @@ So the board model is a **gap → own spec candidate**. Proven building blocks: 
 | Export a board or a selection as an image (`board.export` to PNG, SVG) | Dr, Ex, Td, Mu (PNG); Mi ⚠️ | PNG ⚠️ and SVG ⚠️ — no entry in `data/`, to be evidenced; SVG preferred because it stays vector | proposed |
 | Export as PDF, one page per page/frame (`board.export` to PDF) | Dr, Mu, Op; Mi (PDF) | PDF ⚠️ — only `application/pdf` as `mimeType` in `data/models.md` | proposed |
 | Save and load the board in an own open file format; keep the original on import (`board.save`, `board.import`) | Dr, Ex, Td, Op (.obz); *arch.* (open data, ADR 0014) | own spec (JSON) ⚠️; foreign formats (`.drawio`, `.excalidraw`, `.tldraw`) are imports | proposed |
-| Save automatically and work offline, sync later (`sync`) | Td (IndexedDB), Ex (localStorage), Op (offline-first), Dr (auto-save); *arch.* | `fs-packages` + `fs-registry`, object-level sync (ADR 0019); encrypted at rest (ADR 0024) | proposed |
+| Save automatically and work offline, sync later (`sync`) | Td (IndexedDB), Ex (localStorage), Op (offline-first), Dr (auto-save); *arch.* | `fs-objects` + `fs-registry`, object-level sync (ADR 0019); encrypted at rest (ADR 0024) | proposed |
 | Edit together in real time (`board.sync`) | Dr, Ex, Mi, Td; Mu ⚠️ | element/record-level deltas; CRDT or versioned store ⚠️ not decided; conflict rule needed; transport via `fs-registry` (ADR 0019) | proposed |
 | Show who is present: cursor, name, selection (`presence.show`) | Ex, Mi, Td; Mu ⚠️ | ephemeral, never stored in the board; no standard checked | proposed |
 | Follow another participant's view (`presence.follow`) | Ex, Mi (presenter/follow), Td | view state of the followed actor; ephemeral | proposed |
@@ -61,7 +61,7 @@ So the board model is a **gap → own spec candidate**. Proven building blocks: 
 | Stylus input with pressure and tilt (`stroke.draw` with pressure) | Ex (tablet, touch pen), Td (pressure look), Op (pen, multitouch) | upstream contribution, entered in `todo/upstream.md`; InkML weak evidence → gap; gestures stay in the frontend (ADR 0037) | proposed |
 | Pointer that leaves no marks (`presence.point`) | Ex, Td (laser) | ephemeral presence event | proposed |
 | Comment on a place in the board (`comment.add`) | Mi (comment mode); Dr, Ex, Td: explicitly none | W3C Web Annotation with `SvgSelector` / region target (`data/documents/standards.md`) | proposed |
-| Version history: list, compare, restore (`board.history`, `board.restore`) | Dr (versions from storage) | object history in `fs-packages` ⚠️ | proposed |
+| Version history: list, compare, restore (`board.history`, `board.restore`) | Dr (versions from storage) | object history in `fs-objects` ⚠️ | proposed |
 | Templates and own start boards (`template.apply`, `template.save`) | Mi, Mu (thousands); Td (own start snapshots) | template = board without data; sharing via Git repositories (ADR 0036 ⚠️) | proposed |
 | Facilitation: timer, voting, sections, step-by-step sequences (`session.timer`, `vote.cast`, `sequence.run`) | Mi, Mu; Op (timer, alarm); Td (community overlays) | gap → own spec; vote = one `Like`-style activity per actor ⚠️ | proposed |
 | Present a board full screen or step through frames (`board.present`) | Op (full screen), Mi (presenter mode), Mu (sequences) | order of frames in the board model | proposed |

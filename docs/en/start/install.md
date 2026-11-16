@@ -8,7 +8,7 @@ You install one program by hand, [FreeSynergy.Packages](../programs/platform/pac
 
 ## Step 1: get the Store
 
-The Store is published as a **pre-release** on GitHub: <https://github.com/FreeSynergy/fs-store/releases>.
+The Store is published as a **pre-release** on GitHub: <https://github.com/FreeSynergy/fs-packages/releases>.
 
 Pick the newest release marked "Pre-release". On 2026-11-08 the releases (up to `v0.0.6`) carry these files (look at the list there, it can grow):
 
@@ -42,20 +42,20 @@ gpg --verify SHA256SUMS.txt.asc SHA256SUMS.txt                 # must say "Good 
 sha256sum --ignore-missing -c SHA256SUMS.txt                   # every file you downloaded: OK
 ```
 
-The releases also carry a build provenance attestation (SLSA), which you can check with `gh attestation verify <file> --repo FreeSynergy/fs-store`, and an SBOM (`*.spdx.json`).
+The releases also carry a build provenance attestation (SLSA), which you can check with `gh attestation verify <file> --repo FreeSynergy/fs-packages`, and an SBOM (`*.spdx.json`).
 
 Do not trust the key file only because it came with the release. Compare the fingerprint with this page and with the key file in the [documentation repository](https://github.com/FreeSynergy/fs-documentation). If a check fails, do not install, and tell us.
 
 ## Step 3: install the Store
 
-- **Fedora:** `sudo dnf install ./fs-store-*.rpm` (root is asked by your system, not by us).
+- **Fedora:** `sudo dnf install ./fs-packages-*.rpm` (root is asked by your system, not by us).
 - **Without root (no `sudo`):** the `.tar.gz` holds one folder with the program `fs-packages`. Unpack it into your home folder and run it from there:
 
   ```bash
-  tar xzf fs-store-*-linux-x86_64.tar.gz     # or ...-linux-aarch64.tar.gz
+  tar xzf fs-packages-*-linux-x86_64.tar.gz     # or ...-linux-aarch64.tar.gz
   mkdir -p ~/.local/bin
-  cp fs-store-*/fs-store ~/.local/bin/
-  fs-packages                                    # opens the window; if "command not found", use ~/.local/bin/fs-store
+  cp fs-packages-*/fs-packages ~/.local/bin/
+  fs-packages                                    # opens the window; if "command not found", use ~/.local/bin/fs-packages
   ```
 
   Programs you install from the Store this way also go to your home folder (`~/.local`), so nothing needs root.

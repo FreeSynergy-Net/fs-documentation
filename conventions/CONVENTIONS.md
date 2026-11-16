@@ -32,7 +32,7 @@ Fremdprojekte, Lizenz, Repos, Messenger)
 - **Programm = Kategorie**: `FreeSynergy.Messenger`, Repo `fs-messages`; jedes Programm läuft
   allein, zusammen teilen sie die Arbeit über Standarddaten (ADR 0017).
 - **Nur `docs/en/` wird gepflegt**, `de/` übersetzt llama (ADR 0011).
-- **Daten:** `fs-packages` je Programm, `fs-registry` je Gerät, Abgleich auf Objektebene (ADR 0019);
+- **Daten:** `fs-objects` je Programm, `fs-registry` je Gerät, Abgleich auf Objektebene (ADR 0019);
   Objekt = AS2-Hülle + Fachstandard + Aktivitätsprotokoll, Leihen = Live-Verweis, Regeln werden
   angesagt (ADR 0020). Programm ohne Hub speichert lokal, wahlweise verschlüsselt (ADR 0024).
 - **Schnittstelle:** Cap'n Proto ist der Vertrag, JSON/CLI/MCP daraus erzeugt (ADR 0021);

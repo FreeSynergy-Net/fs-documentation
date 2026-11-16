@@ -3,7 +3,7 @@
 What `FreeSynergy.Gallery` must and can do, derived from the [frontends](frontends/index.md)
 (ADR 0006, 0013). Each capability names its data standard (ADR 0014) and our status.
 The bytes of photos and videos live in `fs-files`; the gallery stores **metadata objects that
-reference those files** (no raw storage management here). Sharing uses shared `fs-packages` objects.
+reference those files** (no raw storage management here). Sharing uses shared `fs-objects` objects.
 
 Status: `implemented` · `planned` · `proposed`
 
@@ -51,15 +51,15 @@ Data references: [standards](../../../data/standards.md) ·
 | Create, rename, describe, delete albums (`album.create`, `album.edit`, `album.delete`) | Im, Ph, Li, Ly, Pi, Co, Da, Nc | AS2 `Collection` / `OrderedCollection` | proposed |
 | Add and remove media in an album; one item in several albums (`album.add`, `album.remove`) | Im, Ph, Li, Ly, Pi, Co, Da, Nc | AS2 `Add` / `Remove` on the `Collection`; items by reference, not copy | proposed |
 | Nest albums in sub-albums or folders (`album.nest`) | Ly, Pi, Co, Ph (folders), Nc (folder albums) | AS2 `Collection` with `partOf`-style link ⚠️ no tree profile: gap | proposed |
-| Share an album or item by link, with password, expiry and download permission (`share.create`) | Im, Ph, Ly, Da, Nc | shared `fs-packages` object (ADR 0019); link/permission model: gap | proposed |
-| Share with named users or groups, with permissions (`share.grant`, `share.revoke`) | Im, Li, Nc, Pi, Co, Ly | shared `fs-packages` object; roles: gap | proposed |
+| Share an album or item by link, with password, expiry and download permission (`share.create`) | Im, Ph, Ly, Da, Nc | shared `fs-objects` object (ADR 0019); link/permission model: gap | proposed |
+| Share with named users or groups, with permissions (`share.grant`, `share.revoke`) | Im, Li, Nc, Pi, Co, Ly | shared `fs-objects` object; roles: gap | proposed |
 | Download an original or a size (`media.download`) | Im, Ly, Pi, Ph, Nc | File URL from `fs-files`; allowed by share permission | proposed |
 | Rotate and crop non-destructively (`media.edit`) | Im, Ph, Li, Ly, Pi, Co, Nc | Exif `Orientation`; crop instructions: ⚠️ no XMP crop term evidenced → gap | proposed |
 | Delete media; trash with a deadline (`media.delete`, `media.restore`) | Im (trash), Ph (archive), Pi (batch delete); *arch.* | AS2 `Delete` + tombstone; file removal in `fs-files` is a separate, explicit step | proposed |
 | Detect duplicates (`media.duplicates`) | Im, Ph, Li, Da | exact: `checksum` `sha256:…`; perceptual hash (pHash): gap | proposed |
 | Show media on a map; group by place (`place.list`, `place.assign`) | Im, Li, Ph, Nc (Maps app) | GeoJSON, AS2 `Place`, IPTC "Location Created/Shown"; map tiles: PMTiles ([geodata](../../../data/geodata/standards.md)); self-hosted tiles only | proposed |
 | Mark sensitive media, fields or people (`sensitive.mark`) | *arch.* ADR 0029 | `dpv:SpecialCategoryPersonalData` (DPV 2.3); never auto-linked, encrypted by default | proposed |
-| Sync across devices, work offline (`sync`) | *arch.* (ADR 0019, 0024) | `fs-packages` + `fs-registry` object sync; encrypted at rest | proposed |
+| Sync across devices, work offline (`sync`) | *arch.* (ADR 0019, 0024) | `fs-objects` + `fs-registry` object sync; encrypted at rest | proposed |
 
 ## Optional (notable ideas)
 

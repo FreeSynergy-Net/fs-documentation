@@ -39,7 +39,7 @@ The block editor edits structured documents as a tree of blocks (like Notion). E
 
 ## Data binding
 
-Binds a block document (own block specification, ADR 0034). A `.md` or code file is a block document with **one** block pointing to the text; code mode and block mode are two views of one model (ADR 0042). `fs-packages` is the truth, files are exports.
+Binds a block document (own block specification, ADR 0034). A `.md` or code file is a block document with **one** block pointing to the text; code mode and block mode are two views of one model (ADR 0042). `fs-objects` is the truth, files are exports.
 
 ## Distinction
 

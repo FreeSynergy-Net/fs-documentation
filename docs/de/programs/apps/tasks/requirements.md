@@ -43,7 +43,7 @@ Datenverweise: [Projekte, Übersicht](../../../data/projects/index.md) ·
 | Karten mit Name und Farbe beschriften (`label.assign`) | Tr, We, Pl, As (Tags) | JSCalendar `keywords` an der Aufgabe; Name und Farbe des Labels werden am Board festgelegt: Lücke → eigene | Vorschlag |
 | Eine Karte in kleine Schritte mit Fortschritt zerlegen (`subtask.add`) — Checklisten (Tr, We, Pl) und Unteraufgaben (Ta, Ji, As) werden zusammen gezählt; Tr sagt, Karten dürfen keine Karten enthalten | Tr, We, Pl, Ta, Ji, As | `Relation` `kind: parent` (Vorschlag: kein `parent_id` am Task); Fortschritt aus den Kindern | Vorschlag |
 | Karten verknüpfen: hängt ab von, blockiert, bezieht sich auf (`relation.create`) | Ji, As, Op, Re | RFC 9253 `DEPENDS-ON`, `FINISHTOSTART` usw.; „blocks“ ist eine **Lücke** (`relatedTo` nur first/next/child/parent) → eigene `Relation`-`kind`-Aufzählung | Vorschlag |
-| Dateien an eine Karte anhängen (`attachment.add`) | Tr, We, Pl, Ta, Op, Re | JSCalendar `links`; Blob in `fs-packages` | Vorschlag |
+| Dateien an eine Karte anhängen (`attachment.add`) | Tr, We, Pl, Ta, Op, Re | JSCalendar `links`; Blob in `fs-objects` | Vorschlag |
 | Eine Karte kommentieren (`comment.add`) | Tr, We, Pl, Op, Re | AS2 `Note` mit `inReplyTo` die Karte | Vorschlag |
 | Karte oder Board beobachten und Änderungen erhalten (`card.watch`) | Tr, Pl, Op, Re | Abonnementliste: Lücke → eigene | Vorschlag |
 | Bei Änderungen an beobachteten oder zugewiesenen Karten benachrichtigen (`card.notify`) | Tr, We, Pl, Ta, As, Op, Re | AS2-Aktivität als Quelle; der Zustellkanal ist Sache der Plattform ⚠️ nicht in data/projects definiert | Vorschlag |
@@ -53,7 +53,7 @@ Datenverweise: [Projekte, Übersicht](../../../data/projects/index.md) ·
 | Mitglieder zu einem Board einladen und ihnen eine Rolle geben — Besitzer, Mitwirkende, Beobachter (`member.add`, `member.role`) | Tr, We, Pl, Ta, Op, Re | Rollen aus description.md; W3C-Organisationsontologie (✅ URL, Inhalt nicht gelesen); Anmeldung bleibt die Plattform-Identität | Vorschlag |
 | Board-Ereignisse an externe Systeme senden (`webhook.create`) | Tr, We, Pl, Ta, Ji, As, Op; Re (nur Plugin) | AS2-Aktivität als Nutzlast (Envelope-Thema, index.md) | Vorschlag |
 | Ein Board exportieren (`board.export`) | We (JSON), Pl (PDF/HTML), As, Op, Re (CSV) | eigenes Board-JSON + JSCalendar `Task`; CSV/PDF abgeleitet | Vorschlag |
-| Änderungen erscheinen live für alle und funktionieren offline (`board.sync`) | We, Pl (Echtzeit); *Arch.* (ADR 0019); Ji, Pl, Op haben keinen Offline-Modus | `fs-packages` + `fs-registry`, Sync auf Objektebene | Vorschlag |
+| Änderungen erscheinen live für alle und funktionieren offline (`board.sync`) | We, Pl (Echtzeit); *Arch.* (ADR 0019); Ji, Pl, Op haben keinen Offline-Modus | `fs-objects` + `fs-registry`, Sync auf Objektebene | Vorschlag |
 | Mit unserem eigenen Vertrag skripten und automatisieren, ohne separate API (`Capabilities`-Vertrag) | Tr, We, Pl, Ta, Ji, As, Op, Re (REST); *Arch.* ADR 0021 | Cap'n Proto → JSON / CLI / MCP | Vorschlag |
 
 ## Optional (bemerkenswerte Ideen)
