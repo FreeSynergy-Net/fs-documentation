@@ -37,6 +37,13 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] **GRUNDSACHE** Wiki-Frontends (Notion, Confluence) in `workbenches` laufen mit den Programmen fs-text und fs-draw als Vorbild für alle weiteren Frontends (ADR 0087 Punkt 7)
 - [ ] **GRUNDSACHE** Dossier-Pflicht (R2): kein neues Frontend ohne Vorbild-Dossier mit Arbeitsabläufen
 
+## Frontend und Theme getrennt (Nutzerkorrektur 2026-11-16; Theme = bisher Stil, Begriff offen; Papier `/srv/FreeSynergy/.scratch/plan-theme-bruecke.md` Abschnitt 11 und 12)
+- [ ] **GRUNDSACHE** Theme meldet Vertragsversion und abgedeckte Bausteine (`contract_version`, `covers`), erzeugt/geprüft durch `stil-vollstaendigkeit` [offen, nichts davon belegt gebaut]
+- [ ] **GRUNDSACHE** Theme-Auswahl filtert: nur Themes, die alle Bausteine des aktuellen Programms/Frontends vollständig gestalten; ungestalteter Baustein = Theme nicht anwendbar [offen]
+- [ ] **GRUNDSACHE** Laufzeitwechsel des Themes außerhalb des Frontends, jedes Theme auf jedes Frontend (nicht „Frontend in Stil“); Blinc-Neuzeichnen zur Laufzeit [nicht belegt, Spike S0]
+- [ ] SPÄTER Probe „Theme auf Frontend“ (Bild ändert sich, Struktur nicht) neben `zwei-stile`/Tokenprobe
+- [ ] SPÄTER Nachtrag 2 zu ADR 0074 (Strategie schreibt; Entwurf im Papier Abschnitt 12)
+
 ## Bausteine, Folgepunkte
 - [ ] SPÄTER Signal statt Abfrage alle 200 ms für Menü „Seite“ (Folgepunkt 0.0.11)
 - [ ] SPÄTER Namensdialog und Frage als eigene Bausteine mit Zeile für den Grund, Fokusring (Folgepunkt 0.0.12; die Kopie in fs-wiki fällt dann weg)
