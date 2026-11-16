@@ -1,6 +1,6 @@
 # Übersetzungsliste – der Übersetzungs-Checker für den ganzen Baum
 
-Stand: 2026-11-16 04:38 UTC · 2521 Dateien verfolgt · 1882 offen · 483 bestätigt
+Stand: 2026-11-16 04:41 UTC · 2521 Dateien verfolgt · 1882 offen · 483 bestätigt
 
 Erzeugt von `python3 scripts/doc_sync.py --en docs/en --de docs/de \`
     `--state temp/sync_state.json --list temp/translation-queue.md`
@@ -37,11 +37,11 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 | Abschnitt | Dateien |
 |-----------|---------|
 | A. `en/` fehlt – aus `de/` übersetzen | 6 |
-| B. `de/` fehlt – englische Quelle nachziehen | 341 |
+| B. `de/` fehlt – englische Quelle nachziehen | 340 |
 | C. `en/` ist eine Kopie von `de/` – unübersetzt | 0 |
 | D. `en/` enthält noch deutschen Text – Rest übersetzen | 29 |
 | D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) | 4 |
-| E. `de/` enthält noch englischen Text – Rest rückübersetzen | 182 |
+| E. `de/` enthält noch englischen Text – Rest rückübersetzen | 183 |
 | F. Form nicht gleich – Struktur abgleichen | 219 |
 | G. Deutscher Dateiname – Pfad englisch machen (ADR 0002) | 0 |
 | H. Beide Seiten da, kein Befund – lesen und bestätigen | 1207 |
@@ -58,17 +58,13 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/suites/projectmanagement/frontends/jira/latest/menus.md` · 1.3k
 - [ ] `programs/suites/projectmanagement/frontends/jira/latest/shortcuts.md` · 1.1k
 
-## B. `de/` fehlt – englische Quelle nachziehen – 341 Dateien
+## B. `de/` fehlt – englische Quelle nachziehen – 340 Dateien
 
 ### `components/styles/` · 3
 
 - [ ] `components/styles/apple.md` · 8.8k
 - [ ] `components/styles/fiori.md` · 6.3k
 - [ ] `components/styles/windows.md` · 12.6k
-
-### `programs/` · 1
-
-- [ ] `programs/map.md` · 19.0k
 
 ### `programs/apps/files/frontends/files-community/` · 1
 
@@ -813,7 +809,11 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `programs/suites/workflows/frontends/node-red/latest/api.md` · 2.0k · L46 German word in code → "geschlossen" · Fundzeile: node.warn("Ticket " + msg.payload.ticket.id + " geschlossen"); · Bezeichner ausserhalb bleiben deutsch (ADR 0002)
 
-## E. `de/` enthält noch englischen Text – Rest rückübersetzen – 182 Dateien
+## E. `de/` enthält noch englischen Text – Rest rückübersetzen – 183 Dateien
+
+### `programs/` · 1
+
+- [ ] `programs/map.md` · 20.7k · L5 EN prose in DE: ['this', 'from', 'the', 'has', 'yet', 'been']
 
 ### `programs/apps/calendar/frontends/cal-com/` · 1
 
@@ -4082,7 +4082,6 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ## Changelog
 
-- 2026-11-05 14:41 · Lauf: 1532 verfolgt, 548 offen, 977 bestätigt · needs_en=423 needs_de=17 parity=108
 - 2026-11-05 15:27 · Lauf: 1532 verfolgt, 554 offen, 971 bestätigt · needs_en=423 needs_de=17 parity=27 review=87
 - 2026-11-05 15:28 · Lauf: 1532 verfolgt, 467 offen, 1058 bestätigt · needs_en=423 needs_de=17 parity=27
 - 2026-11-05 15:43 · Lauf: 1537 verfolgt, 476 offen, 1054 bestätigt · needs_en=423 needs_de=22 parity=13 review=18
@@ -4123,3 +4122,4 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - 2026-11-16 04:33 · Lauf: 2609 verfolgt, 1970 offen, 483 bestätigt · needs_en=6 needs_de=341 copy=87 en_german=117 code_german=8 de_english=187 parity=219 rename=31 review=1207
 - 2026-11-16 04:38 · Lauf: 2609 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=341 en_german=29 code_german=4 de_english=182 parity=219 review=1207
 - 2026-11-16 04:38 · Lauf: 2521 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=341 en_german=29 code_german=4 de_english=182 parity=219 review=1207
+- 2026-11-16 04:41 · Lauf: 2521 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=340 en_german=29 code_german=4 de_english=183 parity=219 review=1207
