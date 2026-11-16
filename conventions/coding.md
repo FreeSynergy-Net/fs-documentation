@@ -93,3 +93,9 @@ Rust hygiene (ADR 0041).
   `cargo test --config 'patch."https://github.com/FreeSynergy/fs-objects".fs-objects.path="../fs-objects/crates/fs-objects"'`
   — never commit such paths (a fresh clone must build; check with a clone into `/tmp`).
 
+
+## 9. Trait folders (locked interfaces) — binding (b7, 2026-11-16)
+- The folder `<trait>_v<n>/` lives in the **program repo, in the crate that carries the trait as its public API**
+  (example: `fs-people-directory/src/person_directory_v1`).
+- `draft/` in the `testdata` crate holds the trait **only while it is a draft**; when the trait is locked, it moves to its fixed place (above).
+- The Cap'n Proto contract always lives in `fs-interfaces/schema`, never next to the trait folder.
