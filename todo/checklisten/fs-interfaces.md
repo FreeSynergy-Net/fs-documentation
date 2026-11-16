@@ -5,8 +5,8 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (/srv/FreeSynergy/fs-interfaces, or
 
 ## Grundlagen
 - [x] **GRUNDSACHE** Cap'n-Proto-Verträge: Gemeinsames, Aufgaben, Nachrichten, Hub, Personen, Gruppen, Dateien, Termine, Orte, Texte (README; Tag v0.0.19, 90e62c3)
-- [x] **GRUNDSACHE** Erzeugter Rust-Code eingecheckt (kein Schema-Compiler im Normalbau) (README)
-- [x] **GRUNDSACHE** Gemeinsame Anbieter-Regel `Unsupported` + `Capabilities` (README)
+- [x] **GRUNDSACHE** Erzeugter Rust-Code eingecheckt (kein Schema-Compiler im Normalbau) (3ef57ad)
+- [x] **GRUNDSACHE** Gemeinsame Anbieter-Regel `Unsupported` + `Capabilities` (00b44e4)
 - [x] **GRUNDSACHE** Ein Aufrufer-Zeitlimit für jede RPC-Verbindung (Commit 5fa4a8f); Fähigkeiten mit Anzeigename/Status (Commit 2e8bda1)
 - [x] **GRUNDSACHE** v0.0.19: Store-Paketinfo, Fähigkeitsnamen, Kommentare-Entwurf, Aufgaben-Bereitschaft, Handshake (Commits edcaa00, 6f6392f)
 - [ ] **GRUNDSACHE** Tag v0.0.20 (laut handoff-strategy veröffentlicht) lokal nicht gefunden [offen: Abgleich]

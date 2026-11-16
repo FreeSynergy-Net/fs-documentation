@@ -5,7 +5,7 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (/srv/FreeSynergy/fs-files, origin/
 
 ## Grundlagen
 - [x] **GRUNDSACHE** Ordner, Umbenennen, Verschieben, Kopieren, Papierkorb/Wiederherstellen/Löschen; fortsetzbare Uploads mit Prüfsumme (README; Tag v0.0.10, c04a44c)
-- [x] **GRUNDSACHE** Lokaler Ordner mit echten Namen; S3-Backend (einmal gegen RustFS getestet) (README)
+- [x] **GRUNDSACHE** Lokaler Ordner mit echten Namen; S3-Backend (einmal gegen RustFS getestet) (4c9245d lokal unter echten Namen, 32ac9a8 S3 gegen RustFS)
 - [x] **GRUNDSACHE** Datei-Fenster: Ansicht Liste/Raster im Menü Ansicht, gemerkt in `files-window.conf` (Commit 6194d6a)
 - [x] **GRUNDSACHE** Upload ist beim Server angekommen, bevor das Fenster benutzt wird (Test, Commit 4c5e6c4); Windows-Pfad als `file:`-Link (Commit 25d6e26)
 - [x] **GRUNDSACHE** Sortierung Ordner zuerst (Vertrag `Sort.foldersFirst`, fs-interfaces Commit 90e62c3)

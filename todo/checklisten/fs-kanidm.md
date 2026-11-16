@@ -6,8 +6,8 @@ Regel: Kein Agent und keine KI auf echten Servern; der Mensch führt aus (ADR 00
 
 - [x] **GRUNDSACHE** Signierter Build-Mirror: `mirror.toml` pinnt Upstream-Release samt Commit, CI baut, fügt Quell-Tarball und SBOM hinzu, signiert (README; Commit ce6edc8)
 - [x] **GRUNDSACHE** Release Kanidm v1.12.1 veröffentlicht (Pre-release, Tag v1.12.1, Objekt cc1b740; 2026-11-13)
-- [x] **GRUNDSACHE** Öffentliche Konfiguration `config/server.toml` mit `${vault:…}`-Platzhaltern, keine Geheimnisse (README)
-- [x] **GRUNDSACHE** Fähigkeits-Tags `capabilities.toml`, Doku en/de, Export (README)
+- [x] **GRUNDSACHE** Öffentliche Konfiguration `config/server.toml` mit `${vault:…}`-Platzhaltern, keine Geheimnisse (fa0887c; `config/server.toml`)
+- [x] **GRUNDSACHE** Fähigkeits-Tags `capabilities.toml`, Doku en/de, Export (fa0887c; `capabilities.toml`)
 - [x] **GRUNDSACHE** `verify-mirror.sh` gehärtet: jede VALIDSIG muss der erwartete Primärschlüssel sein, Selbsttest mit echten Schlüsseln (Commits f5da323, 31389df, 6cbc935; PR #5, #6)
 - [ ] **GRUNDSACHE** Kanidm als .deb (Fix lld/`kanidmd version`/Abhängigkeiten, Review) [offen: unreviewed WIP]
 - [ ] **GRUNDSACHE** Installation per Skript durch den Menschen, protokolliert (Workflow `server-einrichtung`); Kanidm startet und lässt sich beenden [offen: kein Beleg eines Laufs]

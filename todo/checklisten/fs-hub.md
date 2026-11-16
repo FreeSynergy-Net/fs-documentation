@@ -5,8 +5,8 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (/srv/FreeSynergy/fs-hub, origin/ma
 
 ## Grundlagen
 - [x] **GRUNDSACHE** Daemon auf lokalem Unix-Socket, verweigert zweiten Hub, räumt auf (README; Tag v0.0.2, 1260264)
-- [x] **GRUNDSACHE** Programme melden an (schreibt/liest), Pull-Position überlebt Neustart, Push/Pull/Ack/Live-Meldung mit Größenlimits (README)
-- [x] **GRUNDSACHE** Sensible Daten werden nie gesammelt, ältere Kopie gelöscht (README)
+- [x] **GRUNDSACHE** Programme melden an (schreibt/liest), Pull-Position überlebt Neustart, Push/Pull/Ack/Live-Meldung mit Größenlimits (9ffb1db Daemon und Client, 4d6eba3 Kern hinter Traits, dbef167 Größenlimits)
+- [x] **GRUNDSACHE** Sensible Daten werden nie gesammelt, ältere Kopie gelöscht (5f62a20 Test `sensitive_marks`; Regel in `DESIGN.md`)
 - [x] **GRUNDSACHE** Pedantic-Clippy in Tests grün (Commit 63b52e1)
 - [ ] **GRUNDSACHE** GitHub-Release für v0.0.2 [offen: keine Releases]
 - [ ] **GRUNDSACHE** Hub per Hand starten ist genug für das Monatsziel; Start/Beenden sauber [offen: Prüfung]
