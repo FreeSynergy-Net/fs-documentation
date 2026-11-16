@@ -112,3 +112,11 @@ Der Nutzer hat Frage 49 mit JA beantwortet (2026-11-16). Dieser Nachtrag ändert
 - Die Schnittstelle von `fs-tally` und `fs-ballot` (auch für fs-admission) wird im Vertrag `decisions_v1` festgelegt.
 - Anonyme Stimmen: Stufe A1 (Betreiber sieht kurz das Token) gegen Stufe A2 (blinde Signatur) steht im Plan; die Bauform ist eigener ADR-Gegenstand und nicht Teil dieses Nachtrags.
 - Name der Suite: Arbeitsname `fs-scheduling` (nicht gesetzt; siehe `pilot-terminfindung/PLAN.md` Z. 63).
+
+## Nachtrag 2026-11-16: Abgrenzung der Fähigkeiten fs-forms / fs-decisions
+
+Dieser Nachtrag ersetzt keine Regel und ändert den Status nicht; er hält die Abgrenzung der beiden Fähigkeiten fest, die der vorige Nachtrag (fs-decisions) eingeführt hat.
+
+- **fs-forms** sammelt Daten mit Formularen und Umfragen (Fragebögen, Anmeldungen, Quiz, Meinungsbild) und wertet sie aus. Seine Capability ist `surveys` (Anzeigename „Forms“); der Schlüssel bleibt, weil Capability-Schlüssel stabile Namen nach ADR 0068 sind.
+- **fs-decisions** entscheidet in der Gruppe: Abstimmungen, Beschlüsse, Terminfindung als Facette. Es bekommt eine eigene Capability `decisions`, sobald sein Trait `decisions_v1` steht; bis dahin liegt das Interface `Decisions` im Schema `surveys.capnp` und wandert mit dem Trait.
+- Die Eingabefelder (etwa der Terminfrage) kommen EINGEBETTET aus fs-forms (Nachtrag „fs-decisions“, Punkt 2, Zeile 97); „Abstimmung“ als Facette von fs-forms entfällt (Punkt 3, Zeile 98).
