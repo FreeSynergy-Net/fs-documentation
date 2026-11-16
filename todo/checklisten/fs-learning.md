@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0087, ADR 0086, ADR 0050, ADR 0013, E18; Strang-D-Plan `PLAN.md` Abschnitt 11 (Entscheidungen E1–E20)
 Programm: Kurse und Karteikarten. Standards: xAPI 2.0 (IEEE 9274.1.1-2023); FSRS (Planungsverfahren); Open Badges 3.0 und LTI 1.3 später.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-web-learning-vault.md`; nicht eingecheckt)

@@ -1,6 +1,6 @@
 # fs-resources (bleibt; nach ValueFlows) – Abhak-Liste
 
-Stand: 2026-11-16 · Grundlage: ADR 0075, 0076, 0087 (Nachtrag 2026-11-16: fs-resources bleibt, ValueFlows); Plan Arbeitsstand der Strategie, nicht veröffentlicht Abschnitt 17 (der Umbenennungsplan `plan-umbenennen-inventory.md` ist VERWORFEN); Vorab-Stände Arbeitsstand der Strategie, nicht veröffentlicht; Repo `fs-resources`
+Stand: 2026-11-16 · Grundlage: ADR 0075, 0076, 0087 (Nachtrag 2026-11-16: fs-resources bleibt, ValueFlows); Plan Arbeitsstand der Strategie, nicht veröffentlicht Abschnitt 17 (der Umbenennungsplan inventory ist VERWORFEN); Vorab-Stände Arbeitsstand der Strategie, nicht veröffentlicht; Repo `fs-resources`
 Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.2.0`. Lokal ist alles sauber (`main` = `origin/main` 8cf27c5).
 
 ## Erledigt (Beleg)
@@ -19,7 +19,7 @@ Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.2.0`. Loka
 
 ## Umbenennung fs-resources → fs-inventory: ZURÜCKGENOMMEN (ADR 0087 Nachtrag 2026-11-16)
 Entfällt: Namensklärung `fs-inventory`, `rename-inventory`, Doku-Ordner nach `inventory/`, preapproved-Eintrag. Offen bleiben (ohne Umbenennung) die Punkte unten.
-- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle `vorab-staende-strang-c.md`)
+- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle: Vorab-Stände im internen Arbeitsstand der Strategie)
 - [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
 - [ ] **GRUNDSACHE** Alt-Branches mit alten Crate-Namen: übernehmen oder archivieren (`archiv/<name>`-Tag), nicht offen lassen
 

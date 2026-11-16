@@ -29,7 +29,7 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] SPÄTER U4/U5 sind vorbeugend geändert, nicht im Bild nachgestellt (CHANGELOG 0.0.20)
 - [ ] SPÄTER Bildabweichung am Tabellenrand unten (feiner Strich unter der letzten Zeile in `standard-notion-u1u2u7u8-seite.png`) ansehen [offen]
 
-## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Tag-Kandidat v0.0.22, Kopf bbd149b (Merge mit `origin/main`, Autoren umgeschrieben); Volllauf `/tmp/full-rich-stufe1d.log` mit Exit-Code im CHANGELOG des Kopfes; Reviews Opus 2026-11-16 Arbeitsstand der Strategie, nicht veröffentlicht und `review-u3-stufe1-r2-opus.md`)
+## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Tag-Kandidat v0.0.22, Kopf bbd149b (Merge mit `origin/main`, Autoren umgeschrieben); Volllauf mit Exit-Code im CHANGELOG des Kopfes; Reviews Opus 2026-11-16 im internen Arbeitsstand der Strategie)
 Stufe 1 (Absatz, Überschriften, Listen, Aufgaben, Code, Zitat, Linie, Kürzel, Cursor über Blöcke) ist gebaut; auf `main` ist nichts davon, kein Tag. Erledigt mit Beleg, aus dem Review:
 - [x] **GRUNDSACHE** Blocker B1: Raw-Block hatte mehrere Startpunkte, Eingaben gingen still verloren (Beispiele `- a\n- b\nlazy`, Tabelle im Zitat). Behoben (Commit 25f819b), Konformitätsfälle „lazy list item“ und „table in a quote“, Test `a_raw_block_can_be_typed_in`; Gegenprobe: ohne `starts.clear()` rot (Mutation auf Kopie, Arbeitsstand der Strategie, nicht veröffentlicht)
 - [x] **GRUNDSACHE** Speicherform mit Maskierung (`save_form`, Rundlauf lesen-schreiben-lesen für alle Knotenarten, in Listen und Zitaten); Gegenprobe: Maskierung aus = rot (Commit 25f819b, Test `write_then_read_gives_the_same_tree`)

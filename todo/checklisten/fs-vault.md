@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0067, ADR 0054, ADR 0086, E2, E4, E18; Strang-D-Plan `PLAN.md` Abschnitt 12 (Entscheidungen E1–E20)
 Programm: Tresor: Passwörter, Schlüssel, Passkeys. Standards: KDBX 4.1; age (Backup); Argon2id (RFC 9106); WebAuthn L3 PRF / CTAP2 `hmac-secret`; TOTP RFC 6238; FIDO CXF/CXP; freedesktop Secret Service.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-web-learning-vault.md`; nicht eingecheckt)

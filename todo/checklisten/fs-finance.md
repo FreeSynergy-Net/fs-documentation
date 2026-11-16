@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0087, ADR 0085 (Entwurf), ADR 0086, E16; Strang-D-Plan `PLAN.md` Abschnitt 10 (Entscheidungen E1–E20)
 Programm: Buchungen und Rechnungen. Standards: doppelte Buchführung; ISO 20022 (camt.053 Import zuerst); XRechnung (nicht recherchiert); IBAN/BIC.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-data-finance.md`; nicht eingecheckt)

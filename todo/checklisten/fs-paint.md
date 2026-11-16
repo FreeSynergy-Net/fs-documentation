@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0076 (Raster und Foto), ADR 0086, E3, E9; Strang-D-Plan `PLAN.md` Abschnitt 3 (Entscheidungen E1–E20)
 Programm: Rasterbilder. Standards: OpenRaster `.ora`, PNG, ICC-Profile, OpenEXR; PSD nur Import; AVIF/JPEG/WebP als Export.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-kreativ.md (Formate: recherche-medien-av1-avif.md)`; nicht eingecheckt)

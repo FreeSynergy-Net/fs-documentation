@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0076 (ODF .ods), ADR 0086, ADR 0066; Strang-D-Plan `PLAN.md` Abschnitt 2 (Entscheidungen E1–E20)
 Programm: Tabellen und Formeln. Standards: ODF `.ods` mit OpenFormula; W3C CSV on the Web; xlsx nur an der Grenze.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-data-finance.md`; nicht eingecheckt)

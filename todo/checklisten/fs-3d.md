@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0087, ADR 0086, E3, E11, E19; Strang-D-Plan `PLAN.md` Abschnitt 6 (Entscheidungen E1–E20)
 Programm: 3D-Modelle. Standards: glTF 2.0; STL/OBJ/PLY/3MF nur an der Grenze; OpenEXR für Umgebungslicht.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-kreativ.md`; nicht eingecheckt)

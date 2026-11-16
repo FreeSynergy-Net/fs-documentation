@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0048, ADR 0086, E1, E2, E9; Strang-D-Plan `PLAN.md` Abschnitt 5 (Entscheidungen E1–E20)
 Programm: Aufnahme, Schnitt, Wiedergabe. Standards: verlustfrei FLAC; Ogg Opus (RFC 6716, 7845) erst nach E1; PCM intern; MIDI 1.0 später.
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-audio-devices.md, recherche-opus-rust.md`; nicht eingecheckt)

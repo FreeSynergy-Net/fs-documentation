@@ -1,7 +1,7 @@
 # fs-surveys (bald fs-forms) – Abhak-Liste
 
 Stand: 2026-11-16 · Grundlage: ADR 0087 (Punkt 2 und Nachtrag 4: Umfrage, Abstimmung, Anmeldung werden Facetten); Repo `fs-surveys`
-Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0` bis `v0.3.0`. Es gibt **keinen** Umbenennungsplan in Arbeitsstand der Strategie, nicht veröffentlicht und der Vorab-Stand steht nicht in `vorab-staende-strang-c.md`.
+Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0` bis `v0.3.0`. Es gibt **keinen** Umbenennungsplan in Arbeitsstand der Strategie, nicht veröffentlicht und der Vorab-Stand steht nicht in den Vorab-Ständen.
 
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Programmkern: Umfragen anlegen und bearbeiten, Fragen, Bedingungen, Zustände, benannte Antworten, anonyme Urnen mit Stapeln, Ergebnisse, CSV-Export, Ausweiten über Gruppen (Tag `v0.0.1`, `DESIGN.md` State)

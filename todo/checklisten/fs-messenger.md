@@ -23,7 +23,7 @@ Tags auf GitHub: `v0.0.1`, `v0.0.2` (2026-11-08). Die lokalen Tags `v0.1.0` bis 
 
 ## Umbenennung fs-messenger → fs-messages (ADR 0087)
 - [x] Zwei rein lokale Stände gesichert: `origin/unreviewed/r5-describe-v18` (58ada6a, 7 Commits) und `origin/unreviewed/release-profile` (fe70b46) liegen auf origin
-- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle `vorab-staende-strang-c.md`)
+- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle: Vorab-Stände im internen Arbeitsstand der Strategie)
 - [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen, bevor umbenannt wird (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
 - [ ] **GRUNDSACHE** Alt-Branches mit alten Crate-Namen: übernehmen oder archivieren (`archiv/<name>`-Tag), nicht offen lassen
 - [ ] **GRUNDSACHE** 12 Remote-Branches (ai, guard, mail, matrix, backup/…) als Archiv-Tags festhalten und löschen

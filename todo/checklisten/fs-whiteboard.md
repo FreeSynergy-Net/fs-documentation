@@ -19,7 +19,7 @@ Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.2.0`.
 - [ ] SPÄTER Gleichzeitiges Arbeiten über Geräte (Merge-Funktion wird noch nirgends aufgerufen)
 
 ## Umbenennung fs-whiteboard → fs-draw (ADR 0087)
-- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle `vorab-staende-strang-c.md`)
+- [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle: Vorab-Stände im internen Arbeitsstand der Strategie)
 - [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen, bevor umbenannt wird (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
 - [ ] **GRUNDSACHE** Alt-Branches mit alten Crate-Namen: übernehmen oder archivieren (`archiv/<name>`-Tag), nicht offen lassen
 - [ ] **GRUNDSACHE** Platzhalter-Repo `fs-draw` auf GitHub: Nutzer entscheidet löschen oder `fs-draw-archive` (am 2026-11-15 vorhanden, gleiche Dateien wie fs-text, keine Tags; gh-Abfrage am 2026-11-16 liefert 404, daher prüfen) [offen]

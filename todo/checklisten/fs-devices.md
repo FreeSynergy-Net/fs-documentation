@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0087, ADR 0086, E5, E17; Strang-D-Plan `PLAN.md` Abschnitt 8 (Entscheidungen E1–E20)
 Programm: Geräte und Sensoren. Standards: W3C WoT Thing Description 1.1; MQTT 5.0; Matter (Ziel-Adapter).
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-audio-devices.md`; nicht eingecheckt)

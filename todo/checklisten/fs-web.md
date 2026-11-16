@@ -2,7 +2,7 @@
 
 Stand: 2026-11-16 · Grundlage: ADR 0087, ADR 0086, ADR 0009, E2, E10, E17; Strang-D-Plan `PLAN.md` Abschnitt 9 (Entscheidungen E1–E20)
 Programm: Lesezeichen und Web-Archiv; Browser als Frontend. Standards: WHATWG Living Standards (Engine); W3C WebAuthn L3; Lesezeichen-Austausch und Archiv-Format nicht recherchiert (Kandidaten Netscape-Lesezeichendatei, WARC).
-Die Strang-D-Dateien liegen bisher nur in Arbeitsstand der Strategie, nicht veröffentlicht und sind noch nicht in fs-documentation eingecheckt.
+Die Strang-D-Dateien liegen bisher nur im internen Arbeitsstand der Strategie und sind noch nicht in fs-documentation eingecheckt.
 
 ## Dossier und Vorbereitung
 - [x] Erstes Dossier und Recherche vorhanden (Beleg: Arbeitsstand der Strategie, nicht veröffentlicht, `recherche-web-learning-vault.md, recherche-browser-engine.md`; nicht eingecheckt)

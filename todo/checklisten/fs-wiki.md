@@ -1,13 +1,13 @@
 # fs-wiki (bald fs-text) – Abhak-Liste
 
-Stand: 2026-11-16 · Grundlage: ADR 0080, 0084, 0087; Plan Arbeitsstand der Strategie, nicht veröffentlicht und `plan-umzug-wiki-nach-text.md`; CHANGELOG in `fs-wiki`; Nutzertest Arbeitsstand der Strategie, nicht veröffentlicht
+Stand: 2026-11-16 · Grundlage: ADR 0080, 0084, 0087; Plan und Nutzertest im internen Arbeitsstand der Strategie; CHANGELOG in `fs-wiki`
 Nur dieses Programm ist veröffentlicht (Katalog). Auf GitHub gelten Tags `v0.0.1` bis `v0.0.12`; alte lokale Tags `v0.1.0` bis `v0.5.0` stammen aus der Zeit vor dem Reset.
 
 ## Erledigt (Beleg)
 - [x] **GRUNDSACHE** Kern, Server, Client, Fenster, eine Binärdatei `fs-wiki` (`DESIGN.md`, Crates unter `crates/`; Tag `v0.0.10`)
 - [x] **GRUNDSACHE** Tag v0.0.11: Dialoge Anlegen/Umbenennen/Löschen/Verwerfen, ein Titel, eine Leiste in Confluence, MF2-Wörter (Tag `v0.0.11`, Commit aeebecf)
 - [x] **GRUNDSACHE** Tag v0.0.12: Kästchen anklickbar (`tick_ops`), Mehrzahl „1 Seite/2 Seiten“, Text des Nutzers byte-genau (Tag `v0.0.12`, Commits 9763110, 408175d, 62366fb)
-- [x] **GRUNDSACHE** Frontends Notion und Confluence mit Abnahmebildern (Arbeitsstand der Strategie, nicht veröffentlicht und `*-en-*.png`)
+- [x] **GRUNDSACHE** Frontends Notion und Confluence mit Abnahmebildern (Bilder im internen Arbeitsstand der Strategie)
 - [x] **GRUNDSACHE** Baum nach Speichern und Anlegen neu gebaut, geöffnete Seite markiert (Commit 40d7f51 auf `unreviewed/wiki-0013`)
 
 ## 0.0.13 (Branch `unreviewed/wiki-0013`, Kopf fdc2ab6; älterer Stand `unreviewed/wiki-0.0.13`, 1209814)
