@@ -42,6 +42,11 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] **GRUNDSACHE** Theme-Auswahl filtert: nur Themes, die alle Bausteine des aktuellen Programms/Frontends vollständig gestalten; ungestalteter Baustein = Theme nicht anwendbar [offen]
 - [ ] **GRUNDSACHE** Laufzeitwechsel des Themes außerhalb des Frontends, jedes Theme auf jedes Frontend (nicht „Frontend in Stil“); Blinc-Neuzeichnen zur Laufzeit [nicht belegt, Spike S0]
 - [ ] SPÄTER Probe „Theme auf Frontend“ (Bild ändert sich, Struktur nicht) neben `zwei-stile`/Tokenprobe
+- [ ] **GRUNDSACHE** Kompatibilität je Programm: Theme nutzbar, wenn es ALLE Bausteine dieses Programms gestaltet (Theme-Vertrag); dasselbe Theme kann für Programm A nutzbar, für B nicht nutzbar sein [Nutzerentscheidung 2026-11-16, offen, nichts belegt gebaut]
+- [ ] **GRUNDSACHE** Unvollständige Themes in der Auswahl AUSGEGRAUT (nicht ausgeblendet), nicht wählbar, nicht anwendbar; Tooltip „nicht kompatibel“ plus Liste der fehlenden Bausteine bzw. Teile und Zustände; optional öffnet der Tooltip die Theme-Bearbeitung bzw. den Workflow `alle-themes-erweitern` für genau diese Lücken [offen]
+- [ ] **GRUNDSACHE** Test mit Gegenprobe: Theme mit einer Lücke erscheint grau, mit korrektem Tooltip-Text, und lässt sich nicht anwenden; dasselbe Theme bleibt für ein Programm ohne diese Lücke wählbar; vollständiges Theme normal [offen, nichts belegt]
+- [ ] **GRUNDSACHE** Begriff „Theme“ statt „Stil“ in Verträgen, Doku und UI-Texten (MF2 de/en: `theme-picker-title`, `theme-incompatible`, `theme-missing-blocks`, `theme-missing-parts`, `theme-disabled-hint`); Plan `/srv/FreeSynergy/.scratch/plan-begriff-theme.md` (fs-components: 5 Dateien, 14 Zeilen) [offen, nach Tag fs-release v0.0.7 über `umbenennen` + `doku-mitziehen`]
+- [ ] SPÄTER Offene Fragen: Format und Ort der Theme-Meldung; Verhalten bei aktivem Theme, wenn ein Programm einen neuen Baustein bekommt [offen, Strategie]
 - [ ] SPÄTER Nachtrag 2 zu ADR 0074 (Strategie schreibt; Entwurf im Papier Abschnitt 12)
 
 ## Bausteine, Folgepunkte

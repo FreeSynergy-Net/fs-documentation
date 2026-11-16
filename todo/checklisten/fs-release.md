@@ -25,4 +25,5 @@ Tags: `v0.0.1` bis `v0.0.6` (v0.0.6 auf `origin/main` 94b6551, 2026-11-13). Das 
 
 ## Weitere Branches auf origin
 - [ ] SPÄTER Entscheiden, welche der übrigen `unreviewed/*`-Branches Teil von 0.0.7 sind: `anbieter-neuinstallation`, `api-gates-step`, `ereignis-profil`, `fs-release-apt` (apt-Signier-Action), `menue-vergleich`, `server-einrichtung`, `upstream-update` [offen]
+- [ ] SPÄTER Nach Tag v0.0.7: drei Workflows auf „Theme“ umbenennen, über `umbenennen` + `doku-mitziehen`: `stil-vollstaendigkeit` -> `theme-vollstaendigkeit`, `stil-sichern` -> `theme-sichern`, `alle-stile-erweitern` -> `alle-themes-erweitern`; Verweise in `workflows/frontend-umbau.yaml` und Tests nachziehen (Plan `/srv/FreeSynergy/.scratch/plan-begriff-theme.md`; die drei Abläufe stehen auf `origin/main` noch nicht) [offen, nichts umbenannt]
 - [ ] SPÄTER `workflow-pflege` für fehlende Abläufe: `repo-umbenennen` ist durch `umbenennen` ersetzt; `inhalt-aufbereiten`, `facette-anlegen` fehlen
