@@ -38,7 +38,7 @@ Request:
 
 ```http
 POST /rest/api/3/issue HTTP/1.1
-Authorization: Basic base64(bot@mail.com:API_TOKEN)
+Authorization: Basic base64(bot@example.org:API_TOKEN)
 Content-Type: application/json
 
 { "fields": {

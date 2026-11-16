@@ -1,0 +1,4 @@
+# Interne Übergaben: hier sind lokale Pfade (.scratch, /srv/FreeSynergy) ausdrücklich erlaubt.
+# Eine Datei je Zeile (Pfad relativ zur Repo-Wurzel). /home/<user> und fremde Adressen bleiben auch hier ROT.
+todo/handoff-programming.md
+todo/handoff-strategy.md

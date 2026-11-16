@@ -45,7 +45,7 @@ Response: `200`
 
 ```json
 { "count": 2, "thirdparties": [
-  { "id": 12, "nom": "Muster AG", "client": 1, "email": "vertrieb@muster.de",
+  { "id": 12, "nom": "Muster AG", "client": 1, "email": "vertrieb@muster.example",
     "code_client": "CLI-0012" } ] }
 ```
 

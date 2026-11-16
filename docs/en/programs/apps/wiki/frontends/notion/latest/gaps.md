@@ -4,7 +4,7 @@ What our wiki program cannot do for the workflows of [workflows.md](workflows.md
 
 ## Our state, as read (2026-11-13)
 
-Read (read only) from `/srv/FreeSynergy/fs-wiki`: `README.md`, `DESIGN.md`, `crates/fs-wiki-app/src/*`, `crates/fs-wiki-core/src/describe/support.rs`.
+Read (read only) from the repo `fs-wiki`: `README.md`, `DESIGN.md`, `crates/fs-wiki-app/src/*`, `crates/fs-wiki-core/src/describe/support.rs`.
 
 - Version: workspace `0.0.6` (README: tag `v0.0.6`); `DESIGN.md` says 0.5.0. A 0.0.8/0.0.9 is **[nicht belegt]** in what was read.
 - Default window = generated Admin window with one view per type (Pages, Folders, History, Trash, Links) and **forms with typed paths and ids**. `--reader` = older reader with page tree, reading, search, editing, Save, Export, draft backup.

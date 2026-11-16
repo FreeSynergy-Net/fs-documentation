@@ -15,6 +15,8 @@ run check_components.py --lang de
 run gen_component_indexes.py --lang de --check
 run gen_frontend_indexes.py --check
 run gen_folder_indexes.py --check
+echo "== check-public-paths.sh"
+scripts/check-public-paths.sh >/dev/null || { echo "FAILED: check-public-paths.sh" >&2; scripts/check-public-paths.sh | head -15; fail=1; }
 # Same as the CI steps "Publish the decision records" and "Build MkDocs site" (strict).
 # No -q: quiet mode raises the log level to ERROR, so strict mode no longer counts warnings (the gate was blind).
 MKDOCS="$(command -v mkdocs || true)"

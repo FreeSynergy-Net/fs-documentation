@@ -2,7 +2,7 @@
 
 Status: **akzeptiert** (Gründer, 2026-11-13); Code nach dem Meilenstein „Wir benutzen es selbst“; die laufenden Store-Releases bleiben unverändert · baut auf ADR 0020 (AS2-Aktivitäten), 0045 (Themen-Schnittstellen), 0068 (Fähigkeiten, Signatur-Stufen), 0071 (Versionen/Git), 0073 (Kollaboration), 0074 (Schichten)
 
-Grundlage: `.scratch/marketplace/BRAINSTORMING.md` (2026-11-13) und die Antworten des Gründers.
+Grundlage: das Brainstorming im Arbeitsordner der Strategie, nicht veröffentlicht (2026-11-13) und die Antworten des Gründers.
 
 ## Einordnung nach unseren Arten (Prüffrage: wessen Daten?)
 

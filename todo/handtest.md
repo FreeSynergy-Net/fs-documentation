@@ -239,7 +239,7 @@ Eine Zeile pro Fund in `~/fs-handtest/funde-tasks.txt`, gleiche Form wie oben.
 ---
 
 ## Was ich getestet habe und was nicht
-**Getestet, hat geklappt (2026-11-07, frische Klone von `https://github.com/FreeSynergy/...` unter `.scratch/t4-handtest2/`, Zweig `gui`; Stand `fs-people` `a310509`, `fs-tasks` `ef100c2`; Aufruf der Programme über `limited.sh`):**
+**Getestet, hat geklappt (2026-11-07, frische Klone von `https://github.com/FreeSynergy/...` unter `<arbeitsordner>/t4-handtest2/`, Zweig `gui`; Stand `fs-people` `a310509`, `fs-tasks` `ef100c2`; Aufruf der Programme über `limited.sh`):**
 - **Frischer Klon baut:** ja, beide. fs-people in 1:03 min, fs-tasks danach in 18 s (`-j 4`, gemeinsames Build-Verzeichnis, ein Bau zur Zeit).
 - **Server starten:** ja, beide, Sockets erscheinen. Nach `Strg+C` (SIGINT) sind die Sockets weg. Mit gestopptem Server sagt `fs-people-app`: „cannot reach the people server at ...“ (Exitcode 1).
 - **Viele Einträge per Kommandozeile:** Beispieldateien mit 300 Karten bzw. 300 Aufgaben (das `gen.sh` oben). people: „Imported 300, 0 already known“, zweiter Import „Imported 0, 300 already known“, Export schreibt 300 `VCARD`, keine doppelte `UID`, zweiter Export in dieselbe Datei: „the file exists“ (Exitcode 1). tasks: „Imported 300, 0 already known“ (plus 300 mal „version set to 2.0“ in der Statuszeile), Export schreibt 300 `VTODO`, keine doppelte `UID`.

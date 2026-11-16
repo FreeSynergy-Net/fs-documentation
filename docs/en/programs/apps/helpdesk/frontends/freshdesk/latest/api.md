@@ -15,7 +15,7 @@ REST API v2 under `https://<firma>.freshdesk.com/api/v2/` (JSON). Ticket/convers
 
 ## Authentication
 
-- **API key**: basic auth `curl -u agent@mail.com:APIKEY` (key under admin → mobile & API)
+- **API key**: basic auth `curl -u agent@example.org:APIKEY` (key under admin → mobile & API)
 - **OAuth2**: for marketplace apps/developer platform
 - Rate limit per account/minute; `Retry-After` on 429
 
@@ -40,7 +40,7 @@ Request:
 
 ```http
 POST /api/v2/tickets/1024/reply HTTP/1.1
-Authorization: Basic base64(agent@mail.com:APIKEY)
+Authorization: Basic base64(agent@example.org:APIKEY)
 Content-Type: application/json
 
 { "body": "We have corrected the invoice.", "files": [] }

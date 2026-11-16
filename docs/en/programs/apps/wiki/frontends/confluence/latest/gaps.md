@@ -4,7 +4,7 @@ What our wiki program cannot do for the workflows of [workflows.md](workflows.md
 
 ## Our state, as read (2026-11-13)
 
-Read from `/srv/FreeSynergy/fs-wiki` (read only): `README.md`, `DESIGN.md`, `crates/fs-wiki-app/src/` (`gui.rs`, `mode_admin.rs`, `mode_reader.rs`, `args.rs`, `admin/*.rs`), `crates/fs-wiki-core/src/describe/support.rs`.
+Read from the repo `fs-wiki` (read only): `README.md`, `DESIGN.md`, `crates/fs-wiki-app/src/` (`gui.rs`, `mode_admin.rs`, `mode_reader.rs`, `args.rs`, `admin/*.rs`), `crates/fs-wiki-core/src/describe/support.rs`.
 
 - **Version:** the workspace `Cargo.toml` says `0.0.6` and the README says latest tag `v0.0.6`; `DESIGN.md` still speaks of version 0.5.0. A version 0.0.8 or 0.0.9, as named in the assignment, is **[nicht belegt]** in the files read. The git history of the repo could not be read here, so a newer state may exist on another branch.
 - **Two window modes.** The **default** is the generated Admin window (`mode_admin.rs`): one view per data type (Pages, Folders, History, Trash, Links), built from type descriptions; each command is a form with typed fields. The **`--reader`** mode (`mode_reader.rs`) is the older documentation reader: page tree, reading, links, back, search, Markdown text editor with Save, Export, draft backup. [DESIGN.md]

@@ -1,6 +1,6 @@
 # MediaWiki 1.46 — Abhängigkeiten von unseren Komponenten
 
-Zweck: auflisten, welche UI-Komponenten und welche Operationen unseres Textvertrags (`/srv/FreeSynergy/fs-interfaces/schema/texts.capnp`, DRAFT 0.1, 2026-11-06) ein Frontend im MediaWiki-Stil benötigt.
+Zweck: auflisten, welche UI-Komponenten und welche Operationen unseres Textvertrags (`schema/texts.capnp` im Repo `fs-interfaces`, DRAFT 0.1, 2026-11-06) ein Frontend im MediaWiki-Stil benötigt.
 
 ## Vertrag wie er steht (texts.capnp, Schnittstelle `Texts`)
 

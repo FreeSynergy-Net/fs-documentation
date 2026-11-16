@@ -1,6 +1,6 @@
 # Wiki.js 3.1.1 — dependencies
 
-Which UI components a frontend "in this style" needs, and which operations of our `texts.capnp` they call. Contract read: `/srv/FreeSynergy/fs-interfaces/schema/texts.capnp` (DRAFT 0.1, 15 methods on `Texts`). Only `texts.capnp` was read; `common.capnp` was read for `Cursor`, `Change`, `ChangeListener`, `Problem`, `Envelope`. Other contracts in `fs-interfaces/schema/` (files, history, people, groups, …) were not checked, so a gap below may be covered there. Marked "not checked here".
+Which UI components a frontend "in this style" needs, and which operations of our `texts.capnp` they call. Contract read: `schema/texts.capnp` in the repo `fs-interfaces` (DRAFT 0.1, 15 methods on `Texts`). Only `texts.capnp` was read; `common.capnp` was read for `Cursor`, `Change`, `ChangeListener`, `Problem`, `Envelope`. Other contracts in `fs-interfaces/schema/` (files, history, people, groups, …) were not checked, so a gap below may be covered there. Marked "not checked here".
 
 ## A. UI components needed
 

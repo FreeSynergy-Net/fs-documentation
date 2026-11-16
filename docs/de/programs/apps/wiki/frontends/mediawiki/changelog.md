@@ -4,7 +4,7 @@
 
 Die früheren Seiten wurden aus dem Gedächtnis verfasst; diese Aussagen waren falsch.
 
-Geprüft gegen die in jeder Zeile genannten Quellen am 2026-11-07, für MediaWiki 1.46.2. Bestehende Seiten: `/srv/FreeSynergy/fs-documentation/docs/en/programs/apps/wiki/frontends/mediawiki/` (index.md, latest/*.md).
+Geprüft gegen die in jeder Zeile genannten Quellen am 2026-11-07, für MediaWiki 1.46.2. Bestehende Seiten: `docs/en/programs/apps/wiki/frontends/mediawiki/` im Repo `fs-documentation` (index.md, latest/*.md).
 
 Statusschlüssel: **FALSCH** = durch eine Quelle widerlegt. **UNGEPRÜFT** = in diesem Lauf keine Quelle gefunden; nicht ohne Prüfung verwenden. **TEILWEISE** = stimmt mit einem fehlenden oder falschen Detail.
 

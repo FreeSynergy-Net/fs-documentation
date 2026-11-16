@@ -43,7 +43,7 @@ Request:
 
 ```http
 POST /api/v2/tickets.json HTTP/1.1
-Authorization: Basic base64(agent@mail.com/token/API_TOKEN)
+Authorization: Basic base64(agent@example.org/token/API_TOKEN)
 Content-Type: application/json
 
 { "ticket": {

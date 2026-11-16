@@ -1,6 +1,6 @@
 # Wiki.js 3.1.1: Abhängigkeiten
 
-Welche UI-Komponenten ein Frontend „in diesem Stil“ braucht und welche Operationen unseres `texts.capnp` sie aufrufen. Gelesener Vertrag: `/srv/FreeSynergy/fs-interfaces/schema/texts.capnp` (ENTWURF 0.1, 15 Methoden auf `Texts`). Nur `texts.capnp` wurde gelesen; `common.capnp` wurde für `Cursor`, `Change`, `ChangeListener`, `Problem`, `Envelope` gelesen. Andere Verträge in `fs-interfaces/schema/` (Dateien, Verlauf, Personen, Gruppen, …) wurden nicht geprüft, daher kann eine Lücke unten dort abgedeckt sein. Mit „hier nicht geprüft“ markiert.
+Welche UI-Komponenten ein Frontend „in diesem Stil“ braucht und welche Operationen unseres `texts.capnp` sie aufrufen. Gelesener Vertrag: `schema/texts.capnp` im Repo `fs-interfaces` (ENTWURF 0.1, 15 Methoden auf `Texts`). Nur `texts.capnp` wurde gelesen; `common.capnp` wurde für `Cursor`, `Change`, `ChangeListener`, `Problem`, `Envelope` gelesen. Andere Verträge in `fs-interfaces/schema/` (Dateien, Verlauf, Personen, Gruppen, …) wurden nicht geprüft, daher kann eine Lücke unten dort abgedeckt sein. Mit „hier nicht geprüft“ markiert.
 
 ## A. Benötigte UI-Komponenten
 
