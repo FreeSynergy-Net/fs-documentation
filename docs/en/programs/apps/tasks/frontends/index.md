@@ -8,6 +8,7 @@ Frontends of well-known programs in this category, analysed for their **function
 |---------|----------|------------|
 | [Jira](jira/index.md) | [latest](jira/latest/description.md) | Jira (Atlassian) is issue and project tracking with workflows: issues move through statuses (To Do→In Progress→Done), with sprints (Jira Software), types, priorities and powerful JQL. |
 | [Linear](linear/index.md) | [latest](linear/latest/description.md) | Linear is a team issue tracker built for speed: keyboard-driven, with cycles (time-boxed iterations), projects, initiatives and a triage inbox. |
+| [Microsoft To Do (Windows)](microsoft-to-do/index.md) | [latest](microsoft-to-do/latest/description.md) | Microsoft To Do is a personal task manager from Microsoft with lists, due dates, reminders, steps (subtasks), notes, tags and shared lists. |
 | [OmniFocus](omnifocus/index.md) | [latest](omnifocus/latest/description.md) | OmniFocus is a task manager for Mac, iPhone, iPad, Apple Watch and Vision Pro, plus OmniFocus for the Web, aimed at long-term projects and the weekly review. |
 | [Taskwarrior](taskwarrior/index.md) | [latest](taskwarrior/latest/description.md) | Taskwarrior is a command-line to-do manager. |
 | [Things 3](things-3/index.md) | [latest](things-3/latest/description.md) | Things 3 is a personal to-do app for Mac, iPhone, iPad, Apple Watch and Vision Pro, built around a small set of fixed lists and a calm, fast capture flow. |

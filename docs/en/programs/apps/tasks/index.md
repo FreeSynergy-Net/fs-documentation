@@ -42,10 +42,11 @@ Frontends analysed so far are under [project management](../../suites/projectman
 ## Frontends
 
 <!-- gen:frontends (scripts/gen_frontend_indexes.py) — edits inside are overwritten -->
-Analysed programs (6), by function, nothing copied (ADR 0012/0013):
+Analysed programs (7), by function, nothing copied (ADR 0012/0013):
 
 - [Jira](frontends/jira/index.md) — Jira (Atlassian) is issue and project tracking with workflows: issues move through statuses (To Do→In Progress→Done), with sprints (Jira Software), types, priorities and powerful JQL.
 - [Linear](frontends/linear/index.md) — Linear is a team issue tracker built for speed: keyboard-driven, with cycles (time-boxed iterations), projects, initiatives and a triage inbox.
+- [Microsoft To Do (Windows)](frontends/microsoft-to-do/index.md) — Microsoft To Do is a personal task manager from Microsoft with lists, due dates, reminders, steps (subtasks), notes, tags and shared lists.
 - [OmniFocus](frontends/omnifocus/index.md) — OmniFocus is a task manager for Mac, iPhone, iPad, Apple Watch and Vision Pro, plus OmniFocus for the Web, aimed at long-term projects and the weekly review.
 - [Taskwarrior](frontends/taskwarrior/index.md) — Taskwarrior is a command-line to-do manager.
 - [Things 3](frontends/things-3/index.md) — Things 3 is a personal to-do app for Mac, iPhone, iPad, Apple Watch and Vision Pro, built around a small set of fixed lists and a calm, fast capture flow.
