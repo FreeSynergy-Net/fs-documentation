@@ -13,4 +13,4 @@ Wiki is where texts live. Today its window is a reader: a tree of pages on the l
 
 ## How to start
 
-The wiki lives in a server, so start that first: `fs-texts-server`, with `--socket PATH` and `--data DIR` if you want your own. Then start the window with `fs-texts-app --socket PATH`, and `--docs FOLDER` for the Markdown folder to import. The first start imports the folder, about 30 seconds for 1400 pages. A short summary line appears in the terminal before the window opens. If the server does not run, the app stops and tells you the command to start it.
+The wiki lives in a server, so start that first: `fs-texts serve`, with `--socket PATH` and `--data DIR` if you want your own. Then start the window with `fs-texts --socket PATH`, and `--docs FOLDER` for the Markdown folder to import. The first start imports the folder, about 30 seconds for 1400 pages. A short summary line appears in the terminal before the window opens. If the server does not run, the app stops and tells you the command to start it.

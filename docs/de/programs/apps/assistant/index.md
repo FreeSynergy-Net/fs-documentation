@@ -284,7 +284,7 @@ und um Geschwindigkeit: Ein Modell kann einen Computer sofort lahmlegen, was fas
 - **Ausschließen:** Das Programm lehnt dann jeden KI-Teilnehmenden ab und alles unterhalb meiner Stufe.
 - **Außerhalb der Reichweite der KI:** Er lebt im Engine, unter jedem Frontend. Kein Werkzeug und kein MCP-Aufruf kann ihn abschalten, und nur eine Person kann ihn wieder öffnen, mit ihrem eigenen Schlüssel auf ihrem eigenen Gerät.
 - **Er funktioniert immer:** ohne Netzwerk, ohne Modell, und im Zweifel bleibt er geschlossen.
-- **Danach:** Das Protokoll zeigt, was geschehen ist, und der [Store](https://github.com/FreeSynergy/fs-store) macht rückgängig, was er kann.
+- **Danach:** Das Protokoll zeigt, was geschehen ist, und die Datenablage ([fs-objects](https://github.com/FreeSynergy/fs-objects)) macht rückgängig, was sie kann.
 - **Wer ihn auslösen darf,** ist eine normale Berechtigungseinstellung. Gibt man allen dieses Recht, darf jeder. Wenn nicht, darf niemand.
 
 Vor dem vollen Stopp kommt eine **Bremse**, denn Geschwindigkeit ist die eigentliche Gefahr: Aktionen, die etwas zerstören oder im eigenen Namen handeln, fragen

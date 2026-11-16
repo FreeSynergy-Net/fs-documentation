@@ -301,7 +301,7 @@ For it to do anything at all, I must release that. The rating is how I know who 
 - **Out of the AI's reach:** it lives in the engine, below every frontend. No tool or MCP call can switch it off, and only a
   person can open it again, with their own key on their own device.
 - **It always works:** without network, without a model, and when in doubt it stays shut.
-- **Afterwards:** the log shows what happened, and the [store](https://github.com/FreeSynergy/fs-store) undoes what it can.
+- **Afterwards:** the log shows what happened, and the data store ([fs-objects](https://github.com/FreeSynergy/fs-objects)) undoes what it can.
 - **Who may pull it** is a normal permission setting. If someone gives everyone that right, everyone may. If not, not.
 
 Before the full stop comes a **brake**, since speed is the real danger: actions that destroy something or act in my name always

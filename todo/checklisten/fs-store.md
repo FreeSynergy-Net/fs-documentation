@@ -23,7 +23,7 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (fs-store, origin/main). Unklares s
 - [ ] SPÄTER rpm über dnf auf CI-Runner erprobt (DESIGN.md „Not yet tried")
 
 ## Kataloge und Ausbau
-- [ ] SPÄTER Katalog-Arten server/workflow/module (ADR 0077), Paketquellen apt/dnf (ADR 0078, fs-packages)
+- [ ] SPÄTER Katalog-Arten server/workflow/module (ADR 0077), Paketquellen apt/dnf (ADR 0078, Repository)
 - [x] SPÄTER `replaces`-Katalogfeld (Umzug fs-wiki -> fs-text, ADR 0080) (Beleg: fs-catalog 5f005a4; Doku 301cee1d)
 - [ ] SPÄTER Schema 2 Katalog (neutrales Server-Icon, 7 Icon-Fehler)
 - [ ] SPÄTER Jira-Kürzel/Nachbesserungen Store-Dossier

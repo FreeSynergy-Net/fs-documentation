@@ -13,4 +13,4 @@ Im Wiki liegen die Texte. Heute ist sein Fenster ein Leser: links ein Baum aus S
 
 ## So startest du
 
-Das Wiki läuft in einem Server, also starte ihn zuerst: `fs-texts-server`, mit `--socket PATH` und `--data DIR`, wenn du eigene Pfade willst. Dann startest du das Fenster mit `fs-texts-app --socket PATH` und `--docs FOLDER` für den Markdown-Ordner, der importiert werden soll. Der erste Start importiert den Ordner, etwa 30 Sekunden für 1400 Seiten. Eine kurze Zusammenfassungszeile erscheint im Terminal, bevor sich das Fenster öffnet. Läuft der Server nicht, stoppt die App und nennt dir den Befehl, um ihn zu starten.
+Das Wiki läuft in einem Server, also starte ihn zuerst: `fs-texts serve`, mit `--socket PATH` und `--data DIR`, wenn du eigene Pfade willst. Dann startest du das Fenster mit `fs-texts --socket PATH` und `--docs FOLDER` für den Markdown-Ordner, der importiert werden soll. Der erste Start importiert den Ordner, etwa 30 Sekunden für 1400 Seiten. Eine kurze Zusammenfassungszeile erscheint im Terminal, bevor sich das Fenster öffnet. Läuft der Server nicht, stoppt die App und nennt dir den Befehl, um ihn zu starten.
