@@ -13,3 +13,4 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (/srv/FreeSynergy/fs-catalog, origi
 - [ ] SPÄTER Katalog-Arten server/workflow/module (ADR 0077), Facetten, Schema 2
 - [ ] SPÄTER Server im Katalog, überall installierbar (Memory „Server im Katalog")
 - [ ] SPÄTER Feld `replaces` (ADR 0080)
+- [ ] SPÄTER Fähigkeitenliste per `gh api`: bei Ausfall 3 Wiederholungen mit Wartezeit, erst dann abbrechen; ein einzelner Netzfehler darf nicht den ganzen sign-Lauf stoppen (Auflage Strategie, Review Runde 3; heute bricht `scripts/catalog_check.py` bei `schema = 2` sofort ab)
