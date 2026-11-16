@@ -1,6 +1,6 @@
-# fs-resources (bald fs-inventory) – Abhak-Liste
+# fs-resources (bleibt; nach ValueFlows) – Abhak-Liste
 
-Stand: 2026-11-16 · Grundlage: ADR 0075, 0076, 0087; Plan `/srv/FreeSynergy/.scratch/plan-umbenennen-inventory.md`; Vorab-Stände `/srv/FreeSynergy/.scratch/vorab-staende-strang-c.md`; Repo `/srv/FreeSynergy/fs-resources`
+Stand: 2026-11-16 · Grundlage: ADR 0075, 0076, 0087 (Nachtrag 2026-11-16: fs-resources bleibt, ValueFlows); Plan `/srv/FreeSynergy/.scratch/strang-d/PLAN.md` Abschnitt 17 (der Umbenennungsplan `plan-umbenennen-inventory.md` ist VERWORFEN); Vorab-Stände `/srv/FreeSynergy/.scratch/vorab-staende-strang-c.md`; Repo `/srv/FreeSynergy/fs-resources`
 Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.2.0`. Lokal ist alles sauber (`main` = `origin/main` 8cf27c5).
 
 ## Erledigt (Beleg)
@@ -17,14 +17,23 @@ Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.2.0`. Loka
 - [ ] **GRUNDSACHE** Manifest bei fs-registry
 - [ ] SPÄTER capnp-Server (muss Kapazität und Zuteilung ablehnen, solange der Transport den Aufrufer nicht kennt), Kosten, MSPDI, Fähigkeiten
 
-## Umbenennung fs-resources → fs-inventory (ADR 0087)
-- [ ] **GRUNDSACHE** Name `fs-inventory` klären: Am 2026-11-15 leitete der Name auf das archivierte Repo `fs-inventory-archive` (2026-04-05) weiter; die gh-Abfrage am 2026-11-16 liefert 404. Nutzer entscheidet: Name freigeben oder anderer Name [offen]
+## Umbenennung fs-resources → fs-inventory: ZURÜCKGENOMMEN (ADR 0087 Nachtrag 2026-11-16)
+Entfällt: Namensklärung `fs-inventory`, `rename-inventory`, Doku-Ordner nach `inventory/`, preapproved-Eintrag. Offen bleiben (ohne Umbenennung) die Punkte unten.
 - [ ] **GRUNDSACHE** Vorab-Branch auf fs-types v0.0.19 heben (Branch nutzt v0.0.2, v0.0.8 oder v0.0.11) und pedantic clippy grün machen; CI der Vorab-Branches ist rot (Quelle `vorab-staende-strang-c.md`)
-- [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen, bevor umbenannt wird (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
+- [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
 - [ ] **GRUNDSACHE** Alt-Branches mit alten Crate-Namen: übernehmen oder archivieren (`archiv/<name>`-Tag), nicht offen lassen
-- [ ] **GRUNDSACHE** Workflow `umbenennen` (Branch `rename-inventory`, Crates `fs-inventory-*`); GitHub-Umbenennung führt der Nutzer aus
-- [ ] **GRUNDSACHE** `doku-mitziehen`: `docs/{de,en}/programs/apps/resources/` (1 und 31 Dateien) nach `inventory/`
-- [ ] **GRUNDSACHE** fs-release `.fs/preapproved.toml` ergänzen
-- [ ] SPÄTER Wort „resource“ nicht blind ersetzen (MCP-Resource, REA)
-- [ ] SPÄTER Passung „Inventory“ (Zeit und Fähigkeiten von Menschen sind laut ADR 0076 auch Ressourcen) klären
-- [ ] SPÄTER Erstes Release unter neuem Namen
+
+## Neuschnitt nach ValueFlows (ADR 0087 Nachtrag 2026-11-16; Plan strang-d/PLAN.md Abschnitt 17)
+Standard belegt: ValueFlows 1.0.0 (Ontologie `owl:versionInfo "1.0.0"`, Turtle `https://w3id.org/valueflows/ont/vf`), Spezifikation `https://www.valueflo.ws/specification/all_vf/`, Repo `https://codeberg.org/valueflows/valueflows`, Lizenz CC BY-SA 4.0, kein offizieller JSON-LD-Kontext in 1.0.0. fs-marketplace: Platzhalter-Repo gelöscht (404), Zuständigkeiten (Angebot, Gesuch, Zusage, Übergabe, Bestand, Katalog) liegen bei fs-resources.
+- [ ] **GRUNDSACHE** Strategie-OK zur Abbildung (Plan Abschnitt 17): Resource→EconomicResource, Art→ResourceSpecification (neu), Need/Offer→Intent (receiver/provider), Reservation→Commitment + EconomicEvent; Capacity/Allocation/GroupShare bleiben eigenes Modul [offen, Strategie]
+- [ ] **GRUNDSACHE** Thema `resources` in fs-interfaces nach ValueFlows neu schneiden (heute Entwurf „kein Standard gefunden“; Schnittstellenbruch, Review)
+- [ ] **GRUNDSACHE** ResourceSpecification (Art von Sachen) als eigener Typ; `ResourceKind` und Freitext-`unit` ablösen (typisierte Einheit)
+- [ ] **GRUNDSACHE** Intent als Angebot und Gesuch in einer Form (`provider`/`receiver`), auch ohne Gegenstück; Annehmen = Zusage mit Überbuchungsprüfung (heutiger Kern bleibt)
+- [ ] **GRUNDSACHE** Übergabe (EconomicEvent): verbuchen, Verbrauch/Rückgabe (heutiges `finish`)
+- [ ] **GRUNDSACHE** Katalog als Filter: erlaubte Art, typisierte Bedingungen (z. B. Preis = 0), Prüfung meldet nicht passende Einträge; Marktplatz = Katalog von Katalogen
+- [ ] **GRUNDSACHE** ADR 0075 Nachtrag: Besitz von Angebot/Gesuch/Zusage/Übergabe/Bestand liegt bei fs-resources, nicht bei fs-marketplace (Platzhalter gelöscht) [Strategie]
+- [ ] **GRUNDSACHE** Lizenzfolge CC BY-SA 4.0 für Doku-Auszüge klären (keine Ontologie ins Repo kopieren, Namensnennung + Link) [offen]
+- [ ] SPÄTER Proposal mit Gegenleistung (`reciprocal`), Agreement-Bündel, Claim, Batch/Lot, Plan; Rezepte nur als Verweis auf fs-workflows
+- [ ] SPÄTER Import/Export von ValueFlows (Turtle, GraphQL) am Grenzrand; JSON-LD-Kontext selbst festlegen, da keiner offiziell
+- [ ] SPÄTER Wort „resource“ nicht blind ersetzen (MCP-Resource, REA/ValueFlows)
+- [ ] SPÄTER Erstes Release
