@@ -16,13 +16,13 @@ Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das
 - **Stil-Vollständigkeit** (ADR 0074 Nachtrag, Entwurf in `plan-theme-bruecke.md` §10): jeder Stil gestaltet JEDEN Baustein mit allen Teilen/Zuständen des Theme-Vertrags (Skript `stil-vollstaendigkeit`, fehlender Eintrag = ROT); jedes nachgebaute Vorbild liefert einen gespeicherten Stil (`stil-sichern`, englischer Name); neuer Baustein/Teil/Zustand ⇒ neue Version des Theme-Vertrags + Schritt `alle-stile-erweitern`; Test `zwei-stile` (Craft + Admin/Fiori), Tokenprobe Stufe 2 vor Runde D; Vertrag 0.2 mit allen ~35 Namen; Toast bei Fehlern ohne Selbstablauf. Nichts im Blinc-Standardlook.
 - **Echte Blinc-Bausteine statt gemalter** (Liste `bestand-gemalte-nachbildungen.md`, 32 Funde; Runden A Formularfelder, B Meldungen, C Reiter/Umschalter, D Überlagerungen, E Bäume/Button). Löschrückfragen als echte Dialoge mit Fokus auf „Behalten". Craft-Optik bleibt, aber nur über Tokens/Stil-Schicht.
 - **Editor-Bausteine sind ANSICHT, nicht Frontend** (ADR 0084 Nachtrag): SourceEditor/BlockEditor/RichTextEditor/später Writer (ODF) je Dokument wählbar; Speicher bleibt unser Blockmodell; Umwandeln je Dokument/Block über Exporter; mehrere Ausgaben je Dokument.
-- **Normalisierung an der Grenze** (ADR 0085, Entwurf): innen nur AS2 + Standards; Zeiten UTC + IANA-Zone (ganztägig = Datum, nie umgerechnet; schwebende Zeit wird mit `zone_assumed` aufgelöst); Personen = Verweis `PersonRef { id, art, abzug }`, eingefrorener Abzug bei „ausgestellt = eingefroren“ (Buchung, Rechnung, Vertrag …). Bestand: `.scratch/bestand-zeiten-personen.md`.
+- **Normalisierung an der Grenze** (ADR 0085, akzeptiert 2026-11-16): innen nur AS2 + Standards; Zeiten UTC + IANA-Zone (ganztägig = Datum, nie umgerechnet; schwebende Zeit wird mit `zone_assumed` aufgelöst); Personen = Verweis `PersonRef { id, art, abzug }`, eingefrorener Abzug bei „ausgestellt = eingefroren“ (Buchung, Rechnung, Vertrag …). Bestand: `.scratch/bestand-zeiten-personen.md`.
 - **fs-server verbindet** (ADR 0082): Mediator zwischen Personen/Gruppen und Kanidm (fs-identity), Pilot 3 Anmeldung kanidm-unixd/PAM, Erkennung über fs-hub.
 - **Abnahmebilder** müssen mit denselben Stilen wie das echte Programm gezeichnet werden (Harness richtigstellen, keine Toleranz). Bilder → Strategie-OK → erst dann tag/release.
 - Weitere dauerhafte Regeln: R1 „Frontend“ nie „Gesicht“; R2 Dossier vor jedem Frontend (Menü-Inventar, Schritt `menue-vergleich`); ALLE Arbeit über Workflows; ADR-Greps vor technischen Entscheidungen; curl nur lesend auf amtlichen Domains; keine Credentials lesen.
 
 ## ADRs von heute (alle auf Doku-main)
-0072–0076 Blöcke/Katalog/Facetten; 0077 Katalog-Arten (`kind` inkl. server/workflow/module); 0078 Paketquellen apt/dnf (fs-packages); 0079 fs-server (Weg A/C, SSH-Ausgangspunkt, btrfs-Standard, Mensch führt aus); 0080 Umzug fs-wiki → fs-text; 0081 CI-Ereignisse = CloudEvents; 0082 fs-server verbindet; 0083 reserviert (Website-Veröffentlichung aus fs-text, noch nicht geschrieben; Web-Zugang der Programme = 0088); 0084 Editor-Bausteine (+Nachträge Baustein≠Programm, Katalogart module, Editor-Wahl ist Ansicht); 0085 Normalisierung (Entwurf).
+0072–0076 Blöcke/Katalog/Facetten; 0077 Katalog-Arten (`kind` inkl. server/workflow/module); 0078 Paketquellen apt/dnf (fs-packages); 0079 fs-server (Weg A/C, SSH-Ausgangspunkt, btrfs-Standard, Mensch führt aus); 0080 Umzug fs-wiki → fs-text; 0081 CI-Ereignisse = CloudEvents; 0082 fs-server verbindet; 0083 reserviert (Website-Veröffentlichung aus fs-text, noch nicht geschrieben; Web-Zugang der Programme = 0088); 0084 Editor-Bausteine (+Nachträge Baustein≠Programm, Katalogart module, Editor-Wahl ist Ansicht); 0085 Normalisierung (akzeptiert).
 
 ## Veröffentlicht (Stand 2026-11-14)
 - fs-components **v0.0.18** (Umbau-Werkzeug, Bildtest mit Toleranzen charts/kanban/primitives + RASTER) und **v0.0.19** (Editor-Fixes N1/N2/C1–C3, W1–W4, E1–E5, Editor-Vertrag `TextEditor`, schmale Fenster).
@@ -43,7 +43,7 @@ Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das
 
 ## Offene Fragen an die Strategie/den Nutzer
 - Blinc-Spike `rich_text_editor` ja (per Adapter); Fragen aus `blinc-bausteine.md` (cargo deny im Spike? git-bug an Blinc zu Bidi/LICENSE bei `blinc_game_kit`/`blinc_input`).
-- ADR 0085 offen: Typ der `id` in PersonRef; eigener Typ „überall 8 Uhr“; woran „die Quelle“ erkannt wird; reines Datum vs. ADR 0020; DSGVO-Aussagen sind [nicht belegt].
+- ADR 0085 abgeschlossen (2026-11-16): `id` = Reference, `Floating` in v1, `Origin`, reines Datum; offen nur Rechtsurteile (erst nach Fachprüfung).
 - Theme-Brücke: Festwert-Anfragen an Darmie nach Spike S0 gebündelt per git-bug.
 
 ## Lokale Arbeit (nichts davon gepusht außer `unreviewed/*`-Branches; Sicherung 2026-11-14)

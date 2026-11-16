@@ -39,3 +39,6 @@ Status: akzeptiert (Nutzer, 2026-11-15) · präzisiert ADR 0020 (Speicherformat)
 - **Loro (ADR 0073):** Die typisierten Tabellen sind die Wahrheit. Loro dient nur dem Abgleich und wird nicht als zweite Wahrheit gespeichert.
 - **Medieninhalt** (Pixel, Samples, Videobilder, 3D-Puffer) liegt als Datei in fs-files, in offenen Formaten: Video AV1 (WebM), Bilder AVIF, Audio FLAC (verlustfrei) bzw. Opus (verlustbehaftet), 3D glTF. In den Tabellen steht nur ein `FileRef` mit Prüfsumme. Die Crate-Angaben werden noch belegt geprüft.
 - **Geld** ist eine Ganzzahl in der kleinsten Einheit, dazu Währung (ISO 4217) und Skala. Nie eine Kommazahl.
+
+## Nachtrag (Strategie, 2026-11-16, Schärfung der Aufbewahrungsfrist)
+- Zur Zeile „8 oder 10 Jahre je nach Beleg“ (Abschnitt Original): **Buchungsbelege 8 Jahre** (Rechnung, Quittung), **Bücher und Abschlüsse 10 Jahre**, **Handels- und Geschäftsbriefe 6 Jahre**, jeweils **ab Schluss des Kalenderjahrs** (HGB § 257 Abs. 4 und 5, AO § 147 Abs. 3; gelesen am 2026-11-16 auf gesetze-im-internet.de). Das ist die Voreinstellung, der Mensch kann sie ändern; näheres in ADR 0085 Abschnitt 4. Keine Rechtsberatung.
