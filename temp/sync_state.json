@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16T04:47:44.218985+00:00",
+  "last_run": "2026-11-16T05:18:35.812986+00:00",
   "entries": {
     "components/blinc-cn-components.md": {
       "status": "VERIFIED",
@@ -11106,8 +11106,8 @@
     },
     "index.md": {
       "status": "PENDING",
-      "en_hash": "94573e7b56f61a0c",
-      "de_hash": "cbf3fdd9312a45be",
+      "en_hash": "b07a8090f3e5190d",
+      "de_hash": "4d16bf5961d3e606",
       "first_seen": "2026-11-04T20:29:00.376325+00:00",
       "last_verified": null,
       "kind": [
@@ -11152,8 +11152,8 @@
           "event": "hash changed → PENDING"
         }
       ],
-      "en_bytes": 5404,
-      "de_bytes": 6559,
+      "en_bytes": 5405,
+      "de_bytes": 6560,
       "change_reason": "hash changed since verification"
     },
     "interactions/animations/entrance/bounce-in/appearance.md": {
@@ -44376,343 +44376,6 @@
       "en_bytes": 3638,
       "de_bytes": 3950
     },
-    "programs/apps/history/frontends/activitywatch/index.md": {
-      "status": "PENDING",
-      "en_hash": "26ab20898d23c977",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 2457,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/api.md": {
-      "status": "PENDING",
-      "en_hash": "1060aca479f38abc",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 1039,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/description.md": {
-      "status": "PENDING",
-      "en_hash": "3933c4ac98810857",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 1020,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/features.md": {
-      "status": "PENDING",
-      "en_hash": "69091657e904a37f",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 509,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/layout.md": {
-      "status": "PENDING",
-      "en_hash": "21c7be220b14a1ce",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 232,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/menus.md": {
-      "status": "PENDING",
-      "en_hash": "33f4c31643da5666",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 228,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/activitywatch/latest/shortcuts.md": {
-      "status": "PENDING",
-      "en_hash": "14e35dd61b72260b",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 99,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/index.md": {
-      "status": "PENDING",
-      "en_hash": "4cc812e4046dc305",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 2391,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/api.md": {
-      "status": "PENDING",
-      "en_hash": "f4522763cf36a02f",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 330,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/description.md": {
-      "status": "PENDING",
-      "en_hash": "270b4adeb73649e5",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 1186,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/features.md": {
-      "status": "PENDING",
-      "en_hash": "85ff05118e09eaa7",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 660,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/layout.md": {
-      "status": "PENDING",
-      "en_hash": "5f2d3dae6bbab102",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 320,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/menus.md": {
-      "status": "PENDING",
-      "en_hash": "90584d00e772139e",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 423,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/day-one/latest/shortcuts.md": {
-      "status": "PENDING",
-      "en_hash": "bb9fb3687ee01d39",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 176,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/index.md": {
-      "status": "PENDING",
-      "en_hash": "b1ef5af2eee5eab2",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 2241,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/api.md": {
-      "status": "PENDING",
-      "en_hash": "3a6fc1468c851a3f",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 523,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/description.md": {
-      "status": "PENDING",
-      "en_hash": "3a431a19d47806a0",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 1080,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/features.md": {
-      "status": "PENDING",
-      "en_hash": "3a073c9c2113dbe7",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 437,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/layout.md": {
-      "status": "PENDING",
-      "en_hash": "3b2590ed1204438e",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 200,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/menus.md": {
-      "status": "PENDING",
-      "en_hash": "ae24e059c2f45b29",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 236,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/exist-io/latest/shortcuts.md": {
-      "status": "PENDING",
-      "en_hash": "c63eb54e594305ee",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 93,
-      "de_bytes": null
-    },
-    "programs/apps/history/frontends/index.md": {
-      "status": "PENDING",
-      "en_hash": "5902f4c6d4af4149",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 3026,
-      "de_bytes": null
-    },
-    "programs/apps/history/index.md": {
-      "status": "PENDING",
-      "en_hash": "65a6212ac9dca549",
-      "de_hash": "784d0eada36d8800",
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "en_german",
-        "parity"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 4923,
-      "de_bytes": 4905
-    },
-    "programs/apps/history/requirements.md": {
-      "status": "PENDING",
-      "en_hash": "a54670cc51407e05",
-      "de_hash": null,
-      "first_seen": "2026-11-16T04:41:06.209100+00:00",
-      "last_verified": null,
-      "kind": [
-        "needs_de"
-      ],
-      "note": null,
-      "history": [],
-      "en_bytes": 2675,
-      "de_bytes": null
-    },
     "programs/apps/maps/frontends/felt/index.md": {
       "status": "PENDING",
       "en_hash": "0467b44fd44c0ec2",
@@ -46875,8 +46538,8 @@
     },
     "programs/apps/roadmap.md": {
       "status": "PENDING",
-      "en_hash": "9f5beaaaf4bf9cec",
-      "de_hash": "304ecc9a7d87ea99",
+      "en_hash": "18122897b34a6c4b",
+      "de_hash": "49425a3c38584d72",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
@@ -46884,8 +46547,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 8026,
-      "de_bytes": 6913
+      "en_bytes": 8027,
+      "de_bytes": 6914
     },
     "programs/apps/store/frontends/f-droid/index.md": {
       "status": "PENDING",
@@ -49204,7 +48867,7 @@
     },
     "programs/apps/tasks/requirements.md": {
       "status": "PENDING",
-      "en_hash": "c0f63027d737bc8c",
+      "en_hash": "a3ae146298a2ed4b",
       "de_hash": "dc25770bcc10e965",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
@@ -49213,7 +48876,7 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 16285,
+      "en_bytes": 16286,
       "de_bytes": 14216
     },
     "programs/apps/whiteboard/design.md": {
@@ -51097,7 +50760,7 @@
     },
     "programs/map.md": {
       "status": "PENDING",
-      "en_hash": "efdaa52c8c81712e",
+      "en_hash": "3981ed1b71288c7d",
       "de_hash": null,
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
@@ -51106,7 +50769,7 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 19407,
+      "en_bytes": 19408,
       "de_bytes": null
     },
     "programs/platform/desktop/frontends/alfred/index.md": {
@@ -52979,6 +52642,343 @@
       "history": [],
       "en_bytes": 4974,
       "de_bytes": 5551
+    },
+    "programs/apps/activity/frontends/activitywatch/index.md": {
+      "status": "PENDING",
+      "en_hash": "26ab20898d23c977",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2457,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "1060aca479f38abc",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1039,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "3933c4ac98810857",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1020,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "69091657e904a37f",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 509,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "21c7be220b14a1ce",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 232,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "33f4c31643da5666",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 228,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/activitywatch/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "14e35dd61b72260b",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 99,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/index.md": {
+      "status": "PENDING",
+      "en_hash": "4cc812e4046dc305",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2391,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "f4522763cf36a02f",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 330,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "270b4adeb73649e5",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1186,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "85ff05118e09eaa7",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 660,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "5f2d3dae6bbab102",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 320,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "90584d00e772139e",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 423,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/day-one/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "bb9fb3687ee01d39",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 176,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/index.md": {
+      "status": "PENDING",
+      "en_hash": "b1ef5af2eee5eab2",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2241,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "3a6fc1468c851a3f",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 523,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "3a431a19d47806a0",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1080,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "3a073c9c2113dbe7",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 437,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "3b2590ed1204438e",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 200,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "ae24e059c2f45b29",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 236,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/exist-io/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "c63eb54e594305ee",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 93,
+      "de_bytes": null
+    },
+    "programs/apps/activity/frontends/index.md": {
+      "status": "PENDING",
+      "en_hash": "1ac576994e82dab3",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3029,
+      "de_bytes": null
+    },
+    "programs/apps/activity/index.md": {
+      "status": "PENDING",
+      "en_hash": "65a6212ac9dca549",
+      "de_hash": "784d0eada36d8800",
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 4923,
+      "de_bytes": 4905
+    },
+    "programs/apps/activity/requirements.md": {
+      "status": "PENDING",
+      "en_hash": "a54670cc51407e05",
+      "de_hash": null,
+      "first_seen": "2026-11-16T05:18:20.536921+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2675,
+      "de_bytes": null
     }
   }
 }
