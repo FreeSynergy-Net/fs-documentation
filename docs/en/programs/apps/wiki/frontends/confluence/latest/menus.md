@@ -115,7 +115,7 @@ Access is set by permissions. Which menus appear for which role is not documente
 
 ## Menü-Inventar
 
-Machine-readable inventory for `scripts/menue-vergleich` (format: `docs/menue-vergleich.md`, nested list, indentation = depth). Names are Atlassian's menu names; `{de: ...}` is our own translation. Shortcuts: Windows first, then Mac (both in one bracket, comma separated); source S12 unless noted. Shortcuts whose key is `[`, `]` or `,` (sidebar toggle, comments panel, previous comment, inline comments) are left out here because they would break the bracket syntax; they are in [shortcuts.md](shortcuts.md). Re-read 2026-11-14 on the pages S14, S15, S16, S23 to S28 (index.md); items without a source stay out of the list. Atlassian names no `id`, so none is given.
+Machine-readable inventory for `scripts/menue-vergleich` (format: `fs-release/docs/menue-vergleich.md`, nested list, indentation = depth). Names are Atlassian's menu names; `{de: ...}` is our own translation. Shortcuts: Windows first, then Mac (both in one bracket, comma separated); source S12 unless noted. Shortcuts whose key is `[`, `]` or `,` (sidebar toggle, comments panel, previous comment, inline comments) are left out here because they would break the bracket syntax; they are in [shortcuts.md](shortcuts.md). Re-read 2026-11-14 on the pages S14, S15, S16, S23 to S28 (index.md); items without a source stay out of the list. Atlassian names no `id`, so none is given.
 
 - Top bar {de: Kopfleiste}
   - Search [Alt+Shift+Z, Ctrl+Opt+Z] {de: Suche}

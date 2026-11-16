@@ -67,7 +67,7 @@ Settings → Import · Settings → General → Export all workspace content · 
 
 ## Menü-Inventar
 
-Machine-readable inventory for `scripts/menue-vergleich`, format of `docs/menue-vergleich.md`. Names as on Notion's help pages (read 2026-11-14), `{de: ...}` our own translation. Shortcuts: macOS first, then Windows/Linux, only where a help page names them for the entry; Notion's own writing "cmd/ctrl" is split into two. Items without a documented shortcut have no bracket. No `id`: Notion names none.
+Machine-readable inventory for `scripts/menue-vergleich`, format of `fs-release/docs/menue-vergleich.md`. Names as on Notion's help pages (read 2026-11-14), `{de: ...}` our own translation. Shortcuts: macOS first, then Windows/Linux, only where a help page names them for the entry; Notion's own writing "cmd/ctrl" is split into two. Items without a documented shortcut have no bracket. No `id`: Notion names none.
 
 - Sidebar {de: Seitenleiste}
   - Search [cmd+K, ctrl+K] {de: Suche}
