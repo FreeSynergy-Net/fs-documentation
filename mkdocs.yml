@@ -127,3 +127,20 @@ site_dir: site
 
 copyright: |
   &copy; FreeSynergy &middot; <a href="https://github.com/FreeSynergy" target="_blank" rel="noopener">GitHub</a>
+
+# Link checks. `mkdocs build --strict` turns every WARNING into an error, so what is "warn" here is a gate.
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
+  links:
+    not_found: warn
+    absolute_links: warn
+    # TODO (todo/checklisten/fs-documentation.md, branch unreviewed/checklisten-b): tighten to warn per kind.
+    # anchors: 7 broken anchors still open (4 "no such anchor on this page", 3 "doc does not contain an anchor").
+    anchors: info
+    # unrecognized_links: 2383 folder links ("dir/") that MkDocs never resolves; with the generated
+    # folder indexes they all point to an existing index.md ("Did you mean ...") and work in the built site.
+    # Rewrite them to "dir/index.md", then set to warn.
+    unrecognized_links: info

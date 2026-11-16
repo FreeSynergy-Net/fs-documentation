@@ -14,6 +14,7 @@ run gen_component_indexes.py --lang en --check
 run check_components.py --lang de
 run gen_component_indexes.py --lang de --check
 run gen_frontend_indexes.py --check
+run gen_folder_indexes.py --check
 # Same as the CI steps "Publish the decision records" and "Build MkDocs site" (strict).
 # No -q: quiet mode raises the log level to ERROR, so strict mode no longer counts warnings (the gate was blind).
 MKDOCS="$(command -v mkdocs || true)"
