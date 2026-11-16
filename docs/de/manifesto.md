@@ -69,6 +69,18 @@ Bei uns ist ein Programm kein abgeschlossener Block. Es besteht aus einem Kern, 
 
 Wenn solche Standards sich durchsetzen, über unsere Programme hinaus, bis hinein in Betriebssysteme, dann wird aus vielen kleinen Teilen etwas, das größer ist als ihre Summe. Ob es so kommt, wissen wir nicht. Wir bauen es so, dass es möglich ist.
 
+## Kleine Server, ehrlich betrieben
+
+Ein FreeSynergy-Server ist für 100 bis 1000 Menschen gedacht. Wir wollen viele kleine Server statt einer „Übercloud“. Kein neues Google, kein neues Amazon: Das Internet soll wieder dezentral werden.
+
+Wer einen Server betreibt, sieht bei einer geteilten Instanz technisch viel. Das verschweigen wir nicht. Darum gilt:
+
+- Im Alltag sieht der Betreiber nur Verwaltungsdaten, keine Inhalte.
+- Jeder Zugriff auf Inhalte wird protokolliert und dem Betroffenen gemeldet.
+- Wer mehr Schutz will, verschlüsselt seine Daten (fs-vault) oder betreibt einen eigenen Server.
+
+Ein Protokoll verhindert nichts, es macht Zugriffe nur sichtbar. Volle Sicherheit vor dem Betreiber gibt es nur mit Verschlüsselung oder auf dem eigenen Server.
+
 ## Immer ehrlich
 
 Wir sagen, was heute funktioniert und was nicht. Eine Funktion, die nicht gebaut ist, nennen wir nicht gebaut. Das ist weniger aufregend als ein Versprechen, und es ist der einzige Weg, dem Rest zu vertrauen.

@@ -69,6 +69,18 @@ Here a program is not a closed block. It is made of a core, of components that s
 
 If such standards catch on, beyond our programs and into operating systems, many small parts become something larger than their sum. We do not know whether that will happen. We build it so that it can.
 
+## Small servers, run honestly
+
+A FreeSynergy server is meant for 100 to 1000 people. We want many small servers instead of one "supercloud". No new Google, no new Amazon: the internet should be decentral again.
+
+Whoever runs a server can technically see a lot on a shared instance. We do not hide that. So:
+
+- In daily work, the operator sees only administration data, not content.
+- Every access to content is logged and reported to the person concerned.
+- Anyone who wants more protection encrypts their data (fs-vault) or runs their own server.
+
+A log prevents nothing, it only makes access visible. Full safety from the operator exists only with encryption or on your own server.
+
 ## Honest, always
 
 We say what works today and what does not. A feature that is not built is called not built. That is less exciting than a promise, and it is the only way you can trust the rest.
