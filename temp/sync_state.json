@@ -35429,6 +35429,715 @@
       "history": [],
       "en_bytes": 2033,
       "de_bytes": null
+    },
+    "programs/apps/calendar/frontends/cal-com/index.md": {
+      "status": "PENDING",
+      "en_hash": "ef192c4f45653d9a",
+      "de_hash": "5f019d767771f4c7",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1857,
+      "de_bytes": 2307
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "28133cd30decf55f",
+      "de_hash": "1bbd42db59c444c1",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 591,
+      "de_bytes": 979
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "078c7ecca3b87936",
+      "de_hash": "09c2bc3a72588e94",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 784,
+      "de_bytes": 1227
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "9130826f5eb86998",
+      "de_hash": "f7cd4174231bd847",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 642,
+      "de_bytes": 1013
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "14056a4668b6e51a",
+      "de_hash": "c1bbdc70d9714d48",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 99,
+      "de_bytes": 449
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "8a61b7452c453fbe",
+      "de_hash": "29f9a58784140d05",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 59,
+      "de_bytes": 388
+    },
+    "programs/apps/calendar/frontends/cal-com/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "578e588496d698c6",
+      "de_hash": "97ab779dba2d08dc",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 40,
+      "de_bytes": 372
+    },
+    "programs/apps/calendar/frontends/fantastical/index.md": {
+      "status": "PENDING",
+      "en_hash": "7fc5eda3dec1b139",
+      "de_hash": "c54ed4d264cab1f9",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1722,
+      "de_bytes": 2161
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "21daf354d8c0b343",
+      "de_hash": "b7dd7fc266298b59",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 290,
+      "de_bytes": 667
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "38abd9684bf67267",
+      "de_hash": "03dd11c95eecd593",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 596,
+      "de_bytes": 988
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "7a0738728c489775",
+      "de_hash": "fd8d6eae8432225b",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 884,
+      "de_bytes": 1353
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "b75406c5f7a2f27d",
+      "de_hash": "970c905ca1cde0ff",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 229,
+      "de_bytes": 592
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "a386bad13c817d32",
+      "de_hash": "066c4a26187d3a72",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 63,
+      "de_bytes": 392
+    },
+    "programs/apps/calendar/frontends/fantastical/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "1ba2d5d5d3451de9",
+      "de_hash": "f565fcf8012f8c2b",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 247,
+      "de_bytes": 594
+    },
+    "programs/apps/calendar/frontends/motion/index.md": {
+      "status": "PENDING",
+      "en_hash": "d4fa20b89923b663",
+      "de_hash": "cede7d1164146f20",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1824,
+      "de_bytes": 2310
+    },
+    "programs/apps/calendar/frontends/motion/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "d50358ea548a9cd6",
+      "de_hash": "18392ef0590f8907",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 424,
+      "de_bytes": 846
+    },
+    "programs/apps/calendar/frontends/motion/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "713645e991ecdbb2",
+      "de_hash": "67b84b0c997b5ce1",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 555,
+      "de_bytes": 953
+    },
+    "programs/apps/calendar/frontends/motion/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "aef75196d435bf23",
+      "de_hash": "b30320e030761a8e",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 537,
+      "de_bytes": 954
+    },
+    "programs/apps/calendar/frontends/motion/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "c342407d57b6667d",
+      "de_hash": "f5238577272737a7",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 63,
+      "de_bytes": 399
+    },
+    "programs/apps/calendar/frontends/motion/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "6f19ef1848812a3f",
+      "de_hash": "43834b710142a850",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 58,
+      "de_bytes": 387
+    },
+    "programs/apps/calendar/frontends/motion/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "da25650432634d81",
+      "de_hash": "278b181988fec4ab",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 39,
+      "de_bytes": 371
+    },
+    "programs/apps/calendar/frontends/notion-calendar/index.md": {
+      "status": "PENDING",
+      "en_hash": "8e30d93dad4284eb",
+      "de_hash": "eccdce697a26532b",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1683,
+      "de_bytes": 2087
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "b4cf46a786bb6fad",
+      "de_hash": "f5186377f2448040",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 140,
+      "de_bytes": 484
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "787b5b1fd6f03000",
+      "de_hash": "f79d0197972bee02",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 615,
+      "de_bytes": 1026
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "0088e1774db04c62",
+      "de_hash": "fbfbadb436870f29",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 817,
+      "de_bytes": 1254
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "46e9ffbbbb3792d8",
+      "de_hash": "bb3f335d8b31d1d3",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 114,
+      "de_bytes": 452
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "02a410deb9acd7ad",
+      "de_hash": "62e183714714cd46",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 67,
+      "de_bytes": 396
+    },
+    "programs/apps/calendar/frontends/notion-calendar/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "8677aeee39e656e7",
+      "de_hash": "8e28d74434b51c38",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 192,
+      "de_bytes": 540
+    },
+    "programs/apps/calendar/frontends/reclaim/index.md": {
+      "status": "PENDING",
+      "en_hash": "c3e4570efd5126ba",
+      "de_hash": "bfff83d9e6ea7ef9",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1888,
+      "de_bytes": 2399
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "262fd506591532a1",
+      "de_hash": "9013ecd26f8c4dd3",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 90,
+      "de_bytes": 430
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "ed56c024aa454500",
+      "de_hash": "aeed3b0eba3ef4c2",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 503,
+      "de_bytes": 924
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "af5f1c342014b37d",
+      "de_hash": "3066c83fd7b12b02",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 715,
+      "de_bytes": 1195
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "2507626a05880354",
+      "de_hash": "58c74e01c5aadf36",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 64,
+      "de_bytes": 400
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "219d946fc53a037c",
+      "de_hash": "93324b6d4bd9b96b",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 59,
+      "de_bytes": 388
+    },
+    "programs/apps/calendar/frontends/reclaim/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "94bf92623b81ee9f",
+      "de_hash": "4c42716043e71999",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 152,
+      "de_bytes": 490
+    },
+    "programs/apps/gallery/frontends/apple-photos/index.md": {
+      "status": "PENDING",
+      "en_hash": "14ffc9f24a98eb5d",
+      "de_hash": "eb276c78a5565796",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2184,
+      "de_bytes": 2694
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "cfe6d97849577531",
+      "de_hash": "874255f651d79353",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 131,
+      "de_bytes": 488
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "8f72552cc55b54c9",
+      "de_hash": "51c8e89907c556f7",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 357,
+      "de_bytes": 733
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "aa3bf87de3ab6ee5",
+      "de_hash": "58b1bc3857423315",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 532,
+      "de_bytes": 963
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "10314dc63b046b88",
+      "de_hash": "5504a54d9b1183bd",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 149,
+      "de_bytes": 494
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "91adcac495c1fd54",
+      "de_hash": "115c02a375315c7e",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 40,
+      "de_bytes": 364
+    },
+    "programs/apps/gallery/frontends/apple-photos/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "4c6b3cce245b879a",
+      "de_hash": "b6d60125776ebdc0",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 97,
+      "de_bytes": 453
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/index.md": {
+      "status": "PENDING",
+      "en_hash": "bce328e2f7cebb6f",
+      "de_hash": "ed1c95f7c095c66f",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2278,
+      "de_bytes": 2783
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "dab2a4b1fd3b2bcc",
+      "de_hash": "52d1cae9c0c0d213",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 286,
+      "de_bytes": 612
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "c188b01ae196107b",
+      "de_hash": "471fe83e22a3c726",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 872,
+      "de_bytes": 1274
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "f87eb06e73632d3a",
+      "de_hash": "8441fbaa2d405f13",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 978,
+      "de_bytes": 1380
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "0af0f3ae17e7e8c1",
+      "de_hash": "b0bcb16dc5aeb97f",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 265,
+      "de_bytes": 605
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "c37d4b1d669cf0b2",
+      "de_hash": "9f73876da8540d06",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 191,
+      "de_bytes": 534
+    },
+    "programs/apps/helpdesk/frontends/chatwoot/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "704fad31893025a4",
+      "de_hash": "a991d68778c21fe9",
+      "first_seen": "2026-11-16T01:50:14.891408+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 121,
+      "de_bytes": 468
     }
   }
 }
