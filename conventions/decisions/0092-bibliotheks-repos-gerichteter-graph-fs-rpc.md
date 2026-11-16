@@ -38,4 +38,4 @@ Status: **akzeptiert** (Strategie, 2026-11-16; Variante V2, Opus-Review 28ca3165
 - Prüfen, ob `conventions/coding.md` Abschnitt 8 einen Nachtrag braucht (Repo-DAG und Lock-Regel dort aufnehmen oder bei diesem ADR belassen).
 
 ## Nachtrag 2026-11-16
-- Der Punkt „Verworfen V1+“ wird durch ADR 0093 ersetzt (Entscheidung der Strategie: `fs-types` wird ein eigenes Repo mit `types.capnp`; Regel 1 dort erweitert).
+- Regel 1 und der Punkt „Verworfen V1+“ werden durch ADR 0093 ersetzt (Entscheidung der Strategie: `fs-types` wird ein eigenes Repo mit `types.capnp`; der neue Repo-DAG steht dort als Regel 1). Regel 2 gilt unverändert. Der offene Punkt „Codegen-Querverweis bei V1+“ ist durch die Probe in ADR 0093 erledigt.

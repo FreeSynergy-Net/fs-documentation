@@ -1,6 +1,6 @@
 # 0093 – fs-types ist die unterste Bibliothek: Wertobjekte samt Draht-Schema im eigenen Repo
 
-Status: **Entwurf (wartet auf Opus-Review)** (Strategie, 2026-11-16; Entscheidung V1+ JA, Fragen 1, 2, 2.1 und 3) · baut auf ADR 0092 (Repo-DAG, `fs-rpc`), ADR 0085 (Typen in fs-types), ADR 0066 (Typbeschreibung), ADR 0087 Punkt 5 (Bibliotheken behalten ihren Namen) und `conventions/coding.md` Abschnitte 1 und 8 · ersetzt den Punkt „Verworfen V1+“ in ADR 0092
+Status: **akzeptiert** (Strategie, 2026-11-16; Entscheidung V1+ JA, Fragen 1, 2, 2.1 und 3; Opus-Review 9b1ba986) · baut auf ADR 0092 (Repo-DAG, `fs-rpc`), ADR 0085 (Typen in fs-types), ADR 0066 (Typbeschreibung), ADR 0087 Punkt 5 (Bibliotheken behalten ihren Namen) und `conventions/coding.md` Abschnitte 1 und 8 · ersetzt Regel 1 und den Punkt „Verworfen V1+“ in ADR 0092
 
 ## Kontext
 - ADR 0092 bricht den Kreis zwischen `fs-interfaces`, `fs-objects` und `fs-types` mit `fs-rpc`. Es lässt `fs-types` aber im Repo `fs-interfaces` und hat V1+ nur wegen des Aufwands verworfen (4 bis 6 Tage). Das Kriterium dieses ADR ist dagegen Sinn und Objektorientierung, nicht Aufwand (Nutzerregel, Strategie 2026-11-16).
@@ -34,13 +34,13 @@ Reihenfolge nach der Opus-Notiz. **V1+ kommt vor der Programmwelle**, damit jede
 7. Test `generated_matches_official` schreibt künftig in ein Test-Target statt nach `/tmp` (Arbeitsspeicher); für `types_capnp.rs` entsteht ein eigener Test in `fs-types`. `compat_files.rs` ändert nur den Importpfad (`fs_interfaces::types_capnp` → `fs_types::types_capnp`).
 8. **Abnahmetest:** ein echter `capnp-rpc`-Roundtrip (`TypeCatalog`) über die Crate-Grenze; die Probe belegt nur Typgleichheit zur Compile-Zeit.
 9. Folge-Dokumentation (nicht Teil dieses Entwurfs): `conventions/coding.md` Abschnitt 8 bekommt den Repo-DAG und den Satz „eine Quelle je Bibliothek“ (offener Punkt aus ADR 0092).
-10. Die Regel-2-Prüfung (eine Quelle) in `fs-release` schlägt bei jeder Rest-Quelle fehl.
+10. Die Prüfung nach ADR 0092 Regel 2 (eine Quelle im Lock) in `fs-release` schlägt bei jeder Rest-Quelle fehl.
 - Getaggte Stände (`fs-interfaces` bis v0.0.26, `fs-objects` bis v0.0.5, `fs-jscalendar` bis v0.0.3, `fs-rpc`) bleiben unveränderlich.
 - Vorteile (Opus-Notiz): kreisfrei durch Konstruktion; ein Schema-Tag eines Themas zieht nur noch `fs-rpc` und Programme nach, nicht `fs-objects` und `fs-jscalendar`; Normen (RFC 9553, RFC 8984, RFC 5870, BCP 47, AS2) an einer Stelle mit Regeln und Wertobjekt.
 
 ## Offen
 - **Erledigt, grün: Probe `crate_provides`** (Probe der Strategie, 2026-11-16, Arbeitsstand, nicht veröffentlicht; Stände `fs-interfaces` v0.0.26, `capnpc` 0.27.0, `fs-capnpc` v0.0.1). `CodeGenerationCommand::crates_provide_map({0x916fad50f1c14440 => "ftypes"})` setzt die Pfade (`codegen.rs:105`; `CompilerCommand::crate_provides`, `lib.rs:215`, ist nur der Durchreicher); `fs-capnpc` muss nicht geändert werden. 13 von 18 Schemata importieren `types.capnp` (events, files, streaming, surveys, texts, tasks, groups, history, people, messenger, whiteboard, places, resources). Datei-ID und Typ-IDs sind gleich: `types_capnp.rs` ist byte-gleich mit v0.0.26, die 17 übrigen Dateien unterscheiden sich nach Ersetzen des Pfads in 0 Zeilen; es gibt keine Doppel-Typen (Compile-Zeit-Prüfung von `get_catalog()` und `get_edit()`). Nicht belegt bleibt der echte `capnp-rpc`-Roundtrip (Abnahmetest, Folgen Punkt 8) und die `import`-Auflösung des offiziellen Compilers `capnpc-embedded`.
-- **Zwei `fs-types` im Lock während des Übergangs** (alt im Repo `fs-interfaces`, neu im eigenen Repo; Fehler wie E0308): eine Welle in fester Reihenfolge ohne Brücke, dazu die Regel-2-Prüfung. Ein vergessener alter Pin (zum Beispiel per `rev` auf `fs-people-directory`) bleibt das Risiko.
+- **Zwei `fs-types` im Lock während des Übergangs** (alt im Repo `fs-interfaces`, neu im eigenen Repo; Fehler wie E0308): eine Welle in fester Reihenfolge ohne Brücke, dazu die Prüfung nach ADR 0092 Regel 2. Ein vergessener alter Pin (zum Beispiel per `rev` auf `fs-people-directory`) bleibt das Risiko.
 - **Datei-ID** von `types.capnp` bleibt `@0x916fad50f1c14440` (`types.capnp:16`), der Draht bleibt unverändert; `tests/compat_0_0_19.rs` und `compat_0_0_20.rs` müssen grün bleiben.
 - **Tag-Nummern** von `fs-objects`, `fs-jscalendar`, `fs-rpc`: nächste Patch-Version, Nummern bei der Umsetzung festzulegen.
 - **`Capabilities` doppelt** (`fs-types/src/paging.rs:23`, `fs-interfaces/src/provider/capabilities.rs:20`): auflösen, wo die Fähigkeit hingehört **[offen]**.
