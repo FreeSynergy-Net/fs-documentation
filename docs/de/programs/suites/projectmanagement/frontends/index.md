@@ -7,7 +7,6 @@ Frontends bekannter Programme dieser Kategorie, analysiert nach ihren **Funktion
 | Programm | Versionen | Was es ist |
 |----------|-----------|------------|
 | [Asana](asana/index.md) | [latest](asana/latest/description.md) | Asana ist Aufgaben- und Projektarbeit auf Portfolio-Ebene: Aufgaben mit Feldern (Fälligkeit, Assignees, Abhängigkeiten, Custom Fields) in Projekten (Liste/Tabelle/Timeline/Kanban), Teams, Workloads… |
-| [Jira](jira/index.md) | [latest](jira/latest/description.md) | Jira (Atlassian) ist Issue- und Projekt-Tracking mit Workflows: Issues durchlaufen Status (To Do→In Progress→Done), mit Sprints (Jira Software), Typen, Prioritäten und mächtigem JQL. |
 | [OpenProject](openproject/index.md) | [latest](openproject/latest/description.md) | OpenProject ist ein quelloffenes Projektmanagement-System zum Selbsthosten (Community-Edition plus kommerzielle Enterprise-Edition) mit Arbeitspaketen, Gantt-Planung, agilen Boards, Zeit- und Koste… |
 | [Planka](planka/index.md) | [latest](planka/latest/description.md) | Planka ist ein selbst gehostetes, schlichtes Kanban-Board (fair-code: kostenlose Community-Edition plus kommerzielle Pro-Edition) mit Projekten, Boards, Listen und Karten in Echtzeit-Kollaboration. |
 | [Redmine](redmine/index.md) | [latest](redmine/latest/description.md) | Redmine ist eine freie, webbasierte Projektverwaltungs- und Issue-Tracking-Anwendung auf Rails-Basis: mehrere Projekte mit Issue-Trackern, Zeiterfassung, Wiki, Foren, Gantt/Kalender und rollenbasie… |
