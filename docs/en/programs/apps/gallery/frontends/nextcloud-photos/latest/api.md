@@ -39,7 +39,7 @@ The gallery uses the platform APIs: **WebDAV** for files, **OCS** for albums and
 Request:
 
 ```http
-PROPFIND /remote.php/dav/files/kal/Fotos/ HTTP/1.1
+PROPFIND /remote.php/dav/files/alice/Fotos/ HTTP/1.1
 Authorization: Basic <user:app-password>
 Depth: 1
 OCS-APIRequest: true

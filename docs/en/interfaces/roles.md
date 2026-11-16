@@ -93,7 +93,7 @@ Your role, in a file of the same form:
 ```json
 {
   "@context": ["https://freesynergy.net/ns/roles.jsonld",
-               {"@base": "https://<instance>/roles/kal/"}],
+               {"@base": "https://<instance>/roles/alice/"}],
   "id": "",
   "type": "skos:ConceptScheme",
   "names": {"de": "Meine Rollen"},
@@ -102,7 +102,7 @@ Your role, in a file of the same form:
     "type": "org:Role",
     "names": {"de": "Kassenwart"},
     "broader": "https://freesynergy.net/ns/roles/member",
-    "owner": "kal",
+    "owner": "alice",
     "scope": "personal"
   }]
 }

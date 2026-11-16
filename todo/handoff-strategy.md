@@ -1,6 +1,6 @@
 # Übergabe: Strategie-Sitzung (Stand 2026-11-14, nach Kontingent 99 %)
 
-Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das Memory `/home/kal/.claude/projects/-srv-FreeSynergy/memory/MEMORY.md` (alle verlinkten Dateien), dann die ADRs 0072–0085 in `conventions/decisions/`.
+Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das Memory (`MEMORY.md` im Memory-Verzeichnis des Projekts) (alle verlinkten Dateien), dann die ADRs 0072–0085 in `conventions/decisions/`.
 
 ## Rollen
 - **Strategie (Opus, `freesynergy-c5`):** spricht als Einzige mit dem Nutzer (Deutsch, einfache Sprache, Fragen am Ende), entscheidet, schreibt ADRs, prüft Bilder, gibt Aufträge an den Koordinator. Programmiert und installiert nicht selbst.
@@ -38,7 +38,7 @@ Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das
 6. **Crate-Familien (Plan `plan-crate-familien.md`, 21 Familien):** erst `base`, `icons`, leeres `editor-api` nach 0.0.18; Editor-Crates `-editor-api` + `-editor-source/-block/-rich`; EIN Board-Baustein (plan+kanban → `board`), EIN Kalender-Raster; `tables` als Kernfamilie (list_view → table, Module für Formeln); Ordner `kern/` + `adapter/` + Prüfskript `check_kern_adapter.py`; Facades `widgets`/`workbenches` ≥ 2 Tags. Plan + Crate-Liste an Strategie VOR dem ersten Umzug.
 7. **Welle-1-Bugfixes aus ADR 0085:** `fs-types::DateTime` UTC + Zone (Basis), Kalender-Einladungen/Kanban-assignee → PersonRef, Tasks ganztägige Fälligkeit (`plan-dossiers-welle1.md`, Abschnitt am Ende).
 8. **Dossiers:** Welle 1 (files, wiki, store, tasks) auf Doku-main; Nachbesserungen Store/Discover (Plasma 6), Jira-Kürzel, Things/Windows; Welle B (Google/Outlook Kalender, OSM), Apple Kontakte; Welle 2 (Microsoft Store, M365 Groups, Apple Kalender).
-9. **Weitere Pläne:** ADR 0083 (Web-Zugang der Programme) schreiben lassen; fs-identity `apply` umbauen (nur nach Bestätigung); Pilot Wiki online 1a (statischer HTML-Export); Rich-Editing-Spike (Blinc `rich_text_editor` per Adapter), node_editor-Spike niedrige Priorität nach Welle 1; Apps ohne gelesene Oberfläche eigene Runde nach Welle 1; Schema 2 Katalog (neutrales Server-Icon, 7 Icon-Fehler, `replaces`).
+9. **Weitere Pläne:** ADR 0088 (Web-Zugang der Programme + automatisches DNS; früher als 0083 genannt) schreiben lassen; fs-identity `apply` umbauen (nur nach Bestätigung); Pilot Wiki online 1a (statischer HTML-Export); Rich-Editing-Spike (Blinc `rich_text_editor` per Adapter), node_editor-Spike niedrige Priorität nach Welle 1; Apps ohne gelesene Oberfläche eigene Runde nach Welle 1; Schema 2 Katalog (neutrales Server-Icon, 7 Icon-Fehler, `replaces`).
 10. **Termine:** ~19.11. ArtCraft/VectorCraft-Text; ~24.11. Präsentation Anthropic (Bewerbung ~26.11.); SignPath (Nutzer-JA, wir bereiten vor); bis So 15.11. 18:00 `straenge-vollgas.md` final an Strategie (Entwurf 31 Stränge, mit F1–F8, fs-text-kein-Neubau, Dossiers, Ereignis-Verkettung aktualisieren).
 
 ## Offene Fragen an die Strategie/den Nutzer
