@@ -35429,6 +35429,414 @@
       "history": [],
       "en_bytes": 2033,
       "de_bytes": null
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/index.md": {
+      "status": "PENDING",
+      "en_hash": "00171c0f5f495741",
+      "de_hash": "241d6481ca0eb73f",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1844,
+      "de_bytes": 2374
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "afbccbeaebd28604",
+      "de_hash": "61a08c33079a00b0",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 271,
+      "de_bytes": 674
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "3a18b64cbe525317",
+      "de_hash": "d4ff4cc4b7936e18",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 602,
+      "de_bytes": 1064
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "a21adc9c157033a8",
+      "de_hash": "43cfa5ce28357a2f",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 625,
+      "de_bytes": 1101
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "9b319d4b153f9a68",
+      "de_hash": "858342aca50686b0",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 141,
+      "de_bytes": 493
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "e13a41d79ca6c7aa",
+      "de_hash": "550f045ef3785d5b",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 47,
+      "de_bytes": 370
+    },
+    "programs/suites/workflows/frontends/apple-shortcuts/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "c90d0ac30d07523d",
+      "de_hash": "bb80bdbdc860cac3",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 177,
+      "de_bytes": 511
+    },
+    "programs/suites/workflows/frontends/huginn/index.md": {
+      "status": "PENDING",
+      "en_hash": "2f44fab995988e86",
+      "de_hash": "d6cedf04b32e56e7",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1786,
+      "de_bytes": 2266
+    },
+    "programs/suites/workflows/frontends/huginn/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "6d70f3b39655a6d4",
+      "de_hash": "a1b08c171bd58e67",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 170,
+      "de_bytes": 511
+    },
+    "programs/suites/workflows/frontends/huginn/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "805caf0c9f6ad1be",
+      "de_hash": "df802f198057dd7a",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 724,
+      "de_bytes": 1157
+    },
+    "programs/suites/workflows/frontends/huginn/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "8f9ff2bde0d3185c",
+      "de_hash": "4b73ddb834d1b0e8",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 505,
+      "de_bytes": 925
+    },
+    "programs/suites/workflows/frontends/huginn/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "ba033e48efd56c90",
+      "de_hash": "70e8bc74f3ece79c",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 150,
+      "de_bytes": 493
+    },
+    "programs/suites/workflows/frontends/huginn/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "84f368bbc05011ce",
+      "de_hash": "7e721ae96a37cd12",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 38,
+      "de_bytes": 361
+    },
+    "programs/suites/workflows/frontends/huginn/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "3ab31a122dc34001",
+      "de_hash": "53baa7460ac8eabe",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 73,
+      "de_bytes": 399
+    },
+    "programs/suites/workflows/frontends/power-automate/index.md": {
+      "status": "PENDING",
+      "en_hash": "250fbff2de178324",
+      "de_hash": "44223939e284abc8",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1939,
+      "de_bytes": 2395
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "a2ab5db39c54567a",
+      "de_hash": "b7fb1931c136dd83",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 151,
+      "de_bytes": 486
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "ee76af76876fcf7a",
+      "de_hash": "00787239ab4be54d",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 534,
+      "de_bytes": 940
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "59437990966230dc",
+      "de_hash": "e4f0e775a0dc3825",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 562,
+      "de_bytes": 978
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "24a1347f253ffb31",
+      "de_hash": "54331b71255ebde5",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 306,
+      "de_bytes": 651
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "3b66e90762b5da1a",
+      "de_hash": "c04e069fc49e0615",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 275,
+      "de_bytes": 627
+    },
+    "programs/suites/workflows/frontends/power-automate/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "19ebc7d3d112f7cf",
+      "de_hash": "6009ba932de277a7",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 79,
+      "de_bytes": 408
+    },
+    "programs/suites/workflows/frontends/windmill/index.md": {
+      "status": "PENDING",
+      "en_hash": "baef48e96485ed7d",
+      "de_hash": "aaa4e39900f69288",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1790,
+      "de_bytes": 2289
+    },
+    "programs/suites/workflows/frontends/windmill/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "432da0a57281d4d8",
+      "de_hash": "49da808d1fd722c2",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 212,
+      "de_bytes": 560
+    },
+    "programs/suites/workflows/frontends/windmill/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "56fa4b8f0837554d",
+      "de_hash": "8b8674062b702df9",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 723,
+      "de_bytes": 1177
+    },
+    "programs/suites/workflows/frontends/windmill/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "92da26d37fab30f9",
+      "de_hash": "7319783d963a57f2",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 619,
+      "de_bytes": 1053
+    },
+    "programs/suites/workflows/frontends/windmill/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "78ced2e301db1643",
+      "de_hash": "cba1da8e13684a07",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 153,
+      "de_bytes": 503
+    },
+    "programs/suites/workflows/frontends/windmill/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "c3419981d75d24af",
+      "de_hash": "263d1aec8a22a7b1",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 40,
+      "de_bytes": 363
+    },
+    "programs/suites/workflows/frontends/windmill/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "701e6d75eb904e26",
+      "de_hash": "44830958efba2b41",
+      "first_seen": "2026-11-16T01:52:40.310894+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 75,
+      "de_bytes": 402
     }
   }
 }
