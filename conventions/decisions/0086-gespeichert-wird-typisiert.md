@@ -82,9 +82,32 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 - v5-Entwurf: Abschnitt 2.1 (`ENUM`) und 2.4 an diese Regel anpassen. Das ist ein Folgelauf in fs-objects, nicht Teil dieses Commits.
 
 ### Offen
-1. **Fremdschlüssel:** belegt am Code (fs-objects cad3c46): `Table.constraints` nimmt beliebige `FOREIGN KEY`-Klauseln, auch zusammengesetzte, auf eigene Domain-Tabellen; der Store setzt `PRAGMA foreign_keys = ON`. Offen bleibt nur: der zusammengesetzte Schlüssel `(kind, code)` verlangt in jeder Nutztabelle eine zweite Spalte `<x>_kind` mit `CHECK (<x>_kind = '<wortmenge>')`; Alternative je Wortmenge eine Tabelle mit einfachem Schlüssel `code`.
+1. **Fremdschlüssel:** belegt am Code (fs-objects cad3c46): `Table.constraints` nimmt beliebige `FOREIGN KEY`-Klauseln, auch zusammengesetzte, auf eigene Domain-Tabellen; der Store setzt `PRAGMA foreign_keys = ON`. Offen bleibt nur: der zusammengesetzte Schlüssel `(kind, code)` verlangt in jeder Nutztabelle eine zweite Spalte `<x>_kind` mit `CHECK (<x>_kind = '<wortmenge>')`; Alternative je Wortmenge eine Tabelle mit einfachem Schlüssel `code`. Für die Aktivitätsarten entschieden: zusammengesetzte Variante (Nachtrag 2026-11-16).
 2. **Lösch- und Umbenennregeln eigener Wörter** (`builtin = 0`): ob ein Wort mit Nutzzeilen nur auf `active = 0` gesetzt werden darf, und wie eine Umbenennung die Nutzzeilen mitnimmt.
 3. **Lokalisierung** der Anzeigetexte (`label`): nach ADR 0057 mit MF2, nicht mit Fluent.
 4. **Gemeinsame Wort-Tabelle:** innerhalb einer Store-Datei nicht möglich, die Registry lässt nur eine Programm-Domain zu (`Error::SecondDomain`); gemeinsame eingebaute Wörter (z. B. `purpose` in people und calendar) kommen als gemeinsame Code-Liste aus einer Bibliothek, jede Domain legt sie in ihre eigene Wort-Tabelle.
 5. **Sync und Export eigener Wörter:** Zeilen der Wort-Tabelle sind keine Objekte, also nicht im `activity`-Protokoll und nicht im Export; zu klären, wie eigene Wörter mitwandern (Sichern ≠ Exportieren).
-6. **Wortmengen in Store-eigenen Tabellen** (z. B. `person_snapshot.doc_kind`): kein Programm-Präfix; Wort-Tabelle unter `fs_` oder Ausnahme nach Entscheidung 7.
+6. **Wortmengen in Store-eigenen Tabellen** (z. B. `person_snapshot.doc_kind`): kein Programm-Präfix; Wort-Tabelle unter `fs_` oder Ausnahme nach Entscheidung 7. Für Store-eigene Wortmengen entschieden im Nachtrag 2026-11-16 (`fs_word`).
+
+## Nachtrag (Strategie, 2026-11-16: Umbau eingefrorener Schritte, Wort-Tabelle fs_word, kein RENAME)
+**Kontext (Befund)**
+- Eine Wortmenge, die als `CHECK`-Liste (Enum) in einem eingefrorenen Schritt 1 steht, lässt sich nicht durch Anhängen eines Schritts erweitern. Beispiel: die acht Aktivitätsarten im v5-Aktivitätsprotokoll von `fs-objects`. Sie braucht einmal einen Umbau der Tabelle: neue Tabelle, `INSERT ... SELECT`, `DROP`; danach eine Wort-Tabelle statt `CHECK`.
+- Folge für die Regel des vorigen Nachtrags: „Neues Wort = INSERT-Schritt“ gilt nur für Wortmengen, die von Anfang an eine Wort-Tabelle sind. `CHECK`-Listen (Enum) in eingefrorenen Schritten sind für offene Wortmengen verboten. Die Ausnahme 7 (geschlossene technische Zustände) bleibt.
+- Beim Umbau der Aktivitätsarten zeigte sich ein Fehler der Datenbank-Engine (turso 0.8.3): `ALTER TABLE ... RENAME` benennt dort den Autoindex einer anderen Tabelle um, deren Name mit demselben Präfix beginnt. Die Datei ist dann in Standard-SQLite nicht lesbar („malformed database schema ... orphan index“) und nur mit der `-wal`-Datei daneben sichtbar. Unter turso selbst bleibt `PRAGMA integrity_check` ok. Der Fehler wird hier beschrieben, nicht als Meldung zitiert (Belege: Opus-Reviews fs-objects v0.0.5).
+
+**Entscheidung**
+1. **Store-eigene Wort-Tabelle `fs_word`** ohne Programm-Präfix, Spalten `kind`, `code`, `builtin`, `label`, `sort`, `active`, Schlüssel `(kind, code)`. Das löst Offen 6 für Store-eigene Wortmengen.
+2. **Nutzspalte mit Fremdschlüssel-Paar:** `activity.kind_set` (immer `activity_kind`) und der zusammengesetzte Fremdschlüssel `(kind_set, kind)` auf `fs_word (kind, code)`. Das ist die zusammengesetzte Variante aus Offen 1. Kosten für Programme: keine, sie lesen und schreiben über `v5::log`; nur rohe `INSERT` müssten `kind_set` setzen.
+3. **Eingebaute Wörter** setzt der INSERT-Schritt `INSERT ... ON CONFLICT (kind, code) DO UPDATE SET builtin = 1`. Test: ein vorhandenes eigenes Wort (`builtin = 0`) wird eingebaut (`builtin = 1`); der Mutant „ON CONFLICT weg“ wird rot.
+4. **Kein `ALTER TABLE ... RENAME` in Schritten**, solange turso (0.8.3) beim Umbenennen fremde Autoindizes mit gleichem Präfix mitumbenennt. Stattdessen: neue Tabelle, `INSERT ... SELECT`, `DROP`.
+5. **Konformität für jeden Schritt und jeden Store:** (a) kein verwaister Autoindex: `SELECT name FROM sqlite_schema WHERE type='index' AND sql IS NULL AND name NOT LIKE 'sqlite_autoindex_' || tbl_name || '_%'` liefert 0 Zeilen; (b) Standard-SQLite liest die Datei (`python3 -I`, Modul `sqlite3`, `PRAGMA integrity_check`, mit der `-wal`-Datei daneben).
+
+**Folgen**
+- `fs-objects` v0.0.5 trägt die fünf neuen Arten Join, Leave, Move, Add, Remove neben den acht bisherigen. ADR 0073 nennt Add, Remove und Move; Join und Leave stehen in keinem ADR.
+- Die Programm-Stores (people, groups, calendars, tasks und weitere) bekommen dieselbe Prüfung 5 als Konformität (Folgelauf). [offen, nicht belegt für die einzelnen Stores]
+- Die Wortlisten-Regel aus dem vorigen Nachtrag gilt unverändert für alle neuen offenen Wortmengen; hier wird nur der Umbau-Weg für bestehende `CHECK`-Listen festgelegt.
+
+### Offen
+1. **ADR 0073:** braucht es einen Nachtrag für Join und Leave? [offen]
+2. **turso-Fehler upstream melden:** der Nutzer entscheidet; kein ADR-Text zur Meldung.
+3. **Geltungsbereich von `fs_word`:** gilt die Wort-Tabelle auch für weitere Store-eigene Tabellen (z. B. `person_snapshot.doc_kind`)? [offen]
