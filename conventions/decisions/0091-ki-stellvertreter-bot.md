@@ -124,8 +124,8 @@ Nur die Liste. Nichts davon ist in diesem ADR eingebaut.
 Anlass: Nutzerentscheidung (16.11., über die Strategie): Mehrere KIs können gleichzeitig teilnehmen. Jede KI bekommt einen eigenen Bot-Platz. Der Bot hat eine Adapter-Schicht je KI-Schnittstelle (Anthropic, OpenAI-kompatibel, lokal z. B. llama.cpp). Das Mandat bleibt gleich. Dieser Nachtrag präzisiert die Entscheidungen 1, 2, 5, 8, 9, 12, 13 und 15 des ADR; die übrigen Punkte bleiben unverändert.
 
 **Entscheidung**
-1. **Platz = Mandat, Steuerer = Feld.** Ein Bot-Platz ist ein Mandat mit dem Schlüssel (Situation, Halter, laufende Nummer). KI und Anbieter sind ein Steuerer-Feld des Platzes, nicht Teil des Schlüssels. Mehrere KIs dürfen gleichzeitig in einer Situation sein, jede auf einem eigenen Platz mit eigenem Mandat, eigener Zustimmung aller Anwesenden und eigenem Knopf „STOP KI“. Ein Platz hat zur Zeit genau EINEN Steuerer (Punkt 2 des ADR); derselbe Halter oder zwei Halter dürfen dieselbe KI je auf einem eigenen Platz einladen. Ein Wechsel des Steuerers (KI, Anbieter oder Standort) setzt den Platz auf `Pending` und braucht neue Zustimmung (siehe Punkt 4 und ADR Punkt 8).
-2. **Eigenes Konto und eigene Schlüssel je Platz.** Jeder Platz hat ein EIGENES Vorrat-Konto `fsb-<uuid>` (ADR Punkt 9) und eigene Token und Schlüssel, Matrix-Schlüssel eingeschlossen. Es werden keine Schlüssel oder Tokens zwischen Plätzen geteilt (PLAN §13 (b)). `account_expire` (ADR Punkt 9c) trifft nur das Konto dieses Platzes.
+1. **Platz = Mandat, Steuerer = Feld.** Ein Bot-Platz ist ein Mandat mit dem Schlüssel (Situation, laufende Nummer). Halter, KI und Anbieter sind Felder des Platzes, nicht Teil des Schlüssels. Ein Halterwechsel (ADR Punkt 8) ändert das Feld Halter und setzt den Platz auf `Pending`. Mehrere KIs dürfen gleichzeitig in einer Situation sein, jede auf einem eigenen Platz mit eigenem Mandat, eigener Zustimmung aller Anwesenden und eigenem Knopf „STOP KI“. Ein Platz hat zur Zeit genau EINEN Steuerer (Punkt 2 des ADR); derselbe Halter oder zwei Halter dürfen dieselbe KI je auf einem eigenen Platz einladen. Ein Wechsel des Steuerers (KI, Anbieter oder Standort) setzt den Platz auf `Pending` und braucht neue Zustimmung (siehe Punkt 4 und ADR Punkt 8).
+2. **Eigenes Konto und eigene Schlüssel je Platz.** Jeder Platz hat ein EIGENES Vorrat-Konto `fsb-<uuid>` (ADR Punkt 11 und 14) und eigene Token und Schlüssel, Matrix-Schlüssel eingeschlossen. Es werden keine Schlüssel oder Tokens zwischen Plätzen geteilt (PLAN §13 (b)). `account_expire` (ADR Punkt 9c) trifft nur das Konto dieses Platzes. Gilt Alternative B (kein Kanidm-Konto), hat jeder Platz eigene Token aus fs-access; geteilt wird auch dann nichts.
 3. **STOP trennt nur diesen Platz.** „STOP KI“ wirkt auf den Platz der gedrückten KI: Steuer-Sitzung getrennt, Mandat `Stopped`, Token widerrufen (ADR Punkt 9). Andere Plätze in derselben Situation bleiben unberührt, ebenso ihre Konten. Ein Widerruf eines Menschen für alle KIs einer Situation ist ein eigener Schritt: er stoppt jeden Platz einzeln, mit je einem Protokolleintrag.
 4. **Adapter-Schicht je KI-Schnittstelle.** Der Bot spricht über einen Adapter mit der jeweiligen KI (Anthropic, OpenAI-kompatibel, lokal z. B. llama.cpp). Der Adapter übersetzt das Mandat in Werkzeugaufrufe und Berechtigungen; das Mandat bleibt für alle Adapter gleich. Neue Zustimmung braucht der Wechsel von KI, Anbieter oder Standort (Nutzer-JA und Strategie-JA 16.11. zu Frage 2.6.14). Ein bloßes Adapter-Update ohne Ziel-Wechsel braucht keine Runde. Modellwechsel beim selben Anbieter: siehe Offen.
 5. **Keine Rechte im Adapter.** Der Adapter hat nie mehr Rechte als das Mandat, wird nie als eigene Identität geführt, bekommt keine Zugangsdaten außerhalb des Tresors (ADR 0067) und kann nicht ohne Mandat handeln. Adapter sind austauschbar, ohne dass sich Rechte ändern.
@@ -139,7 +139,7 @@ Anlass: Nutzerentscheidung (16.11., über die Strategie): Mehrere KIs können gl
 **Folgen**
 - **Pilot-Bot** (`pilot-bot/PLAN.md`): Der Plan wird auf Plätze je Mandat umgestellt; die Adapter-Schicht bekommt einen eigenen Abschnitt.
 - **fs-delegate:** Adapter-Trait (Schnittstelle, Entwurfsmuster Strategy/Adapter), je Anbieter eine Umsetzung.
-- **groups_v1:** `BotSeat` je Mandat (Situation, Halter, laufende Nummer), Feld `controller` für KI und Anbieter, nicht im Schlüssel. `open_seat`, `stop_seat` und `seats_of` arbeiten je Platz. Der Platz ist nie echtes Mitglied (ADR Punkt 13).
+- **groups_v1:** `BotSeat` je Mandat (Situation, laufende Nummer), Felder `holder` und `controller`, nicht im Schlüssel. `open_seat`, `stop_seat` und `seats_of` arbeiten je Platz. Der Platz ist nie echtes Mitglied (ADR Punkt 13).
 - **person_directory_v1:** `controller` je Platz. `AiAssistance` gilt je Platz und nennt Anbieter und Standort.
 - **fs-messages:** STOP-Knopf je Platz.
 - **tasks_v1:** Aufgaben laufen über `BotSeat`.
@@ -154,8 +154,11 @@ Anlass: Nutzerentscheidung (16.11., über die Strategie): Mehrere KIs können gl
 - Eine KI kann keinen weiteren Platz eröffnen.
 - Protokoll: `actor` ist der Bot, das Mandat referenziert den Platz, `instrument` nennt KI, Adapter und Modell.
 - Lokal: ein Endpunkt außerhalb von Loopback oder eigenem Server gilt nicht als lokal, auch bei Adapter „llama.cpp“.
+- Halterwechsel: derselbe Platz, Feld Halter neu, Platz `Pending` bis zur neuen Zustimmung.
+- Summe der Rechte: zwei Plätze eines Halters zusammen erhalten kein Recht, das der Halter nicht hat; jeder Platz bleibt in fs-groups bei höchstens `Read`; Gegenprobe: Halter hat R, Mandat erlaubt R, dann darf der Platz.
+- Zustimmung nennt Anbieter, Standort und wessen Gerät oder Server das Modell betreibt; fehlt eine Angabe, wird der Platz nicht `Active`.
 
 ### Offen
 - **Höchstzahl:** Höchstzahl der Plätze je Halter (Vorschlag 3) und je Situation; Rate je Platz, Kosten je Halter bzw. Adapter. Werte nicht bestätigt.
 - **Modellwechsel beim selben Anbieter:** braucht er neue Zustimmung? (Gegenfrage zu 2.6.14.)
-- **KI-zu-KI-Weiterleitung:** nur über Menschen oder ausdrücklich im Mandat; Entscheidung steht aus.
+- **KI-zu-KI im Mandat:** Ob ein Mandat später ausdrücklich einen Auftrag an einen anderen Bot erlauben darf; bis zur Entscheidung gilt: nur über Menschen.
