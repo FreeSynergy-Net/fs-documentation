@@ -26,7 +26,7 @@ Tags auf GitHub: `v0.0.1` (2026-11-08). Lokal alte Tags `v0.1.0`, `v0.1.1`, `v0.
 - [ ] **GRUNDSACHE** PR #1 `ci-concurrency` mergen oder schließen, bevor umbenannt wird (Stand 2026-11-15 offen; lokale Remote-Liste nicht aktuell) [offen]
 - [ ] **GRUNDSACHE** Alt-Branches mit alten Crate-Namen: übernehmen oder archivieren (`archiv/<name>`-Tag), nicht offen lassen
 - [ ] **GRUNDSACHE** `git fetch origin r3-admin` als erster Schritt (bisher nicht lokal)
-- [ ] **GRUNDSACHE** `doku-mitziehen`: `docs/{de,en}/programs/apps/history/` (1 und 24 Dateien, noch vorhanden) nach `activity/`
+- [x] **GRUNDSACHE** `doku-mitziehen`: `docs/{de,en}/programs/apps/history/` (1 und 24 Dateien) nach `activity/` (Beleg: Branch `unreviewed/doku-folge-20261116`, git mv; Links in de/en index, roadmap, map, tasks, frontends-Index; kein mkdocs-redirects-Plugin, daher keine Weiterleitung; mkdocs strict grün)
 - [ ] **GRUNDSACHE** fs-release `.fs/preapproved.toml` ergänzen
 - [ ] SPÄTER Hub-Fähigkeiten `history.*` bleiben (Wire-Namen, Strategie-Entscheid offen)
 - [ ] SPÄTER Passung des Namens „Activity“ (Nähe zu „activity log“) klären [offen, Nutzer]

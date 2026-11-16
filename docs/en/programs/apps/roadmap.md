@@ -34,7 +34,7 @@ Stand-alone apps without their own data are **facets** (ADR 0061): the gallery i
 | Write and know together | [`fs-wiki`](https://github.com/FreeSynergy/fs-wiki) (crate `fs-text`) | Core exists; first workbench in [`fs-components`](https://github.com/FreeSynergy/fs-components) v0.0.1, app not finished |
 | Say something to someone | [`fs-messenger`](messenger/contract.md) | Draft contract |
 | Know what to do next | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) ([design](tasks/design.md)) | Core exists, no GUI; draft interface |
-| Remember what I or we did | [`fs-activity`](history/index.md) | Core v0.0.1, no GUI; provisional draft interface |
+| Remember what I or we did | [`fs-activity`](activity/index.md) | Core v0.0.1, no GUI; provisional draft interface |
 | Know what we have and need | [`fs-resources`](resources/index.md) | Core v0.0.1, no GUI; provisional draft interface |
 | Ask, and decide together | [`fs-surveys`](surveys/design.md) ([repo](https://github.com/FreeSynergy/fs-surveys)) | Core v0.0.1, no GUI; draft interface |
 | Think visually | [`fs-whiteboard`](whiteboard/design.md) | Core v0.0.1 (stage 1), no GUI |

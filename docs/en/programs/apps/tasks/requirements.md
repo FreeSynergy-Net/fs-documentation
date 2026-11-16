@@ -9,7 +9,7 @@ below are the board view. Function analysis only, own wording, nothing copied.
 **Owners (ADR 0050).** `fs-tasks` owns the JSCalendar `Task` and the board model. Everything else is reached through the
 owner's interface and not repeated here: events and calendar views by `fs-calendar`, files by `fs-files`, people by
 `fs-people`, groups, members and rights by [`fs-groups`](../../platform/groups.md), history by
-[`fs-activity`](../history/index.md), places by `fs-maps`, messages by `fs-messenger`, sign-in by the
+[`fs-activity`](../activity/index.md), places by `fs-maps`, messages by `fs-messenger`, sign-in by the
 [identity wrapper](../../platform/identity.md).
 
 **Ids.** The contract (`tasks.capnp`) names the item capabilities `task.create`, `task.edit`, `task.assign`,

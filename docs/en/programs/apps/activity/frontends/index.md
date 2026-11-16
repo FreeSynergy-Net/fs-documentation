@@ -1,6 +1,6 @@
-# History — Frontends
+# Activity — Frontends
 
-Frontends of well-known programs in this category, analysed for their **functions** — nothing is copied (ADR 0013). A program is documented here because it is widely learned or because it has a notable idea. Our own program for this category is `FreeSynergy.History` (ADR 0017); its capabilities and status live in [requirements](../requirements.md).
+Frontends of well-known programs in this category, analysed for their **functions** — nothing is copied (ADR 0013). A program is documented here because it is widely learned or because it has a notable idea. Our own program for this category is `FreeSynergy.Activity` (ADR 0017); its capabilities and status live in [requirements](../requirements.md).
 
 ## Programs
 
@@ -13,7 +13,7 @@ Frontends of well-known programs in this category, analysed for their **function
 ## File set per program (ADR 0012)
 
 ```
-programs/apps/history/frontends/<program>/
+programs/apps/activity/frontends/<program>/
 ├── index.md        what it is, notable ideas, documented versions, sources
 ├── changelog.md    changes between documented versions (≥ 2 versions)
 └── <version>/

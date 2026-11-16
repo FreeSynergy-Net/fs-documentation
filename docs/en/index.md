@@ -69,7 +69,7 @@ That is why our programs are named for what they are. No fantasy names, no brand
 
     Video and live streams without a foreign platform. Planned.
 
-- **[History](programs/apps/history/index.md)**
+- **[History](programs/apps/activity/index.md)**
 
     What have I, or we, done? Your data as a timeline.
 

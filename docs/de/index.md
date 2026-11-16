@@ -73,7 +73,7 @@ Du weißt sofort, was drin ist. Und weil alle dieselbe Sprache sprechen, arbeite
 
     Video und Livestreams ohne fremde Plattform. Geplant.
 
-- **[Verlauf](programs/apps/history/index.md)**
+- **[Verlauf](programs/apps/activity/index.md)**
 
     Was haben wir getan? Deine Daten als Zeitleiste.
 
