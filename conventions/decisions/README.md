@@ -83,7 +83,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0074 | Stil, Bausteine, Bewegung, Klang und Menüs: getrennte Schichten aus Standards | akzeptiert (Gründer); Code nach dem Meilenstein „Wir benutzen es selbst“ |
 | 0075 | fs-marketplace als Programm, der Store als Facette | akzeptiert (Gründer); Code nach dem Meilenstein „Wir benutzen es selbst“ |
 | 0076 | Das Grundmodell: Akteure, Ressourcen, Orte, Zeit, Ziele, Abläufe, Ereignisse | akzeptiert (Gründer); fs-history heißt seit ADR 0087 fs-activity |
-| 0077 | Katalog-Arten (`kind`) und Store-Gruppen; Server nur mit rpm/deb | akzeptiert (Strategie); Nutzerregel: alle Server in den Katalog, überall installierbar |
+| 0077 | Katalog-Arten (`kind`) und Store-Gruppen; Server nur mit rpm/deb | akzeptiert (Strategie); Nutzerregel: alle Server in den Katalog, überall installierbar (Nachtrag 16.11.: font) |
 | 0078 | Paketquellen apt/dnf: ein Repo `fs-packages`, getrennt vom Katalog | akzeptiert (Strategie) |
 | 0079 | `fs-server`: Server einrichten und verwalten, jeder Schritt protokolliert | akzeptiert (Strategie); Nutzerentscheidung 14.11. |
 | 0080 | Umzug fs-wiki → fs-text: Repo, Crates, Version, Daten, Katalog | akzeptiert (Strategie); Nutzer-JA zu Umbenennung/Löschen und „Projekt“ |
@@ -95,4 +95,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0086 | Gespeichert wird typisiert: Fachstandards in typisierte Tabellen, kein JSON/Blob; nur Empfangenes behält sein Original mit Aufbewahrungsregel | akzeptiert (Nutzer, 2026-11-15) |
 | 0087 | Programmnamen sind generisch (Fähigkeit/Daten, nicht Gattung); wiki→text, whiteboard→draw, messenger→messages, history→activity, streaming→broadcast, surveys→forms, store→software, hub→registry; resources bleibt (Nachtrag 16.11.: ValueFlows, Katalog ist Gruppierung und Filter, Daten-Repo fs-catalog → `FreeSynergy/Catalog`) | akzeptiert (Nutzer, 2026-11-15; Nachträge 15.11. und 16.11.) |
 | 0088 | Web-Zugang der Programme und automatisches DNS (Arbeitstitel) | reserviert (kein Dokument) |
-| 0089 | Schriften: freie Lizenzen, keine Schrift im Release, Installation über fs-software | vorgeschlagen (Entwurf; Nutzerentscheidung 2026-11-16) |
+| 0089 | Schriften: freie Lizenzen, keine Schrift im Release, Installation über fs-software | akzeptiert (Nutzer, 2026-11-16) |
