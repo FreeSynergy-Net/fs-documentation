@@ -22,3 +22,5 @@ fs-documentation hat keine Tags und keinen Release. Die Seite wird per `mkdocs` 
 - [ ] SPÄTER Hilfe-Dateien auf Englisch vollständig gleichziehen (en hat mehr Dateien als de bei messenger, streaming, whiteboard)
 - [ ] SPÄTER Redirect-Plugin für alte Doku-Adressen
 - [ ] SPÄTER Checklisten wandern nach fs-tasks
+- [ ] **GRUNDSACHE** `unrecognized_links: warn` setzen, nachdem die 2383 Ordnerlinks `dir/` auf `dir/index.md` umgeschrieben sind (heute `info` in `mkdocs.yml`)
+- [x] `anchors: warn` in `mkdocs.yml` gesetzt; Strict-Build grün (Commit 60a381fa)
