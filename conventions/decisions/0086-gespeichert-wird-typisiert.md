@@ -70,7 +70,7 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 **Entscheidung**
 1. **Jede offene Wortmenge bekommt eine eigene Wort-Tabelle**, mit Domain-Präfix des Programms, z. B. `people_word`. Spalten: `kind TEXT` (welche Wortmenge, z. B. `purpose`), `code TEXT` (das Wort), `builtin INTEGER` (0 oder 1, mit `CHECK (builtin IN (0,1))`), `label TEXT NULL` (Anzeigetext), `sort INTEGER NULL` (Reihenfolge), `active INTEGER` (0 oder 1). Schlüssel `(kind, code)`.
 2. **Nutzspalten verweisen per Fremdschlüssel** auf die Wort-Tabelle, statt eine Wortliste im `CHECK` zu tragen. Der Schlüssel ist zusammengesetzt aus `kind` und `code`, siehe Offen 1.
-3. **Eingebaute Wörter** (`builtin = 1`) setzt das Programm per INSERT-Schritt. Sie sind nicht löschbar.
+3. **Eingebaute Wörter** (`builtin = 1`) setzt das Programm per INSERT-Schritt. Sie sind nicht löschbar. Der INSERT-Schritt eines eingebauten Worts schreibt `INSERT ... ON CONFLICT (kind, code) DO UPDATE SET builtin = 1`; ein gleichnamiges eigenes Wort wird so zum eingebauten, statt die Registrierung des Programms scheitern zu lassen.
 4. **Eigene Wörter** (`builtin = 0`) sind vom Nutzer editierbar: anlegen, Anzeigetext ändern, `active` setzen.
 5. **Ein neues eingebautes Wort ist ein neuer Schritt (INSERT)**, kein Tabellen-Neuaufbau.
 6. **`CHECK` bleibt nur für echte Bereichs- und Konsistenzregeln** (Zahlenbereiche, Paarbildungen wie bei `WHEN`). Er gilt **nie für offene Wortmengen**.
@@ -82,7 +82,9 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 - v5-Entwurf: Abschnitt 2.1 (`ENUM`) und 2.4 an diese Regel anpassen. Das ist ein Folgelauf in fs-objects, nicht Teil dieses Commits.
 
 ### Offen
-1. **Fremdschlüssel:** Der v5-Entwurf belegt Fremdschlüssel in SQLite (Abschnitt 8: `PRAGMA foreign_keys = ON` je Verbindung, R4). Nicht geprüft ist, ob die Registry Fremdschlüssel zwischen eigenen Domain-Tabellen zulässt; dort ist `REF` nur als Fremdschlüssel auf `objects(id)` beschrieben. Der zusammengesetzte Schlüssel `(kind, code)` ist ungeprüft. Alternative: je Wortmenge eine eigene Tabelle mit einfachem Schlüssel `code`.
+1. **Fremdschlüssel:** belegt am Code (fs-objects cad3c46): `Table.constraints` nimmt beliebige `FOREIGN KEY`-Klauseln, auch zusammengesetzte, auf eigene Domain-Tabellen; der Store setzt `PRAGMA foreign_keys = ON`. Offen bleibt nur: der zusammengesetzte Schlüssel `(kind, code)` verlangt in jeder Nutztabelle eine zweite Spalte `<x>_kind` mit `CHECK (<x>_kind = '<wortmenge>')`; Alternative je Wortmenge eine Tabelle mit einfachem Schlüssel `code`.
 2. **Lösch- und Umbenennregeln eigener Wörter** (`builtin = 0`): ob ein Wort mit Nutzzeilen nur auf `active = 0` gesetzt werden darf, und wie eine Umbenennung die Nutzzeilen mitnimmt.
 3. **Lokalisierung** der Anzeigetexte (`label`): nach ADR 0057 mit MF2, nicht mit Fluent.
-4. **Gemeinsame Wort-Tabelle** für mehrere Programme (z. B. `purpose` in people und calendar): dann entfällt der Domain-Präfix, oder es gibt eine Ausnahme.
+4. **Gemeinsame Wort-Tabelle:** innerhalb einer Store-Datei nicht möglich, die Registry lässt nur eine Programm-Domain zu (`Error::SecondDomain`); gemeinsame eingebaute Wörter (z. B. `purpose` in people und calendar) kommen als gemeinsame Code-Liste aus einer Bibliothek, jede Domain legt sie in ihre eigene Wort-Tabelle.
+5. **Sync und Export eigener Wörter:** Zeilen der Wort-Tabelle sind keine Objekte, also nicht im `activity`-Protokoll und nicht im Export; zu klären, wie eigene Wörter mitwandern (Sichern ≠ Exportieren).
+6. **Wortmengen in Store-eigenen Tabellen** (z. B. `person_snapshot.doc_kind`): kein Programm-Präfix; Wort-Tabelle unter `fs_` oder Ausnahme nach Entscheidung 7.
