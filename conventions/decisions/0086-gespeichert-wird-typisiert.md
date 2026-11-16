@@ -60,3 +60,29 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 **Folgen (kein Blocker):** Die Prüfungen, die wirklich laufen, kennen den Puffer noch nicht und schlagen bei `collab_buffer` an; sie sind anzupassen: `speicher-check` in `fs-release/workflows/programm-neu.yaml` (Z. 300) und `programm-grundgeruest.yaml` (Z. 281) sowie R14 und §2.4 (Z. 293) in `fs-objects/docs/v5-entwurf.md` (dort steht nur „object_original.bytes + CIPHER“).
 
 **Offen / Hinweis:** `_nonce` ist im v5-Entwurf vom Typ BLOB; laut diesem ADR ist nur das verschlüsselte Inhalts-Bytefeld eine Ausnahme. Nonce typisieren oder als Teil des Chiffrats ausdrücklich benennen. [offen]
+
+## Nachtrag (Strategie, 2026-11-16, Vorgabe d3: Wortlisten als Wort-Tabellen)
+**Kontext**
+- Der v5-Entwurf (`fs-objects/docs/v5-entwurf.md`, Abschnitt 2.1) beschreibt Wortmengen als `ENUM(a,b,..)`, also `TEXT` mit `CHECK (x IN ('a','b',..))`. Beispiele aus den Programmen: `purpose`, `origin`, `doc_kind`.
+- Jede Änderung der Wortliste ändert den `CHECK`. SQLite ändert ihn nicht per `ALTER TABLE`; der Migrator baut die Tabelle neu. Die Fingerabdruck-Prüfung der v5-Schicht meldet dann `StepMismatch` gegen den eingefrorenen Schritt (Opus-Review fs-people Etappe 2a, Befund Umbaurisiko). Jedes neue Wort würde so einen Tabellen-Neuaufbau auslösen.
+- Der Nutzer will die Zweck-Liste editierbar haben: eigene Zwecke neben den eingebauten.
+
+**Entscheidung**
+1. **Jede offene Wortmenge bekommt eine eigene Wort-Tabelle**, mit Domain-Präfix des Programms, z. B. `people_word`. Spalten: `kind TEXT` (welche Wortmenge, z. B. `purpose`), `code TEXT` (das Wort), `builtin INTEGER` (0 oder 1, mit `CHECK (builtin IN (0,1))`), `label TEXT NULL` (Anzeigetext), `sort INTEGER NULL` (Reihenfolge), `active INTEGER` (0 oder 1). Schlüssel `(kind, code)`.
+2. **Nutzspalten verweisen per Fremdschlüssel** auf die Wort-Tabelle, statt eine Wortliste im `CHECK` zu tragen. Der Schlüssel ist zusammengesetzt aus `kind` und `code`, siehe Offen 1.
+3. **Eingebaute Wörter** (`builtin = 1`) setzt das Programm per INSERT-Schritt. Sie sind nicht löschbar.
+4. **Eigene Wörter** (`builtin = 0`) sind vom Nutzer editierbar: anlegen, Anzeigetext ändern, `active` setzen.
+5. **Ein neues eingebautes Wort ist ein neuer Schritt (INSERT)**, kein Tabellen-Neuaufbau.
+6. **`CHECK` bleibt nur für echte Bereichs- und Konsistenzregeln** (Zahlenbereiche, Paarbildungen wie bei `WHEN`). Er gilt **nie für offene Wortmengen**.
+7. **Ausnahme:** geschlossene, rein technische Zustände, die der Code erschöpfend kennt, dürfen `CHECK IN` behalten, z. B. Status-Maschinen oder `object_origin.channel` (Trait `OriginChannel`, sieben Glieder). Ändert sich so ein Wert, ändert sich der Code; dann gilt der Schritt mit Fingerabdruck.
+
+**Folgen**
+- fs-people: STEP_1 nach der Trait-Runde einmal neu fassen (`people_word` statt `CHECK IN` auf die Zweck-Liste). Das geschieht vor dem ersten Lauf des Schritts.
+- Prüfer: die Regel „kein `CHECK IN` auf offene Wortmengen“ kommt als Folgelauf in check-rust-rules bzw. in den Registry-Test. Dieser Nachtrag führt sie noch nicht ein.
+- v5-Entwurf: Abschnitt 2.1 (`ENUM`) und 2.4 an diese Regel anpassen. Das ist ein Folgelauf in fs-objects, nicht Teil dieses Commits.
+
+### Offen
+1. **Fremdschlüssel:** Der v5-Entwurf belegt Fremdschlüssel in SQLite (Abschnitt 8: `PRAGMA foreign_keys = ON` je Verbindung, R4). Nicht geprüft ist, ob die Registry Fremdschlüssel zwischen eigenen Domain-Tabellen zulässt; dort ist `REF` nur als Fremdschlüssel auf `objects(id)` beschrieben. Der zusammengesetzte Schlüssel `(kind, code)` ist ungeprüft. Alternative: je Wortmenge eine eigene Tabelle mit einfachem Schlüssel `code`.
+2. **Lösch- und Umbenennregeln eigener Wörter** (`builtin = 0`): ob ein Wort mit Nutzzeilen nur auf `active = 0` gesetzt werden darf, und wie eine Umbenennung die Nutzzeilen mitnimmt.
+3. **Lokalisierung** der Anzeigetexte (`label`): nach ADR 0057 mit MF2, nicht mit Fluent.
+4. **Gemeinsame Wort-Tabelle** für mehrere Programme (z. B. `purpose` in people und calendar): dann entfällt der Domain-Präfix, oder es gibt eine Ausnahme.
