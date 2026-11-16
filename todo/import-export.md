@@ -12,9 +12,9 @@ Zeilen je Programm. Einordnungen nach der Entscheidung der Strategie (siehe Grun
 - „Offen“ gilt nach (a) oder (b): (a) freie, vollständige, praktisch umgesetzte Spezifikation; (b) Format einer Open-Source-Referenzumsetzung, deren Code die Spezifikation ist („Open Source wird auch geschrieben“).
 - Scheinoffen bleibt geschlossen: OOXML (DOCX, XLSX, PPTX) hat eine Spezifikation, Microsoft Office schreibt aber „Transitional“, nicht „Strict“. Outlook-CSV ist geschlossen, weil kein Kriterium belegt ist.
 - „Nicht belegt“ heißt nicht automatisch geschlossen, wenn die Fakten bekannt sind. Die Einordnung folgt dann (a) oder (b) und wird in der Zeile begründet. „Einordnung: unklar → geschlossen (Kriterium (n) nicht belegt)“ steht nur, wenn die Fakten fehlen.
-- Offen (Import und Export): ODF (ISO/IEC 26300, OASIS, LibreOffice); GPX (Topografix-Schema, GDAL, viele freie Umsetzungen); KML (OGC-Standard, GDAL); MBTiles (offene Spezifikation, freie Umsetzungen); PMTiles; ActivityStreams 2.0 (W3C), auch als JSONL-Hülle (der Export in fs-messenger bleibt); JSON Canvas (offene Spezifikation, MIT); Excalidraw (MIT-Referenzumsetzung, Regel b); Flatpak (Open Source, Regel b); QTI (IMS, öffentliche Spezifikation, TAO); ValueFlows (offenes Vokabular).
+- Offen (Import und Export): ODF (ISO/IEC 26300, OASIS, LibreOffice); GPX (Topografix-Schema, GDAL, viele freie Umsetzungen); KML (OGC-Standard, GDAL); MBTiles (offene Spezifikation, freie Umsetzungen); PMTiles; ActivityStreams 2.0 (W3C), auch als JSONL-Hülle (der Export in fs-messenger bleibt); JSON Canvas (offene Spezifikation, MIT); Excalidraw (MIT-Referenzumsetzung, Regel b); Flatpak (Open Source, Regel b); QTI (IMS, öffentliche Spezifikation, TAO); ValueFlows (offenes Vokabular); nach Regel b außerdem draw.io-XML (Apache-2.0), Taskwarrior (MIT) und LimeSurvey (GPL); Obsidian-Notizen als Markdown (CommonMark/GFM inkl. Callouts).
 - S3: offen „de facto“. Die API stammt vom Anbieter, aber freie Server setzen sie um (Referenz RustFS, Apache-2.0; daneben Garage, MinIO). Gemeinsame S3-Teilmenge; Nur-AWS-Erweiterungen bleiben außen vor. Wir schreiben in eigene Ablagen. Import UND Export, mit Vermerk.
-- Geschlossen, nur Import: DOCX, XLSX, PPTX (OOXML). Zu PPTX gibt es noch keine Zeile.
+- Geschlossen, nur Import: DOCX, XLSX (OOXML). Obsidian-eigene Teile (.obsidian/-Konfiguration, Plugin-Daten). PPTX (OOXML) hat keine Zeile; dieser Vermerk genügt.
 - Stand: aus origin/main per git grep belegt, sonst [nicht belegt].
 
 Legende Priorität: hoch = Pflicht oder Kern des Austauschs; mittel = verbreitet, klarer Nutzen; niedrig = Nischenfall oder nur auf Wunsch.
@@ -43,7 +43,7 @@ Legende Stufen: Stufe 1 = Standards (Pflicht); Stufe 2 = verbreitete Formate (si
 ### Stufe 3 – Weniger bekannte Formate (nur mit Begründung)
 - [ ] **webcal-Abo (ICS-Feed per URL)** [offen: RFC 5545 über HTTP(S)] — Import ✗ / Export ✗ — Stand: nur im gesperrten Piloten erwähnt (Pilot appointments_v1 (time.rs), nicht main, Origin-Kanal „Abo per URL“) — niedrig — wer braucht das: Feiertags- und Sportplan-Abos, die nur als URL vorliegen.
 
-Exchange-Trait/Muster: Exchange-Trait im gesperrten Piloten Pilot-Trait appointments_v1 (exchange.rs), nicht main (Trait `Exchange` mit `import`/`export`, `ExportTarget`, `ImportContext`) und als Entwurf im Repo fs-calendar:crates/fs-calendar-testdata/src/draft/appointments_v1/exchange.rs (nicht produktiv). Gebaut ist nur das Importer/Exporter-Muster: fs-calendar:crates/fs-calendar-core/src/format/traits.rs (kein Exchange-Trait im Produktionscode).
+Exchange-Trait/Muster: Exchange-Trait im gesperrten Piloten (Pilot-Trait appointments_v1, exchange.rs, nicht main; Trait `Exchange` mit `import`/`export`, `ExportTarget`, `ImportContext`) und als Entwurf im Repo fs-calendar:crates/fs-calendar-testdata/src/draft/appointments_v1/exchange.rs (nicht produktiv). Gebaut ist nur das Importer/Exporter-Muster: fs-calendar:crates/fs-calendar-core/src/format/traits.rs (kein Exchange-Trait im Produktionscode).
 
 ## software (fs-store, künftig fs-software)
 
@@ -70,7 +70,7 @@ Stand: fs-store origin/main (Programm fs-store, künftig fs-software) und fs-cat
 - [ ] **Winget-Manifeste** (offen: Microsoft-Repository winget-pkgs, MIT-Lizenz; Format per Dokumentation frei) — Import ✗ / Export ✗ — Stand: [nicht belegt] — Priorität niedrig — Grund "wer braucht das": Windows-Store-Pendant; nur mit Windows-Paketen (`exe`) relevant, die der Store laut `fs-store:DESIGN.md` Zeile 240 nicht baut.
 - [ ] **Schrift-Art `kind = font`** (offen: AppStream-Typ `font`, Spezifikation frei; Einordnung laut ADR 0077 Nachtrag: offen) — Import ✗ / Export ✗ — Stand: "nur erwähnt" (fs-documentation:`conventions/decisions/0077-katalog-arten-kind.md`, `0089-schriften-freie-lizenzen.md`; kein Code, kein Treffer `font` in fs-store-catalog und fs-store-core) — Priorität mittel — Grund: Schriften über fs-software installieren (ADR 0089); gehört zum AppStream-Import oben.
 
-Exchange-Trait/Muster: keiner nach ADR 0085 im Repo. Muster: Adapter für AppStream (`fs-store:crates/fs-store-catalog/src/lib.rs`, "Pattern: Adapter") und Strategy je Installationsweg (`fs-store:crates/fs-store-core/src/strategy.rs`, `fs-store:crates/fs-store-engine/src/deb.rs`, `rpm.rs`). Gesperrter Software-Trait nur als Pilot: Pilot packages_v1, nicht main (`api.rs`, Trait `Packages`; nicht in origin/main).
+Exchange-Trait/Muster: keiner nach ADR 0085 im Repo. Muster: Adapter für AppStream (`fs-store:crates/fs-store-catalog/src/lib.rs`, "Pattern: Adapter") und Strategy je Installationsweg (`fs-store:crates/fs-store-core/src/strategy.rs`, `fs-store:crates/fs-store-engine/src/deb.rs`, `rpm.rs`). Gesperrter Software-Trait nur im Pilot (packages_v1, `api.rs`, Trait `Packages`), nicht main.
 
 ## people (fs-people)
 
@@ -111,7 +111,7 @@ Exchange-Trait/Muster: Importer/Exporter-Muster in fs-people:crates/fs-people-co
 - [ ] **Jira-Export (CSV)** [geschlossen: proprietäres Layout] — Import ✗ / Export — (geschlossen, nur Import) — Stand: [nicht belegt] — niedrig — wer braucht das: Umsteiger aus Jira in Firmen.
 - [ ] **org-mode** [offen: Format in der frei zugänglichen Org-Dokumentation beschrieben] — Import ✗ / Export ✗ — Stand: [nicht belegt] — niedrig — wer braucht das: Emacs-Nutzer mit Aufgaben in Textdateien.
 - [ ] **todo.txt** [offen: Spezifikation frei im Projekt todotxt/todo.txt] — Import ✗ / Export ✗ — Stand: [nicht belegt] — niedrig — wer braucht das: Terminal-Nutzer mit Textlisten.
-- [ ] **Taskwarrior** [unklar, also geschlossen: nur die Implementierung beschreibt das Format, keine eigene Spezifikation] — Import ✗ / Export — (geschlossen, nur Import) — Stand: [nicht belegt] — niedrig — wer braucht das: Terminal-Nutzer mit bestehenden Taskwarrior-Daten.
+- [ ] **Taskwarrior** (offen, Regel b: GothenburgBitFactory/taskwarrior, Lizenz MIT laut `gh api repos/GothenburgBitFactory/taskwarrior/license`) — Import ✗ / Export ✗ — Stand: [nicht belegt] — niedrig — wer braucht das: Terminal-Nutzer mit bestehenden Taskwarrior-Daten.
 
 Exchange-Trait/Muster: keiner. Tasks hat `import_ics` und `export_ics` am Items-Interface (fs-tasks:crates/fs-tasks-core/src/repo/transfer.rs), aber keinen Importer- oder Exporter-Trait und keinen Exchange-Trait (grep ohne Treffer).
 
@@ -130,7 +130,7 @@ Quellen: origin/main fs-wiki 62366fb, fs-documentation d70c32f8 (ADR 0085). Exte
 - [ ] **Google Docs (Export als HTML/DOCX)** (geschlossen: Google, Format nicht offen spezifiziert; Nutzerregel: nur Import) — Import ✗ / Export — (geschlossen, nur Import) — Stand: [nicht belegt] — niedrig — Dokumente aus Google Drive.
 
 ### Stufe 3 – Weniger bekannte, aber sinnvolle Formate (nur mit Begründung)
-- [ ] **Obsidian-Markdown (Wikilinks, Callouts, `^id`)** (geschlossen: Obsidian ist Closed Source, Syntax nur in Hersteller-Doku; Nutzerregel: nur Import gezählt) — Import ✓ (gebaut, aber Test für den Import-Teil nicht eigens belegt) / Export — (geschlossen, nur Import) — Stand: gebaut: `fs-wiki:crates/fs-text/src/markdown/import/wikilink.rs`, `blockref.rs`, `callout.rs`, `fs-wiki:crates/fs-text/src/markdown/export/callout.rs`; Rundlauf nur über `fs-wiki:crates/fs-text/tests/corpus/synthetic-wiki.md` (Wikilinks), Callouts/`^id` nicht eigens getestet — niedrig — Nutzer mit Obsidian-Vault; ist im Markdown-Adapter schon enthalten.
+- [x] **Obsidian-Vault** (a) Notizen: offen über Markdown (CommonMark/GFM inkl. Callouts, dieselbe Syntax wie GitHub-Alerts `> [!NOTE]`) — Import ✓ / Export ✓ — Stand: gebaut + Test: Import `fs-wiki:crates/fs-text/src/markdown/import/callout.rs`, `wikilink.rs`, `blockref.rs` (Tests `fs-wiki:crates/fs-text/tests/markdown.rs`, `fs-wiki:crates/fs-text/tests/md_fidelity_more.rs`); Export `fs-wiki:crates/fs-text/src/markdown/export/callout.rs`, geprüft über den Korpus-Rundlauf `fs-wiki:crates/fs-text/tests/roundtrip.rs` (Korpus `fs-wiki:crates/fs-text/tests/corpus/synthetic-wiki.md` mit Callouts; Wikilink-Export nicht eigens geprüft) — niedrig — Nutzer mit Obsidian-Vault. (b) Canvas-Dateien: JSON Canvas, siehe Zeile „JSON Canvas“. (c) `.obsidian/`-Konfiguration und Plugin-Daten: geschlossen, nur Import, Priorität niedrig.
 - [ ] **Logseq-Markdown (Gliederung mit Punkten)** (offen: Logseq ist Open Source, Format als Markdown-Gliederung [Lizenz nicht im Repo belegt]) — Import ✗ / Export ✗ — Stand: [nicht belegt] — niedrig — nur wer eine Logseq-Wissensbasis mitbringt.
 - [ ] **DokuWiki-Syntax** (offen: Open Source, Syntax-Doku frei [Lizenz nicht im Repo belegt]) — Import ✗ / Export ✗ — Stand: [nicht belegt] — niedrig — eigene Wiki-Dialekte, nur auf Nutzerwunsch.
 - [ ] **MediaWiki-XML (Dump)** (offen: Open Source, Export-Schema im MediaWiki-Quelltext [Lizenz nicht im Repo belegt]) — Import ✗ / Export ✗ — Stand: nur Korpus-Textproben, kein Importer: `fs-wiki:crates/fs-text/tests/corpus/mediawiki-features.md`, `mediawiki-shortcuts.md` — niedrig — Wiki-Migration; die Korpusdateien sind keine Importe.
@@ -142,7 +142,7 @@ Exchange-Trait/Muster: keiner (kein Exchange-Trait im Repo). Muster nahe ADR 008
 
 ### Stufe 1 – Standards (Pflicht)
 - [ ] **WebDAV (RFC 4918)** (offen: IETF RFC 4918, frei nutzbar) — Import ✗ / Export ✗ (nur erwähnt) — Stand: nur erwähnt: `fs-files:README.md:30` ("no WebDAV"), `fs-files:crates/fs-files-core/src/backend/provider.rs:26` ("later `WebDAV`") — hoch — Pflichtstandard für Dateiablagen; Nextcloud und Co. sprechen es.
-- [x] **S3 (Objekt-API)** (offen „de facto“: API vom Anbieter, aber freie Server setzen sie um; Referenz RustFS (Apache-2.0), daneben Garage und MinIO; gemeinsame S3-Teilmenge, Nur-AWS-Erweiterungen (S3 Select, Glacier-Klassen, Object Lambda) ausgenommen; wir schreiben in eigene Ablagen; Vermerk: Referenz RustFS, Tests gegen lokale Instanz (Stand: Tests laufen gegen Fake-S3 `tests/common/fake_s3.rs`, noch nicht gegen RustFS)) — Import ✓ / Export ✓ — Stand: gebaut + Test: `fs-files:crates/fs-files-core/src/backend/s3/` (adapter.rs, backend.rs, layout.rs), Tests `fs-files:crates/fs-files-core/tests/s3.rs`, `s3_repo.rs`, `s3_crash.rs` (Fake `tests/common/fake_s3.rs`). Export ist das Schreiben in die eigene Ablage über das Backend (`adapter.rs`, `put`/`put_part`; Tests `s3.rs` und `s3_repo.rs` mit Fake-S3, Uploads inkl. Wiederaufnahme) — mittel — Speicherziel für Dateien, kein Austauschformat.
+- [x] **S3 (Objekt-API)** (offen „de facto“: API vom Anbieter, aber freie Server setzen sie um; Referenz RustFS (Apache-2.0), daneben Garage und MinIO; gemeinsame S3-Teilmenge, Nur-AWS-Erweiterungen (S3 Select, Glacier-Klassen, Object Lambda) ausgenommen; wir schreiben in eigene Ablagen; Vermerk: Referenz RustFS, CI gegen Fake-S3, Live-Test gegen lokale RustFS 1.0.4 einmal bestanden, nicht in der CI) — Import ✓ / Export ✓ — Stand: gebaut + Test: `fs-files:crates/fs-files-core/src/backend/s3/` (adapter.rs, backend.rs, layout.rs), Tests `fs-files:crates/fs-files-core/tests/s3.rs`, `s3_repo.rs`, `s3_crash.rs` (Fake `tests/common/fake_s3.rs`), Live-Test `fs-files:crates/fs-files-core/tests/s3_live.rs` (2 Tests, `#[ignore]`; `fs-files:DESIGN.md:38`). Export heißt hier Schreiben in die eigene Ablage (`put`/`put_part` im eigenen Layout, kein Austauschformat); Tests `s3.rs`, `s3_repo.rs` — mittel — Speicherziel für Dateien.
 - [ ] **ZIP / tar** (offen: PKWARE APPNOTE bzw. POSIX ustar [Lizenz nicht im Repo belegt]) — Import ✗ / Export ✗ (nur MIME-Erkennung) — Stand: nur Erkennung: `fs-files:crates/fs-files-core/src/repo/detect.rs:57-58`; kein Entpacken, kein Packen gebaut — niedrig — Wer Ordner mitnehmen will; Entpacken ist ein Angriffsfeld (Pfad-Traversal).
 
 ### Stufe 2 – Verbreitete Formate
@@ -222,7 +222,7 @@ Stand: fs-whiteboard origin/main (Programm fs-whiteboard, künftig fs-draw). Ein
 
 ### Stufe 2 – Verbreitete Formate (sinnvoll)
 
-- [ ] **draw.io-XML** (geschlossen: kein veröffentlichter Standard, nur Quellcode des Werkzeugs als Referenz; unklar = geschlossen, nur Import) — Import ✗ — Export — (geschlossen, nur Import) — Stand: [nicht belegt] — Priorität mittel — Grund: verbreitetes Diagrammwerkzeug; Import bestehender Diagramme reicht.
+- [ ] **draw.io-XML** (offen, Regel b: jgraph/drawio, Lizenz Apache-2.0 laut `gh api repos/jgraph/drawio/license`) — Import ✗ / Export ✗ — Stand: [nicht belegt] — Priorität mittel — Grund: verbreitetes Diagrammwerkzeug; Import bestehender Diagramme reicht für den Anfang.
 
 ### Stufe 3 – Weniger bekannte, aber sinnvolle Formate
 
@@ -249,7 +249,7 @@ Stand: fs-surveys origin/main (Programm fs-surveys, Crate `fs-surveys-core`). Ei
 
 - [ ] **XLSForm** (offen: XLSForm-Spezifikation, Open-Source-Projekt ODK/KoBoToolbox) — Import ✗ / Export ✗ — Stand: [nicht belegt] — Priorität niedrig — Grund: Fragebogen-Austausch mit KoBoToolbox und ODK-Werkzeugen; Begründung "wer braucht das": Nutzer, die dort schon Erhebungen haben.
 - [ ] **KoBoToolbox-Export** (geschlossen: Export-Format des Dienstes, Spezifikation nur über XLSForm und API; Einordnung: unklar = geschlossen, nur Import) — Import ✗ — Export — (geschlossen, nur Import) — Stand: [nicht belegt] — Priorität niedrig — Grund: Ergebnisse von dort übernehmen, wenn Nutzer den Dienst wechseln.
-- [ ] **LimeSurvey-Export (.lss/.lsq, XML)** (geschlossen: Format der Anwendung, keine veröffentlichte Spezifikation; Lizenz der Software GPL ändert nichts an der Formatlage; unklar = geschlossen, nur Import) — Import ✗ — Export — (geschlossen, nur Import) — Stand: [nicht belegt] — Priorität niedrig — Grund: Umstieg von LimeSurvey; reiner Import genügt.
+- [ ] **LimeSurvey-Export (.lss/.lsq, XML)** (offen, Regel b: LimeSurvey/LimeSurvey, Lizenz GPL laut LICENSE-Datei im Repo; GitHub-API meldet NOASSERTION, Version nicht geprüft) — Import ✗ / Export ✗ — Stand: [nicht belegt] — Priorität niedrig — Grund: Umstieg von LimeSurvey; Import genügt für den Umstieg.
 
 Exchange-Trait/Muster: keiner (kein Exchange-Trait in fs-surveys). Muster: Builder (`src/csv.rs` Struct `Csv`) und Adapter in `src/repo/export.rs`; die Export-Methode steht im Trait `Results` (`fs-surveys:crates/fs-surveys-core/src/traits/results.rs`, Zeile 27).
 
@@ -299,16 +299,16 @@ Exchange-Trait/Muster: keiner. Kein Import/Export-Adapter im Repo. Gesperrtes Mu
 Die Einordnungen folgen der Entscheidung der Strategie und sind verbindlich.
 
 1. **Regel einheitlich angewandt?** Ja, seit der Einordnung. Die Vorfassung führte DOCX und XLSX als offen; beide sind jetzt geschlossen (nur Import). Outlook-CSV ist geschlossen.
-2. **Umordnung entschieden:** Offen (Import und Export): ODF (text), GPX, KML/KMZ, MBTiles (maps), ActivityStreams-JSON-Lines (messages), JSON Canvas und Excalidraw (draw), Flatpak-Metadaten (software), QTI (forms), ValueFlows (resources). Geschlossen bleiben DOCX und XLSX. Die Export-Spalten sind ✓ oder ✗. Gebaut ist davon nur der Export von ActivityStreams-JSONL; kein umgeordnetes Format hat Import und Export, daher bleibt jede dieser Zeilen `[ ]`.
-3. **S3 erledigt:** offen (Import UND Export) per Zusatz der Strategie, Referenz RustFS. Export ist das Schreiben in die eigene Ablage (`fs-files:crates/fs-files-core/src/backend/s3/`, Tests `fs-files:crates/fs-files-core/tests/s3.rs`, `fs-files:crates/fs-files-core/tests/s3_repo.rs`). Die Tests laufen gegen Fake-S3, nicht gegen eine lokale RustFS-Instanz; das ist im Vermerk der Zeile genannt. Zeile `[x]`, weil Import und Export gebaut und getestet sind.
+2. **Umordnung entschieden:** Offen (Import und Export): ODF (text), GPX, KML/KMZ, MBTiles (maps), ActivityStreams-JSON-Lines (messages), JSON Canvas und Excalidraw (draw), Flatpak-Metadaten (software), QTI (forms), ValueFlows (resources); nach Regel b zusätzlich draw.io-XML, Taskwarrior, LimeSurvey (draw, Taskwarrior in tasks, LimeSurvey in forms) und Obsidian-Notizen. Geschlossen bleiben DOCX und XLSX sowie Obsidian-eigene Teile. Die Export-Spalten sind ✓ oder ✗. Gebaut sind davon der Export von ActivityStreams-JSONL (Import fehlt, daher `[ ]`) und der Markdown-Teil von Obsidian (`[x]`).
+3. **S3 erledigt:** offen (Import UND Export) per Zusatz der Strategie, Referenz RustFS. Der Export heißt hier Schreiben in die eigene Ablage (`put`/`put_part` im eigenen Layout), kein Austauschformat; das sagt die Zeile. Die CI läuft gegen Fake-S3. Der Live-Test gegen RustFS 1.0.4 (`fs-files:crates/fs-files-core/tests/s3_live.rs`) ist einmal bestanden und nicht in der CI (`fs-files:DESIGN.md:38`). Zeile `[x]`, weil Import und Export gebaut und getestet sind.
 4. **ActivityStreams-JSONL-Export:** Entschieden: offen, der Export bleibt (`fs-messenger:crates/fs-messenger-core/src/export.rs`). Die Import-Seite fehlt, daher `[ ]`.
 
 5. **Pflichtformate und Kriterien-Belege:** ODF (Pflicht) ist nach der Strategie offen. HTML, CommonMark, GFM, ActivityPub, MIME und die IETF-/W3C-Zeilen bleiben offen. Ihre Kriterien (1) und (3) beruhen auf Kenntnisstand, nicht auf Repo-Belegen (oft „[Lizenz nicht im Repo belegt]“). PMTiles (offen, CC0 laut fs-maps/RESEARCH.md:35) hat Kriterium (3) nur aus Kenntnisstand und steht in Stufe 3, obwohl es Kern des Karten-Konzepts und mit Priorität hoch markiert ist. Stufe-Einordnung prüfen.
-6. **Stand-Belege (git grep origin/main, Stichprobe):** bestätigt: fs-calendar:README.md:30 („No CalDAV“), fs-whiteboard:README.md:17 („PNG and PDF answer not possible“), `fs-messenger:crates/fs-messenger-core/src/export.rs:8` („is not rebuilt here“). Eine Angabe nennt Zeile 7; es ist ein Zeilenversatz. Nicht geprüft: alle übrigen Stand-Angaben. calendar (webcal, Exchange-Trait) und software (Pilot) verweisen auf Pilot-Dateien, nicht auf origin/main.
+6. **Stand-Belege (git grep origin/main, Stichprobe):** bestätigt: fs-calendar:README.md:30 („No CalDAV“), fs-whiteboard:README.md:17 („PNG and PDF answer not possible“), `fs-messenger:crates/fs-messenger-core/src/export.rs:8` („is not rebuilt here“). Nicht geprüft: alle übrigen Stand-Angaben. calendar (webcal, Exchange-Trait) und software (Pilot) verweisen auf Pilot-Dateien, nicht auf origin/main.
 7. **Programmnamen:** Vereinheitlicht als „Schlüsselwort (Repo, künftig Name)“. Zu bestätigen: activity hat Repo fs-activity und lokalen Ordner fs-history; draw hat Überschrift „draw“, Repo fs-whiteboard, künftig fs-draw.
 8. **Doppelt geführt:** CalDAV (calendar und tasks, Nextcloud je dort); CardDAV (people, Nextcloud Kontakte); Nextcloud in calendar, people, tasks, groups und files; Thunderbird (ICS in calendar, vCard in people, Aufgaben in tasks, mbox in messages); Outlook-PST (people und messages); Google Takeout (maps KML, messages mbox); ActivityPub (activity und messages, beide Stufe 3); CSV RFC 4180 (forms und resources); Matrix (messages und groups); vCard (people) und vCard KIND:group (groups).
 9. **Stufen und Priorität:** draw Excalidraw steht in Stufe 1 mit Priorität niedrig („eher Stufe 3“). software AppStream ist [ ] mit Export „teilweise“. forms „JSON Schema / XForms“ ist keine Formatzeile (nicht aufgenommen) und wird in den Zahlen nicht gezählt.
-10. **Exchange-Vorgabe:** Die Vorgabe nennt „fs-text format/traits.rs“. Belegt sind fs-text `format/importer.rs` und `format/exporter.rs` sowie fs-calendar `format/traits.rs` (Teil A). Im Abschnitt Exchange ist der belegte Pfad angegeben. Der Trait `Origin` aus der Vorgabe steht in Teil A nicht; dort heißt er `ImportContext`.
+10. **Exchange-Vorgabe:** Die Vorgabe nennt „fs-text format/traits.rs“. Belegt sind `fs-wiki:crates/fs-text/src/format/importer.rs` und `exporter.rs` sowie `fs-calendar:crates/fs-calendar-core/src/format/traits.rs`. Im Abschnitt Exchange ist der belegte Pfad angegeben. `Origin` ist nach ADR 0085 eine Herkunftszeile (Kanal, Quelle), kein Trait, und nicht dasselbe wie `ImportContext` (calendar). Der Exchange-Trait im Pilot (`import`/`export`, `ExportTarget`, `ImportContext`, `PersonDirectory`) ist nicht in main.
 
 
 ## Exchange-Trait/Muster je Programm
@@ -318,7 +318,7 @@ Nur der gesperrte Kalender-Trait (`appointments_v1/exchange.rs`) hat einen Excha
 | Programm | Trait/Muster | Fundstelle |
 |---|---|---|
 | calendar | Exchange-Trait (`import`/`export`, `ExportTarget`, `ImportContext`), nur gesperrter Pilot und Entwurf; produktiv Importer/Exporter-Muster | Pilot-Trait appointments_v1 (exchange.rs), nicht main; `fs-calendar:crates/fs-calendar-core/src/format/traits.rs`; Entwurf `fs-calendar:crates/fs-calendar-testdata/src/draft/appointments_v1/exchange.rs` |
-| software | kein Exchange-Trait; Adapter AppStream, Strategy je Installationsweg; Trait `Packages` nur im Pilot | `fs-store:crates/fs-store-catalog/src/lib.rs`, `fs-store:crates/fs-store-core/src/strategy.rs`; Pilot Pilot packages_v1, nicht main |
+| software | kein Exchange-Trait; Adapter AppStream, Strategy je Installationsweg; Trait `Packages` nur im Pilot | `fs-store:crates/fs-store-catalog/src/lib.rs`, `fs-store:crates/fs-store-core/src/strategy.rs`; Pilot packages_v1, nicht main |
 | people | Importer/Exporter-Muster; `PersonDirectory` nur im Pilot | `fs-people:crates/fs-people-core/src/format/traits.rs`, `fs-people:crates/fs-people-app/src/transfer.rs` |
 | tasks | kein Trait; `import_ics`/`export_ics` am Items-Interface | `fs-tasks:crates/fs-tasks-core/src/repo/transfer.rs` |
 | groups | kein Austausch-Trait; Strategy/Adapter `GroupDirectory` (ohne Dateiformat) | `fs-groups:crates/fs-groups-core/src/traits/directory.rs` |
@@ -334,7 +334,7 @@ Nur der gesperrte Kalender-Trait (`appointments_v1/exchange.rs`) hat einen Excha
 
 ## Top 10 der nächsten Schritte
 
-Sortiert nach Nutzen; calendar und software stehen bei Gleichstand vorn. Nur Einträge mit belegtem Stand. Die Umordnungen der Strategie (ODF, GPX, KML, MBTiles, ActivityStreams-JSONL, JSON Canvas, Excalidraw, Flatpak, QTI, ValueFlows) stehen nicht in den Top 10; die Liste bleibt unverändert.
+Sortiert nach Nutzen; calendar und software stehen bei Gleichstand vorn. Nur Einträge mit belegtem Stand. ODF ist als Pflichtformat aufgenommen (Platz 9); GeoJSON fällt dafür heraus. Die übrigen Umordnungen der Strategie stehen nicht in den Top 10.
 
 | Nr | Programm | Format | Import/Export | Priorität | Nutzen | Aufwand |
 |---|---|---|---|---|---|---|
@@ -346,5 +346,5 @@ Sortiert nach Nutzen; calendar und software stehen bei Gleichstand vorn. Nur Ein
 | 6 | people | CardDAV, RFC 6352 | ✗ / ✗ | hoch | Adressbuch-Sync mit Nextcloud, Apple, Thunderbird. | groß |
 | 7 | files | WebDAV, RFC 4918 | ✗ / ✗ | hoch | Pflichtstandard für Dateiablagen; Nextcloud spricht ihn. | groß |
 | 8 | text | HTML (WHATWG) | ✗ / ✗ | hoch | Pflichtformat laut Auftrag; Wiki-Inhalte in Webform. | mittel |
-| 9 | messages | mbox, RFC 4155 | ✗ / ✗ | hoch | Mitnahme aus Mail-Anbietern und Thunderbird. | mittel |
-| 10 | maps | GeoJSON, RFC 7946 (Datei) | teilweise / teilweise | hoch | Standard für Orte; der Datei-Import und -Export fehlt. | klein |
+| 9 | text | ODF (ODT, ODS), ISO/IEC 26300 | ✗ / ✗ | hoch | Pflichtformat laut Auftrag; LibreOffice-Standard für Textdokumente. | mittel |
+| 10 | messages | mbox, RFC 4155 | ✗ / ✗ | hoch | Mitnahme aus Mail-Anbietern und Thunderbird. | mittel |
