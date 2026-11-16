@@ -1,6 +1,6 @@
 # MediaWiki 1.46 — Dependencies on our components
 
-Purpose: list which UI components and which operations of our text contract (`/srv/FreeSynergy/fs-interfaces/schema/texts.capnp`, DRAFT 0.1, 2026-11-06) a frontend in the MediaWiki style needs.
+Purpose: list which UI components and which operations of our text contract (`schema/texts.capnp` in the repo `fs-interfaces`, DRAFT 0.1, 2026-11-06) a frontend in the MediaWiki style needs.
 
 ## Contract as it stands (texts.capnp, interface `Texts`)
 

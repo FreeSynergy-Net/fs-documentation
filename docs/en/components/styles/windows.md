@@ -192,7 +192,7 @@ Before a release, ship the licence file next to each font file and check the res
 
 ## 10. Screenshots
 
-Under `/srv/FreeSynergy/.scratch/reference/windows/` (never in a repository), each folder with a `SOURCES.txt`:
+Under the local working folder `reference/windows/` (not published, never in a repository), each folder with a `SOURCES.txt`:
 
 - `mica/`: `mica-light-theme.png`, `mica-dark-theme.png`, `mica-alt-tabs.png` (Microsoft Learn, Mica material)
 - `acrylic/`: `acrylic-light-theme-base.png`, `acrylic-dark-theme-base.png` (Microsoft Learn, Acrylic material)

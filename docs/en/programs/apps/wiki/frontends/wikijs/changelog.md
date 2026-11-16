@@ -4,7 +4,7 @@
 
 The earlier pages were written from memory; these statements were wrong.
 
-Existing pages: `/srv/FreeSynergy/fs-documentation/docs/en/programs/apps/wiki/frontends/wikijs/` (index.md and latest/*.md). They were written from memory and describe a mix of Wiki.js 2.x and generic wiki features. Status codes:
+Existing pages: `docs/en/programs/apps/wiki/frontends/wikijs/` in the repo `fs-documentation` (index.md and latest/*.md). They were written from memory and describe a mix of Wiki.js 2.x and generic wiki features. Status codes:
 
 - **W** wrong for 3.1.1 (checked against source or official docs)
 - **U** unverifiable (no source found; remove or mark)

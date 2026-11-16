@@ -45,7 +45,7 @@ Content-Type: application/json
 Response: `200`
 
 ```json
-{ "data": [ { "id": 41, "fullName": "Muster AG", "email": "vertrieb@muster.de" } ],
+{ "data": [ { "id": 41, "fullName": "Muster AG", "email": "vertrieb@muster.example" } ],
   "_searchCount": true }
 ```
 

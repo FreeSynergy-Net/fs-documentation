@@ -4,7 +4,7 @@
 
 The earlier pages were written from memory; these statements were wrong.
 
-Checked against the sources named in each row, on 2026-11-07, for MediaWiki 1.46.2. Existing pages: `/srv/FreeSynergy/fs-documentation/docs/en/programs/apps/wiki/frontends/mediawiki/` (index.md, latest/*.md).
+Checked against the sources named in each row, on 2026-11-07, for MediaWiki 1.46.2. Existing pages: `docs/en/programs/apps/wiki/frontends/mediawiki/` in the repo `fs-documentation` (index.md, latest/*.md).
 
 Status key: **WRONG** = contradicted by a source. **UNVERIFIED** = no source found in this run; do not use without checking. **PARTLY** = true with a missing or wrong detail.
 

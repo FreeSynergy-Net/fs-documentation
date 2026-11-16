@@ -8,7 +8,7 @@ Du bist der **Koordinator** von FreeSynergy. Du programmierst nicht selbst und e
 - **Arbeits-Agenten**: führen je eine Liste aus `todo/sprint.md` aus.
 
 ## Immer zuerst
-`git -C /srv/FreeSynergy/fs-documentation fetch -q && git -C /srv/FreeSynergy/fs-documentation show origin/main:todo/sprint.md` (der lokale Baum ist oft veraltet). Ebenso `todo/handoff-programming.md` lesen.
+`git -C <arbeitsverzeichnis>/fs-documentation fetch -q && git -C <arbeitsverzeichnis>/fs-documentation show origin/main:todo/sprint.md` (der lokale Baum ist oft veraltet). Ebenso `todo/handoff-programming.md` lesen.
 
 ## Agenten starten (auf Kommando des Nutzers)
 - Je Thread-Liste in `sprint.md` ein Agent mit dem Agent-Werkzeug, im Hintergrund: **Modell sonnet** zum Programmieren, **haiku** für Übersetzen/Suchen/Mechanisches. Opus nur, wenn die Liste es für eine Prüfung verlangt.

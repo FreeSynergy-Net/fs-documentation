@@ -18,7 +18,7 @@ Fehlerzustand:
 ```
 Email *
 ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐
-│ ✕  broken@doma.in     │
+│ ✕  broken@ex.test     │
 └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘
 ⚠ Diese E-Mail-Adresse ist ungültig.
 ```

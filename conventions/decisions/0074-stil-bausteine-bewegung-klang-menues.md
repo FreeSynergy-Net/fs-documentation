@@ -2,7 +2,7 @@
 
 Status: **akzeptiert** (Gründer, 2026-11-12, mit Änderungen zu 3, 7 und 8 eingearbeitet); Code nach dem Meilenstein „Wir benutzen es selbst“, das Umstellen des Bestands beginnt sofort · baut auf ADR 0045 (Unsupported, SupportReport), 0065 (Standard-Fensterhülle), 0066 (Typen, Befehle mit `supported`, vier Frontends), 0068 (Fähigkeiten, provides/requires), 0069 (Wiederherstellen), 0073 (Kollaboration)
 
-Grundlage: die Berichte in `.scratch/schichten/` (Stand 2026-11-12): BESTAND-theme-vertrag, BAUSTEINE, KLANG, MENUES, BEWEGUNG-STANDARDS, RECHERCHE-bewegung, KDE-THEMING, BLINC-GLAS. Was dort als „[nicht belegt]“ markiert ist, wird hier nicht als Tatsache übernommen.
+Grundlage: die Berichte im Arbeitsordner der Strategie, nicht veröffentlicht (Stand 2026-11-12): BESTAND-theme-vertrag, BAUSTEINE, KLANG, MENUES, BEWEGUNG-STANDARDS, RECHERCHE-bewegung, KDE-THEMING, BLINC-GLAS. Was dort als „[nicht belegt]“ markiert ist, wird hier nicht als Tatsache übernommen.
 
 ## Ausgangslage
 
@@ -127,7 +127,7 @@ Das Manifest ist Teil des Pakets und wird im Katalog als Fähigkeit geführt (AD
 ## Offen
 
 - Werte der fünf bis sechs Stile (nach Bildern, wie immer).
-- Die standardisierte Liste der Ereignisse und Animationsarten (Entwurf nach den Berichten in `.scratch/schichten/`).
+- Die standardisierte Liste der Ereignisse und Animationsarten (Entwurf nach den Berichten im Arbeitsordner der Strategie, nicht veröffentlicht).
 - Wer die Standard-Vorschläge annimmt (freedesktop, W3C-Gruppen) und in welcher Form.
 - Lizenzprüfung der Klang-Themes je Datei.
 - Ob der Editor für Anordnungsdateien ein eigenes Programm oder eine Facette des künftigen Zeichenprogramms wird.

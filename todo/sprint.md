@@ -9,7 +9,7 @@
 Einzeilig einfügen, N ersetzen:
 
 ```text
-/loop Du bist Thread N im Sprint. Lies /srv/FreeSynergy/fs-documentation/todo/sprint.md, dann arbeite deine Liste der Reihe nach ab, auch mit vielen Agenten, und nimm nach jedem fertigen Punkt den nächsten.
+/loop Du bist Thread N im Sprint. Lies <arbeitsverzeichnis>/fs-documentation/todo/sprint.md, dann arbeite deine Liste der Reihe nach ab, auch mit vielen Agenten, und nimm nach jedem fertigen Punkt den nächsten.
 ```
 
 ## Runde 3b (Nutzer, 2026-11-10 abends): Qualität vor Neuem – Vorrang vor allem in Runde 3
@@ -65,7 +65,7 @@ Der Nutzer: „Das kann ich niemandem vorsetzen.“ Tippen und Installieren müs
   - Zeit: Timepicker.
 - **Frontends jetzt:** Admin und Einfach. Für die Stil-Frontends sucht Haiku je Kategorie die besten Programme, Opus vergleicht, der Nutzer entscheidet (Regel aus ADR 0066).
 - **Entschieden (Nutzer, 2026-11-11 spät): zwei neue Sonnet-Agenten**
-  - **Frontends:** Files zuerst, nach der Opus-Empfehlung (`.scratch/filemanager-research/EMPFEHLUNG.md`). Die Dateiansicht wird zum Standardfenster, das Admin-Frontend bleibt. Dazu Mehrfachauswahl und Tasten, danach das Einfach-Frontend. Der Nutzer nimmt jede Stufe mit Bildern ab.
+  - **Frontends:** Files zuerst, nach der Opus-Empfehlung (`<arbeitsordner>/filemanager-research/EMPFEHLUNG.md`). Die Dateiansicht wird zum Standardfenster, das Admin-Frontend bleibt. Dazu Mehrfachauswahl und Tasten, danach das Einfach-Frontend. Der Nutzer nimmt jede Stufe mit Bildern ab.
   - **Server:** Repos `fs-kanidm` und `fs-zentinel` zuerst, dann `fs-tuwunel` (nicht `fs-matrix`: Matrix ist das Protokoll, Tuwunel das Programm). Jedes Repo enthält:
     - die Hülle,
     - die öffentliche Konfiguration (Doku, Wiki, Export; Zentinel: KDL; nie Geheimnisse, nur Platzhalter),
@@ -248,13 +248,13 @@ Der Nutzer: „Das kann ich niemandem vorsetzen.“ Tippen und Installieren müs
 
 **Regel (Nutzer, 2026-11-10, ADR 0066):** Kein Render-Code und kein Aussehen in einem Programm-Repo. Alles, was etwas zeigt (auch Kanban, Kalender, Editor), ist eine Component in `fs-components`; das Programm liefert Daten und Trait, das Frontend setzt zusammen. Fehlt eine Component, wird sie in `fs-components` gebaut.
 
-**Blinc-Fehler beheben, nicht nur melden (Nutzer, 2026-11-10):** Jede eigene Änderung an Blinc, die funktioniert, geht als **Pull Request** an `project-blinc/Blinc` – vorher im Fork mit Test und in der Live-Probe geprüft (bei Tastatur mit `LAYOUT=de`), **ohne jede KI-Kennzeichnung**, Regeln aus `/srv/FreeSynergy/blinc/CLAUDE.md`. Ein PR je Fehler. Zuerst: AltGr/`@` (Tastatur) und `fix-incremental-layout-rules` (Kalender-Seitenleiste).
+**Blinc-Fehler beheben, nicht nur melden (Nutzer, 2026-11-10):** Jede eigene Änderung an Blinc, die funktioniert, geht als **Pull Request** an `project-blinc/Blinc` – vorher im Fork mit Test und in der Live-Probe geprüft (bei Tastatur mit `LAYOUT=de`), **ohne jede KI-Kennzeichnung**, Regeln aus `<arbeitsverzeichnis>/blinc/CLAUDE.md`. Ein PR je Fehler. Zuerst: AltGr/`@` (Tastatur) und `fix-incremental-layout-rules` (Kalender-Seitenleiste).
 
 **Geschwindigkeits-Ziel (Nutzer, 2026-11-10):** Nur was sich ändert, wird neu berechnet und gezeichnet; im Leerlauf kein Bild; Ziel 120 fps (8,3 ms je Bild). Ziele und Stand: `docs/en/programs/platform/crates/gui.md`, Abschnitt „Speed goals“. Thread B legt dazu Einträge bei Blinc an (Leerlauf zeichnet 60 Bilder/s; ganzer Baum-Vergleich bei jeder Änderung; Bildrate fest 60 Hz) und schlägt Darmie Lösungen vor.
 
 **Blinc-Fehler melden (Nutzer, 2026-11-10):** Jeder gefundene Fehler in Blinc geht **an den Nutzer**: über den Koordinator, gebündelt, je Fehler eine Zeile (was, git-bug-ID, Beleg, Stand: behoben im Fork / PR / wartet auf Darmie).
 
-**Blinc-Beiträge (Nutzer, 2026-11-09):** In Commits, PRs und Issues für `project-blinc/Blinc` **keine KI-Kennzeichnung**, Regeln in `/srv/FreeSynergy/blinc/CLAUDE.md` (git-bug, volle 64-stellige ID als Trailer; `git config git-bug.git-transport git`). In unseren eigenen Repos bleibt die Kennzeichnung.
+**Blinc-Beiträge (Nutzer, 2026-11-09):** In Commits, PRs und Issues für `project-blinc/Blinc` **keine KI-Kennzeichnung**, Regeln in `<arbeitsverzeichnis>/blinc/CLAUDE.md` (git-bug, volle 64-stellige ID als Trailer; `git config git-bug.git-transport git`). In unseren eigenen Repos bleibt die Kennzeichnung.
 
 ### Thread T – Grundtypen und Typbeschreibung (Sonnet, startet sofort)
 1. In `fs-interfaces` ein Schema `types.capnp`: die Grundtypen aus `map.md` (zuerst E-Mail, Telefon, Name, Adresse, Ort, Datum/Zeit, Sprache, Link, Bild, Schlüssel, Auswahl, Stichworte, Verweis), je mit Standard im Kommentar.
@@ -275,7 +275,7 @@ Der Nutzer: „Das kann ich niemandem vorsetzen.“ Tippen und Installieren müs
 4. Alles, was Blinc nicht kann (z. B. Glas, eine bestimmte Zeilenhöhe), genau messen und als git-bug-Eintrag mit Beleg in unserem Blinc-Klon festhalten; der Strategie gebündelt melden.
 
 ### Thread B – Blinc: Geschwindigkeit und PR 71 (Sonnet, startet sofort, Vorrang)
-Arbeitsort `/srv/FreeSynergy/blinc` (Fork `FreeSynergy/Blinc`), Regeln aus der dortigen `CLAUDE.md`: keine KI-Kennzeichnung, git-bug-Trailer mit voller ID, `git-bug.git-transport=git`.
+Arbeitsort `<arbeitsverzeichnis>/blinc` (Fork `FreeSynergy/Blinc`), Regeln aus der dortigen `CLAUDE.md`: keine KI-Kennzeichnung, git-bug-Trailer mit voller ID, `git-bug.git-transport=git`.
 1. **PR 71** (https://github.com/project-blinc/Blinc/pull/71): auf `upstream/main` rebasen, Konflikt in `CHANGELOG.md` lösen. Darmies Einwand umsetzen: nicht den ganzen Baum neu stylen (`apply_stylesheet_base_styles`, ~18 µs je Knoten, 3× das Update), sondern nur die Knoten, deren Props `incremental_update` ersetzt hat, über `apply_stylesheet_base_styles_for_subtree`. Dasselbe im Web-Runner (`web.rs`, `build_and_update`, Zweig `VisualOnly`). Mit seiner Messung (153/753/3003 Knoten) vorher/nachher messen, die Zahlen in den git-bug-Eintrag, kurz auf GitHub antworten, Force-Push.
 2. **Unser Patch-Fork `blinc-app-fix` enthält die teure Fassung** – alle Apps zahlen sie bei jedem Update. Sofort auf die neue Fassung bringen und die Apps neu bauen.
 3. **Geschwindigkeit messen:** Mit der Live-Probe (kwin --virtual + echte Eingabe) die Zeit von Taste bis Bild in Tasks und Kalender messen und aufschlüsseln (Builder, `incremental_update` – bei 3003 Knoten schon 17,6 ms –, Stil, Layout, Zeichnen). Befunde als git-bug-Einträge mit Beleg; **Abgrenzung (Strategie, 2026-11-10):** Fehlerbehebungen gehen nach Test und Live-Probe direkt als PR. Umbauten an Blincs Aufbau für mehr Geschwindigkeit (z. B. kein Baum-Vergleich, kein Zeichnen im Leerlauf) zuerst als Eintrag mit Beleg und Vorschlag an Darmie, PR erst nach seiner Zustimmung.
@@ -287,10 +287,10 @@ Ort: eigenes Crate in `fs-components` (Name vorläufig `fs-admin-frontend`), eig
 2. Zuerst für People, dann für jedes Programm, das eine Typbeschreibung liefert.
 
 ### Thread M – Maßblätter und Bildschirmfotos: Apple, Windows, SAP Fiori (Haiku, startet sofort)
-0. **Nachtrag 2026-11-09 (Nutzer):** Apple-Stil = Apples eigene Apps, **erst 1:1 nachbauen**. Admin-Stil = **SAP Fiori** (Maße aus den öffentlichen Fiori-Richtlinien). Windows-Stil: **je Kategorie ein Windows-Programm, ebenfalls 1:1 nachbauen**, bevorzugt eines, das es unter Linux nicht gibt; **keine Linux-Programme als Vorlage**. Vorschlagsliste (Kategorie, Programm, besondere Funktion) nach `docs/en/programs/map.md`, Abschnitt „Windows templates“, und dem Nutzer über den Koordinator zur Auswahl geben. Bildschirmfotos aus offiziellen Quellen (Hersteller-Seiten, Dokumentation, Presse) laden, lokal unter `/srv/FreeSynergy/.scratch/reference/<stil>/<programm>/`, je Bild die Quelle in eine `SOURCES.txt` daneben; **nie in ein Repo**.
+0. **Nachtrag 2026-11-09 (Nutzer):** Apple-Stil = Apples eigene Apps, **erst 1:1 nachbauen**. Admin-Stil = **SAP Fiori** (Maße aus den öffentlichen Fiori-Richtlinien). Windows-Stil: **je Kategorie ein Windows-Programm, ebenfalls 1:1 nachbauen**, bevorzugt eines, das es unter Linux nicht gibt; **keine Linux-Programme als Vorlage**. Vorschlagsliste (Kategorie, Programm, besondere Funktion) nach `docs/en/programs/map.md`, Abschnitt „Windows templates“, und dem Nutzer über den Koordinator zur Auswahl geben. Bildschirmfotos aus offiziellen Quellen (Hersteller-Seiten, Dokumentation, Presse) laden, lokal unter `<arbeitsordner>/reference/<stil>/<programm>/`, je Bild die Quelle in eine `SOURCES.txt` daneben; **nie in ein Repo**.
 1. Aus den öffentlichen Leitlinien (Apple Human Interface Guidelines, Microsoft Fluent 2) die Maße zusammentragen: Abstände, Raster, Schriftgrößen und Zeilenhöhen, Radien, Materialien (Glas, Mica/Acrylic), Farben, Fokus, Listenzeilen. Mit Quelle je Wert.
 2. Offene Schriften mit ähnlichen Maßen vorschlagen (Lizenz je Schrift).
-3. Für People: Aufbau der Kontakte-App auf macOS und der Kontaktansicht unter Windows (People/Outlook) beschreiben, mit Maßen. Bildschirmfotos nur lokal unter `/srv/FreeSynergy/.scratch/reference/`, **nie in ein Repo**.
+3. Für People: Aufbau der Kontakte-App auf macOS und der Kontaktansicht unter Windows (People/Outlook) beschreiben, mit Maßen. Bildschirmfotos nur lokal unter `<arbeitsordner>/reference/`, **nie in ein Repo**.
 4. Ergebnis: `docs/en/components/styles/apple.md`, `windows.md` und `fiori.md`; danach `scripts/gen_component_indexes.py --lang en`.
 
 ### Thread F – Funktions-Vorbilder prüfen und analysieren (Haiku, startet sofort)
@@ -344,7 +344,7 @@ Reihenfolge, wenn das Kontingent knapp wird: R0, R1, R2, R3, R4.
 17. **Umfragen, Antwort für eine andere Person:** zählt nicht als KI, sondern ist eigene Markierung „stellvertretend“, wird in der Auswertung gezeigt, nie still aussortiert.
 18. **Speicherschlüssel Messenger:** im Schlüsselbund des Systems (Secret Service unter Linux, Credential Manager unter Windows, Crate `keyring`), nie als Datei im Klartext; Agenten erzeugen und lesen keine echten Schlüssel (ADR 0054).
 19. **Fehlercodes:** `fs-types` bekommt allgemeine Codes für Regel-Ablehnung (mit Regel-Id) und gesperrten Befehl (Thread T); kein Programm eigene.
-20. Kleinkram, alles ja: `contact.*`-Texte gehören `fs-people`; fehlgeschlagene fs-wiki-Tags v0.0.3–v0.0.5 ohne Release löschen; Katalog fs-wiki v0.0.6 nach Veröffentlichung; `bind_keys` als git-bug in fs-components; Build-Verzeichnisse in `.scratch` löschen; `wiki/frontends/tango.io` löschen; Grenze „Termin zwischen zwei Lesevorgängen“ als bekannte Grenze dokumentieren (git-bug-Eintrag), Lösung später über einen Lesevorgang in einer Transaktion; Jahrestage: Formular fragt die Art, `birth` vorausgewählt.
+20. Kleinkram, alles ja: `contact.*`-Texte gehören `fs-people`; fehlgeschlagene fs-wiki-Tags v0.0.3–v0.0.5 ohne Release löschen; Katalog fs-wiki v0.0.6 nach Veröffentlichung; `bind_keys` als git-bug in fs-components; Build-Verzeichnisse in `<arbeitsordner>` löschen; `wiki/frontends/tango.io` löschen; Grenze „Termin zwischen zwei Lesevorgängen“ als bekannte Grenze dokumentieren (git-bug-Eintrag), Lösung später über einen Lesevorgang in einer Transaktion; Jahrestage: Formular fragt die Art, `birth` vorausgewählt.
 21. **Windows-Vorlagen:** Maps = Google Earth Pro (Wunsch des Nutzers); Whiteboard, Umfragen, Studio, Videos nach der laufenden Recherche.
 22. **Prüfung vor jedem Tag ist Pflicht**, ohne Ausnahme; sichtbare Fehler (z. B. Befehlsleiste überlappt Titel in fs-tasks) vorher beheben.
 
@@ -353,7 +353,7 @@ Reihenfolge, wenn das Kontingent knapp wird: R0, R1, R2, R3, R4.
 
 ## Runde 2 (Nutzer, 2026-11-07 abends): Laden `fs-store` lauffähig und installierbar
 
-Die fünf Threads der Runde 1 sind fertig. Runde 2 hat fünf neue Threads; S, M und U starten nach dem Ende der Umbenennung (Nutzer), D sofort. **Sprint.md immer von GitHub lesen** (`git -C /srv/FreeSynergy/fs-documentation fetch -q && git -C /srv/FreeSynergy/fs-documentation show origin/main:todo/sprint.md`), der lokale geteilte Baum ist veraltet. Mechanische Arbeit (Suchen und Ersetzen, Doku nachziehen, Listen) an Haiku-Agenten geben, sie verbrauchen am wenigsten; Code-Prüfung vor jedem Tag weiter durch einen zweiten Agenten, der den Code nicht schrieb.
+Die fünf Threads der Runde 1 sind fertig. Runde 2 hat fünf neue Threads; S, M und U starten nach dem Ende der Umbenennung (Nutzer), D sofort. **Sprint.md immer von GitHub lesen** (`git -C <arbeitsverzeichnis>/fs-documentation fetch -q && git -C <arbeitsverzeichnis>/fs-documentation show origin/main:todo/sprint.md`), der lokale geteilte Baum ist veraltet. Mechanische Arbeit (Suchen und Ersetzen, Doku nachziehen, Listen) an Haiku-Agenten geben, sie verbrauchen am wenigsten; Code-Prüfung vor jedem Tag weiter durch einen zweiten Agenten, der den Code nicht schrieb.
 
 **Verbrauch (Nutzer, 2026-11-08, 93 %):** Keine 95-%-Grenze mehr – arbeiten, bis das Kontingent aufgebraucht ist. Darum nach jedem fertigen Schritt pushen und eine Zeile in `todo/handoff-programming.md`, damit beim Abbruch nichts verloren geht. **Vorrang:** (1) der Store läuft sauber (installieren, öffnen, aktualisieren, Fehler sichtbar); (2) die Programme laufen und funktionieren aus dem Store heraus; Schönheit der Components danach. Das Löschen alter Tags/Releases wartet auf das Ja des Nutzers zur konkreten Liste (morgen).
 
@@ -369,7 +369,7 @@ Startzeilen:
 
 ### Thread R: Umbenennung nach ADR 0060, danach `fs-release`
 Schreibt in alle Repos, solange Schritt 1–3 laufen; sonst arbeitet niemand an Rust-Code außer Thread S in `fs-launcher`.
-1. GitHub-Repo `fs-store` → `fs-objects` (ADR 0060, vom Nutzer akzeptiert). Crate `fs-objects`/`fs_objects`, Tag `v0.5.0`. Lokalen Ordner `/srv/FreeSynergy/fs-store` → `fs-objects`, Remote-URL anpassen.
+1. GitHub-Repo `fs-store` → `fs-objects` (ADR 0060, vom Nutzer akzeptiert). Crate `fs-objects`/`fs_objects`, Tag `v0.5.0`. Lokalen Ordner `<arbeitsverzeichnis>/fs-store` → `fs-objects`, Remote-URL anpassen.
 2. Alle Repos per Skript umstellen (Git-Adresse, Crate-Name, `use fs_store`, Doku in `DESIGN.md`/`README.md`), je Repo `gates.sh` grün, frischer Klon baut, neuer Patch- oder Minor-Tag in Abhängigkeitsreihenfolge (`fs-interfaces` zuerst, falls betroffen, dann `fs-objects`, `fs-hub`, die Programme). Die Ersetzung dürfen Haiku-Agenten machen; die Prüfung macht der Thread.
 3. **Auch offene Branches** (`matrix`, `ai`, `follow`, `client`, `gui`, `ai-participants`, `server`, `files-gui`, `maps-gui` …): je Branch einen Commit mit der Umstellung, ohne Merge, ohne Tag. Liste aller Branches, die noch auf `fs-store` zeigen, mit `git ls-remote` und Suche in `Cargo.toml`/`Cargo.lock` aller Branches. Erst wenn die Liste leer ist: Meldung an Thread S und Strategie „Name `fs-store` frei“.
 4. Öffentliche Doku nicht anfassen (macht die Strategie), nur `DESIGN.md`/`README.md` der Repos.
@@ -377,7 +377,7 @@ Schreibt in alle Repos, solange Schritt 1–3 laufen; sonst arbeitet niemand an 
 
 **Entscheidung für Thread R (Strategie, 2026-11-08, vorläufig):** `fs-resources`/`fs-history` blockiert: **`query_unlogged` in `fs-objects` (v0.6.0)**, keine eigene Id-Liste in den Programmen (eine Stelle der Wahrheit, sonst doppelte Logik). Es liefert nur unlogged Objekte der Typen, die dem aufrufenden Programm gehören; `query` bleibt unverändert und lehnt weiter ab. Danach beide Repos umstellen, taggen.
 
-### Thread S: Laden `fs-store` (heute `/srv/FreeSynergy/fs-launcher`, nur lokal)
+### Thread S: Laden `fs-store` (heute `<arbeitsverzeichnis>/fs-launcher`, nur lokal)
 **Name (Nutzer, 2026-11-07):** offiziell **FreeSynergy.Store**. **Signatur bereit (2026-11-08, 01:12):** Secrets `GPG_PRIVATE_KEY`/`GPG_PASSPHRASE` sind in allen nicht archivierten `fs-*`-Repos gesetzt (Unterschlüssel `372A583D05BF8362604CF25DE26A2347F2B1C097` von `16A4…4342`, öffentlicher Teil in `fs-release`). Neue Repos (z. B. der Laden) brauchen `fs-release/scripts/set-signing-secrets.sh <repo>` durch den Nutzer. **Nutzer, 2026-11-07 abends:** Vorabversionen dürfen öffentlich werden. **Spätestens Sonntag** soll es installierbare Programme geben, die Freunde testen. Der Nutzer will nicht immer wieder von Hand installieren: **Der Laden ist die App, aus der man Programme installiert, aktualisiert und erweitert.** Darum: CLI nur als dünner Test, die GUI (Punkt 6) ist Ziel, nicht Zugabe. Reihenfolge der ersten Pakete: der Laden selbst, `fs-tasks`, `fs-people`, dann was `fs-release` sauber baut. Signieren: Der Nutzer legt die Secrets für den Signaturschlüssel an; bis dahin Entwürfe bauen und alles andere fertig machen, dann veröffentlichen als **Pre-release**.
 Ziel: Auf diesem Rechner (Fedora) installiert der Laden ein echtes FreeSynergy-Programm aus einer Git-Quelle, prüft die OpenPGP-Signatur (Schlüssel `16A4A3EE563AEF51FCF0C55DED7B57C4A1904342`), aktualisiert es, rollt bei Fehlern zurück, und aktualisiert sich selbst. Erst lesen: `fs-launcher/DESIGN.md`, ADR 0036, 0060, 0051, 0021, `temp/research/craft-launcher.md`. Reihenfolge wie immer: Muster, Trait, Tests, Umsetzung.
 1. **Sicherung:** Repo jetzt als `FreeSynergy/fs-launcher` auf GitHub anlegen und pushen (Nutzer, 2026-11-07: Push im Sprint erlaubt). Umbenennung in `fs-store` erst nach der Meldung „Name `fs-store` frei“ von Thread R; dann Crates `fs-store-*`, Ordner, Doku.
@@ -494,7 +494,7 @@ Jeweils erst Vertrag in `fs-interfaces`, dann Kern ohne GUI, mit eigener `DESIGN
 Rollen (SKOS, Kunde, Lieferant, Mitarbeiter); Zed, ACP, MCP lesen; Datei-Frontends analysieren; `requirements.md` von surveys, streaming, tasks angleichen; Umbenennungen der Doku; Meldungen der Threads gegen GitHub prüfen und Doku nachziehen.
 
 ## Nach dem Absturz vom 2026-11-07, 08:59
-Alle Sitzungen sind beendet, Arbeit liegt noch in den Worktrees. Zuerst den eigenen Stand lesen: `git status` in `.wt-*`, `.scratch/t*`, offene Branches; `backup/*` auf GitHub ist eine Sicherung ohne Merge. Nicht committet: `.wt-fs-maps-server` (9), `.wt-fs-tasks` (1), `.wt-msg-v4` (30, Branch nur lokal), `.scratch/t5-surveys` (5), ein Agent-Worktree in `fs-wiki` (15).
+Alle Sitzungen sind beendet, Arbeit liegt noch in den Worktrees. Zuerst den eigenen Stand lesen: `git status` in `.wt-*`, `<arbeitsordner>/t*`, offene Branches; `backup/*` auf GitHub ist eine Sicherung ohne Merge. Nicht committet: `.wt-fs-maps-server` (9), `.wt-fs-tasks` (1), `.wt-msg-v4` (30, Branch nur lokal), `<arbeitsordner>/t5-surveys` (5), ein Agent-Worktree in `fs-wiki` (15).
 
 ## Regeln für alle
 **Reihenfolge bei jedem neuen Stück Code (Nutzer, 2026-11-07, ADR 0043)**
@@ -509,7 +509,7 @@ Kleine Korrekturen in bestehendem Code brauchen keinen neuen Trait, aber das Mus
 **Wiederaufnahme:** Zuerst `git pull` im eigenen Repo, dann die offenen Branches und `DESIGN.md` lesen und dort weitermachen. Nichts neu anfangen, was schon auf einem Branch liegt.
 
 **Qualität**
-- Vor jedem Tag, im frischen Klon unter `.scratch`: `/srv/FreeSynergy/fs-documentation/scripts/gates.sh <klon> && git push ... && git tag ...`. **`set -e` wirkt in Tool-Aufrufen nicht** (nachgestellt); nur das Skript mit `&&` gibt einen echten Exit-Code.
+- Vor jedem Tag, im frischen Klon unter `<arbeitsordner>`: `<arbeitsverzeichnis>/fs-documentation/scripts/gates.sh <klon> && git push ... && git tag ...`. **`set -e` wirkt in Tool-Aufrufen nicht** (nachgestellt); nur das Skript mit `&&` gibt einen echten Exit-Code.
 - **Vor jedem Tag prüft ein zweiter Agent, der den Code nicht geschrieben hat** (`/code-review high`). Bestätigte Fehler zuerst beheben.
 - Fertig heißt: läuft und ist getestet. Was fehlt, sagt ausdrücklich `Unsupported` und steht in der `DESIGN.md`. Keine Attrappen, keine Tests, die nur Attrappen prüfen.
 - Grundsätze bleiben: nichts kopieren, 100 % Rust, Muster und Schnittstellen (ADR 0043), ein Standard, ein Programm (ADR 0050).
@@ -529,7 +529,7 @@ Kleine Korrekturen in bestehendem Code brauchen keinen neuen Trait, aber das Mus
 **Rechner**
 - **Jeder Build, jeder Test und jede Probe läuft über `scripts/limited.sh`** (eigene Speichergrenze, Standard 32 GB). Am 2026-11-07 um 08:59 nahm sich eine Prüf-Probe aus `thread3-cal-review6` 107 GB; der Kernel beendete Zed und damit alle Sitzungen. Geprüft: Mit der Grenze stirbt nur der Befehl selbst. `gates.sh` nutzt es schon. Proben mit Grenzen wie `usize::MAX` niemals ohne.
 - **Höchstens ein Build je Thread gleichzeitig,** außer die Strategie gibt mehr frei.
-- 32 Kerne, 124 GB: Builds mit `-j 4`, höchstens 3 gleichzeitig je Thread (Last lag bei 65). **Frische Klone und Prüfungen nicht in `/tmp`** (nur 50 GB, voll führt zu scheinbar zufälligen Testfehlern), sondern unter `/srv/FreeSynergy/.scratch/<thread>-<name>/`, und danach löschen. llama.cpp bleibt aus und wird nicht gestartet.
+- 32 Kerne, 124 GB: Builds mit `-j 4`, höchstens 3 gleichzeitig je Thread (Last lag bei 65). **Frische Klone und Prüfungen nicht in `/tmp`** (nur 50 GB, voll führt zu scheinbar zufälligen Testfehlern), sondern unter `<arbeitsordner>/<thread>-<name>/`, und danach löschen. llama.cpp bleibt aus und wird nicht gestartet.
 - `scripts/clean_rust.py` nur für das eigene Repo, **niemals `--all`**, sonst löscht es die Builds der anderen.
 
 **Texte (Nutzer, 2026-11-07):** Was ein Mensch liest, muss übersetzbar bleiben: `coding.md` §2a. Vorhandenes nur ändern, wenn die Datei ohnehin angefasst wird. Es wird noch nichts übersetzt (ADR 0053).

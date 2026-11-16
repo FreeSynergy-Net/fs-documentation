@@ -4,7 +4,7 @@
 
 Die früheren Seiten waren aus dem Gedächtnis geschrieben; diese Aussagen waren falsch.
 
-Bestehende Seiten: `/srv/FreeSynergy/fs-documentation/docs/en/programs/apps/wiki/frontends/wikijs/` (index.md und latest/*.md). Sie wurden aus dem Gedächtnis geschrieben und beschreiben eine Mischung aus Wiki.js 2.x und allgemeinen Wiki-Funktionen. Statuscodes:
+Bestehende Seiten: `docs/en/programs/apps/wiki/frontends/wikijs/` im Repo `fs-documentation` (index.md und latest/*.md). Sie wurden aus dem Gedächtnis geschrieben und beschreiben eine Mischung aus Wiki.js 2.x und allgemeinen Wiki-Funktionen. Statuscodes:
 
 - **W** falsch für 3.1.1 (am Quellcode oder an der offiziellen Dokumentation geprüft)
 - **U** nicht überprüfbar (keine Quelle gefunden; entfernen oder kennzeichnen)

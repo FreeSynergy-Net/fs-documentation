@@ -44,7 +44,7 @@ Datensatz:
 ```json
 { "service":"object","method":"execute_kw",
   "params":["demo", 2, "key", "res.partner", "create",
-     [{"name":"Muster AG","email":"vertrieb@muster.de","phone":"+49 30 1234"}]] }
+     [{"name":"Muster AG","email":"vertrieb@muster.example","phone":"+49 30 1234"}]] }
 ```
 
 Response: `1234` (Datensatz-ID).

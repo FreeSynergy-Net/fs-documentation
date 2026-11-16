@@ -13,7 +13,7 @@ size of 16 px.
 
 Sources:
 
-- **Design tokens (sap_horizon)**: https://github.com/SAP/fundamental-styles/blob/main/docs/design-tokens.json (copy of the read file kept in `.scratch`, not in a repository)
+- **Design tokens (sap_horizon)**: https://github.com/SAP/fundamental-styles/blob/main/docs/design-tokens.json (copy of the read file kept in the local working folder, not in a repository)
 - **Theme sources**: https://github.com/SAP/fundamental-styles/tree/main/packages/styles/src/theming
 - **Fiori Design Guidelines, Content Density (Cozy and Compact)** (page exists; not reachable by automated fetch):
   https://www.sap.com/design-system/fiori-design-web/v1-120/foundations/visual/cozy-compact
@@ -116,4 +116,4 @@ the metric test before the tag (text width of long labels in table cells).
 
 - None downloaded. The guidelines pages block automated access (403), and the SAP sample pages found do not contain a
   stable image path. Next step: take official screenshots from SAP's documentation or the SAP Fiori Launchpad demo, if
-  its terms allow, and store them in `/srv/FreeSynergy/.scratch/reference/fiori/<programm>/` with `SOURCES.txt`.
+  its terms allow, and store them in the local working folder `reference/fiori/<programm>/` (not published) with `SOURCES.txt`.

@@ -45,7 +45,7 @@ Request:
            ["name","email"]], {"limit": 20}] } }
 ```
 
-Response: `result: [{ "id": 41, "name": "Muster AG", "email": "vertrieb@muster.de" }]`
+Response: `result: [{ "id": 41, "name": "Muster AG", "email": "vertrieb@muster.example" }]`
 
 ## Workflow-Aktionen
 

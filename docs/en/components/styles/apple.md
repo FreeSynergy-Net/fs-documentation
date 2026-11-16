@@ -162,4 +162,4 @@ the font package before any release.
 
 - None downloaded yet. Apple's HIG images are not reachable at the guessed paths (404), and no official screenshot of
   Contacts was found in this pass. Next step: take them from Apple's own press pages or the App Store listing, store
-  them under `/srv/FreeSynergy/.scratch/reference/apple/<programm>/` with a `SOURCES.txt`, never in a repository.
+  them under the local working folder `reference/apple/<programm>/` (not published) with a `SOURCES.txt`, never in a repository.

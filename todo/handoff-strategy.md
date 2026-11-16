@@ -1,6 +1,6 @@
 # Übergabe: Strategie-Sitzung (Stand 2026-11-14, nach Kontingent 99 %)
 
-Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das Memory `/home/kal/.claude/projects/-srv-FreeSynergy/memory/MEMORY.md` (alle verlinkten Dateien), dann die ADRs 0072–0085 in `conventions/decisions/`.
+Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das Memory `MEMORY.md im Memory-Ordner der Strategie` (alle verlinkten Dateien), dann die ADRs 0072–0085 in `conventions/decisions/`.
 
 ## Rollen
 - **Strategie (Opus, `freesynergy-c5`):** spricht als Einzige mit dem Nutzer (Deutsch, einfache Sprache, Fragen am Ende), entscheidet, schreibt ADRs, prüft Bilder, gibt Aufträge an den Koordinator. Programmiert und installiert nicht selbst.
