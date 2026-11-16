@@ -1,5 +1,7 @@
 # 0004 – Komponenten-Einteilung primitives / widgets / workbenches
 
+Status: akzeptiert (2026-11-03)
+
 ## Kontext
 Die 84 Komponenten stecken in 10 Typ-Kategorien (basics, fields, …). Die neue Architektur
 sortiert nach Ebene. Die Grenze widget↔workbench war unklar.

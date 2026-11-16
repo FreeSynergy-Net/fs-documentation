@@ -1,5 +1,7 @@
 # 0010 – Ein Prüfer für die Übersetzung: `scripts/doc_sync.py`
 
+Status: akzeptiert (2026-11-05)
+
 ## Kontext
 Für dieselbe Aufgabe (was ist noch nicht übersetzt, was hat deutschen Rest) existierten
 neben einander neun Helfer: `temp/find_german_prose.py`, `temp/find_untranslated.py`,

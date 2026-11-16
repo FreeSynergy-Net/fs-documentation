@@ -1,5 +1,7 @@
 # 0003 – Repo-Schale und Skript-Schattenbaum
 
+Status: akzeptiert (2026-11-03)
+
 ## Kontext
 Pläne und Vorgaben lagen verstreut in `docs/` (z. B. `apps/plan.md`,
 `components/konzept-und-plan.md`). Skripte hießen `tools/` ohne erkennbare Zuordnung.

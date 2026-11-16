@@ -1,5 +1,7 @@
 # 0005 – App und Widget: derselbe Kern, unterschiedliche Ebene
 
+Status: akzeptiert (2026-11-03)
+
 ## Kontext
 Zwei Kalender-Bausteine werden leicht verwechselt: `date-picker` (Auswahl-Overlay, liefert
 ein Datum in ein Feld) und `calendar-view` (Planungsfläche in der Kalender-App). Seit der

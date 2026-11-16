@@ -1,5 +1,7 @@
 # 0001 – Sechs Ebenen und Namen
 
+Status: akzeptiert (2026-11-03)
+
 ## Kontext
 Programme bauen aufeinander auf. Es fehlte eine durchgängige Trennung von „wird verbaut“
 und „läuft selbst“. Der bestehende Ordner `components/` meinte bisher die unterste Ebene.

@@ -1,5 +1,7 @@
 # 0009 – GUI: Blinc ist gesetzt
 
+Status: akzeptiert (2026-11-04)
+
 ## Kontext
 `programs/platform/crates/gui.md` vergleicht sieben GUI-Kandidaten (Blinc, Dioxus+Blitz, egui,
 iced, Makepad, GPUI, Leptos+Blitz) nach Plattformen, Canvas, SVG, Animation, Gesten,
