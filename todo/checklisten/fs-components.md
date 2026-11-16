@@ -29,6 +29,27 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] SPÄTER U4/U5 sind vorbeugend geändert, nicht im Bild nachgestellt (CHANGELOG 0.0.20)
 - [ ] SPÄTER Bildabweichung am Tabellenrand unten (feiner Strich unter der letzten Zeile in `standard-notion-u1u2u7u8-seite.png`) ansehen [offen]
 
+## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Kopf 61b7b05 + folgende; Review Opus 2026-11-16 `/srv/FreeSynergy/.scratch/review-u3-stufe1-opus.md`)
+Stufe 1 (Absatz, Überschriften, Listen, Aufgaben, Code, Zitat, Linie, Kürzel, Cursor über Blöcke) ist gebaut; auf `main` ist nichts davon, kein Tag. Erledigt mit Beleg, aus dem Review:
+- [x] **GRUNDSACHE** Blocker B1: Raw-Block hatte mehrere Startpunkte, Eingaben gingen still verloren (Beispiele `- a\n- b\nlazy`, Tabelle im Zitat). Behoben (Commit 7c1d5b2), Konformitätsfälle „lazy list item“ und „table in a quote“, Test `a_raw_block_can_be_typed_in`; Gegenprobe: ohne `starts.clear()` rot (Mutation auf Kopie, `.scratch/u3-mut.sh`)
+- [x] **GRUNDSACHE** Speicherform mit Maskierung (`save_form`, Rundlauf lesen-schreiben-lesen für alle Knotenarten, in Listen und Zitaten); Gegenprobe: Maskierung aus = rot (Commit 7c1d5b2, Test `write_then_read_gives_the_same_tree`)
+- [x] **GRUNDSACHE** Kürzel-Rückgabe nur direkt nach der Umwandlung und `[] ` + Rücktaste ergibt `[] ` ohne nie getipptes `- ` (Commit 7c1d5b2; Gegenproben rot)
+- [x] **GRUNDSACHE** Konformität „Nummer zählt nicht als Inhalt“ enger (`#.` statt Streichen; Liste zu Absätzen fällt durch) und `tick`-Wächter geschärft (Commits 7c1d5b2, e1b3322; Gegenproben rot)
+- [x] **GRUNDSACHE** Theme je Bildtest isoliert (Sperre) und Theme-Wächter an jedem Bild; Gegenprobe: Sperre entfernt bzw. Standard-Test mit Craft-Aufbau = rot; Bilder parallel und seriell byte-gleich (Commit 1828275, Ordner `.scratch/u3-stufe1-bilder/20261116-0207/`)
+- [x] **GRUNDSACHE** Craft-Cursor als eigenes Token `--cursor` (`Palette::cursor`), Kontrast 7,9:1 (Craft) und 3,6:1 (Standard), nicht Textfarbe; Code-Grund Craft 1,37:1 (`--code-ground`); Markierungsspalte 28 px; Luft um die Linie halbiert; Hoch/Runter laufen über die Linie; Häkchen aus dem Stil der Fläche; Fokuszähler bei `Drop`; Bild b3 zeigt den Cursor am Ende der Codezeile; Doku Version 2 (de/en), CHANGELOG
+- [ ] **GRUNDSACHE** Opus-Review der Korrekturen, danach Bilder zum Strategie-OK, Merge und Tag (Regel „Bilder vor Release“)
+- [ ] **GRUNDSACHE** Dieselbe Theme-Wächter-Regel in den Workflow `testlauf` (macht ein anderer Agent)
+- [ ] SPÄTER IME und echtes Fenster unter Wayland: ein echter Fensterlauf mit Komposition (`ü` per Tottaste, Emoji-Auswahl, chinesische Eingabe), Protokoll Tastenfolge, erwartetes Markdown, Bild mit Cursor (bisher nur Blincs Handler-Register, nie ein echtes Fenster)
+- [ ] SPÄTER Graphem-Cursor statt `char` (`unicode-segmentation` oder Blincs Cluster), Gegenprobe Emoji-Familie und Kombinationszeichen
+- [ ] SPÄTER Lange Seiten: 2000 Blöcke / 50000 Zeichen, Zeit je Taste unter 16 ms messen (Geometrie wird bei jeder Taste ganz neu gesetzt, `offset_in` misst je Klick jedes Präfix neu); danach nur geänderte Blöcke neu setzen bzw. sichtbaren Bereich zeichnen
+- [ ] SPÄTER Rückgängig (vor Kopieren/Einfügen)
+- [ ] SPÄTER Tab / Einrücken und Ausrücken in Listen (Lesen und Schreiben verschachtelter Listen geht, es gibt keine Tasten)
+- [ ] SPÄTER Tabellen als eigener Knoten mit Zellen als Blättern (kein `Raw`), Spaltenausrichtung und Kästchen in Zellen, Tab/Umschalt+Tab zwischen Zellen, Rundlauf byte-gleich
+- [ ] SPÄTER Kopieren und Einfügen (Markdown über `read.rs`, Klartext löst keine Kürzel aus; Gegenprobe `## x` in einen Absatz erzeugt keine Überschrift)
+- [ ] SPÄTER Auswahl über Blöcke (Auswahl als Cursor-Paar in `Session`, Löschen/Ersetzen über Blockgrenzen); entscheiden, ob der Vertrag dafür Version 3 bekommt oder cursorfrei bleibt (ADR 0084, nicht stillschweigend)
+- [ ] SPÄTER Maße `CARET`, `BAR`, `BULLET`, Zeilenhöhe 1,5, Kästchenseite als Tokens aus dem Theme (`Look`), Cursor-Blinken
+- [ ] SPÄTER `Surface::toggle_task_at` (workbenches, `view/wiki/surface.rs`) ruft kein `on_changed()`: der Besitzer im Fenster hört den Haken nicht (Review-Kleinigkeit)
+
 ## Frontend-Umbau (Schichten, ADR 0074)
 - [ ] **GRUNDSACHE** Umbau-Werkzeug (Tag 0.0.18) und Token-Liste auf `main` halten; Entscheidungen der Token-Liste bestätigen (Gleichstand = kleinere Stufe, Craft als Referenzstil, Deckkraft-Toleranz 0,05) [offen, Strategie]
 - [ ] **GRUNDSACHE** Texte nach MF2 in allen Crates: `texts-check` meldete am 2026-11-14 noch 449 Funde (Stufe R2), CI nur als Warnung; Ziel 0, dann CI hart [offen, Stand neu zählen]
