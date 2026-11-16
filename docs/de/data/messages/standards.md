@@ -1,6 +1,6 @@
 # Nachrichten – Standards
 
-> Belege: [standards.md](../standards.md) und `temp/research/messages-standards.md` (2026-11-05) —
+> Belege: [standards.md](../standards.md) und `research/messages-standards.md` (2026-11-05) —
 > was mit ✅ markiert ist, nicht aus dem Web nachladen. Ein Programm deckt E-Mail, Chat und Messenger
 > ab, nur verschlüsselt (ADR 0018); immer der jüngste gangbare Standard (ADR 0026).
 

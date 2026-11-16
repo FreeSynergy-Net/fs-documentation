@@ -2,7 +2,7 @@
 
 Status: Entwurf (Strategie, 2026-11-12; Nutzerwunsch „Kollaboration überall“); Code erst nach 3b und Wiki · baut auf ADR 0014 (Standards zuerst, AS2), 0020 (Speicherformat), 0021 (Cap'n Proto), 0042 (Datenbank ist die Wahrheit), 0046 (Speichern ≠ Export), 0050 (Besitzer), 0054 (KI-Teilnehmer), 0059 (iroh), 0067 (Tresor), 0071 (Versionen, Backup), 0072 (Blöcke)
 
-Befund und Quellen: `temp/research/kollaboration.md` (Opus-Empfehlung) und `temp/research/kollaboration-befund.md` (Stand 2026-11-11, Primärquellen: crates.io, npm, GitHub inkl. LICENSE-Dateien).
+Befund und Quellen: `research/kollaboration.md` (Opus-Empfehlung) und `research/kollaboration-befund.md` (Stand 2026-11-11, Primärquellen: crates.io, npm, GitHub inkl. LICENSE-Dateien).
 
 ## Kontext
 Mehrere Menschen (und markierte KIs, ADR 0054) sollen **gleichzeitig** am selben Dokument, Board oder Plan arbeiten, auch **offline und ohne Server** (ADR 0059). Dafür braucht es ein CRDT, ein Bild davon, **wer gerade da ist** (Awareness), einen Änderungsstrom und Regeln für Rechte und Löschen.
@@ -22,7 +22,7 @@ Mehrere Menschen (und markierte KIs, ADR 0054) sollen **gleichzeitig** am selben
 ### 2. Awareness: immer sichtbar, wer da ist
 - In jedem gemeinsam bearbeiteten Dokument und Board ist **jederzeit sichtbar, wer gerade darin ist** (Name, Farbe, Gerät, Status aktiv/untätig/abwesend, Ort im Dokument).
 - **Cursor und Auswahl anderer sind standardmäßig sichtbar; jeder kann seine eigenen abschalten** (dann zeigt nur noch die Anwesenheit „ist im Dokument“). Es gibt keinen Zwang, den eigenen Cursor zu zeigen.
-- Anwesenheit ist **flüchtig** (`EphemeralStore`, Zeitlimit etwa 30 s), wird **nie gespeichert** und läuft **nie im Änderungsstrom**. Jeder Eintrag ist signiert (ADR 0059). Schema siehe `temp/research/kollaboration.md` §4 (Vorschlag, anhängbar).
+- Anwesenheit ist **flüchtig** (`EphemeralStore`, Zeitlimit etwa 30 s), wird **nie gespeichert** und läuft **nie im Änderungsstrom**. Jeder Eintrag ist signiert (ADR 0059). Schema siehe `research/kollaboration.md` §4 (Vorschlag, anhängbar).
 - KIs erscheinen als **markierte Teilnehmer** (ADR 0054), nie als Mensch.
 
 ### 3. Wahrheit

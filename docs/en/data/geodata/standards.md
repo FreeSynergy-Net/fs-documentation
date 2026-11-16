@@ -5,7 +5,7 @@
 
 ## State 2026-11-05 (newest standards, ADR 0026)
 
-Evidence: `temp/research/geodata-projects-profile-login.md` (2026-11-05).
+Evidence: `research/geodata-projects-profile-login.md` (2026-11-05).
 
 | Standard | Evidence | Role |
 |----------|----------|------|

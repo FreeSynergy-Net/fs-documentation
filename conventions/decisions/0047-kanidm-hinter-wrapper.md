@@ -1,6 +1,6 @@
 # 0047 – Kanidm hinter eigenem Wrapper
 
-Status: akzeptiert (2026-11-06) · ergänzt und schränkt ADR 0024 ein · Befunde: `temp/research/kanidm-control.md`
+Status: akzeptiert (2026-11-06) · ergänzt und schränkt ADR 0024 ein · Befunde: `research/kanidm-control.md`
 
 ## Entscheidung (Nutzer)
 - **Wir legen fest, was geschieht, und gleichen Kanidm an.** Kanidm ist per REST-API oder Client ferngesteuert.

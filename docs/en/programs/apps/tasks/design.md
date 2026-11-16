@@ -27,7 +27,7 @@ program, not programs themselves. This replaces the earlier plan for `fs-kanban`
 
 ## Open-source gaps worth closing
 
-From the [research](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/projectmanagement-landscape.md):
+From the [research](https://github.com/FreeSynergy/fs-documentation/blob/main/research/projectmanagement-landscape.md):
 a decision as an object linked to tasks, one task in several scopes, and the personal and group use of the same data.
 Capacity and baselines belong to [`fs-resources`](../resources/index.md).
 

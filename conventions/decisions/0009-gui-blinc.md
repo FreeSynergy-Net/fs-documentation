@@ -35,7 +35,7 @@ Nutzer entscheidet am 2026-11-03: **Blinc**. Erste Anlaufstelle für die UI-Här
 
 ## Bestätigt und abgesichert (2026-11-05)
 
-Nach der Recherche `temp/research/blinc-health-and-parsers.md` (Bus-Faktor 1: 99 % der Commits vom
+Nach der Recherche `research/blinc-health-and-parsers.md` (Bus-Faktor 1: 99 % der Commits vom
 Autor; kaum fremde Nutzung; keine Barrierefreiheit; IME unvollständig) entscheidet der Nutzer:
 **bei Blinc bleiben und den Autor unterstützen — besser unterstützen als neu anfangen.** Blinc kann
 mehr als Komponenten: Effekte und Spielereien (Schnee, Regen, Animationen) — kleine menschliche
@@ -50,7 +50,7 @@ Absicherungen:
 5. Neu bewerten, wenn: 3 Monate kein Commit · eines unserer Issues > 30 Tage unbeantwortet ·
    vor unserer ersten öffentlichen Version kein Plan für Barrierefreiheit.
 
-Issues des Autors laufen über **git-bug** (`refs/bugs/*`); Stand: `temp/research/blinc-issues.md`.
+Issues des Autors laufen über **git-bug** (`refs/bugs/*`); Stand: `research/blinc-issues.md`.
 Blincs Plan „cn → layout promotion“ (c422b97) deckt sich mit unserer Component-Schicht.
 
 ## Antwort des Autors (2026-11-05, über den Nutzer)

@@ -35,4 +35,4 @@ Die vollständige Detailbeschreibung liegt in [jscontact/description.md](jsconta
 - **Zusammenführen/Aliasierung ❌ (geprüft 2026-11-05):** kein RFC definiert es (9553, 9554, 9555, 9610, 9982, 10050) → eigene Regel, siehe [technical.md](technical.md).
 - **RFC 9982** macht `uid` optional (✅ laut Recherche) — wir behalten es pflicht für die Austausch-Stabilität.
 
-Beleg: `temp/research/contacts-identity-standards.md` (2026-11-05).
+Beleg: `research/contacts-identity-standards.md` (2026-11-05).

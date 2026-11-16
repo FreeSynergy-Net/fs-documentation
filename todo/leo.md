@@ -2,7 +2,7 @@
 
 Leo liefert Rohmaterial, Opus prüft. Ergebnisse gelten als ⚠️, bis sie an einer Primärquelle
 geprüft sind (ADR 0013). Jede Antwort mit **Quelle (URL) und Datum** in
-`temp/research/<thema>.md` ablegen — so muss niemand dieselbe Suche zweimal machen.
+`research/<thema>.md` ablegen — so muss niemand dieselbe Suche zweimal machen.
 
 Prompt-Muster (kopierfertig):
 

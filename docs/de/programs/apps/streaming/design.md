@@ -1,7 +1,7 @@
 # Streaming — Design
 
 **Status: Vorschlag (2026-11-06).** Zurück zum [Gesamtplan](../roadmap.md) · [Anforderungen](requirements.md) ·
-[Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/streaming-landscape.md).
+[Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/research/streaming-landscape.md).
 
 ## Wofür es da ist
 

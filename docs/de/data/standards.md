@@ -130,7 +130,7 @@ Fehler aus dem bisherigen Gespräch, damit sie nicht in eine Datei wandern:
 | schema.org-Version „16.0" | frei erfundene Zahl. Geprüft: schema.org nennt auf den abgerufenen Seiten „V30.1 \| 2026-09-16" |
 | „W3C bringt gerade ein Ink Annotation Module" | unbelegt, zurückgezogen |
 | „E-Rechnung: Empfang seit 2025, Ausstellung 2027/2028" | in dieser Runde **nicht nachgesehen** — als Frist nicht verwenden |
-| „ActivityPub signiert mit `Authorization: Signature`, Referenz `w3id.org/security/httpsig`" | diese Referenz liefert **HTTP 404**. **Gelöst 2026-11-05:** HTTP Message Signatures **RFC 9421** (Feb 2024, ✅); Objekt-Proofs **FEP-8b32** (Entwurf, Data Integrity `eddsa-jcs-2022`, ✅); Schlüssel als `Multikey` nach **FEP-521a** (final 2025-06-14, ✅). Mastodon prüft RFC 9421 seit 4.5.0 (✅). Details: `temp/research/contacts-identity-standards.md` |
+| „ActivityPub signiert mit `Authorization: Signature`, Referenz `w3id.org/security/httpsig`" | diese Referenz liefert **HTTP 404**. **Gelöst 2026-11-05:** HTTP Message Signatures **RFC 9421** (Feb 2024, ✅); Objekt-Proofs **FEP-8b32** (Entwurf, Data Integrity `eddsa-jcs-2022`, ✅); Schlüssel als `Multikey` nach **FEP-521a** (final 2025-06-14, ✅). Mastodon prüft RFC 9421 seit 4.5.0 (✅). Details: `research/contacts-identity-standards.md` |
 
 ## Beschlüsse (2026-11-01)
 

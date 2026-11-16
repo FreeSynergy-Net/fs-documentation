@@ -135,7 +135,7 @@ Bilder: keine gespeichert, nur Quellen verlinkt. Geprüft wurden Primärseiten, 
 ## Grundlagen aus dem Repo
 
 - `fs-documentation`: die lokale Kopie ist gegenüber `origin/main` divergiert. Gelesen wurde `origin/main`:
-  - `temp/research/craft-launcher.md` (Stand 2026-11-07, v0.16.0)
+  - `research/craft-launcher.md` (Stand 2026-11-07, v0.16.0)
   - `conventions/decisions/0068-faehigkeiten-und-spiegel.md` (akzeptiert 2026-11-10, Bau nach Runde 3b). Sie verlangt Fähigkeiten (provides/requires/recommends), gespiegelte Pakete mit Upstream-Signatur und Quellcode, Herkunftsfelder im Katalog.
 - Heutiger Store (`/srv/FreeSynergy/fs-store`, Code gelesen, nicht gestartet):
   - Karte (`crates/fs-store-app/src/model/cards.rs`, `struct Card`): Name, Art, Zustand, angebotene und installierte Version, **eine** Beschreibung (kann leer sein), eine Projektseite, „Neu“-Marke, Fortschritt in Phasen, Fehlertext, Buttons. Logo ist ein **Buchstabe auf farbigem Feld** (`Placeholder`).

@@ -29,7 +29,7 @@ What is not there yet: costs, support for MSPDI (a project plan file format), an
 ## Why
 
 Projects need people and things. So does a democracy project at larger scale, and ERP later. The
-[research](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/projectmanagement-landscape.md) shows
+[research](https://github.com/FreeSynergy/fs-documentation/blob/main/research/projectmanagement-landscape.md) shows
 capacity planning and full baselines are paid features or missing in the open-source tools examined, so this is a real gap.
 
 ## What it covers

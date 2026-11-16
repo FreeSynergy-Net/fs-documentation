@@ -1,6 +1,6 @@
 # 0018 – Messenger umfasst E-Mail und Chats; nur verschlüsselte Nachrichten
 
-Status: akzeptiert (2026-11-05) · Backend entschieden 2026-11-05 (Recherche `temp/research/messaging-crates.md`)
+Status: akzeptiert (2026-11-05) · Backend entschieden 2026-11-05 (Recherche `research/messaging-crates.md`)
 
 ## Kontext
 E-Mail, Chat (Telegram, Discord) und Messenger (Element, Signal) sind für Menschen dasselbe:

@@ -2,7 +2,7 @@
 
 What `FreeSynergy.Surveys` (`fs-surveys`) must and can do. The program owns AS2 `Question` and the decision topic
 ([interface catalogue](../../../interfaces/index.md)). Anything another program owns is reached through that program's
-interface and is not specified again here (ADR 0050). Background: [research note](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/surveys-landscape.md).
+interface and is not specified again here (ADR 0050). Background: [research note](https://github.com/FreeSynergy/fs-documentation/blob/main/research/surveys-landscape.md).
 
 **Provisional (2026-11-06).** No frontends have been analysed for this category, so nothing here has passed the usual
 rule (ADR 0006, 0013). Everything comes from our architecture (*arch.*) or is general knowledge of such programs (⚠️),

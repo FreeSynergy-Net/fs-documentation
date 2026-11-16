@@ -19,7 +19,7 @@ Muster: `Projekt · Wunsch · Begründung · Status (offen / Issue #… / erledi
 - `BlincContextState::init` löst beim zweiten Aufruf einen Panic aus, auch über Threads hinweg.
 - **Kein Haken beim Schließen des Fensters:** Entwürfe gehen ohne eigene Sicherung verloren (wir sichern deshalb selbst).
 - Kleinere: `Scroll` hat kein `flex_1`; `min_w` neben `w(0.0)` wird ignoriert; Textfeld bricht enger um als seine Box; `cn_styles`-Doku nennt das nicht vorhandene `register_cn_styles`.
-(Befunde `temp/research/blinc-health-and-parsers.md`; Antwort des Autors 2026-11-05 in ADR 0009)
+(Befunde `research/blinc-health-and-parsers.md`; Antwort des Autors 2026-11-05 in ADR 0009)
 
 ### Absturz beim Vergrößern des Fensters (Blinc 0.6.0, Thread S, 2026-11-08; gemeldet als Issue #66 und PR #67)
 - **Fehler:** `blinc_app` `context/compositor.rs`, `try_render_with_compositor`: Die Größe des statischen Zwischenspeichers kommt aus der Fenstergröße (`windowed_ctx.physical_width`), die Oberflächen-Textur, in die kopiert wird, hat noch die Größe des letzten `Resized`-Ereignisses (ein Bild zurück). `copy_texture_to_texture` einer größeren Ebene in die kleinere Textur ist ein wgpu-Validierungsfehler und bricht ab (`Copy of X 0..1278 would end up overrunning the bounds of the Destination texture of X size 1276`, danach `SurfaceAcquireSemaphores still in use` nur als Folge des Abbruchs).
@@ -36,7 +36,7 @@ zuerst im RFC-Kanal (Discord) besprechen → PR.
 - `code_editor`: Hervorhebung per eigenem Trait einhängbar → **wir** bauen syntect-Adapter (pure Rust); Messung Puffer vs. Zeile · unsere Aufgabe
 - Text-Shaping: harfrust — Autor sieht es sich an · beim Autor
 - `wgpu` auf 26 festgenagelt · offen
-- Roadmap = git-bug · erledigt (gelesen: `temp/research/blinc-issues.md`)
+- Roadmap = git-bug · erledigt (gelesen: `research/blinc-issues.md`)
 - **Gesten: Stift (Druck, Neigung), generischer Swipe, Zwei-Finger-Pan/Rotate** — Autor: Beiträge willkommen · **unser Beitrag** (RFC-Kanal zuerst)
 - **cn-Komponenten** aus dem Rückstand (bf7c901) und unsere neuen (Messenger) — Autor: Beiträge willkommen · **unser Beitrag**
 - **Beitrags-Kandidaten aus der Messenger-Zerlegung** (je erst git-bug-Issue + RFC-Kanal):

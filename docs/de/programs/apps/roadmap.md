@@ -78,7 +78,7 @@ Ein Programm kann zu mehreren Suiten gehören.
 
 ## Was das lohnend macht
 
-Ergebnisse aus den [Recherchenotizen](https://github.com/FreeSynergy/fs-documentation/tree/main/temp/research) vom 2026-11-06:
+Ergebnisse aus den [Recherchenotizen](https://github.com/FreeSynergy/fs-documentation/tree/main/research) vom 2026-11-06:
 
 - **Entscheidungen als eigenständige Objekte.** Kein Projektwerkzeug, das wir uns angesehen haben, behandelt eine Entscheidung oder Abstimmung als Objekt, das mit Aufgaben verknüpft ist.
 - **Eine Umfrage, die sich ausweitet.** Kein gefundenes Werkzeug lässt eine Umfrage in einer kleinen Gruppe beginnen und in deren übergeordnete Gruppe wechseln, wobei die Ergebnisse übernommen werden.

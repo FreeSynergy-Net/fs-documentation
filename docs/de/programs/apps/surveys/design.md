@@ -44,7 +44,7 @@ Weitere Risiken, die zu behandeln sind:
 
 **Eine Umfrage kann vollständig offen sein, ganz ohne Konto.** Trotzdem darf eine Partei nicht eine Million Antworten abgeben können.
 
-Aus der [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/surveys-landscape.md): Nichts bietet „eine Person, eine Antwort, keine Identität, kein Dritter“ bei einem vollständig offenen Link. Schichten lassen sich ohne Dritten kombinieren: adaptive Proof of Work, globale Ratenbegrenzungen, eine Gerätemarkierung, Qualitätsbewertung mit einer Prüfwarteschlange und die Anzeige von „alle Antworten“ neben „geprüften Antworten“. Die Schnittstelle benennt, welcher Schutz gilt. Privacy Pass (RFC 9576) ist ein Standard für den privaten Nachweis eines echten Geräts, aber heute stellen nur Plattformanbieter die Token aus.
+Aus der [Recherche](https://github.com/FreeSynergy/fs-documentation/blob/main/research/surveys-landscape.md): Nichts bietet „eine Person, eine Antwort, keine Identität, kein Dritter“ bei einem vollständig offenen Link. Schichten lassen sich ohne Dritten kombinieren: adaptive Proof of Work, globale Ratenbegrenzungen, eine Gerätemarkierung, Qualitätsbewertung mit einer Prüfwarteschlange und die Anzeige von „alle Antworten“ neben „geprüften Antworten“. Die Schnittstelle benennt, welcher Schutz gilt. Privacy Pass (RFC 9576) ist ein Standard für den privaten Nachweis eines echten Geräts, aber heute stellen nur Plattformanbieter die Token aus.
 
 ## Entscheidungsarten
 

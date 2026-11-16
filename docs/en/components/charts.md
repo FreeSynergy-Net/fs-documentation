@@ -3,7 +3,7 @@
 **Status: proposal (2026-11-06).** Charts are components, needed by surveys, project management, ERP and more. We list
 all of them, without implying we build all of them. The interface is to be a standard, so charts can be plugins.
 
-[Full catalogue](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/charts-catalogue.md): about 235
+[Full catalogue](https://github.com/FreeSynergy/fs-documentation/blob/main/research/charts-catalogue.md): about 235
 chart types, sorted by the question they answer, each with the data shape it needs and a priority.
 
 ## Priority A, by purpose

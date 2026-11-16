@@ -83,7 +83,7 @@ when the next program needs it, since components without a real user tend to get
 
 ## What makes this worth doing
 
-Findings from the [research notes](https://github.com/FreeSynergy/fs-documentation/tree/main/temp/research) of 2026-11-06:
+Findings from the [research notes](https://github.com/FreeSynergy/fs-documentation/tree/main/research) of 2026-11-06:
 
 - **Decisions as first-class objects.** No project tool we looked at treats a decision or vote as an object linked to tasks.
 - **A survey that widens.** No tool found lets a poll start in a small group and move to its parent group, results carried over.

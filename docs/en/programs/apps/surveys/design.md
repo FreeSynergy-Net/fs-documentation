@@ -59,7 +59,7 @@ Other risks to handle:
 
 **A survey can be completely open, with no account.** One party must still not be able to submit a million answers.
 
-From the [research](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/surveys-landscape.md): nothing gives
+From the [research](https://github.com/FreeSynergy/fs-documentation/blob/main/research/surveys-landscape.md): nothing gives
 "one person, one answer, no identity, no third party" on a fully open link. Layers can be combined with no third party:
 adaptive proof of work, global rate limits, a device marker, quality scoring with a review queue, and showing "all
 answers" beside "checked answers". The interface states which protection is in place. Privacy Pass (RFC 9576) is a

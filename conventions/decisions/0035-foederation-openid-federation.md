@@ -5,7 +5,7 @@ Status: akzeptiert (2026-11-05) · ADR 0024, 0028, 0029
 ## Kontext
 Der Nutzer will Listen, die wie ein Identity-Broker sagen, was Menschen und Gruppen dürfen; je mehr
 Vertrauen, desto mehr Freigabe. **OpenID Federation 1.0** (final 2026-02-17,
-`temp/research/geodata-projects-profile-login.md`) beschreibt genau das.
+`research/geodata-projects-profile-login.md`) beschreibt genau das.
 
 ## Entscheidung
 - Föderation zwischen Instanzen über **OpenID Federation 1.0**:

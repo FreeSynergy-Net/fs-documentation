@@ -20,7 +20,7 @@ Latest tag: `v0.0.1`. The adapter creates, reads, updates, lists and removes gro
 Signing in, and access to systems. We define how it behaves; Kanidm carries it out where it can.
 
 **Status: only a Kanidm adapter for groups, `v0.0.1`; no sign-in yet.** Back to the [overall plan](../apps/roadmap.md). The repository name `fs-identity` is provisional. Details: 
-[Kanidm research](https://github.com/FreeSynergy/fs-documentation/blob/main/temp/research/kanidm-control.md), source read
+[Kanidm research](https://github.com/FreeSynergy/fs-documentation/blob/main/research/kanidm-control.md), source read
 at Kanidm 1.13.0-dev (latest release 1.12.0), not run against a live server.
 
 ## Idea
