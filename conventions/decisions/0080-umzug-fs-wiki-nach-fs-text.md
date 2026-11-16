@@ -70,3 +70,6 @@ Punkt 5.3 verlangt die Umbenennung „als eigene, geprüfte Schritte, mit Weiter
 - Umsetzung von `replaces` (entschieden, noch nicht gebaut): Katalog, Schema 2, Store-Erkennung und Datenkopie, Tests mit alter und neuer ID.
 - Doku-Weiterleitungen alter Pfade `apps/wiki/…` (Redirect-Plugin in mkdocs nicht belegt).
 - Unterstützung von `Obsoletes`/`Replaces` in unserer eigenen Paketlinie (ADR 0078).
+
+## Nachtrag 2026-11-16: `replaces` im Katalog gebaut
+Der Katalogteil von `replaces` ist umgesetzt (fs-catalog, Branch `unreviewed/catalog-replaces`, noch nicht in main): Feld je Paket (nur Schema 2), `<replaces><id>` in `catalog.xml`, Prüfung in `gen_catalog.py` (kein Name zugleich in `replaces` und als eigener Eintrag, eine alte ID hat nur einen neuen Eintrag, keine doppelten IDs; mit `--retired` gegen `retired-names.txt` aus fs-release: ID auf der Liste = Fehler, ersetzter Name nicht auf der Liste = Warnung). Die Prüfung „gleicher Eigner“ aus der Entscheidung (a) ist **nicht** gebaut: der alte Eintrag fehlt im Katalog (Trockenlauf 2026-11-16: 0 Treffer), es gibt nichts zu vergleichen. Store-Erkennung, Datenkopie und Pakete (b, c) bleiben offen.

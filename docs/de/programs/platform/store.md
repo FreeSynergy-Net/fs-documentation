@@ -18,6 +18,7 @@ Status: **Pre-release, früh.** Lies vor dem Ausprobieren unten den Abschnitt �
 
 - Pre-releases gibt es auf GitHub ([releases](https://github.com/FreeSynergy/fs-store/releases)). Die Versionsnummern wurden auf `0.0.N` zurückgesetzt ([ADR 0064](../../decisions/0064-versionen-ab-0-0-1.md)); die älteren `0.1.0-rc.N`-Builds wurden entfernt.
 - Der Kern funktioniert: die Quellenliste, das Lesen des Katalogs, die Signaturprüfung gegen den Projektschlüssel, die Installation aus einer `tar.gz` in deinen Home-Ordner, das Umschalten auf die neue Version in einem Schritt bei gleichzeitigem Behalten der alten sowie eine Prüfung, ob das Programm gerade läuft. Getestet wurde er mit einem echten signierten Paket von Tasks über einen lokalen Git-Katalog.
+- Das Katalogformat kennt `replaces` für umbenannte Programme ([ADR 0080](../../decisions/0080-umzug-fs-wiki-nach-fs-text.md)): Ein Eintrag nennt die alten IDs, die er übernimmt, und `catalog.xml` trägt sie als `<replaces><id>`. Der Katalog prüft, dass ein alter Name nicht zugleich ein eigener Eintrag ist. Der Store liest das Feld noch nicht und zeigt so einen Eintrag deshalb noch nicht als Update.
 - Die Kommandozeile funktioniert für die oben genannten Unterbefehle. Das Fenster ist das Erste und vorläufig.
 - Die Installation eines rpm über `dnf` und `pkexec` ist geschrieben, aber noch nicht echt ausgeführt worden (root-Rechte fragt das System ab, nie der Store).
 
