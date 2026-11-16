@@ -3,7 +3,7 @@
 #   scripts/test_folder_indexes.sh      (needs mkdocs; MKDOCS=/path/to/mkdocs to override)
 set -uo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
-SRC="$PWD"; MKDOCS="${MKDOCS:-$(command -v mkdocs || echo /tmp/rv-venv/bin/mkdocs)}"
+SRC="$PWD"; MKDOCS="${MKDOCS:-${FS_MKDOCS:-$(command -v mkdocs || echo .venv/bin/mkdocs)}}"
 t="$(mktemp -d)"; trap 'rm -rf "$t"' EXIT
 fail=0; ok() { echo "ok: $1"; }; bad() { echo "FAIL: $1" >&2; fail=1; }
 

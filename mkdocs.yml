@@ -137,9 +137,7 @@ validation:
   links:
     not_found: warn
     absolute_links: warn
-    # TODO (todo/checklisten/fs-documentation.md, branch unreviewed/checklisten-b): tighten to warn per kind.
-    # anchors: 7 broken anchors still open (4 "no such anchor on this page", 3 "doc does not contain an anchor").
-    anchors: info
+    anchors: warn
     # unrecognized_links: 2383 folder links ("dir/") that MkDocs never resolves; with the generated
     # folder indexes they all point to an existing index.md ("Did you mean ...") and work in the built site.
     # Rewrite them to "dir/index.md", then set to warn.
