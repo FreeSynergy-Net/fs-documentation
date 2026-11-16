@@ -86,6 +86,38 @@ plugins:
             7 Decisions: Entscheidungen
             0 Get started: Loslegen
             8 Help: Hilfe
+  # Old addresses of pages moved from programs/apps/history to programs/apps/activity (the program is named Activity now).
+  # Every rename gets a line here (see the lesson in the umbenennen workflow).
+  # English is the default language and sits at the site root (no "en/" prefix); German lives under /de/.
+  # The plugin cannot compute a relative link to an English page (its target path still carries "en/"),
+  # so the English targets are absolute URLs under site_url. Keep them in step with site_url.
+  - redirects:
+      redirect_maps:
+        'de/programs/apps/history/index.md': 'de/programs/apps/activity/index.md'
+        'programs/apps/history/index.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/'
+        'programs/apps/history/requirements.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/requirements/'
+        'programs/apps/history/frontends/index.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/'
+        'programs/apps/history/frontends/activitywatch/index.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/'
+        'programs/apps/history/frontends/activitywatch/latest/api.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/api/'
+        'programs/apps/history/frontends/activitywatch/latest/description.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/description/'
+        'programs/apps/history/frontends/activitywatch/latest/features.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/features/'
+        'programs/apps/history/frontends/activitywatch/latest/layout.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/layout/'
+        'programs/apps/history/frontends/activitywatch/latest/menus.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/menus/'
+        'programs/apps/history/frontends/activitywatch/latest/shortcuts.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/activitywatch/latest/shortcuts/'
+        'programs/apps/history/frontends/day-one/index.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/'
+        'programs/apps/history/frontends/day-one/latest/api.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/api/'
+        'programs/apps/history/frontends/day-one/latest/description.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/description/'
+        'programs/apps/history/frontends/day-one/latest/features.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/features/'
+        'programs/apps/history/frontends/day-one/latest/layout.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/layout/'
+        'programs/apps/history/frontends/day-one/latest/menus.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/menus/'
+        'programs/apps/history/frontends/day-one/latest/shortcuts.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/day-one/latest/shortcuts/'
+        'programs/apps/history/frontends/exist-io/index.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/'
+        'programs/apps/history/frontends/exist-io/latest/api.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/api/'
+        'programs/apps/history/frontends/exist-io/latest/description.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/description/'
+        'programs/apps/history/frontends/exist-io/latest/features.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/features/'
+        'programs/apps/history/frontends/exist-io/latest/layout.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/layout/'
+        'programs/apps/history/frontends/exist-io/latest/menus.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/menus/'
+        'programs/apps/history/frontends/exist-io/latest/shortcuts.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/shortcuts/'
 
 markdown_extensions:
   - abbr
