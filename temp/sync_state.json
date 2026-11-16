@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16T04:41:27.898131+00:00",
+  "last_run": "2026-11-16T04:47:44.218985+00:00",
   "entries": {
     "components/blinc-cn-components.md": {
       "status": "VERIFIED",
@@ -48459,16 +48459,16 @@
     },
     "programs/apps/tasks/design.md": {
       "status": "PENDING",
-      "en_hash": "4835a748307bf1a8",
+      "en_hash": "8da74414681c9fc6",
       "de_hash": "ec492662f6ee80d6",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
-        "review"
+        "parity"
       ],
       "note": null,
       "history": [],
-      "en_bytes": 3240,
+      "en_bytes": 3988,
       "de_bytes": 3737
     },
     "programs/apps/tasks/frontends/index.md": {
@@ -51773,114 +51773,132 @@
     "programs/suites/projectmanagement/frontends/index.md": {
       "status": "PENDING",
       "en_hash": "034b4685f820218d",
-      "de_hash": "89998451ae065537",
+      "de_hash": "a2b1564dd15ec574",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
-        "parity"
+        "review"
       ],
       "note": null,
       "history": [],
       "en_bytes": 4227,
-      "de_bytes": 4193
+      "de_bytes": 3937
     },
     "programs/suites/projectmanagement/frontends/jira/index.md": {
       "status": "PENDING",
       "en_hash": "cfa77d41a4724a94",
-      "de_hash": "bccfb70462bde1c2",
+      "de_hash": "e9dda663d928c249",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
-        "parity"
+        "review"
       ],
       "note": null,
       "history": [],
       "en_bytes": 369,
-      "de_bytes": 1305
+      "de_bytes": 395
     },
     "programs/suites/projectmanagement/frontends/jira/latest/api.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "e7ba09bd7871d65e",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 2579
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/jira/latest/description.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "48225947fb506dcc",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 1327
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/jira/latest/features.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "be535c70d8d88db6",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 1535
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/jira/latest/layout.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "3e1cd3c3378c872c",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 2402
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/jira/latest/menus.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "cf4811a3cb2ab2ec",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 1285
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/jira/latest/shortcuts.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": null,
       "de_hash": "2b2204997c150333",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "needs_en"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
+      "history": [
+        {
+          "at": "2026-11-16T04:47:43.464936+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
       "en_bytes": null,
-      "de_bytes": 1131
+      "de_bytes": null
     },
     "programs/suites/projectmanagement/frontends/openproject/index.md": {
       "status": "PENDING",
