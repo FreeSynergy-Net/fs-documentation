@@ -118,3 +118,35 @@ Nur die Liste. Nichts davon ist in diesem ADR eingebaut.
 - **Sperre-Frage Bot in fs-groups:** ob der Bot später mehr als `Read` darf, bleibt ausgeschlossen (2.6.10 entschieden: höchstens `Read`).
 - **Bindung des Tokens an die Laufzeit** (DPoP RFC 9449 oder mTLS RFC 8705): [nicht belegt] für Kanidm und tuwunel. Bis dahin gilt die Grenze in Punkt 15.
 - **Höchstzahl der Bot-Plätze je Halter:** Vorschlag 3 als Instanz-Einstellung; Wert noch nicht vom Nutzer bestätigt.
+
+## Nachtrag 2026-11-16: Mehrere KIs, je KI ein Bot-Platz, Adapter-Schicht
+
+Anlass: Nutzerentscheidung (16.11., über die Strategie): Mehrere KIs können gleichzeitig teilnehmen. Jede KI bekommt einen eigenen Bot-Platz. Der Bot hat eine Adapter-Schicht je KI-Schnittstelle (Anthropic, OpenAI-kompatibel, lokal z. B. llama.cpp). Das Mandat bleibt gleich. Dieser Nachtrag präzisiert die Entscheidungen 1, 2, 9, 12 und 13 des ADR; die übrigen Punkte bleiben unverändert.
+
+**Entscheidung**
+1. **Ein Bot-Platz je KI.** Mehrere KIs dürfen gleichzeitig in einer Situation sein. Jede KI hat einen eigenen Bot-Platz mit eigenem Mandat, eigener Zustimmung aller Anwesenden und eigenem Knopf „STOP KI“. Ein Bot-Platz ist an genau eine KI und genau eine Situation gebunden (Punkt 2 des ADR).
+2. **STOP trennt nur diese KI.** „STOP KI“ wirkt auf den Bot-Platz der gedrückten KI: Steuer-Sitzung getrennt, Mandat `Stopped`, Token widerrufen (ADR Punkt 9). Andere Bot-Plätze in derselben Situation bleiben unberührt. Ein Widerruf eines Menschen für alle KIs einer Situation ist ein eigener Schritt: er stoppt jeden Platz einzeln, mit je einem Protokolleintrag.
+3. **Adapter-Schicht je KI-Schnittstelle.** Der Bot spricht über einen Adapter mit der jeweiligen KI. Es gibt Adapter für Anthropic, für OpenAI-kompatible Schnittstellen und für lokale Modelle (z. B. llama.cpp). Der Adapter übersetzt das Mandat in Werkzeugaufrufe und Berechtigungen. Das Mandat selbst bleibt für alle Adapter gleich.
+4. **Keine Rechte im Adapter.** Der Adapter hat nie mehr Rechte als das Mandat. Er wird nie als eigene Identität mit Rechten geführt, bekommt keine Zugangsdaten außerhalb des Tresors (ADR 0067) und kann nicht ohne Mandat handeln. Adapter sind austauschbar, ohne dass sich Rechte ändern; ein Adapterwechsel ist eine Änderung des Steuerers und braucht neue Zustimmung (ADR Punkt 8).
+5. **Protokoll.** Jede Handlung ist eine AS2-Aktivität mit `actor` = Bot-Platz und `instrument` = KI mit Adapter-Name und Modell (z. B. „Anthropic, Modell X“, „lokal, llama.cpp, Modell Y“). Die Anzeige „Bot X, gesteuert von KI Y über Adapter Z, beauftragt von W“ bleibt.
+6. **Datenschutz je Adapter.** Bei einem Anbieter außerhalb des Geräts nennt die Zustimmung den Anbieter und den Standort der Verarbeitung. Bei einem lokalen Adapter verlassen die Daten das Gerät nicht; das ist die Sicherheitsoption „nur lokal“ aus dem Nachtrag „KI-Helfer“ (0054).
+
+**Koordination mehrerer KIs.** Keine KI sieht, was eine andere KI über ihren Bot tut, außer es ist in der Situation sichtbar (z. B. im Verlauf des Raums). Eine KI leitet nichts an eine andere KI weiter; Weiterleitung läuft nur über Menschen oder ist ausdrücklich im Mandat erlaubt (Offen).
+
+**Folgen**
+- **Pilot-Bot** (`pilot-bot/PLAN.md`): Der Plan wird auf Bot-Plätze je KI umgestellt; die Adapter-Schicht bekommt einen eigenen Abschnitt.
+- **groups_v1:** `BotSeat` gibt es je KI (Schlüssel: Situation und KI-Karte). `open_seat`, `stop_seat` und `seats_of` arbeiten je Platz. Der Platz ist nie echtes Mitglied (ADR Punkt 13).
+- **person_directory_v1:** `controller` je Bot-Platz (nicht je Halter). Eine Einwilligung `AiAssistance` gilt je Platz.
+- **MCP-Modul** (Nachtrag 2, „KI-Zugang je Programm und je Gruppe“): Der MCP-Schalter gilt je Programm und je Gruppe; jede KI erreicht MCP nur über ihren eigenen Bot-Platz.
+
+**Tests**
+- Zwei KIs in einer Situation: STOP der einen trennt nur deren Platz; die andere bleibt aktiv, mit eigenem Mandat und eigener Zustimmung.
+- Adapterwechsel: Rechte bleiben gleich; ohne neue Zustimmung wird der Platz `Pending`.
+- Gegenprobe: Ein Adapter erhält im Mandat keine Handlung, die das Mandat nicht erlaubt, auch wenn das Modell sie anfordert.
+- Protokoll: Jede Aktivität nennt Bot-Platz und KI mit Adapter und Modell.
+- Datenschutz: Ein Anbieter außerhalb nennt sich in der Zustimmung; ein lokaler Adapter sendet nichts nach außen.
+
+### Offen
+- **Höchstzahl der KIs je Halter und je Situation:** Obergrenzen gelten je Platz bzw. insgesamt. Wert nicht bestätigt.
+- **KI-zu-KI-Weiterleitung:** nur über Menschen oder ausdrücklich im Mandat; Entscheidung steht aus.
+- **Kosten und Rate je Adapter:** Ratenbegrenzung je Mandat (ADR Punkt 15) und Kostengrenze je Adapter sind nicht festgelegt.
