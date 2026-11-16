@@ -11,6 +11,7 @@ Hinweis: Belege sind Commit/Tag aus dem Repo (/srv/FreeSynergy/fs-store, origin/
 - [ ] **GRUNDSACHE** README stimmt mit dem Stand überein (README sagt noch „Design only so far") [offen: Fix im Programm-Repo]
 - [ ] **GRUNDSACHE** v0.0.16 ist Pre-release; Abnahme per Bilder -> Strategie-OK -> Release (Memory: Bilder vor Release) [offen: kein Bildbeleg in dieser Quelle]
 - [ ] **GRUNDSACHE** Frontend nach Dossier Store/Discover (Plasma 6): Arbeitsabläufe durchgegangen (Dossier Welle 1 auf Doku-main; Nachbesserungen offen, handoff-strategy Punkt 8)
+- [ ] **GRUNDSACHE** Hinweis (Nutzerkorrektur 2026-11-16): mehrere Frontends nach Vorbild (Discover, GNOME Software, Microsoft Store, Flathub), jedes Theme (bisher Stil) auf jedes Frontend, Wechsel außerhalb und zur Laufzeit; nicht „Frontend in Stil“. Frontend = Aufbau, Theme = Aussehen; Dossier beschreibt nur Aufbau [offen, Frontends bis auf Discover nicht begonnen]
 - [ ] **GRUNDSACHE** Beenden/Neustart nach Update ohne Hänger (Befund `.scratch/befund-update-neustart.md`) [offen: Status prüfen]
 - [ ] **GRUNDSACHE** Texte MF2 de+en (ADR 0057) [offen: Stand unbekannt]
 
