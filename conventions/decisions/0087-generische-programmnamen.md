@@ -117,6 +117,6 @@ Der Nutzer hat Frage 49 mit JA beantwortet (2026-11-16). Dieser Nachtrag ändert
 
 Dieser Nachtrag ersetzt keine Regel und ändert den Status nicht; er hält die Abgrenzung der beiden Fähigkeiten fest, die der vorige Nachtrag (fs-decisions) eingeführt hat.
 
-- **fs-forms** sammelt Daten mit Formularen und Umfragen (Fragebögen, Anmeldungen, Quiz, Meinungsbild) und wertet sie aus. Seine Capability ist `surveys` (Anzeigename „Forms“); der Schlüssel bleibt, weil Capability-Schlüssel stabile Namen nach ADR 0068 sind.
+- **fs-forms** sammelt Daten mit Formularen und Umfragen (Fragebögen, Anmeldungen, Quiz, Meinungsbild) und wertet sie aus. Seine Capability ist `surveys` (Anzeigename „Forms“); der Schlüssel bleibt, denn nach ADR 0068 ist der Fähigkeiten-Name der Name der Themen-Schnittstelle (`surveys.capnp`) und „Namen werden nie umbenannt oder entfernt“ (Nachtrag „Status `planned`“).
 - **fs-decisions** entscheidet in der Gruppe: Abstimmungen, Beschlüsse, Terminfindung als Facette. Es bekommt eine eigene Capability `decisions`, sobald sein Trait `decisions_v1` steht; bis dahin liegt das Interface `Decisions` im Schema `surveys.capnp` und wandert mit dem Trait.
 - Die Eingabefelder (etwa der Terminfrage) kommen EINGEBETTET aus fs-forms (Nachtrag „fs-decisions“, Punkt 2, Zeile 97); „Abstimmung“ als Facette von fs-forms entfällt (Punkt 3, Zeile 98).
