@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16T04:41:06.933074+00:00",
+  "last_run": "2026-11-16T04:41:27.898131+00:00",
   "entries": {
     "components/blinc-cn-components.md": {
       "status": "VERIFIED",
@@ -51098,16 +51098,16 @@
     "programs/map.md": {
       "status": "PENDING",
       "en_hash": "efdaa52c8c81712e",
-      "de_hash": "5f19d93f965ee408",
+      "de_hash": null,
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
-        "de_english"
+        "needs_de"
       ],
       "note": null,
       "history": [],
       "en_bytes": 19407,
-      "de_bytes": 21166
+      "de_bytes": null
     },
     "programs/platform/desktop/frontends/alfred/index.md": {
       "status": "PENDING",
