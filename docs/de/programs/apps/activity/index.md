@@ -1,4 +1,6 @@
-# History
+# Activity
+
+Früher *History* genannt. Code und Schnittstelle behalten den Namen `history`.
 
 ## Kurz gesagt
 
