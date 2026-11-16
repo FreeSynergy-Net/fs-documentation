@@ -4,7 +4,7 @@
 
 History is a timeline of your own work, without anyone watching you. It notices what happens across your FreeSynergy programs and keeps a short line for each event, such as "edited this page" or "finished that task". It answers the question: what have I, or we, done?
 
-**Command:** `fs-history`, one command per program with subcommands ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md); programs are switched over when they are next touched, so not every one is yet).
+**Command:** `fs-activity`, one command per program with subcommands ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md); programs are switched over when they are next touched, so not every one is yet).
 
 ## What is different here
 
@@ -18,18 +18,18 @@ History is a timeline of your own work, without anyone watching you. It notices 
 
 Latest tag: `v0.0.1`. There is **no window and no server yet**.
 
-Today there is a timeline of activities from other programs, newest first, with filters and paging. A digest groups runs of events on the same object. You can forget entries by filter, for the past only. It reads from the FreeSynergy hub through the adapter `fs-history-hub`, tested against a real hub. It has 49 tests and was checked by an independent reviewer over three rounds.
+Today there is a timeline of activities from other programs, newest first, with filters and paging. A digest groups runs of events on the same object. You can forget entries by filter, for the past only. It reads from the FreeSynergy hub through the adapter `fs-activity-hub`, tested against a real hub. It has 49 tests and was checked by an independent reviewer over three rounds.
 
 What is not there yet: who did something is empty for now, and the time is when the entry arrived, not necessarily when it happened. Forgetting covers this index only, not the hub's own log. There is no sharing and no group view, no import of telemetry and no time tracking. A hub connection that dies is not reconnected by itself.
 
-`FreeSynergy.History` (`fs-history`) answers: **what have I, or we, done?** It shows your own data as a timeline, whether
+`FreeSynergy.History` (`fs-activity`) answers: **what have I, or we, done?** It shows your own data as a timeline, whether
 for one person or for a project. This is what was first called `fs-timeline`.
 
-**Status: [core](https://github.com/FreeSynergy/fs-history) v0.0.1, no GUI; provisional draft interface (2026-11-06).** See the [overall plan](../roadmap.md).
+**Status: [core](https://github.com/FreeSynergy/fs-activity) v0.0.1, no GUI; provisional draft interface (2026-11-06).** See the [overall plan](../roadmap.md).
 
 ## Idea
 
-An **observer** of what happens. Every program already keeps an activity log (ADR 0020), and `fs-history` listens:
+An **observer** of what happens. Every program already keeps an activity log (ADR 0020), and `fs-activity` listens:
 
 - **Personal:** what did I do last week, across every program? A diary (`fs-diary`) is then simply this, filtered to myself:
   a frontend with a built-in filter. Text written there is a wiki entry like any other (ADR 0031).
@@ -39,7 +39,7 @@ An **observer** of what happens. Every program already keeps an activity log (AD
 
 ## Open questions
 
-All answers are provisional. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-history/blob/main/DESIGN.md).
+All answers are provisional. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activity/blob/main/DESIGN.md).
 
 1. **Does it have its own data?** No content of its own, but a derived local index, because the hub cannot search by time, person or
    project. So it stays a small program, not only a view.

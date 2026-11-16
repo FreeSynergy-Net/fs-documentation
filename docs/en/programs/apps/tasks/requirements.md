@@ -9,7 +9,7 @@ below are the board view. Function analysis only, own wording, nothing copied.
 **Owners (ADR 0050).** `fs-tasks` owns the JSCalendar `Task` and the board model. Everything else is reached through the
 owner's interface and not repeated here: events and calendar views by `fs-calendar`, files by `fs-files`, people by
 `fs-people`, groups, members and rights by [`fs-groups`](../../platform/groups.md), history by
-[`fs-history`](../history/index.md), places by `fs-maps`, messages by `fs-messenger`, sign-in by the
+[`fs-activity`](../history/index.md), places by `fs-maps`, messages by `fs-messenger`, sign-in by the
 [identity wrapper](../../platform/identity.md).
 
 **Ids.** The contract (`tasks.capnp`) names the item capabilities `task.create`, `task.edit`, `task.assign`,
@@ -68,7 +68,7 @@ Data references: [projects index](../../../data/projects/index.md) ·
 | Comment on a card (`comment.add`) | Tr, We, Pl, Op, Re | AS2 `Note` with `inReplyTo` the card | proposed |
 | Watch a card or board and get changes (`card.watch`) | Tr, Pl, Op, Re | subscription list: gap → own | proposed |
 | Notify about changes to watched or assigned cards (`card.notify`) | Tr, We, Pl, Ta, As, Op, Re | AS2 activity as source; delivery channel is a platform matter ⚠️ not defined in data/projects | proposed |
-| Show the history of a card and a board (`card.history`) | Tr, We, Pl, Ta, Op, Re | AS2 activities of the card, read through the `fs-history` interface (it owns history); shown as a timeline view | proposed |
+| Show the history of a card and a board (`card.history`) | Tr, We, Pl, Ta, Op, Re | AS2 activities of the card, read through the `fs-activity` interface (it owns history); shown as a timeline view | proposed |
 | Define and fill custom fields (`field.define`, `card.setField`) | We, Pl, Ji, As, Op, Re (Tr via Power-Up) | JSCalendar vendor properties `freesynergy.net:<name>`; definition lives on the board | proposed |
 | Start a board from a template (`template.apply`) | Tr, We, Pl (pro), As | own `Board` copy; JSON of the board structure | proposed |
 | Invite members to a board and give them a role — owner, contributor, observer (`member.add`, `member.role`) | Tr, We, Pl, Ta, Op, Re | membership and rights belong to `fs-groups` (ADR 0055), reached through its interface; board roles are only names for what it grants; login stays platform identity | proposed |
@@ -121,7 +121,7 @@ Data references: [projects index](../../../data/projects/index.md) ·
 |---------|---------|---------|
 | Gantt and timeline inside the board view | Tr, Pl, As, Ta, Ji, Op, Re | a separate view of `fs-tasks` and `fs-calendar` (workbench `timeline-gantt`, [design](design.md#views)), not the board |
 | Baselines, critical path | Tr, Pl, As, Ta, Ji, Op, Re | capacity and baselines belong to [`fs-resources`](../resources/index.md) ([design](design.md)); critical path: open |
-| Time tracking, stopwatch, estimates | Tr (Power-Up), Pl, Op, Re | open: `fs-tasks` or `fs-history` ([design](design.md#open-questions)); proposed as history |
+| Time tracking, stopwatch, estimates | Tr (Power-Up), Pl, Op, Re | open: `fs-tasks` or `fs-activity` ([design](design.md#open-questions)); proposed as history |
 | Budgets, costs, cost rates | Op | not in `fs-tasks`; the project management suite may add costs (ADR 0049, to be checked) |
 | Portfolios, workloads, goals, roadmaps of several projects | As, Op, Ji | the project management suite; workloads: `fs-resources` |
 | Milestones, versions, roadmap | Ta, Op, Re, Ji | project level, the project management suite; a milestone is an `Event`, owned by `fs-calendar` |

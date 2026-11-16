@@ -4,7 +4,7 @@
 
 History ist eine Zeitleiste deiner eigenen Arbeit, ohne dass dich jemand beobachtet. Es merkt sich, was in deinen FreeSynergy-Programmen passiert, und hält für jedes Ereignis eine kurze Zeile fest, etwa „diese Seite bearbeitet“ oder „jene Aufgabe erledigt“. Es beantwortet die Frage: Was habe ich, oder was haben wir getan?
 
-**Befehl:** `fs-history`, ein Befehl je Programm mit Unterbefehlen ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md); Programme werden umgestellt, wenn sie ohnehin angefasst werden, nicht jedes ist es schon).
+**Befehl:** `fs-activity`, ein Befehl je Programm mit Unterbefehlen ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md); Programme werden umgestellt, wenn sie ohnehin angefasst werden, nicht jedes ist es schon).
 
 ## Was hier anders ist
 
@@ -18,17 +18,17 @@ History ist eine Zeitleiste deiner eigenen Arbeit, ohne dass dich jemand beobach
 
 Neueste Version: `v0.1.1`. Es gibt **noch kein Fenster und noch keinen Server**.
 
-Heute gibt es eine Zeitleiste der Aktivitäten anderer Programme, neueste zuerst, mit Filtern und Seitenumbruch. Eine Zusammenfassung fasst Serien von Ereignissen auf demselben Objekt zusammen. Du kannst Einträge nach Filter vergessen, aber nur für die Vergangenheit. Es liest vom FreeSynergy-Hub über den Adapter `fs-history-hub`, getestet gegen einen echten Hub. Es hat 49 Tests und wurde in drei Runden von einem unabhängigen Prüfer geprüft.
+Heute gibt es eine Zeitleiste der Aktivitäten anderer Programme, neueste zuerst, mit Filtern und Seitenumbruch. Eine Zusammenfassung fasst Serien von Ereignissen auf demselben Objekt zusammen. Du kannst Einträge nach Filter vergessen, aber nur für die Vergangenheit. Es liest vom FreeSynergy-Hub über den Adapter `fs-activity-hub`, getestet gegen einen echten Hub. Es hat 49 Tests und wurde in drei Runden von einem unabhängigen Prüfer geprüft.
 
 Noch nicht da: Wer etwas getan hat, ist vorerst leer, und die Zeit ist der Zeitpunkt, an dem der Eintrag ankam, nicht unbedingt der, an dem es geschah. Vergessen betrifft nur diesen Index, nicht das eigene Protokoll des Hubs. Es gibt keine Freigabe und keine Gruppenansicht, keinen Import von Telemetrie und keine Zeiterfassung. Eine abgebrochene Hub-Verbindung wird nicht von selbst wiederhergestellt.
 
-`FreeSynergy.History` (`fs-history`) beantwortet die Frage: **Was habe ich, oder was haben wir getan?** Es zeigt deine eigenen Daten als Zeitleiste, ob für eine Person oder für ein Projekt. Das wurde zuerst `fs-timeline` genannt.
+`FreeSynergy.History` (`fs-activity`) beantwortet die Frage: **Was habe ich, oder was haben wir getan?** Es zeigt deine eigenen Daten als Zeitleiste, ob für eine Person oder für ein Projekt. Das wurde zuerst `fs-timeline` genannt.
 
-**Status: [core](https://github.com/FreeSynergy/fs-history) v0.0.1, keine GUI; vorläufiger Entwurf der Schnittstelle (2026-11-06).** Siehe den [Gesamtplan](../roadmap.md).
+**Status: [core](https://github.com/FreeSynergy/fs-activity) v0.0.1, keine GUI; vorläufiger Entwurf der Schnittstelle (2026-11-06).** Siehe den [Gesamtplan](../roadmap.md).
 
 ## Idee
 
-Ein **Beobachter** dessen, was geschieht. Jedes Programm führt bereits ein Aktivitätsprotokoll (ADR 0020), und `fs-history` hört zu:
+Ein **Beobachter** dessen, was geschieht. Jedes Programm führt bereits ein Aktivitätsprotokoll (ADR 0020), und `fs-activity` hört zu:
 
 - **Persönlich:** Was habe ich letzte Woche getan, über alle Programme hinweg? Ein Tagebuch (`fs-diary`) ist dann einfach genau das, gefiltert auf mich selbst: eine Oberfläche mit eingebautem Filter. Dort geschriebener Text ist ein Wiki-Eintrag wie jeder andere (ADR 0031).
 - **Projekt:** Was ist wann und von wem passiert? Ein Projektbericht muss nicht aus dem Gedächtnis geschrieben werden.
@@ -36,7 +36,7 @@ Ein **Beobachter** dessen, was geschieht. Jedes Programm führt bereits ein Akti
 
 ## Offene Fragen
 
-Alle Antworten sind vorläufig. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-history/blob/main/DESIGN.md).
+Alle Antworten sind vorläufig. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activity/blob/main/DESIGN.md).
 
 1. **Hat es eigene Daten?** Es hat keine eigenen Inhalte, aber einen abgeleiteten lokalen Index, weil der Hub nicht nach Zeit, Person oder Projekt suchen kann. Deshalb bleibt es ein kleines Programm und nicht nur eine Ansicht.
 2. **Datenschutz:** Es bleibt lokal. Es gibt keine Freigabe und keine Gruppenansicht, bis die Schnittstelle für Freigaben existiert. Rollenzuweisungen und Umfrageantworten werden nie gelesen. `forget` entfernt einen Eintrag nur aus diesem Index; das Protokoll des Hubs behält ihn. Jedes Löschen leert Name und Kontext der Einträge dieses Objekts, weil ein Objekt, das vertraulich geworden ist, als einfaches Löschen ankommt, und die beiden Fälle sehen gleich aus.

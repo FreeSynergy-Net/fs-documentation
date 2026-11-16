@@ -106,7 +106,7 @@ No Linux program is a template. Measures and sources: `docs/en/components/styles
 | `fs-files` | `Document`, file (AS2) | people, groups | Files, Gallery, Music, Videos, Documents | Media, all | Nautilus, Dolphin, Seafile, Nextcloud Files; gallery: Immich, PhotoPrism, Lychee, Piwigo |
 | `fs-wiki` | text, page (own spec, ADR 0031) | files, people | Wiki, Notes | Groupware, Democracy | Wiki.js, MediaWiki, XWiki, Notion, Confluence |
 | `fs-maps` | place (GeoJSON) | people, calendar | Maps | Groupware | Organic Maps, OsmAnd, uMap, QGIS |
-| `fs-history` | activity (AS2) | all | Timeline | Project mgmt | **none analysed** |
+| `fs-activity` | activity (AS2) | all | Timeline | Project mgmt | **none analysed** |
 | `fs-resources` | resource, need (gap, own spec) | people, calendar | Inventory, Booking (with calendar) | ERP, Project mgmt, Democracy | ERP: Dolibarr, ERPNext, Odoo, Tryton |
 | `fs-surveys` | `Question`, vote (AS2, gap) | people, groups | Polls, Votes | Democracy, Project mgmt | Decidim, Polis, LiquidFeedback, Consul, adhocracy+ |
 | `fs-whiteboard` | board (gap, own spec) | files | Whiteboard | Project mgmt | Excalidraw, tldraw, draw.io, OpenBoard |

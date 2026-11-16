@@ -60,4 +60,4 @@ programs. See [planned components](../../../components/planned.md).
 ## Open questions
 
 1. Are columns statuses? The analysed tools differ: in some, they are; in others, free lists. We propose optional mapping.
-2. Time tracking: part of `fs-tasks`, or of `fs-history`? We propose recording it as history.
+2. Time tracking: part of `fs-tasks`, or of `fs-activity`? We propose recording it as history.

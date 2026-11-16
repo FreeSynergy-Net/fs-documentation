@@ -55,4 +55,4 @@ Workbench `kanban-board` sowie eine kompakte Ansicht „Meine nächsten Aufgaben
 ## Offene Fragen
 
 1. Sind Spalten Status? Die analysierten Werkzeuge unterscheiden sich: Bei manchen sind sie Status, bei anderen freie Listen. Wir schlagen eine optionale Zuordnung vor.
-2. Zeiterfassung: Teil von `fs-tasks` oder von `fs-history`? Wir schlagen vor, sie als Verlauf zu erfassen.
+2. Zeiterfassung: Teil von `fs-tasks` oder von `fs-activity`? Wir schlagen vor, sie als Verlauf zu erfassen.

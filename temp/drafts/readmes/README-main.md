@@ -32,7 +32,7 @@ Status is as of 2026-11-07 and kept honest. "Core" means the engine works and is
 | Wiki | write and know together | [fs-wiki](https://github.com/FreeSynergy/fs-wiki) | Core and a first reader window with editing, `v0.3.0` |
 | Messenger | say something to someone | [fs-messenger](https://github.com/FreeSynergy/fs-messenger) | Core, AI guard and mail connector, no window, `v0.3.0` |
 | Groups | belong together | [fs-groups](https://github.com/FreeSynergy/fs-groups) | Core, no window, `v0.1.1` |
-| History | remember what I or we did | [fs-history](https://github.com/FreeSynergy/fs-history) | Core, no window, `v0.1.1` |
+| History | remember what I or we did | [fs-activity](https://github.com/FreeSynergy/fs-activity) | Core, no window, `v0.1.1` |
 | Resources | know what we have and need | [fs-resources](https://github.com/FreeSynergy/fs-resources) | Core, no window, `v0.1.0` |
 | Surveys | ask, and decide together | [fs-surveys](https://github.com/FreeSynergy/fs-surveys) | Core, no window, `v0.1.0` |
 | Whiteboard | think visually | [fs-whiteboard](https://github.com/FreeSynergy/fs-whiteboard) | Core (stage 1), no window, `v0.1.0` |

@@ -31,7 +31,7 @@ Ob Ansichten wie Galerie oder Kanban *zusätzlich* als eigenständige Programme 
 | Gemeinsam schreiben und wissen | [`fs-wiki`](https://github.com/FreeSynergy/fs-wiki) (Crate `fs-text`) | Kern vorhanden, keine GUI |
 | Jemandem etwas sagen | [`fs-messenger`](messenger/contract.md) | Vertragsentwurf |
 | Wissen, was als Nächstes zu tun ist | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) ([Design](tasks/design.md)) | Kern vorhanden, keine GUI; Schnittstelle als Entwurf |
-| Erinnern, was ich oder wir getan haben | [`fs-history`](history/index.md) | Geplant, **neu**; eventuell eine Ansicht |
+| Erinnern, was ich oder wir getan haben | [`fs-activity`](history/index.md) | Geplant, **neu**; eventuell eine Ansicht |
 | Wissen, was wir haben und brauchen | [`fs-resources`](resources/index.md) | Geplant, **neu** |
 | Fragen und gemeinsam entscheiden | [`fs-surveys`](surveys/design.md) | Geplant |
 | Visuell denken | [`fs-whiteboard`](whiteboard/design.md) | Geplant |
@@ -46,7 +46,7 @@ Ob Ansichten wie Galerie oder Kanban *zusätzlich* als eigenständige Programme 
 | Galerie, Videothek, Musik | `fs-files` |
 | Kanban-Board, Aufgabenliste | `fs-tasks` |
 | Zeitleiste (Gantt) | `fs-tasks`, `fs-calendar` |
-| Zeitleiste dessen, was passiert ist | `fs-history` |
+| Zeitleiste dessen, was passiert ist | `fs-activity` |
 | Ergebnis-Dashboards | `fs-surveys`, andere, mit [Diagrammen](../../components/charts.md) |
 
 ## Suiten
@@ -68,7 +68,7 @@ Ein Programm kann zu mehreren Suiten gehören.
                   fs-groups + identity wrapper, then fs-files
 2. Components     shared ones first, plus charts; each built when the next program needs it
                   GUIs for the existing cores: people, calendar, maps, wiki
-3. Work           GUI for fs-tasks, fs-history, then fs-surveys, fs-resources, fs-messenger
+3. Work           GUI for fs-tasks, fs-activity, then fs-surveys, fs-resources, fs-messenger
 4. Together       live presence, fs-whiteboard
 5. Suites         project management, democracy
 6. Media          gallery frontends, fs-streaming

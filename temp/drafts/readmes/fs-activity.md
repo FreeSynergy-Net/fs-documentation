@@ -13,7 +13,7 @@ Latest tag: `v0.1.1`.
 - A timeline of activities from other programs, newest first, with filters and paging.
 - A digest that groups runs of events on the same object.
 - Forget entries by filter, for the past only.
-- Reading from the FreeSynergy hub (adapter `fs-history-hub`), tested against a real hub.
+- Reading from the FreeSynergy hub (adapter `fs-activity-hub`), tested against a real hub.
 - Never reads relationships or survey answers.
 - Tests: 49, with real stores and a real hub.
 - Checked by an independent reviewer over three rounds.
@@ -34,7 +34,7 @@ History belongs to the project-management suite, and to anyone who wants to reme
 
 ## For developers
 
-- Workspace crates: `fs-history-core` (core, no GUI), `fs-history-hub` (reads activities from the hub).
+- Workspace crates: `fs-activity-core` (core, no GUI), `fs-activity-hub` (reads activities from the hub).
 - The contract is `history.capnp` in [fs-interfaces](https://github.com/FreeSynergy/fs-interfaces) (draft, provisional). History owns it.
 - Build and test: `cargo build --workspace` and `cargo test --workspace`.
 - Design and decisions: [DESIGN.md](DESIGN.md).
