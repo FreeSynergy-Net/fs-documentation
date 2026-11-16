@@ -35,7 +35,7 @@ Geprüft am 2026-11-16 gegen den Stand von `origin/main` (845e04da) und gegen di
 - **0047** (Kanidm hinter eigenem Wrapper): kein Widerspruch. Kanidm bleibt Anmeldedienst; die Mandate liegen bei den Programmen.
 
 ## Entscheidung
-1. **Die KI hat keine Rechte und nie ein Konto in Kanidm.** Sie ist eine Karte in fs-people (JSContact `kind: application`, `ai`, Verweis auf den Betreiber, ADR 0054). Auch der Bot hat eine Karte in fs-people (`ActorKind` `Bot`, Verweis auf Halter und Mandat; Plan §2); `PersonFacts` liefert daraus „Bot“. Ihr einziger Weg zu einer Situation ist ein Bot. Die KI darf nie Admin werden, nie `Manage` haben und nie Rechte, Rollen oder Mandate vergeben oder ändern.
+1. **Die KI hat keine Rechte und nie ein Konto in Kanidm.** Sie ist eine Karte in fs-people (JSContact `kind: application`, `ai`, Verweis auf den Betreiber, ADR 0054). Auch der Bot hat eine Karte in fs-people (`ActorKind` `Bot`, Verweis auf Halter und Mandat; Plan §2); `PersonFacts` liefert daraus „Bot“ (überholt, siehe Nachtrag „Bot-Schlüssel stellt das Programm aus“ Punkt 4 und Nachtrag „Folgen für die Traits (BotRef)“). Ihr einziger Weg zu einer Situation ist ein Bot. Die KI darf nie Admin werden, nie `Manage` haben und nie Rechte, Rollen oder Mandate vergeben oder ändern.
 2. **Der Bot gehört der Situation, nicht dem Halter.** Der Bot ist eine allgemeine Identität mit immer gleichem Code. Er ist an genau einen **Auftrag** (Mandat) in genau einer Situation gebunden. Das Mandat liegt bei dem Programm, dem die Situation gehört: Arbeitsgruppe in fs-groups (`groups_v1`); Raum oder Konferenz in fs-messages. Die Zustimmungen liegen in fs-people als Einwilligung `AiAssistance` mit `scope` = Situation. Die laufende Steuer-Sitzung (welche KI gerade steuert) liegt in der Bibliothek `fs-delegate` (2.6.2). Zugangsdaten liegen in fs-vault (ADR 0067). Die KI sieht das Bot-Token nie.
 3. **Halter.** Halter ist der Mensch, der den Bot eingeladen hat. Er ist verantwortlich.
 4. **Rechte des Bots = Mandat ∩ Halter ∩ Programm-Schalter ∩ „KI erlaubt“ ∩ KI-Regel ∩ Notaus nicht gezogen.** Im Einzelnen:
@@ -82,8 +82,8 @@ Geprüft am 2026-11-16 gegen den Stand von `origin/main` (845e04da) und gegen di
 ## Folgen
 Nur die Liste. Nichts davon ist in diesem ADR eingebaut.
 
-- **groups_v1:** Streichen: `Group::ai`, `GroupDraft.ai`, `GroupPatch.ai`, `GroupSummary.ai`; die Regel „`ai` mit `ai_allowed` = Invalid“; `RoleKind::Ai` samt `Error::AiRoleForbidden`; `Error::AiNotMirrored`; Befund `AiGroupExcluded`; KI-Fälle in `AiNesting`, `AiStatusUnknown`, `KindMismatch`; KI-Kette `reaches_admin`; „KI-Gruppe nur `Single`-Blatt“; Weg (ii) „Grant an KI-Gruppe oder KI-Konto“. Ändern: `PersonFacts::is_agent` wird `kind(&PersonRef) -> Option<ActorKind>` mit `Human`, `Bot`, `Ai`; `ai_allowed` gilt für jede Gruppe und meint Bot-Platz und dessen Rechte. Neu: `BotSeat` mit `open_seat`, `seat_ready`, `stop_seat`, `end_seat`, `seats_of`, `seat_may_do`; Fehler `ConsentMissing`, `SeatNotActive`, `HalterLacks`, `AiAckRequired`. Ein Bot ist nie in `effective_members`, `GroupMembers` oder im Spiegel.
-- **person_directory_v1:** `PersonView` bekommt `actor: ActorKind`. Der Bot als `asker` gilt immer als KI. Einwilligung `AiAssistance`: `recipient` ist der Bot; neu `controller` (Pflicht). Endet die Situation, wird die Einwilligung mit `ConsentOrigin::SituationEnded` als Widerruf festgehalten.
+- **groups_v1:** Streichen: `Group::ai`, `GroupDraft.ai`, `GroupPatch.ai`, `GroupSummary.ai`; die Regel „`ai` mit `ai_allowed` = Invalid“; `RoleKind::Ai` samt `Error::AiRoleForbidden`; `Error::AiNotMirrored`; Befund `AiGroupExcluded`; KI-Fälle in `AiNesting`, `AiStatusUnknown`, `KindMismatch`; KI-Kette `reaches_admin`; „KI-Gruppe nur `Single`-Blatt“; Weg (ii) „Grant an KI-Gruppe oder KI-Konto“. Ändern: `PersonFacts::is_agent` wird `kind(&PersonRef) -> Option<ActorKind>` mit `Human`, `Bot`, `Ai` (überholt durch Nachtrag „Folgen für die Traits (BotRef)“: Bot nur über `BotRef`, nicht als `PersonRef`); `ai_allowed` gilt für jede Gruppe und meint Bot-Platz und dessen Rechte. Neu: `BotSeat` mit `open_seat`, `seat_ready`, `stop_seat`, `end_seat`, `seats_of`, `seat_may_do`; Fehler `ConsentMissing`, `SeatNotActive`, `HalterLacks`, `AiAckRequired`. Ein Bot ist nie in `effective_members`, `GroupMembers` oder im Spiegel.
+- **person_directory_v1** (`actor` und `recipient` überholt durch Nachtrag „Folgen für die Traits (BotRef)“): `PersonView` bekommt `actor: ActorKind`. Der Bot als `asker` gilt immer als KI. Einwilligung `AiAssistance`: `recipient` ist der Bot; neu `controller` (Pflicht). Endet die Situation, wird die Einwilligung mit `ConsentOrigin::SituationEnded` als Widerruf festgehalten.
 - **fs-access:** `Subject` bekommt `actor`, `on_behalf_of` (Halter) und `seat`. `policy` rechnet nach der Obergrenze, die Halter-Rechte frisch.
 - **Türsteher (`fs_doorkeeper`):** neuer Prüfschritt `AiAckRequired` für Beitritte; getrennte Konten und Verwalter (`fs_selfmanaged` gegenüber `fs_delegate_keepers`).
 - **fs-messages:** Der Bot ist Matrix-Teilnehmer mit eigenem Schlüssel, ohne `shared_history`-Schlüssel. Der STOP-Knopf erscheint, solange ein Bot anwesend ist. Konferenzen mit `Until` über `delegate_v1`, später.
@@ -198,3 +198,29 @@ Anlass: Nutzerentscheidung 59 (zu 57.1, über die Strategie), Wortlaut: „Man m
 - **Programm-Autonomie bei Ausfall von fs-identity:** Darf ein Programm ohne fs-identity einladen (etwa mit zuletzt bestätigtem Eintrag, befristet), oder gilt im Zweifel nein? Vorschlag: im Zweifel nein.
 - **Schnittstelle „Bot existiert + Halter“:** Wie Programme das bei fs-identity abfragen (Operation, Antwortform, Zwischenspeicher, Änderungsmeldung bei Halterwechsel).
 - **Erkennung:** Zeichen (ii) wird nur beim Einladen geprüft, zur Aufrufzeit bleibt praktisch ein Zeichen (Schlüsselverzeichnis). Ob das Programm fs-identity bei jedem Aufruf oder bei Halterwechsel erneut fragt, ist offen.
+
+## Nachtrag 2026-11-16: Folgen für die Traits (BotRef)
+
+Anlass: Die Folgen-Liste (Haupttext) stammt aus der Zeit vor dem Nachtrag „Bot-Schlüssel stellt das Programm aus“ und widerspricht ihm. Dort steht (Punkt 4): „Der Eintrag steht nicht in fs-people“ und „`ActorKind` `Bot` (`PersonFacts`), AS2-`actor` (Punkt 12) und `AiAssistance.recipient` verweisen auf diesen Eintrag in fs-identity, nicht auf eine Karte in fs-people.“ Entscheidung der Strategie (b7, 2026-11-16): Ein Bot = ein Platz = ein eigener Eintrag in fs-identity. Dieser Nachtrag ändert nur die Folgen für die Trait-Entwürfe; alles andere bleibt.
+
+**Überholte Sätze** (Quelle: dieses ADR)
+1. Punkt 1 (Entscheidung): „Auch der Bot hat eine Karte in fs-people (`ActorKind` `Bot`, Verweis auf Halter und Mandat; Plan §2); `PersonFacts` liefert daraus „Bot“.“
+2. Folgen, groups_v1: „`PersonFacts::is_agent` wird `kind(&PersonRef) -> Option<ActorKind>` mit `Human`, `Bot`, `Ai`“ (der Bot ist kein `PersonRef`).
+3. Folgen, person_directory_v1: „`PersonView` bekommt `actor: ActorKind`.“
+4. Folgen, person_directory_v1: „Einwilligung `AiAssistance`: `recipient` ist der Bot“ (als Person).
+5. Folgen, person_directory_v1: „Der Bot als `asker` gilt immer als KI.“ gilt weiter, aber der Bot wird als `BotRef` übergeben, nicht als Person.
+6. Offen „`PersonArt` (0085): Bot als `Person` mit `ActorKind` oder eigene Art.“ und Verhältnis 0085 (`PersonArt`, Empfehlung `ActorKind`): erledigt, der Bot hat keine `PersonArt`, weil er keine Karte hat.
+Ebenfalls überholt, soweit sie eine Bot-Karte in fs-people voraussetzen: Punkt 12 und Nachtrag „Mehrere KIs“ Punkt 6 („`actor` = der BOT (Karte, `Service`)“): `actor` verweist auf den Eintrag in fs-identity.
+
+**Korrigierte Form**
+1. **`BotRef`** ist ein Verweis auf den Eintrag in fs-identity („Bot existiert + Halter“). Ein Bot = ein Platz = ein eigener Eintrag; die Einwilligung nennt damit den Platz eindeutig. `BotRef` ist kein `PersonRef`; `PersonRef` hat die Arten Profile, Person, Group, Organization.
+2. **`PersonView.actor` bleibt Person.** fs-people kennt keinen Bot: nie eine Bot-Karte. Ein Bot kommt nur über `BotRef` vor. `PersonView.ai` (die KI-Karte, JSContact `kind: application`, 0054) bleibt.
+3. **`ActorKind`** hat die Werte `Human`, `Ai`, `Bot`; `Bot` liefert nicht fs-people, sondern die Abfrage bei fs-identity. fs-people liefert nie `Bot`.
+4. **AS2-`actor`** und **`AiAssistance.recipient`** zeigen auf den fs-identity-Eintrag (`BotRef`); `instrument` bleibt die KI-Karte mit Adapter. In den Traits heißt das: `recipient` und `asker` sind je eine Summe aus Person (`PersonRef`) und Bot (`BotRef`).
+5. **`BotSeat`** (groups_v1) führt den Bot als `BotRef`; `holder` bleibt `PersonRef`. Beim Eröffnen und beim Halterwechsel prüft groups über einen Port, dass der Eintrag in fs-identity existiert und der Halter passt; sonst `DelegateMismatch`.
+6. **Stand der Typen:** `ActorKind`, `BotRef` und `WordCode` stehen bis fs-interfaces v0.0.27 nur als Platzhalter in `shared.rs`. Sie wandern erst mit dem Tag in fs-types. fs-interfaces v0.0.26 bleibt unberührt.
+
+**Offen**
+- Antwortform von fs-identity für „Bot existiert + Halter“ (Operation, Form von `BotRef`), wie im Nachtrag „Bot-Schlüssel stellt das Programm aus“ unter Offen; hier nicht festgelegt.
+- Zwischenspeicher der Abfrage und Änderungsmeldung bei Halterwechsel (Nachtrag „Bot-Schlüssel“, Offen: „Schnittstelle „Bot existiert + Halter““).
+- Ob `Recipient` und `Asker` als eigene Summen-Typen oder anders geformt werden, ist [nicht belegt] (Vorschlag der Trait-Runde, nicht entschieden).
