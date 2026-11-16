@@ -82,3 +82,31 @@ Der Nutzer hat die Namensregel endgültig festgelegt. Dieser Nachtrag gilt vor d
 - **Folgepunkte (nicht erledigt):** `conventions/CONVENTIONS.md` (Abschnitt 4) und `conventions/doku-standard.md` auf `locales/` und diese Regel ziehen; die Schreibweise von `Documentation` entscheiden.
 
 **Store (Nutzer, 2026-11-16):** Store ist keine Facette; fs-packages hat nur seine Frontends (Einfach, Admin).
+
+## Nachtrag 2026-11-16: fs-decisions (Beschlüsse und Abstimmungen), Terminfindung als Facette
+
+Der Nutzer hat Frage 49 mit JA beantwortet (2026-11-16). Dieser Nachtrag ändert die Tabelle in „Entscheidung“, Punkt 2: Dort steht bei fs-surveys → fs-forms „Umfrage, Abstimmung, Anmeldung sind Facetten“ (Zeile 17); „Abstimmung“ ist ab hier keine Facette von fs-forms mehr.
+
+**Kontext**
+- Der Entscheidungs-Plan (Arbeitsstand `pilot-decisions/PLAN.md`, §4, §9) wendet den „Wessen Daten?“-Test an: Fragebogen, Fragen, Antworten, Anmeldung, Quiz und Meinungsbild gehören dem Ersteller der Fragen und haben kein bindendes Ergebnis (fs-forms). Ein Beschluss dagegen hat einen eigenen Lebenslauf: Vorschlag in Fassungen, Verfahren, Wahlvolk, Stimmen und Einwände, Ergebnis, Zuständige, Fristen, Überprüfungsdatum, Weitergabe, Speicherdauer. Das Ergebnis bleibt, auch wenn die Stimmen gelöscht sind.
+- Einen Standard für „Entscheidung mit Verfahren, Einwänden, Ergebnis, Weitergabe“ gibt es nicht; innen entsteht ein eigenes typisiertes Modell (Begriffe nach Popolo: Motion, VoteEvent, Count, Vote), an den Grenzen gelten AS2 `Question`, JSON, CSV, ICS (Plan §3).
+- Die Terminfindung ist eine Entscheidung „wann“.
+
+**Entscheidung**
+1. **`fs-decisions` ist ein Programm** (Name nach Regel 1 der Einzahl/Mehrzahl-Regel: viele gleichartige Dinge, Mehrzahl, klein) für Beschlüsse und Abstimmungen: Verfahren Konsens, Mehrheit, Konsent, Rangwahl und Einzelentscheidung (weitere Verfahren siehe Plan §5.3), Einwände, Ergebnis, Weitergabe (Nachricht, Mail, Aufgabe, Termin über Workflows), Überprüfungsdatum, gestufte Speicherdauer (alles → nur Ergebnis → nichts). Auch allein nutzbar (Entscheidungs-Tagebuch).
+2. **Terminfindung ist eine Facette von fs-decisions** (Filter: Entscheidungen, deren Optionen Zeitfenster sind). Der Gesamtablauf (Kalender, Gäste, Zustellung, Aufgabe) bleibt eine **Suite `fs-scheduling`**; ihr Name ist offen.
+3. **„Abstimmung“ als Facette von fs-forms entfällt.** fs-forms behält Fragebogen, Anmeldung, Quiz und das **Meinungsbild**. Weitere Facetten von fs-decisions: Vereinsbeschluss, Konsent-Runde, Wahl, Einzelentscheidung mit Begründung.
+4. **Die Aufnahme-Abstimmung im Türsteher bleibt bei fs-admission** (Daten beim Ziel-Programm). Sie zählt mit derselben Bibliothek `fs-tally`; es gibt keine dritte Zählung.
+5. **Zwei eigenständige Bibliotheken** (Einzahl, klein, auch für andere nutzbar): **`fs-tally`** (reine Zählverfahren, aus `fs-forms-methods` herausgelöst) und **`fs-ballot`** (Urne ohne Protokoll, Tokens, anonyme Stimmzettel).
+6. **Nicht zu kopieren:** Loomio, Decidim, CONSUL, LiquidFeedback und andere sind ganze Dienste mit eigener Datenbank; sie sind nur Ablauf-Vorbilder im Dossier, nie Code. Nur die Krypto für anonyme Stimmen kommt später als gepinnte Bibliothek mit Adapter (Plan §2).
+
+**Folgen**
+- **Migration:** `fs-forms-methods` → `fs-tally`; der Urnen-Speicher aus fs-forms → `fs-ballot`; der Speichertyp `Decision` samt Verweisen auf Aufgaben zieht von fs-forms nach fs-decisions. fs-forms nutzt `fs-tally` und `fs-ballot` weiter (Tests bleiben grün). Der Ablauf läuft über Workflows (Plan §7, Schritte D0 bis D2).
+- **Katalog:** Eintrag `fs-decisions` im Daten-Repo `Catalog` (derzeit noch `fs-catalog`; dort steht heute kein Eintrag mit diesem Namen); fs-forms erhält die Beschreibung ohne „Abstimmung“.
+- **Namensprüfung (D0, 2026-11-16):** `fs-decisions`, `fs-tally`, `fs-ballot`, `fs-delegate` sind auf GitHub (Organisation FreeSynergy, `git ls-remote`) und `fs-decisions`, `fs-tally`, `fs-ballot`, `fs-delegate`, `fs-workflows`, `fs-workflow` auf crates.io (API) frei. Kein Kollisionsfund im Katalog. Einzelheiten und Belege: Arbeitsstand `pilot-decisions/namenspruefung-d0.md`. Freie Namen sind keine Reservierung; vor dem ersten Veröffentlichen erneut prüfen.
+- **Dokumentation:** Programmseite fs-decisions, Anpassung der Seiten zu fs-forms und der Programmübersicht im Lauf des Workflows `doku-mitziehen`; die Zuordnung „Abstimmung → fs-surveys“ in ADR 0076 bleibt als Entscheidungsstand der damaligen Zeit stehen (ADR 0087 gilt vor ihm).
+
+**Offen**
+- Name der Suite `fs-scheduling` (Terminfindung als Gesamtablauf).
+- Die Schnittstelle von `fs-tally` und `fs-ballot` (auch für fs-admission) wird im Vertrag `decisions_v1` festgelegt.
+- Anonyme Stimmen: Stufe A1 (Betreiber sieht kurz das Token) gegen Stufe A2 (blinde Signatur) steht im Plan; die Bauform ist eigener ADR-Gegenstand und nicht Teil dieses Nachtrags.
