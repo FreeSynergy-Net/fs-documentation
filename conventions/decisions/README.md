@@ -89,9 +89,9 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0080 | Umzug fs-wiki → fs-text: Repo, Crates, Version, Daten, Katalog | akzeptiert (Strategie); Nutzer-JA zu Umbenennung/Löschen und „Projekt“ |
 | 0081 | CI-Ereignisse (CloudEvents) ≠ Programm-Ereignisse (AS2, fs-history); Pull ohne Token, Rot-Issues | akzeptiert (Strategie, 2026-11-14) |
 | 0082 | `fs-server` verbindet: Konfiguration von außen, Anbindungen an Server | akzeptiert (Strategie, 2026-11-14; Nutzerentscheidung Vermittler + People/Groups mit Kanidm) |
-| 0083 | Website-Veröffentlichung aus fs-text (Arbeitstitel) | geplant, reserviert (Nummer offen, kein Dokument) |
+| 0083 | Website-Veröffentlichung aus fs-text (Arbeitstitel) | reserviert (kein Dokument) |
 | 0084 | Editor-Bausteine: ein Vertrag (`TextEditor`, nur Änderungs-Operationen), Umsetzungen Block/RichText/Markdown, gemeinsame Konformitätssammlung | akzeptiert (Strategie, 2026-11-14; Nutzerentscheidung: mehrere Editor-Bausteine, Daten nur über unser Modell) |
 | 0085 | Normalisierung an der Grenze: Zeiten (UTC plus IANA-Zonen-Id, Datum ohne Uhrzeit), Verweis `PersonRef` auf Profil, Person oder Organisation (mit eingefrorenem Abzug), Importer/Exporter als Grenz-Adapter | Entwurf (Strategie, 2026-11-14; Nutzerregeln) |
 | 0086 | Gespeichert wird typisiert: Fachstandards in typisierte Tabellen, kein JSON/Blob; nur Empfangenes behält sein Original mit Aufbewahrungsregel | akzeptiert (Nutzer, 2026-11-15) |
 | 0087 | Programmnamen sind generisch (Fähigkeit/Daten, nicht Gattung); wiki→text, whiteboard→draw, messenger→messages, history→activity, streaming→broadcast, resources→inventory | akzeptiert (Nutzer, 2026-11-15) |
-| 0088 | Web-Zugang der Programme und automatisches DNS (Arbeitstitel) | reserviert, offen (kein Dokument) |
+| 0088 | Web-Zugang der Programme und automatisches DNS (Arbeitstitel) | reserviert (kein Dokument) |

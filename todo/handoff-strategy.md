@@ -22,7 +22,7 @@ Für eine neue Strategie-Sitzung (Opus). **Zuerst lesen:** diese Datei, dann das
 - Weitere dauerhafte Regeln: R1 „Frontend“ nie „Gesicht“; R2 Dossier vor jedem Frontend (Menü-Inventar, Schritt `menue-vergleich`); ALLE Arbeit über Workflows; ADR-Greps vor technischen Entscheidungen; curl nur lesend auf amtlichen Domains; keine Credentials lesen.
 
 ## ADRs von heute (alle auf Doku-main)
-0072–0076 Blöcke/Katalog/Facetten; 0077 Katalog-Arten (`kind` inkl. server/workflow/module); 0078 Paketquellen apt/dnf (fs-packages); 0079 fs-server (Weg A/C, SSH-Ausgangspunkt, btrfs-Standard, Mensch führt aus); 0080 Umzug fs-wiki → fs-text; 0081 CI-Ereignisse = CloudEvents; 0082 fs-server verbindet; 0083 reserviert (Web-Zugang der Programme, noch nicht geschrieben); 0084 Editor-Bausteine (+Nachträge Baustein≠Programm, Katalogart module, Editor-Wahl ist Ansicht); 0085 Normalisierung (Entwurf).
+0072–0076 Blöcke/Katalog/Facetten; 0077 Katalog-Arten (`kind` inkl. server/workflow/module); 0078 Paketquellen apt/dnf (fs-packages); 0079 fs-server (Weg A/C, SSH-Ausgangspunkt, btrfs-Standard, Mensch führt aus); 0080 Umzug fs-wiki → fs-text; 0081 CI-Ereignisse = CloudEvents; 0082 fs-server verbindet; 0083 reserviert (Website-Veröffentlichung aus fs-text, noch nicht geschrieben; Web-Zugang der Programme = 0088); 0084 Editor-Bausteine (+Nachträge Baustein≠Programm, Katalogart module, Editor-Wahl ist Ansicht); 0085 Normalisierung (Entwurf).
 
 ## Veröffentlicht (Stand 2026-11-14)
 - fs-components **v0.0.18** (Umbau-Werkzeug, Bildtest mit Toleranzen charts/kanban/primitives + RASTER) und **v0.0.19** (Editor-Fixes N1/N2/C1–C3, W1–W4, E1–E5, Editor-Vertrag `TextEditor`, schmale Fenster).

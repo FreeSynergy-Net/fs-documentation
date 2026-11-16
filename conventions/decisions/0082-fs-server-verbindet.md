@@ -81,3 +81,7 @@ Der heutige Stand des Hubs (siehe Folgen) trägt das noch nicht.
 - Ob Zentinel Konfigurationsänderungen zur Laufzeit über eine Schnittstelle zulässt oder nur Datei plus `kill -HUP` **[nicht belegt]**; wäre Letzteres der Weg, ist es die einzige Stelle, an der `fs-server` eine Datei des **Servers** (nicht eines Programms) schreibt, und sie gehört dem Adapter.
 - Umgang mit Servern ohne jede Verwaltungs-Schnittstelle **[nicht entschieden]**.
 - Verhältnis zu `fs-groups`/`fs-identity` (Kanidm-Gruppen, ADR 0047) bei der Client-Anlage **[nicht belegt]**.
+
+## Nachtrag 2026-11-16 (Strategie): Nummer des Web-Zugangs
+
+Der oben als ADR 0083 genannte Web-Zugang der Programme erhält die Nummer 0088 (mit automatischem DNS); 0083 ist die Website-Veröffentlichung aus fs-text.

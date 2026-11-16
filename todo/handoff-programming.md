@@ -392,7 +392,7 @@ Die Repo-Tabelle oben ist überholt (Tags: fs-components v0.0.19, fs-wiki v0.0.1
 - **Offene Kante:** AppWidget::picture ohne UA-Stile (fs-components 0.0.20); `pixels.rs` unter Noto-only.
 
 ### Nachtrag 2026-11-14 (spät): 
-## Nutzertest fs-wiki 0.0.12 (Notion-Frontend, Vollbild; Bild /home/kal/fs-handtest/fs-wiki-wiki0.0.12.jpg, 2026-11-14)
+## Nutzertest fs-wiki 0.0.12 (Notion-Frontend, Vollbild; Bild <Handtest-Ordner>/fs-wiki-wiki0.0.12.jpg, 2026-11-14)
 Positiv: Überschriften, Tabelle, Zitat, Durchgestrichen/Kursiv, Trenner korrekt. Nutzer: „Wiki entwickelt sich schon sehr gut.“ Hinweis: Fable testet in ca. 1 Woche alles.
 - **U1** Checkbox in Tabellenzelle: lässt sich abhaken, aber NICHT wieder aufheben.
 - **U2** Checkbox außerhalb der Tabelle (Liste) lässt sich gar nicht klicken; Kästchen zu klein und nicht auf der Textgrundlinie.
