@@ -35429,6 +35429,725 @@
       "history": [],
       "en_bytes": 2033,
       "de_bytes": null
+    },
+    "programs/apps/files/frontends/dropbox/index.md": {
+      "status": "PENDING",
+      "en_hash": "08f934a7364d9235",
+      "de_hash": "0b326270dcefacf8",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1879,
+      "de_bytes": 2349
+    },
+    "programs/apps/files/frontends/dropbox/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "570a091e92adeffd",
+      "de_hash": "67efbeeedeaa792d",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 184,
+      "de_bytes": 519
+    },
+    "programs/apps/files/frontends/dropbox/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "9efdb7b99759c654",
+      "de_hash": "7a8fec2dcb73d0c8",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 502,
+      "de_bytes": 885
+    },
+    "programs/apps/files/frontends/dropbox/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "d5b66a5c2c5001fa",
+      "de_hash": "092100a02c71d365",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 604,
+      "de_bytes": 1032
+    },
+    "programs/apps/files/frontends/dropbox/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "f7312fd95ead7858",
+      "de_hash": "8c2e40425733efc7",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 110,
+      "de_bytes": 467
+    },
+    "programs/apps/files/frontends/dropbox/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "28d9119f9eedc976",
+      "de_hash": "5a2af3cbabe04340",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 78,
+      "de_bytes": 418
+    },
+    "programs/apps/files/frontends/dropbox/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "040881de2a323f8c",
+      "de_hash": "2d8f50a3ecbbed6a",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 39,
+      "de_bytes": 371
+    },
+    "programs/apps/files/frontends/everything/index.md": {
+      "status": "PENDING",
+      "en_hash": "ffc89b2389fc46a8",
+      "de_hash": "771de4b118d416f2",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1776,
+      "de_bytes": 2274
+    },
+    "programs/apps/files/frontends/everything/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "183bb0b55f877ec2",
+      "de_hash": "0f147fea11f18ca9",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 259,
+      "de_bytes": 598
+    },
+    "programs/apps/files/frontends/everything/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "d9088ccc973a77e8",
+      "de_hash": "ec61e677a6d49d55",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 492,
+      "de_bytes": 888
+    },
+    "programs/apps/files/frontends/everything/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "7ce7b3cbcee5e8c4",
+      "de_hash": "a766034ec9a7fb5e",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 640,
+      "de_bytes": 1069
+    },
+    "programs/apps/files/frontends/everything/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "8aed6c1c17b1ddaf",
+      "de_hash": "08ebbe6abf52b85e",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 146,
+      "de_bytes": 487
+    },
+    "programs/apps/files/frontends/everything/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "3aecd8aa3ce64d05",
+      "de_hash": "00b565d30699c9c9",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 83,
+      "de_bytes": 409
+    },
+    "programs/apps/files/frontends/everything/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "5142c9ab7081d307",
+      "de_hash": "1dad1c7b342189ae",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 54,
+      "de_bytes": 390
+    },
+    "programs/apps/files/frontends/syncthing/index.md": {
+      "status": "PENDING",
+      "en_hash": "d683945d15bd3e4c",
+      "de_hash": "cf66e06eec2d04f1",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2035,
+      "de_bytes": 2598
+    },
+    "programs/apps/files/frontends/syncthing/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "60a787a20127914c",
+      "de_hash": "5b8706230165d412",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 602,
+      "de_bytes": 1006
+    },
+    "programs/apps/files/frontends/syncthing/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "34dc27c3a847a214",
+      "de_hash": "e84daaff53d4ee15",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 538,
+      "de_bytes": 945
+    },
+    "programs/apps/files/frontends/syncthing/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "ab8b899f5dac8a41",
+      "de_hash": "a37d958715178711",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 638,
+      "de_bytes": 1088
+    },
+    "programs/apps/files/frontends/syncthing/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "14bf92a25aaf11e5",
+      "de_hash": "126daf056b20f877",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 153,
+      "de_bytes": 494
+    },
+    "programs/apps/files/frontends/syncthing/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "6e844cee5b0fcd23",
+      "de_hash": "99fb3390ecdfe7d6",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 77,
+      "de_bytes": 416
+    },
+    "programs/apps/files/frontends/syncthing/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "cb6ebe447543dfab",
+      "de_hash": "db0cfc90710e98b7",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 54,
+      "de_bytes": 390
+    },
+    "programs/apps/maps/frontends/felt/index.md": {
+      "status": "PENDING",
+      "en_hash": "0467b44fd44c0ec2",
+      "de_hash": "0f40aaaf5355fef8",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2086,
+      "de_bytes": 2609
+    },
+    "programs/apps/maps/frontends/felt/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "d2ab1b4310cb8d40",
+      "de_hash": "097dbb0c7464de48",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 548,
+      "de_bytes": 974
+    },
+    "programs/apps/maps/frontends/felt/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "416a21976ce1bdb3",
+      "de_hash": "7e3360f5d7b5b79b",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1025,
+      "de_bytes": 1474
+    },
+    "programs/apps/maps/frontends/felt/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "c48e41776cac5edf",
+      "de_hash": "c6860f8389eed098",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 710,
+      "de_bytes": 1116
+    },
+    "programs/apps/maps/frontends/felt/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "df34ebf36210dc60",
+      "de_hash": "989b10cf335d7fd2",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 346,
+      "de_bytes": 751
+    },
+    "programs/apps/maps/frontends/felt/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "41b757ea3cefe3d1",
+      "de_hash": "9d363b0ecbd211c0",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 365,
+      "de_bytes": 774
+    },
+    "programs/apps/maps/frontends/felt/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "9651bdeee3a436dc",
+      "de_hash": "d893ccdd60f15500",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 89,
+      "de_bytes": 406
+    },
+    "programs/apps/maps/frontends/google-earth/index.md": {
+      "status": "PENDING",
+      "en_hash": "24d5beede79773d3",
+      "de_hash": "442066108a494970",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2470,
+      "de_bytes": 2981
+    },
+    "programs/apps/maps/frontends/google-earth/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "a69d51d3decc3171",
+      "de_hash": "907d204f7bd8d055",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 515,
+      "de_bytes": 882
+    },
+    "programs/apps/maps/frontends/google-earth/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "39e81532873c3d56",
+      "de_hash": "54c6ab40705324fc",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1076,
+      "de_bytes": 1505
+    },
+    "programs/apps/maps/frontends/google-earth/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "cfb20bc61b9ba4c9",
+      "de_hash": "10e8ff90a5693140",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 830,
+      "de_bytes": 1256
+    },
+    "programs/apps/maps/frontends/google-earth/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "4cd91a4c99870772",
+      "de_hash": "b067f6ac2fd29b16",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 421,
+      "de_bytes": 790
+    },
+    "programs/apps/maps/frontends/google-earth/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "ee667fe6c2df3f7c",
+      "de_hash": "d93717ddc0847db8",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 515,
+      "de_bytes": 892
+    },
+    "programs/apps/maps/frontends/google-earth/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "b11cec43cdd3cdf7",
+      "de_hash": "ac8c2d36ea71e4d1",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 162,
+      "de_bytes": 502
+    },
+    "programs/apps/people/frontends/apple-contacts/index.md": {
+      "status": "PENDING",
+      "en_hash": "76a80748b7850c36",
+      "de_hash": "8df5199a8da102b2",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3028,
+      "de_bytes": 3594
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "e29f7863a72a78d3",
+      "de_hash": "9588c661616e5b6e",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 181,
+      "de_bytes": 525
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "822c90ce37e3d61a",
+      "de_hash": "80b8eda6a96ebdfe",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 846,
+      "de_bytes": 1288
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "9c5ec0a614136c7e",
+      "de_hash": "31d57946f064beb3",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 815,
+      "de_bytes": 1316
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "859aa9558deff319",
+      "de_hash": "8f5aa0478d6c3175",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 172,
+      "de_bytes": 513
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "b386456cc027942f",
+      "de_hash": "0239ac29f635cb64",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 193,
+      "de_bytes": 535
+    },
+    "programs/apps/people/frontends/apple-contacts/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "92a418656fde49c1",
+      "de_hash": "a975589cc94d616e",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 153,
+      "de_bytes": 496
+    },
+    "programs/apps/people/frontends/google-contacts/index.md": {
+      "status": "PENDING",
+      "en_hash": "fd72490206bc7a7a",
+      "de_hash": "def5d37683aab7d7",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2592,
+      "de_bytes": 3215
+    },
+    "programs/apps/people/frontends/google-contacts/latest/api.md": {
+      "status": "PENDING",
+      "en_hash": "f089e01cb1d80301",
+      "de_hash": "e3ecdbc87afe373e",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 292,
+      "de_bytes": 647
+    },
+    "programs/apps/people/frontends/google-contacts/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "19e6975228291ec3",
+      "de_hash": "af32858b190a3d71",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 866,
+      "de_bytes": 1258
+    },
+    "programs/apps/people/frontends/google-contacts/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "fc3abf05b29c8a99",
+      "de_hash": "59233f096a9dbc36",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 832,
+      "de_bytes": 1383
+    },
+    "programs/apps/people/frontends/google-contacts/latest/layout.md": {
+      "status": "PENDING",
+      "en_hash": "3ba1b02c12c72944",
+      "de_hash": "a7504b98e068b407",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 483,
+      "de_bytes": 878
+    },
+    "programs/apps/people/frontends/google-contacts/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "16dd9c4745268132",
+      "de_hash": "1f4e4fce8c53d8fa",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 367,
+      "de_bytes": 794
+    },
+    "programs/apps/people/frontends/google-contacts/latest/shortcuts.md": {
+      "status": "PENDING",
+      "en_hash": "bb78ab2ff53e782c",
+      "de_hash": "67bed5bb5d303277",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 156,
+      "de_bytes": 490
+    },
+    "programs/map.md": {
+      "status": "PENDING",
+      "en_hash": "bd219f2828ecf588",
+      "de_hash": "5f19d93f965ee408",
+      "first_seen": "2026-11-16T01:52:34.892524+00:00",
+      "last_verified": null,
+      "kind": [
+        "de_english"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 19406,
+      "de_bytes": 21166
     }
   }
 }
