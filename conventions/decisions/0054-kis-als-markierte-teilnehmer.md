@@ -132,3 +132,30 @@ Vorschlag zur Umsetzung (Strategie):
 ## Folgen
 - ADR 0053 Punkt 1 wird dadurch präzisiert: LLM-Chat bleibt Component und Frontend; ein eigenes Programm nur, falls sich zeigt, dass
   es eigene Daten hat.
+
+## Nachtrag 2026-11-16: KI-Helfer: Einladung, STOP KI, Zustimmung aller
+
+Anlass: Nutzerantwort 29 „KI-Helfer“ (16.11.). Wörtlich, als Entscheidung des Nutzers:
+
+> Eine KI kann ÜBERALL zugeschaltet werden, wenn man sie EINLÄDT. Es gibt IMMER einen „STOP KI"-Knopf, der die KI sofort entfernt. Sind mehrere Leute da: Jeder muss VORHER zustimmen. Wer später dazukommt, wird vorgewarnt und muss bestätigen, sonst kommt er nicht hinein (Datenschutz). Die Option „nur lokal" gibt es zusätzlich als Sicherheitsoption, sie ist aber kein Muss.
+
+Punkte 1 bis 8 bleiben unverändert; dieser Nachtrag präzisiert sie. Die Statuszeile bleibt unverändert.
+
+**(1) Verhältnis zu 0054 bisher.** 0054 sagt: KIs sind markierte Teilnehmer; eine KI steht nur in eigenen KI-Gruppen, nie verschachtelt und mit dem wenigsten Recht (ADR 0082 Nachtrag, KI-Regel); keine Admin-Rolle; die Markierung setzt nur ein Mensch. Die neue Regel beschreibt den Weg, auf dem eine KI in einen Raum oder eine Gruppe kommt: die Einladung. Eingeladen wird das KI-Konto als markierter Teilnehmer. Die bestehenden Grenzen bleiben: Die KI kann nicht zustimmen, nicht einladen und den Türsteher nicht auslösen (pilot-selbstverwaltung, §6.2); sie wird nie Admin und kommt nie in sensible Gruppen (ADR 0082). Ihr Zugriff ist auf das begrenzt, was der Einladungsraum ausdrücklich freigibt. Die Einladung gibt keine Rechte; ohne ausdrückliche Befugnis tut die KI nichts (0054, „Ohne Befugnis nichts“, 2026-11-07).
+
+**(2) Pflichten je Frontend und Programm.** Gelten überall, wo eine KI zugeschaltet werden kann.
+- **Sichtbarer Knopf „STOP KI“:** Er erscheint NUR, wenn tatsächlich eine KI dabei ist. Ohne KI gibt es ihn nicht, auch nicht deaktiviert. Ist eine KI eingeladen, ist der Knopf IMMER sichtbar und sofort wirksam. Er entfernt die KI sofort: Zugriff endet, Sitzung und Token der KI werden widerrufen, ein Protokolleintrag entsteht.
+- **Zustimmung ALLER Anwesenden vor dem Zuschalten.** Sagt einer nicht zu, kommt die KI nicht hinein. Die Zustimmungsabfrage erscheint nur, wenn eine KI eingeladen wird.
+- **Spätkommende:** Sie werden vorgewarnt und müssen bestätigen, dass eine KI anwesend ist. Ohne Bestätigung kein Zutritt.
+- **Datenschutz-Begründung:** Eine KI kann mitlesen, und der Text kann beim Anbieter verarbeitet werden (0054, „KIs in Unterhaltungen“, Punkte 2 und 5). Darum Zustimmung vorher und Vorwarnung danach.
+- **Option „nur lokal“:** zusätzliche Sicherheitsoption, die KI läuft nur auf dem eigenen Gerät oder Server. Sie ist kein Muss und keine Vorbedingung fürs Zuschalten.
+
+**(3) Verhältnis zur Selbstverwaltung und zu fs-access.** Im Türsteher-Entwurf stimmt die KI nie ab und ist nie Zustimmende (pilot-selbstverwaltung, §6.2). Als eingeladene Helferin hat sie Konto-Art KI und steht in einer eigenen KI-Gruppe. Die Zustimmung der Menschen ist keine Stimme der KI. Ein KI-Token in fs-access ist nur eine Obergrenze dessen, was die Person freigibt; es gibt dafür keine Admin-Rollen (ADR 0056).
+
+**(4) Folgen und Tests.** Pflichtpunkt in programm-grundgeruest und in der Release-Prüfliste: „STOP KI“ je Frontend (erscheint nur mit KI, ist dann sichtbar und wirkt sofort, Protokolleintrag), Zustimmung aller Anwesenden vor dem Zuschalten, Spätkommende mit Vorwarnung und Bestätigung. Konformitätstest je Programm in BEIDE Richtungen: ohne KI kein Knopf und keine Abfrage; mit KI Knopf sichtbar, wirksam und mit Protokoll. Die Umsetzung in fs-release steht noch aus.
+
+### Offen
+- Wie wird „alle Anwesenden“ bestimmt: Raum, Sitzung oder Gruppe?
+- Frist und Wiederholung der Zustimmung.
+- Verhalten bei Verlassen und bei Beitritt.
+- Protokoll nach DSGVO: Inhalt und Speicherdauer.
