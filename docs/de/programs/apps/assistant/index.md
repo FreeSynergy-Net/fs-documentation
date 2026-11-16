@@ -10,7 +10,7 @@ kein eigenständiges Programm (ADR 0054). Siehe den [Gesamtplan](../roadmap.md).
 - **Mit einer KI sprechen**, lokal oder entfernt, an einem Ort.
 - **Alles sehen, was die KI tut**, auch die Helfer, die sie startet, und eingreifen können.
 - **Bequem lesen.** Lange Antworten sind das Wichtigste, deshalb kommt das Lesen zuerst.
-- **Mit jedem Programm arbeiten:** Der Chat liest die MCP-Schnittstelle jedes Programms und nutzt sie. MCP-Werkzeuge werden aus dem Vertrag jedes Programms erzeugt (ADR 0021). Das funktioniert, aber die Verträge brauchen vorher noch einige Markierungen ([unten](#mcp-the-contract-as-tools)).
+- **Mit jedem Programm arbeiten:** Der Chat liest die MCP-Schnittstelle jedes Programms und nutzt sie. MCP-Werkzeuge werden aus dem Vertrag jedes Programms erzeugt (ADR 0021). Das funktioniert, aber die Verträge brauchen vorher noch einige Markierungen ([unten](#mcp-der-vertrag-als-werkzeuge)).
 
 Jeder dieser Teile wird als eigenes Stück gebaut, und jedes Programm kann den Chat als [Komponente](../../../components/planned.md) nutzen.
 
@@ -57,7 +57,7 @@ Ein Coding-Agent für offene Modelle mit einer kleinen Binärdatei. Frühe Vorsc
 | Aufklappen als Leiter: Kartenzeile, offene Karte, Auftragsbaum, einzelner Schritt | Nichts wird verborgen, und nichts wird zuerst gezeigt, was niemand verlangt hat |
 | Eine Startansicht über alles: braucht dich, ungelesen, läuft, was es gekostet hat | Die Übersicht über alle KIs |
 | Eine Karte ist **eine Sicht auf Nachrichten**, verankert an einem Auftrag, ohne eigene Tabelle | Starke Stütze für ADR 0054: Dies ist ein Messenger-Frontend ohne eigene Daten. Nachrichten brauchen eine Möglichkeit, an einen Auftrag gebunden zu werden |
-| Eine Untergrenze, die kein pauschales „erlauben“ aufheben kann: kritische Befehle und Aufrufe, die im Namen der Person handeln. Ein nicht lesbarer Aufruf gilt als handelnd | Die Grundlage unserer [Bremse](#locking-ais-out) |
+| Eine Untergrenze, die kein pauschales „erlauben“ aufheben kann: kritische Befehle und Aufrufe, die im Namen der Person handeln. Ein nicht lesbarer Aufruf gilt als handelnd | Die Grundlage unserer [Bremse](#kis-ausschlieen) |
 
 Nicht für uns: Nutzungszahlen und der Modellpool sind **standardmäßig aktiv**, und das Produkt selbst erwähnt sie nicht mehr
 ([seine Telemetrie-Seite](https://github.com/Agent-Field/CodeAF/blob/main/docs/TELEMETRY.md)). Das widerspricht unserem Versprechen der Transparenz,
@@ -83,14 +83,14 @@ Ein Code-Editor mit einem Agenten-Panel. Sein eigener Agent und externe Agenten 
 
 Nicht für uns: was nur in einem Editor Sinn ergibt, etwa dem Agenten von Datei zu Datei zu folgen. Seine Grenzen sind auch eine Warnung.
 Feste Regeln gelten nur für das rekursive Löschen weniger zentraler Ordner in seinem Terminal-Werkzeug, und ein globales „erlauben“ entfernt
-die meisten übrigen Fragen. Seine Sandbox deckt nur den eigenen Agenten ab, nicht externe Agenten. Unsere [Bremse](#locking-ais-out) muss weiter reichen.
+die meisten übrigen Fragen. Seine Sandbox deckt nur den eigenen Agenten ab, nicht externe Agenten. Unsere [Bremse](#kis-ausschlieen) muss weiter reichen.
 
 ## Standards
 
 | Zweck | Standard | Hinweise |
 |-------|----------|----------|
-| Programme aus einem Chat nutzen | Model Context Protocol (MCP), Revision 2026-07-28 (aktuell) | Geplant in ADR 0021. Funktioniert mit Einschränkungen, [siehe unten](#mcp-the-contract-as-tools) |
-| Mit einem Coding-Agenten sprechen | Agent Client Protocol (ACP), Protokollversion 1 (stabil), Apache-2.0 | JSON-RPC 2.0, bisher nur stdio. Version 2 ist ein Entwurf. Die Governance ist vorläufig, durch Zed und JetBrains. [Siehe unten](#acp-coding-agents-in-the-messenger) |
+| Programme aus einem Chat nutzen | Model Context Protocol (MCP), Revision 2026-07-28 (aktuell) | Geplant in ADR 0021. Funktioniert mit Einschränkungen, [siehe unten](#mcp-der-vertrag-als-werkzeuge) |
+| Mit einem Coding-Agenten sprechen | Agent Client Protocol (ACP), Protokollversion 1 (stabil), Apache-2.0 | JSON-RPC 2.0, bisher nur stdio. Version 2 ist ein Entwurf. Die Governance ist vorläufig, durch Zed und JetBrains. [Siehe unten](#acp-coding-agenten-im-messenger) |
 | Ein Modell erreichen | ⚠️ noch keines gewählt | Anbieter-Schnittstelle, mit llama.cpp und anderen dahinter |
 
 ## Was ACP und MCP für uns bedeuten
@@ -113,7 +113,7 @@ ACP verbindet einen Client (eine Benutzeroberfläche) mit einem Coding-Agenten, 
 Nur stdio ist definiert. Eine Fernübertragung ist noch ein Vorschlag. Subagenten sind ebenfalls noch ein Vorschlag und erscheinen nur in den
 instabilen Schemata.
 
-Eine Aktion anzuzeigen und einen Agenten zu steuern passt gut zu ADR 0054. Der Agent ist ein **Teilnehmender** mit einem eigenen Schlüssel (siehe [KIs in Unterhaltungen](#ais-in-conversations)). ACP ist ein Anbieter
+Eine Aktion anzuzeigen und einen Agenten zu steuern passt gut zu ADR 0054. Der Agent ist ein **Teilnehmender** mit einem eigenen Schlüssel (siehe [KIs in Unterhaltungen](#kis-in-unterhaltungen)). ACP ist ein Anbieter
 hinter dem Programm, das diesen Schlüssel hält (ADR 0045), und dieses Programm startet den Unterprozess, nicht ein Frontend. Dies ist eine vorläufige Lesart der
 Entscheidung des Projektinhabers (2026-11-07). Die folgende Tabelle wurde für die frühere Idee geschrieben, einen Anbieter im Messenger selbst. Der Betreiber muss aus unseren eigenen Startoptionen
 und der Karte der Person stammen, denn die Selbstbeschreibung des Agenten ist selbst angegeben.

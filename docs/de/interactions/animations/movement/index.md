@@ -24,4 +24,4 @@ eines Elements gehört zu [Einblenden](../entrance/) oder
 
 - [Übersicht Animationen](../index.md)
 - [Staffelung](../organization/stagger/description.md) – eine zeitliche statt räumliche Staffelung
-- [Barrierefreiheit](../index.md#accessibility)
+- [Barrierefreiheit](../index.md#barrierefreiheit)

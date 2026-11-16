@@ -56,8 +56,8 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 
 | Schnittstelle | Wofür | Standardbasis |
 |-----------|----------------|---------------|
-| Vertrauen | Zeigen, wann eine Person sicher ist, auch gegen Betrüger und Bots; jede Person legt ihre [eigene Stufe](../programs/apps/assistant/index.md#locking-ais-out) fest | Web of Trust; sein Nachfolger, das [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), ist das vorgeschlagene Ziel (ADR 0052, 0054) |
-| Teilen und Berechtigungen | Wer was sehen darf; Freigaben gehen an Gruppen | Lücke, eine Spezifikation für alle. Offen: [Rollen-Privatsphäre](roles.md#open) |
+| Vertrauen | Zeigen, wann eine Person sicher ist, auch gegen Betrüger und Bots; jede Person legt ihre [eigene Stufe](../programs/apps/assistant/index.md#kis-ausschlieen) fest | Web of Trust; sein Nachfolger, das [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), ist das vorgeschlagene Ziel (ADR 0052, 0054) |
+| Teilen und Berechtigungen | Wer was sehen darf; Freigaben gehen an Gruppen | Lücke, eine Spezifikation für alle. Offen: [Rollen-Privatsphäre](roles.md#offen) |
 | Hülle und Aktivitätsprotokoll | Die äußere Form und der Verlauf jedes Objekts | AS2, vorgeschlagener Besitzer `fs-store` (ADR 0050) |
 | Synchronisation | Geräte und Programme zusammenbringen | Aktivitätsprotokoll (ADR 0019) |
 | Präsenz | Sehen, was andere gerade tun | Lücke; wird nie gespeichert |
