@@ -99,3 +99,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0090 | Einzelplatz-Modus: Besitzer ohne Konto | Entwurf (Strategie, 2026-11-16) |
 | 0091 | KI-Stellvertreter-Bot: die KI hat keine Rechte, der Bot ist ihr einziger Weg | Entwurf (Strategie, 2026-11-16; Entscheidungen 2.6.1 bis 2.6.11) |
 | 0092 | Bibliotheks-Repos bilden einen gerichteten Graphen (kein Kreis, ein Lock je Bibliothek eine Quelle); RPC-Laufzeit zieht aus fs-interfaces in das neue Repo fs-rpc | akzeptiert (Strategie, 2026-11-16; Variante V2) |
+| 0093 | fs-types ist die unterste Bibliothek: eigenes Repo mit `types.capnp`, Wertobjekten und Typbeschreibung (Server nach fs-rpc); Repo-DAG fs-types → fs-interfaces/fs-objects/fs-jscalendar/fs-components → fs-rpc → Programme | Entwurf (wartet auf Probe-Ergebnis und Opus-Review; Strategie, 2026-11-16) |

@@ -36,3 +36,6 @@ Status: **akzeptiert** (Strategie, 2026-11-16; Variante V2, Opus-Review 28ca3165
 - Bei V1+ ist der Codegen-Querverweis über Crate-Grenzen nicht belegt; falls V1+ später wieder erwogen wird, zuerst eine Probe.
 - `fs-components`-Pin: getrennt nachziehen (v0.0.23 pinnt `fs-interfaces` v0.0.19); eigener Auftrag.
 - Prüfen, ob `conventions/coding.md` Abschnitt 8 einen Nachtrag braucht (Repo-DAG und Lock-Regel dort aufnehmen oder bei diesem ADR belassen).
+
+## Nachtrag 2026-11-16
+- Der Punkt „Verworfen V1+“ wird durch ADR 0093 ersetzt (Entscheidung der Strategie: `fs-types` wird ein eigenes Repo mit `types.capnp`; Regel 1 dort erweitert).
