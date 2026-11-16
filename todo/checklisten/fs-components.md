@@ -29,7 +29,7 @@ Code, Test mit Gegenprobe und Bild liegen vor. Auf `main` ist nichts davon. Kein
 - [ ] SPÄTER U4/U5 sind vorbeugend geändert, nicht im Bild nachgestellt (CHANGELOG 0.0.20)
 - [ ] SPÄTER Bildabweichung am Tabellenrand unten (feiner Strich unter der letzten Zeile in `standard-notion-u1u2u7u8-seite.png`) ansehen [offen]
 
-## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Kopf 61b7b05 + folgende; Review Opus 2026-11-16 `/srv/FreeSynergy/.scratch/review-u3-stufe1-opus.md`)
+## Rich-Text-Editor Stufe 1 (Branch `unreviewed/rich-stufe1`, Kopf 61b7b05 (Volllauf `/tmp/full-rich-stufe1b.log`: 276 Testbinaries ok, keine Fehler); Review Opus 2026-11-16 `/srv/FreeSynergy/.scratch/review-u3-stufe1-opus.md`)
 Stufe 1 (Absatz, Überschriften, Listen, Aufgaben, Code, Zitat, Linie, Kürzel, Cursor über Blöcke) ist gebaut; auf `main` ist nichts davon, kein Tag. Erledigt mit Beleg, aus dem Review:
 - [x] **GRUNDSACHE** Blocker B1: Raw-Block hatte mehrere Startpunkte, Eingaben gingen still verloren (Beispiele `- a\n- b\nlazy`, Tabelle im Zitat). Behoben (Commit 7c1d5b2), Konformitätsfälle „lazy list item“ und „table in a quote“, Test `a_raw_block_can_be_typed_in`; Gegenprobe: ohne `starts.clear()` rot (Mutation auf Kopie, `.scratch/u3-mut.sh`)
 - [x] **GRUNDSACHE** Speicherform mit Maskierung (`save_form`, Rundlauf lesen-schreiben-lesen für alle Knotenarten, in Listen und Zitaten); Gegenprobe: Maskierung aus = rot (Commit 7c1d5b2, Test `write_then_read_gives_the_same_tree`)
