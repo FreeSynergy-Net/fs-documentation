@@ -42,3 +42,17 @@ Status: akzeptiert (Nutzer, 2026-11-15) · präzisiert ADR 0020 (Speicherformat)
 
 ## Nachtrag (Strategie, 2026-11-16, Schärfung der Aufbewahrungsfrist)
 - Zur Zeile „8 oder 10 Jahre je nach Beleg“ (Abschnitt Original): **Buchungsbelege 8 Jahre** (Rechnung, Quittung), **Bücher und Abschlüsse 10 Jahre**, **Handels- und Geschäftsbriefe 6 Jahre**, jeweils **ab Schluss des Kalenderjahrs** (HGB § 257 Abs. 4 und 5, AO § 147 Abs. 3; gelesen am 2026-11-16 auf gesetze-im-internet.de). Das ist die Voreinstellung, der Mensch kann sie ändern; näheres in ADR 0085 Abschnitt 4. Keine Rechtsberatung.
+
+## Nachtrag (Nutzer, 2026-11-16, Entscheidung 53: Ausnahme 3, eng)
+Blob-Felder sind nur in drei benannten Fällen erlaubt, jeweils mit `exception`-Kennzeichnung im Schema (Kommentar nennt den Grund):
+1. **Erste Ausnahme, Original von Empfangenem** (Entscheidung Nr. 4 oben): im v5-Entwurf `object_original.bytes` (die Tabelle steht im Text dieses ADR noch nicht, nur im v5-Entwurf).
+2. **Zweite Ausnahme, Chiffrat** (Nachtrag 2026-11-15): der verschlüsselte Inhalt eines als verschlüsselt markierten Feldes (ADR 0067), Struktur typisiert.
+3. **Dritte Ausnahme, Abgleichs-Puffer** `collab_buffer.loro` (ADR 0073, Nachtrag 2026-11-16, Entscheidung 3): eine eigene, mit dem Dokument 1:1 verknüpfte Tabelle `collab_buffer` mit typisierten Kopf-Spalten (`doc_id`, `epoch`, `schema_version`, Peer-Liste, `updated_at` …) und **einem** Blob-Feld. Eng gefasst:
+   - nur für **Fließtext**, nie für strukturierte Felder;
+   - **nie durchsucht**, Suche und Abfragen laufen auf den Tabellen (`text`, `text_mark`);
+   - **jederzeit aus `text`/`text_mark` neu baubar**; **nur bei Änderung geschrieben**;
+   - **Versionsfeld** (`schema_version`, `epoch`): bei Fehler oder besserer typisierter Form wird die Version geändert und korrigiert, der Puffer neu gebaut;
+   - **Kennzeichnung** im Schema (`exception`/Kommentar);
+   - **Test:** Neubau aus den Tabellen ergibt den gleichen Text; **Verlust des Puffers ist kein Datenverlust** (nur das Offline-Mischen weicht auf „Text als Ganzes ersetzen + Konflikt anzeigen“ aus).
+   Eine mögliche spätere typisierte Form (Op-Verlauf als Tabelle) ist in ADR 0073, Offen 3, beschrieben. Die Zeile „Loro … nicht als zweite Wahrheit gespeichert“ im Nachtrag 2026-11-15 bleibt richtig: der Puffer ist keine Wahrheit.
+Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ kennt damit zusätzlich Chiffrat und `collab_buffer.loro`.
