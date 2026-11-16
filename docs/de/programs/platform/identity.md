@@ -8,7 +8,7 @@ Identity soll der eine Ort werden, an dem Anmeldung und Zugriff auf Systeme gere
 
 ## Was hier anders ist
 
-- Kanidm entscheidet nie, wer wozu gehört. [Gruppen](groups.md) entscheidet, und Kanidm spiegelt es.
+- Kanidm entscheidet nie, wer wozu gehört. [Gruppen](../apps/groups/index.md) entscheidet, und Kanidm spiegelt es.
 - Kanidm sitzt hinter unserer eigenen Schnittstelle. Wir übernehmen, was es nicht kann, und geben die Steuerung zurück, sobald es das kann.
 - Wenn du Kanidm nicht betreibst, laufen alle Programme trotzdem allein.
 - Unser eigener kleiner Client spricht mit der REST-Schnittstelle von Kanidm, geprüft gegen Kanidm 1.12.0.
@@ -47,7 +47,7 @@ Das engt ADR 0024 ein, das vorsah, Kanidms SCIM hinter unserer Abstraktion zu nu
 
 ## Grenzen, die wir übernehmen
 
-Einladungen, feinkörnige Delegation, Föderation (OpenID Federation ist nicht in Kanidm; ADR 0035). Passkeys können nicht auf der Seite des Servers registriert werden; es lassen sich nur Registrierungslinks ausstellen. Siehe [Gruppen](groups.md).
+Einladungen, feinkörnige Delegation, Föderation (OpenID Federation ist nicht in Kanidm; ADR 0035). Passkeys können nicht auf der Seite des Servers registriert werden; es lassen sich nur Registrierungslinks ausstellen. Siehe [Gruppen](../apps/groups/index.md).
 
 ## Offen
 

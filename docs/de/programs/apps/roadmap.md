@@ -23,7 +23,7 @@ Ob Ansichten wie Galerie oder Kanban *zusätzlich* als eigenständige Programme 
 |-------|----------|--------|
 | Objekte halten, zwischen Programmen teilen | [`fs-store`](https://github.com/FreeSynergy/fs-store), [`fs-hub`](https://github.com/FreeSynergy/fs-hub) | Vorhanden |
 | Anmelden, Systemzugang | [Identitäts-Wrapper](../platform/identity.md) über Kanidm | Geplant |
-| Zusammengehören, entscheiden, wer was darf | [`fs-groups`](../platform/groups.md) | Geplant, **neu** |
+| Zusammengehören, entscheiden, wer was darf | [`fs-groups`](groups/index.md) | Geplant, **neu** |
 | Alles halten und finden | [`fs-files`](files/design.md) | Geplant |
 | Wissen, wer jemand ist, mit Rollen | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Kern vorhanden, keine GUI |
 | Irgendwo zu einer Zeit sein | [`fs-calendar`](https://github.com/FreeSynergy/fs-calendar) | Kern vorhanden, keine GUI |

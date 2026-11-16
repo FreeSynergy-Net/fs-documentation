@@ -26,7 +26,7 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 |-------|----------------|---------------|---------|--------|
 | Nachrichten | Jemandem etwas sagen, [KIs eingeschlossen](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP und ACP für Agenten | `fs-messenger` | Vertragsentwurf |
 | Personen | Wissen, wer jemand ist und wie man ihn erreicht, mit [Rollen](roles.md) | JSContact | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Schnittstellen-Entwurf, Anbieter vorhanden |
-| Gruppen | Zusammengehören und festlegen, wer was darf | AS2 `Group`, SCIM | [`fs-groups`](../programs/platform/groups.md) | Schnittstellen-Entwurf, Code in Arbeit |
+| Gruppen | Zusammengehören und festlegen, wer was darf | AS2 `Group`, SCIM | [`fs-groups`](../programs/apps/groups/index.md) | Schnittstellen-Entwurf, Code in Arbeit |
 | Termine | Irgendwo zu irgendeiner Zeit sein | JSCalendar `Event` | `fs-calendar` | Kern vorhanden |
 | Aufgaben | Wissen, was als Nächstes zu tun ist | JSCalendar `Task`, RFC 9253 | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) | Kern vorhanden, Schnittstellen-Entwurf |
 | Verlauf | Sich merken, was ich oder wir getan haben | AS2-Aktivitäten | [`fs-activity`](https://github.com/FreeSynergy/fs-activity) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |

@@ -34,7 +34,7 @@ Keeping these apart prevents much confusion:
 |-------|----------------|---------------|---------|--------|
 | Messages | Saying something to someone, [AIs included](../programs/apps/assistant/index.md) | AS2, MIMI, JMAP Mail, MCP and ACP for agents | `fs-messenger` | Draft contract |
 | People | Knowing who someone is and how to reach them, with [roles](roles.md) | JSContact | [`fs-people`](https://github.com/FreeSynergy/fs-people) | Draft interface, provider exists |
-| Groups | Belonging together, and deciding who may do what | AS2 `Group`, SCIM | [`fs-groups`](../programs/platform/groups.md) | Draft interface, code in progress |
+| Groups | Belonging together, and deciding who may do what | AS2 `Group`, SCIM | [`fs-groups`](../programs/apps/groups/index.md) | Draft interface, code in progress |
 | Events | Being somewhere at some time | JSCalendar `Event` | `fs-calendar` | Core exists |
 | Tasks | Knowing what to do next | JSCalendar `Task`, RFC 9253 | [`fs-tasks`](https://github.com/FreeSynergy/fs-tasks) | Core exists, draft interface |
 | History | Remembering what I or we did | AS2 activities | [`fs-activity`](https://github.com/FreeSynergy/fs-activity) | Provisional draft interface, core exists |

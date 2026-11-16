@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-16T05:18:35.812986+00:00",
+  "last_run": "2026-11-16T12:15:33.393338+00:00",
   "entries": {
     "components/blinc-cn-components.md": {
       "status": "VERIFIED",
@@ -43300,8 +43300,8 @@
     },
     "interfaces/index.md": {
       "status": "PENDING",
-      "en_hash": "767ad998d182a8d1",
-      "de_hash": "c571bc919475ce2c",
+      "en_hash": "60d737b29341edf1",
+      "de_hash": "39322e260fcb8d07",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
@@ -43309,8 +43309,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 8334,
-      "de_bytes": 9327
+      "en_bytes": 8336,
+      "de_bytes": 9329
     },
     "interfaces/roles.md": {
       "status": "PENDING",
@@ -46538,8 +46538,8 @@
     },
     "programs/apps/roadmap.md": {
       "status": "PENDING",
-      "en_hash": "18122897b34a6c4b",
-      "de_hash": "49425a3c38584d72",
+      "en_hash": "400ae1ed07f54a6f",
+      "de_hash": "13bd0994c2d385fd",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
@@ -46547,8 +46547,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 8027,
-      "de_bytes": 6914
+      "en_bytes": 8021,
+      "de_bytes": 6908
     },
     "programs/apps/store/frontends/f-droid/index.md": {
       "status": "PENDING",
@@ -47575,8 +47575,8 @@
     },
     "programs/apps/surveys/design.md": {
       "status": "PENDING",
-      "en_hash": "f5eb5a91c0490ddd",
-      "de_hash": "54ff7f24167bd32a",
+      "en_hash": "1b187a91009112ef",
+      "de_hash": "8fed8a15e4cba409",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
@@ -47584,8 +47584,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 9612,
-      "de_bytes": 7671
+      "en_bytes": 9606,
+      "de_bytes": 7665
     },
     "programs/apps/surveys/frontends/consul/index.md": {
       "status": "PENDING",
@@ -48867,7 +48867,7 @@
     },
     "programs/apps/tasks/requirements.md": {
       "status": "PENDING",
-      "en_hash": "a3ae146298a2ed4b",
+      "en_hash": "66e50f542e08325c",
       "de_hash": "dc25770bcc10e965",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
@@ -48876,7 +48876,7 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 16286,
+      "en_bytes": 16280,
       "de_bytes": 14216
     },
     "programs/apps/whiteboard/design.md": {
@@ -51077,23 +51077,26 @@
       "de_bytes": 493
     },
     "programs/platform/groups.md": {
-      "status": "PENDING",
+      "status": "DELETED",
       "en_hash": "4c5ece08368da47a",
       "de_hash": "3fba7cb40922df30",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
-      "kind": [
-        "en_german"
-      ],
+      "kind": [],
       "note": null,
-      "history": [],
-      "en_bytes": 6251,
-      "de_bytes": 7356
+      "history": [
+        {
+          "at": "2026-11-16T12:15:32.669752+00:00",
+          "event": "file gone → DELETED"
+        }
+      ],
+      "en_bytes": null,
+      "de_bytes": null
     },
     "programs/platform/identity.md": {
       "status": "PENDING",
-      "en_hash": "2b43cc387780ad30",
-      "de_hash": "6888d7fb2cbfc52b",
+      "en_hash": "8cb5b4e0b51e8e27",
+      "de_hash": "7766f9269c3fd0d8",
       "first_seen": "2026-11-16T04:41:06.209100+00:00",
       "last_verified": null,
       "kind": [
@@ -51101,8 +51104,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 3281,
-      "de_bytes": 3745
+      "en_bytes": 3309,
+      "de_bytes": 3773
     },
     "programs/platform/releases.md": {
       "status": "PENDING",
@@ -52953,8 +52956,8 @@
     },
     "programs/apps/activity/index.md": {
       "status": "PENDING",
-      "en_hash": "65a6212ac9dca549",
-      "de_hash": "784d0eada36d8800",
+      "en_hash": "35027e9b6bf2a6d5",
+      "de_hash": "32789ed8902b9e15",
       "first_seen": "2026-11-16T05:18:20.536921+00:00",
       "last_verified": null,
       "kind": [
@@ -52963,8 +52966,8 @@
       ],
       "note": null,
       "history": [],
-      "en_bytes": 4923,
-      "de_bytes": 4905
+      "en_bytes": 5004,
+      "de_bytes": 4987
     },
     "programs/apps/activity/requirements.md": {
       "status": "PENDING",
@@ -52978,6 +52981,556 @@
       "note": null,
       "history": [],
       "en_bytes": 2675,
+      "de_bytes": null
+    },
+    "programs/apps/groups/frontends/discourse-groups/index.md": {
+      "status": "PENDING",
+      "en_hash": "fd5295cbc7d5fad4",
+      "de_hash": "744d9a8e59cb4bb5",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2026,
+      "de_bytes": 1269
+    },
+    "programs/apps/groups/frontends/discourse-groups/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "e2478b78b6b12dba",
+      "de_hash": "2ee2437cc4a23397",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 794,
+      "de_bytes": 902
+    },
+    "programs/apps/groups/frontends/discourse-groups/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "efd1a4ae2b9bfaab",
+      "de_hash": "e0497110881cdbf5",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1104,
+      "de_bytes": 1320
+    },
+    "programs/apps/groups/frontends/discourse-groups/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "fcd35b89756d0756",
+      "de_hash": "ff90495f7eb0b4cd",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 856,
+      "de_bytes": 1005
+    },
+    "programs/apps/groups/frontends/discourse-groups/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "92a05ecb4938e382",
+      "de_hash": "b8870f1e1dbbc506",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1111,
+      "de_bytes": 1301
+    },
+    "programs/apps/groups/frontends/discourse-groups/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "565e52b659eedba0",
+      "de_hash": "f9a6bc85e96a75a3",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1843,
+      "de_bytes": 2216
+    },
+    "programs/apps/groups/frontends/google-groups/index.md": {
+      "status": "PENDING",
+      "en_hash": "1cbb61126a5a284f",
+      "de_hash": "0fce8131c48c5d1a",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2366,
+      "de_bytes": 1685
+    },
+    "programs/apps/groups/frontends/google-groups/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "5130b2105281abf3",
+      "de_hash": "006240dc3f7de99c",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1037,
+      "de_bytes": 1180
+    },
+    "programs/apps/groups/frontends/google-groups/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "ba4b05d7b6c507ba",
+      "de_hash": "0643a0c4aa3842f0",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1637,
+      "de_bytes": 1802
+    },
+    "programs/apps/groups/frontends/google-groups/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "be856bd90a9cd9ec",
+      "de_hash": "1291bf403f1a8d3c",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1083,
+      "de_bytes": 1217
+    },
+    "programs/apps/groups/frontends/google-groups/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "78902c60b41b0dae",
+      "de_hash": "6a027c4445fc4745",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1175,
+      "de_bytes": 1313
+    },
+    "programs/apps/groups/frontends/google-groups/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "dbc76272e6e246ec",
+      "de_hash": "33f13ec5a916a136",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3578,
+      "de_bytes": 4193
+    },
+    "programs/apps/groups/frontends/index.md": {
+      "status": "PENDING",
+      "en_hash": "5e5f9c8fc46f2caa",
+      "de_hash": "f5751db9f156fc9a",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3545,
+      "de_bytes": 2568
+    },
+    "programs/apps/groups/frontends/mailman-3/index.md": {
+      "status": "PENDING",
+      "en_hash": "07e59ce47a50e58d",
+      "de_hash": "919434a8cba53f79",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1620,
+      "de_bytes": 884
+    },
+    "programs/apps/groups/frontends/mailman-3/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "78c27c18fe9fe6b7",
+      "de_hash": "2d866870a9a13e29",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 631,
+      "de_bytes": 704
+    },
+    "programs/apps/groups/frontends/mailman-3/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "fc71ef6aa3767be5",
+      "de_hash": "9af6b1a39c8cc699",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1044,
+      "de_bytes": 1224
+    },
+    "programs/apps/groups/frontends/mailman-3/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "a503f722b1036835",
+      "de_hash": "8b45302bc590e9bb",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 730,
+      "de_bytes": 757
+    },
+    "programs/apps/groups/frontends/mailman-3/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "de6df5e9f70611e9",
+      "de_hash": "74d77459e9c0ada4",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 773,
+      "de_bytes": 802
+    },
+    "programs/apps/groups/frontends/mailman-3/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "ac9fcb75ff356123",
+      "de_hash": "48772fd44e46c429",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1639,
+      "de_bytes": 1810
+    },
+    "programs/apps/groups/frontends/matrix-spaces/index.md": {
+      "status": "PENDING",
+      "en_hash": "80bcf2c867532694",
+      "de_hash": "4883102707c57171",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2268,
+      "de_bytes": 1556
+    },
+    "programs/apps/groups/frontends/matrix-spaces/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "cc1ac0fb13f16693",
+      "de_hash": "1b6ab43343962e44",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1356,
+      "de_bytes": 1481
+    },
+    "programs/apps/groups/frontends/matrix-spaces/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "95b386e375098e4e",
+      "de_hash": "6c15c6b13d47ece8",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1202,
+      "de_bytes": 1313
+    },
+    "programs/apps/groups/frontends/matrix-spaces/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "c214de33813d9e54",
+      "de_hash": "92d0ccaa6bd80dcc",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1262,
+      "de_bytes": 1356
+    },
+    "programs/apps/groups/frontends/matrix-spaces/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "e736ceea3d78938a",
+      "de_hash": "0afa389cff23842d",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 752,
+      "de_bytes": 839
+    },
+    "programs/apps/groups/frontends/matrix-spaces/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "d9a58fa16aa35bbb",
+      "de_hash": "d26a54274b023e6c",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2461,
+      "de_bytes": 2784
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/index.md": {
+      "status": "PENDING",
+      "en_hash": "ef66cdd7d8d16b8d",
+      "de_hash": "6cb1b36549b97f77",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2925,
+      "de_bytes": 2237
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "feebfc08a40265b3",
+      "de_hash": "8b7a88554f13b803",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1267,
+      "de_bytes": 1446
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "fc918b41b33848e2",
+      "de_hash": "79fbb6c94dd20f1d",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1490,
+      "de_bytes": 1846
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "140bde9bf7c70dd1",
+      "de_hash": "d70ca055bca9788f",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1112,
+      "de_bytes": 1276
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "59fb4c393d725246",
+      "de_hash": "c4288932300fc5e9",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1081,
+      "de_bytes": 1262
+    },
+    "programs/apps/groups/frontends/microsoft-365-groups/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "23bc6039a482eaa5",
+      "de_hash": "ed0afc2fdd8043d4",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 3529,
+      "de_bytes": 4302
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/index.md": {
+      "status": "PENDING",
+      "en_hash": "75f6682b9da8ebc5",
+      "de_hash": "359100f8e74c5005",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2275,
+      "de_bytes": 1481
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/latest/description.md": {
+      "status": "PENDING",
+      "en_hash": "a9ef2c9f9a4452f6",
+      "de_hash": "1f2837c4c359a2c4",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 1519,
+      "de_bytes": 1642
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/latest/features.md": {
+      "status": "PENDING",
+      "en_hash": "49e705084f44994e",
+      "de_hash": "5a908989e5bf9c7d",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 904,
+      "de_bytes": 1027
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/latest/menus.md": {
+      "status": "PENDING",
+      "en_hash": "29f712f08d285d67",
+      "de_hash": "b4fc8b4d30c71927",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 971,
+      "de_bytes": 1062
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/latest/states.md": {
+      "status": "PENDING",
+      "en_hash": "4349d85108e65008",
+      "de_hash": "2d3ef76b774a9aac",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 770,
+      "de_bytes": 830
+    },
+    "programs/apps/groups/frontends/nextcloud-circles/latest/workflows.md": {
+      "status": "PENDING",
+      "en_hash": "2ac473bbd399bc8d",
+      "de_hash": "7db78f48d4fd5349",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "review"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 2177,
+      "de_bytes": 2502
+    },
+    "programs/apps/groups/index.md": {
+      "status": "PENDING",
+      "en_hash": "bbef643a08d0e1dd",
+      "de_hash": "6ad009e335ceda1c",
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "en_german",
+        "parity"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 7949,
+      "de_bytes": 7931
+    },
+    "programs/apps/groups/requirements.md": {
+      "status": "PENDING",
+      "en_hash": "c3e87e64eeb24c82",
+      "de_hash": null,
+      "first_seen": "2026-11-16T12:15:32.669752+00:00",
+      "last_verified": null,
+      "kind": [
+        "needs_de"
+      ],
+      "note": null,
+      "history": [],
+      "en_bytes": 571,
       "de_bytes": null
     }
   }

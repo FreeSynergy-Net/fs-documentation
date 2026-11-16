@@ -8,7 +8,7 @@ Identity is meant to become the one place where signing in and access to systems
 
 ## What is different here
 
-- Kanidm never decides who belongs to what. [Groups](groups.md) decides, and Kanidm mirrors it.
+- Kanidm never decides who belongs to what. [Groups](../apps/groups/index.md) decides, and Kanidm mirrors it.
 - Kanidm sits behind our own interface. We take on what it cannot do and hand control back when it can.
 - If you do not run Kanidm, all programs still run alone.
 - Our own small client talks to Kanidm's REST interface, checked against Kanidm 1.12.0.
@@ -50,7 +50,7 @@ This narrows ADR 0024, which planned to use Kanidm's SCIM behind our abstraction
 ## Limits we take on
 
 Invitations, fine-grained delegation, federation (OpenID Federation is not in Kanidm; ADR 0035). Passkeys cannot be
-registered on the server's side; only enrolment links can be issued. See [groups](groups.md).
+registered on the server's side; only enrolment links can be issued. See [groups](../apps/groups/index.md).
 
 ## Open
 

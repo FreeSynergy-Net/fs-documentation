@@ -1,6 +1,6 @@
 # Übersetzungsliste – der Übersetzungs-Checker für den ganzen Baum
 
-Stand: 2026-11-16 05:18 UTC · 2521 Dateien verfolgt · 1876 offen · 483 bestätigt
+Stand: 2026-11-16 12:15 UTC · 2560 Dateien verfolgt · 1914 offen · 483 bestätigt
 
 Erzeugt von `python3 scripts/doc_sync.py --en docs/en --de docs/de \`
     `--state temp/sync_state.json --list temp/translation-queue.md`
@@ -37,17 +37,17 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 | Abschnitt | Dateien |
 |-----------|---------|
 | A. `en/` fehlt – aus `de/` übersetzen | 0 |
-| B. `de/` fehlt – englische Quelle nachziehen | 341 |
+| B. `de/` fehlt – englische Quelle nachziehen | 342 |
 | C. `en/` ist eine Kopie von `de/` – unübersetzt | 0 |
-| D. `en/` enthält noch deutschen Text – Rest übersetzen | 29 |
+| D. `en/` enthält noch deutschen Text – Rest übersetzen | 33 |
 | D2. Deutscher Text in Codebeispielen/Boxen (ADR 0002: Code ist englisch) | 4 |
 | E. `de/` enthält noch englischen Text – Rest rückübersetzen | 182 |
-| F. Form nicht gleich – Struktur abgleichen | 218 |
+| F. Form nicht gleich – Struktur abgleichen | 226 |
 | G. Deutscher Dateiname – Pfad englisch machen (ADR 0002) | 0 |
-| H. Beide Seiten da, kein Befund – lesen und bestätigen | 1208 |
-| 🗑️ gelöscht (tombstone) | 162 |
+| H. Beide Seiten da, kein Befund – lesen und bestätigen | 1237 |
+| 🗑️ gelöscht (tombstone) | 163 |
 
-## B. `de/` fehlt – englische Quelle nachziehen – 341 Dateien
+## B. `de/` fehlt – englische Quelle nachziehen – 342 Dateien
 
 ### `components/styles/` · 3
 
@@ -167,6 +167,10 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 ### `programs/apps/files/frontends/windows-explorer/latest/themes/` · 1
 
 - [ ] `programs/apps/files/frontends/windows-explorer/latest/themes/index.md` · 421b
+
+### `programs/apps/groups/` · 1
+
+- [ ] `programs/apps/groups/requirements.md` · 571b
 
 ### `programs/apps/messenger/frontends/delta-chat/` · 1
 
@@ -681,7 +685,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/apps/wiki/frontends/tana/latest/menus.md` · 32b
 - [ ] `programs/apps/wiki/frontends/tana/latest/shortcuts.md` · 89b
 
-## D. `en/` enthält noch deutschen Text – Rest übersetzen – 29 Dateien
+## D. `en/` enthält noch deutschen Text – Rest übersetzen – 33 Dateien
 
 ### `programs/` · 1
 
@@ -689,7 +693,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ### `programs/apps/activity/` · 1
 
-- [ ] `programs/apps/activity/index.md` · 4.8k · Parität: headings 7 vs 6; links en-only=['frontends/activitywatch/index.md', 'frontends/day-one/index.md', 'frontends/exist-io/index.md'] de-only=[] · L7 DE prose in EN: ['ein', 'ein'] · auch: parity
+- [ ] `programs/apps/activity/index.md` · 4.9k · Parität: headings 7 vs 6; links en-only=['frontends/activitywatch/index.md', 'frontends/day-one/index.md', 'frontends/exist-io/index.md'] de-only=[] · L9 DE prose in EN: ['ein', 'ein'] · auch: parity
 
 ### `programs/apps/calendar/` · 1
 
@@ -714,6 +718,26 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 ### `programs/apps/gallery/` · 1
 
 - [ ] `programs/apps/gallery/requirements.md` · 12.0k · Parität: headings 5 vs 4; table rows 65 vs 4 · hash changed since verification · auch: parity
+
+### `programs/apps/groups/` · 1
+
+- [ ] `programs/apps/groups/index.md` · 7.8k · Parität: headings 14 vs 13; links en-only=['frontends/discourse-groups/index.md', 'frontends/google-groups/index.md', 'frontends/mailman-3/index.md'] de-only=[] · L7 DE prose in EN: ['ein', 'ein'] · auch: parity
+
+### `programs/apps/groups/frontends/google-groups/` · 1
+
+- [ ] `programs/apps/groups/frontends/google-groups/index.md` · 2.3k · Parität: headings 6 vs 4; table rows 18 vs 8 · L40 German umlaut in EN word → "Übersichtsseite" · auch: parity
+
+### `programs/apps/groups/frontends/microsoft-365-groups/` · 1
+
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/index.md` · 2.9k · Parität: headings 6 vs 4; table rows 19 vs 9 · L41 DE prose in EN: ['bearbeiten', 'löschen'] · auch: parity
+
+### `programs/apps/groups/frontends/nextcloud-circles/` · 1
+
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/index.md` · 2.2k · Parität: headings 6 vs 4; table rows 16 vs 6 · L40 German umlaut in EN word → "Faktenprüfung" · auch: parity
+
+### `programs/apps/groups/frontends/nextcloud-circles/latest/` · 1
+
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/latest/description.md` · 1.5k · L37 German umlaut in EN word → "Faktenprüfung"
 
 ### `programs/apps/maps/` · 1
 
@@ -774,9 +798,8 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/apps/wiki/frontends/notion/latest/dialogs.md` · 7.4k · L107 German umlaut in EN word → "Schrägstrich" · auch: needs_de
 - [ ] `programs/apps/wiki/frontends/notion/latest/menus.md` · 9.2k · Parität: headings 16 vs 23; table rows 0 vs 6 · L68 German umlaut in EN word → "Menü" · hash changed since verification · auch: parity
 
-### `programs/platform/` · 3
+### `programs/platform/` · 2
 
-- [ ] `programs/platform/groups.md` · 6.1k · L7 DE prose in EN: ['ein', 'ein']
 - [ ] `programs/platform/identity.md` · 3.2k · L7 DE prose in EN: ['ein', 'ein']
 - [ ] `programs/platform/store.md` · 4.2k · L14 DE prose in EN: ['ein', 'ein']
 
@@ -1145,7 +1168,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/suites/workflows/frontends/windmill/latest/menus.md` · 363b · Parität: line count 2 vs 5 · L5 EN prose in DE: ['this', 'from', 'the', 'has', 'yet', 'been'] · auch: parity
 - [ ] `programs/suites/workflows/frontends/windmill/latest/shortcuts.md` · 402b · Parität: line count 2 vs 5 · L5 EN prose in DE: ['this', 'from', 'the', 'has', 'yet', 'been'] · auch: parity
 
-## F. Form nicht gleich – Struktur abgleichen – 218 Dateien
+## F. Form nicht gleich – Struktur abgleichen – 226 Dateien
 
 ### `components/primitives/fields/select/` · 1
 
@@ -1201,7 +1224,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ### `programs/apps/activity/` · 1
 
-- [ ] `programs/apps/activity/index.md` · 4.8k · Parität: headings 7 vs 6; links en-only=['frontends/activitywatch/index.md', 'frontends/day-one/index.md', 'frontends/exist-io/index.md'] de-only=[] · auch: en_german
+- [ ] `programs/apps/activity/index.md` · 4.9k · Parität: headings 7 vs 6; links en-only=['frontends/activitywatch/index.md', 'frontends/day-one/index.md', 'frontends/exist-io/index.md'] de-only=[] · auch: en_german
 
 ### `programs/apps/calendar/` · 2
 
@@ -1320,6 +1343,38 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `programs/apps/gallery/frontends/apple-photos/latest/menus.md` · 40b · Parität: line count 2 vs 5 · auch: de_english
 - [ ] `programs/apps/gallery/frontends/apple-photos/latest/shortcuts.md` · 97b · Parität: line count 2 vs 5 · auch: de_english
 
+### `programs/apps/groups/` · 1
+
+- [ ] `programs/apps/groups/index.md` · 7.8k · Parität: headings 14 vs 13; links en-only=['frontends/discourse-groups/index.md', 'frontends/google-groups/index.md', 'frontends/mailman-3/index.md'] de-only=[] · auch: en_german
+
+### `programs/apps/groups/frontends/` · 1
+
+- [ ] `programs/apps/groups/frontends/index.md` · 3.5k · Parität: links en-only=['requirements.md'] de-only=['index.md']
+
+### `programs/apps/groups/frontends/discourse-groups/` · 1
+
+- [ ] `programs/apps/groups/frontends/discourse-groups/index.md` · 2.0k · Parität: headings 6 vs 4; table rows 17 vs 7
+
+### `programs/apps/groups/frontends/google-groups/` · 1
+
+- [ ] `programs/apps/groups/frontends/google-groups/index.md` · 2.3k · Parität: headings 6 vs 4; table rows 18 vs 8 · auch: en_german
+
+### `programs/apps/groups/frontends/mailman-3/` · 1
+
+- [ ] `programs/apps/groups/frontends/mailman-3/index.md` · 1.6k · Parität: headings 6 vs 4; table rows 15 vs 5
+
+### `programs/apps/groups/frontends/matrix-spaces/` · 1
+
+- [ ] `programs/apps/groups/frontends/matrix-spaces/index.md` · 2.2k · Parität: headings 7 vs 5; table rows 16 vs 6
+
+### `programs/apps/groups/frontends/microsoft-365-groups/` · 1
+
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/index.md` · 2.9k · Parität: headings 6 vs 4; table rows 19 vs 9 · auch: en_german
+
+### `programs/apps/groups/frontends/nextcloud-circles/` · 1
+
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/index.md` · 2.2k · Parität: headings 6 vs 4; table rows 16 vs 6 · auch: en_german
+
 ### `programs/apps/helpdesk/` · 2
 
 - [ ] `programs/apps/helpdesk/index.md` · 4.5k · Plan[~] · Parität: links en-only=['frontends/chatwoot/index.md'] de-only=[] · hash changed since verification
@@ -1432,7 +1487,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `programs/apps/tasks/design.md` · 3.9k · Parität: headings 9 vs 8
 - [ ] `programs/apps/tasks/index.md` · 4.0k · Parität: headings 6 vs 5; links en-only=['frontends/index.md', 'frontends/jira/index.md', 'frontends/linear/index.md'] de-only=[] · auch: en_german
-- [ ] `programs/apps/tasks/requirements.md` · 15.9k · Parität: table rows 80 vs 71; links en-only=['../../components/charts.md', '../platform/groups.md', '../platform/identity.md'] de-only=['../suites/projectmanagement/frontends/jira/index.md']
+- [ ] `programs/apps/tasks/requirements.md` · 15.9k · Parität: table rows 80 vs 71; links en-only=['../../components/charts.md', '../platform/identity.md', 'activity/index.md'] de-only=['../suites/projectmanagement/frontends/jira/index.md']
 
 ### `programs/apps/whiteboard/` · 3
 
@@ -1767,7 +1822,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `programs/suites/workflows/frontends/zapier/index.md` · 1.2k · Parität: headings 5 vs 3; table rows 11 vs 0
 
-## H. Beide Seiten da, kein Befund – lesen und bestätigen – 1208 Dateien
+## H. Beide Seiten da, kein Befund – lesen und bestätigen – 1237 Dateien
 
 ### `(wurzel)/` · 2
 
@@ -3086,6 +3141,53 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 - [ ] `programs/apps/gallery/frontends/nextcloud-photos/latest/api.md` · 2.6k · hash changed since verification
 
+### `programs/apps/groups/frontends/discourse-groups/latest/` · 5
+
+- [ ] `programs/apps/groups/frontends/discourse-groups/latest/description.md` · 794b
+- [ ] `programs/apps/groups/frontends/discourse-groups/latest/features.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/discourse-groups/latest/menus.md` · 856b
+- [ ] `programs/apps/groups/frontends/discourse-groups/latest/states.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/discourse-groups/latest/workflows.md` · 1.8k
+
+### `programs/apps/groups/frontends/google-groups/latest/` · 5
+
+- [ ] `programs/apps/groups/frontends/google-groups/latest/description.md` · 1.0k
+- [ ] `programs/apps/groups/frontends/google-groups/latest/features.md` · 1.6k
+- [ ] `programs/apps/groups/frontends/google-groups/latest/menus.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/google-groups/latest/states.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/google-groups/latest/workflows.md` · 3.5k
+
+### `programs/apps/groups/frontends/mailman-3/latest/` · 5
+
+- [ ] `programs/apps/groups/frontends/mailman-3/latest/description.md` · 631b
+- [ ] `programs/apps/groups/frontends/mailman-3/latest/features.md` · 1.0k
+- [ ] `programs/apps/groups/frontends/mailman-3/latest/menus.md` · 730b
+- [ ] `programs/apps/groups/frontends/mailman-3/latest/states.md` · 773b
+- [ ] `programs/apps/groups/frontends/mailman-3/latest/workflows.md` · 1.6k
+
+### `programs/apps/groups/frontends/matrix-spaces/latest/` · 5
+
+- [ ] `programs/apps/groups/frontends/matrix-spaces/latest/description.md` · 1.3k
+- [ ] `programs/apps/groups/frontends/matrix-spaces/latest/features.md` · 1.2k
+- [ ] `programs/apps/groups/frontends/matrix-spaces/latest/menus.md` · 1.2k
+- [ ] `programs/apps/groups/frontends/matrix-spaces/latest/states.md` · 752b
+- [ ] `programs/apps/groups/frontends/matrix-spaces/latest/workflows.md` · 2.4k
+
+### `programs/apps/groups/frontends/microsoft-365-groups/latest/` · 5
+
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/latest/description.md` · 1.2k
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/latest/features.md` · 1.5k
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/latest/menus.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/latest/states.md` · 1.1k
+- [ ] `programs/apps/groups/frontends/microsoft-365-groups/latest/workflows.md` · 3.4k
+
+### `programs/apps/groups/frontends/nextcloud-circles/latest/` · 4
+
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/latest/features.md` · 904b
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/latest/menus.md` · 971b
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/latest/states.md` · 770b
+- [ ] `programs/apps/groups/frontends/nextcloud-circles/latest/workflows.md` · 2.1k
+
 ### `programs/apps/helpdesk/frontends/freshdesk/latest/` · 1
 
 - [ ] `programs/apps/helpdesk/frontends/freshdesk/latest/api.md` · 2.4k · hash changed since verification
@@ -3907,7 +4009,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [ ] `start/index.md` · 521b
 - [ ] `start/install.md` · 4.9k
 
-## 🗑️ Gelöscht – 162
+## 🗑️ Gelöscht – 163
 
 - [x] `data/anforderungen.md` · nicht mehr im Baum
 - [x] `data/contacts/description.md` · nicht mehr im Baum
@@ -4065,6 +4167,7 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - [x] `programs/apps/wiki/frontends/tango.io/latest/layout.md` · nicht mehr im Baum
 - [x] `programs/apps/wiki/frontends/tango.io/latest/menus.md` · nicht mehr im Baum
 - [x] `programs/apps/wiki/frontends/tango.io/latest/shortcuts.md` · nicht mehr im Baum
+- [x] `programs/platform/groups.md` · nicht mehr im Baum
 - [x] `programs/suites/projectmanagement/frontends/jira/latest/api.md` · nicht mehr im Baum
 - [x] `programs/suites/projectmanagement/frontends/jira/latest/description.md` · nicht mehr im Baum
 - [x] `programs/suites/projectmanagement/frontends/jira/latest/features.md` · nicht mehr im Baum
@@ -4074,7 +4177,6 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 
 ## Changelog
 
-- 2026-11-05 16:18 · Lauf: 1537 verfolgt, 458 offen, 1072 bestätigt · needs_en=423 needs_de=22 parity=13
 - 2026-11-05 16:19 · Lauf: 1537 verfolgt, 458 offen, 1072 bestätigt · needs_en=423 needs_de=5 parity=13 review=17
 - 2026-11-05 16:19 · Lauf: 1537 verfolgt, 441 offen, 1089 bestätigt · needs_en=423 needs_de=5 parity=13
 - 2026-11-05 16:21 · Lauf: 1537 verfolgt, 441 offen, 1089 bestätigt · needs_en=423 needs_de=2 parity=13 review=3
@@ -4115,3 +4217,4 @@ Abschnitten stehen (z. B. `needs_en` + `rename`); die Abschnittszahlen zählen d
 - 2026-11-16 04:41 · Lauf: 2521 verfolgt, 1882 offen, 483 bestätigt · needs_en=6 needs_de=341 en_german=29 code_german=4 de_english=182 parity=219 review=1207
 - 2026-11-16 05:18 · Lauf: 2545 verfolgt, 1876 offen, 483 bestätigt · needs_de=341 en_german=29 code_german=4 de_english=182 parity=218 review=1208
 - 2026-11-16 05:18 · Lauf: 2521 verfolgt, 1876 offen, 483 bestätigt · needs_de=341 en_german=29 code_german=4 de_english=182 parity=218 review=1208
+- 2026-11-16 12:15 · Lauf: 2560 verfolgt, 1914 offen, 483 bestätigt · needs_de=342 en_german=33 code_german=4 de_english=182 parity=226 review=1237

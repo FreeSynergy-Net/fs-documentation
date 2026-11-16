@@ -4,22 +4,24 @@
 
 Groups keeps track of who belongs together: a family, a team, a club, a department inside a bigger one. It also answers who may do what. You can invite people, and only the person invited can accept.
 
-**Command:** `fs-groups`, one command per program with subcommands ([ADR 0063](../../decisions/0063-ein-programm-ein-befehl.md); programs are switched over when they are next touched, so not every one is yet).
+**Command:** `fs-groups`, one command per program with subcommands ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md)). Today `fs-groups` opens the window and `fs-groups serve` starts the server; the subcommands are not built yet.
 
 ## What is different here
 
-- Groups work alone. No directory server is needed. If you run one such as Kanidm, Groups can mirror its state there, but the directory never decides.
+- Groups work alone. No directory server is needed. If you run one such as Kanidm, Groups can mirror its state there, but the directory never decides. The mirror has run live only against a local Kanidm 1.12.0, not yet end to end.
 - Groups can nest, and a group can have several parents. A loop is refused, and the answer names the path.
 - Membership counts through nesting, and the answer says how a person got in.
 - AI agents are never administrators of a group.
 
 ## Where it stands today
 
-Latest tag: `v0.0.1`. You can create, nest and delete groups, add members with a role, send invitations that expire, and delegate and revoke rights. There is no window and no server yet. Delegated rights only answer questions; nothing enforces them, and nobody is authenticated yet. Some rules are still provisional while the project owner decides them. Following between groups is planned, not built.
+The core can create, nest and delete groups, add members with a role, send invitations that expire, and delegate and revoke rights. The window shows the list of groups and a form for name and kind. It does not yet show nesting, members, invitations, rights, following or mirroring; the [frontends](frontends/index.md) page describes the planned screens. The server is started with `fs-groups serve`. Delegated rights only answer questions; nothing enforces them, and nobody is authenticated yet. The store is not encrypted yet. Some rules are still provisional while the project owner decides them. Following between groups is planned, not built.
+
+Versions follow `0.0.N` and the version number is the tag. The workspace is at `0.0.1`; the next tag will be `v0.0.2`. Earlier tags `v0.1.0` to `v0.4.0` are to be removed.
 
 `fs-groups`: belonging together, and deciding who may do what.
 
-**Status: core `v0.0.1` in [`fs-groups`](https://github.com/FreeSynergy/fs-groups), no window; the interface is a draft in [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces).** Back to the [overall plan](../apps/roadmap.md).
+**Status: `0.0.1` in [`fs-groups`](https://github.com/FreeSynergy/fs-groups), with a window and a server; the interface is a draft in [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces).** Back to the [overall plan](../roadmap.md).
 
 ## Why it comes early
 
@@ -95,3 +97,18 @@ If Kanidm gains one of these, we hand it back, as stated in ADR 0047.
 1. Must a hierarchy be a tree, or can a group have several parents? **Confirmed by the project owner (2026-11-07):** several parents are allowed, as a working group can belong to two departments, and cycles are refused.
 2. Who may widen a survey to a parent group: its initiators, or the parent group?
 3. How do decisions about group membership work? **Decided (2026-11-07):** each group sets it: by invitation only, open to everyone, or on request with confirmation; a vote through `fs-surveys` is possible where the group wants it.
+
+## Frontends
+
+<!-- gen:frontends (scripts/gen_frontend_indexes.py) — edits inside are overwritten -->
+Analysed programs (6), by function, nothing copied (ADR 0012/0013):
+
+- [Discourse Groups](frontends/discourse-groups/index.md) — Discourse groups are member lists inside the Discourse forum software.
+- [Google Groups](frontends/google-groups/index.md) — Google Groups manages members, roles and message rules behind a group email address [S2][S3][S6].
+- [Mailman 3](frontends/mailman-3/index.md) — Mailman 3 is mailing list software.
+- [Matrix Spaces](frontends/matrix-spaces/index.md) — Matrix Spaces are a way to group Matrix rooms and people.
+- [Microsoft 365 Groups](frontends/microsoft-365-groups/index.md) — Microsoft 365 Groups are collaboration groups with owners and members; a new group gets a shared inbox, calendar, document library and other resources for its members [S2][S6].
+- [Nextcloud Circles](frontends/nextcloud-circles/index.md) — Nextcloud Circles (app ID `circles`) is a group feature inside Nextcloud for sharing resources with a named set of people.
+
+Overview: [frontends](frontends/index.md)
+<!-- /gen:frontends -->

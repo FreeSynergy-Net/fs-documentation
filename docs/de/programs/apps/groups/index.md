@@ -4,22 +4,24 @@
 
 Gruppen hält fest, wer zusammengehört: eine Familie, ein Team, ein Verein, eine Abteilung innerhalb einer größeren. Es beantwortet auch, wer was darf. Du kannst Personen einladen, und nur die eingeladene Person kann annehmen.
 
-**Befehl:** `fs-groups`, ein Befehl je Programm mit Unterbefehlen ([ADR 0063](../../decisions/0063-ein-programm-ein-befehl.md); Programme werden umgestellt, wenn sie ohnehin angefasst werden, nicht jedes ist es schon).
+**Befehl:** `fs-groups`, ein Befehl je Programm mit Unterbefehlen ([ADR 0063](../../../decisions/0063-ein-programm-ein-befehl.md)). Heute öffnet `fs-groups` das Fenster, und `fs-groups serve` startet den Server; die Unterbefehle sind noch nicht gebaut.
 
 ## Was hier anders ist
 
-- Gruppen funktionieren allein. Es ist kein Verzeichnisserver nötig. Wenn du einen wie Kanidm betreibst, kann Gruppen dessen Stand dorthin spiegeln, aber das Verzeichnis entscheidet nie.
+- Gruppen funktionieren allein. Es ist kein Verzeichnisserver nötig. Wenn du einen wie Kanidm betreibst, kann Gruppen dessen Stand dorthin spiegeln, aber das Verzeichnis entscheidet nie. Der Spiegel lief bisher nur lokal gegen Kanidm 1.12.0, noch nicht durchgängig.
 - Gruppen können verschachtelt werden, und eine Gruppe kann mehrere Eltern haben. Eine Schleife wird abgelehnt, und die Antwort nennt den Pfad.
 - Mitgliedschaft zählt über Verschachtelung, und die Antwort sagt, wie eine Person hineingekommen ist.
 - KI-Agenten sind niemals Administratoren einer Gruppe.
 
 ## Wo es heute steht
 
-Neueste Version: `v0.3.0`. Du kannst Gruppen anlegen, verschachteln und löschen, Mitglieder mit einer Rolle hinzufügen, Einladungen mit Ablaufdatum verschicken sowie Rechte delegieren und widerrufen. Es gibt noch kein Fenster und noch keinen Server. Delegierte Rechte beantworten nur Fragen; niemand setzt sie durch, und noch niemand ist authentifiziert. Einige Regeln sind noch vorläufig, während die Projektverantwortlichen sie entscheiden. Das Folgen zwischen Gruppen ist geplant, aber nicht gebaut.
+Der Kern kann Gruppen anlegen, verschachteln und löschen, Mitglieder mit einer Rolle hinzufügen, Einladungen mit Ablaufdatum verschicken sowie Rechte delegieren und widerrufen. Das Fenster zeigt die Liste der Gruppen und ein Formular für Name und Art. Verschachtelung, Mitglieder, Einladungen, Rechte, Folgen und Spiegel zeigt es noch nicht; die Seite [Frontends](frontends/index.md) beschreibt die geplanten Ansichten. Der Server startet mit `fs-groups serve`. Delegierte Rechte beantworten nur Fragen; niemand setzt sie durch, und noch niemand ist authentifiziert. Der Speicher ist noch nicht verschlüsselt. Einige Regeln sind noch vorläufig, während die Projektverantwortlichen sie entscheiden. Das Folgen zwischen Gruppen ist geplant, aber nicht gebaut.
+
+Versionen folgen dem Schema `0.0.N`, und die Versionsnummer ist der Tag. Der Workspace steht auf `0.0.1`; der nächste Tag wird `v0.0.2`. Die früheren Tags `v0.1.0` bis `v0.4.0` sollen entfernt werden.
 
 `fs-groups`: Zusammengehören und entscheiden, wer was darf.
 
-**Status: Kern `v0.0.1` in [`fs-groups`](https://github.com/FreeSynergy/fs-groups), kein Fenster; die Schnittstelle ist ein Entwurf in [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces).** Zurück zum [Gesamtplan](../apps/roadmap.md).
+**Status: `0.0.1` in [`fs-groups`](https://github.com/FreeSynergy/fs-groups), mit Fenster und Server; die Schnittstelle ist ein Entwurf in [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces).** Zurück zum [Gesamtplan](../roadmap.md).
 
 ## Warum es früh kommt
 

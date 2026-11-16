@@ -118,6 +118,9 @@ plugins:
         'programs/apps/history/frontends/exist-io/latest/layout.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/layout/'
         'programs/apps/history/frontends/exist-io/latest/menus.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/menus/'
         'programs/apps/history/frontends/exist-io/latest/shortcuts.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/activity/frontends/exist-io/latest/shortcuts/'
+        # fs-groups moved from programs/platform/groups.md to programs/apps/groups/ (it has a window and a server).
+        'de/programs/platform/groups.md': 'de/programs/apps/groups/index.md'
+        'programs/platform/groups.md': 'https://freesynergy.github.io/fs-documentation/programs/apps/groups/'
 
 markdown_extensions:
   - abbr

@@ -54,7 +54,7 @@ Mehrheit, qualifizierte Mehrheit, Zustimmung (Approval), Bewertung (Score), Rang
 
 ## Ausweitung auf übergeordnete Gruppen
 
-Eine Umfrage kann klein beginnen und, wenn sie wichtig ist, auf übergeordnete Gruppen in [`fs-groups`](../../platform/groups.md) ausgeweitet werden. Sie bleibt eine einzige Umfrage, frühere Ergebnisse werden übernommen, und die Anonymität kann unterwegs nie schwächer werden. **Wir haben kein Werkzeug gefunden, das das tut.** Consul kommt in einer Hinsicht nahe: Ein Vorschlag, der genug Unterstützung findet, geht in eine Abstimmung über. Ob es sich auch zwischen Ebenen einer Hierarchie bewegen kann, wurde nicht bestätigt.
+Eine Umfrage kann klein beginnen und, wenn sie wichtig ist, auf übergeordnete Gruppen in [`fs-groups`](../groups/index.md) ausgeweitet werden. Sie bleibt eine einzige Umfrage, frühere Ergebnisse werden übernommen, und die Anonymität kann unterwegs nie schwächer werden. **Wir haben kein Werkzeug gefunden, das das tut.** Consul kommt in einer Hinsicht nahe: Ein Vorschlag, der genug Unterstützung findet, geht in eine Abstimmung über. Ob es sich auch zwischen Ebenen einer Hierarchie bewegen kann, wurde nicht bestätigt.
 
 ## Muster
 
