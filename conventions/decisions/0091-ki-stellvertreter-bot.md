@@ -216,8 +216,8 @@ Ebenfalls überholt, soweit sie eine Bot-Karte in fs-people voraussetzen: Punkt 
 1. **`BotRef`** ist ein Verweis auf den Eintrag in fs-identity („Bot existiert + Halter“). Ein Bot = ein Platz = ein eigener Eintrag; die Einwilligung nennt damit den Platz eindeutig. `BotRef` ist kein `PersonRef`; `PersonRef` hat die Arten Profile, Person, Group, Organization.
 2. **`PersonView.actor` bleibt Person.** fs-people kennt keinen Bot: nie eine Bot-Karte. Ein Bot kommt nur über `BotRef` vor. `PersonView.ai` (die KI-Karte, JSContact `kind: application`, 0054) bleibt.
 3. **`ActorKind`** hat die Werte `Human`, `Ai`, `Bot`; `Bot` liefert nicht fs-people, sondern die Abfrage bei fs-identity. fs-people liefert nie `Bot`.
-4. **AS2-`actor`** und **`AiAssistance.recipient`** zeigen auf den fs-identity-Eintrag (`BotRef`); `instrument` bleibt die KI-Karte mit Adapter. In den Traits heißt das: `recipient` und `asker` sind je eine Summe aus Person (`PersonRef`) und Bot (`BotRef`).
-5. **`BotSeat`** (groups_v1) führt den Bot als `BotRef`; `holder` bleibt `PersonRef`. Beim Eröffnen und beim Halterwechsel prüft groups über einen Port, dass der Eintrag in fs-identity existiert und der Halter passt; sonst `DelegateMismatch`.
+4. **AS2-`actor`** und **`AiAssistance.recipient`** zeigen auf den fs-identity-Eintrag (`BotRef`); `instrument` bleibt die KI-Karte mit Adapter. Für die Traits folgt daraus (Ableitung, kein Nutzerwort): `recipient` und `asker` können Person (`PersonRef`) oder Bot (`BotRef`) sein.
+5. **`BotSeat`** (groups_v1) führt den Bot als `BotRef`; `holder` bleibt `PersonRef`. Beim Eröffnen prüft groups über einen Port, dass der Eintrag in fs-identity existiert und der Halter passt; sonst `DelegateMismatch`. Ob beim Halterwechsel erneut gefragt wird, ist offen (Nachtrag „Bot-Schlüssel“, Offen: „Erkennung“).
 6. **Stand der Typen:** `ActorKind`, `BotRef` und `WordCode` stehen bis fs-interfaces v0.0.27 nur als Platzhalter in `shared.rs`. Sie wandern erst mit dem Tag in fs-types. fs-interfaces v0.0.26 bleibt unberührt.
 
 **Offen**
