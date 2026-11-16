@@ -1,10 +1,10 @@
 # Entwurf: Module – die Schicht zwischen Components und Programmen
 
 Stand: 2026-11-12 (Opus, Entwurf, **kein ADR**, kein Code, niedrige Priorität – der Meilenstein geht vor).
-Grundlage: Nutzeridee über die Strategie (unten), Befund `/srv/FreeSynergy/.scratch/module/BEFUND.md` (Haiku) plus eigene Nachprüfung (§8),
-ADR 0021, 0045, 0050, 0059, 0061, 0062, 0063, 0065, 0066, 0068, 0070 (`fs-documentation` `origin/main`), ADR 0073 (Entwurf, `/srv/FreeSynergy/.wt-docs-adr/conventions/decisions/0073-kollaboration-ueberall-mit-loro.md`),
-Files-Kern-Entwurf `/srv/FreeSynergy/.scratch/datei-metadaten/ENTWURF-files-kern.md`, Workflow-Entwurf `/srv/FreeSynergy/.scratch/workflows/ENTWURF-workflow-standard.md`,
-Code-Stand `fs-whiteboard` 0.0.1 (`/srv/FreeSynergy/fs-whiteboard/DESIGN.md`), `fs-capnpc` v0.0.1, `fs-catalog` (`packages.toml`), Blinc `Cargo.lock`.
+Grundlage: Nutzeridee über die Strategie (unten), Befund `Arbeitsstand der Strategie, nicht veröffentlicht` (Haiku) plus eigene Nachprüfung (§8),
+ADR 0021, 0045, 0050, 0059, 0061, 0062, 0063, 0065, 0066, 0068, 0070 (`fs-documentation` `origin/main`), ADR 0073 (Entwurf, `Arbeitsstand der Strategie, nicht veröffentlicht`),
+Files-Kern-Entwurf `Arbeitsstand der Strategie, nicht veröffentlicht`, Workflow-Entwurf `Arbeitsstand der Strategie, nicht veröffentlicht`,
+Code-Stand `fs-whiteboard` 0.0.1 (`fs-whiteboard/DESIGN.md`), `fs-capnpc` v0.0.1, `fs-catalog` (`packages.toml`), Blinc `Cargo.lock`.
 Markierung: **[nicht belegt]** = in keiner Primärquelle bestätigt; **[Vorschlag]** = eigene Designidee, nicht entschieden.
 
 **Nutzeridee, auf die alles aufbaut:**
@@ -23,7 +23,7 @@ Markierung: **[nicht belegt]** = in keiner Primärquelle bestätigt; **[Vorschla
 5. **Oberfläche:** Module zeichnen nie selbst (ADR 0066). Ein Modul im Prozess setzt Components zusammen; ein Agent liefert eine **Ansichtsbeschreibung** aus dem Wortschatz von fs-components, und **der Host misst und legt aus**. Damit ist „Textmessung ungelöst“ (ADR 0045) für Agenten aufgelöst: sie messen nicht.
 6. **Dialog** (§3): zuerst intern `fs-files pick` mit Dialog-Hülle (ADR 0065) für alle eigenen Programme; danach Files als **xdg-desktop-portal-Backend** (`FileChooser`, `ashpd` hat dafür ein Backend-Trait, im Code gesehen), nur **auf Wunsch** in `portals.conf`. Beides erst nach dem Meilenstein.
 7. **Paket** (§4): AppStream kennt dafür den Typ **`addon`** mit `<extends>` (mehrfach erlaubt, belegt). Katalog: neuer Wert `fs:kind = "module"`. Fähigkeiten nach ADR 0068; Steckplätze des Hosts sind Themen-Schnittstellen (Ziele, ADR 0045). Laden nur, was der Store signiert installiert hat.
-8. **Vektor** (§5): SVG ist Austausch- und Exportformat, nicht Wahrheit (ADR 0046). **Befund:** Blinc (und damit fs-whiteboard) hängt an `resvg`/`usvg` **0.44.0 = MPL-2.0**; erst ab **0.45.0** (2025-02-26) sind sie Apache-2.0 OR MIT (heute 0.50.0). `kurbo` und `lyon` sind MIT/Apache. Graphite (Alpha, MIT oder Apache-2.0) ist **Vorbild für die Modul-Schnitte** (Knoten-Bibliotheken `vector`, `path-bool`, `text`, `brush` …), keine Abhängigkeit. **Nachtrag (Nutzer):** Vektor-Grundlage wird **VectorCraft** (`vectorcraft-geom` + `-pathops` für Geometrie und Boolesch; Darstellung bleibt Blinc) – Prüfung in `/srv/FreeSynergy/.scratch/module/VECTORCRAFT.md`; ihr Plug-in-Modell (Wasm in `wasmi`) ist der bessere erste Weg für Variante B.
+8. **Vektor** (§5): SVG ist Austausch- und Exportformat, nicht Wahrheit (ADR 0046). **Befund:** Blinc (und damit fs-whiteboard) hängt an `resvg`/`usvg` **0.44.0 = MPL-2.0**; erst ab **0.45.0** (2025-02-26) sind sie Apache-2.0 OR MIT (heute 0.50.0). `kurbo` und `lyon` sind MIT/Apache. Graphite (Alpha, MIT oder Apache-2.0) ist **Vorbild für die Modul-Schnitte** (Knoten-Bibliotheken `vector`, `path-bool`, `text`, `brush` …), keine Abhängigkeit. **Nachtrag (Nutzer):** Vektor-Grundlage wird **VectorCraft** (`vectorcraft-geom` + `-pathops` für Geometrie und Boolesch; Darstellung bleibt Blinc) – Prüfung in `Arbeitsstand der Strategie, nicht veröffentlicht`; ihr Plug-in-Modell (Wasm in `wasmi`) ist der bessere erste Weg für Variante B.
 
 ---
 
@@ -155,7 +155,7 @@ Gemeinsam genutzt: das Auswahl-Modul von Files steckt im **Dialog** `fs-files pi
 - **Geladen werden nur die Module, die der Modus braucht** (bei Files: Kern + Auswahl; Galerie-Raster nur, wenn der Filter Bilder verlangt).
 - **Vertrag** (eigene kleine Themen-Schnittstelle `chooser` [Vorschlag], Muster wie Portal-Request): Eingabe = Modus, Filter (Medientypen/Datentypen), Vorauswahl, Titel, Aufrufer; Ausgabe = `ok` mit Liste von **Verweisen** (`fs://…`, IRIs) oder `abgebrochen` oder `Problem`. Codes wie beim Portal (0 = ok, 1 = abgebrochen, 2 = anders beendet).
 - **Rechte:** Der Aufrufer bekommt **nur das Gewählte**, nie Lese-Rechte auf den ganzen Baum (Cap'n-Proto-Referenz auf die gewählten Einträge). Das ist das Sicherheitsmodell des Portals und passt zu ADR 0050.
-- Die vorhandene Component `share_dialog` (`/srv/FreeSynergy/fs-components/crates/fs-components-widgets/src/share_dialog/`) ist ein Kandidat für denselben Rahmen (Teilen = Personen wählen über `fs-people pick`) **[Vorschlag, nicht geprüft, ob sie heute Personen selbst lädt]**.
+- Die vorhandene Component `share_dialog` (`fs-components/crates/fs-components-widgets/src/share_dialog/`) ist ein Kandidat für denselben Rahmen (Teilen = Personen wählen über `fs-people pick`) **[Vorschlag, nicht geprüft, ob sie heute Personen selbst lädt]**.
 
 ### 3.2 Files als xdg-desktop-portal-Backend
 
@@ -191,7 +191,7 @@ Gemeinsam genutzt: das Auswahl-Modul von Files steckt im **Dialog** `fs-files pi
 ### 4.2 Installation, Paketart
 
 - **AppStream (belegt):** Komponenten-Typ **`addon`**: „Some components are not standalone, but rather extend existing software … `<extends>` refers to the ID of the component this addon is extending … may be specified multiple times“; Pflicht: `id`, `name`, `summary`, `metadata_license`, `extends` (freedesktop.org/software/appstream/docs/sect-Metadata-Addon.html). Das ist der Standard für Module; kein eigenes Format.
-- **Katalog:** heute nur `kind = "program"` (`/srv/FreeSynergy/fs-catalog/packages.toml`, `catalog.xml` `fs:kind`). Neu: `kind = "module"` ↔ AppStream `type="addon"`. Paketart „module“ gibt es noch nicht (Befund bestätigt).
+- **Katalog:** heute nur `kind = "program"` (`fs-catalog/packages.toml`, `catalog.xml` `fs:kind`). Neu: `kind = "module"` ↔ AppStream `type="addon"`. Paketart „module“ gibt es noch nicht (Befund bestätigt).
 - **Wo der Code liegt:**
   - A-Module (im Prozess) sind **Teil des Programmpakets**; im Katalog trotzdem als `addon`-Komponente sichtbar (wie Facetten, ADR 0061 Punkt 7: mehrere Komponenten je Paket). „Installieren“ heißt hier „einschalten“.
   - C-Agenten und Dritte sind **eigene Pakete** `fs-<host>-<modul>` (wie `fs-files-<anbieter>`, ADR 0070 S12) mit eigener Version.
@@ -215,7 +215,7 @@ Gemeinsam genutzt: das Auswahl-Modul von Files steckt im **Dialog** `fs-files pi
 
 ### 5.1 Standard und Crates
 
-**Nachtrag (Nutzer, 2026-11-12):** Geometrie und Pfad-Operationen kommen aus **VectorCraft** (`vectorcraft-geom`, `vectorcraft-pathops`, MIT OR Apache-2.0, auf `kurbo` 0.13 und `linesweeper`); die Tabelle unten bleibt für Darstellung (Blinc: `lyon`, `usvg`) und SVG-Import gültig. Einzelheiten, Risiken (`[patch]`, keine crates.io-Veröffentlichung) und Abbildung auf fs-whiteboard: `/srv/FreeSynergy/.scratch/module/VECTORCRAFT.md`.
+**Nachtrag (Nutzer, 2026-11-12):** Geometrie und Pfad-Operationen kommen aus **VectorCraft** (`vectorcraft-geom`, `vectorcraft-pathops`, MIT OR Apache-2.0, auf `kurbo` 0.13 und `linesweeper`); die Tabelle unten bleibt für Darstellung (Blinc: `lyon`, `usvg`) und SVG-Import gültig. Einzelheiten, Risiken (`[patch]`, keine crates.io-Veröffentlichung) und Abbildung auf fs-whiteboard: `Arbeitsstand der Strategie, nicht veröffentlicht`.
 
 - **SVG** ist Austausch- und Exportformat; **Wahrheit bleibt das eigene Modell** (Elemente in fs-objects bzw. später Loro, ADR 0073; Speichern ≠ Export, ADR 0046). fs-whiteboard exportiert schon SVG (DESIGN.md).
 
@@ -226,7 +226,7 @@ Gemeinsam genutzt: das Auswahl-Modul von Files steckt im **Dialog** `fs-files pi
 | `lyon` | 1.0.19 (`lyon_tessellation` 1.0.23), MIT OR Apache-2.0 | Pfade in Dreiecke für die GPU zerlegen | – | Zeichnen auf der GPU (steckt schon in Blinc `blinc_gpu`) |
 | `vello` | 0.12.0, Apache-2.0 OR MIT | GPU-Renderer für 2D-Vektoren | Eignung für Blinc **[nicht geprüft]** | nur zur Kenntnis |
 
-**Befund Abhängigkeit (wichtig, aber nicht dringend):** Blinc `blinc_svg` hängt an `resvg`/`usvg` **0.44.0**, `kurbo` 0.11.3 (`/srv/FreeSynergy/blinc/Cargo.lock`; dieselben Versionen in `/srv/FreeSynergy/fs-whiteboard/Cargo.lock`). 0.44.0 steht im eigenen Manifest als **MPL-2.0** (Cargo-Cache und crates.io). MPL-2.0 ist mit unseren Lizenzen verträglich, verlangt aber den Quellcode der MPL-Dateien bei Weitergabe (unser Spiegeln mit Quellcode, ADR 0068 §2, deckt das); die Aussage „permissiv“ im Befund stimmt erst ab 0.45.0. Anheben ist eine Änderung **in Blinc** (Upstream-Regel: dort ohne KI-Zuschreibung, git-bug-Trailer) → als git-bug-Kandidat notieren, nicht vor dem Meilenstein.
+**Befund Abhängigkeit (wichtig, aber nicht dringend):** Blinc `blinc_svg` hängt an `resvg`/`usvg` **0.44.0**, `kurbo` 0.11.3 (`blinc/Cargo.lock`; dieselben Versionen in `fs-whiteboard/Cargo.lock`). 0.44.0 steht im eigenen Manifest als **MPL-2.0** (Cargo-Cache und crates.io). MPL-2.0 ist mit unseren Lizenzen verträglich, verlangt aber den Quellcode der MPL-Dateien bei Weitergabe (unser Spiegeln mit Quellcode, ADR 0068 §2, deckt das); die Aussage „permissiv“ im Befund stimmt erst ab 0.45.0. Anheben ist eine Änderung **in Blinc** (Upstream-Regel: dort ohne KI-Zuschreibung, git-bug-Trailer) → als git-bug-Kandidat notieren, nicht vor dem Meilenstein.
 
 **Korrektur zum Befund:** „Kein natives Text-Rendering“ heißt bei resvg nicht „kein Text“, sondern „Text ohne Systembibliotheken“ – das ist für uns ein **Vorteil**: gleiche Maße auf allen Systemen, also eine mögliche gemeinsame Textmessung für Host und Export **[Vorschlag, nicht gemessen]**.
 
@@ -304,5 +304,5 @@ Meilenstein „Wir benutzen es selbst“ (GitHub + Releases, Store, Tasks als Ar
 | Graphite | Alpha; MIT oder Apache-2.0 nach Wahl (README „License“); Ordner `node-graph/nodes/*` wie in §5.2; letzter Push 2026-11-11 | README; GitHub-API `contents/`, `repos/GraphiteEditor/Graphite` |
 | AppStream `addon` | belegt, Zitat §4.2 | freedesktop.org/software/appstream/docs/sect-Metadata-Addon.html |
 | Portal FileChooser (Vorderseite) | Version 4, Optionen und Documents-Portal belegt, Zitat §3.2 | flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.FileChooser.html |
-| Paketart „module“ | nicht vorhanden, nur `kind = "program"` | `/srv/FreeSynergy/fs-catalog/packages.toml`, `catalog.xml` |
+| Paketart „module“ | nicht vorhanden, nur `kind = "program"` | `fs-catalog/packages.toml`, `catalog.xml` |
 | Nicht geprüft | Sandbox-Werkzeuge (Landlock, bubblewrap, seccomp); Portal-Ausweichen bei Backend-Ausfall; xdg-foreign in Blinc/winit; Booleans in kurbo; Graphite-Knotenmechanik im Code; Leistung Cap'n Proto im Prozess | – |

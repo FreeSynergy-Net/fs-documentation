@@ -1,6 +1,6 @@
 # Befund: Server-Repos fs-kanidm, fs-zentinel, fs-tuwunel (Schritt 1, nur gelesen)
 
-Stand 2026-11-11. Nichts angelegt, nichts gepusht, nichts auf node1. Heruntergeladen nur: Zentinel-Tarball + Prüfsumme + Sigstore-Bündel (`.scratch/server-befund/zentinel/`, nicht ausgeführt) und PPA-Metadaten (`.scratch/server-befund/kanidm-ppa/`). Gelesen: ADR 0047, 0054, 0067, 0068, Sprint-Eintrag (Server).
+Stand 2026-11-11. Nichts angelegt, nichts gepusht, nichts auf node1. Heruntergeladen nur: Zentinel-Tarball + Prüfsumme + Sigstore-Bündel (`Arbeitsstand der Strategie, nicht veröffentlicht`, nicht ausgeführt) und PPA-Metadaten (`Arbeitsstand der Strategie, nicht veröffentlicht`). Gelesen: ADR 0047, 0054, 0067, 0068, Sprint-Eintrag (Server).
 
 ## (i) Zentinel-Control-Plane
 

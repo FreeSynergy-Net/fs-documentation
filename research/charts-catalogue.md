@@ -28,8 +28,8 @@ All retrieved 2026-11-06 unless noted.
 | WAI-ARIA Graphics Module 1.0 | https://www.w3.org/TR/graphics-aria-1.0/ | roles | fetched |
 | capnproto-rust | https://github.com/capnproto/capnproto-rust | plugin IPC | fetched |
 | wit-component README | https://github.com/bytecodealliance/wasm-tools/blob/main/crates/wit-component/README.md | WIT / components | fetched |
-| Blinc chart source | `/srv/FreeSynergy/fs-documentation/.research-blinc/crates/blinc_cn/src/components/chart/` | section 2 | read locally |
-| Our chart docs | `/srv/FreeSynergy/fs-documentation/docs/en/components/widgets/data/chart/` | section 2 | read locally |
+| Blinc chart source | `fs-documentation/.research-blinc/crates/blinc_cn/src/components/chart/` | section 2 | read locally |
+| Our chart docs | `fs-documentation/docs/en/components/widgets/data/chart/` | section 2 | read locally |
 
 Not consulted, named only from background knowledge ⚠️: Wilkinson, *The Grammar of Graphics* (Springer, 1999/2005); Wickham, "Tidy Data" (J. Statistical Software, 2014); Apache Arrow format spec (arrow.apache.org); Plotly `plot-schema.json`; Tufte, Few, Cleveland (perceptual ranking); Likert-plot literature (Robbins and Heiberger); Gantt/PM literature.
 

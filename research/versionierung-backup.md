@@ -43,7 +43,7 @@ Vorgabe des Nutzers: **Versionierung (Git) und Backup sind für Files Pflicht.**
 | Offen geblieben | Hyper Backup/Snapshot Replication (nur Ausschnitte), Duplicati-Modell, Seafile-Versionen, Google Drive, OneDrive, Windows-Dateiversionsverlauf, Time Machine nicht neu geprüft | – |
 
 Ergänzend aus dem eigenen Code (gelesen, nicht geändert):
-- fs-files speichert im lokalen Anbieter **unter echten Namen** (`<root>/Urlaub/Foto.jpg`) und berechnet beim Hochladen `blake3:<hex>` je Datei; es gibt **keinen Inhalts-Speicher nach Hash**, nur die Prüfsumme im Datensatz. Papierkorb und offene Uploads liegen in `<root>/.fs-files/{trash,pending}`. Es gibt heute **keinen Vorgang „Inhalt einer Datei ersetzen“**; eine von außen geänderte Datei ist ein Fehler „changed outside“, `rescan` legt sie neu an. Quelle: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md · `/srv/FreeSynergy/fs-files/DESIGN.md`.
+- fs-files speichert im lokalen Anbieter **unter echten Namen** (`<root>/Urlaub/Foto.jpg`) und berechnet beim Hochladen `blake3:<hex>` je Datei; es gibt **keinen Inhalts-Speicher nach Hash**, nur die Prüfsumme im Datensatz. Papierkorb und offene Uploads liegen in `<root>/.fs-files/{trash,pending}`. Es gibt heute **keinen Vorgang „Inhalt einer Datei ersetzen“**; eine von außen geänderte Datei ist ein Fehler „changed outside“, `rescan` legt sie neu an. Quelle: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md · `fs-files/DESIGN.md`.
 - Folge: **Versionen von Änderungen durch fremde Programme** (Editor, Office direkt im Ordner) lassen sich nur halten, wenn Files vorher eine Kopie hat. Genau das Problem, das Syncthing für lokale Änderungen offen dokumentiert.
 - `/srv` liegt auf Btrfs; Btrfs (und XFS) können Dateien per **Reflink** kopieren (teilen sich die Blöcke, bis eine Seite geändert wird). Das macht die „Kopie vorher“ fast kostenlos. ext4 kann das nicht.
 
@@ -208,11 +208,11 @@ Voraussetzungen: ADR 0070 (Code in `fs-interfaces` erst nach Runde 3b grün), AD
 - Q22 Kopia Wartung: https://kopia.io/docs/advanced/maintenance/
 - Q23 Seafile Handbuch (Lizenzen): https://manual.seafile.com/latest/
 - Q24 Forgejo Konfiguration (LFS): https://forgejo.org/docs/latest/admin/config-cheat-sheet/
-- Haiku-Einzeldateien (Time Machine, Windows VSS, Synology, Kopia-Architektur, borg-Prune) mit ihren Quellen: `/srv/FreeSynergy/.scratch/versionierung-research/`
+- Haiku-Einzeldateien (Time Machine, Windows VSS, Synology, Kopia-Architektur, borg-Prune) mit ihren Quellen: `Arbeitsstand der Strategie, nicht veröffentlicht`
 - Eigene Grundlagen:
-  - fs-files Design: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md · `/srv/FreeSynergy/fs-files/DESIGN.md`
-  - ADR 0070 Thema `storage`: https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0070-thema-storage.md · `/srv/FreeSynergy/.wt-doc-strategy/conventions/decisions/0070-thema-storage.md` (Arbeitsbaum; auf `main` noch nicht vorhanden)
-  - ADR 0067 Tresor: https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0067-tresor-und-verschluesselung.md · `/srv/FreeSynergy/.wt-doc-strategy/conventions/decisions/0067-tresor-und-verschluesselung.md` (Arbeitsbaum; auf `main` noch nicht vorhanden)
+  - fs-files Design: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md · `fs-files/DESIGN.md`
+  - ADR 0070 Thema `storage`: https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0070-thema-storage.md · `Arbeitsstand der Strategie, nicht veröffentlicht` (Arbeitsbaum; auf `main` noch nicht vorhanden)
+  - ADR 0067 Tresor: https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0067-tresor-und-verschluesselung.md · `Arbeitsstand der Strategie, nicht veröffentlicht` (Arbeitsbaum; auf `main` noch nicht vorhanden)
 
 Weiter offen (nicht geprüft): Synology Hyper Backup/Snapshot Replication, Duplicati-Modell, Seafile-Versionen, Google Drive, OneDrive, Windows-Dateiversionsverlauf; ob `rustic_core` Snapshots umschreiben kann (für Löschanfragen).
 

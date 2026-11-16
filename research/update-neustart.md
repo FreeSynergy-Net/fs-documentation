@@ -1,18 +1,18 @@
 # Befund: Update schliesst ein laufendes Programm und startet es am selben Punkt neu
 
 Stand: 2026-11-11, nur lesend geprueft. GitHub-Links: `https://github.com/FreeSynergy/<repo>/blob/main/<pfad>`
-(Zeilennummern = lokaler Stand in /srv/FreeSynergy; fs-interfaces lokal auf Tag v0.0.17, fs-components Linie v0.3.0).
+(Zeilennummern = lokaler Stand in lokal; fs-interfaces lokal auf Tag v0.0.17, fs-components Linie v0.3.0).
 
 Korrektur zur Aufgabe: `end.rs` und `ending.rs` gibt es in fs-store-engine nicht. Die Logik steckt in `proc.rs` (Laufend-Pruefung),
 `servers.rs` (Hintergrund-Server), `batch.rs` (Ablauf), `mode.rs`, `links.rs`. `call_limited` ist NICHT in main/v0.0.17, nur im Arbeitsbaum
-`/srv/FreeSynergy/.wt-fsif18` (Branch `v0-0-18`, Commit 5fa4a8f, `crates/fs-interfaces/src/rpc/client/limited.rs`).
+`Arbeitsstand der Strategie, nicht veröffentlicht` (Branch `v0-0-18`, Commit 5fa4a8f, `crates/fs-interfaces/src/rpc/client/limited.rs`).
 
 ## 1. Was heute passiert
 
 ### 1a. Laufendes Fenster (Frontend)
 - Der Store beendet und startet ein Fenster **nicht**. Er erkennt es nur und **lehnt das Update ab**:
   - `ProcRunningCheck::is_running` prueft `/proc/*/exe` unter `<root>/packages/<name>/`, eigene PID ausgenommen:
-    https://github.com/FreeSynergy/fs-store/blob/main/crates/fs-store-engine/src/proc.rs (`/srv/FreeSynergy/fs-store/crates/fs-store-engine/src/proc.rs:34-46`).
+    https://github.com/FreeSynergy/fs-store/blob/main/crates/fs-store-engine/src/proc.rs (`fs-store/crates/fs-store-engine/src/proc.rs:34-46`).
   - `run_update` gibt `UpdateError::Running` zurueck: `fs-store-core/src/update.rs:44-49` (Enum Zeile 18-21).
   - Text: `fs-store-core/src/words.rs:24` "is running and was not replaced. Close it and try again."
   - Im Batch: `fs-store-engine/src/batch.rs:131-140` (rpm vorab), tar.gz ueber `run_update` (Zeile 148-157).
@@ -27,7 +27,7 @@ Korrektur zur Aufgabe: `end.rs` und `ending.rs` gibt es in fs-store-engine nicht
   Server mit denselben Argumenten aus der alten cmdline neu starten (`start_server` 100-110, `program_of` 115-132), auch wenn die Installation fehlschlug.
   Endet er nicht rechtzeitig: `UpdateError::Running` (`batch.rs:90-95`).
 - **Der Store nutzt `Control.stop` nicht** (nur SIGTERM). `Control.stop`/`Control.version` stehen im Schema
-  (`/srv/FreeSynergy/fs-interfaces/schema/common.capnp:38-46`) und sind serverseitig umgesetzt (`rpc/serve.rs:164-199` `run_until_signal_as`, `rpc/control.rs`, `rpc/stop.rs` `stop_self`).
+  (`fs-interfaces/schema/common.capnp:38-46`) und sind serverseitig umgesetzt (`rpc/serve.rs:164-199` `run_until_signal_as`, `rpc/control.rs`, `rpc/stop.rs` `stop_self`).
   Gebraucht werden sie vom **Fenster beim Start**: `connect_matching` (`rpc/handshake.rs:30-90`) fragt `Control.version`, stoppt einen abweichenden Server, startet den passenden
   (`ServerStarter`/`CommandStarter`, `rpc/starter.rs`), verbindet neu. Das ist die vorhandene "Server-Austausch beim naechsten Fensterstart"-Schiene.
 - `--lease FILE`: Server endet, wenn kein Fenster mehr das Lock haelt (fs-files `fs-files-server/src/program.rs:38`, fs-people `.../program.rs:16`).
@@ -54,7 +54,7 @@ Korrektur zur Aufgabe: `end.rs` und `ending.rs` gibt es in fs-store-engine nicht
 - ADR 0065 (`origin/main:conventions/decisions/0065-standard-fensterhuelle.md`, Status "Vorschlag der Strategie bis zur Bestaetigung"): Punkt 7 verlangt, das Programm erkenne die ersetzte Datei
   und starte sich neu (Zustand vorher sichern) **oder** biete "Jetzt neu starten" an. Kein Format, kein Ort, kein Trait. "Folgen": Trait `Shell` (Name vorlaeufig).
   Sonst behandelt kein ADR/keine Doku (`conventions/decisions`, `docs/{de,en}/components`, `todo`) Session/Wiederherstellung von Ansichten.
-- `fs-components-app` (`/srv/FreeSynergy/fs-components/crates/fs-components-app/src/`):
+- `fs-components-app` (`fs-components/crates/fs-components-app/src/`):
   - `Shell` (`shell.rs:24-182`): Titel, Screens, aktuelle Screen-ID (`select`, Zeile 76), Menues, Status, alles nur im Speicher. Kein `Session`-Typ.
   - `Surface` (`surface.rs:10-24`): nur `build(w,h)` und `styles()`; "a surface keeps its state outside the element".
   - `WindowOptions` (`window.rs:16-33`): nur Anfangsgroesse (1200x800); `launch` ohne gespeicherte Groesse/Position; `--size` (`args.rs`) ist das Einzige.

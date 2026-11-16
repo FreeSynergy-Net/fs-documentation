@@ -1,8 +1,8 @@
 # Spike: Fenster- und Ansichtszustand von aussen lesen und setzen (Schritt 2 des Befunds)
 
 Stand 2026-11-11. Blinc `fs-blinc-3` (winit 0.30.13, wgpu 26), fs-components `v0.0.8` (origin/main), KWin 6.8.2 (`kwin_wayland --virtual` auf privatem D-Bus, `XDG_CONFIG_HOME` privat).
-Blinc wurde nicht geaendert. Spike-Branch: `spike-restore` in fs-components (gepusht, kein Merge, kein Tag), Worktree `/srv/FreeSynergy/.wt-spike-restore`.
-Testrahmen (nicht im Repo): `/srv/FreeSynergy/.scratch/spike-probe/` (`run.sh`, `case.sh`, `go.sh`, `dump.js`, `move.js`, Ausgaben in `out/`).
+Blinc wurde nicht geaendert. Spike-Branch: `spike-restore` in fs-components (gepusht, kein Merge, kein Tag), Worktree `Arbeitsstand der Strategie, nicht veröffentlicht`.
+Testrahmen (nicht im Repo): `Arbeitsstand der Strategie, nicht veröffentlicht` (`run.sh`, `case.sh`, `go.sh`, `dump.js`, `move.js`, Ausgaben in `out/`).
 Probe-Programm: `crates/fs-components-workbenches/examples/spike_restore.rs` (Dateimanager ueber In-Memory-Quelle, Fenster per Umgebungsvariablen, `SPIKE_RESTORE=folder=..,view=..,sort=..,desc=1,select=..,row=..`).
 Test ohne Fenster: `crates/fs-admin-frontend/tests/spike_restore.rs` (gruen).
 

@@ -1,6 +1,6 @@
 # Teil C: Install und Paketbau als Workflow (Entwurf, nur Ableitung aus dem Code)
 
-Stand: fs-store `ea4f359` (lokal, Worktree `/srv/FreeSynergy/.wt-store-par`, Basis v0.0.11). Zeilen = dieser Stand, Pfade relativ zu `crates/`.
+Stand: fs-store `ea4f359` (lokal, Worktree `Arbeitsstand der Strategie, nicht veröffentlicht`, Basis v0.0.11). Zeilen = dieser Stand, Pfade relativ zu `crates/`.
 Kein gemeinsames Format festgelegt: die Spalten sind nur Inhalt. Handelnde: **Programm** (Store-Prozess), **Maschine** (dnf/apt/systemd/Compositor), **Mensch** (Bestätigung).
 Risikostufen: 1 ansehen < 2 öffnen < 3 starten < 4 installieren < 5 systemweit. Kürzel: E = `fs-store-engine/src`, A = `fs-store-app/src`, C = `fs-store-cli/src`, K = `fs-store-core/src`.
 

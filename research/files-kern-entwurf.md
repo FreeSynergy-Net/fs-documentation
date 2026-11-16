@@ -2,8 +2,8 @@
 
 Stand: 2026-11-12 (Opus, Entwurf, **kein ADR**, kein Code). Grundlage: Nutzerentscheidung über die Strategie (2026-11-12, siehe unten),
 `BEFUND.md` (Haiku) plus eigene Nachprüfung der Lücken (§9), ADR 0066, 0068, 0069, 0070, 0071 (`fs-documentation` `origin/main`),
-ADR 0073 (Entwurf, nur in `/srv/FreeSynergy/.wt-docs-adr/conventions/decisions/0073-kollaboration-ueberall-mit-loro.md`, noch nicht auf `origin/main`),
-Store-Empfehlung `/srv/FreeSynergy/.scratch/frontends/vorbilder-store/EMPFEHLUNG.md`, Store-Lückenliste `/srv/FreeSynergy/.wt-store-par/docs/gaps-adr-0068-0071.md`,
+ADR 0073 (Entwurf, nur in `Arbeitsstand der Strategie, nicht veröffentlicht`, noch nicht auf `origin/main`),
+Store-Empfehlung `Arbeitsstand der Strategie, nicht veröffentlicht`, Store-Lückenliste `Arbeitsstand der Strategie, nicht veröffentlicht`,
 Code-Stand `fs-store` v0.0.11, `fs-files` v0.0.7, `fs-interfaces` v0.0.18, `fs-catalog` `02d9710`.
 Markierung: **[nicht belegt]** = in keiner Primärquelle bestätigt; **[Vorschlag]** = eigene Designidee, nicht entschieden.
 
@@ -387,7 +387,7 @@ Wie B, aber das Store-Fenster entfällt: Raster/Tabelle/Paketseite werden die **
 - **fs-history:** „Aktivitäten ins Log des Handelnden bzw. des Hubs, fs-history nur Index“ **angenommen**. `actor` leer ist ein **Fehler** (siehe unten).
 
 ### git-bug-Kandidat (fs-history)
-**Titel:** Aktivität ohne `actor` wird still angenommen. **Befund:** fs-history v0.0.1 setzt `Entry.actor` leer, weil der Hub heute nur den Programmnamen liefert (`/srv/FreeSynergy/fs-history/DESIGN.md`); eine AS2-Aktivität ohne `actor` ist unvollständig und für Herkunft/Forensik wertlos. **Test:** Eine Aktivität ohne `actor` wird abgelehnt bzw. sichtbar gemeldet (Problem), nie still als leer gespeichert. **Behebung:** beim gemeinsamen Heben von fs-history (zusammen mit Original-Actor und -Zeit in `hub.capnp` `Activity`, dort schon angefragt).
+**Titel:** Aktivität ohne `actor` wird still angenommen. **Befund:** fs-history v0.0.1 setzt `Entry.actor` leer, weil der Hub heute nur den Programmnamen liefert (`fs-history/DESIGN.md`); eine AS2-Aktivität ohne `actor` ist unvollständig und für Herkunft/Forensik wertlos. **Test:** Eine Aktivität ohne `actor` wird abgelehnt bzw. sichtbar gemeldet (Problem), nie still als leer gespeichert. **Behebung:** beim gemeinsamen Heben von fs-history (zusammen mit Original-Actor und -Zeit in `hub.capnp` `Activity`, dort schon angefragt).
 
 ### Offen
 - Keine offenen Fragen aus diesem Entwurf. Ausstehend sind nur die Repo-Ideen des Nutzers (F11) und der PackageKit-Test nach dem Meilenstein (F10).
@@ -407,5 +407,5 @@ Wie B, aber das Store-Fenster entfällt: Raster/Tabelle/Paketseite werden die **
 | Flatpak „Datei → App“ | nicht geprüft → [nicht belegt] | — |
 | PackageKit als Root-Weg (Abruf 2026-11-12) | **belegt:** `InstallFiles(t transaction_flags, ah files)`; Kommentar: „installs local package files“, unsignierte Dateien bei vertrauenswürdig-Flag → `ErrorCode(missing-gpg-signature)`; `InstallPackages` nennt `ONLY_TRUSTED`; Flags `SIMULATE`, `ONLY_DOWNLOAD`; Signale `Progress`, `Status`, `Error`, `Packages`. Polkit-Aktionen und Standardwerte wie in §5 (`package-install` `auth_admin_keep`, `package-install-untrusted` `auth_admin`, `package-remove` `auth_admin_keep`, `system-update` `yes`, `system-trust-signing-key` `auth_admin`); Regel-Datei erlaubt `wheel`/`sudo` Systemupdates ohne Passwort. Backends u. a. `dnf5`, `apt`, `zypp`, `alpm`, `nix`. Repo nicht archiviert, letzter Push 2026-11-11, Lizenz GPL-2.0. **Widersprüche im Schema** (Pfade vs. `ah`; `localinstall-untrusted` vs. `package-install-untrusted`) → [nicht belegt], Spike nötig. Standard-Installation auf Fedora 45: [nicht belegt]. | github.com/PackageKit/PackageKit: `src/org.freedesktop.packagekit1.Transaction.xml`, `data/policy/org.freedesktop.packagekit.policy.in`, `data/policy/org.freedesktop.packagekit.rules`, `backends/`, `COPYING` |
 | AS2-Felder für Aktivitäten | **belegt:** `instrument` „objects used … in the completion of an Activity“; `origin` „indirect object … from which the activity is directed“; `target` „indirect object, or target“; `actor`; `object`; `Add` „actor has added the object to the target“; `Remove`; `Update`. | w3.org/TR/activitystreams-vocabulary/ |
-| fs-history als Ablage | **eigener Code-Stand:** fs-history v0.0.1 ist ein **abgeleiteter Index** der Hub-Aktivitäten (nur Zusammenfassung, kein `payload`), kann **vergessen**; `actor` heute leer, `at` = Empfangszeit. Darum Aktivitäten beim Handelnden/Hub ablegen, fs-history nur zum Suchen. | `/srv/FreeSynergy/fs-history/README.md`, `/srv/FreeSynergy/fs-history/DESIGN.md` |
+| fs-history als Ablage | **eigener Code-Stand:** fs-history v0.0.1 ist ein **abgeleiteter Index** der Hub-Aktivitäten (nur Zusammenfassung, kein `payload`), kann **vergessen**; `actor` heute leer, `at` = Empfangszeit. Darum Aktivitäten beim Handelnden/Hub ablegen, fs-history nur zum Suchen. | `fs-history/README.md`, `fs-history/DESIGN.md` |
 | Sandbox für „ansehen/starten“ (bubblewrap, Landlock …) | nicht geprüft → [nicht belegt] | — |

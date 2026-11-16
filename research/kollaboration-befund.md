@@ -4,7 +4,7 @@ Stand: 2026-11-11 · Recherche nur gelesen/abgerufen, nichts installiert, nichts
 Legende: **belegt** = in einer Quelle unten gefunden · **[nicht belegt]** = nicht gefunden oder nicht geprüft · **Lizenzen** nur aus Paket-Metadaten, nicht aus LICENSE-Datei, sofern nicht anders vermerkt.
 
 ## 0. Vorgaben aus dem Projekt (belegt)
-- ADR 0014: Standards zuerst, ActivityStreams 2.0 (AS2) als gemeinsame Basis. ADR 0020: AS2-Hülle für Speicherformat (`/srv/FreeSynergy/fs-documentation`, `git show origin/main:conventions/decisions/0020-speicherformat-as2-huelle.md`).
+- ADR 0014: Standards zuerst, ActivityStreams 2.0 (AS2) als gemeinsame Basis. ADR 0020: AS2-Hülle für Speicherformat (`fs-documentation`, `git show origin/main:conventions/decisions/0020-speicherformat-as2-huelle.md`).
 - ADR 0021: Cap'n Proto ist der Schnittstellenvertrag zwischen Programmen; JSON/CLI/MCP daraus erzeugt.
 - ADR 0059 (Richtung akzeptiert, nichts gebaut): iroh in jedem Client, `iroh-gossip` als Mesh (Nachrichten nur 30 s vorgehalten, Behalten muss `fs-store` leisten), Signierung nötig, weil gossip Zugehörigkeit nicht schützt; Transport hinter eigenem Trait; nur eigenes Relais. Offen laut ADR: Moderator fällt weg → "logische Uhr, CRDT für Text".
 - Vorhandene Festlegungen, die sich widersprechen oder ergänzen:

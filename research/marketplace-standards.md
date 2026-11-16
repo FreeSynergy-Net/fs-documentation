@@ -8,7 +8,7 @@ Method note: WebFetch was used for the primary pages named below. Where a fact i
 
 ## 0. What our own pages already say
 
-Source: `/srv/FreeSynergy/.wt-doc-d/docs/en/programs/suites/marketplace/index.md`, `.../marketplace/requirements.md`, `.../marketplace/frontends/index.md`, and the `index.md` of each frontend under `.../marketplace/frontends/<program>/index.md` (arcemall, cs-cart-multivendor, ebay, etsy, kleinanzeigen, sharetribe). The `latest/*.md` files were not read in this pass.
+Source: `Arbeitsstand der Strategie, nicht veröffentlicht`, `.../marketplace/requirements.md`, `.../marketplace/frontends/index.md`, and the `index.md` of each frontend under `.../marketplace/frontends/<program>/index.md` (arcemall, cs-cart-multivendor, ebay, etsy, kleinanzeigen, sharetribe). The `latest/*.md` files were not read in this pass.
 
 1. The category is for platforms where "different people and organizations offer things to each other, like eBay or Etsy, not like a shop of your own" (`.../marketplace/index.md`).
 2. Six frontends are documented: sharetribe, arcemall, cs-cart-multivendor, ebay, etsy, kleinanzeigen (`.../marketplace/index.md`, `.../marketplace/frontends/index.md`).

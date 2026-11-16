@@ -1,6 +1,6 @@
 # FreeSynergy Files (fs-files): Empfehlung aus der Dateimanager-Recherche
 
-Stand: 2026-11-11. Grundlage: Haiku-Recherche in `/srv/FreeSynergy/.scratch/filemanager-research/` (`00-vergleich.md` und je Programm eine Datei), eigene Nachprüfung im Web (Quellen in Abschnitt f), Code und Doku von fs-files und dem Datei-Workbench in fs-components.
+Stand: 2026-11-11. Grundlage: Haiku-Recherche in `Arbeitsstand der Strategie, nicht veröffentlicht` (`00-vergleich.md` und je Programm eine Datei), eigene Nachprüfung im Web (Quellen in Abschnitt f), Code und Doku von fs-files und dem Datei-Workbench in fs-components.
 Regel (ADR 0066 und Gründungsideen): Vorbilder dürfen kostenpflichtig oder eingestellt sein. Wir kopieren nichts, wir lernen aus Mustern und bauen nach eigenem Design. Leitlinien: „people first“, „friert nie ein“, Zustand-Wiederherstellung, Topic-Interfaces als Ziele.
 
 ## 0. Nachprüfung der Haiku-Recherche (Korrekturen und geschlossene Lücken)
@@ -82,7 +82,7 @@ Herkunft = Programm, an dem man das Muster am besten studieren kann (nicht kopie
 
 ## c) Was fs-files heute kann und was fehlt
 
-Quellen: [DESIGN.md](https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md) (`/srv/FreeSynergy/fs-files/DESIGN.md`), [README.md](https://github.com/FreeSynergy/fs-files/blob/main/README.md) (`/srv/FreeSynergy/fs-files/README.md`), Crates unter `/srv/FreeSynergy/fs-files/crates/`, Workbench [file_manager](https://github.com/FreeSynergy/fs-components/tree/main/crates/fs-components-workbenches/src/file_manager) (`/srv/FreeSynergy/fs-components/crates/fs-components-workbenches/src/file_manager/`), Anforderungen [files/requirements.md](https://github.com/FreeSynergy/fs-documentation/blob/main/docs/de/programs/apps/files/requirements.md) (`/srv/FreeSynergy/fs-documentation/docs/de/programs/apps/files/requirements.md`).
+Quellen: [DESIGN.md](https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md) (`fs-files/DESIGN.md`), [README.md](https://github.com/FreeSynergy/fs-files/blob/main/README.md) (`fs-files/README.md`), Crates unter `fs-files/crates/`, Workbench [file_manager](https://github.com/FreeSynergy/fs-components/tree/main/crates/fs-components-workbenches/src/file_manager) (`fs-components/crates/fs-components-workbenches/src/file_manager/`), Anforderungen [files/requirements.md](https://github.com/FreeSynergy/fs-documentation/blob/main/docs/de/programs/apps/files/requirements.md) (`fs-documentation/docs/de/programs/apps/files/requirements.md`).
 
 **Stark (Kern `fs-files-core`, Server `fs-files-server`, Version 0.0.5):**
 - Backends: `LocalFolder` (echte Namen, nie überschreiben, atomares `renameat2` unter Linux, fsync) und `S3Backend` (Multipart, übersteht einen Neustart); `BackendRegistry` mit atomarem Austausch.
@@ -157,10 +157,10 @@ Risiken: (1) **Leistung**: Files zeigt, dass eine moderne Optik mit schwerem Unt
 ## f) Quellenverzeichnis (abgerufen 2026-11-11)
 
 Lokal:
-- Haiku-Recherche: `/srv/FreeSynergy/.scratch/filemanager-research/00-vergleich.md` und die Einzeldateien im selben Ordner (Quellen dort).
-- fs-files: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md (`/srv/FreeSynergy/fs-files/DESIGN.md`), https://github.com/FreeSynergy/fs-files/blob/main/README.md (`/srv/FreeSynergy/fs-files/README.md`), https://github.com/FreeSynergy/fs-files/tree/main/crates (`/srv/FreeSynergy/fs-files/crates/`).
-- Workbench: https://github.com/FreeSynergy/fs-components/tree/main/crates/fs-components-workbenches/src/file_manager (`/srv/FreeSynergy/fs-components/crates/fs-components-workbenches/src/file_manager/`).
-- Anforderungen: https://github.com/FreeSynergy/fs-documentation/blob/main/docs/de/programs/apps/files/requirements.md (`/srv/FreeSynergy/fs-documentation/docs/de/programs/apps/files/requirements.md`).
+- Haiku-Recherche: `Arbeitsstand der Strategie, nicht veröffentlicht` und die Einzeldateien im selben Ordner (Quellen dort).
+- fs-files: https://github.com/FreeSynergy/fs-files/blob/main/DESIGN.md (`fs-files/DESIGN.md`), https://github.com/FreeSynergy/fs-files/blob/main/README.md (`fs-files/README.md`), https://github.com/FreeSynergy/fs-files/tree/main/crates (`fs-files/crates/`).
+- Workbench: https://github.com/FreeSynergy/fs-components/tree/main/crates/fs-components-workbenches/src/file_manager (`fs-components/crates/fs-components-workbenches/src/file_manager/`).
+- Anforderungen: https://github.com/FreeSynergy/fs-documentation/blob/main/docs/de/programs/apps/files/requirements.md (`fs-documentation/docs/de/programs/apps/files/requirements.md`).
 
 Web (Nachprüfung):
 - Directory Opus: https://www.gpsoft.com.au/ ; https://docs.dopus.com/doku.php?id=basic_concepts:the_lister ; https://resource.dopus.com/t/common-purchasing-upgrading-and-licensing-questions/23553 ; https://resource.dopus.com/t/directory-opus-13-now-available/48103 ; https://chaoses-ib.gitbook.io/directory-opus/manual/file_operations/tracking_and_undoing_file_operations ; https://chaoses-ib.gitbook.io/directory-opus/manual/basic_concepts/flat_view ; https://www.filehorse.com/download-directory-opus

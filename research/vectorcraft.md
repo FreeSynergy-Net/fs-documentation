@@ -1,6 +1,6 @@
 # VectorCraft als Vektor-Grundlage – Kurzprüfung (nur gelesen)
 
-Stand 2026-11-12 (Opus, Entwurf, kein ADR, kein Code). Klon `/srv/FreeSynergy/.scratch/vendor-read/vectorcraft`, Commit `7f3a046` (2026-11-11), nichts gebaut, kein Skript/`build.rs` ausgeführt; Lizenzen über crates.io-API, Aktivität über GitHub-API. **[nicht geprüft]** = nicht belegt.
+Stand 2026-11-12 (Opus, Entwurf, kein ADR, kein Code). Klon `Arbeitsstand der Strategie, nicht veröffentlicht`, Commit `7f3a046` (2026-11-11), nichts gebaut, kein Skript/`build.rs` ausgeführt; Lizenzen über crates.io-API, Aktivität über GitHub-API. **[nicht geprüft]** = nicht belegt.
 
 **Crates ohne egui:** Das Projekt erzwingt selbst, dass unterhalb der UI-Schicht nichts von egui/winit abhängt (`cargo xtask layers`, `docs/architecture.md`).
 
