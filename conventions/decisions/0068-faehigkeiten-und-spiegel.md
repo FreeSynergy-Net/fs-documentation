@@ -30,3 +30,8 @@
 - Thread T: Fähigkeiten-Namen = Namen der Themen-Schnittstellen (eine Liste, in `fs-interfaces`).
 - `fs-catalog`: Felder für provides/requires/recommends, Spiegel-Herkunft (Quelle, Upstream-Signatur, Quellcode-Datei).
 - Prüfen (Haiku): Welche Pakete bieten Kanidm, Zentinel, Stalwart selbst an, signiert, in welchen Formaten, unter welcher Lizenz.
+
+## Nachtrag 2026-11-16: Status `planned`
+- Die eine Liste (`fs-interfaces`, `schema/capabilities.txt`) führt je Name einen Status: `stable` (Schnittstelle gebaut) oder `planned` (Name festgehalten, Schnittstelle kommt später). Ein `planned`-Name ist bekannt (`is_known`), `is_planned` sagt es; der Katalog-Check (`fs-catalog`) nimmt ihn an und **warnt** nur, ein Paket darf ihn also schon anbieten.
+- Als `planned` geführt (Stand: Zweig `unreviewed/planned-capabilities` in `fs-interfaces`, noch nicht freigegeben): `storage.provider`, `identity.oauth2`, `identity.ssh-keys`, `identity.passkeys`, **neu** `gateway.reverse-proxy` (Zentinel), `messaging.matrix` und `messaging.matrix.oidc-server` (Tuwunel; Anmeldeserver nur für Matrix-Clients, kein Anmeldedienst für andere Programme).
+- Nur Namen und Kurzbeschreibung; die vollen Schnittstellen (Cap'n Proto) kommen später, Namen werden nie umbenannt oder entfernt.
