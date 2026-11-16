@@ -83,4 +83,8 @@ Felder (Vorschlag, Schema `kind = "font"`):
 - `preview` (Vorschau-Text oder Bild; Form offen).
 - `install` mit den Zielen `~/.local/share/fonts` und fontconfig für Linux.
 
+| kind | AppStream `type` | Beleg |
+|---|---|---|
+| `font` | `font` (`<provides><font>` nennt die vollen Schnittnamen) | Spezifikation, Abschnitt „Fonts“ (laut Recherche 2026-11-16, nicht im Volltext nachgelesen) |
+
 **Offen:** Windows- und macOS-Pendants der Installationsziele sind nicht recherchiert **[nicht belegt]**. Die Vorschau-Form ist nicht entschieden. Die Darstellung im Store ist offen (wie bei `module`). Die Dokumentationsseite zum Store ist `docs/en/programs/platform/store.md` und `docs/de/programs/platform/store.md`; sie wird hier nur verlinkt, nicht umgebaut.
