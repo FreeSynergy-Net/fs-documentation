@@ -15,6 +15,7 @@ run check_components.py --lang de
 run gen_component_indexes.py --lang de --check
 run gen_frontend_indexes.py --check
 # Same as the CI steps "Publish the decision records" and "Build MkDocs site" (strict).
+# No -q: quiet mode raises the log level to ERROR, so strict mode no longer counts warnings (the gate was blind).
 MKDOCS="$(command -v mkdocs || true)"
 # A broken mkdocs on PATH (e.g. installed for another Python) counts as missing.
 [ -n "$MKDOCS" ] && ! "$MKDOCS" --version >/dev/null 2>&1 && MKDOCS=""
@@ -23,7 +24,7 @@ if [ -n "$MKDOCS" ]; then
   echo "== gen_decisions.py + mkdocs build --strict"
   python3 scripts/gen_decisions.py >/dev/null || { echo "FAILED: gen_decisions.py" >&2; fail=1; }
   site="$(mktemp -d)"
-  "$MKDOCS" build --strict -q -d "$site" >"$site.log" 2>&1 || { echo "FAILED: mkdocs build --strict" >&2; grep -E "WARNING|ERROR|Aborted" "$site.log" | head -15; fail=1; }
+  "$MKDOCS" build --strict -d "$site" >"$site.log" 2>&1 || { echo "FAILED: mkdocs build --strict" >&2; grep -E "^(WARNING|ERROR)|Aborted" "$site.log" | head -15; fail=1; }
   rm -rf "$site" "$site.log"
 else
   echo "SKIPPED: mkdocs build --strict (mkdocs not installed; CI runs it: pip install -r requirements.txt)" >&2
