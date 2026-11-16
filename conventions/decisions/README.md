@@ -88,7 +88,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0079 | `fs-server`: Server einrichten und verwalten, jeder Schritt protokolliert | akzeptiert (Strategie); Nutzerentscheidung 14.11. |
 | 0080 | Umzug fs-wiki → fs-text: Repo, Crates, Version, Daten, Katalog | akzeptiert (Strategie); Nutzer-JA zu Umbenennung/Löschen und „Projekt“ |
 | 0081 | CI-Ereignisse (CloudEvents) ≠ Programm-Ereignisse (AS2, fs-history); Pull ohne Token, Rot-Issues | akzeptiert (Strategie, 2026-11-14); fs-history heißt seit ADR 0087 fs-activity |
-| 0082 | `fs-server` verbindet: Konfiguration von außen, Anbindungen an Server | akzeptiert (Strategie, 2026-11-14; Nutzerentscheidung Vermittler + People/Groups mit Kanidm) |
+| 0082 | `fs-server` verbindet: Konfiguration von außen, Anbindungen an Server | akzeptiert (Strategie, 2026-11-14; Nutzerentscheidung Vermittler + People/Groups mit Kanidm; Nachträge 16.11.) |
 | 0083 | Website-Veröffentlichung aus fs-text (Arbeitstitel) | reserviert (kein Dokument) |
 | 0084 | Editor-Bausteine: ein Vertrag (`TextEditor`, nur Änderungs-Operationen), Umsetzungen Block/RichText/Markdown, gemeinsame Konformitätssammlung | akzeptiert (Strategie, 2026-11-14; Nutzerentscheidung: mehrere Editor-Bausteine, Daten nur über unser Modell) |
 | 0085 | Normalisierung an der Grenze: Zeiten (UTC plus IANA-Zonen-Id, Datum ohne Uhrzeit), Verweis `PersonRef` auf Profil, Person, Gruppe oder Organisation (mit eingefrorenem Abzug), schwebende Zeit `Floating`, Herkunft `Origin`, Importer/Exporter als Grenz-Adapter | akzeptiert (Nutzerregeln 2026-11-14; Abschluss Strategie 2026-11-16) |
