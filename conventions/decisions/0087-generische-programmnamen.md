@@ -250,3 +250,11 @@ Status: Strategie-Entscheid nach Nutzerantwort 17 (Gespräch 4 vom 2026-11-17); 
 **Folgen**
 - **Doku:** der Nachtrag „forms = Frontend-Baukasten …“ bleibt unverändert; Punkt 12 gilt durch diesen Nachtrag als gefallen. ADR 0097 Offen 7 ist dort als „entschieden: `fs-flow`“ markiert.
 - **Pflichttests** (je ohne Umsetzung rot): Bedingung wählt den richtigen Bildschirm; Schleife endet an der Obergrenze und am Abbruch; Schleife ohne Obergrenze wird abgelehnt; Funktion (Teil-Workflow) wird mit Parametern aufgerufen; eine Bedingung mit freiem Ausdruck wird abgelehnt.
+
+## Nachtrag 2026-11-17 (klein): KI-Einladung als Modus in fs-admission; Schalter in fs-access; Gerüst-Haken
+
+Status: **Entwurf** (Entscheid der Strategie, b7 17.11.; Nutzer, Gespräch 4 Z. 59) · **ergänzt** Nachtrag „forms = Frontend-Baukasten …“ Punkt 8 (Rechte) und den Nachtrag (3) (Workflows v1)
+
+**Entscheidung** (Wortlaut der Strategie, b7 17.11.): „KI-Einladung als Modus in fs-admission; der Schalter, ob KI überhaupt erlaubt ist, liegt in fs-access (Rechte, nie per Token/Delegation); jedes Programm ruft die Einladung über einen Gerüst-Haken auf, nicht mit eigenem Code.“
+- Nutzer (Antwort 18, Z. 59): „die Teilnahme von Bots sollte immer nach dem gleichen Muster passieren: Alle stimmen zu, wenn einer nicht, dann keiner. Nachdem die KI drin ist, können die, die nicht mit KI arbeiten wollen, nicht mehr mitmachen“; „Bei einem geschlossenen Kreis, sind es die Teilnehmer auch, bei offenen Umfragen sind es die Organisatoren“.
+- Für Umfragen und Formulare (dieser ADR) heißt das: in offenen Umfragen entscheiden die Organisatoren über die KI-Einladung, nicht die Antwortenden.
