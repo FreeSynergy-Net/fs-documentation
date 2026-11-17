@@ -17,3 +17,4 @@ Ziel: Windows-Programme von FreeSynergy (.exe/.msi) werden über die kostenlose 
 ## Inhalt
 
 - [bericht.md](bericht.md): Recherche-Bericht (Stand 2026-11-13, nur Recherche, kein Code): Bedingungen der SignPath Foundation, GitHub-Action zum Einreichen, Plan für den Release-Lauf, Gliederung der Policy-Seite, Alternativen, Grenzen der Recherche. Unbelegtes ist darin mit **[nicht belegt]** markiert.
+- [bericht-kurz.md](bericht-kurz.md): Kurzfassung des Recherche-Berichts (Stand 16.11., Herkunft siehe Kopfzeile der Datei); die Vollversion bleibt [bericht.md](bericht.md).
