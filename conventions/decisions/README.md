@@ -100,7 +100,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0091 | KI-Stellvertreter-Bot: die KI hat keine Rechte, der Bot ist ihr einziger Weg | Entwurf (Strategie, 2026-11-16; Entscheidungen 2.6.1 bis 2.6.11; Nachtrag 17.11.) |
 | 0092 | Bibliotheks-Repos bilden einen gerichteten Graphen (kein Kreis, ein Lock je Bibliothek eine Quelle); RPC-Laufzeit zieht aus fs-interfaces in das neue Repo fs-rpc | akzeptiert (Strategie, 2026-11-16; Variante V2) |
 | 0093 | fs-types ist die unterste Bibliothek: eigenes Repo mit `types.capnp`, Wertobjekten und Typbeschreibung (Server nach fs-rpc); Repo-DAG fs-types → fs-interfaces/fs-objects/fs-jscalendar/fs-components → fs-rpc → Programme | akzeptiert (Strategie, 2026-11-16; V1+, Opus-Review 9b1ba986; Nachtrag 17.11.) |
-| 0094 | Frontend-Paket: Manifest (AppStream `addon`), Fundort, `requires`/`extends`, Laden durch das Programm (Starter, Handshake, Fallback), Installation/Update über fs-packages | Entwurf (Strategie, 2026-11-16; Entscheidungen b7 O1 bis O3, O4 offen) |
+| 0094 | Frontend-Paket: Manifest (AppStream `addon`), Fundort, `requires`/`extends`, Laden durch das Programm (Starter, Handshake, Fallback), Installation/Update über fs-packages | Entwurf (Strategie, 2026-11-16; Entscheidungen b7 O1 bis O3, O4 offen; Nachtrag 17.11.) |
 | 0095 | Eigentümer von Gruppen und drei Verwaltungsstufen | akzeptiert (Nutzer, 2026-11-17) |
 | 0096 | Format und Host (Arbeitstitel) | reserviert (kein Dokument) |
 | 0097 | Standardgerüst, Module und Arbeitsweise: Programme werden zusammengesteckt | akzeptiert (Nutzer, 2026-11-17; Nachträge: Gespräch 2, fs-access, fs-conformance/Vorhandenes zuerst 17.11.) |

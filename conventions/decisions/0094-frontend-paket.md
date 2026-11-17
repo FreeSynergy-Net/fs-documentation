@@ -83,3 +83,17 @@ Entschieden (b7, 2026-11-16) und oben eingearbeitet: **O1** AppStream-XML als Ma
 - **WASM jetzt:** kein Host, Textmessung ungelöst (ADR 0045); später über den Weg aus O5.
 - **Binary je Frontend ohne Starter:** Menschen müssten Binärnamen kennen; widerspricht 0063.
 - **Eigener Meldekanal Store → Programm:** doppelt; das Ablegen des Manifests am beobachteten Fundort genügt.
+
+## Nachtrag 2026-11-17: Starter wartet aufs Ende des Frontends
+
+Status: **akzeptiert** (Strategie-Entscheid O2 vom 2026-11-17, Prüfung der fs-starter-Probe; kein Nutzerwort) · **ändert** Entscheidung 4(d) (Z. 28): Der Starter wartet nicht auf ein Bereitschaftszeichen, sondern auf das Ende des Frontends; `--lease` entfällt in v1 · baut auf ADR 0069 Nachtrag (Probezeit nach einem Update)
+
+**Entscheidung**
+In v1 startet der Starter das Frontend mit `--socket <pfad>` (dazu `--fresh` oder `--resumed TOKEN`, wenn gegeben), wartet auf dessen Ende und gibt dessen Rückgabecode unverändert weiter (0–255; Signal oder außerhalb = 1).
+
+**Grund**
+Kein Frontend gibt ein Bereitschaftszeichen; die Probezeit nach einem Update (ADR 0069 Nachtrag) braucht Ende und Dauer (`StartHook::after_end`). Der wartende Starter ist kein Wächter: Er hält keinen Socket und keine Lease und startet nichts neu. Endet er mit dem Frontend durch ein Signal (Strg+C trifft beide), läuft `after_end` nicht; fs-updates wertet ein fehlendes Ende als „nicht bestätigt“, nicht als Absturz.
+
+**Offen**
+- `--lease` (Entscheidung 4 a und d) kommt mit fs-rpc 0.0.4.
+- Ein Bereitschaftszeichen, nach dem der Starter früher endet, ist ein eigener Nachtrag.
