@@ -111,3 +111,20 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 1. **ADR 0073:** braucht es einen Nachtrag für Join und Leave? [offen]
 2. **turso-Fehler upstream melden:** der Nutzer entscheidet; kein ADR-Text zur Meldung.
 3. **Geltungsbereich von `fs_word`:** gilt die Wort-Tabelle auch für weitere Store-eigene Tabellen (z. B. `person_snapshot.doc_kind`)? [offen]
+
+## Nachtrag (Nutzer, 2026-11-17, Frage 18: v5 vorgezogen) [Entwurf]
+**Nutzerwortlaut** (über die Strategie, Frage 18, 2026-11-17): „(1) Kein JSON und kein TOML als Speicher oder Konfig. JSON/TOML nur für Import/Export und Kompatibilität. Alles liegt in der Datenbank, hinter Schnittstellen. Ausnahme nur Werkzeug-Dateien (Cargo.toml, CI-/Workflow-YAML). (2) Typisierte Speicherung (fs-objects Schema v5, ADR 0086 typisierte Tabellen je Standard) kommt JETZT, vor dem Beweis-Programm. Grundlegend richtig, nicht voll ausdifferenziert; Spalten später ergänzen ist ok. (3) fs-settings speichert in der DB statt in settings.toml/instance.toml (Nachtrag ADR 0100).“
+
+**Entscheidung**
+1. **v5 wird vorgezogen:** die typisierten Tabellen je Standard kommen **vor dem Beweis-Programm** (fs-tasks). Das ersetzt die Zeile unter „Folgen“: „Reihenfolge: Umbau nach der Frontend-Runde … Bis dahin wird das Schema nicht verändert.“
+2. **Maßstab:** „grundlegend richtig, nicht voll ausdifferenziert“. Jedes Feld mit primitivem Typ, Listen als Untertabellen; Vollständigkeit je Standard ist kein Hindernis. **Spalten werden später additiv ergänzt** (neuer Schritt, kein Umbau eingefrorener Schritte; Wortlisten-Regel und `fs_word` bleiben).
+3. **Überholt** ist die heutige Ablage `content = JSON-Text` (Beleg, nur gelesen: `fs-objects/crates/fs-objects/src/turso/schema.rs:21-22`, Kopf cad3c46: `content_type TEXT NOT NULL, content TEXT NOT NULL`; Einfügen Z. 81). Sie bleibt nur bis zur Migration; JSON gilt danach nur als Import/Export (Entscheidung 3, unverändert).
+4. **Erweitert:** nicht nur Fachinhalte, auch **Konfiguration und Einstellungen** liegen typisiert in der Datenbank (kein TOML als Konfig); fs-objects v5 trägt dafür den Speicher-Anbieter für `fs-settings` (ADR 0100 Nachtrag 2026-11-17). Ausnahme nur Werkzeug-Dateien (`Cargo.toml`, CI-/Workflow-YAML).
+
+**Folgen**
+- Neue Reihenfolge (Strategie, 2026-11-17): fs-types 0.0.3 -> Pin-Kaskade -> fs-objects v5 typisiert (inkl. Speicher-Anbieter für Settings) -> fs-settings auf DB -> F1/F2 (forms-Beschreibungen als Daten in der DB, `tasks-board.toml` nur Import) -> fs-tasks.
+- Die Migration der bestehenden `content`-JSON-Werte mit Rundlauftest (siehe „Folgen“ oben) bleibt Pflicht, wird aber vorgezogen.
+
+**Offen**
+1. **DAG-Platz der Speicher-Schnittstelle** (Trait und Anbieter): Plan des Opus folgt, (Arbeitsdokument `PLAN-speicher-schnittstelle`, noch nicht veröffentlicht); hier nicht vorweggenommen. [offen]
+2. Welche Standards in v5 zuerst „grundlegend“ typisiert werden (Umfang der ersten Welle): [offen]

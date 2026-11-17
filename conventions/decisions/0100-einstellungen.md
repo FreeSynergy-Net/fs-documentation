@@ -30,7 +30,7 @@ grün: check run 44141323913, windows run 44141323377). Fixpunkt wird als settin
    ADR 0045); Bibliothek **`fs-settings`** (Repo fs-components, Schicht 1, ohne Blinc, capnp, tokio); Programm **`fs-settings`** (Antwort 15), das alle
    installierten Einstellungen an einer Stelle zeigt und ändert.
 2. **Schichten** (Reihenfolge der Auflösung, eine Stelle `resolve`): Baustein-Voreinstellung < Instanz (Admin-Vorgabe) < System (Desktop: Sprache, hell/dunkel;
-   nur lesen) < allgemeines Profil der Person < Programm-Profil. **Gerät** ist Ablageort (`$XDG_STATE_HOME`), keine Schicht. **Eine Sperre schlägt jede Schicht.**
+   nur lesen) < allgemeines Profil der Person < Programm-Profil. **Gerät** ist Ablageort (`$XDG_STATE_HOME`), keine Schicht [Ablageort ersetzt durch Nachtrag 2026-11-17: Datenbank]. **Eine Sperre schlägt jede Schicht.**
 3. **Besitzer-Arten** der Einstellungen: Gerüst, Modul, Theme, Programm (Nutzer Z. 18), dazu Frontend; jede Einstellung ist **deklariert** (Schlüssel, typisierte Art
    Flag/Ganzzahl mit Grenzen/Auswahl/Sprache/Text, Voreinstellung, Gruppe, Ablage, MF2-Texte de+en); Undeklariertes wird nie gespeichert (`not-declared`).
 4. **Speichern:** zwei Ziele „für dieses Programm“ und „für alle“ (Nutzer Z. 21); ein Programm schreibt nur sein eigenes Profil und das allgemeine, **nie** das eines
@@ -47,7 +47,7 @@ grün: check run 44141323913, windows run 44141323377). Fixpunkt wird als settin
 8. **Erster Nutzen:** Sprache und Theme (Stil, hell/dunkel) **live** in jedem Programm über die Hülle (fs-components-app): `refresh` im Takt (Stempel-Vergleich),
    Beobachter schalten Texte (MF2) und Stil um; Programme bekommen das ohne eigenen Code.
 9. **Standards:** XDG Base Directory (Orte), XDG Desktop Portal `org.freedesktop.portal.Settings` (System-Schicht: `color-scheme`, `accent-color`, `contrast`;
-   Adapter später), BCP 47 (Sprache), TOML 1.0 (Dateien, flache Schlüssel, nur Skalare), DTCG Design Tokens beim Theme (ADR 0074); GSettings/dconf nur als **Konzept**
+   Adapter später), BCP 47 (Sprache), TOML 1.0 (Dateien, flache Schlüssel, nur Skalare) [ersetzt durch Nachtrag 2026-11-17: nur Import/Export], DTCG Design Tokens beim Theme (ADR 0074); GSettings/dconf nur als **Konzept**
    (Deklaration je Baustein, Schema-Datei), nicht übernommen.
 
 **Pflichttests** (je ohne Umsetzung rot; Suite `settings` in fs-conformance, 18 Regeln aus der Probe, hinter dem Feature `conformance`, nie im normalen Abhängigkeitsgraphen): Sperre schlägt jede Schicht; Sperrender ändert selbst nicht;
@@ -91,6 +91,30 @@ bleibt byte-gleich; Sperre scheitert geschlossen; Index der Profile unter Dateis
 
 **Offen**
 1. Portal-Adapter: **Entscheid der Strategie (b7, 2026-11-17):** zuerst ein Spike mit `ashpd =0.14.0`, derselben Version wie in `fs-components-filepicker` (keine zweite Version im Lock); bis zum Adapter bleibt die System-Schicht aus Umgebungsvariablen. [entschieden, Spike offen]
-2. Instanz-Vorgaben auf einem Server schreiben (v1 nur lesen; `Admin::set_default` mit Admin-Recht aus fs-access, Auflage L4): **Entscheid der Strategie (b7, 2026-11-17):** die Datei `instance.toml` schreibt vor fs-connect ein **Admin per Skript**, nie ein Agent (vereinbar mit der Regel „keine KI auf Servern“); das Skript liefert `fs-settings` als Befehl mit, die Ausführung liegt beim Menschen. [entschieden]
+2. Instanz-Vorgaben auf einem Server schreiben (v1 nur lesen; `Admin::set_default` mit Admin-Recht aus fs-access, Auflage L4): **Entscheid der Strategie (b7, 2026-11-17):** die Datei `instance.toml` [ersetzt durch Nachtrag 2026-11-17: Datenbank] schreibt vor fs-connect ein **Admin per Skript**, nie ein Agent (vereinbar mit der Regel „keine KI auf Servern“); das Skript liefert `fs-settings` als Befehl mit, die Ausführung liegt beim Menschen. [entschieden]
 3. Windows-Orte (Known Folders). [offen]
 4. Gleichzeitiges Schreiben zweier Programme ins allgemeine Profil (letzte Umbenennung gewinnt). [offen]
+
+## Nachtrag (Nutzer, 2026-11-17, Frage 18: Speicher ist die Datenbank, nicht Dateien) [Entwurf]
+**Nutzerwortlaut** (über die Strategie, Frage 18, 2026-11-17): „(1) Kein JSON und kein TOML als Speicher oder Konfig. JSON/TOML nur für Import/Export und Kompatibilität. Alles liegt in der Datenbank, hinter Schnittstellen. Ausnahme nur Werkzeug-Dateien (Cargo.toml, CI-/Workflow-YAML). (2) Typisierte Speicherung (fs-objects Schema v5, ADR 0086 typisierte Tabellen je Standard) kommt JETZT, vor dem Beweis-Programm. Grundlegend richtig, nicht voll ausdifferenziert; Spalten später ergänzen ist ok. (3) fs-settings speichert in der DB statt in settings.toml/instance.toml (Nachtrag ADR 0100).“
+
+**Entscheidung**
+1. **Speicher:** `fs-settings` speichert in der Datenbank, nicht in `settings.toml`, `instance.toml`, `profiles.toml` oder einer anderen Datei. Die Ebenen (Instanz, Profil allgemein, Profil je Programm, benanntes Profil, Gerät) sind Zeilen bzw. Tabellen in der DB. Das Schloss (`reason`, `locked_by`, `locked_at` in UTC) und das Protokoll der Änderungen liegen ebenfalls dort. Die Schichten und die Regel „Eine Sperre schlägt jede Schicht“ (Entscheidung 2 und 5) bleiben unverändert.
+2. **Schnittstelle:** die Bibliothek `fs-settings` bekommt einen Trait **`SettingsStore`** und kennt keine Dateien mehr. Der **Anbieter** liegt in `fs-objects` (Schema v5, typisierte Tabellen, ADR 0086) und wird beim Start gesteckt.
+3. **DB-Ort:** per Konvention (Linux XDG, Windows Standardordner); änderbar per Startargument. Das ersetzt die Windows-Frage der Dateiablage (Offen 3) nur für den Ort der DB, die Known Folders bleiben dafür offen.
+4. **Kaputte DB:** die eingebauten Voreinstellungen gelten, der Fehler wird **offen gemeldet** (nie still, kein Überschreiben der kaputten Datei).
+5. **Instanz-Vorgaben:** ein **Admin-Skript** ruft einen Befehl (`fs-settings`), der in die DB schreibt; der Mensch führt es aus, nie ein Agent (Offen 2 bleibt in dieser Form, nur das Ziel ist die DB statt `instance.toml`).
+6. **JSON und TOML** nur noch als Import/Export und für Kompatibilität (ADR 0086 Entscheidung 3); Ausnahme nur Werkzeug-Dateien (`Cargo.toml`, CI- und Workflow-YAML).
+7. **Ersetzt** wird die Datei-Ablage der Probe (`XdgFiles`, `crates/fs-settings/src/files.rs`, `files_index.rs`; Probe `settings-lift`): sie wurde **nie veröffentlicht**, es gibt **keine Migration**. Entscheidung 2 (Ort Gerät), Entscheidung 9 (TOML 1.0 als Dateiformat) und Offen 2 (`instance.toml`) sind oben als „ersetzt durch Nachtrag“ gekennzeichnet; dazu entfallen mit der Datei-Ablage die Dateisperre-Punkte L5 und L6 und der Datei-Teil von L7 unter „Noch nicht gebaut“ (L2: nur noch für andere Teile der Bibliothek zu prüfen).
+
+**Grund:** eine einzige Wahrheit hinter Schnittstellen (ADR 0042, 0086), typisierte Werte statt Text-Dateien, Schloss und Protokoll transaktional statt über Dateisperren und Umbenennen.
+
+**Folgen**
+- Neue Reihenfolge (Strategie, 2026-11-17): fs-types 0.0.3 -> Pin-Kaskade -> fs-objects v5 typisiert (mit Speicher-Anbieter für Settings) -> fs-settings auf DB -> F1/F2 (forms-Beschreibungen als Daten in der DB, `tasks-board.toml` nur Import) -> fs-tasks.
+- Der Fixpunkt `setting_v1` und die Zweig-Köpfe der Probe bleiben wörtlich als Probe-Stand; ein neuer Fixpunkt entsteht nach dem Umbau mit kurzer Prüfung.
+- Die Pflichttests (Sperre, fremdes Profil, „für alle“, undeklariert, kaputte Datei bleibt byte-gleich) gelten weiter, gegen den `SettingsStore`; „kaputte Datei“ wird zu „kaputte DB: Voreinstellung, offen gemeldet“.
+
+**Offen**
+1. **DAG-Platz des Trait `SettingsStore`** (Schicht, Crate, Richtung der Abhängigkeit zu `fs-objects`): Plan des Opus folgt, (Arbeitsdokument `PLAN-speicher-schnittstelle`, noch nicht veröffentlicht) (wird geschrieben). Hier nicht vorweggenommen. [offen]
+2. Aufbau der typisierten Settings-Tabellen (Spalten je Einstellungsart) und Zusammenspiel mit `ProfileSet<V>`: mit v5 „grundlegend richtig“, Spalten additiv (ADR 0086 Nachtrag 2026-11-17). [offen]
+3. Gerät-Ebene: eigene DB je Gerät oder Zeilen mit Geräte-Id in der gemeinsamen DB. [offen]
