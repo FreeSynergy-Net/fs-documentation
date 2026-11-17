@@ -75,7 +75,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0066 | Datentypen mit festen Components, vier Frontends je Programm | akzeptiert |
 | 0067 | Tresor `fs-vault`; Server hält nur Verschlüsseltes, Gruppenschlüssel (MLS), Suche auf dem Gerät | akzeptiert |
 | 0068 | Fähigkeiten statt fester Anforderungen (provides/requires); fremde Pakete gespiegelt samt Quellcode; `catalog.freesynergy.net` | akzeptiert |
-| 0069 | Update schließt ein laufendes Programm und startet es am selben Punkt neu (Sitzungsdatei, automatisches Speichern, Klon, `suspend_and_exit()`; Nachtrag 17.11.: Selbst-Update jedes Programms, typisierte Sitzung `session.toml`, `UpdateMode`, Ruhe-Regel, Rollback) | akzeptiert (Strategie); F1 entschieden (Nutzer, ja); Nachtrag 17.11. |
+| 0069 | Update schließt ein laufendes Programm und startet es am selben Punkt neu (Sitzungsdatei, automatisches Speichern, Klon, `suspend_and_exit()`; Nachtrag 17.11.: Selbst-Update jedes Programms, typisierte Sitzung `session.toml`, `UpdateMode`, Ruhe-Regel, Rollback) | akzeptiert (Strategie); F1 entschieden (Nutzer, ja); Nachträge 17.11. (Selbst-Update; Namen fs-session/fs-update, Reihenfolge) |
 | 0070 | Thema `storage`: ein Baum für alles, worauf man Zugriff hat (`StorageProvider` neben `BlobBackend`) | akzeptiert (Strategie); Code erst nach 3b grün |
 | 0071 | Versionen, Git und Backup in Files (drei Schichten; `versions` aus 0070 erweitert; Ergänzung 2026-11-12: Platz-Profile, Backup-Ziele, Git-Nebenfenster, Backup in jedem Programm) | akzeptiert (Strategie); Code erst nach 3b und Wiki/Groups; Nachtrag 17.11. |
 | 0072 | Blöcke als Quelle für Texte: Handbuch im Wiki, Store-Beschreibung und Hilfe daraus; Kopie im Paket | akzeptiert (Strategie); Code nach 3b und Wiki |
