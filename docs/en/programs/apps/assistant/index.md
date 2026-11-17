@@ -11,7 +11,7 @@ not a program of its own (ADR 0054). See the [overall plan](../roadmap.md).
 - **Seeing everything the AI does**, including the helpers it starts, and being able to step in.
 - **Reading comfortably.** Long answers are the main thing, so reading comes first.
 - **Working with every program:** the chat reads each program's MCP interface and uses it. MCP tools are generated from each
-  program's contract (ADR 0021). This works, but the contracts need a few marks first ([below](#mcp-the-contract-as-tools)).
+  program's contract (ADR 0021). The MCP interface sits in every program's scaffold (`fs-connect`) and is **off** after installation; an AI reaches it only through its bot seat and never as the person (ADR 0097 addendum conversation 2, ADR 0091 addendum 17 Nov). This works, but the contracts need a few marks first ([below](#mcp-the-contract-as-tools)).
 
 Each of these is built as a separate piece, and any program can use the chat as a [component](../../../components/planned.md).
 

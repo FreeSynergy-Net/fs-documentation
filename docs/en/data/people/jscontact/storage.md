@@ -27,7 +27,7 @@ According to decision 4 in [standards.md](../../standards.md) the **evidenced st
 | Export/import JSON-vCard | jCard (RFC 7095) | conversion vCard ↔ JSON |
 | Sync with clients | CardDAV (RFC 6352) | card ↔ vCard resource per contact folder (`directories`) |
 | Envelope outwards | AS2/ActivityPub (`Create`/`Update`/`Delete`) | card as the domain payload in the object; `to`/`cc` control disclosure, not access (decision 2) |
-| internally | Cap'n Proto (ADR 0021) | generated from the standard model (decision 4) |
+| internally | Cap'n Proto (ADR 0021; gRPC only as a module) | generated from the standard model (decision 4) |
 
 ## Open points (to be settled standards-conformingly, not invented)
 

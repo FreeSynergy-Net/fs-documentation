@@ -27,7 +27,7 @@ Entsprechend Beschluss 4 in [standards.md](../../standards.md) ist das **belegte
 | Export/Import JSON-vCard | jCard (RFC 7095) | Konvertierung vCard ↔ JSON |
 | Sync mit Clients | CardDAV (RFC 6352) | Karte ↔ vCard-Resource pro Kontaktordner (`directories`) |
 | Envelope nach außen | AS2/ActivityPub (`Create`/`Update`/`Delete`) | Card als Domänen-Payload im Objekt; `to`/`cc` steuern Offenlegung, nicht Zugriff (Beschluss 2) |
-| intern | protobuf/gRPC | aus dem Standardmodell generiert (Beschluss 4) |
+| intern | Cap'n Proto (ADR 0021; gRPC nur als Modul) | aus dem Standardmodell generiert (Beschluss 4) |
 
 ## Offene Punkte (Standards-konform zu klären, nicht zu erfinden)
 

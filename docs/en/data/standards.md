@@ -20,7 +20,7 @@ separate:
 | Layer | Question | Our rule |
 |-------|----------|----------|
 | **Storage** | what does a record look like in the database? | existing JSON/text models, field-accurate (JSContact, JSCalendar, GeoJSON, …) |
-| **Transport** | how do programs talk to each other? | envelope: AS2/ActivityPub; Cap'n Proto internally (ADR 0021), JSON-LD externally — **both derived projections** of the canonical standard model (decision 4) |
+| **Transport** | how do programs talk to each other? | envelope: AS2/ActivityPub; Cap'n Proto internally and, published over TLS, also externally (ADR 0021 addendum 17 Nov), JSON-LD externally (gRPC only as a module) — **both derived projections** of the canonical standard model (decision 4) |
 | **Vocabulary** | what are the fields called on the outside? | one canon internally, one mapping table per target system |
 
 Rule no. 1: **one field, one owner.** `name` belongs to the resource, not to
@@ -158,7 +158,7 @@ Mistakes from the earlier conversation, so they do not end up in a file:
 | 1 | **Canonical payload per domain:** contacts → JSContact (RFC 9553/9554), appointments and tasks → JSCalendar (RFC 8984, covers `Event` **and** `Task`), places/addresses → GeoJSON + JSContact `Address` (+ ISO 19160, ✅ URL checked), messages → AS2 `Note`/`Article`, profile → AS2 `Actor` projection onto JSContact. |
 | 2 | **Envelope for every exchange: ActivityStreams 2 + ActivityPub.** Changes going out are `Create`/`Update`/`Delete` on typed objects; the domain payload is carried by the object as an extension. `to`/`cc`/`bto`/`bcc` are disclosure control (they decide **where copies land**) — but **not access control**; authorization is enforced per resource separately. |
 | 3 | **IDs:** internally **UUIDv7, RFC 9562** (time-sortable standard, ✅; replaces ULID 2026-11-05, ADR 0027) — externally absolute IRI `https://<instance>/<domain>/<uuid>` (AS2 Core §4.1 requires absolute IRIs — ✅ evidenced). The IRI is the resolvable handle, the UUIDv7 the stable identity (host migration stays possible, decentralised operation included). |
-| 4 | **The source of truth is the evidenced standard model** (JSContact, JSCalendar, …). We use Cap'n Proto internally (ADR 0021), JSON-LD/AS2 externally — both as projections generated from it. (Corrects the earlier direction "protobuf as the only source".) |
+| 4 | **The source of truth is the evidenced standard model** (JSContact, JSCalendar, …). We use Cap'n Proto internally and, published over TLS, also externally (ADR 0021 addendum 17 Nov), JSON-LD/AS2 externally — both as projections generated from it. (Corrects the earlier direction "protobuf as the only source".) |
 | 5 | **Extend instead of invent:** first use the standard's extension points (e.g. `extensions` in JSContact for `lifecycle` — ⚠️ mechanism still to be evidenced); only where those do not exist, design our own specs. |
 
 **Still open (deliberately not decided):**

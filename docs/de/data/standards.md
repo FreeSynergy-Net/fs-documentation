@@ -17,7 +17,7 @@ Konflikte entstehen nicht zwischen Formaten, sondern zwischen **Feldnamen**. Des
 | Schicht | Frage | Unsere Regel |
 |---------|-------|--------------|
 | **Speicher** | Wie sieht ein Datensatz in der Datenbank aus? | existierende JSON-/Textmodelle, feldgenau (JSContact, JSCalendar, GeoJSON, …) |
-| **Übertragung** | Wie reden Programme miteinander? | Envelope: AS2/ActivityPub; Cap'n Proto intern (ADR 0021), JSON-LD außen — **beides abgeleitete Projektionen** des kanonischen Standardmodells (Beschluss 4) |
+| **Übertragung** | Wie reden Programme miteinander? | Envelope: AS2/ActivityPub; Cap'n Proto intern und, über TLS veröffentlicht, auch von außen (ADR 0021 Nachtrag 17.11.; gRPC nur als Modul), JSON-LD außen — **beides abgeleitete Projektionen** des kanonischen Standardmodells (Beschluss 4) |
 | **Vokabular** | Wie heißen die Felder nach außen? | ein Kanon intern, Mapping-Tabelle pro Zielsystem |
 
 Regel Nr. 1: **Ein Feld, ein Owner.** `name` gehört zur Ressource, nicht zum Modul. Kein Modul bekommt ein `crmContactName`.
@@ -139,7 +139,7 @@ Fehler aus dem bisherigen Gespräch, damit sie nicht in eine Datei wandern:
 | 1 | **Kanonisches Payload pro Domäne:** Kontakte → JSContact (RFC 9553/9554), Termine und Aufgaben → JSCalendar (RFC 8984, deckt `Event` **und** `Task`), Orte/Adressen → GeoJSON + JSContact `Address` (+ ISO 19160, ✅ URL geprüft), Nachrichten → AS2 `Note`/`Article`, Profil → AS2-`Actor`-Projektion auf JSContact. |
 | 2 | **Envelope für jeden Austausch: ActivityStreams 2 + ActivityPub.** Änderungen nach außen sind `Create`/`Update`/`Delete` auf typisierten Objekten; das Domänen-Payload trägt das Objekt als Erweiterung. `to`/`cc`/`bto`/`bcc` sind Offenlegungssteuerung (sie entscheiden, **wo Kopien landen**) — aber **keine Zugriffskontrolle**; Autorisierung wird pro Ressource getrennt durchgesetzt. |
 | 3 | **IDs:** intern **UUIDv7, RFC 9562** (zeitlich sortierbarer Standard, ✅; ersetzt ULID am 2026-11-05, ADR 0027) — extern absoluter IRI `https://<instanz>/<domaene>/<uuid>` (AS2 Core §4.1 verlangt absolute IRIs — ✅ belegt). Der IRI ist der auflösbare Handle, das UUIDv7 die stabile Identität (Host-Migration bleibt möglich, dezentraler Betrieb inklusive). |
-| 4 | **Quelle der Wahrheit ist das belegte Standardmodell** (JSContact, JSCalendar, …). Cap'n Proto nutzen wir intern (ADR 0021), JSON-LD/AS2 außen — beide als daraus generierte Projektionen. (Korrigiert die frühere Richtung „protobuf als einzige Quelle“.) |
+| 4 | **Quelle der Wahrheit ist das belegte Standardmodell** (JSContact, JSCalendar, …). Cap'n Proto nutzen wir intern und, über TLS veröffentlicht, auch von außen (ADR 0021 Nachtrag 17.11.), JSON-LD/AS2 außen — beide als daraus generierte Projektionen. (Korrigiert die frühere Richtung „protobuf als einzige Quelle“.) |
 | 5 | **Erweitern statt erfinden:** erst die Extension-Punkte des Standards nutzen (z. B. `extensions` bei JSContact für `lifecycle` — ⚠️ Mechanismus noch belegen), erst wenn es die nicht gibt, eigene Specs entwerfen. |
 
 **Noch offen (bewusst nicht entschieden):**
