@@ -2,7 +2,7 @@
 
 **One place to get FreeSynergy, with every download checked before it touches your machine.**
 
-The Store is the app from which you install, update and extend everything else: programs, frontends, components and themes. You install the Store once, by hand ([how](../../start/install.md)), and then you do not install anything by hand again. It keeps itself and everything else up to date, rolls an update back if it fails, and never replaces a program while it is running.
+The Store is the app from which you install, update and extend everything else: programs, frontends, components and themes. You install the Store once, by hand ([how](../../start/install.md)), and then you do not install anything by hand again. It keeps itself and everything else up to date, rolls an update back if it fails, and never replaces a program while it is running. Self-update applies to every program, not only to the Store: each program checks at start and regularly, updates itself, restarts and restores the work ([ADR 0069](../../decisions/0069-update-schliesst-und-stellt-wieder-her.md), addendum 17 Nov; the building blocks are `fs-update` and `fs-session`, ADR 0097).
 
 Status: **pre-release, early.** See "Where it stands today" below before you try it.
 
