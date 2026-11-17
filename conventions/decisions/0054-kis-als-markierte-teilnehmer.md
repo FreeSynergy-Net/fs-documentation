@@ -228,9 +228,9 @@ Status: **Entwurf** (Nutzer, Gespräch 4, Antworten 18/19, Z. 59, 62; Ausgestalt
 4. **Teilnehmer-Arten** in Auswertungen: bekannte Personen, KIs, anonyme, **betreute Konten** (Antwort 19, Z. 62: „Ja, betreute Konten.“); betreut ≠ Eigentümer (ADR 0095).
 **ADR 0091:** kein weiterer Nachtrag nötig (Bot-Platz, STOP je Platz und Kennzeichnung stehen in 0091 Z. 129, 228–240).
 
-## Nachtrag 2026-11-17: KI „im Auftrag“ der Person; Protokoll vor der Aktion; Token nie sichtbar
+## Nachtrag 2026-11-17 (3): KI „im Auftrag“ der Person; Protokoll vor der Aktion; Token nie sichtbar
 
-Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Z. 204, „eine KI handelt nie im Namen der Person“) und „Agenten erzeugen keine Geheimnisse, die ein Mensch behält“ (Nutzer, 2026-11-07) · gilt mit dem Nachtrag zu ADR 0091 vom selben Tag
+Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Baukasten) (Z. 204/206, „eine KI handelt nie im Namen der Person“) und „Agenten erzeugen keine Geheimnisse, die ein Mensch behält“ (Nutzer, 2026-11-07) · gilt mit ADR 0091 Nachtrag 2026-11-17 (2)
 
 **Entscheidung (Nutzer)**
 1. **Protokoll vor der Aktion (23.1).** Nutzer: „JA fest: Protokoll vor der Aktion.“ Das Protokoll steht, bevor die Aktion läuft, nicht erst danach.
@@ -241,15 +241,19 @@ Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-17, weitergegeben durc
 
 **Ausgestaltung (Strategie, kein Nutzerwort)**
 1. **Modell:** `actor` = die KI (eigener, gekennzeichneter Akteur, ADR 0091), `on_behalf_of` = die Person, die den Auftrag gegeben hat. Die Person ist **nie** der `actor`.
-2. **Rechte der KI ⊆ Rechte der Person** (Delegation ohne Erweiterung): ein Auftrag kann der KI nur Rechte geben, die die Person selbst hat (Rechte-Modell fs-access, ADR 0097 Nachtrag fs-access). Fehlt ein Recht der Person, wird der Auftrag abgelehnt, nicht gekürzt ausgeführt.
-3. **Kein Konto, kein Token der Person:** die KI nutzt nie Konto oder Zugangsdaten der Person; ein Token der Person ist für die KI und in jeder Ausgabe nie sichtbar (Tresor-Verweis statt Wert, ADR 0071). Ausnahmen gibt es nur nach einem Gespräch mit dem Nutzer; bis dahin keine.
+2. **Rechte der KI ⊆ Rechte der Person** (Delegation ohne Erweiterung): ein Auftrag kann der KI nur Rechte geben, die die Person selbst hat (Rechte-Modell fs-access, ADR 0100 Z. 39/45; Nutzer 20.1 noch nicht eingearbeitet, siehe Offen). Fehlt ein Recht der Person, wird der Auftrag abgelehnt, nicht gekürzt ausgeführt.
+3. **Kein Konto, kein Token der Person:** die KI nutzt nie Konto oder Zugangsdaten der Person; ihren Zugriff bekommt sie über den **Bot-Schlüssel des Programms** (ADR 0091 Nachtrag 2026-11-16 „Bot-Schlüssel stellt das Programm aus“), nie über ein Kanidm-Konto oder ein Token der Person; ein Token der Person ist für die KI und in jeder Ausgabe nie sichtbar (Tresor-Verweis statt Wert, ADR 0067, 0071 Z. 129). Ausnahmen gibt es nur nach einem Gespräch mit dem Nutzer; bis dahin keine.
 4. **Verhältnis zur Frage-Regel (Nachtrag 2026-11-16 und 2026-11-17 (2)):** der Auftrag ändert nichts an „KI nur per Einladung + STOP KI“. Ein Auftrag lädt keine KI in eine Runde ein und schaltet den Schalter „KI erlaubt“ nicht; eine KI hält nie `can_lock` und kann daher auch im Auftrag keine Sperre setzen oder lösen (ADR 0100, Schloss nur über fs-access).
 5. **Verhältnis zu den Schutzregeln (Nutzer 20.1, Rechte statt Rollen, Schutzregeln als Empfehlungen mit Stufe):** Protokoll vor der Aktion, „KI nur als eigener Akteur“ und „Token nie sichtbar“ sind **keine** einstellbaren Schutzregeln, sondern feste Entscheidungen (Nutzer 23.1/23.2/23.3). Sie stehen nicht zur Stufe aus/warnen/sperren; Ausnahmen nur nach Gespräch mit dem Nutzer.
 6. **Kennzeichnung nach außen** (Namen noch Vorschlag, nicht belegt): AS2 kennt in der Hülle `actor` und `attributedTo` (ADR 0020, 0085); für `on_behalf_of` gibt es in den Entscheidungen kein bestehendes Muster. Vorschlag: Feld mit dem Präfix `freesynergy.net:` (Muster wie `freesynergy.net:createdBy` im Aufgaben-Export von fs-tasks), Name offen. In Commits und Tags die Trailer `FS-Actor:` und `FS-On-Behalf-Of:`.
 
-**Pflichttests:** Aufruf mit Konto oder Token der Person → abgelehnt; Auftrag mit Recht, das die Person nicht hat → abgelehnt; Aktion ohne vorher geschriebenes Protokoll → wird nicht ausgeführt; Token der Person in Ausgabe oder Protokoll → Fehler; Eintrag ohne `on_behalf_of` bei erteiltem Auftrag → abgelehnt.
+7. **Bindung an den Auftrag (gegen Fälschung):** `on_behalf_of` darf nur gesetzt sein, wenn ein Mandat bzw. Auftrag dieser Person (`fs-delegate`, ADR 0091) besteht; das wird bei jedem Aufruf geprüft (wie bei STOP, ADR 0091 Z. 66). Ob die Plattform das heute schon entscheiden kann, ist offen (siehe Offen).
+8. **Prüfzeitpunkt, Verfall, Widerruf:** Rechte der KI ⊆ Rechte der Person wird zur Ausführungszeit gegen die **aktuellen** Rechte der Person geprüft (Rechteentzug wirkt sofort). Verfall und Widerruf des Auftrags wie beim Mandat (ADR 0091 Z. 55/59: Widerruf wirkt wie STOP KI). Wer prüft (fs-access bzw. Rechte-Schicht des Gerüsts): offen.
+
+**Pflichttests:** Aufruf mit Konto oder Token der Person → abgelehnt; Auftrag mit Recht, das die Person nicht hat → abgelehnt; Aktion ohne vorher geschriebenes Protokoll → wird nicht ausgeführt; Token der Person in Ausgabe oder Protokoll → Fehler; Eintrag ohne `on_behalf_of` bei erteiltem Auftrag → abgelehnt; `on_behalf_of` ohne gültigen Auftrag/Mandat dieser Person → abgelehnt; Rechteentzug der Person nach Auftragserteilung → Aktion der KI abgelehnt.
 
 **Offen**
+- Technische Prüfung der Bindung an den Auftrag (Ausgestaltung 7) und wer das Kleiner-gleich prüft (Ausgestaltung 8): nicht entschieden.
 - Name und Ort des Feldes `on_behalf_of` in AS2/JSON (siehe Ausgestaltung 6).
 - Der Nutzerentscheid 20.1 (Rechte statt Rollen) steht in ADR 0100 noch nicht; die Bezüge in Ausgestaltung 4 und 5 sind bis zu dessen Einarbeitung Entwurf.
 - Was „Gespräch mit dem Nutzer“ technisch heißt (Freigabe je Fall, Ablauf): nicht festgelegt.

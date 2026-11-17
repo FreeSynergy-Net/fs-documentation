@@ -239,9 +239,9 @@ Status: **Entwurf** (Nutzer, 2026-11-17: Präzisierung nach Gespräch 2 und Antw
 
 **Pflichttests:** Bot-Aufruf mit der Identität der Person → abgelehnt; Bot-Nachricht ohne Kennzeichnung → nicht zustellbar; Schutz-KI ausführend → abgelehnt.
 
-## Nachtrag 2026-11-17: Aufträge „im Auftrag“: actor = KI, on_behalf_of = Person
+## Nachtrag 2026-11-17 (2): Aufträge „im Auftrag“: actor = KI, on_behalf_of = Person
 
-Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Handeln per Mandat, nie als die Person) und Entscheidung 3 (Wrapper) · gilt mit dem Nachtrag zu ADR 0054 vom selben Tag, dort der Nutzerwortlaut
+Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Baukasten) (Handeln per Mandat, nie als die Person) und Entscheidung 3 (Wrapper) · gilt mit ADR 0054 Nachtrag 2026-11-17 (3), dort der Nutzerwortlaut
 
 **Entscheidung (Nutzer, Auszug; vollständig in ADR 0054)**
 Nutzer 23.2: „Die KI nutzt NIE den Account oder die Zugangsdaten der Person. Sie darf Aufträge der Person ausführen, „im Auftrag“, als verlängerter Arm, handelt dabei aber immer als sie selbst und behauptet nie, die Person habe es getan.“ 23.1: „Protokoll vor der Aktion.“ 23.3: „Token nie sichtbar; Ausnahmen nur nach Gespräch mit dem Nutzer.“
@@ -251,13 +251,14 @@ Nutzer 23.2: „Die KI nutzt NIE den Account oder die Zugangsdaten der Person. S
 2. **Scope-Map (Kanidm):** die Rechte der KI bilden sich nur auf Scopes ab, die die Person selbst hat; eine Scope-Map, die der KI mehr Scopes gäbe als der Person, ist ein Konfigurationsfehler und wird abgelehnt. Kein Kanidm-Konto für die KI (Nachtrag 2026-11-16: Schlüssel stellt das Programm aus). [Die konkrete Scope-Map-Tabelle steht in diesem ADR nicht; Abbildung im Detail offen.]
 3. **Protokoll vor der Aktion** (fest): Eintrag mit actor, on_behalf_of, Recht, Aktion, Zeit (UTC) wird vor der Ausführung geschrieben; scheitert das Schreiben, läuft die Aktion nicht.
 4. **Token nie sichtbar** (fest): weder Token der Person noch der Bot-Schlüssel erscheinen in Ausgabe, Protokoll oder Fehlermeldung; Ausnahmen nur nach Gespräch mit dem Nutzer.
-5. **Kennzeichnung:** wie im Nachtrag 2026-11-17 (jede Bot-Nachricht gekennzeichnet); zusätzlich weist sie bei einem Auftrag die Person als `on_behalf_of` aus, **ohne** zu behaupten, die Person habe es getan. Felder und Trailer (`FS-Actor:`, `FS-On-Behalf-Of:`): Namen siehe ADR 0054 Nachtrag, Ausgestaltung 6.
+5. **Kennzeichnung:** wie im Nachtrag 2026-11-17 (Baukasten) (jede Bot-Nachricht gekennzeichnet); zusätzlich weist sie bei einem Auftrag die Person als `on_behalf_of` aus, **ohne** zu behaupten, die Person habe es getan. Felder und Trailer (`FS-Actor:`, `FS-On-Behalf-Of:`): Namen siehe ADR 0054 Nachtrag 2026-11-17 (3), Ausgestaltung 6.
 6. **Verhältnis zu Rechten und Regeln:** KI nur per Einladung + STOP KI und nie `can_lock` gelten unverändert (ADR 0054); der Auftrag ersetzt keine Einladung. Schutzregeln als Empfehlungen (Nutzer 20.1, ADR 0100) betreffen diese festen Punkte nicht.
 
 **Folgen für die Traits (nur Skizze, kein Code):** Die Kennzeichnung `BotRef`/`ActorRef` bekommt ein optionales Feld `onBehalfOf` (Personen-Id); ist es gesetzt, prüft die Rechte-Schicht Rechte der KI ⊆ Rechte der Person und meldet sonst den Fehlercode `on-behalf-exceeds{right}`. Für das Git-Modul siehe die Trait-Entwürfe (`git_v1`).
 
-**Pflichttests:** wie ADR 0054 Nachtrag 2026-11-17; zusätzlich: Bot-Aufruf mit `on_behalf_of` und einem Recht außerhalb der Rechte der Person → `on-behalf-exceeds`.
+**Pflichttests:** wie ADR 0054 Nachtrag 2026-11-17 (3); zusätzlich: Bot-Aufruf mit `on_behalf_of` und einem Recht außerhalb der Rechte der Person → `on-behalf-exceeds`.
 
 ### Offen
 - Scope-Map-Einzelheiten (siehe 2).
+- Bindung von `on_behalf_of` an ein gültiges Mandat bei jedem Aufruf, Prüfzeitpunkt (aktuelle Rechte der Person), Verfall und Widerruf (wie Mandat, Widerruf = STOP KI): siehe ADR 0054 Nachtrag 2026-11-17 (3), Ausgestaltung 7 und 8.
 - Ob `on_behalf_of` dauerhaft im AS2-Objekt oder nur im Protokoll steht: nicht entschieden.
