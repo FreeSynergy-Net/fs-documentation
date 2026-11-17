@@ -257,3 +257,122 @@ Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-17, weitergegeben durc
 - Name und Ort des Feldes `on_behalf_of` in AS2/JSON (siehe Ausgestaltung 6).
 - Der Nutzerentscheid 20.1 (Rechte statt Rollen) steht in ADR 0100 noch nicht; die Bezüge in Ausgestaltung 4 und 5 sind bis zu dessen Einarbeitung Entwurf.
 - Was „Gespräch mit dem Nutzer“ technisch heißt (Freigabe je Fall, Ablauf): nicht festgelegt.
+
+## Nachtrag 2026-11-17 (4): Widerruf eines Auftrags = STOP, kein Rauswurf; Prüfung des Auftrags gegen Fälschung
+
+Status: **Entwurf** (Nutzerwort 2026-11-17 (D), via Strategie c0; Nutzerfrage (E) „wie wird geprüft?“; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (3), Ausgestaltung 7 und 8 (Z. 250, 251) und dessen Offen Punkt 1 (Z. 256) · **präzisiert** ADR 0091 Z. 59 und Z. 263 · **lässt unverändert** den Knopf, der die KI entfernt (heute im Altext „STOP KI“, Z. 140, 149, 160; neu „KI entfernen“), Z. 177, Z. 186 und 0054 Punkt 7 (Z. 86) · gilt mit ADR 0091 Nachtrag 2026-11-17 (3)
+
+**Nutzerwort (D), im Wortlaut wie übergeben (via Strategie c0, 2026-11-17)**
+> KORREKTUR: Widerruf eines Auftrags = vorübergehender STOP („erst mal ruhig bleiben, bis der nächste Befehl kommt“), KEIN Rauswurf. Rauswurf ist ein EIGENER Knopf.
+
+**(1) Was bisher stand und was es jetzt heißt**
+
+| Stelle | bisher | jetzt |
+|---|---|---|
+| 0054 Z. 251 (Nachtrag (3), Ausg. 8) | „Verfall und Widerruf des Auftrags wie beim Mandat (ADR 0091 Z. 55/59: Widerruf wirkt wie STOP KI)“ | **ersetzt** durch Punkt (2): Widerruf eines Auftrags = **STOP**, kein Rauswurf |
+| 0091 Z. 59 | „Ein Widerruf durch irgendeinen Menschen wirkt wie STOP KI (0054 Punkt 7)“ | **präzisiert:** gemeint ist der **Rückzug der Zustimmung** (0054 Punkt 7, Z. 86: „Zieht jemand die Zustimmung zurück, muss die KI hinaus“), also das Ende des Mandats. Das bleibt **Rauswurf**. Der Widerruf eines **Auftrags** ist etwas anderes (Punkt 2). |
+| 0091 Z. 263 (Nachtrag (2), Offen) | „Verfall und Widerruf (wie Mandat, Widerruf = STOP KI)“ | **ersetzt:** Widerruf eines Auftrags = STOP (Punkt 2); Verfall eines Auftrags = STOP für diesen Auftrag |
+| 0054 Z. 177, Z. 186 | Schalter „KI erlaubt“ auf „nein“ bzw. MCP-Schalter AUS „wie STOP KI“ | **unverändert:** das ist Rauswurf (die KI geht hinaus) |
+| 0054 Z. 140, 149, 160 | „STOP KI“-Knopf, „der die KI sofort entfernt“ (Nutzer 16.11.) | **unverändert** in der Wirkung: dieser Knopf entfernt; er ist der Rauswurf-Knopf und heißt jetzt „KI entfernen“ (nicht mehr „STOP KI“; siehe Offen 1) |
+
+**(2) Zwei getrennte Handlungen**
+
+*Widerruf eines Auftrags (STOP, vorübergehend)*
+- Wer: **offen** (Offen 2, Frage 25 beim Nutzer). Vorschlag, nicht entschieden: STOP darf jede anwesende Person, den Auftrag widerrufen nur sein Ersteller (die Person, die den Auftrag gegeben hat).
+- Wirkung: (a) der Auftrag wird `widerrufen` (Ereignis, append-only, siehe (3)); (b) die KI führt unter diesem Auftrag **keine weitere Aktion** aus; eine schon laufende Aktion bricht vor dem nächsten Schritt ab (Protokoll vor der Aktion, Nachtrag (3) Punkt 1: ohne neuen Protokolleintrag kein nächster Schritt); (c) die KI **bleibt** in der Situation: Bot-Platz, Mandat (`Active`), Schlüssel und Zustimmungen bleiben bestehen; (d) die KI wartet, „bis der nächste Befehl kommt“, d. h. bis die Person einen neuen Auftrag gibt; (e) Protokolleintrag.
+- Keine neue Zustimmungsrunde nötig, weil niemand seine Zustimmung zurückgezogen hat (anders als 0091 Z. 65).
+- Was schon getan ist, bleibt getan (wie „Hinauswerfen wirkt nur nach vorn“, Z. 153).
+
+*Rauswurf (eigener Knopf „KI entfernen“)*
+- Wer: jeder anwesende Mensch (Z. 149, unverändert).
+- Wirkung wie bisher (0091 Z. 60–65 mit Nachtrag „Bot-Schlüssel“ Punkt 5, 0091 Z. 175): Steuer-Sitzung lokal getrennt, Mandat `Stopped`, Bot verlässt die Situation, Programm widerruft den Schlüssel, Protokolleintrag. Alle Aufträge des Platzes enden mit. Ein neuer Bot braucht eine neue Zustimmungsrunde aller (0091 Z. 65).
+- Gleiche Wirkung (Rauswurf, nicht STOP) haben weiterhin: Rückzug der Zustimmung (Punkt 7, Z. 86), Schalter „KI erlaubt“ auf „nein“ (Z. 177), MCP-Schalter AUS (Z. 186).
+
+Beide Knöpfe erscheinen nur, wenn eine KI dabei ist (Z. 149); der STOP-Knopf nur bei der Person, die einen laufenden Auftrag hat.
+
+**(3) Was ein Auftrag ist (Ausgestaltung Strategie, Namen Vorschlag)**
+- Ein Auftrag ist ein **Datensatz** im Programm der Situation, verwaltet von `fs-delegate` (wie das Mandat, ADR 0091 Z. 39), typisiert gespeichert (ADR 0086), kein JSON. Er gehört zu genau einem Bot-Platz (Mandat).
+- Felder (Skizze): `id` (UUID), `seat` (Bot-Platz), `created_by` (Person; **vom Server aus der Sitzung gesetzt, nie aus der Anfrage**), `created_at` (UTC), `valid_until` (UTC), `scope` (Liste von Recht + Muster, wie fs-access-Rechte in TRAIT-ENTWUERFE §9 (3a)), `shown_digest` (Digest des Textes, den die Person beim Erteilen gesehen hat, Muster „Freigabe gilt nur für das Gesehene“, Z. 53–55).
+- Zustand nur über **Ereignisse** (append-only): `erteilt`, `widerrufen`, `abgelaufen`, `benutzt` (je Aktion, mit Aufruf-Id). Kein Ereignis wird geändert oder gelöscht; der Zustand ergibt sich aus der Folge.
+- `scope` ⊆ Mandat des Platzes ⊆ Rechte der Person (Nachtrag (3), Ausg. 2; ADR 0091 Punkt 4).
+
+**(4) Wie geprüft wird (Antwort auf (E))**
+
+*Wer einen Auftrag anlegen kann.* Nur eine angemeldete Person: entfernt über ihre Kanidm-OIDC-Sitzung (`fs_access::Subject`), lokal über den Socket-Eigentümer (Muster wie das Akteur-Prüfen im Git-Modul, TRAIT-ENTWUERFE §9 (2) Z. 410–412: „Mensch → `as.name` muss die Person der Sitzung sein“). Die Methode „Auftrag erteilen“:
+- nimmt **keinen** Bot-Schlüssel an (Bot-Schlüssel sind nie Menschenanmeldung, ADR 0091 Z. 176);
+- wird **nie** als MCP-Werkzeug angeboten (wie `MessageAction.decide`, Z. 51; ADR 0091 Z. 51: die KI vergibt nie Rechte oder Mandate);
+- setzt `created_by` aus der Sitzung; ein mitgeschicktes Feld „Ersteller“ gibt es im Vertrag nicht;
+- schreibt das Ereignis `erteilt` ins Protokoll, bevor der Auftrag gilt (Nachtrag (3) Punkt 1).
+
+*Was die KI bei einem Aufruf mitbringt.* Ihren Bot-Schlüssel (ADR 0091 Nachtrag „Bot-Schlüssel“) und die **Auftrags-Id**, dazu eine **Aufruf-Id** (einmalig). Nie ein Token der Person (Nachtrag (3) Punkt 3).
+
+*Was das Programm je Aufruf prüft (Reihenfolge; jede Stufe scheitert geschlossen):*
+0. Bot-Schlüssel gültig, Mandat des Platzes `Active` (bestehend, ADR 0091 Z. 66, 173, 175).
+1. **Auftrag existiert** und gehört **zu diesem Platz** (`seat` = Platz des Schlüssels) → sonst `order-unknown`.
+2. **Ersteller = genannte Person:** `on_behalf_of` der Anfrage = `created_by` des Auftrags, und `created_by` ist Halter des Platzes (ADR 0091 Nachtrag (2) Punkt 1) → sonst `order-mismatch`.
+3. **Nicht widerrufen, nicht abgelaufen:** kein Ereignis `widerrufen`, `valid_until` > jetzt (UTC) → sonst `order-revoked` bzw. `order-expired` (beides STOP, kein Rauswurf).
+4. **Umfang deckt die Aktion:** Recht + Muster der Aktion ∈ `scope` → sonst `order-scope{right}`.
+5. **Aktuelle Rechte der Person decken sie** (kleiner-gleich, zur Ausführungszeit, Nachtrag (3) Punkt 8) → sonst `on-behalf-exceeds{right}` (Name aus ADR 0091 Z. 257).
+6. **Aufruf-Id neu** für diesen Auftrag → sonst `order-replay`.
+7. Protokolleintrag (Absicht) geschrieben → sonst `audit-failed`, keine Aktion (TRAIT-ENTWUERFE §9 (2) Z. 414–416).
+
+*Wer prüft das Kleiner-gleich (Stufe 5) — Festlegung (Strategie, zur Bestätigung):* Die **Rechte** der Person liefert **fs-access** (dort liegen Rechte, Vorlagen und Zuschreibungen: TRAIT-ENTWUERFE §9 (3b), GM11 entschieden; ADR 0100 Z. 39). Den **Vergleich** macht das **Programm, das die Aktion ausführt**, über die Rechte-Schicht des Gerüsts (`fs-delegate`), bei jedem Aufruf, ohne Zwischenspeicher über die Aktion hinaus. Grund: ADR 0091 Z. 175 („weil das Programm jeden Aufruf selbst prüft“; STOP und Prüfung verlassen sich nicht auf eine zentrale Stelle). Ist fs-access nicht erreichbar: Ablehnung (`access-unavailable`, wie TRAIT-ENTWUERFE §9 (6) Z. 513).
+
+*Wie kann die KI sich keinen Auftrag selbst ausstellen?*
+- Die Methode „Auftrag erteilen“ verlangt eine Menschen-Sitzung; ein Bot-Schlüssel wird dort abgewiesen (Test unten).
+- Sie ist kein MCP-Werkzeug; die KI sieht sie nicht.
+- `created_by` kommt aus der Sitzung, nicht aus der Anfrage; die KI kann keinen fremden Ersteller eintragen.
+- Die Auftrags-Tabelle ist append-only; die KI hat keinen Schreibweg dorthin (sie hält nie `Manage`, ADR 0091 Z. 51).
+- Jedes `erteilt` steht im Protokoll mit Person, Zeit, Umfang und `shown_digest`; die Person sieht ihre Aufträge.
+- Keine zusätzliche Signatur des Auftrags in dieser Fassung („nicht paranoid“: die Sitzung ist der Nachweis; eine Signatur prüft nur dasselbe Programm). Ob später nötig, z. B. für Aufträge über Programmgrenzen: Offen 5.
+
+*Wiederholung (Replay).* Die Auftrags-Id allein nützt nichts: ohne gültigen Bot-Schlüssel desselben Platzes Stufe 0/1 rot. Mit Schlüssel: jede Aufruf-Id gilt einmal je Auftrag (Ereignis `benutzt`), danach `order-replay`; `valid_until` begrenzt die Zeit. Ob ein Auftrag zusätzlich eine Höchstzahl an Aktionen hat: Offen 3.
+
+*Gestohlener Bot-Schlüssel.* Die bestehende Grenze bleibt ehrlich (ADR 0091 Z. 78: „Wer ein Token bei aktivem Mandat stiehlt, handelt als Bot innerhalb der Obergrenze, bis STOP, Ablauf oder Widerruf wirkt“). Neu begrenzt sie zusätzlich der Auftrag: ohne gültigen Auftrag gibt es kein `on_behalf_of`; mit Auftrag nur dessen Umfang, nur bis `valid_until`, nur bis zum Widerruf. Einen neuen Auftrag kann der Dieb nicht anlegen (braucht Menschen-Sitzung). Jede Aktion steht mit `actor` = Bot und Auftrags-Id im Protokoll; STOP (Widerruf) oder Rauswurf beenden die Wirkung; Rauswurf widerruft den Schlüssel.
+
+*Protokoll und Trailer.* Jede Aktion schreibt vorher (Nachtrag (3) Punkt 1) einen Eintrag mit `actor` (KI-Bot), `on_behalf_of` (Person), Auftrags-Id, Aufruf-Id, Recht, Aktion, Zeit UTC. In Commits und Tags des Git-Moduls (TRAIT-ENTWUERFE §9 Z. 478, 482, GM3/GM12): `FS-Actor:` (KI-Bot), `FS-On-Behalf-Of:` (Person), `FS-Deviation:` nur wenn eine Schutzregel abweicht. Ob zusätzlich die Auftrags-Id als Trailer erscheint (Vorschlag `FS-Order:`): Offen 4. Token und Schlüssel nie im Eintrag (Nutzer 23.3).
+
+**(5) Vergleich mit RFC 8693 (OAuth 2.0 Token Exchange)** — Wortlaut abgerufen 2026-11-17, `https://www.rfc-editor.org/rfc/rfc8693.txt`
+
+| RFC 8693 (Wortlaut, Abschnitt) | übernehmen wir? |
+|---|---|
+| §1.1 Impersonation: „when A is impersonating B, A is B within the context of the rights authorized by the token.“ | **Nein, ausdrücklich nicht.** Das wäre „die KI übernimmt die Person“ (Nutzer 23.2, Nachtrag (Baukasten) Punkt 5). |
+| §1.1 Delegation: „With delegation semantics, principal A still has its own identity separate from B“ … „In a sense, A is an agent for B.“ | **Ja, als Bedeutung:** KI = eigener Akteur, Person = `on_behalf_of`. |
+| §4.1 „The "act" (actor) claim provides a means within a JWT to express that delegation has occurred“; „The "act" claim value is a JSON object, and members in the JSON object are claims that identify the actor.“ | **Bedeutung ja, Form nein:** unser `actor` entspricht `act`, unser `on_behalf_of` dem Subjekt; wir tragen das im Protokoll und im Vertrag (`ActorRef.onBehalfOf`, ADR 0091 Z. 257), nicht in einem JWT. |
+| §4.1 „The outermost "act" claim represents the current actor while nested "act" claims represent prior actors.“; „For the purpose of applying access control policy, the consumer of a token MUST only consider the token's top-level claims“; „Prior actors identified by any nested "act" claims are informational only“ | **Teilweise:** wir kennen keine Ketten (KI-zu-KI nur über Menschen, ADR 0091 Z. 164). Übernommen: entschieden wird nur über den aktuellen Akteur und den Auftrag, nie über mitgeschickte Angaben. |
+| §4.4 „The "may_act" claim makes a statement that one party is authorized to become the actor and act on behalf of another party.“ | **Bedeutung ja:** unser Auftrag ist diese Aussage, aber als Datensatz im Programm, angelegt nur in der Sitzung der Person, mit Umfang und Ablauf; `may_act` selbst trägt laut §4.4 nur Identität („claims within the "may_act" claim pertain only to the identity of that party“), keinen Umfang. |
+| §2.1 `subject_token` (REQUIRED): „A security token that represents the identity of the party on behalf of whom the request is being made.“ | **Nein.** Die KI legt nie ein Token der Person vor (Nutzer 23.2, 23.3). Den Beleg „die Person will das“ liefert der Auftrag, nicht ein Token. |
+| §2.1 `actor_token` (OPTIONAL): „A security token that represents the identity of the acting party.“ | **Entspricht** dem Bot-Schlüssel des Programms (ADR 0091 Nachtrag „Bot-Schlüssel“). |
+| §1 „The scope of this specification is limited to the definition of a basic request-and-response protocol“; Vertrauensmodell und Semantik „are explicitly out of scope“ | Darum reicht die RFC nicht als Prüfregel; die Prüfung (4) ist unsere eigene. |
+| §5 „Any time one principal is delegated the rights of another principal, the potential for abuse is a concern.“; „scope“ wird zur Begrenzung empfohlen | **Ja:** `scope` im Auftrag, kleiner-gleich (Stufe 4/5). |
+
+Kein Token-Exchange-Fluss: der wurde mit dem Kanidm-Konto des Bots gestrichen (ADR 0091 Z. 171, 178). Kanidm bleibt Anmeldedienst der **Person** (ihre Sitzung legt den Auftrag an); Bot-Schlüssel stellt das Programm aus. Ob Kanidm selbst `act`/`may_act` ausgibt, ist hier nicht geprüft und wird nicht gebraucht.
+
+**(6) Pflichttests (je ohne Umsetzung rot; Mutant in Klammern muss rot werden)**
+- Auftrag mit fremdem Ersteller (`on_behalf_of` ≠ `created_by`) → `order-mismatch` (Mutant „Ersteller-Prüfung entfernt“).
+- „Auftrag erteilen“ mit Bot-Schlüssel → abgelehnt (Mutant „Bot-Schlüssel als Sitzung akzeptiert“).
+- „Auftrag erteilen“ mit mitgeschicktem Ersteller-Feld ≠ Sitzung → Ersteller = Sitzung (Mutant „Ersteller aus Anfrage“).
+- „Auftrag erteilen“ erscheint in der MCP-Werkzeugliste → Fehler.
+- Widerruf → STOP: nächste Aktion `order-revoked`; Bot-Platz, Mandat `Active`, Schlüssel und Zustimmungen bestehen; **kein** Rauswurf, keine neue Zustimmungsrunde (Mutant „Widerruf ruft KI entfernen/Rauswurf“).
+- Rauswurf → Mandat `Stopped`, Schlüssel widerrufen, Bot draußen, alle Aufträge des Platzes enden (Mutant „Rauswurf nur STOP“).
+- Neuer Auftrag nach Widerruf → KI handelt wieder, ohne Zustimmungsrunde.
+- Abgelaufener Auftrag → `order-expired`, kein Rauswurf.
+- Aktion außerhalb `scope` → `order-scope` (Mutant „Umfang ignoriert“).
+- Recht der Person nach Erteilung entzogen → `on-behalf-exceeds` (Mutant „Rechte bei Erteilung eingefroren“).
+- Gleiche Aufruf-Id zweimal → `order-replay` (Mutant „Aufruf-Id nicht geprüft“).
+- Auftrags-Id eines anderen Platzes → `order-unknown`.
+- fs-access nicht erreichbar → Ablehnung (Mutant „bei Ausfall erlauben“).
+- Ereignis `widerrufen` nachträglich änderbar/löschbar → Fehler (Mutant „Ereignis-Update erlaubt“).
+- Protokoll vor der Aktion fehlt → keine Aktion (bestehend, Nachtrag (3)).
+
+**Offen**
+1. **Namen der Knöpfe:** Der Nutzer nennt den Widerruf eines Auftrags „vorübergehender STOP“ (Nutzerwort (D)); der bestehende Knopf „STOP KI“ (Z. 140) entfernt die KI und heißt nach Strategie-Korrektur jetzt „KI entfernen“ (Rauswurf). Der Altext mit „STOP KI“ bleibt stehen. Ob die Benennung so endgültig ist: Entscheidung beim Nutzer.
+2. **Wer darf STOP drücken und den Auftrag widerrufen:** offen (Frage 25 beim Nutzer). Vorschlag, nicht entschieden: STOP darf jede anwesende Person, den Auftrag widerrufen nur sein Ersteller. (Rauswurf bleibt bei jedem.)
+3. **Weitermachen:** Kann ein widerrufener Auftrag fortgesetzt werden, oder ist „der nächste Befehl“ immer ein neuer Auftrag? Vorschlag: immer neu (append-only, einfachere Prüfung). Ebenso: Einmal-Auftrag oder Dauer-Auftrag, Höchstzahl der Aktionen.
+4. **Trailer für die Auftrags-Id** (`FS-Order:`) in Commit/Tag: ja/nein. Würde die Id außerhalb der Instanz sichtbar machen.
+5. **Signatur des Auftrags** (z. B. bei Aufträgen, die ein anderes Programm prüfen soll): in dieser Fassung keine; nötig erst, wenn ein Auftrag Programmgrenzen überschreitet. Heute gilt ein Auftrag nur im Programm der Situation (wie der Bot-Schlüssel, ADR 0091 Z. 172).
+6. **Mehrere Aufträge gleichzeitig:** STOP gilt je Auftrag; ob es zusätzlich „alle meine Aufträge im STOP“ gibt.
+7. **Auftraggeber außer dem Halter:** heute nur der Halter (ADR 0091 Nachtrag (2) Punkt 1); ob andere Anwesende Aufträge geben dürfen.
+8. **Einzelplatz:** dort gibt es keinen Bot (ADR 0091 Z. 71); ob Aufträge über den MCP-Schalter genauso geführt werden, ist nicht festgelegt.
+9. **STOP und Lesen:** Ob die KI im STOP weiter mitliest (sie bleibt Teilnehmer) oder auch nicht mehr liest. Das Nutzerwort sagt nur „ruhig bleiben“.
+10. Fehlercodes `order-*` sind Vorschläge (Namen nicht belegt).

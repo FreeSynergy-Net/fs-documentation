@@ -262,3 +262,20 @@ Nutzer 23.2: „Die KI nutzt NIE den Account oder die Zugangsdaten der Person. S
 - Scope-Map-Einzelheiten (siehe 2).
 - Bindung von `on_behalf_of` an ein gültiges Mandat bei jedem Aufruf, Prüfzeitpunkt (aktuelle Rechte der Person), Verfall und Widerruf (wie Mandat, Widerruf = STOP KI): siehe ADR 0054 Nachtrag 2026-11-17 (3), Ausgestaltung 7 und 8.
 - Ob `on_behalf_of` dauerhaft im AS2-Objekt oder nur im Protokoll steht: nicht entschieden.
+
+## Nachtrag 2026-11-17 (3): Widerruf eines Auftrags = STOP; Rauswurf getrennt; Prüfung je Aufruf
+
+Status: **Entwurf** (Nutzerwort 2026-11-17 (D), via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Z. 59 und Z. 263 · gilt mit ADR 0054 Nachtrag 2026-11-17 (4), dort Nutzerwortlaut, Prüfreihenfolge, RFC-8693-Vergleich, Tests und Offen
+
+**Nutzerwort (Auszug, vollständig in ADR 0054):** „Widerruf eines Auftrags = vorübergehender STOP („erst mal ruhig bleiben, bis der nächste Befehl kommt“), KEIN Rauswurf. Rauswurf ist ein EIGENER Knopf.“
+
+1. **Z. 59 präzisiert:** „Ein Widerruf durch irgendeinen Menschen wirkt wie STOP KI (0054 Punkt 7)“ meint den **Rückzug der Zustimmung** (0054 Punkt 7) und damit das Ende des Mandats: **Rauswurf**, unverändert. Der Widerruf eines **Auftrags** fällt nicht darunter.
+2. **Z. 263 ersetzt:** „Widerruf = STOP KI“ gilt nicht für Aufträge. Widerruf oder Ablauf eines Auftrags = **STOP** (vorübergehend): keine weitere Aktion unter diesem Auftrag; Bot-Platz, Mandat `Active`, Schlüssel und Zustimmungen bleiben; die KI wartet auf einen neuen Auftrag; keine neue Zustimmungsrunde (Z. 65 gilt nur für den Rauswurf).
+3. **Rauswurf** bleibt der Knopf „KI entfernen“ (Altext: „STOP KI“) nach Z. 60–65 mit Nachtrag „Bot-Schlüssel“ Punkt 5 (Z. 175), je Platz (Z. 129); er beendet alle Aufträge des Platzes.
+4. **Auftrag ⊆ Mandat:** ein Auftrag ist ein Datensatz in `fs-delegate` beim Programm der Situation (wie das Mandat, Z. 39), angelegt nur in der Sitzung der Person (nie mit Bot-Schlüssel, Z. 176), Umfang ⊆ Mandat ⊆ Rechte der Person (Punkt 4). Prüfung je Aufruf im ausführenden Programm, Rechte live aus fs-access (Z. 175: das Programm prüft jeden Aufruf selbst); Einzelheiten ADR 0054 Nachtrag 2026-11-17 (4), Punkt (4).
+5. **Gestohlener Bot-Schlüssel:** Die Grenze in Z. 78 bleibt; zusätzlich wirkt ein gestohlener Schlüssel „im Auftrag“ nur im Umfang und in der Laufzeit eines gültigen Auftrags; einen Auftrag anlegen kann er nicht.
+
+**Pflichttests:** wie ADR 0054 Nachtrag 2026-11-17 (4); hier zusätzlich: Widerruf eines Auftrags lässt Mandat `Active` und Schlüssel gültig; Rückzug der Zustimmung (Z. 59) wirft weiterhin hinaus.
+
+### Offen
+- Siehe ADR 0054 Nachtrag 2026-11-17 (4), Offen 1–10 (Knopf-Namen, wer widerruft, Weitermachen, Trailer, Signatur, Mehrfach-Aufträge, Auftraggeber außer Halter, Einzelplatz, STOP und Lesen, Fehlercodes).
