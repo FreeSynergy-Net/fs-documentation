@@ -44,7 +44,7 @@ Keeping these apart prevents much confusion:
 | Places | Knowing where | GeoJSON | `fs-maps` | Core exists |
 | Decisions | Asking, and deciding together | AS2 `Question`; gap beyond it | [`fs-forms`](https://github.com/FreeSynergy/fs-surveys) | Provisional draft interface, core exists |
 | Boards | Thinking visually | Gap, own specification | [`fs-draw`](https://github.com/FreeSynergy/fs-whiteboard) | Draft interface, core exists |
-| Live media | Showing something as it happens | WHIP, WHEP, enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) | Draft interface, code in progress |
+| Live media | Showing something as it happens | WHIP, WHEP, enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-broadcast) | Draft interface, code in progress |
 
 ## Providers: who delivers it
 

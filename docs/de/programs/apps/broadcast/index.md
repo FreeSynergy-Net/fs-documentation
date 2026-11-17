@@ -16,13 +16,13 @@ Streaming nimmt einen Live-Stream entgegen, leitet ihn gleichzeitig an mehrere Z
 
 ## Wo es heute steht
 
-Neuester Tag: `v0.2.0` (Stufe 1 des Entwurfs). Es gibt **noch kein Fenster und noch keinen Server**.
+Neuester Tag: `v0.0.1` (Stufe 1 des Entwurfs). Es gibt **noch kein Fenster und noch keinen Server**.
 
 Heute kann es einen RTMP-Stream empfangen und an viele RTMP- oder RTMPS-Ziele senden, den Stream als FLV in einen Ordner aufzeichnen und ein Ziel vor dem Live-Gang prüfen, soweit das im Voraus bekannt sein kann. Es hat 94 Tests mit echten Sockets.
 
 Noch nicht vorhanden: Es wurde nur auf Loopback mit ffmpeg getestet, nie gegen eine echte Streaming-Plattform. Der Empfang ist einfaches RTMP und bleibt standardmäßig auf Loopback. Eine Aufnahme an Files zu übergeben ist nicht gebaut; alles andere im Vertrag wird als „nicht möglich“ gemeldet. Eine Weiterleitungsschleife über eine andere Maschine kann von hier aus nicht erkannt werden.
 
-**Status: Stufe 1 `v0.0.1` in [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) (weiterleiten und aufzeichnen, nur auf Loopback getestet), noch kein Fenster.** Siehe das [Design](design.md), die [Anforderungen](requirements.md) und den [Gesamtplan](../roadmap.md).
+**Status: Stufe 1 `v0.0.1` in [`fs-broadcast`](https://github.com/FreeSynergy/fs-broadcast) (weiterleiten und aufzeichnen, nur auf Loopback getestet), noch kein Fenster.** Siehe das [Design](design.md), die [Anforderungen](requirements.md) und den [Gesamtplan](../roadmap.md).
 
 ## Übersicht
 

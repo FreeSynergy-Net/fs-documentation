@@ -18,7 +18,7 @@ History ist eine Zeitleiste deiner eigenen Arbeit, ohne dass dich jemand beobach
 
 ## Wo es heute steht
 
-Neueste Version: `v0.1.1`. Es gibt **noch kein Fenster und noch keinen Server**.
+Neueste Version: `v0.0.1`. Es gibt **noch kein Fenster und noch keinen Server**.
 
 Heute gibt es eine Zeitleiste der Aktivitäten anderer Programme, neueste zuerst, mit Filtern und Seitenumbruch. Eine Zusammenfassung fasst Serien von Ereignissen auf demselben Objekt zusammen. Du kannst Einträge nach Filter vergessen, aber nur für die Vergangenheit. Es liest vom FreeSynergy-Hub über den Adapter `fs-activity-hub`, getestet gegen einen echten Hub. Es hat 49 Tests und wurde in drei Runden von einem unabhängigen Prüfer geprüft.
 

@@ -16,7 +16,7 @@ Resources hält fest, was eine Gruppe hat und was sie braucht: Dinge, Räume, Ma
 
 ## Wo es heute steht
 
-Neuester Tag: `v0.2.0`. Es gibt **noch kein Fenster und noch keinen Server**. Ein Server muss deine Kapazitätsaufrufe ablehnen, solange er nicht weiß, wer fragt.
+Neuester Tag: `v0.0.1`. Es gibt **noch kein Fenster und noch keinen Server**. Ein Server muss deine Kapazitätsaufrufe ablehnen, solange er nicht weiß, wer fragt.
 
 Heute verwaltet es Dinge, Räume und Material, wobei der Bestand aus abgeschlossenen Vorgängen berechnet wird. Reservierungen können nicht überbucht werden, und das Abschließen einer Reservierung gibt das Ding frei oder verbraucht das Material. Es kann die freie Zeit eines Dings über einen Zeitraum zeigen, deine eigene Kapazität, Zuteilungen und Freigaben an Gruppen in einem eigenen Speicher halten und die Auslastung einer Gruppe über die Groups-Schnittstelle berechnen. Bedarfe und Angebote funktionieren, und das Annehmen eines Angebots legt die Reservierung an. Es hat 115 Tests und wurde in vier Runden von einer unabhängigen Prüferin oder einem unabhängigen Prüfer geprüft.
 

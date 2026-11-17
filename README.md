@@ -36,7 +36,7 @@ Status is as of 2026-11-08 and kept honest. "Core" means the engine works and is
 | Resources | know what we have and need | [fs-resources](https://github.com/FreeSynergy/fs-resources) | Core, no window, `v0.0.1` |
 | Surveys | ask, and decide together | [fs-forms](https://github.com/FreeSynergy/fs-surveys) | Core, no window, `v0.0.1` |
 | Whiteboard | think visually | [fs-draw](https://github.com/FreeSynergy/fs-whiteboard) | Core (stage 1), no window, `v0.0.1` |
-| Streaming | show something, and bring it everywhere | [fs-broadcast](https://github.com/FreeSynergy/fs-streaming) | Stage 1 (forward and record), tested on loopback only, `v0.0.1` |
+| Streaming | show something, and bring it everywhere | [fs-broadcast](https://github.com/FreeSynergy/fs-broadcast) | Stage 1 (forward and record), tested on loopback only, `v0.0.1` |
 | Store | install and keep everything up to date | not public yet (local repo `fs-launcher`) | Design and a small core, coming |
 
 Building blocks, which matter because everything above stands on them:

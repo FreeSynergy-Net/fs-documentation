@@ -22,7 +22,7 @@ Today it can receive one RTMP stream and send it to many RTMP or RTMPS targets, 
 
 What is not there yet: it has only been tested on loopback with ffmpeg, never against a real streaming platform. Receiving is plain RTMP and stays on loopback by default. Handing a recording to Files is not built; everything else in the contract is reported as "not possible". A forwarding loop through another machine cannot be detected from here.
 
-**Status: stage 1 `v0.0.1` in [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) (forward and record, tested on loopback only), no window yet.** See the [design](design.md), the [requirements](requirements.md) and the [roadmap](../roadmap.md).
+**Status: stage 1 `v0.0.1` in [`fs-broadcast`](https://github.com/FreeSynergy/fs-broadcast) (forward and record, tested on loopback only), no window yet.** See the [design](design.md), the [requirements](requirements.md) and the [roadmap](../roadmap.md).
 
 ## Overview
 

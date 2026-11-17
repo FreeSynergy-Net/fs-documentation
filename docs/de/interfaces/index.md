@@ -36,7 +36,7 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 | Orte | Wissen, wo etwas ist | GeoJSON | `fs-maps` | Kern vorhanden |
 | Entscheidungen | Fragen und gemeinsam entscheiden | AS2 `Question`; darüber hinaus Lücke | [`fs-forms`](https://github.com/FreeSynergy/fs-surveys) | vorläufiger Schnittstellen-Entwurf, Kern vorhanden |
 | Boards | Visuell denken | Lücke, eigene Spezifikation | [`fs-draw`](https://github.com/FreeSynergy/fs-whiteboard) | Schnittstellen-Entwurf, Kern vorhanden |
-| Live-Medien | Etwas zeigen, während es passiert | WHIP, WHEP, Enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-streaming) | Schnittstellen-Entwurf, Code in Arbeit |
+| Live-Medien | Etwas zeigen, während es passiert | WHIP, WHEP, Enhanced RTMP | [`fs-broadcast`](https://github.com/FreeSynergy/fs-broadcast) | Schnittstellen-Entwurf, Code in Arbeit |
 
 ## Anbieter: wer es liefert
 
