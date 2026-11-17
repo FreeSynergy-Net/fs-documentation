@@ -12,7 +12,7 @@ Ziel: Windows-Programme von FreeSynergy (.exe/.msi) werden über die kostenlose 
 
 **Eigentümer beantragt:** Die Bewerbung bei der SignPath Foundation stellt der Eigentümer selbst. Wir bereiten Policy und CI vor.
 
-**Entscheidung des Nutzers (76/77):** Die Signier-Umgebung kommt später; bis dahin wird nur vorbereitet.
+**Entscheidung des Nutzers (76/77):** Die Signier-Umgebung kommt später; bis dahin wird nur vorbereitet. Bis zum Kontowechsel bleiben Repo-Secrets; Prüfer wird später das Konto FreeSynergy (Variante b). Harte Sperre: Claude/Agents erteilen nie eine Deployment- oder Signatur-Freigabe.
 
 ## Inhalt
 

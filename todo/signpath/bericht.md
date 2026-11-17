@@ -83,7 +83,7 @@ Hinweis: `github-artifact-id` darf nicht leer sein (Fehlerfall laut PR eines Dri
 
 ## 3. Plan für unsere release.yml (grob, nur Plan – nichts geändert)
 
-**Vorbemerkung:** Im Worktree liegt **keine** `release.yml`; in diesem Repo gibt es nur `.github/workflows/check.yml` und `ci.yml`. Die Release-Workflow-Datei lebt laut Auftrag in `FreeSynergy/fs-release` und wurde **nicht** eingesehen [nicht belegt für Inhalt].
+**Vorbemerkung:** Im Worktree liegt **keine** `release.yml`; in diesem Repo gibt es nur `.github/workflows/check.yml` und `ci.yml`. Die Release-Workflow-Datei lebt laut Auftrag in `FreeSynergy/fs-release` und wurde **nicht** eingesehen [nicht belegt für Inhalt]. *Der Satz bezieht sich auf das damalige Arbeitsverzeichnis (fs-icons); fs-documentation hat nur .github/workflows/deploy.yml.*
 
 Vorgeschlagene Reihenfolge innerhalb des Release-Laufs:
 1. Windows-Build (GitHub-gehosteter Runner) erzeugt .exe/.msi.
