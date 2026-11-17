@@ -117,6 +117,18 @@ No Linux program is a template. Measures and sources: `docs/en/components/styles
 Platform without its own frontend: `fs-objects` (keeping objects), `fs-registry` (sharing between programs on a device),
 `fs-interfaces` (contracts), `fs-components` (components and styles), `fs-release`, `fs-capnpc`.
 
+### Repository layers of the scaffold (ADR 0097)
+
+The scaffold crates live in layers of repositories, with one Cargo workspace per repository; edges point only downward (ADR 0097, decision 1, with the addendum of 17 Nov on `fs-access`).
+
+| Layer | Repositories |
+|-------|--------------|
+| 0 | `fs-types` (values, building kits, type description) |
+| 1 | `fs-interfaces`, `fs-jscalendar`, `fs-objects` (storage), `fs-components` (display, shell, `fs-session`) |
+| 2 | `fs-rpc` (`fs-rpc`, `fs-starter`, `fs-connect`, `fs-conformance`, `fs-git`, `fs-backup`, `fs-workflow`) and `fs-access` (SCIM provider, OAuth/OIDC; a repository of its own that sits below `fs-rpc`) |
+| 3 | `fs-packages` (`fs-update`) |
+| Tool | `fs-release` (`fs-blueprint`, ADR 0099) |
+
 ## Suites
 
 | Suite | Programs |

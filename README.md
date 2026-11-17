@@ -49,6 +49,9 @@ Building blocks, which matter because everything above stands on them:
 | Interfaces | the contracts everything agrees on | [fs-interfaces](https://github.com/FreeSynergy/fs-interfaces) | All drafts, none 1.0, `v0.0.1` |
 | JSCalendar | the same time for everyone | [fs-jscalendar](https://github.com/FreeSynergy/fs-jscalendar) | Library, `v0.0.1` |
 | Components | one look, one feel | [fs-components](https://github.com/FreeSynergy/fs-components) | Working, partly provisional, `v0.0.2` |
+| Types | the values and building kits all contracts are made of (layer 0) | [fs-types](https://github.com/FreeSynergy/fs-types) | Library, `v0.0.1` |
+| Rpc | talk between programs, start programs, connect to the outside (`fs-rpc`, `fs-starter`, `fs-connect`) | [fs-rpc](https://github.com/FreeSynergy/fs-rpc) | Library, `v0.0.2` |
+| Access | SCIM provider and OAuth/OIDC for every program; a repository of its own, below `fs-rpc` ([ADR 0097](https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0097-standardgeruest-module-arbeitsweise.md), addendum 17 Nov) | not public yet (planned) | Planned |
 | Capnpc | build the contracts with Rust alone | [fs-capnpc](https://github.com/FreeSynergy/fs-capnpc) | Working, `v0.0.1` |
 | Release | one way to ship, free of charge | [fs-release](https://github.com/FreeSynergy/fs-release) | In use, first run green, no tag yet |
 

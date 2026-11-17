@@ -4,6 +4,12 @@ Help for the windows of FreeSynergy programs. Every view of every window has a p
 
 An address looks like this: `help/<program>/<view>/`, for example `help/tasks/list/`. The programs that have a window today are listed below. A program without a window has no help pages yet.
 
+## Where the help comes from
+
+Help is documentation, not a second copy: the manual of a program lives in the wiki, and every paragraph is a block with a purpose, for the help in the window `help.<topic>`. The help in the window, the description in the Store and the manual are **the same source**, so nothing is maintained twice ([ADR 0072](../decisions/0072-bloecke-als-quelle-fuer-texte.md)). Every program brings its help as a read-only wiki (ADR 0097, paragraph 2).
+
+The window itself, the shell, is part of the scaffold of every program: the starter (`fs-starter`) starts it, `fs-session` restores the work, and `fs-update` keeps the program up to date ([ADR 0065](../decisions/0065-standard-fensterhuelle.md), [ADR 0097](../decisions/0097-standardgeruest-module-arbeitsweise.md)).
+
 ## Programs
 
 - [Store](packages/index.md): install and update everything else.
