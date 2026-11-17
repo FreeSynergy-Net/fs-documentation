@@ -74,7 +74,7 @@ Status: **akzeptiert** (Strategie; Angleichung ohne neue Entscheidung) · **prä
 3. Keine weitere Änderung; Regel 2 aus ADR 0092 (eine Quelle je Bibliothek) gilt.
 
 **Offen**
-- Repo-Ort von `fs-conformance` (Vorschlag aus dem Trait-Entwurf: Workspace des Repos fs-types, damit Suiten in jeder Crate hinter dem Feature `conformance` liegen können, ohne Kante nach oben) und Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht aus.
+- Repo-Ort von `fs-conformance` (Vorschlag aus dem Trait-Entwurf: Workspace des Repos fs-types, damit Suiten in jeder Crate hinter dem Feature `conformance` liegen können, ohne Kante nach oben) und Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht aus. [überholt, siehe Nachtrag 3]
 
 ## Nachtrag 2026-11-17 (3): Ort von fs-conformance entschieden, Vorhandenes zuerst als Regel
 
