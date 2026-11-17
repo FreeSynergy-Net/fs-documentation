@@ -139,3 +139,9 @@ Status: **Entwurf** (ADR 0100 angenommen) · **ergänzt** Z. 35 (Systemeinstellu
 **Entscheidung**
 1. Stil, hell/dunkel, Schrift, Bewegung, Klang und die Frontend-Wahl sind **Einstellungen** von `fs-settings` (Besitzer-Art Gerüst bzw. Theme), mit Schichten, Profilen und Sperre; Umschalten live über die Hülle.
 2. Die Systemeinstellungen aus Z. 35 (`color-scheme`, `accent-color`, `contrast`, reduzierte Bewegung) sind die **System-Schicht** (XDG Desktop Portal `org.freedesktop.portal.Settings`, Adapter später; bis dahin Umgebungsvariablen); sie schlagen die Instanz-Vorgabe, nicht das Profil der Person; erzwingen geht nur per Sperre.
+
+## Nachtrag 2026-11-18 (Verweis): Format und Speicher der Anordnung
+
+Status: **Entwurf** (Verweis; Inhalt entscheidet ADR 0096) · **ergänzt** Punkt 6 (Anordnungsdatei)
+
+Die Anordnung eines Frontends ist als Beschreibung **Daten in der Datenbank** des Programms fs-forms; die Datei ist nur noch Austausch. Format, Speicher und Host regelt ADR 0096 „Format, Speicher und Host“. Punkt 6 bleibt als Herkunft des Gedankens stehen.
