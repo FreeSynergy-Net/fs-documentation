@@ -258,37 +258,153 @@ Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-17, weitergegeben durc
 - Der Nutzerentscheid 20.1 (Rechte statt Rollen) steht in ADR 0100 noch nicht; die Bezüge in Ausgestaltung 4 und 5 sind bis zu dessen Einarbeitung Entwurf.
 - Was „Gespräch mit dem Nutzer“ technisch heißt (Freigabe je Fall, Ablauf): nicht festgelegt.
 
-## Nachtrag 2026-11-17 (4): Widerruf eines Auftrags = STOP, kein Rauswurf; Prüfung des Auftrags gegen Fälschung
+## Nachtrag 2026-11-17 (4): Pause und Entfernen (jede Person, jederzeit); Auftrag widerrufen (nur Ersteller); Prüfung des Auftrags gegen Fälschung
 
-Status: **Entwurf** (Nutzerwort 2026-11-17 (D), via Strategie c0; Nutzerfrage (E) „wie wird geprüft?“; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (3), Ausgestaltung 7 und 8 (Z. 250, 251) und dessen Offen Punkt 1 (Z. 256) · **präzisiert** ADR 0091 Z. 59 und Z. 263 · **lässt unverändert** den Knopf, der die KI entfernt (heute im Altext „STOP KI“, Z. 140, 149, 160; neu „KI entfernen“), Z. 177, Z. 186 und 0054 Punkt 7 (Z. 86) · gilt mit ADR 0091 Nachtrag 2026-11-17 (3)
+Status: **Entwurf** (Nutzerwort 2026-11-17 (D) und Nutzerentscheid 25 (bindend, 2026-11-17), beide via Strategie c0; Nutzerfrage (E) „wie wird geprüft?“; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (3), Ausgestaltung 7 und 8 (Z. 250, 251) und dessen Offen Punkt 1 (Z. 256) · **präzisiert** ADR 0091 Z. 59 und Z. 263 · **benennt um** den Knopf, der die KI entfernt (Altext „STOP KI“, Z. 140, 149, 160): er heißt „Entfernen“, Wirkung unverändert · **neu** „Pause“ (Punkte (2a) bis (2c)) · **lässt unverändert** Z. 177, Z. 186 und 0054 Punkt 7 (Z. 87) · gilt mit ADR 0091 Nachtrag 2026-11-17 (3)
 
 **Nutzerwort (D), im Wortlaut wie übergeben (via Strategie c0, 2026-11-17)**
 > KORREKTUR: Widerruf eines Auftrags = vorübergehender STOP („erst mal ruhig bleiben, bis der nächste Befehl kommt“), KEIN Rauswurf. Rauswurf ist ein EIGENER Knopf.
+
+**Nutzerentscheid 25 (bindend, 2026-11-17), im Wortlaut wie übergeben (via Strategie c0)**
+> ZWEI Befehle, die JEDE Person JEDERZEIT auslösen kann: „Pause“ und „Entfernen“ (Reject/Kick). Pause gibt es NUR, wenn die KI dann zu 100 % blind und taub ist: kein Lesen, kein Speichern, keine Aktion, sieht nicht einmal, wer im Raum ist. […] Ist das nicht 100 % belegbar, wirkt Pause wie ein Not-Aus: sofort Entfernen. Entfernen = KI fliegt raus, Wiederkehr nur über eine neue Umfrage. „Auftrag widerrufen“ bleibt beim Ersteller.
+
+Technische Vorgabe der Strategie (c0, kein Nutzerwort): serverseitig, Bot-Schlüssel des Platzes gesperrt, jede Anfrage einschließlich Anwesenheit und Feeds abgelehnt, offene Ströme geschlossen; Pflichttests für jeden Zugriffsweg.
+Aus der Übergabe ist nicht zu unterscheiden, welche Sätze wörtlich vom Nutzer stammen und welche c0 zusammengefasst hat. Entscheid 25 ersetzt die Benennung aus dem Nutzerwort (D) („vorübergehender STOP“) und aus der Korrektur der Strategie vom selben Tag („KI entfernen“). Die Sache aus (D) bleibt: der Widerruf eines Auftrags wirft die KI nicht hinaus.
+
+**Nutzer, Frage 33 (Wiederaufnahme, 2026-11-17, via Strategie c0):** fortsetzen dürfen, wer pausiert hat, Admins, Inhaber und jeder mit einem eigenen Recht dafür. Grund, **sinngemäß** (nicht als Wortlaut belegt): „Sonst könnte jemand pausieren und die Gruppe verlassen, dann wäre die KI dauerhaft aus.“
+
+**Begriffe.** Im Text vor diesem Nachtrag (ADR 0054 und 0091) meinen „STOP“ und „STOP KI“ immer das Hinauswerfen der KI; das heißt jetzt **„Entfernen“**. **„Pause“** ist neu (Punkte (2a) bis (2c)): die KI bleibt auf dem Platz, ist aber blind und taub. Das „vorübergehender STOP“ im Nutzerwort (D) meint den Widerruf eines Auftrags (Punkt (2e)), nicht die Pause.
 
 **(1) Was bisher stand und was es jetzt heißt**
 
 | Stelle | bisher | jetzt |
 |---|---|---|
-| 0054 Z. 251 (Nachtrag (3), Ausg. 8) | „Verfall und Widerruf des Auftrags wie beim Mandat (ADR 0091 Z. 55/59: Widerruf wirkt wie STOP KI)“ | **ersetzt** durch Punkt (2): Widerruf eines Auftrags = **STOP**, kein Rauswurf |
-| 0091 Z. 59 | „Ein Widerruf durch irgendeinen Menschen wirkt wie STOP KI (0054 Punkt 7)“ | **präzisiert:** gemeint ist der **Rückzug der Zustimmung** (0054 Punkt 7, Z. 86: „Zieht jemand die Zustimmung zurück, muss die KI hinaus“), also das Ende des Mandats. Das bleibt **Rauswurf**. Der Widerruf eines **Auftrags** ist etwas anderes (Punkt 2). |
-| 0091 Z. 263 (Nachtrag (2), Offen) | „Verfall und Widerruf (wie Mandat, Widerruf = STOP KI)“ | **ersetzt:** Widerruf eines Auftrags = STOP (Punkt 2); Verfall eines Auftrags = STOP für diesen Auftrag |
-| 0054 Z. 177, Z. 186 | Schalter „KI erlaubt“ auf „nein“ bzw. MCP-Schalter AUS „wie STOP KI“ | **unverändert:** das ist Rauswurf (die KI geht hinaus) |
-| 0054 Z. 140, 149, 160 | „STOP KI“-Knopf, „der die KI sofort entfernt“ (Nutzer 16.11.) | **unverändert** in der Wirkung: dieser Knopf entfernt; er ist der Rauswurf-Knopf und heißt jetzt „KI entfernen“ (nicht mehr „STOP KI“; siehe Offen 1) |
+| 0054 Z. 251 (Nachtrag (3), Ausg. 8) | „Verfall und Widerruf des Auftrags wie beim Mandat (ADR 0091 Z. 55/59: Widerruf wirkt wie STOP KI)“ | **ersetzt** durch Punkt (2e): Widerruf eines Auftrags beendet **nur diesen Auftrag**; kein Entfernen, keine Pause |
+| 0091 Z. 59 | „Ein Widerruf durch irgendeinen Menschen wirkt wie STOP KI (0054 Punkt 7)“ | **präzisiert:** gemeint ist der **Rückzug der Zustimmung** (0054 Punkt 7, Z. 87: „Zieht jemand die Zustimmung zurück, muss die KI hinaus“), also das Ende des Mandats. Das ist **Entfernen** (Punkt (2d)). Der Widerruf eines **Auftrags** ist etwas anderes (Punkt (2e)). |
+| 0091 Z. 263 (Nachtrag (2), Offen) | „Verfall und Widerruf (wie Mandat, Widerruf = STOP KI)“ | **ersetzt:** Widerruf (nur durch den Ersteller) oder Verfall eines Auftrags beendet nur diesen Auftrag (Punkt (2e)) |
+| 0054 Z. 177, Z. 186 | Schalter „KI erlaubt“ auf „nein“ bzw. MCP-Schalter AUS „wie STOP KI“ | **unverändert** in der Wirkung: das ist Entfernen (die KI geht hinaus, Punkt (2d)) |
+| 0054 Z. 140, 149, 160 | „STOP KI“-Knopf, „der die KI sofort entfernt“ (Nutzer 16.11.) | **Wirkung unverändert, neuer Name:** der Knopf heißt „Entfernen“ (Nutzerentscheid 25); der Altext bleibt als Zitat stehen |
+| 0091 Z. 51 (Punkt 5, Verbote) | „STOP oder Notaus abschalten“ | **gilt ebenso für** Pause, Wiederaufnahme und Entfernen (Punkt (2c)) |
+| 0091 Z. 57 und Z. 78 (Platz „ruht“ bei Halter-Verlust; Ratenbegrenzung) | „ruht der Bot-Platz sofort“ | **unverändert;** ob „ruht“ dieselbe Sperre wie Pause benutzt: Offen 16 |
 
-**(2) Zwei getrennte Handlungen**
+**(2) Drei getrennte Handlungen (Nutzerentscheid 25; Einzelheiten (2a) bis (2f))**
 
-*Widerruf eines Auftrags (STOP, vorübergehend)*
-- Wer: **offen** (Offen 2, Frage 25 beim Nutzer). Vorschlag, nicht entschieden: STOP darf jede anwesende Person, den Auftrag widerrufen nur sein Ersteller (die Person, die den Auftrag gegeben hat).
-- Wirkung: (a) der Auftrag wird `widerrufen` (Ereignis, append-only, siehe (3)); (b) die KI führt unter diesem Auftrag **keine weitere Aktion** aus; eine schon laufende Aktion bricht vor dem nächsten Schritt ab (Protokoll vor der Aktion, Nachtrag (3) Punkt 1: ohne neuen Protokolleintrag kein nächster Schritt); (c) die KI **bleibt** in der Situation: Bot-Platz, Mandat (`Active`), Schlüssel und Zustimmungen bleiben bestehen; (d) die KI wartet, „bis der nächste Befehl kommt“, d. h. bis die Person einen neuen Auftrag gibt; (e) Protokolleintrag.
-- Keine neue Zustimmungsrunde nötig, weil niemand seine Zustimmung zurückgezogen hat (anders als 0091 Z. 65).
-- Was schon getan ist, bleibt getan (wie „Hinauswerfen wirkt nur nach vorn“, Z. 153).
+| Handlung | wer | wirkt auf | KI danach |
+|---|---|---|---|
+| **Pause** | jede Person, jederzeit | den ganzen Bot-Platz, in jedem Programm, in dem der Platz einen Schlüssel hat | bleibt auf dem Platz, ist blind und taub; Schlüssel **gesperrt**, nicht widerrufen; Mandat, Zustimmungen und Aufträge bleiben |
+| **Wiederaufnahme** | wer pausiert hat, Admins, Inhaber, wer das Recht `ai.resume` hat (Name Beispiel) (Nutzer, Frage 33) | den ganzen Bot-Platz | wieder aktiv; erfährt nur „pausiert von–bis“ ((2f)) |
+| **Entfernen** | jede Person, jederzeit | den ganzen Bot-Platz | draußen; Platz, Schlüssel, Mandat und Zustimmungen weg; Wiederkehr nur über eine neue Umfrage |
+| **Auftrag widerrufen** | nur der Ersteller des Auftrags | genau einen Auftrag | bleibt Teilnehmer, wartet auf den nächsten Befehl |
 
-*Rauswurf (eigener Knopf „KI entfernen“)*
-- Wer: jeder anwesende Mensch (Z. 149, unverändert).
-- Wirkung wie bisher (0091 Z. 60–65 mit Nachtrag „Bot-Schlüssel“ Punkt 5, 0091 Z. 175): Steuer-Sitzung lokal getrennt, Mandat `Stopped`, Bot verlässt die Situation, Programm widerruft den Schlüssel, Protokolleintrag. Alle Aufträge des Platzes enden mit. Ein neuer Bot braucht eine neue Zustimmungsrunde aller (0091 Z. 65).
-- Gleiche Wirkung (Rauswurf, nicht STOP) haben weiterhin: Rückzug der Zustimmung (Punkt 7, Z. 86), Schalter „KI erlaubt“ auf „nein“ (Z. 177), MCP-Schalter AUS (Z. 186).
+Die Knöpfe „Pause“ und „Entfernen“ erscheinen nur, wenn eine KI dabei ist (Z. 149), dann immer und für **jede** Person (Nutzerentscheid 25); „Wiederaufnahme“ nur bei den Berechtigten nach (2c), solange eine Pause besteht; „Auftrag widerrufen“ nur bei der Person, die einen laufenden Auftrag erteilt hat. Was schon getan oder gelesen ist, bleibt (Z. 153: „Hinauswerfen wirkt nur nach vorn“); das gilt für alle drei.
 
-Beide Knöpfe erscheinen nur, wenn eine KI dabei ist (Z. 149); der STOP-Knopf nur bei der Person, die einen laufenden Auftrag hat.
+**(2a) Pause: jeder Zugriffsweg der KI, serverseitig gesperrt**
+
+Grundsatz: Die Sperre sitzt **im Programm** (Server), nicht in der Bot-Laufzeit und nicht bei der KI. Zustand des Platzes: `Paused` neben `Active`/`Stopped` (Name Vorschlag), geführt beim Programm, dem das Mandat gehört (ADR 0091 Z. 39), als Ereignis (append-only) mit Zeit (UTC). Durchgelassen wird nur `Active`; jeder andere oder unlesbare Zustand wird abgelehnt (Punkt (2b), G7). Der Bot-Schlüssel wird **gesperrt** (Schlüsselverzeichnis: Zustand gesperrt), nicht widerrufen.
+
+Antwort an den Bot-Schlüssel in jedem Fall: `seat-unavailable`, **ohne Grund** und ohne Inhalt oder Metadaten (keine Zahl, Größe, ETag, Zeit); dieselbe Antwort wie bei jedem anderen nicht aktiven Platz, denn die KI erfährt während der Pause nichts (c0-Entscheid, siehe (2f)). Offene Verbindungen werden geschlossen; der Schließgrund ist ebenfalls nur „unavailable“. Abbildung auf HTTP-/RPC-/JSON-RPC-Codes: Offen 10.
+
+| Nr | Zugriffsweg | wie serverseitig gesperrt | Antwort | Pflichttest | Mutant (muss rot werden) |
+|---|---|---|---|---|---|
+| Z1 | **Lesen**: Nachrichten, Objekte, Verlauf, Suche, Abfragen jeder Art, auch Zähler („ungelesen“), Vorschauen | Eingangssperre G1 vor jedem Lese-Handler | `seat-unavailable` | **PT-01** jeder Lese-Handler aus dem Handler-Verzeichnis (G6) mit gesperrtem Schlüssel → `seat-unavailable`, Antwort ohne Inhalt und ohne Metadaten | **M-01** Eingangssperre für einen Lese-Handler übersprungen; **M-02** Fehlerantwort trägt Metadaten (Zahl, Größe, ETag) |
+| Z2 | **Schreiben/Speichern**: anlegen, ändern, löschen, hochladen, Reaktion, eigene Lesebestätigung und Tipp-Anzeige der KI | G1 vor jedem Schreib-Handler; zusätzlich G3: Prüfung des Platz-Zustands **in derselben Transaktion** wie der Commit | `seat-unavailable`; ein begonnener, nicht festgeschriebener Schreibvorgang wird zurückgerollt | **PT-02** jeder Schreib-Handler → `seat-unavailable`, Datenbestand (Hash) unverändert; **PT-03** Wettlauf: Pause zwischen Prüfung und Commit → Rollback (viele Wiederholungen) | **M-03** Commit ohne erneute Prüfung |
+| Z3 | **Aktionen/Werkzeuge/MCP**: alle MCP-Methoden des Programms (`tools/list`, `tools/call`, `resources/list`, `resources/read`, `resources/subscribe`, `prompts/*`, `completion/*`, auch unbekannte Methodennamen) und alle übrigen Aktions-Handler | G1 **vor** der Methodenauflösung; MCP-Benachrichtigungen (`notifications/*`) laufen über G2 | `seat-unavailable` (auch für unbekannte Methoden, damit nichts über die Methodenliste verrät) | **PT-04** jede MCP-Methode aus G6 und ein unbekannter Name → `seat-unavailable`; **PT-05** eine offene MCP-Sitzung erhält nach der Pause keine `notifications/*` und wird geschlossen | **M-04** `tools/list` ausgenommen; **M-05** unbekannte Methode beantwortet mit „method not found“ statt Sperre |
+| Z4 | **Anwesenheit/Teilnehmerliste**: Mitgliederliste, Beitritt/Austritt, Anwesenheitsstatus, Tipp-Anzeigen, Lesebestätigungen anderer, Teilnehmer eines Anrufs, Zahl der Anwesenden, Spätkommende | Abfragen über G1; alle Ereignisse dieser Art über G2 (Ausgangssperre) | `seat-unavailable`; Ereignisse werden nicht zugestellt | **PT-06** während der Pause treten Menschen bei/aus, tippen, lesen, treten einem Anruf bei → **0** Zustellungen an den Platz; Mitgliederabfrage → `seat-unavailable` | **M-06** Mitgliedsereignisse am Ausgangsfilter vorbei |
+| Z5 | **Feeds/Streams/Abos**: SSE, WebSocket, Cap'n-Proto-Ströme, Abos, Pull-Abfragen, Matrix-Appservice-Transaktionen für `@fsb-<platz>` (fs-messages, ADR 0091 Nachtrag „Bot-Schlüssel“ Punkt 7, Z. 177), Zustellung an eine Bot-Inbox | G4: alle Verbindungen des Platzes aus dem Verbindungsregister schließen; G2 vor jedem Rahmen; neue Abos über G1; fs-messages leitet keine Transaktion für den Platz weiter | Verbindung geschlossen (Grund „unavailable“); neues Abo `seat-unavailable` | **PT-07** nach der Pause: offene Verbindungen des Platzes = 0 innerhalb der Frist D (2b, N2); **PT-08** danach 0 Rahmen; **PT-09** ein Ereignis aus dem Pausenfenster wird **auch nach der Wiederaufnahme nie** zugestellt | **M-07** Strom bleibt offen; **M-08** Ereignisse gepuffert und nach der Wiederaufnahme nachgeliefert |
+| Z6 | **Medienströme** in Konferenzen: Ton, Bild, Bildschirm, Mitschrift | Medienserver entfernt den Bot-Teilnehmer bzw. sein Abo serverseitig; keine Mitschrift für den Platz | Teilnehmer getrennt | **PT-10** während der Pause erreicht kein Ton-/Bild-Paket den Bot. **Bis PT-10 grün ist, wirkt Pause in Konferenzen mit Medienserver als Entfernen** (c0-Entscheid; N3, PT-33) | **M-09** Abo beim Medienserver bleibt bestehen |
+| Z7 | **Benachrichtigungen**: Erwähnungen des Bots, Push, Mail, Erinnerungen, Webhooks an den Bot | G2 am Ausgang jeder Benachrichtigung; Benachrichtigungen an den Platz werden **verworfen**, nicht eingereiht | nichts zugestellt | **PT-11** Erwähnung und Erinnerung während der Pause → 0 Zustellungen, auch nach der Wiederaufnahme | **M-10** Benachrichtigung eingereiht statt verworfen |
+| Z8 | **Bot-Schlüssel/Tokens**: Nutzung, Erneuerung, Rotation, Ausstellen eines neuen Schlüssels, Introspektion; Handeln von fs-messages für `@fsb-<platz>`; Raumschlüssel (Ende-zu-Ende) für das Bot-Gerät | Schlüssel im Schlüsselverzeichnis gesperrt; jede Nutzung über G1; Erneuerung/Rotation/Neuausstellung abgelehnt; fs-messages handelt nicht für den Platz; Raumschlüssel, die während der Pause für das Bot-Gerät ankommen, werden verworfen, nie nachgereicht | `seat-unavailable` | **PT-12** Erneuerung, Rotation, neuer Schlüssel während der Pause → abgelehnt; **PT-13** Raumschlüssel für Sitzungen aus dem Pausenfenster erreichen das Bot-Gerät nie; **PT-14** nach der Wiederaufnahme gilt ein **neuer** Schlüssel, der alte bleibt ungültig (Vorschlag, Offen 15) | **M-11** Erneuerung umgeht die Sperre; **M-12** Raumschlüssel nachgereicht |
+| Z9 | **Hintergrundaufträge/geplante Aufträge**: Zeitpläne (fs-schedules), Workflows, Warteschlangen, Wiederholungen, laufende Langläufer | jeder Lauf mit Bezug auf den Platz geht als Aufruf durch G1; Langläufer prüfen vor jedem Schritt und beim Commit (G3); fällige Läufe im Pausenfenster werden ausgelassen und protokolliert, nicht nachgeholt (Vorschlag, Offen 12) | Lauf abgelehnt (`seat-unavailable` nur im Protokoll) | **PT-15** ein während der Pause fälliger Lauf wird nicht ausgeführt; **PT-16** ein laufender Langläufer bricht vor dem nächsten Schritt ab, kein Commit nach dem Pause-Ereignis | **M-13** Zeitplaner ruft den Handler direkt, an G1 vorbei |
+| Z10 | **Dateizugriff**: Herunterladen, Hochladen, Vorschau, Vorschaubilder, Anhänge, Export | jeder Dateizugriff nur mit Bot-Schlüssel über G1; **keine** vorab signierten oder Inhaber-Links für Bots: jeder Link ist an den Schlüssel gebunden und wird beim Abruf geprüft | `seat-unavailable` | **PT-17** ein vor der Pause ausgegebener Link → während der Pause abgelehnt; **PT-18** Hochladen abgelehnt | **M-14** vorab signierter Link ohne Prüfung beim Abruf |
+| Z11 | **Vorschläge/Entwürfe**: neue Vorschläge der KI; Freigabe vorhandener Vorschläge; Entwürfe der KI auf dem Server | neue Vorschläge über G1 abgelehnt; eine Freigabe durch einen Menschen würde eine Aktion der KI auslösen → wird während der Pause nicht ausgeführt (Mensch sieht „KI pausiert“); Ablehnen durch Menschen geht; Entwürfe der KI weder lesbar noch änderbar für den Platz | `seat-unavailable` (für den Bot); Hinweis für den Menschen | **PT-19** Freigabe eines KI-Vorschlags während der Pause → nichts ausgeführt; **PT-20** neuer Vorschlag → abgelehnt | **M-15** Freigabe führt trotz Pause aus |
+| Z12 | **Protokoll lesen**: Audit, fs-activity, eigene Aufruf-Ergebnisse, Auftragsstatus | G1; zusätzlich ein **dauerhafter** Filter: die Einträge über Pause und Wiederaufnahme selbst sind für Bot-Schlüssel nie lesbar; lesbar ist nach der Wiederaufnahme nur der Hinweis „pausiert von–bis“ ((2f)) | `seat-unavailable` | **PT-21** Protokollabfrage während der Pause → abgelehnt; nach der Wiederaufnahme sieht der Bot genau einen Hinweis je Pause mit Beginn und Ende (UTC), ohne Person, Grund oder Inhalt | **M-16** Pause-Eintrag mit Person oder Grund für den Bot lesbar |
+| Z13 | **Weitere Programme** (der Platz hat je Programm einen eigenen Schlüssel, ADR 0091 Nachtrag „Bot-Schlüssel“ Punkt 2) | jedes Programm prüft in G1 den Platz-Zustand **bei jedem Aufruf** beim Mandats-Programm, ohne Zwischenspeicher; Ströme nur mit Laufzeit-Lease ≤ L; das Mandats-Programm meldet die Pause sofort an jedes Programm mit Schlüssel und wartet auf Bestätigung; Mandats-Programm nicht erreichbar → Ablehnung | `seat-unavailable` | **PT-22** Pause im Programm A → Aufruf in Programm B abgelehnt; Mandats-Programm unerreichbar → abgelehnt; Strom in B spätestens nach L geschlossen | **M-17** Zustand zwischengespeichert; **M-18** bei Nichterreichbarkeit erlauben |
+| Z14 | **Bot-Laufzeit** (`fs-delegate`, lokal; nicht serverseitig, zählt **nicht** zum Nachweis) | hält keinen Inhalts-Zwischenspeicher über einen Aufruf hinaus; ruft die KI während der Pause nicht auf; MCP-Aufrufe der KI an den Bot → `unavailable` ohne Grund | `unavailable` | **PT-23** bei pausiertem Server liefert die Laufzeit auf jede MCP-Anfrage der KI keinen Inhalt | **M-19** Laufzeit antwortet aus Zwischenspeicher |
+
+Grenzen, ehrlich: (i) Was die KI vor der Pause gelesen hat, liegt bei ihr und beim Anbieter (Z. 153); die Pause wirkt nur nach vorn. (ii) Z6 (Medienserver) ist **nicht belegt**: bis PT-10 grün ist, wirkt Pause in Konferenzen mit Ton/Bild als Entfernen (c0-Entscheid; 2b, N3). (iii) Z14 ist unser Code, läuft aber dort, wo der Halter ihn betreibt; deshalb verlässt sich der Nachweis nur auf die Programme.
+
+**(2b) „100 %“: wie belegt wird, dass nichts mehr durchgeht; Not-Aus-Regel**
+
+*Bauweise (Gerüst, Bibliothek `fs-delegate`; Namen Vorschlag):*
+- **G1 Eingangssperre:** einziger Weg, auf dem ein Bot-Schlüssel erkannt wird; sitzt **nach** der Schlüssel-Erkennung und **vor** jeder Weiterleitung an einen Handler (vor Routing, vor Methodenauflösung). Lässt nur `Active` durch.
+- **G2 Ausgangssperre:** jede Zustellung an eine Bot-Verbindung läuft über einen Zustell-Typ (`BotSink`), den nur G1 erzeugen kann (Konstruktor privat). Prüft den Zustand vor jedem Rahmen, jeder Benachrichtigung, jedem Ereignis.
+- **G3 Commit-Prüfung:** Schreibvorgänge eines Platzes lesen den Platz-Zustand in derselben Transaktion wie ihr Commit. Pause-Ereignis und Commit sind damit geordnet: was vor der Pause festgeschrieben ist, war vor der Pause; alles andere wird zurückgerollt.
+- **G4 Verbindungsregister:** jede Bot-Verbindung ist je Platz registriert; die Pause schließt alle.
+- **G5 Zeitplaner/Warteschlangen:** Läufe eines Platzes werden nur als Aufruf durch G1 ausgeführt.
+- **G6 Handler-Verzeichnis:** alle Handler (RPC-Methoden aus dem Cap'n-Proto-Schema, HTTP-Routen, MCP-Methoden, Appservice-Endpunkte, Lauf-Arten, Zustell-Arten) werden nur über die Registrierung des Gerüsts angemeldet; daraus entsteht beim Bau eine Liste.
+- **G7 Scheitert geschlossen:** unbekannter, fehlender oder unlesbarer Zustand, nicht erreichbares Mandats-Programm, Handler ohne Eintrag in G6 → Ablehnung.
+- **G8 Nachweis:** die CI erzeugt je Programm-Build einen **Pause-Nachweis** (Handler-Liste aus G6, Ergebnisse PT-24 bis PT-30, Mutantenlauf mit 0 Überlebenden, Build-Hash) als Prüfergebnis im Release (fs-release). Ein Programm meldet sich nur dann als „pausierbar“, wenn der Nachweis zu seinem Build passt.
+
+*Generische Pflichttests:*
+- **PT-24 „Jeder Handler lehnt ab“:** der Test läuft über die **vollständige** Liste aus G6 (nicht über eine Hand-Liste) und prüft je Handler: gesperrter Schlüssel → `seat-unavailable`, Datenbestand unverändert, kein ausgehender Rahmen.
+- **PT-25 Quelltext-Prüfung:** kein Handler, keine Route, keine Zustellung wird außerhalb der Registrierung von G6 angelegt (Prüfung im Bau; Fund = Bau rot).
+- **PT-26 Selbstprüfung beim Start:** Zahl der zur Laufzeit registrierten Handler = Zahl in der Liste aus G6; weicht sie ab, nimmt das Programm **keinen** Bot-Schlüssel an.
+- **PT-27 Neue Wege scheitern geschlossen:** ein Test-Handler, der ohne Eintrag in G6 angelegt wird, ist für Bot-Schlüssel nicht erreichbar (und PT-25 wird rot).
+- **PT-28 Zustand:** unbekannter oder unlesbarer Platz-Zustand → Ablehnung.
+- **PT-29 Ordnung:** Wettlauf Pause gegen Lese-, Schreib- und Zustellvorgänge (viele Wiederholungen): nach dem Pause-Ereignis kein Commit, kein Rahmen, keine Antwort mit Inhalt.
+- **PT-30 Mutantenlauf** über G1 bis G7 und die Registrierung: 0 Überlebende (M-01 bis M-19 sind die benannten Pflicht-Mutanten).
+
+*Not-Aus-Regel (Nutzerentscheid 25: „Ist das nicht 100 % belegbar, wirkt Pause wie ein Not-Aus: sofort Entfernen.“). Nicht zu verwechseln mit dem „Notaus“ aus 0054 Punkt 5 (Z. 32, eine Rechte-Einstellung).*
+- **N1 statisch:** fehlt für ein Programm, in dem der Platz einen Schlüssel hat, der passende Pause-Nachweis (G8), dann wirkt „Pause“ dort als **Entfernen**.
+- **N2 zur Laufzeit:** die Pause gilt erst als wirksam, wenn (a) das Pause-Ereignis festgeschrieben ist, (b) jedes Programm mit Schlüssel bestätigt hat und (c) das Verbindungsregister 0 meldet, alles innerhalb der Frist D. Sonst: **automatisch Entfernen**, mit Protokolleintrag „Pause nicht bestätigt, Entfernen“.
+- **Fristen D und L sind Einstellungen** (c0-Entscheid; ADR 0100: deklariert als Ganzzahl mit Grenzen, Schicht Instanz, sperrbar): **D** = Frist, bis die Pause bestätigt sein muss, Voreinstellung **1 s**; **L** = Lease für Ströme in weiteren Programmen (Z13), Voreinstellung **5 s**. Grenzen (Vorschlag): D 0,2–10 s, L 1–60 s; Werte außerhalb werden abgelehnt (`out-of-range`). Ändern dürfen nur Instanz-Admins; die KI sieht und ändert sie nie (ADR 0091 Z. 51).
+- **N3 unbelegte Wege:** solange ein Zugriffsweg einer Situation keinen grünen Pflichttest hat, wirkt Pause in dieser Situation als Entfernen. Heute betrifft das Konferenzen mit Medienserver (Z6; c0-Entscheid).
+- **N4 wenn auch Entfernen nicht festgeschrieben werden kann:** das Programm nimmt für diesen Platz keinen Schlüssel mehr an (Sperrliste im Speicher, geschlossen) und meldet einen Befund.
+- Anzeige: wie der Knopf in einer Situation aussieht, in der Pause als Entfernen wirkt (Hinweis am Knopf, Rückfrage ja/nein): Offen 13.
+
+*Pflichttests Not-Aus-Regel:*
+- **PT-31** Programm ohne gültigen Pause-Nachweis: „Pause“ → Mandat `Stopped`, Schlüssel widerrufen, Bot draußen (**M-20** ohne Nachweis trotzdem echte Pause).
+- **PT-32** eine Verbindung lässt sich nicht schließen bzw. ein Programm bestätigt nicht innerhalb D → automatisch Entfernen (**M-21** Fristüberschreitung ignoriert).
+- **PT-33** Situation mit Medienstrom (Z6 unbelegt) → Pause wirkt als Entfernen.
+- **PT-34** Festschreiben des Pause-Ereignisses scheitert → Entfernen; scheitert auch das → Schlüssel des Platzes wird nicht mehr angenommen (N4).
+- **PT-47** D und L stehen als deklarierte Einstellungen mit Voreinstellung 1 s bzw. 5 s; Werte außerhalb der Grenzen → `out-of-range`; geänderter Wert D wirkt in PT-32 (**M-27** Frist fest im Code statt aus der Einstellung).
+
+**(2c) Rechte: wer Pause, Wiederaufnahme und Entfernen auslösen darf**
+- **Jede Person** in der Situation kann **jederzeit** Pause und Entfernen auslösen: Mitglieder ohne Sonderrecht, betreute Konten, zugelassene Gäste, Spätkommende nach ihrer Bestätigung. Es ist **kein** Recht aus fs-access und **keine** Einstellung: kein Admin, kein Halter, keine Gruppe kann es abschalten oder einschränken (anders als der Notaus in 0054 Punkt 5, Z. 32, der eine Rechte-Einstellung ist). Voraussetzung ist nur eine angemeldete Menschen-Sitzung in dieser Situation.
+- „Jederzeit“ heißt auch: während einer Zustimmungsrunde, während laufender Aufrufe, während einer Pause (Entfernen geht immer).
+- **Nie** durch die KI, ihren Bot oder einen anderen Bot: Pause, Wiederaufnahme und Entfernen nehmen keinen Bot-Schlüssel an und sind nie MCP-Werkzeug (wie `MessageAction.decide`, Z. 51). Die KI kann eine Pause weder aufheben noch verzögern noch abfragen.
+- Wer später dazukommt, wird auch bei pausierter KI vorgewarnt und muss bestätigen (die KI sitzt weiter auf dem Platz; Z. 151).
+- **Wiederaufnahme (Nutzer, Frage 33):** fortsetzen dürfen (a) wer pausiert hat, (b) Admins, (c) Inhaber (Eigentümer, ADR 0095) und (d) jede Person mit dem eigenen Recht dafür (Name Beispiel: `ai.resume`, vergeben über fs-access). Grund des Nutzers, sinngemäß: „Sonst könnte jemand pausieren und die Gruppe verlassen, dann wäre die KI dauerhaft aus.“ Daraus: verlässt die pausierende Person die Situation, bleibt die Pause bestehen, bis ein Berechtigter (b)–(d) fortsetzt oder jemand entfernt.
+- `ai.resume` ist ein Recht für Menschen; die KI und ihr Bot erhalten es nie (wie `can_lock`, ADR 0100; Verbote ADR 0091 Z. 51). Es gibt kein Recht, das Pause oder Entfernen erlaubt oder verbietet: beides kann jede Person.
+- Nach **Entfernen** und Wiederkehr über eine neue Umfrage besteht **keine** alte Pause mehr: der neue Platz beginnt `Active` (Nutzer, Frage 33).
+- Mehrere KIs: Pause gilt je Platz (wie ADR 0091 Z. 129); „alle KIs pausieren“ ist ein eigener Schritt, der jeden Platz einzeln pausiert (Vorschlag).
+- Mehrere KIs: Pause gilt je Platz (wie ADR 0091 Z. 129); „alle KIs pausieren“ ist ein eigener Schritt, der jeden Platz einzeln pausiert (Vorschlag).
+- Haben mehrere Personen denselben Platz pausiert: wie viele Pausen eine Wiederaufnahme aufhebt, ist offen (Offen 11).
+
+*Pflichttests Rechte:*
+- **PT-35** betreutes Konto und Mitglied ohne Sonderrecht lösen Pause und Entfernen aus → wirkt.
+- **PT-36** es gibt keine Einstellung, die Pause oder Entfernen abschaltet (Deklarationsliste ADR 0100 enthält keinen solchen Schlüssel); ein Admin kann den Knopf nicht ausblenden.
+- **PT-37** Pause, Wiederaufnahme oder Entfernen mit Bot-Schlüssel → abgelehnt; keine der drei steht in `tools/list` (**M-22** als MCP-Werkzeug angeboten).
+- **PT-38** die KI kann eine Pause nicht aufheben (jeder Weg aus Z1 bis Z14).
+- **PT-48** Wiederaufnahme durch: die pausierende Person, einen Admin, einen Inhaber, eine Person mit `ai.resume` → wirkt; durch ein Mitglied ohne dieses Recht, das nicht pausiert hat → abgelehnt (**M-28** jede Person darf fortsetzen; **M-29** nur die pausierende Person darf fortsetzen).
+- **PT-49** pausierende Person verlässt die Situation → Pause bleibt; ein Admin, Inhaber oder Inhaber von `ai.resume` setzt fort → wirkt.
+- **PT-50** `ai.resume` lässt sich keinem Bot-Platz zuschreiben (**M-30** Zuschreibung an Bot erlaubt).
+- **PT-51** Entfernen während einer Pause, dann neue Umfrage mit Zustimmung aller → der neue Platz ist `Active`, keine Pause übernommen (**M-31** Pause am neuen Platz geerbt).
+
+**(2d) Entfernen**
+- Wirkung (bisher „STOP KI“, ADR 0091 Punkt 9 mit Nachtrag „Bot-Schlüssel“ Punkt 5): (a) Steuer-Sitzung getrennt; (b) Mandat `Stopped`, der Platz ist **geschlossen** und wird nie wieder geöffnet; (c) jedes Programm widerruft seinen Schlüssel für diesen Platz (nicht nur sperren); (d) alle Verbindungen geschlossen (G4); (e) alle Aufträge des Platzes enden (Ereignis `beendet`), offene Vorschläge verfallen, geplante Läufe werden gelöscht; (f) alle Zustimmungen zu diesem Platz werden in fs-people als widerrufen festgehalten (`AiAssistance`; Herkunft, Vorschlag: „Entfernen“); (g) der Bot verlässt die Situation (Matrix: Raum verlassen, Gerät beenden); (h) Protokolleintrag.
+- **Wiederkehr nur über eine neue Umfrage:** das heißt eine neue Zustimmungsrunde aller (ADR 0091 Punkt 6 und 7: eine Absage genügt) für einen **neuen** Platz mit neuem Schlüssel. Der alte Platz und sein Schlüssel gelten nie wieder (Ableitung der Strategie: „neue Umfrage“ = Zustimmungsrunde nach Punkt 7). Eine Pause des alten Platzes geht nicht auf den neuen über (Nutzer, Frage 33; PT-51).
+- Gleiche Wirkung wie Entfernen haben weiterhin: Rückzug der Zustimmung (Punkt 7, Z. 87), Schalter „KI erlaubt“ auf „nein“ (Z. 177), MCP-Schalter AUS (Z. 186), die Not-Aus-Regel (2b).
+- Entfernen geht auch während einer Pause.
+- *Pflichttests:* **PT-39** Entfernen → Mandat `Stopped`, Schlüssel in **jedem** Programm widerrufen, Verbindungen 0, Aufträge beendet, Zustimmungen widerrufen, Bot draußen (**M-23** Zustimmungen bleiben bestehen); **PT-40** der alte Platz lässt sich nicht wieder öffnen, sein Schlüssel nie wieder benutzen; Rückkehr nur mit neuem Platz nach vollständiger Zustimmungsrunde (**M-24** alter Platz reaktivierbar); **PT-41** Entfernen während einer Pause wirkt.
+
+**(2e) Auftrag widerrufen (bleibt beim Ersteller)**
+- Wer: **nur der Ersteller** des Auftrags (`created_by`, Punkt (3)). Andere Personen können einen fremden Auftrag nicht widerrufen; sie haben Pause und Entfernen.
+- Wirkung: Ereignis `widerrufen` (append-only); unter diesem Auftrag keine weitere Aktion (Prüfstufe 3 in Punkt (4)); Bot-Platz, Mandat `Active`, Schlüssel, Zustimmungen und andere Aufträge bleiben; keine neue Zustimmungsrunde; die KI wartet auf den nächsten Befehl (Nutzerwort (D)).
+- **Wirkung auf laufende Aufrufe:** (a) ein Schreibvorgang des Auftrags, der noch nicht festgeschrieben ist, wird zurückgerollt (Commit prüft das Ereignis `widerrufen` in derselben Transaktion, wie G3); (b) ein mehrschrittiger Vorgang bricht vor dem nächsten Schritt ab (Protokoll vor jedem Schritt, Nachtrag (3) Punkt 1); (c) was schon festgeschrieben oder nach außen gegangen ist (z. B. eine versandte Nachricht), bleibt; (d) Lese-Ergebnisse, die schon unterwegs sind, werden noch zugestellt: der Widerruf macht die KI nicht blind (dafür gibt es Pause).
+- Der Ersteller kann auch während einer Pause widerrufen.
+- Die KI liest nach dem Widerruf als Teilnehmer weiter (Ableitung der Strategie aus Entscheid 25: „blind und taub“ ist die Pause; zur Bestätigung, Offen 9).
+- Die Aufträge selbst ändert eine Pause nicht; nach der Wiederaufnahme gelten sie weiter, sofern nicht widerrufen oder abgelaufen. Ob `valid_until` während der Pause weiterläuft: Offen 12.
+- *Pflichttests:* **PT-42** Widerruf durch eine andere Person als den Ersteller → abgelehnt (**M-25** jede Person darf widerrufen); **PT-43** Widerruf zwischen Prüfung und Commit → Rollback (**M-26** Commit ohne Prüfung des Auftrags); **PT-44** Widerruf während einer Pause durch den Ersteller → wirkt.
+
+**(2f) Protokoll und Trailer; was die KI erfährt**
+- Pause, Wiederaufnahme, Entfernen und Auftrag widerrufen sind Handlungen eines **Menschen**: AS2-Aktivität mit `actor` = Person, `object` = Platz bzw. Auftrag, Zeit UTC; Protokoll vor der Wirkung (Nachtrag (3) Punkt 1).
+- Sie erzeugen keinen Commit und keinen Trailer. `FS-Actor:`/`FS-On-Behalf-Of:` stehen nur an Handlungen der KI; während einer Pause entsteht keine (Z2).
+- Die Menschen der Situation sehen „KI pausiert“. Ob sie sehen, **wer** pausiert hat: Offen 14 (Schutz der pausierenden Person, z. B. betreuter Konten, gegen Offenheit des Protokolls).
+- **Was die KI erfährt (c0-Entscheid):** **während** der Pause **nichts** (keine Runde, keine Zustellung, Anfragen `seat-unavailable` bzw. MCP `unavailable` ohne Grund, byte-gleich mit einem Ausfall). **Nach** der Wiederaufnahme bekommt sie einen Protokollhinweis **„pausiert von–bis“** (Beginn und Ende in UTC), **ohne Inhalt**: keine Person, kein Grund, nichts aus dem Pausenfenster (ehrlich statt einer unerklärten Lücke). Die Einträge über Pause und Wiederaufnahme selbst bleiben für Bot-Schlüssel unlesbar (Z12).
+- Nachgeliefert wird nichts aus dem Pausenfenster (PT-09, PT-11, PT-13). Bei der Wiederaufnahme bekommt die KI den **aktuellen** Stand wie bei einem Eintritt; ob die aktuelle Mitgliederliste damit verrät, wer in der Pause kam oder ging: Offen 14.
+- Grenze: Der Halter ist ein Mensch und sieht das Protokoll. Ob er der KI mehr erzählt, liegt außerhalb unserer Programme.
+- *Pflichttests:* **PT-45** Pause-Eintrag hat `actor` = Person und keinen Trailer `FS-Actor:`; **PT-46** die Antwort an die KI während der Pause ist byte-gleich mit der Antwort bei einem Ausfall des Programms (**M-32** Antwort trägt „paused“ oder einen Grund); **PT-52** nach der Wiederaufnahme genau ein Hinweis „pausiert von–bis“ je Pause, Zeiten UTC, ohne Person und Inhalt; vor der Wiederaufnahme kein Hinweis (**M-33** Hinweis schon während der Pause zugestellt; **M-34** Hinweis nennt die pausierende Person).
 
 **(3) Was ein Auftrag ist (Ausgestaltung Strategie, Namen Vorschlag)**
 - Ein Auftrag ist ein **Datensatz** im Programm der Situation, verwaltet von `fs-delegate` (wie das Mandat, ADR 0091 Z. 39), typisiert gespeichert (ADR 0086), kein JSON. Er gehört zu genau einem Bot-Platz (Mandat).
@@ -310,13 +426,13 @@ Beide Knöpfe erscheinen nur, wenn eine KI dabei ist (Z. 149); der STOP-Knopf nu
 0. Bot-Schlüssel gültig, Mandat des Platzes `Active` (bestehend, ADR 0091 Z. 66, 173, 175).
 1. **Auftrag existiert** und gehört **zu diesem Platz** (`seat` = Platz des Schlüssels) → sonst `order-unknown`.
 2. **Ersteller = genannte Person:** `on_behalf_of` der Anfrage = `created_by` des Auftrags, und `created_by` ist Halter des Platzes (ADR 0091 Nachtrag (2) Punkt 1) → sonst `order-mismatch`.
-3. **Nicht widerrufen, nicht abgelaufen:** kein Ereignis `widerrufen`, `valid_until` > jetzt (UTC) → sonst `order-revoked` bzw. `order-expired` (beides STOP, kein Rauswurf).
+3. **Nicht widerrufen, nicht abgelaufen:** kein Ereignis `widerrufen`, `valid_until` > jetzt (UTC) → sonst `order-revoked` bzw. `order-expired` (beides beendet nur diesen Auftrag; kein Entfernen, keine Pause).
 4. **Umfang deckt die Aktion:** Recht + Muster der Aktion ∈ `scope` → sonst `order-scope{right}`.
 5. **Aktuelle Rechte der Person decken sie** (kleiner-gleich, zur Ausführungszeit, Nachtrag (3) Punkt 8) → sonst `on-behalf-exceeds{right}` (Name aus ADR 0091 Z. 257).
 6. **Aufruf-Id neu** für diesen Auftrag → sonst `order-replay`.
 7. Protokolleintrag (Absicht) geschrieben → sonst `audit-failed`, keine Aktion (TRAIT-ENTWUERFE §9 (2) Z. 414–416).
 
-*Wer prüft das Kleiner-gleich (Stufe 5) — Festlegung (Strategie, zur Bestätigung):* Die **Rechte** der Person liefert **fs-access** (dort liegen Rechte, Vorlagen und Zuschreibungen: TRAIT-ENTWUERFE §9 (3b), GM11 entschieden; ADR 0100 Z. 39). Den **Vergleich** macht das **Programm, das die Aktion ausführt**, über die Rechte-Schicht des Gerüsts (`fs-delegate`), bei jedem Aufruf, ohne Zwischenspeicher über die Aktion hinaus. Grund: ADR 0091 Z. 175 („weil das Programm jeden Aufruf selbst prüft“; STOP und Prüfung verlassen sich nicht auf eine zentrale Stelle). Ist fs-access nicht erreichbar: Ablehnung (`access-unavailable`, wie TRAIT-ENTWUERFE §9 (6) Z. 513).
+*Wer prüft das Kleiner-gleich (Stufe 5) — Festlegung (Strategie, zur Bestätigung):* Die **Rechte** der Person liefert **fs-access** (dort liegen Rechte, Vorlagen und Zuschreibungen: TRAIT-ENTWUERFE §9 (3b), GM11 entschieden; ADR 0100 Z. 39). Den **Vergleich** macht das **Programm, das die Aktion ausführt**, über die Rechte-Schicht des Gerüsts (`fs-delegate`), bei jedem Aufruf, ohne Zwischenspeicher über die Aktion hinaus. Grund: ADR 0091 Z. 175 („weil das Programm jeden Aufruf selbst prüft“; Pause, Entfernen und Prüfung verlassen sich nicht auf eine zentrale Anmeldestelle). Ist fs-access nicht erreichbar: Ablehnung (`access-unavailable`, wie TRAIT-ENTWUERFE §9 (6) Z. 513).
 
 *Wie kann die KI sich keinen Auftrag selbst ausstellen?*
 - Die Methode „Auftrag erteilen“ verlangt eine Menschen-Sitzung; ein Bot-Schlüssel wird dort abgewiesen (Test unten).
@@ -328,7 +444,7 @@ Beide Knöpfe erscheinen nur, wenn eine KI dabei ist (Z. 149); der STOP-Knopf nu
 
 *Wiederholung (Replay).* Die Auftrags-Id allein nützt nichts: ohne gültigen Bot-Schlüssel desselben Platzes Stufe 0/1 rot. Mit Schlüssel: jede Aufruf-Id gilt einmal je Auftrag (Ereignis `benutzt`), danach `order-replay`; `valid_until` begrenzt die Zeit. Ob ein Auftrag zusätzlich eine Höchstzahl an Aktionen hat: Offen 3.
 
-*Gestohlener Bot-Schlüssel.* Die bestehende Grenze bleibt ehrlich (ADR 0091 Z. 78: „Wer ein Token bei aktivem Mandat stiehlt, handelt als Bot innerhalb der Obergrenze, bis STOP, Ablauf oder Widerruf wirkt“). Neu begrenzt sie zusätzlich der Auftrag: ohne gültigen Auftrag gibt es kein `on_behalf_of`; mit Auftrag nur dessen Umfang, nur bis `valid_until`, nur bis zum Widerruf. Einen neuen Auftrag kann der Dieb nicht anlegen (braucht Menschen-Sitzung). Jede Aktion steht mit `actor` = Bot und Auftrags-Id im Protokoll; STOP (Widerruf) oder Rauswurf beenden die Wirkung; Rauswurf widerruft den Schlüssel.
+*Gestohlener Bot-Schlüssel.* Die bestehende Grenze bleibt ehrlich (ADR 0091 Z. 78: „Wer ein Token bei aktivem Mandat stiehlt, handelt als Bot innerhalb der Obergrenze, bis STOP, Ablauf oder Widerruf wirkt“). Neu begrenzt sie zusätzlich der Auftrag: ohne gültigen Auftrag gibt es kein `on_behalf_of`; mit Auftrag nur dessen Umfang, nur bis `valid_until`, nur bis zum Widerruf. Einen neuen Auftrag kann der Dieb nicht anlegen (braucht Menschen-Sitzung). Jede Aktion steht mit `actor` = Bot und Auftrags-Id im Protokoll; Widerruf des Auftrags, Pause oder Entfernen beenden die Wirkung; Pause sperrt den Schlüssel, Entfernen widerruft ihn.
 
 *Protokoll und Trailer.* Jede Aktion schreibt vorher (Nachtrag (3) Punkt 1) einen Eintrag mit `actor` (KI-Bot), `on_behalf_of` (Person), Auftrags-Id, Aufruf-Id, Recht, Aktion, Zeit UTC. In Commits und Tags des Git-Moduls (TRAIT-ENTWUERFE §9 Z. 478, 482, GM3/GM12): `FS-Actor:` (KI-Bot), `FS-On-Behalf-Of:` (Person), `FS-Deviation:` nur wenn eine Schutzregel abweicht. Ob zusätzlich die Auftrags-Id als Trailer erscheint (Vorschlag `FS-Order:`): Offen 4. Token und Schlüssel nie im Eintrag (Nutzer 23.3).
 
@@ -343,7 +459,7 @@ Beide Knöpfe erscheinen nur, wenn eine KI dabei ist (Z. 149); der STOP-Knopf nu
 | §4.4 „The "may_act" claim makes a statement that one party is authorized to become the actor and act on behalf of another party.“ | **Bedeutung ja:** unser Auftrag ist diese Aussage, aber als Datensatz im Programm, angelegt nur in der Sitzung der Person, mit Umfang und Ablauf; `may_act` selbst trägt laut §4.4 nur Identität („claims within the "may_act" claim pertain only to the identity of that party“), keinen Umfang. |
 | §2.1 `subject_token` (REQUIRED): „A security token that represents the identity of the party on behalf of whom the request is being made.“ | **Nein.** Die KI legt nie ein Token der Person vor (Nutzer 23.2, 23.3). Den Beleg „die Person will das“ liefert der Auftrag, nicht ein Token. |
 | §2.1 `actor_token` (OPTIONAL): „A security token that represents the identity of the acting party.“ | **Entspricht** dem Bot-Schlüssel des Programms (ADR 0091 Nachtrag „Bot-Schlüssel“). |
-| §1 „The scope of this specification is limited to the definition of a basic request-and-response protocol“; Vertrauensmodell und Semantik „are explicitly out of scope“ | Darum reicht die RFC nicht als Prüfregel; die Prüfung (4) ist unsere eigene. |
+| §1 „The scope of this specification is limited to the definition of a basic request-and-response protocol“; Syntax, Semantik und Sicherheitseigenschaften der Token selbst „are explicitly out of scope“; an das Vertrauensmodell stellt die RFC keine Anforderungen („no requirements are placed“) | Darum reicht die RFC nicht als Prüfregel; die Prüfung (4) ist unsere eigene. |
 | §5 „Any time one principal is delegated the rights of another principal, the potential for abuse is a concern.“; „scope“ wird zur Begrenzung empfohlen | **Ja:** `scope` im Auftrag, kleiner-gleich (Stufe 4/5). |
 
 Kein Token-Exchange-Fluss: der wurde mit dem Kanidm-Konto des Bots gestrichen (ADR 0091 Z. 171, 178). Kanidm bleibt Anmeldedienst der **Person** (ihre Sitzung legt den Auftrag an); Bot-Schlüssel stellt das Programm aus. Ob Kanidm selbst `act`/`may_act` ausgibt, ist hier nicht geprüft und wird nicht gebraucht.
@@ -353,10 +469,10 @@ Kein Token-Exchange-Fluss: der wurde mit dem Kanidm-Konto des Bots gestrichen (A
 - „Auftrag erteilen“ mit Bot-Schlüssel → abgelehnt (Mutant „Bot-Schlüssel als Sitzung akzeptiert“).
 - „Auftrag erteilen“ mit mitgeschicktem Ersteller-Feld ≠ Sitzung → Ersteller = Sitzung (Mutant „Ersteller aus Anfrage“).
 - „Auftrag erteilen“ erscheint in der MCP-Werkzeugliste → Fehler.
-- Widerruf → STOP: nächste Aktion `order-revoked`; Bot-Platz, Mandat `Active`, Schlüssel und Zustimmungen bestehen; **kein** Rauswurf, keine neue Zustimmungsrunde (Mutant „Widerruf ruft KI entfernen/Rauswurf“).
-- Rauswurf → Mandat `Stopped`, Schlüssel widerrufen, Bot draußen, alle Aufträge des Platzes enden (Mutant „Rauswurf nur STOP“).
+- Auftrag widerrufen: nächste Aktion `order-revoked`; Bot-Platz, Mandat `Active`, Schlüssel und Zustimmungen bestehen; **kein** Entfernen, **keine** Pause, keine neue Zustimmungsrunde (Mutant „Widerruf löst Entfernen oder Pause aus“).
+- Entfernen → Mandat `Stopped`, Schlüssel widerrufen, Bot draußen, alle Aufträge des Platzes enden (Mutant „Entfernen wirkt nur wie ein Widerruf“); vollständig PT-39 bis PT-41.
 - Neuer Auftrag nach Widerruf → KI handelt wieder, ohne Zustimmungsrunde.
-- Abgelaufener Auftrag → `order-expired`, kein Rauswurf.
+- Abgelaufener Auftrag → `order-expired`, kein Entfernen.
 - Aktion außerhalb `scope` → `order-scope` (Mutant „Umfang ignoriert“).
 - Recht der Person nach Erteilung entzogen → `on-behalf-exceeds` (Mutant „Rechte bei Erteilung eingefroren“).
 - Gleiche Aufruf-Id zweimal → `order-replay` (Mutant „Aufruf-Id nicht geprüft“).
@@ -364,15 +480,25 @@ Kein Token-Exchange-Fluss: der wurde mit dem Kanidm-Konto des Bots gestrichen (A
 - fs-access nicht erreichbar → Ablehnung (Mutant „bei Ausfall erlauben“).
 - Ereignis `widerrufen` nachträglich änderbar/löschbar → Fehler (Mutant „Ereignis-Update erlaubt“).
 - Protokoll vor der Aktion fehlt → keine Aktion (bestehend, Nachtrag (3)).
+- Pause, Not-Aus-Regel, Fristen, Rechte, Wiederaufnahme, Entfernen, Auftrag widerrufen, Protokoll: Pflichttests PT-01 bis PT-52 mit den Pflicht-Mutanten M-01 bis M-34 in (2a) bis (2f). Jeder Pflichttest ist ohne Umsetzung rot; jeder benannte Mutant muss rot werden.
 
 **Offen**
-1. **Namen der Knöpfe:** Der Nutzer nennt den Widerruf eines Auftrags „vorübergehender STOP“ (Nutzerwort (D)); der bestehende Knopf „STOP KI“ (Z. 140) entfernt die KI und heißt nach Strategie-Korrektur jetzt „KI entfernen“ (Rauswurf). Der Altext mit „STOP KI“ bleibt stehen. Ob die Benennung so endgültig ist: Entscheidung beim Nutzer.
-2. **Wer darf STOP drücken und den Auftrag widerrufen:** offen (Frage 25 beim Nutzer). Vorschlag, nicht entschieden: STOP darf jede anwesende Person, den Auftrag widerrufen nur sein Ersteller. (Rauswurf bleibt bei jedem.)
+1. ~~Namen der Knöpfe~~ **entschieden** (Nutzerentscheid 25): „Pause“ und „Entfernen“; „Auftrag widerrufen“ für den Ersteller. Der Altext mit „STOP KI“ (Z. 140, 149, 160) bleibt als Zitat stehen.
+2. ~~Wer darf was~~ **entschieden** (Nutzerentscheid 25 und Nutzer, Frage 33): Pause und Entfernen jede Person jederzeit; Auftrag widerrufen nur der Ersteller; fortsetzen wer pausiert hat, Admins, Inhaber und wer das Recht dafür hat ((2c)).
 3. **Weitermachen:** Kann ein widerrufener Auftrag fortgesetzt werden, oder ist „der nächste Befehl“ immer ein neuer Auftrag? Vorschlag: immer neu (append-only, einfachere Prüfung). Ebenso: Einmal-Auftrag oder Dauer-Auftrag, Höchstzahl der Aktionen.
 4. **Trailer für die Auftrags-Id** (`FS-Order:`) in Commit/Tag: ja/nein. Würde die Id außerhalb der Instanz sichtbar machen.
 5. **Signatur des Auftrags** (z. B. bei Aufträgen, die ein anderes Programm prüfen soll): in dieser Fassung keine; nötig erst, wenn ein Auftrag Programmgrenzen überschreitet. Heute gilt ein Auftrag nur im Programm der Situation (wie der Bot-Schlüssel, ADR 0091 Z. 172).
-6. **Mehrere Aufträge gleichzeitig:** STOP gilt je Auftrag; ob es zusätzlich „alle meine Aufträge im STOP“ gibt.
+6. **Mehrere Aufträge gleichzeitig:** der Widerruf gilt je Auftrag; ob es zusätzlich „alle meine Aufträge widerrufen“ gibt.
 7. **Auftraggeber außer dem Halter:** heute nur der Halter (ADR 0091 Nachtrag (2) Punkt 1); ob andere Anwesende Aufträge geben dürfen.
 8. **Einzelplatz:** dort gibt es keinen Bot (ADR 0091 Z. 71); ob Aufträge über den MCP-Schalter genauso geführt werden, ist nicht festgelegt.
-9. **STOP und Lesen:** Ob die KI im STOP weiter mitliest (sie bleibt Teilnehmer) oder auch nicht mehr liest. Das Nutzerwort sagt nur „ruhig bleiben“.
-10. Fehlercodes `order-*` sind Vorschläge (Namen nicht belegt).
+9. **Lesen nach „Auftrag widerrufen“:** Vorschlag (Ableitung aus Entscheid 25): die KI liest als Teilnehmer weiter; wer sie blind und taub haben will, löst Pause aus. Zur Bestätigung beim Nutzer.
+10. Fehlercodes `order-*`, `seat-unavailable`, `out-of-range` und ihre Abbildung auf HTTP, Cap'n Proto und JSON-RPC (MCP) sind Vorschläge (Namen nicht belegt).
+11. **Mehrere Pausen am selben Platz:** hebt eine Wiederaufnahme alle Pausen auf oder nur eine? Vorschlag: die pausierende Person hebt nur ihre eigene auf; Admins, Inhaber und Inhaber von `ai.resume` heben alle auf.
+12. **Pausenfenster:** fällige Läufe auslassen (Vorschlag) oder nachholen; ob `valid_until` eines Auftrags während der Pause weiterläuft (Vorschlag: ja) und ob der Ersteller nach der Wiederaufnahme benachrichtigt wird.
+13. **Anzeige der Not-Aus-Regel:** wie der Knopf „Pause“ aussieht, wo er als Entfernen wirkt (Hinweis, Rückfrage).
+14. **Was die Menschen sehen:** ob sichtbar ist, **wer** pausiert hat (Schutz der pausierenden Person gegen Offenheit des Protokolls); ob die aktuelle Mitgliederliste bei der Wiederaufnahme der KI verrät, wer in der Pause kam oder ging.
+15. **Schlüssel nach der Wiederaufnahme:** Vorschlag: neuer Schlüssel, der gesperrte wird widerrufen (macht alles ungültig, was vor der Pause ausgegeben war).
+16. **„Ruht“ (ADR 0091 Z. 57 Halter-Verlust, Z. 78 Ratenbegrenzung):** ob diese Zustände dieselbe Sperre wie Pause benutzen. Vorschlag: ja, ein Zustand, eine Sperre.
+17. **Wiederaufnahme, Einzelheiten:** welche Admin-Stufen (ADR 0095: drei Stufen) als „Admins“ gelten; endgültiger Name des Rechts (Beispiel `ai.resume`).
+18. **Grenzen der Fristen D und L** (Vorschlag D 0,2–10 s, L 1–60 s; Voreinstellung L 5 s ist Vorschlag dieser Fassung).
+19. **Einzelplatz:** dort gibt es keinen Bot (ADR 0091 Z. 71); ob Pause über den MCP-Schalter gleich gebaut wird.
