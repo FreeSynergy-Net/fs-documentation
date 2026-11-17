@@ -21,3 +21,11 @@ Jedes Fenster jedes Programms (und jeder Facette) erfüllt dieselbe **Mindest-H�
 ## Folgen
 - `fs-components`: Trait `Shell` (Name vorläufig) mit diesen Teilen und einer Standard-Umsetzung; jede App nutzt sie.
 - Store, Tasks, People werden zuerst umgestellt.
+
+## Nachtrag 2026-11-17 (Einstellungen): Menü Programm › Einstellungen
+
+Status: **Entwurf** (ADR 0100 Entwurf; Nutzer, Gespräch 4 Z. 16: „Settings sollte es überall geben … es muss aber irgendwo integriert werden.“) · **ändert** Z. 10 („Einstellungen (öffnet das Admin-Frontend, ADR 0061)“)
+
+**Entscheidung**
+1. *Programm › Einstellungen* öffnet die Einstellungen **dieses Programms** (Komponenten aus fs-components, Daten aus `fs-setting`), mit den Knöpfen „für dieses Programm“ und „für alle“ und dem Schloss; von dort führt ein Weg ins Programm **fs-settings** für alle Einstellungen.
+2. Das Admin-Frontend (ADR 0061) bleibt für Admin-Aufgaben; Einstellungen sind keine Admin-Aufgabe mehr.

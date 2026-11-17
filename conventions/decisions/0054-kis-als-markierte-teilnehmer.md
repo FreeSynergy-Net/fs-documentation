@@ -215,3 +215,15 @@ Status: **akzeptiert** (Nutzerentscheidungen vom 2026-11-17, Gespräche 1 und 2 
 7. **Lokale Pilotfreigabe** (Nutzer, 2026-11-17 abends, über die Strategie): MCP lokal öffnen: „nur für den Anfang, damit wir hier zusammen arbeiten können, kannst du die mcp schnittstelle aufmachen - aber nur hier, lokal.“ (Gespräch 2, Nachsatz); kein Dauerzustand. Pilot fs-tasks über stdio, kein Netz-Port, Schreiben nur eigene Karten/Notizen/Status, nie Löschen; ausdrücklich eingeschaltet durch Person/Admin, sonst gilt Punkt 2. Umsetzung über den MCP-Wrapper (Risikomarken (ADR 0021 Z. 18), Allowlist, KI-Kennzeichnung).
 
 **Pflichttests** (je ohne Umsetzung rot): MCP-Schnittstelle vorhanden, nach Installation aus; Einladung/Token/Delegation schaltet nicht ein; Tresor-Schalter nicht einschaltbar, Tresor gibt nichts heraus (Mutant „Tresor-Sperre entfernt“); KI-Aufruf als die Person → abgelehnt; Schutz-KI: ausführende Methode → abgelehnt; KI-Nachricht ohne Kennzeichnung → nicht zustellbar; Pilot: Netz-Port und Löschen → abgelehnt.
+
+## Nachtrag 2026-11-17 (2): KI-Einladung als gemeinsamer Modus; Entscheider in offenen Runden; Ausschluss nach Eintritt
+
+Status: **Entwurf** (Nutzer, Gespräch 4, Antworten 18/19, Z. 59, 62; Ausgestaltung Strategie) · **präzisiert** den Nachtrag 2026-11-16 „KI-Helfer: Einladung, STOP KI, Zustimmung aller“ (Z. 136–168): „Zustimmung ALLER Anwesenden“ (Z. 150) gilt im geschlossenen Kreis; STOP KI (Z. 149, 160) bleibt unverändert
+**vorhanden-pruefen:** STOP KI (sichtbar, sofort, für jeden Menschen), Zustimmung aller vor dem Zuschalten, Vorwarnung Spätkommender stehen schon im Nachtrag vom 16.11.; neu ist nur:
+
+**Entscheidung**
+1. **Entscheider:** im geschlossenen Kreis die Teilnehmer (wie bisher); **in offenen Runden (z. B. offene Umfragen) die Organisatoren**, nicht die Antwortenden (Nutzer Z. 59: „bei offenen Umfragen sind es die Organisatoren“).
+2. **Nach dem Eintritt der KI** können die, die nicht mit KI arbeiten wollen, nicht mehr mitmachen (Z. 59); das entspricht der Bestätigung Spätkommender (Z. 151).
+3. **Ein Mechanismus für alle Programme:** Modus „KI-Einladung“ in fs-admission, aufgerufen über einen Gerüst-Haken; der Schalter „KI erlaubt“ bleibt in fs-access (Nachtrag 2, Offen 1). STOP KI ist im Modus Pflicht, für jeden Teilnehmer sichtbar, sofort, ohne Abstimmung (Nachtrag 16.11. Z. 149).
+4. **Teilnehmer-Arten** in Auswertungen: bekannte Personen, KIs, anonyme, **betreute Konten** (Antwort 19, Z. 62: „Ja, betreute Konten.“); betreut ≠ Eigentümer (ADR 0095).
+**ADR 0091:** kein weiterer Nachtrag nötig (Bot-Platz, STOP je Platz und Kennzeichnung stehen in 0091 Z. 129, 228–240).

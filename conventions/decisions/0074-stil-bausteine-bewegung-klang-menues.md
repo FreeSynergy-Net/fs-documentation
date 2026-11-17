@@ -131,3 +131,11 @@ Das Manifest ist Teil des Pakets und wird im Katalog als Fähigkeit geführt (AD
 - Wer die Standard-Vorschläge annimmt (freedesktop, W3C-Gruppen) und in welcher Form.
 - Lizenzprüfung der Klang-Themes je Datei.
 - Ob der Editor für Anordnungsdateien ein eigenes Programm oder eine Facette des künftigen Zeichenprogramms wird.
+
+## Nachtrag 2026-11-17 (Einstellungen): Darstellung als Einstellung, System-Schicht
+
+Status: **Entwurf** (ADR 0100 Entwurf) · **ergänzt** Z. 35 (Systemeinstellungen immer gelesen) und das Pflichtmenü Darstellung (ADR 0097)
+
+**Entscheidung**
+1. Stil, hell/dunkel, Schrift, Bewegung, Klang und die Frontend-Wahl sind **Einstellungen** von `fs-setting` (Besitzer-Art Gerüst bzw. Theme), mit Schichten, Profilen und Sperre; Umschalten live über die Hülle.
+2. Die Systemeinstellungen aus Z. 35 (`color-scheme`, `accent-color`, `contrast`, reduzierte Bewegung) sind die **System-Schicht** (XDG Desktop Portal `org.freedesktop.portal.Settings`, Adapter später; bis dahin Umgebungsvariablen); sie schlagen die Instanz-Vorgabe, nicht das Profil der Person; erzwingen geht nur per Sperre.
