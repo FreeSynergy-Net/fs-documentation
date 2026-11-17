@@ -201,3 +201,28 @@ Status: Entwurf (Nutzervorgabe über b7, Antwort 115 vom 2026-11-17; Ausgestaltu
 Entschieden (Nutzer über b7): 116 → `fs-scaffold`, 117 → `fs-checkin` (Name vom Nutzer entschieden).
 
 1. **(118) Pflichtangaben bei der Anmeldung:** Darf der Veranstalter Angaben verlangen, ohne die es keine Anmeldung gibt? Nutzerregel „über sich alles teilen dürfen, von anderen nie verlangen“. Keine Empfehlung; Entscheidung beim Nutzer.
+
+## Nachtrag 2026-11-17 (2): Entscheide 118–120 und Datenbausätze
+
+Status: Entscheidung des Nutzers über b7 (2026-11-17); Ausgestaltung Strategie · **schließt** die offene Frage 118 des Nachtrags „forms = Frontend-Baukasten …“ (dessen Text bleibt unverändert stehen) · **ergänzt** denselben Nachtrag, Punkt 11 (Veranstaltungsprogramm `fs-checkin`) · **entscheidet** die Fragen 119 und 120 (Dienst-/Schichtpläne und Tagesabläufe) · **legt den Grundsatz** für zusammengesetzte Datenbausätze fest · baut auf ADR 0014, 0066, 0085, 0086, 0091
+
+**Entscheidung**
+1. **Frage 118 geschlossen: Pflichtangaben sind bei Verträgen erlaubt, als Ausnahme.** Es gilt der Satz: „Du musst mir nichts geben, aber wenn du es tust, kann ich dir auch etwas geben.“ Auch kostenlose Anmeldungen sind Verträge. Außerhalb eines Vertrags gilt weiter die Nutzerregel „über sich alles teilen dürfen, von anderen nie verlangen“ (Selbstbestimmung über Daten).
+   - **Folgen für `fs-checkin`:** Pflichtfelder im Formular des Veranstalters sind erlaubt. Sie sind **vorher sichtbar** (die Angaben werden vor der Anmeldung angezeigt; siehe Punkt 11 des Nachtrags „forms = Frontend-Baukasten …“, Profil-Übergabe), werden **nur als Verweis bzw. Personenverweis** übergeben (keine Kopie) und sind **widerrufbar**. Ein Zwang zur Preisgabe darüber hinaus besteht nicht.
+   - **Wer nichts gibt,** bekommt die Leistung dieses einen Vertrags nicht (keine Anmeldung zu dieser Veranstaltung). Es gibt **keinen Abzug anderswo**: andere Programme, Verträge und Rechte der Person bleiben unberührt.
+2. **Fragen 119 und 120 entschieden: ein Programm `fs-schedules`** (Name vom Nutzer) für Dienst-/Schichtpläne **und** Tagesabläufe, mit gemeinsamem Standard und gemeinsamen Daten (Tätigkeit nach der Namensregel: Mehrzahl, klein, `fs-`-Präfix).
+   - **Was `fs-schedules` besitzt** (eigene Daten, die der Kalender nicht abbildet): das **Raster** (Zeitfenster, Spalten wie Räume oder Rollen), die **Konflikte** (Überschneidungen, Doppelbelegungen) und ihre Regeln, die **Fahrplan-Version** (veröffentlichter Stand eines Plans) und den **Besetzungsbedarf** (wie viele Personen mit welcher Rolle je Zeitfenster). **Slots bleiben Termine**: ein Slot ist ein Termin in fs-calendars (JSCalendar, RFC 8984).
+   - **Daten der anderen Programme bleiben bei ihren Besitzern** und werden vollständig gespeichert: Termine in fs-calendars, Räume in fs-resources, Personen in fs-people (`PersonRef`, ADR 0085), Anmeldungen in fs-checkin. `fs-schedules` verweist, es kopiert nicht.
+3. **Datenbausätze (Grundsatz).** Zusammengesetzte Standard-Bausätze (z. B. **Adresse** = Ort, PLZ, Straße …, Geodaten; **Person**) sehen **überall gleich aus** und werden **überall vollständig verwendet**: ein Shop nimmt nicht nur „Ort“, sondern immer „Adresse“.
+   - **Felder dürfen leer bleiben**, außer Pflichtfelder. **Nicht alle Felder müssen sichtbar sein.**
+   - **Die Speicherung bleibt typisiert** (ADR 0086): Spalte je Feld, kein JSON.
+   - **Bibliothek und Ort der Bausätze** sowie der **Schnitt** (Gerüst / Module / Datenbausätze) werden in einem eigenen Plan geklärt und danach in einem eigenen ADR gefasst. Dessen Nummer ist noch nicht vergeben.
+
+**Folgen**
+- **Doku:** Der Nachtrag „forms = Frontend-Baukasten …“ bleibt unverändert; sein Block „Offen“ (Frage 118) gilt durch diesen Nachtrag als beantwortet.
+- **Katalog:** Eintrag für `fs-schedules` (Programmname nach der Namensregel geprüft); Capability-Schlüssel folgt mit der Grundfassung.
+- **Pflichttests** (je ohne Umsetzung rot):
+  - Ein Pflichtfeld wird im Formular vor der Anmeldung angezeigt.
+  - Ein Pflichtfeld wird nur als Verweis bzw. Personenverweis übergeben und ist widerrufbar.
+  - Wer ein Pflichtfeld nicht gibt, bekommt nur diesen Vertrag nicht; in keinem anderen Programm ändert sich etwas.
+  - `fs-schedules` speichert keine Kopie von Terminen, Räumen, Personen oder Anmeldungen.
