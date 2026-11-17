@@ -72,13 +72,11 @@ Value Object (`FixedRole`, `Scope`, `Transfer`, `Intervention`), Specification (
 4. Betreute Konten sind nie Eigentümer. Die Frage, wer für eine betreute letzte Eigentümerin übergibt, entfällt damit.
 5. Eigentümer sind immer sichtbar.
 6. Der Nutzer hat den ADR am 2026-11-17 angenommen.
-
-## Offen (nicht in diesem ADR entschieden)
-7. Eigentum einer gelöschten Person (AS2 `Tombstone`): Leerstelle wie Pkt 12, oder geht es ohne Weiteres an die übrigen Eigentümer?
-8. Darf (b) die Leerstelle füllen (Entwurf: ja) oder nur (a)?
-9. Ein betreutes Konto legt eine Gruppe an: Entwurf lehnt ab (`SupervisedCannotOwn`); die betreuende Person legt an und nimmt das Konto auf.
-10. Spiegel-Lauf: bekommen Eigentümer echte Schreibrechte in Kanidm (dann umgehen Änderungen direkt in Kanidm unsere Schutzregeln), oder setzt `entry_managed_by` nur das Dienstkonto von fs-identity, und Eigentümer dienen nur zur Anzeige?
-11. Frist, nach der ein Eingriff von selbst schließt (Entwurf: eine Stunde).
+7. Das Eigentum einer gelöschten Person (Tombstone) zählt als Leerstelle.
+8. Beide Stufen, (a) die Admin-Gruppe für alles und (b) die Admin-Gruppe für alle Gruppen, dürfen die Leerstelle füllen, jeweils als protokollierter Eingriff.
+9. Ein betreutes Konto kann keine Gruppe anlegen: es wird abgelehnt (Fehlertext mit Grund und dem Hinweis, dass die verantwortliche Person die Gruppe anlegen kann); wer eine Gruppe anlegt, wird Eigentümer, und betreute Konten können nie Eigentümer sein.
+10. Nur das Dienstkonto schreibt nach Kanidm; die Schutzregeln bleiben in fs-groups.
+11. Ein Eingriff schließt nach einer Stunde von selbst; die Frist ist einstellbar.
 
 ## English summary
 **Decision (accepted by the user, 2026-11-17):** A group owner is a person who is a direct member and holds the role `https://freesynergy.net/ns/roles/owner`. That role yields the right `Own`, which includes `Manage` and comes only from the role. Several owners are explicitly allowed. The roles member, manager and owner are flat, shipped entries in the fs-people RoleBook; the rights carry the ranking. There are three levels of administration, all modelled as groups that hold a right with a scope `Project | AllGroups | Group(id)`, never as special accounts: (a) project administration, (b) administration of all groups, (c) every group governs itself through its owners and managers. The person who sets up the project becomes the first owner of (a) and (b); whoever creates a group becomes its first owner. (a) and (b) may act in any group only through an intervention that names a reason; every action is logged in the affected group with actor, scope, admin group and reason, and is visible to everyone who may read the group. Interventions obey the same last-owner and last-manager guards and never count as ownership. Guards fail closed. AIs and accounts of unknown status never hold owner, manager or a scope. Supervised accounts can never be owners (`SupervisedCannotOwn`); if the status is unknown or unreadable, the request is refused. An owner who later becomes supervised keeps the entry without effect. Ownership and scopes never flow over nesting edges. Owners are always visible to every reader of the group, sensitive groups included, as person references only. Legacy role texts are migrated once; unknown ones become `…/roles/legacy/…` and grant nothing. Kanidm v1.12.0 maps (a) to `idm_admins` and `system_admins`, (b) to `idm_group_admins`, and (c) to the single-valued `entry_managed_by`; co-ownership needs one owner group per group. Guards, AI and supervision rules and the visible log stay in fs-groups. Mirroring comes in a later run.
