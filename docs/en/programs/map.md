@@ -119,15 +119,17 @@ Platform without its own frontend: `fs-objects` (keeping objects), `fs-registry`
 
 ### Repository layers of the scaffold (ADR 0097)
 
-The scaffold crates live in layers of repositories, with one Cargo workspace per repository; edges point only downward (ADR 0097, decision 1, with the addendum of 17 Nov on `fs-access`).
+The scaffold crates are arranged in layers of repositories, with one Cargo workspace per repository; edges point only downward (ADR 0097, decision 1, with the addendum of 17 Nov on `fs-access`). This is decided; most of the named crates do not exist yet.
 
 | Layer | Repositories |
 |-------|--------------|
-| 0 | `fs-types` (values, building kits, type description) |
+| 0 | `fs-types` (values, building kits, type description; `fs-conformance` as well, see below) |
 | 1 | `fs-interfaces`, `fs-jscalendar`, `fs-objects` (storage), `fs-components` (display, shell, `fs-session`) |
-| 2 | `fs-rpc` (`fs-rpc`, `fs-starter`, `fs-connect`, `fs-conformance`, `fs-git`, `fs-backup`, `fs-workflow`) and `fs-access` (SCIM provider, OAuth/OIDC; a repository of its own that sits below `fs-rpc`) |
+| 2 | `fs-rpc` (`fs-rpc`, `fs-starter`, `fs-connect`, `fs-git`, `fs-backup`, `fs-workflow`) and `fs-access` (SCIM provider, OAuth/OIDC; a repository of its own that sits below `fs-rpc`) |
 | 3 | `fs-packages` (`fs-update`) |
 | Tool | `fs-release` (`fs-blueprint`, ADR 0099) |
+
+`fs-conformance`: ADR 0097 decision 1 names `fs-rpc`; the strategy decided on 2026-11-17 that it lives in the workspace of `fs-types` (lowest layer, no edge upward); the ADR 0097 addendum follows. The place of the module library stays open (proposal: `fs-interfaces`).
 
 ## Suites
 

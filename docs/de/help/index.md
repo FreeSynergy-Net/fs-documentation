@@ -6,7 +6,7 @@ Eine Adresse sieht so aus: `help/<programm>/<ansicht>/`, zum Beispiel `help/task
 
 ## Woher die Hilfe kommt
 
-Die Hilfe ist Dokumentation, keine zweite Kopie: Das Handbuch eines Programms liegt im Wiki, und jeder Absatz ist ein Block mit einem Zweck, für die Hilfe im Fenster `help.<thema>`. Die Hilfe im Fenster, die Beschreibung im Store und das Handbuch sind **dieselbe Quelle**, sodass nichts doppelt gepflegt wird ([ADR 0072](../decisions/0072-bloecke-als-quelle-fuer-texte.md)). Jedes Programm bringt die Hilfe als Lese-Wiki mit (ADR 0097, Absatz 2).
+Die Hilfe ist Dokumentation, keine zweite Kopie: Das Handbuch eines Programms liegt im Wiki, und jeder Absatz ist ein Block mit einem Zweck, für die Hilfe im Fenster `help.<thema>`. Die Hilfe im Fenster, die Beschreibung im Store und das Handbuch sind **dieselbe Quelle**, sodass nichts doppelt gepflegt wird ([ADR 0072](../decisions/0072-bloecke-als-quelle-fuer-texte.md)). Jedes Programm bringt die Hilfe als Lese-Wiki mit (ADR 0097, Absatz 2). So ist es entschieden; gebaut ist es noch nicht. Bis dahin kommt die Hilfe aus dieser Dokumentation (ADR 0065).
 
 Das Fenster selbst, die Hülle, gehört zum Gerüst jedes Programms: Der Starter (`fs-starter`) startet es, `fs-session` stellt die Arbeit wieder her, und `fs-update` hält das Programm aktuell ([ADR 0065](../decisions/0065-standard-fensterhuelle.md), [ADR 0097](../decisions/0097-standardgeruest-module-arbeitsweise.md)).
 
