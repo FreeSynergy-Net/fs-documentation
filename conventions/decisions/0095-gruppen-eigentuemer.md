@@ -1,0 +1,84 @@
+# 0095 – Eigentümer von Gruppen und drei Verwaltungsstufen
+
+Status: akzeptiert (Nutzer, 2026-11-17) · Umsetzung: Vertrag `groups_v2` (Änderung am Vertrag), danach Umbau des Kerns von fs-groups · baut auf ADR 0029, 0052, 0054, 0056, 0082 (Nachtrag 2026-11-16), 0085, 0086, 0090, 0091 · berührt 0068 (Fähigkeiten: `groups.own`, `groups.scopes`)
+
+## Kontext
+Nutzer kennen aus Nextcloud Teams, Google Groups, Entra ID und GitHub drei sichtbare Stufen: Mitglied, Verwalter, Eigentümer. In FreeSynergy steht der Eigentümer bisher in keinem ADR. Der gesperrte Vertrag `groups_v1` kennt die Rolle nur als offenen Verweis `Option<RoleRef>` (`None` = Mitglied) auf das RoleBook von fs-people; die Verwaltung ist dort das Recht `Manage`, und der Schutz `LastManager` heißt „letzte Person mit `Manage`“. Der Kern 1a hatte stattdessen eine geschlossene Liste Member/Manager/Owner. Das Review (Blocker B1) zeigte, dass sich beides nicht verlustfrei abbilden lässt.
+
+Dazu kommt die Frage, wer über den einzelnen Gruppen steht. Der Nutzer will drei Verwaltungsstufen: (a) eine Admin-Gruppe für alles (Projekt, Server), (b) eine Admin-Gruppe für alle Gruppen insgesamt, (c) jede Gruppe verwaltet sich selbst.
+
+## Verhältnis zu bestehenden Entscheidungen
+- **0052** (Rollen sind Objekte in fs-people): kein Widerspruch. Die drei Rollen sind **mitgelieferte Einträge** im RoleBook (`roles/known.json`), wie heute schon `member` und `ai`; die Liste bleibt offen.
+- **0056 Pkt 1** (wer installiert, ist oberster Admin) wird **präzisiert**: Die Person, die das Projekt eingerichtet hat, ist die erste Eigentümerin der Stufe-(a)-Gruppe. „Oberster Admin“ ist damit eine Gruppe mit Geltungsbereich, kein Sonderkonto. **Pkt 6** (ein Agent wird nie Admin) gilt unverändert.
+- **0090** (Einzelplatz: allein installiert = Admin ohne Einrichtung): gilt; die Stufe-(a)-Gruppe ist dort die implizite Gruppe „Instanz“, deren einzige Person ohne Einrichtungsschritt Eigentümerin ist.
+- **0082 Nachtrag** (Modi `BottomUp`/`TopDown`/`Single`; Rechte an einer Gruppe gehen nicht über Kanten): unverändert. Eigentum und Geltungsbereich fließen über keine Kante. Der Spiegel nach Kanidm (`entry_managed_by`) kommt später in einem eigenen Spiegel-Lauf.
+- **0085** (Normalisierung an der Grenze): Personen werden über `PersonRef` referenziert, nie über kopierte Namen.
+- **0086** (gespeichert wird typisiert): Rolle und Geltungsbereich werden als Verweis bzw. Aufzählung gespeichert, nie als freier Text.
+- **0091** (KI nur über den Bot-Platz, Bot nie Mitglied): gilt. Ein Bot ist nie Eigentümer, Verwalter oder Mitglied einer Admin-Gruppe.
+- **Betreute Konten** (eigener ADR folgt): fs-people sagt, ob ein Konto betreut ist; fs-groups fragt das nur ab.
+- **Widerspruch: nein.** Präzisiert wird `groups_v1` („`create` gibt `Manage`“ wird „`create` macht zur Eigentümerin“); das erscheint als `groups_v2`.
+
+## Entscheidung
+1. **Was ein Eigentümer ist.** Eine Person (`PersonRef`), die in der Gruppe direkt Mitglied ist und die Rolle `https://freesynergy.net/ns/roles/owner` trägt. Daraus folgt das Recht **`Own`**, das `Manage` einschließt. `Own` gibt es **nur** über diese Rolle, nie über `grant` und nie über eine Inhaber-Gruppe.
+2. **Mehrere Eigentümer: ja, ausdrücklich.** Miteigentum ist der Normalfall; jede Eigentümerin kann weitere ernennen. (Begründung des Nutzers: ein einziger Eigentümer wie bei Telegram erzeugt viel Ärger.)
+3. **Feste Rollen-IRIs, flach.** Basis ist `ROLE_BASE` von fs-people: `…/roles/member`, `…/roles/manager`, `…/roles/owner`; die Definition gehört zu fs-groups, Art `org:Role`, Geltung `group`. Die Rollen stehen flach im RoleBook (kein `broader`); die Stufung tragen die Rechte (`Own` ⊃ `Manage`). Einfaches Mitglied ist kanonisch `role = None`. Ein Feld `RoleInfo.admin` gibt es nicht.
+4. **Verwalter und Eigentümer.** Verwalter (`Manage`, über Rolle oder Recht) verwalten Mitglieder, Einladungen, Kanten, Rechte und Eigenschaften. Nur Eigentümer (`Own`) ernennen, herabstufen oder entfernen Eigentümer, übergeben Eigentum und löschen eine Gruppe mit Eigentümer.
+5. **Drei Verwaltungsstufen als Gruppen mit Geltungsbereich.** Es gibt keine Sonderkonten. Ein Recht trägt einen **Geltungsbereich** `Scope { Project, AllGroups, Group(id) }`:
+   - (a) **Projekt-Verwaltung**: eine Gruppe mit einem Recht im Bereich `Project` (alles: Projekt, Server, alle Gruppen, Vergabe der Bereiche);
+   - (b) **Gruppen-Verwaltung**: eine Gruppe mit einem Recht im Bereich `AllGroups` (alle Gruppen, nicht Projekt und Server);
+   - (c) **Selbstverwaltung**: jede Gruppe durch ihre Eigentümer und Verwalter (Bereich `Group(id)`, wie bisher).
+   Die Bereiche `Project` und `AllGroups` hält immer eine Gruppe, nie eine einzelne Person; sie gelten für deren **direkte**, bekanntermaßen menschliche Mitglieder. Nur wer im Bereich `Project` steht, vergibt oder entzieht Bereiche. Der letzte Bereich `Project` lässt sich nicht entziehen (`LastScope`).
+6. **Der Ersteller bestimmt den ersten Eigentümer.** Wer das Projekt einrichtet, wird erste Eigentümerin der Gruppen (a) und (b); wer eine Gruppe anlegt, wird ihre erste Eigentümerin. Weitere Eigentümer ernennen die Eigentümer selbst.
+7. **Eingriff von oben, immer offen.** (a) und (b) dürfen in **jeder** Gruppe handeln, aber nur über einen **Eingriff**: Die handelnde Person öffnet ihn für eine Gruppe mit Bereich und **Grund** (Pflicht). Jede Handlung darin steht im Protokoll der betroffenen Gruppe mit Akteur (AS2 `actor`), Bereich, Admin-Gruppe und Grund und ist für **jede Person sichtbar, die die Gruppe lesen darf**. Es gibt keinen stillen Weg: ohne Eingriff wirkt der Bereich nicht. „Admin darf alles“ heißt: alles, aber nur mit Protokoll.
+8. **Schutz der letzten.** Eine Handlung, nach der eine Gruppe, die einen Eigentümer hatte, keinen mehr hätte, wird mit `LastOwner` abgelehnt; sonst eine, nach der sie keine Verwaltung mehr hätte, mit `LastManager`. Beide nennen Gruppe, Person und Grund (Austritt, Entfernen, Herabstufen, Entzug, Sperre). Jede Person zählt einmal. **Eingriffe von (a)/(b) unterliegen denselben Regeln** und zählen selbst nie als Eigentum oder Verwaltung der Gruppe; wer eine Eigentümerin ersetzen will, ernennt zuerst die neue.
+9. **Fail-closed.** Kann der Anbieter den Stand vorher, die Mensch-Prüfung oder die Betreuungs-Prüfung nicht lesen, schreibt er nichts. Einträge mit unbekanntem Status zählen vorher mit, nachher nicht; ein Ausfall öffnet den Schutz nie.
+10. **Übergabe.** `transfer_ownership(from, expected, to, keep)`: nur die Eigentümerin selbst, gegen die Revision ihrer Mitgliedschaft; Ziel ist ein direktes, bekanntermaßen menschliches, nicht betreutes Mitglied. Ein Schritt; ohne atomaren Speicher wird zuerst das Ziel Eigentümer, sodass ein Abbruch zwei Eigentümer hinterlässt, nie keinen.
+11. **Löschen und Verlassen.** Löschen einer Gruppe mit wirksamem Eigentümer braucht `Own` oder einen Eingriff von (a)/(b); ohne Eigentümer genügt `Manage`. Wer handelt, ist die Identität der Verbindung, nie ein Parameter. Die letzte Eigentümerin kann erst nach Übergabe austreten, oder sie löscht die Gruppe (Papierkorb mit Frist).
+12. **Leerstelle.** Hat eine Gruppe keinen wirksamen Eigentümer (Altdaten, nachträgliche KI-Markierung, nachträgliche Betreuung), benennt (a) oder (b) per Eingriff einen Menschen als ersten Eigentümer; ein Verwalter allein genügt nicht. Es wird nie automatisch jemand Eigentümer.
+13. **KI-Sperre.** Eine KI oder ein Konto mit unbekanntem Status wird nie Eigentümer, Verwalter oder wirksames Mitglied einer Admin-Gruppe (`AgentNotAdmin`, `AiStatusUnknown`); ein Bereich wirkt für sie nie.
+14. **Betreute Konten sind nie Eigentümer.** Die Rolle `owner` für ein betreutes Konto wird abgelehnt (`SupervisedCannotOwn`), auf welchem Weg auch immer (Anlegen, Hinzufügen, Rolle setzen, Einladen, Übergabe, Leerstelle). Ob ein Konto betreut ist, liefert fs-people; ist es unbekannt oder nicht lesbar, wird abgelehnt. Wird eine Eigentümerin **später** betreut, bleibt der Eintrag stehen, gibt aber kein `Own` mehr (sichtbar als nicht wirksam); gibt es weitere Eigentümer, ändert sich nichts, sonst gilt die Leerstelle (Pkt 12). Die betreuende Person wird dadurch nie Eigentümerin. Verwalter bleibt ein betreutes Konto, soweit die Betreuung es offen zulässt (fs-people).
+15. **Vererbung und Modi.** `Own`, die Rollen und die Bereiche gelten nur dort, wo sie vergeben sind: `Group(id)` nur für diese Gruppe, nicht für Unter- oder Obergruppen. Wer über `BottomUp`/`TopDown` wirksames Mitglied einer Admin-Gruppe wird, bekommt dadurch keinen Bereich. Ein Recht `Manage`, das eine Gruppe als Inhaberin an einer Gruppe hält, gilt wie bisher für deren wirksame Mitglieder; `Own` nie.
+16. **Eigentümer sind immer sichtbar.** Wer die Gruppe lesen darf, sieht ihre Eigentümer, **auch bei sensiblen Gruppen**; die frühere Ausnahme entfällt. Begründung des Nutzers sinngemäß: Gruppen sind klein, man kennt sich. Wem das nicht passt, macht eine eigene Gruppe, und wer nicht passt, wird nicht aufgenommen. Die Liste enthält nur Personenverweise (`PersonRef`), keine kopierten Namen; die Anzeige läuft über fs-people.
+17. **Migration.** Einmal im Kern-Umbau (0086), protokolliert: leer, `member`, `mitglied` → Mitglied; `manager`, `admin`, `verwalter` → Verwalter; `owner`, `eigentümer`, `eigentuemer` → Eigentümer; `https://freesynergy.net/ns#role/…` → neue Basis; alles andere als Alt-Rolle unter `…/roles/legacy/<pct-escaped>`, das kein Recht gibt. Ein Alt-Eigentümer, der betreut ist, wird nicht Eigentümer (Leerstelle).
+
+## Kanidm (Spiegel-Lauf später)
+Geprüft an Kanidm v1.12.0 (Commit `a52b723c`):
+- (a) entspricht ungefähr der Mitgliedschaft in `idm_admins` („manage persons and their groups“) und für Server `system_admins`. Kanidm trennt beide Bereiche ausdrücklich ([Buch: Zugriffskontrolle](https://github.com/kanidm/kanidm/blob/v1.12.0/book/src/access_control/intro.md)).
+- (b) entspricht ungefähr `idm_group_admins`: anlegen, löschen, ändern von `name`, `description`, `mail`, `member`, `entry_managed_by` an allen Gruppen außer den hochprivilegierten ([Zugriffsregeln dl15](https://github.com/kanidm/kanidm/blob/v1.12.0/server/lib/src/migration_data/dl15/access.rs#L1212)). Grenze: `entry_managed_by` nach dem Anlegen ändern darf nur `idm_access_control_admins` ([Buch: Gruppen, Delegierte Verwaltung](https://github.com/kanidm/kanidm/blob/v1.12.0/book/src/accounts/groups.md)).
+- (c) entspricht ungefähr `entry_managed_by`. Grenzen: **einwertig** ([Schema](https://github.com/kanidm/kanidm/blob/v1.12.0/server/lib/src/migration_data/system/schema.rs#L540)); Miteigentum ist nur über eine eigene Eigentümer-Gruppe je Gruppe abbildbar. Die Prüfung nutzt das transitive `memberof` ([Suche](https://github.com/kanidm/kanidm/blob/v1.12.0/server/lib/src/server/access/search.rs#L171)), sodass Eigentümer-Gruppe ⊂ Verwalter-Gruppe abbildbar ist; eine Gruppe kann sich selbst verwalten ([Vorbild `idm_admins`](https://github.com/kanidm/kanidm/blob/v1.12.0/server/lib/src/migration_data/dl15/groups.rs#L98)). Der Entry-Manager darf nur `description` und `member` ändern, nicht löschen ([Zugriffsregeln dl15](https://github.com/kanidm/kanidm/blob/v1.12.0/server/lib/src/migration_data/dl15/access.rs#L804)). `Own` und `Manage` unterscheidet Kanidm nicht (alles oder nichts; [kanidm#4641](https://github.com/kanidm/kanidm/issues/4641), offen).
+- **Nicht in Kanidm:** Schutz der letzten Eigentümerin, KI-Sperre, Betreuungs-Sperre, Eingriff mit Grund und ein für die Gruppe sichtbares Protokoll (das Buch nennt dafür nichts, nur das Server-Log). Diese Regeln leistet fs-groups; Kanidm ist nur Spiegel.
+
+## Entwurfsmuster (ADR 0043)
+Value Object (`FixedRole`, `Scope`, `Transfer`, `Intervention`), Specification (Schutzregel, in jedem Anbieter gleich, Konformitätstests), Repository und Port (Trait `Groups` v2), Proxy (Eingriff: jede Handlung über (a)/(b) läuft durch dieselbe Prüfung und schreibt das Protokoll).
+
+## Folgen
+- Vertrag `groups_v2`: `Right::Own`, `Scope`, `ScopedGrant`, `Intervention`, `LastOwner`, `LastManager` mit Grund, `LastScope`, `SupervisedCannotOwn`, `owners`, `transfer_ownership`, Eingriff öffnen und schließen; Cap'n-Proto-Änderungen nur angehängt.
+- fs-people: zwei neue Einträge in `roles/known.json` (`manager`, `owner`), flach; `PersonFacts` liefert „betreut ja/nein/unbekannt“.
+- fs-groups-Kern: übernimmt die Typen aus `groups_v2`, stellt die IRI-Basis um, migriert Alttexte und legt beim Einrichten die Gruppen (a) und (b) an.
+- Fenster: Rolle je Mitglied, „Eigentum übergeben …“, Eigentümerliste immer sichtbar, Eingriffe im Protokoll hervorgehoben, Meldung bei `LastOwner`, `LastManager` und `SupervisedCannotOwn` mit Grund und Weg.
+- KI-Gruppen (`Group::ai`, `AiNesting`; überholt durch 0091 Pkt 13) werden in einem eigenen Schritt entfernt.
+- Doku: die Programmseite fs-groups beschreibt Eigentümer und die drei Stufen nach diesem ADR.
+
+## Alternativen
+- Geschlossene Rollenliste im Kern (Kern 1a): verworfen, nicht verlustfrei auf `RoleRef` abbildbar (B1).
+- Genau ein Eigentümer (Nextcloud, Telegram): verworfen (Nutzerentscheidung).
+- Admin als Sonderkonto oder fester Schalter: verworfen. Gruppen mit Geltungsbereich sind sichtbar, teilbar und protokolliert.
+- Eigentümer bei sensiblen Gruppen verbergen: verworfen (Nutzerentscheidung).
+
+## Entschieden
+1. Mehrere Eigentümer: ja.
+2. Den ersten Eigentümer bestimmt der Ersteller; die Leerstelle füllen (a) und (b) per Eingriff.
+3. Der Spiegel nach `entry_managed_by` kommt im späteren Spiegel-Lauf.
+4. Betreute Konten sind nie Eigentümer. Die Frage, wer für eine betreute letzte Eigentümerin übergibt, entfällt damit.
+5. Eigentümer sind immer sichtbar.
+6. Der Nutzer hat den ADR am 2026-11-17 angenommen.
+
+## Offen (nicht in diesem ADR entschieden)
+7. Eigentum einer gelöschten Person (AS2 `Tombstone`): Leerstelle wie Pkt 12, oder geht es ohne Weiteres an die übrigen Eigentümer?
+8. Darf (b) die Leerstelle füllen (Entwurf: ja) oder nur (a)?
+9. Ein betreutes Konto legt eine Gruppe an: Entwurf lehnt ab (`SupervisedCannotOwn`); die betreuende Person legt an und nimmt das Konto auf.
+10. Spiegel-Lauf: bekommen Eigentümer echte Schreibrechte in Kanidm (dann umgehen Änderungen direkt in Kanidm unsere Schutzregeln), oder setzt `entry_managed_by` nur das Dienstkonto von fs-identity, und Eigentümer dienen nur zur Anzeige?
+11. Frist, nach der ein Eingriff von selbst schließt (Entwurf: eine Stunde).
+
+## English summary
+**Decision (accepted by the user, 2026-11-17):** A group owner is a person who is a direct member and holds the role `https://freesynergy.net/ns/roles/owner`. That role yields the right `Own`, which includes `Manage` and comes only from the role. Several owners are explicitly allowed. The roles member, manager and owner are flat, shipped entries in the fs-people RoleBook; the rights carry the ranking. There are three levels of administration, all modelled as groups that hold a right with a scope `Project | AllGroups | Group(id)`, never as special accounts: (a) project administration, (b) administration of all groups, (c) every group governs itself through its owners and managers. The person who sets up the project becomes the first owner of (a) and (b); whoever creates a group becomes its first owner. (a) and (b) may act in any group only through an intervention that names a reason; every action is logged in the affected group with actor, scope, admin group and reason, and is visible to everyone who may read the group. Interventions obey the same last-owner and last-manager guards and never count as ownership. Guards fail closed. AIs and accounts of unknown status never hold owner, manager or a scope. Supervised accounts can never be owners (`SupervisedCannotOwn`); if the status is unknown or unreadable, the request is refused. An owner who later becomes supervised keeps the entry without effect. Ownership and scopes never flow over nesting edges. Owners are always visible to every reader of the group, sensitive groups included, as person references only. Legacy role texts are migrated once; unknown ones become `…/roles/legacy/…` and grant nothing. Kanidm v1.12.0 maps (a) to `idm_admins` and `system_admins`, (b) to `idm_group_admins`, and (c) to the single-valued `entry_managed_by`; co-ownership needs one owner group per group. Guards, AI and supervision rules and the visible log stay in fs-groups. Mirroring comes in a later run.

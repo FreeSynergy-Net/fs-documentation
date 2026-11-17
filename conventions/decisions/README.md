@@ -101,3 +101,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0092 | Bibliotheks-Repos bilden einen gerichteten Graphen (kein Kreis, ein Lock je Bibliothek eine Quelle); RPC-Laufzeit zieht aus fs-interfaces in das neue Repo fs-rpc | akzeptiert (Strategie, 2026-11-16; Variante V2) |
 | 0093 | fs-types ist die unterste Bibliothek: eigenes Repo mit `types.capnp`, Wertobjekten und Typbeschreibung (Server nach fs-rpc); Repo-DAG fs-types → fs-interfaces/fs-objects/fs-jscalendar/fs-components → fs-rpc → Programme | akzeptiert (Strategie, 2026-11-16; V1+, Opus-Review 9b1ba986) |
 | 0094 | Frontend-Paket: Manifest (AppStream `addon`), Fundort, `requires`/`extends`, Laden durch das Programm (Starter, Handshake, Fallback), Installation/Update über fs-packages | Entwurf (Strategie, 2026-11-16; Entscheidungen b7 O1 bis O3, O4 offen) |
+| 0095 | Eigentümer von Gruppen und drei Verwaltungsstufen | akzeptiert (Nutzer, 2026-11-17) |
