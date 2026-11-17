@@ -26,3 +26,13 @@ Status: akzeptiert (2026-11-06) · Form der Plugins: Vorschlag · ergänzt ADR 0
 - **ADR 0021** erlaubt Erweiterung ohne Bruch. Das bleibt technisch möglich, aber nach 1.0 ist es nicht mehr der Weg:
   Änderungen kommen als neue Version, mit Übergang, in dem beide angeboten werden.
 - Die bestehenden Kerne werden gegen den Katalog geprüft und umgebaut.
+
+## Nachtrag 2026-11-17 (Baukasten, Gespräch 2): Form der Plugins entschieden
+
+Status: **akzeptiert** (Nutzer, Gespräch 1 und 2 vom 2026-11-17; Strategie) · **ändert** den Status „Form der Plugins: Vorschlag“ (Z. 3, Abschnitt „Vorschlag zur Umsetzung“ Z. 20) zu **entschieden** · baut auf ADR 0097
+
+**Entscheidung**
+1. **Zwei Stufen:** Konfigurations-Modul (Beschreibung, geprüft und atomar getauscht; Vorbild Zentinel, Z. 20) und Agenten-Modul (Code).
+2. **Kommunikation nach Nähe** (Vorschlag des Nutzers mit Rückfrage, von der Strategie bestätigt): „die Sachen, die "Nah" an dem Modul sind, sind alle WebAssably, die, die ohne das Programm auskommen, sind capnproto - die, die ganz weit weg sind, sind capnproto, json, grpc - das klingt doch nach einem Plan, oder?“ Also: nah = **WebAssembly** (Host und Plugin-ABI nach Messung); ohne Programm lauffähig = eigener Prozess über **Cap'n Proto**; ganz weit weg = **Cap'n Proto, JSON, gRPC**.
+3. **Prozess-Modell** (Entscheidung der Strategie, Gegenwort des Nutzers steht aus): einmal je Person und Vertragsversion, Start bei Bedarf, Ende nach Frist, eigene Rechte je Aufrufer (ADR 0097).
+4. „Plugins sind immer Hot-Plugins“ (Z. 12) bleibt.

@@ -47,3 +47,14 @@ Ich habe eine Nachricht. Die Trennung kommt aus der Technik, nicht aus dem Bedar
 ## Folgen
 - Protokolle (Matrix, IMAP, SMTP, JMAP, XMPP) werden in `data/messages/standards.md` beschrieben,
   nicht als Frontend.
+
+## Nachtrag 2026-11-17 (Baukasten, Gespräch 2): nicht Ende-zu-Ende verschlüsselte Wege sind immer markiert
+
+Status: **akzeptiert** (Nutzer, Gespräch 2 vom 2026-11-17, Antwort 4) · **ergänzt** Z. 14 („Nur verschlüsselte Nachrichten. Unverschlüsseltes wird nicht verschickt.“) und Z. 44 (eingehende unverschlüsselte Nachrichten werden gekennzeichnet)
+
+**Entscheidung**
+1. Rückfallweg Mail und Brücken (Matrix, Telegram …), die nicht Ende-zu-Ende verschlüsselt sind, sind erlaubt, aber **immer markiert**: „Ja - wir werden sie aber unterschiedlich sortieren. Wie genau, das überlegen wir uns. Fakt ist, das muss markiert werden, dass sie nicht verschlüsselt sind. (Das Frontend dazu werden wir sehen.)“
+2. Die Sortierung dieser Wege und ihr Frontend: **offen**.
+3. Z. 14 gilt für Wege, die Ende-zu-Ende verschlüsseln können; für die markierten Ausnahmewege gilt Punkt 1 (Transport trotzdem nur TLS, begründete Ausnahmen nach ADR 0021 Nachtrag).
+
+**Pflichttest:** Nachricht über einen nicht Ende-zu-Ende verschlüsselten Weg ohne Markierung → rot.

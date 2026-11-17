@@ -154,3 +154,15 @@ interface BackupProvider {
 - Entwurfsmuster: **Strategy** (eigene Sicherungsstrategie je Programm), **Adapter** (Ziele hinter `WriteBackend`), **Memento** (Schnappschuss und Wiederherstellung).
 
 **Summary of the amendment (2026-11-12):** local first, save space: profile "home PC" (default desktop) versions only the own fs-files store, limit 5 % of the disk and at most 10 GiB, shown clearly; profile "server" 20 % without a GiB cap; everything adjustable (what, when, how much). The human enters the backup target (USB and SFTP/SSH such as a Hetzner Storage Box first, then S3, node1), access via vault reference; restic supports SFTP natively. For a file inside a Git repo the "Versions" tab also shows its Git versions (source visible); "go back" creates a new revision, never a loss. New topic `backup` in `fs-interfaces`: every program delivers a consistent snapshot and can restore it, with its own strategy; the `BackupEngine` collects them. Code only after 3b.
+
+## Nachtrag 2026-11-17 (Baukasten): Git und Sicherung für alle Programme; Besitz der Sicherung und Notfall-Schlüssel
+
+Status: **akzeptiert** (Nutzer Gespräch 1: „Außerdem, Git schreiben und lesen sollten auch alle Programme. Und Backups sollten auch alle Programme machen können.“; Gespräch 2, Antwort 9: „Das machen wir mal so - dafür habe ich momentan keine Idee.“ auf die Empfehlung) · **erweitert** den Geltungsbereich von Files auf alle Programme · **ergänzt** Abschnitt 2 (Backup-Schlüssel, Z. 47) · Voraussetzung im Status (Z. 3: „Code erst nach 3b und Wiki/Groups“) **bleibt**
+
+**Entscheidung**
+1. **Git lesen/schreiben** über die Gerüst-Bibliothek `fs-git` (Schnittstelle `GitRepo`, `gix` + System-`git` hinter Adapter, Zugangsdaten nur über den Tresor) in jedem Programm, nicht nur in Files.
+2. **Sicherung** über die Gerüst-Bibliothek `fs-backup` (restic-Repository-Format, Probe-Wiederherstellung) in jedem Programm; jedes Programm sichert **seine** Daten.
+3. **Das Sicherungs-Repository gehört dem Besitzer der Daten** (Person bzw. Instanz), nicht dem Programm und nicht dem Projekt.
+4. **Den Notfall-Schlüssel legt die Person an**, nie ein Agent; Abschnitt 2 (Z. 47: „Ein Notfall-Schlüssel wird immer angelegt“) gilt weiter. **Die Person wählt die Form** (Nutzer, Gespräch 2, Antwort 11: „Der User soll entscheiden. Wir erklären das, aber der User soll entscheiden.“): `fs-backup` bietet **alle** Formen an (Wortliste zum Aufschreiben; aufgeteilt auf Vertrauenspersonen, k von n; im Tresor) und erklärt jede in Alltagssprache mit Vor- und Nachteilen (auch: „nur im Tresor“ ist weg, wenn der Tresor weg ist); **keine Voreinstellung**, die die Wahl abnimmt (passt zu ADR 0097: Regelwerke mit Voreinstellungen nur, wo der Mensch ändern kann; hier gibt es bewusst keine).
+
+**Pflichttests:** Auswahl-Dialog zeigt alle Formen mit Erklärung und hat keine vorausgewählte Form; Programm sichert nur seine Domain; Wiederherstellung ergibt gleiche Daten; Agent kann keinen Notfall-Schlüssel anlegen.

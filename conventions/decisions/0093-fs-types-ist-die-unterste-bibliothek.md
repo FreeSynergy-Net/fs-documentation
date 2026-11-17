@@ -58,3 +58,14 @@ Reihenfolge nach der Opus-Notiz. **V1+ kommt vor der Programmwelle**, damit jede
 - „0 Zeilen Unterschied“ (Abschnitt „Offen“, Probe `crate_provides`) galt nur für den **relativen** Import der Probe. Mit `import "/types.capnp"` (so ausgeliefert in `fs-interfaces` v0.0.27) verschieben sich **189 Quell-Byte-Bereiche in 13 generierten Dateien** um je +1: Es sind die in die Schemaknoten eingebetteten Start- und End-Bytes der Deklaration im Schema-Quelltext, und `"/types.capnp"` ist ein Zeichen länger als `"types.capnp"`.
 - Der **Draht ist gleich**: Typ-IDs, Felder, Ordinale, Datenlayout und Zugriffs-Offsets sind unverändert; ein Client auf v0.0.26 und ein Server auf v0.0.27 tauschen dieselben Bytes. Belegt durch den Opus-Review von `fs-interfaces` v0.0.27 (e2c554e2): 1173 Schemaknoten alt gegen neu dekodiert, alle 189 Abweichungen sind genau +1/+1 und zeigen auf dieselbe Deklaration.
 - Außerhalb dieser Byte-Bereiche unterscheiden sich die generierten Dateien nur im Pfad `crate::types_capnp` → `::fs_types::types_capnp`.
+
+## Nachtrag 2026-11-17 (Baukasten): Schichten ergänzt, fs-access unter fs-rpc, keine Kante nach oben
+
+Status: **akzeptiert** (ADR 0097) · **ergänzt** Regel 1 (Z. 21)
+
+**Entscheidung**
+1. Regel 1 gilt weiter und wird ergänzt: fs-types → {fs-interfaces, fs-jscalendar, fs-objects, fs-components} → **fs-access** → fs-rpc (mit `fs-starter`, `fs-connect`, `fs-conformance`, `fs-mcp-wrapper` (Arbeitsname), `fs-git`, `fs-backup`, `fs-workflow`) → fs-packages (Bibliothek `fs-update` im Programm-Repo) → Programme.
+2. **fs-access liegt unter fs-rpc** (`fs-connect` hängt an fs-access, fs-access nie am Repo fs-rpc). **Eigenes Repo**, weil wiederverwendbar, auch für andere (SCIM-Provider, OAuth/OIDC).
+3. **`fs-starter` hängt nicht an `fs-update`**; das erzeugte `-bin` jedes Programms verbindet beide.
+4. Regel 2 (eine Quelle je Bibliothek im Lock) gilt für alle neuen Bibliotheken.
+5. Der MCP-Wrapper ist der technische Teil des Bot-Platz-Wegs nach ADR 0091, kein zweiter Mechanismus.
