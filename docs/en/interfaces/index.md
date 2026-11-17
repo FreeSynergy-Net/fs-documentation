@@ -100,5 +100,5 @@ We follow what [Zentinel](https://github.com/zentinelproxy/zentinel) already doe
 ## Who owns the specifications
 
 All interfaces live in one public repository, [`fs-interfaces`](https://github.com/FreeSynergy/fs-interfaces), so that others can
-implement them without our programs. Version 0.3.0 holds the common, tasks, messenger, hub, people, groups and files contracts as drafts, generated
+implement them without our programs. It holds the contracts, among them common, tasks, messenger, hub, people, groups and files, as drafts, generated
 with our own Cap'n Proto compiler. The shared transport code for servers and clients no longer lives there but in the `fs-rpc` repo, without any business logic (ADR 0092, ADR 0093). Errors travel as RFC 9457 problems.

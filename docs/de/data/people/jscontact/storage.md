@@ -1,6 +1,6 @@
 # JSContact – Speicherung
 
-Entsprechend Beschluss 4 in [standards.md](../../standards.md) ist das **belegte Standardmodell die Quelle der Wahrheit**: Kontakte werden feldgenau als JSContact-Objekt (RFC 9553) gespeichert — nicht in einer eigenen Zwischentabelle, aus der das Modell nur projiziert wird. Alle anderen Formate (vCard, jCard, protobuf, JSON-LD/AS2) sind abgeleitete Projektionen.
+Entsprechend Beschluss 4 in [standards.md](../../standards.md) ist das **belegte Standardmodell die Quelle der Wahrheit**: Kontakte werden feldgenau als JSContact-Objekt (RFC 9553) gespeichert — nicht in einer eigenen Zwischentabelle, aus der das Modell nur projiziert wird. Alle anderen Formate (vCard, jCard, Cap'n Proto, JSON-LD/AS2) sind abgeleitete Projektionen.
 
 ## Grundregeln
 

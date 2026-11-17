@@ -10,7 +10,7 @@ kein eigenständiges Programm (ADR 0054). Siehe den [Gesamtplan](../roadmap.md).
 - **Mit einer KI sprechen**, lokal oder entfernt, an einem Ort.
 - **Alles sehen, was die KI tut**, auch die Helfer, die sie startet, und eingreifen können.
 - **Bequem lesen.** Lange Antworten sind das Wichtigste, deshalb kommt das Lesen zuerst.
-- **Mit jedem Programm arbeiten:** Der Chat liest die MCP-Schnittstelle jedes Programms und nutzt sie. MCP-Werkzeuge werden aus dem Vertrag jedes Programms erzeugt (ADR 0021). Die MCP-Schnittstelle sitzt im Gerüst jedes Programms (`fs-connect`) und ist nach der Installation **aus**; eine KI erreicht sie nur über ihren Bot-Platz und nie als die Person (ADR 0097 Nachtrag Gespräch 2, ADR 0091 Nachtrag 17.11.). Das funktioniert, aber die Verträge brauchen vorher noch einige Markierungen ([unten](#mcp-der-vertrag-als-werkzeuge)).
+- **Mit jedem Programm arbeiten:** Der Chat liest die MCP-Schnittstelle jedes Programms und nutzt sie. MCP-Werkzeuge werden aus dem Vertrag jedes Programms erzeugt (ADR 0021). Die MCP-Schnittstelle sitzt im Gerüst jedes Programms (`fs-connect`) und ist nach der Installation **aus**. Eine KI erreicht sie nur über ihren Bot-Platz und handelt nie als die Person; im Einzelplatz gibt es keinen Bot, dort hilft eine KI nur über den MCP-Schalter mit STOP KI (ADR 0097 Absatz 7 und Nachtrag Gespräch 2, ADR 0054 Nachtrag 17.11.). Das funktioniert, aber die Verträge brauchen vorher noch einige Markierungen ([unten](#mcp-der-vertrag-als-werkzeuge)).
 
 Jeder dieser Teile wird als eigenes Stück gebaut, und jedes Programm kann den Chat als [Komponente](../../../components/planned.md) nutzen.
 
