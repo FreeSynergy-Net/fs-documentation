@@ -347,7 +347,7 @@ Grenzen, ehrlich: (i) Was die KI vor der Pause gelesen hat, liegt bei ihr und be
 *Not-Aus-Regel (Nutzerentscheid 25: „Ist das nicht 100 % belegbar, wirkt Pause wie ein Not-Aus: sofort Entfernen.“). Nicht zu verwechseln mit dem „Notaus“ aus 0054 Punkt 5 (Z. 32, eine Rechte-Einstellung).*
 - **N1 statisch:** fehlt für ein Programm, in dem der Platz einen Schlüssel hat, der passende Pause-Nachweis (G8), dann wirkt „Pause“ dort als **Entfernen**.
 - **N2 zur Laufzeit:** die Pause gilt erst als wirksam, wenn (a) das Pause-Ereignis festgeschrieben ist, (b) jedes Programm mit Schlüssel bestätigt hat und (c) das Verbindungsregister 0 meldet, alles innerhalb der Frist D. Sonst: **automatisch Entfernen**, mit Protokolleintrag „Pause nicht bestätigt, Entfernen“.
-- **Fristen D und L sind Einstellungen** (c0-Entscheid; ADR 0100: deklariert als Ganzzahl mit Grenzen, Schicht Instanz, sperrbar): **D** = Frist, bis die Pause bestätigt sein muss, Voreinstellung **1 s**; **L** = Lease für Ströme in weiteren Programmen (Z13), Voreinstellung **5 s**. Grenzen (Vorschlag): D 0,2–10 s, L 1–60 s; Werte außerhalb werden abgelehnt (`out-of-range`). Ändern dürfen nur Instanz-Admins; die KI sieht und ändert sie nie (ADR 0091 Z. 51).
+- **Fristen D und L sind Einstellungen** (c0-Entscheid: einstellbar mit Voreinstellung, Zahlen Vorschlag, Offen 18; ADR 0100: deklariert als Ganzzahl in Millisekunden mit Grenzen, Schicht Instanz, sperrbar): **D** = Frist, bis die Pause bestätigt sein muss, Voreinstellung **1 s**; **L** = Lease für Ströme in weiteren Programmen (Z13), Voreinstellung **5 s**. Grenzen (Vorschlag): D 0,2–10 s, L 1–60 s; Werte außerhalb werden abgelehnt (`out-of-range`). Ändern dürfen nur Instanz-Admins; die KI sieht und ändert sie nie (ADR 0091 Z. 51).
 - **N3 unbelegte Wege:** solange ein Zugriffsweg einer Situation keinen grünen Pflichttest hat, wirkt Pause in dieser Situation als Entfernen. Heute betrifft das Konferenzen mit Medienserver (Z6; c0-Entscheid).
 - **N4 wenn auch Entfernen nicht festgeschrieben werden kann:** das Programm nimmt für diesen Platz keinen Schlüssel mehr an (Sperrliste im Speicher, geschlossen) und meldet einen Befund.
 - Anzeige: wie der Knopf in einer Situation aussieht, in der Pause als Entfernen wirkt (Hinweis am Knopf, Rückfrage ja/nein): Offen 13.
@@ -367,7 +367,6 @@ Grenzen, ehrlich: (i) Was die KI vor der Pause gelesen hat, liegt bei ihr und be
 - **Wiederaufnahme (Nutzer, Frage 33):** fortsetzen dürfen (a) wer pausiert hat, (b) Admins, (c) Inhaber (Eigentümer, ADR 0095) und (d) jede Person mit dem eigenen Recht dafür (Name Beispiel: `ai.resume`, vergeben über fs-access). Grund des Nutzers, sinngemäß: „Sonst könnte jemand pausieren und die Gruppe verlassen, dann wäre die KI dauerhaft aus.“ Daraus: verlässt die pausierende Person die Situation, bleibt die Pause bestehen, bis ein Berechtigter (b)–(d) fortsetzt oder jemand entfernt.
 - `ai.resume` ist ein Recht für Menschen; die KI und ihr Bot erhalten es nie (wie `can_lock`, ADR 0100; Verbote ADR 0091 Z. 51). Es gibt kein Recht, das Pause oder Entfernen erlaubt oder verbietet: beides kann jede Person.
 - Nach **Entfernen** und Wiederkehr über eine neue Umfrage besteht **keine** alte Pause mehr: der neue Platz beginnt `Active` (Nutzer, Frage 33).
-- Mehrere KIs: Pause gilt je Platz (wie ADR 0091 Z. 129); „alle KIs pausieren“ ist ein eigener Schritt, der jeden Platz einzeln pausiert (Vorschlag).
 - Mehrere KIs: Pause gilt je Platz (wie ADR 0091 Z. 129); „alle KIs pausieren“ ist ein eigener Schritt, der jeden Platz einzeln pausiert (Vorschlag).
 - Haben mehrere Personen denselben Platz pausiert: wie viele Pausen eine Wiederaufnahme aufhebt, ist offen (Offen 11).
 
@@ -500,5 +499,5 @@ Kein Token-Exchange-Fluss: der wurde mit dem Kanidm-Konto des Bots gestrichen (A
 15. **Schlüssel nach der Wiederaufnahme:** Vorschlag: neuer Schlüssel, der gesperrte wird widerrufen (macht alles ungültig, was vor der Pause ausgegeben war).
 16. **„Ruht“ (ADR 0091 Z. 57 Halter-Verlust, Z. 78 Ratenbegrenzung):** ob diese Zustände dieselbe Sperre wie Pause benutzen. Vorschlag: ja, ein Zustand, eine Sperre.
 17. **Wiederaufnahme, Einzelheiten:** welche Admin-Stufen (ADR 0095: drei Stufen) als „Admins“ gelten; endgültiger Name des Rechts (Beispiel `ai.resume`).
-18. **Grenzen der Fristen D und L** (Vorschlag D 0,2–10 s, L 1–60 s; Voreinstellung L 5 s ist Vorschlag dieser Fassung).
+18. **Grenzen der Fristen D und L** (Vorschlag D 0,2–10 s, L 1–60 s; Voreinstellungen D 1 s und L 5 s sind Vorschläge der Strategie (Opus), nicht belegt).
 19. **Einzelplatz:** dort gibt es keinen Bot (ADR 0091 Z. 71); ob Pause über den MCP-Schalter gleich gebaut wird.
