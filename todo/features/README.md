@@ -31,6 +31,7 @@ Vollständige Listen aller Funktionen der Vorbilder, mit Stufe heute / als Näch
 | draw | [draw.md](draw.md) | 2026-11-16, Entwurf |
 | messages | [messages.md](messages.md) | 2026-11-16, Entwurf |
 | forms | [forms.md](forms.md) | 2026-11-17, Entwurf |
+| forms (Baukasten) | [forms-baukasten.md](forms-baukasten.md) | 2026-11-17, Entwurf; ergänzt `forms.md` (ADR 0087, Nachtrag 2026-11-17) |
 | resources | [resources.md](resources.md) | 2026-11-17, Entwurf |
 | activities | [activities.md](activities.md) | 2026-11-17, Entwurf |
 | broadcast | [broadcast.md](broadcast.md) | 2026-11-17, Entwurf |
