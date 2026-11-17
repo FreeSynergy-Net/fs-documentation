@@ -3,7 +3,7 @@
 Status: akzeptiert (Nutzer, 2026-11-17) · Umsetzung: Vertrag `groups_v2` (Änderung am Vertrag), danach Umbau des Kerns von fs-groups · baut auf ADR 0029, 0052, 0054, 0056, 0082 (Nachtrag 2026-11-16), 0085, 0086, 0090, 0091 · berührt 0068 (Fähigkeiten: `groups.own`, `groups.scopes`)
 
 ## Kontext
-Nutzer kennen aus Nextcloud Teams, Google Groups, Entra ID und GitHub drei sichtbare Stufen: Mitglied, Verwalter, Eigentümer. In FreeSynergy steht der Eigentümer bisher in keinem ADR. Der gesperrte Vertrag `groups_v1` kennt die Rolle nur als offenen Verweis `Option<RoleRef>` (`None` = Mitglied) auf das RoleBook von fs-people; die Verwaltung ist dort das Recht `Manage`, und der Schutz `LastManager` heißt „letzte Person mit `Manage`“. Der Kern 1a hatte stattdessen eine geschlossene Liste Member/Manager/Owner. Das Review (Blocker B1) zeigte, dass sich beides nicht verlustfrei abbilden lässt.
+Nutzer kennen aus Nextcloud Teams, Google Groups, Entra ID und GitHub drei sichtbare Stufen: Mitglied, Verwalter, Eigentümer. In FreeSynergy steht der Eigentümer bisher in keinem ADR. Der gesperrte Vertrag `groups_v1` kennt die Rolle nur als offenen Verweis `Option<RoleRef>` (`None` = Mitglied) auf das RoleBook von fs-people; die Verwaltung ist dort das Recht `Manage`, und der Schutz `LastManager` heißt „letzte Person mit `Manage`“. Eine frühere Fassung des Kerns sah stattdessen eine geschlossene Liste fester Rollen (Member/Manager/Owner) vor; sie ließ sich nicht verlustfrei auf diesen Verweis abbilden und wird deshalb durch Verweise auf das RoleBook von fs-people ersetzt.
 
 Dazu kommt die Frage, wer über den einzelnen Gruppen steht. Der Nutzer will drei Verwaltungsstufen: (a) eine Admin-Gruppe für alles (Projekt, Server), (b) eine Admin-Gruppe für alle Gruppen insgesamt, (c) jede Gruppe verwaltet sich selbst.
 
@@ -60,7 +60,7 @@ Value Object (`FixedRole`, `Scope`, `Transfer`, `Intervention`), Specification (
 - Doku: die Programmseite fs-groups beschreibt Eigentümer und die drei Stufen nach diesem ADR.
 
 ## Alternativen
-- Geschlossene Rollenliste im Kern (Kern 1a): verworfen, nicht verlustfrei auf `RoleRef` abbildbar (B1).
+- Geschlossene Rollenliste im Kern (Member/Manager/Owner): verworfen, nicht verlustfrei auf `RoleRef` abbildbar.
 - Genau ein Eigentümer (Nextcloud, Telegram): verworfen (Nutzerentscheidung).
 - Admin als Sonderkonto oder fester Schalter: verworfen. Gruppen mit Geltungsbereich sind sichtbar, teilbar und protokolliert.
 - Eigentümer bei sensiblen Gruppen verbergen: verworfen (Nutzerentscheidung).
