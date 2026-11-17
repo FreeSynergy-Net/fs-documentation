@@ -87,4 +87,5 @@ Status: **akzeptiert** (Strategie-Entscheid O1 vom 2026-11-17 zum Ort; Nutzerwor
 4. **Vorhandenes zuerst (Regel für alle Workflows und Aufträge).** Nutzer, Gespräch 2 (Zusatz): „Bevor etwas gebaut wird, wird geschaut, ob es schon existiert und ob es "nur" erweitert wird.“ Ausgestaltung (kein Nutzerwort): jeder Schritt `vorhandenes-zuerst` (Entscheidung 9) und jeder Bau-Auftrag beginnt mit einer Suche in allen Repos, Zweigen und Plänen; Ergebnis ist entweder „vorhanden: X erweitern“ oder „neu, weil …“, jeweils **mit Beleg (Datei:Zeile)**; ein Befund ohne Beleg gilt als rot. Das ist Anforderung N18 der Anforderungsliste Baukasten und schärft N10. Der Pflicht-Erstschritt heißt `vorhanden-pruefen` (in Entscheidung 9 `vorhandenes-zuerst` genannt, gemeint ist derselbe Schritt) und steht seit fs-release main 7212762b in den Workflows geruest-heben, modul-neu, bausatz-neu, grundfassung, frontend-umbau und stil-neu; es ist kein eigener Workflow.
 
 **Offen**
-- Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht weiter aus. [offen]
+- Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht weiter aus. [überholt, siehe unten]
+- fs-module: **entschieden** (Strategie-Entscheid 2026-11-17): Trait/Vertrag „Module“ in fs-interfaces; Laufzeit-Host im fs-rpc-Workspace. [entschieden]
