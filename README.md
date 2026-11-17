@@ -10,7 +10,7 @@ FreeSynergy is built differently, from the ground up. It is a family of programs
 
 - **Free, with no paywall, ever.** No premium, no ads, not today and not later. Someone with little money gets the same software as a company.
 - **Your data stays with you.** You work on your own copy, and it is kept for you. Saving is not exporting: only an export produces a file you hand on. Nothing leaves your machine unless you say so.
-- **One engine, many faces.** A message is a message, whichever program brought it. Under each program sits one engine, and on top of it sit frontends from very simple to complete. You pick one and can switch; your data goes with you.
+- **One engine, many frontends.** A message is a message, whichever program brought it. Under each program sits one engine, and on top of it sit frontends from very simple to complete. You pick one and can switch; your data goes with you.
 - **Everything speaks to everything.** Each program runs alone. Together they share the work, through open interfaces.
 - **Alone first, together later.** A diary, a list, a project can start with you and become shared. You do not decide up front.
 - **People first, AIs welcome but marked.** An AI takes part as a participant, never as a hidden listener. It is marked, and it does not act without your release.
@@ -20,48 +20,48 @@ Why we do this is written down in the [manifesto](https://freesynergy.github.io/
 
 ## The programs
 
-Status is as of 2026-11-08 and kept honest. "Core" means the engine works and is tested, but there is nothing to click yet. "First window" means a provisional window exists. Tags are the latest on GitHub. Version numbers start at `0.0.1` and count up in the last place; `0.1.0` is given only when a person can use the program and it passes the owner's hands-on test, `1.0.0` only when two independent users use its interface ([ADR 0064](https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0064-versionen-ab-0-0-1.md)).
+Tags are as of 2026-11-17 (checked against GitHub); the status wording is as of 2026-11-08 and has not been re-checked. "Core" means the engine works and is tested, but there is nothing to click yet. "First window" means a provisional window exists. Version numbers start at `0.0.1` and count up in the last place; `0.1.0` is given only when a person can use the program and it passes the owner's hands-on test, `1.0.0` only when two independent users use its interface ([ADR 0064](https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0064-versionen-ab-0-0-1.md)).
 
 | Program | Purpose | Repo | Status |
 |---------|---------|------|--------|
-| People | know who someone is | [fs-people](https://github.com/FreeSynergy/fs-people) | Core and a first window, `v0.0.2` |
-| Calendar | be somewhere at some time | [fs-calendars](https://github.com/FreeSynergy/fs-calendar) | Core and a first window, `v0.0.1` |
-| Tasks | know what to do next | [fs-tasks](https://github.com/FreeSynergy/fs-tasks) | Core and a first window (list and status view, no real boards), `v0.0.2` |
-| Files | keep and find anything | [fs-files](https://github.com/FreeSynergy/fs-files) | Core and server, no window, `v0.0.1` |
-| Maps | know where | [fs-maps](https://github.com/FreeSynergy/fs-maps) | Core (tiles, offline regions, places), no map drawing yet, `v0.0.1` |
-| Wiki | write and know together | [fs-texts](https://github.com/FreeSynergy/fs-wiki) | Core and a first reader window with editing, `v0.0.1` |
-| Messenger | say something to someone | [fs-messages](https://github.com/FreeSynergy/fs-messenger) | Core, AI guard and mail connector, no window, `v0.0.1` |
-| Groups | belong together | [fs-groups](https://github.com/FreeSynergy/fs-groups) | Core, no window, `v0.0.1` |
-| History | remember what I or we did | [fs-activities](https://github.com/FreeSynergy/fs-activities) | Core, no window, `v0.0.1` |
-| Resources | know what we have and need | [fs-resources](https://github.com/FreeSynergy/fs-resources) | Core, no window, `v0.0.1` |
-| Surveys | ask, and decide together | [fs-forms](https://github.com/FreeSynergy/fs-surveys) | Core, no window, `v0.0.1` |
-| Whiteboard | think visually | [fs-draw](https://github.com/FreeSynergy/fs-whiteboard) | Core (stage 1), no window, `v0.0.1` |
-| Streaming | show something, and bring it everywhere | [fs-broadcast](https://github.com/FreeSynergy/fs-broadcast) | Stage 1 (forward and record), tested on loopback only, `v0.0.1` |
-| Store | install and keep everything up to date | not public yet (local repo `fs-launcher`) | Design and a small core, coming |
+| People | know who someone is | [fs-people](https://github.com/FreeSynergy/fs-people) | Core and a first window, `v0.0.14` |
+| Calendar | be somewhere at some time | [fs-calendars](https://github.com/FreeSynergy/fs-calendars) | Core and a first window, `v0.0.5` |
+| Tasks | know what to do next | [fs-tasks](https://github.com/FreeSynergy/fs-tasks) | Core and a first window (list and status view, no real boards), `v0.0.10` |
+| Files | keep and find anything | [fs-files](https://github.com/FreeSynergy/fs-files) | Core and server, no window, `v0.0.11` |
+| Maps | know where | [fs-maps](https://github.com/FreeSynergy/fs-maps) | Core (tiles, offline regions, places), no map drawing yet, `v0.0.4` |
+| Texts | write and know together | [fs-texts](https://github.com/FreeSynergy/fs-texts) | Core and a first reader window with editing, `v0.0.13` |
+| Messages | say something to someone | [fs-messages](https://github.com/FreeSynergy/fs-messages) | Core, AI guard and mail connector, no window, `v0.0.3` |
+| Groups | belong together | [fs-groups](https://github.com/FreeSynergy/fs-groups) | Core, no window, `v0.0.2` |
+| Activities | remember what I or we did | [fs-activities](https://github.com/FreeSynergy/fs-activities) | Core, no window, `v0.0.2` |
+| Resources | know what we have and need | [fs-resources](https://github.com/FreeSynergy/fs-resources) | Core, no window, `v0.0.2` |
+| Forms | ask, and decide together | [fs-forms](https://github.com/FreeSynergy/fs-forms) | Core, no window, `v0.0.2` |
+| Draw | think visually | [fs-draw](https://github.com/FreeSynergy/fs-draw) | Core (stage 1), no window, `v0.0.2` |
+| Broadcast | show something, and bring it everywhere | [fs-broadcast](https://github.com/FreeSynergy/fs-broadcast) | Stage 1 (forward and record), tested on loopback only, `v0.0.2` |
+| Store | install and keep everything up to date | [fs-packages](https://github.com/FreeSynergy/fs-packages) | Core and a first window, pre-release, `v0.0.22` |
 
 Building blocks, which matter because everything above stands on them:
 
 | Block | Purpose | Repo | Status |
 |-------|---------|------|--------|
-| Objects | one place for what programs keep | [fs-objects](https://github.com/FreeSynergy/fs-objects) | Working, `v0.0.1` |
-| Hub | let the programs find each other | [fs-registry](https://github.com/FreeSynergy/fs-hub) | Working on one device, Linux, `v0.0.1` |
+| Objects | one place for what programs keep | [fs-objects](https://github.com/FreeSynergy/fs-objects) | Working, `v0.0.6` |
+| Hub | let the programs find each other | [fs-registry](https://github.com/FreeSynergy/fs-registry) | Working on one device, Linux, `v0.0.2` |
 | Identity | know who is allowed in | [fs-identity](https://github.com/FreeSynergy/fs-identity) | Only a Kanidm adapter for groups, no sign-in yet, `v0.0.1` |
-| Interfaces | the contracts everything agrees on | [fs-interfaces](https://github.com/FreeSynergy/fs-interfaces) | All drafts, none 1.0, `v0.0.1` |
-| JSCalendar | the same time for everyone | [fs-jscalendar](https://github.com/FreeSynergy/fs-jscalendar) | Library, `v0.0.1` |
-| Components | one look, one feel | [fs-components](https://github.com/FreeSynergy/fs-components) | Working, partly provisional, `v0.0.2` |
-| Types | the values and building kits all contracts are made of (layer 0) | [fs-types](https://github.com/FreeSynergy/fs-types) | Library, `v0.0.1` |
-| Rpc | talk between programs, start programs, connect to the outside (`fs-rpc`, `fs-starter`, `fs-connect`) | [fs-rpc](https://github.com/FreeSynergy/fs-rpc) | Library, `v0.0.2` |
+| Interfaces | the contracts everything agrees on | [fs-interfaces](https://github.com/FreeSynergy/fs-interfaces) | All drafts, none 1.0, `v0.0.27` |
+| JSCalendar | the same time for everyone | [fs-jscalendar](https://github.com/FreeSynergy/fs-jscalendar) | Library, `v0.0.4` |
+| Components | one look, one feel | [fs-components](https://github.com/FreeSynergy/fs-components) | Working, partly provisional, `v0.0.29` |
+| Types | the values every program shares and the type description of their data (layer 0) | [fs-types](https://github.com/FreeSynergy/fs-types) | Library, `v0.0.1` |
+| Rpc | talk between programs (`fs-rpc`); starting programs (`fs-starter`) and the connection to the outside (`fs-connect`) are planned in the same repository (ADR 0097) | [fs-rpc](https://github.com/FreeSynergy/fs-rpc) | Library, `v0.0.2` |
 | Access | SCIM provider and OAuth/OIDC for every program; a repository of its own, below `fs-rpc` ([ADR 0097](https://github.com/FreeSynergy/fs-documentation/blob/main/conventions/decisions/0097-standardgeruest-module-arbeitsweise.md), addendum 17 Nov) | not public yet (planned) | Planned |
 | Capnpc | build the contracts with Rust alone | [fs-capnpc](https://github.com/FreeSynergy/fs-capnpc) | Working, `v0.0.1` |
-| Release | one way to ship, free of charge | [fs-release](https://github.com/FreeSynergy/fs-release) | In use, first run green, no tag yet |
+| Release | one way to ship, free of charge | [fs-release](https://github.com/FreeSynergy/fs-release) | In use, `v0.0.10` |
 
 What we do not have yet, plainly: no program has a finished app for ordinary users, there is no sign-in, nothing syncs between devices, and every interface is still a draft. Messages and some data stay on the device they were made on until a key vault exists.
 
 ## How to try it
 
-The store, FreeSynergy's own app for installing everything with one click and keeping it up to date, is **coming**. It is not available yet, and we will announce it here when it is.
+The Store ([FreeSynergy.Packages](https://freesynergy.github.io/fs-documentation/programs/platform/packages/)) is FreeSynergy's own app for installing everything and keeping it up to date. It is a **pre-release**: you install it once by hand from a signed release, and then you install the programs from its catalog ([how to install](https://freesynergy.github.io/fs-documentation/start/install/)). The catalog is still small, and the window is provisional.
 
-Until then you can try things from source if you are comfortable with a terminal. You need a Rust toolchain on Linux.
+You can also try things from source if you are comfortable with a terminal. You need a Rust toolchain on Linux.
 
 - Each core has a small example, for instance `cargo run -p fs-messenger-core --example demo` or `cargo run -p fs-people-core --example demo`.
 - People, Calendar, Tasks and Wiki have first windows (`fs-people-app`, `fs-calendar-app`, `fs-tasks-app`, `fs-wiki-app`); the DESIGN file in each repo lists the options and what to try.

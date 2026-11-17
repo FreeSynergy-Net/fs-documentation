@@ -1,6 +1,6 @@
 # Programs
 
-**One engine per topic. As many faces as there are people.**
+**One engine per topic. As many frontends as there are people.**
 
 Every app you see in FreeSynergy stands on a strong engine that knows its topic inside out: people, messages, tasks, files, appointments. On top of that engine you choose how it looks and how much it shows. Underneath, all engines speak the same open interfaces, so your contacts, your calendar and your messages work together without you setting anything up. You never have to learn how it is built. But if you want to know, here it is.
 

@@ -1,6 +1,6 @@
 # Programme
 
-**Ein Motor pro Thema. So viele Gesichter, wie es Menschen gibt.**
+**Ein Motor pro Thema. So viele Frontends, wie es Menschen gibt.**
 
 Jede App, die du in FreeSynergy siehst, steht auf einem starken Motor, der sein Thema in- und auswendig kennt: Menschen, Nachrichten, Aufgaben, Dateien, Termine. Darauf wählst du, wie sie aussieht und wie viel sie zeigt. Darunter sprechen alle Engines dieselben offenen Schnittstellen, sodass deine Kontakte, dein Kalender und deine Nachrichten zusammenarbeiten, ohne dass du etwas einrichten musst. Du musst nie lernen, wie sie gebaut ist. Wenn du es aber wissen willst, hier ist es.
 
