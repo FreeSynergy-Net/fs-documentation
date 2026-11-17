@@ -24,10 +24,10 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0015 | Fremdprojekte, die wir nutzen und unterstützen; Crate-Regel | akzeptiert |
 | 0016 | Lizenz: MIT OR Apache-2.0, für immer kostenlos | akzeptiert |
 | 0017 | Programme heißen nach Kategorie, ein Repo pro Programm | akzeptiert |
-| 0018 | Messenger umfasst E-Mail und Chats; nur verschlüsselt; Backend-Stufenplan | akzeptiert |
+| 0018 | Messenger umfasst E-Mail und Chats; nur verschlüsselt; Backend-Stufenplan | akzeptiert; Nachtrag 17.11. |
 | 0019 | Datenhaltung: `fs-store` je Programm, `fs-hub` je Gerät | akzeptiert |
 | 0020 | Speicherformat: AS2-Hülle + Fachstandard + Protokoll; Leihen = Live-Verweis | akzeptiert |
-| 0021 | Schnittstelle: ein Vertrag (Cap'n Proto), viele Zugänge | akzeptiert |
+| 0021 | Schnittstelle: ein Vertrag (Cap'n Proto), viele Zugänge | akzeptiert; Nachtrag 17.11. |
 | 0022 | Zwei Referenz-Frontends je Programm | superseded by 0038 |
 | 0023 | Darstellungs-Register; Code- und Block-Editor | Punkt 4 ersetzt durch 0039 |
 | 0024 | Programm ohne Hub, Verschlüsselung, Schlüsseltresor, SCIM | akzeptiert |
@@ -51,7 +51,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0042 | Text + Ebenen; Datenbank ist die Wahrheit, Dateien sind Exporte; begrenztes dauerhaftes Rückgängig | akzeptiert |
 | 0043 | Entwurfsmuster, Schnittstellen zuerst, kleine Dateien, Refactoring, Doku | akzeptiert |
 | 0044 | Weitere Programme: Files, Kanban, Surveys, Gallery, Whiteboard, Streaming | überholt durch 0049 |
-| 0045 | Jedes Thema eine Schnittstelle; Schnittstellen sind Ziele; Hot-Plugins | akzeptiert (Form der Plugins: Vorschlag) |
+| 0045 | Jedes Thema eine Schnittstelle; Schnittstellen sind Ziele; Hot-Plugins | akzeptiert (Form der Plugins entschieden; Nachtrag 17.11.) |
 | 0046 | Speichern ist nicht Exportieren | akzeptiert (Details: Vorschlag) |
 | 0047 | Kanidm hinter eigenem Wrapper | akzeptiert (ergänzt 0024) |
 | 0048 | Codecs ausgelagert, offene Codecs zuerst | akzeptiert |
@@ -60,7 +60,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0051 | Releases: `fs-release`, nur kostenlose Wege, offene Signatur | akzeptiert |
 | 0052 | Eine Person mit Rollen; Rollen standardisiert oder selbst definiert; Vertrauen sichtbar machen | akzeptiert |
 | 0053 | LLM-Chat als Component und Programm; Übersetzung vorerst nicht; Projektadresse | akzeptiert |
-| 0054 | KIs sind markierte Teilnehmer; der Assistent ist ein Messenger-Frontend | akzeptiert (Aussperren: vorerst bestätigt; Identität offen; Nachtrag 16.11.) |
+| 0054 | KIs sind markierte Teilnehmer; der Assistent ist ein Messenger-Frontend | akzeptiert (Aussperren: vorerst bestätigt; Identität offen; Nachtrag 16.11.; Nachtrag 17.11.) |
 | 0055 | Sprechende Namen statt IDs; `fs-groups` ist die Quelle der Wahrheit für Gruppen | akzeptiert |
 | 0056 | Oberster Admin; Agenten werden nie Admin; Workbench gibt Kontext; Kanidm flach | akzeptiert |
 | 0057 | Was ein Mensch liest, ist übersetzbar; Bibliothek `mf2` | akzeptiert |
@@ -77,7 +77,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0068 | Fähigkeiten statt fester Anforderungen (provides/requires); fremde Pakete gespiegelt samt Quellcode; `catalog.freesynergy.net` | akzeptiert |
 | 0069 | Update schließt ein laufendes Programm und startet es am selben Punkt neu (Sitzungsdatei, automatisches Speichern, Klon, `suspend_and_exit()`; Nachtrag 17.11.: Selbst-Update jedes Programms, typisierte Sitzung `session.toml`, `UpdateMode`, Ruhe-Regel, Rollback) | akzeptiert (Strategie); F1 entschieden (Nutzer, ja); Nachtrag 17.11. |
 | 0070 | Thema `storage`: ein Baum für alles, worauf man Zugriff hat (`StorageProvider` neben `BlobBackend`) | akzeptiert (Strategie); Code erst nach 3b grün |
-| 0071 | Versionen, Git und Backup in Files (drei Schichten; `versions` aus 0070 erweitert; Ergänzung 2026-11-12: Platz-Profile, Backup-Ziele, Git-Nebenfenster, Backup in jedem Programm) | akzeptiert (Strategie); Code erst nach 3b und Wiki/Groups |
+| 0071 | Versionen, Git und Backup in Files (drei Schichten; `versions` aus 0070 erweitert; Ergänzung 2026-11-12: Platz-Profile, Backup-Ziele, Git-Nebenfenster, Backup in jedem Programm) | akzeptiert (Strategie); Code erst nach 3b und Wiki/Groups; Nachtrag 17.11. |
 | 0072 | Blöcke als Quelle für Texte: Handbuch im Wiki, Store-Beschreibung und Hilfe daraus; Kopie im Paket | akzeptiert (Strategie); Code nach 3b und Wiki |
 | 0073 | Kollaboration überall mit Loro (Awareness, AS2-Änderungsstrom, Rechte vor Import, „wirklich löschen“; Nachtrag 16.11.: Wahrheit in typisierten Tabellen nach 0086, Loro nur Abgleichs-Puffer für Fließtext, Tabelle `collab_buffer` als dritte Blob-Ausnahme) | Entwurf; Nachtrag 16.11. |
 | 0074 | Stil, Bausteine, Bewegung, Klang und Menüs: getrennte Schichten aus Standards | akzeptiert (Gründer); Code nach dem Meilenstein „Wir benutzen es selbst“ |
@@ -97,12 +97,12 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0088 | Web-Zugang der Programme und automatisches DNS (Arbeitstitel) | reserviert (kein Dokument) |
 | 0089 | Schriften: freie Lizenzen, keine Schrift im Release, Installation über fs-software | akzeptiert (Nutzer, 2026-11-16) |
 | 0090 | Einzelplatz-Modus: Besitzer ohne Konto | Entwurf (Strategie, 2026-11-16) |
-| 0091 | KI-Stellvertreter-Bot: die KI hat keine Rechte, der Bot ist ihr einziger Weg | Entwurf (Strategie, 2026-11-16; Entscheidungen 2.6.1 bis 2.6.11) |
+| 0091 | KI-Stellvertreter-Bot: die KI hat keine Rechte, der Bot ist ihr einziger Weg | Entwurf (Strategie, 2026-11-16; Entscheidungen 2.6.1 bis 2.6.11; Nachtrag 17.11.) |
 | 0092 | Bibliotheks-Repos bilden einen gerichteten Graphen (kein Kreis, ein Lock je Bibliothek eine Quelle); RPC-Laufzeit zieht aus fs-interfaces in das neue Repo fs-rpc | akzeptiert (Strategie, 2026-11-16; Variante V2) |
-| 0093 | fs-types ist die unterste Bibliothek: eigenes Repo mit `types.capnp`, Wertobjekten und Typbeschreibung (Server nach fs-rpc); Repo-DAG fs-types → fs-interfaces/fs-objects/fs-jscalendar/fs-components → fs-rpc → Programme | akzeptiert (Strategie, 2026-11-16; V1+, Opus-Review 9b1ba986) |
+| 0093 | fs-types ist die unterste Bibliothek: eigenes Repo mit `types.capnp`, Wertobjekten und Typbeschreibung (Server nach fs-rpc); Repo-DAG fs-types → fs-interfaces/fs-objects/fs-jscalendar/fs-components → fs-rpc → Programme | akzeptiert (Strategie, 2026-11-16; V1+, Opus-Review 9b1ba986; Nachtrag 17.11.) |
 | 0094 | Frontend-Paket: Manifest (AppStream `addon`), Fundort, `requires`/`extends`, Laden durch das Programm (Starter, Handshake, Fallback), Installation/Update über fs-packages | Entwurf (Strategie, 2026-11-16; Entscheidungen b7 O1 bis O3, O4 offen) |
 | 0095 | Eigentümer von Gruppen und drei Verwaltungsstufen | akzeptiert (Nutzer, 2026-11-17) |
 | 0096 | Format und Host (Arbeitstitel) | reserviert (kein Dokument) |
-| 0097 | Standardgerüst, Module und Arbeitsweise: Programme werden zusammengesteckt | Entwurf mit offenen Stellen (2026-11-17) |
-| 0098 | Datenbausätze: einmal beschrieben, überall gleich, überall vollständig | Entwurf (2026-11-17) |
-| 0099 | Bauplan (`scaffold.toml`) und zwei Rollen: Bau-Werkzeug für das Projekt, fs-scaffold für Instanzen | Entwurf (2026-11-17) |
+| 0097 | Standardgerüst, Module und Arbeitsweise: Programme werden zusammengesteckt | akzeptiert (Nutzer, 2026-11-17; Nachträge: Gespräch 2, fs-access) |
+| 0098 | Datenbausätze: einmal beschrieben, überall gleich, überall vollständig | akzeptiert (2026-11-17) |
+| 0099 | Bauplan (`scaffold.toml`) und zwei Rollen: Bau-Werkzeug für das Projekt, fs-scaffold für Instanzen | akzeptiert (2026-11-17) |
