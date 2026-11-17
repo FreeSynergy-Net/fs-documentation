@@ -129,7 +129,7 @@ The scaffold crates are arranged in layers of repositories, with one Cargo works
 | 3 | `fs-packages` (`fs-update`) |
 | Tool | `fs-release` (`fs-blueprint`, ADR 0099) |
 
-`fs-conformance`: ADR 0097 decision 1 names `fs-rpc`; the strategy decided on 2026-11-17 that it lives in the workspace of `fs-types` (lowest layer, no edge upward); the ADR 0097 addendum follows. The place of the module library stays open (proposal: `fs-interfaces`).
+`fs-conformance`: ADR 0097 decision 1 names `fs-rpc`; the strategy decided on 2026-11-17 that it lives in the workspace of `fs-types` (lowest layer, no edge upward); see ADR 0097, addendum 3 (place of `fs-conformance`: `fs-types`). The module contract (`fs-module`) is decided as well: the trait lives in `fs-interfaces`, the runtime host in the `fs-rpc` workspace (ADR 0097, addendum 3).
 
 ## Suites
 

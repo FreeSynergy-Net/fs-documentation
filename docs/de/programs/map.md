@@ -119,7 +119,7 @@ Die Gerüst-Crates sind in Schichten von Repos angeordnet, mit je einem Cargo-Wo
 | 3 | `fs-packages` (`fs-update`) |
 | Werkzeug | `fs-release` (`fs-blueprint`, ADR 0099) |
 
-`fs-conformance`: ADR 0097 Entscheidung 1 nennt `fs-rpc`; die Strategie hat am 2026-11-17 entschieden, dass es im Workspace von `fs-types` liegt (unterste Schicht, keine Kante nach oben); der Nachtrag zu ADR 0097 folgt. Der Ort der Modul-Bibliothek bleibt offen (Vorschlag: `fs-interfaces`).
+`fs-conformance`: ADR 0097 Entscheidung 1 nennt `fs-rpc`; die Strategie hat am 2026-11-17 entschieden, dass es im Workspace von `fs-types` liegt (unterste Schicht, keine Kante nach oben); siehe ADR 0097, Nachtrag 3 (Ort von `fs-conformance`: `fs-types`). Auch der Modul-Vertrag (`fs-module`) ist entschieden: der Trait liegt in `fs-interfaces`, der Laufzeit-Host im Workspace von `fs-rpc` (ADR 0097, Nachtrag 3).
 
 ## Suites
 
@@ -168,3 +168,14 @@ Von Thread F gegen Webquellen geprüft (Sprint Runde 3, 2026-11-10). Die Quellen
 | Store | F-Droid: Anti-Feature-Kennzeichnung, reproduzierbare Builds · Obtainium: installiert direkt aus Git-Releases · Flathub: verifizierte Herausgeber (Prüfung des App-ID-Besitzes) | ✅ [store](apps/packages/frontends/index.md) |
 | Start | Raycast: eine Palette für alles · Alfred: Palette, Workflows (⚠️ „nur macOS“ nicht ausdrücklich genannt) · KDE Plasma: Aktivitäten mit eigenen Favoriten, Widgets, Hintergrund, Fensterregeln; Energie und Panels gelten für alle (informelle Quellen ⚠️) | ✅ [desktop](platform/desktop/frontends/index.md) · Alfred ⚠️ |
 | Helpdesk | Chatwoot: alle Kanäle in einem Posteingang, Website-Widget · **Korrigiert:** Zammad hat ein CTI-Anrufprotokoll (Placetel, sipgate, generische CTI-API), kein eigenes SIP; Warnung bei Bearbeitungskonflikt · Help Scout: Kundenleiste | ✅ [helpdesk](apps/helpdesk/frontends/index.md) · Zammad korrigiert |
+| CRM | Twenty: eigene Objekte und Felder (Lizenz aus einer Quelle Dritter ⚠️) · Attio: Anreicherung | ✅ [crm](suites/crm/frontends/index.md) · Twenty-Lizenz ⚠️ |
+| Workflows | n8n: Knoten-Canvas, Code-Knoten (Zahl der Integrationen uneinheitlich: 400+ gegenüber 1500+) · Huginn: Agenten und Ereignisse · Windmill: Skripte werden zu Formularen, Endpunkten und Jobs · Apple Kurzbefehle: persönliches Gerätewerkzeug · Power Automate: gehostetes Produkt | ✅ [workflows](suites/workflows/frontends/index.md) · n8n-Zahl offen |
+| Marketing | Plausible: ohne Cookies, Trichter, Statistik-API · Umami: ohne Cookies, Trichter, Bindung, Verläufe · Listmonk: Newsletter-Verwaltung (AGPL-3.0) | ✅ [marketing](apps/marketing/frontends/index.md) |
+
+## Offene Punkte dieses Entwurfs
+
+1. **Marketing** (analysiert: Matomo, Plausible, Mautic): eigenes Programm mit eigenen Daten oder eine Suite über messenger und people?
+2. **Workflows** (analysiert: n8n, Node-RED): ein Programm, das Workflow-Definitionen besitzt (Kandidat für den Standard: CNCF Serverless Workflow, BPMN), oder später?
+3. **Helpdesk**: Suite wie oben vorgeschlagen oder eigenes Programm?
+4. **Groups, Identity**: noch keine Vorbilder analysiert; Haiku recherchiert Kandidaten. History und Store haben ihre ersten Analysen (2026-11-10).
+5. **Stile**: Die ersten vier sind durch die Frontends festgelegt: *Admin* (dicht), *Einfach* (groß), *Apple* (runde Ecken, Glas), *Windows* (flach, Fluent-Abstände). Jeder mit einem eigenen Icon-Satz. Weitere können folgen.
