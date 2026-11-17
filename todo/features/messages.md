@@ -105,4 +105,4 @@ Unverschlüsselt senden, Verschlüsselung als Sondermodus, kostenpflichtige Stuf
 
 ## Ablage
 
-Diese Liste liegt vorläufig unter dem Arbeitsordner; sie liegt jetzt in `todo/features/messages.md`. Quellen: requirements.md (Pflicht, optional, angenommene Ideen 2026-11-08), Dossiers der Vorbilder, `DESIGN.md` und README des Programms. Fachbegriffe der Vorbilder sind Konzepte, Quellcode wurde nicht übernommen (ADR 0013).
+Quellen: requirements.md (Pflicht, optional, angenommene Ideen 2026-11-08), Dossiers der Vorbilder, `DESIGN.md` und README des Programms. Fachbegriffe der Vorbilder sind Konzepte, Quellcode wurde nicht übernommen (ADR 0013).
