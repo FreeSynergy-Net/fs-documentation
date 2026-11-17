@@ -228,16 +228,16 @@ Status: **Entwurf** (Nutzer, Gespräch 4, Antworten 18/19, Z. 59, 62; Ausgestalt
 4. **Teilnehmer-Arten** in Auswertungen: bekannte Personen, KIs, anonyme, **betreute Konten** (Antwort 19, Z. 62: „Ja, betreute Konten.“); betreut ≠ Eigentümer (ADR 0095).
 **ADR 0091:** kein weiterer Nachtrag nötig (Bot-Platz, STOP je Platz und Kennzeichnung stehen in 0091 Z. 129, 228–240).
 
-## Nachtrag 2026-11-18: KI „im Auftrag“ der Person; Protokoll vor der Aktion; Token nie sichtbar
+## Nachtrag 2026-11-17: KI „im Auftrag“ der Person; Protokoll vor der Aktion; Token nie sichtbar
 
-Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-18, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Z. 204, „eine KI handelt nie im Namen der Person“) und „Agenten erzeugen keine Geheimnisse, die ein Mensch behält“ (Nutzer, 2026-11-07) · gilt mit dem Nachtrag zu ADR 0091 vom selben Tag
+Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Z. 204, „eine KI handelt nie im Namen der Person“) und „Agenten erzeugen keine Geheimnisse, die ein Mensch behält“ (Nutzer, 2026-11-07) · gilt mit dem Nachtrag zu ADR 0091 vom selben Tag
 
 **Entscheidung (Nutzer)**
 1. **Protokoll vor der Aktion (23.1).** Nutzer: „JA fest: Protokoll vor der Aktion.“ Das Protokoll steht, bevor die Aktion läuft, nicht erst danach.
 2. **„Im Auftrag“ (23.2).** Nutzer: „JA, präzisiert: Die KI nutzt NIE den Account oder die Zugangsdaten der Person. Sie darf Aufträge der Person ausführen, „im Auftrag“, als verlängerter Arm, handelt dabei aber immer als sie selbst und behauptet nie, die Person habe es getan.“
 3. **Token nie sichtbar (23.3).** Nutzer: „JA fest: Token nie sichtbar; Ausnahmen nur nach Gespräch mit dem Nutzer.“
 
-Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-18, weitergegeben durch die Strategie (via Strategie c0), im Wortlaut wie übergeben.
+Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-17, weitergegeben durch die Strategie (via Strategie c0), im Wortlaut wie übergeben.
 
 **Ausgestaltung (Strategie, kein Nutzerwort)**
 1. **Modell:** `actor` = die KI (eigener, gekennzeichneter Akteur, ADR 0091), `on_behalf_of` = die Person, die den Auftrag gegeben hat. Die Person ist **nie** der `actor`.

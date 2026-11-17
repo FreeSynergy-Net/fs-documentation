@@ -239,9 +239,9 @@ Status: **Entwurf** (Nutzer, 2026-11-17: Präzisierung nach Gespräch 2 und Antw
 
 **Pflichttests:** Bot-Aufruf mit der Identität der Person → abgelehnt; Bot-Nachricht ohne Kennzeichnung → nicht zustellbar; Schutz-KI ausführend → abgelehnt.
 
-## Nachtrag 2026-11-18: Aufträge „im Auftrag“: actor = KI, on_behalf_of = Person
+## Nachtrag 2026-11-17: Aufträge „im Auftrag“: actor = KI, on_behalf_of = Person
 
-Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-18, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Handeln per Mandat, nie als die Person) und Entscheidung 3 (Wrapper) · gilt mit dem Nachtrag zu ADR 0054 vom selben Tag, dort der Nutzerwortlaut
+Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-17, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Handeln per Mandat, nie als die Person) und Entscheidung 3 (Wrapper) · gilt mit dem Nachtrag zu ADR 0054 vom selben Tag, dort der Nutzerwortlaut
 
 **Entscheidung (Nutzer, Auszug; vollständig in ADR 0054)**
 Nutzer 23.2: „Die KI nutzt NIE den Account oder die Zugangsdaten der Person. Sie darf Aufträge der Person ausführen, „im Auftrag“, als verlängerter Arm, handelt dabei aber immer als sie selbst und behauptet nie, die Person habe es getan.“ 23.1: „Protokoll vor der Aktion.“ 23.3: „Token nie sichtbar; Ausnahmen nur nach Gespräch mit dem Nutzer.“
@@ -256,7 +256,7 @@ Nutzer 23.2: „Die KI nutzt NIE den Account oder die Zugangsdaten der Person. S
 
 **Folgen für die Traits (nur Skizze, kein Code):** Die Kennzeichnung `BotRef`/`ActorRef` bekommt ein optionales Feld `onBehalfOf` (Personen-Id); ist es gesetzt, prüft die Rechte-Schicht Rechte der KI ⊆ Rechte der Person und meldet sonst den Fehlercode `on-behalf-exceeds{right}`. Für das Git-Modul siehe die Trait-Entwürfe (`git_v1`).
 
-**Pflichttests:** wie ADR 0054 Nachtrag 2026-11-18; zusätzlich: Bot-Aufruf mit `on_behalf_of` und einem Recht außerhalb der Rechte der Person → `on-behalf-exceeds`.
+**Pflichttests:** wie ADR 0054 Nachtrag 2026-11-17; zusätzlich: Bot-Aufruf mit `on_behalf_of` und einem Recht außerhalb der Rechte der Person → `on-behalf-exceeds`.
 
 ### Offen
 - Scope-Map-Einzelheiten (siehe 2).
