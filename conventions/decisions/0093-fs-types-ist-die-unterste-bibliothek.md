@@ -69,3 +69,7 @@ Status: **akzeptiert** (ADR 0097) · **ergänzt** Regel 1 (Z. 21)
 3. **`fs-starter` hängt nicht an `fs-update`**; das erzeugte `-bin` jedes Programms verbindet beide.
 4. Regel 2 (eine Quelle je Bibliothek im Lock) gilt für alle neuen Bibliotheken.
 5. Der MCP-Wrapper ist der technische Teil des Bot-Platz-Wegs nach ADR 0091, kein zweiter Mechanismus.
+
+## Nachtrag 2026-11-17 (2): Ort von fs-conformance
+
+Status: **akzeptiert** (ADR 0097 Nachtrag 3) · **ändert** Nachtrag Entscheidung 1 (Z. 67): `fs-conformance` liegt im Repo fs-types (unterste Schicht) und nicht in der fs-rpc-Liste; Begründung und Bedingung stehen in ADR 0097 Nachtrag 3.
