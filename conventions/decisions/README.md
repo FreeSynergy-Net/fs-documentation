@@ -106,3 +106,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0097 | Standardgerüst, Module und Arbeitsweise: Programme werden zusammengesteckt | akzeptiert (Nutzer, 2026-11-17; Nachträge: Gespräch 2, fs-access, fs-conformance/Vorhandenes zuerst 17.11.) |
 | 0098 | Datenbausätze: einmal beschrieben, überall gleich, überall vollständig | akzeptiert (2026-11-17) |
 | 0099 | Bauplan (`scaffold.toml`) und zwei Rollen: Bau-Werkzeug für das Projekt, fs-scaffold für Instanzen | akzeptiert (2026-11-17) |
+| 0100 | Einstellungen als eigene Schnittstelle: Vertrag `settings`, Bibliothek `fs-setting`, Programm `fs-settings` | Entwurf (2026-11-17; Annahme erst nach Fixpunkt `setting_v1`) |
