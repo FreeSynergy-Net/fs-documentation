@@ -27,7 +27,7 @@ What is not there yet: who did something is empty for now, and the time is when 
 `FreeSynergy.History` (`fs-activities`) answers: **what have I, or we, done?** It shows your own data as a timeline, whether
 for one person or for a project. This is what was first called `fs-timeline`.
 
-**Status: [core](https://github.com/FreeSynergy/fs-activity) v0.0.1, no GUI; provisional draft interface (2026-11-06).** See the [overall plan](../roadmap.md).
+**Status: [core](https://github.com/FreeSynergy/fs-activities) v0.0.1, no GUI; provisional draft interface (2026-11-06).** See the [overall plan](../roadmap.md).
 
 ## Idea
 
@@ -41,7 +41,7 @@ An **observer** of what happens. Every program already keeps an activity log (AD
 
 ## Open questions
 
-All answers are provisional. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activity/blob/main/DESIGN.md).
+All answers are provisional. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activities/blob/main/DESIGN.md).
 
 1. **Does it have its own data?** No content of its own, but a derived local index, because the hub cannot search by time, person or
    project. So it stays a small program, not only a view.

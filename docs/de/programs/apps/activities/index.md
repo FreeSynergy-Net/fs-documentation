@@ -26,7 +26,7 @@ Noch nicht da: Wer etwas getan hat, ist vorerst leer, und die Zeit ist der Zeitp
 
 `FreeSynergy.History` (`fs-activities`) beantwortet die Frage: **Was habe ich, oder was haben wir getan?** Es zeigt deine eigenen Daten als Zeitleiste, ob für eine Person oder für ein Projekt. Das wurde zuerst `fs-timeline` genannt.
 
-**Status: [core](https://github.com/FreeSynergy/fs-activity) v0.0.1, keine GUI; vorläufiger Entwurf der Schnittstelle (2026-11-06).** Siehe den [Gesamtplan](../roadmap.md).
+**Status: [core](https://github.com/FreeSynergy/fs-activities) v0.0.1, keine GUI; vorläufiger Entwurf der Schnittstelle (2026-11-06).** Siehe den [Gesamtplan](../roadmap.md).
 
 ## Idee
 
@@ -38,7 +38,7 @@ Ein **Beobachter** dessen, was geschieht. Jedes Programm führt bereits ein Akti
 
 ## Offene Fragen
 
-Alle Antworten sind vorläufig. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activity/blob/main/DESIGN.md).
+Alle Antworten sind vorläufig. Details: [`DESIGN.md`](https://github.com/FreeSynergy/fs-activities/blob/main/DESIGN.md).
 
 1. **Hat es eigene Daten?** Es hat keine eigenen Inhalte, aber einen abgeleiteten lokalen Index, weil der Hub nicht nach Zeit, Person oder Projekt suchen kann. Deshalb bleibt es ein kleines Programm und nicht nur eine Ansicht.
 2. **Datenschutz:** Es bleibt lokal. Es gibt keine Freigabe und keine Gruppenansicht, bis die Schnittstelle für Freigaben existiert. Rollenzuweisungen und Umfrageantworten werden nie gelesen. `forget` entfernt einen Eintrag nur aus diesem Index; das Protokoll des Hubs behält ihn. Jedes Löschen leert Name und Kontext der Einträge dieses Objekts, weil ein Objekt, das vertraulich geworden ist, als einfaches Löschen ankommt, und die beiden Fälle sehen gleich aus.
