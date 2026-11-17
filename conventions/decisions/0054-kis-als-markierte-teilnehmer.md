@@ -227,3 +227,29 @@ Status: **Entwurf** (Nutzer, Gespräch 4, Antworten 18/19, Z. 59, 62; Ausgestalt
 3. **Ein Mechanismus für alle Programme:** Modus „KI-Einladung“ in fs-admission, aufgerufen über einen Gerüst-Haken; der Schalter „KI erlaubt“ bleibt in fs-access (Nachtrag 2, Offen 1). STOP KI ist im Modus Pflicht, für jeden Teilnehmer sichtbar, sofort, ohne Abstimmung (Nachtrag 16.11. Z. 149); die Pflicht betrifft das Zeigen, der Ort bleibt bei `fs-delegate` (ADR 0087 Nachtrag (3) Punkt 8).
 4. **Teilnehmer-Arten** in Auswertungen: bekannte Personen, KIs, anonyme, **betreute Konten** (Antwort 19, Z. 62: „Ja, betreute Konten.“); betreut ≠ Eigentümer (ADR 0095).
 **ADR 0091:** kein weiterer Nachtrag nötig (Bot-Platz, STOP je Platz und Kennzeichnung stehen in 0091 Z. 129, 228–240).
+
+## Nachtrag 2026-11-18: KI „im Auftrag“ der Person; Protokoll vor der Aktion; Token nie sichtbar
+
+Status: **Entwurf** (Nutzer 23.1, 23.2, 23.3, 2026-11-18, via Strategie c0; Ausgestaltung Strategie) · **präzisiert** Nachtrag 2026-11-17 (Z. 204, „eine KI handelt nie im Namen der Person“) und „Agenten erzeugen keine Geheimnisse, die ein Mensch behält“ (Nutzer, 2026-11-07) · gilt mit dem Nachtrag zu ADR 0091 vom selben Tag
+
+**Entscheidung (Nutzer)**
+1. **Protokoll vor der Aktion (23.1).** Nutzer: „JA fest: Protokoll vor der Aktion.“ Das Protokoll steht, bevor die Aktion läuft, nicht erst danach.
+2. **„Im Auftrag“ (23.2).** Nutzer: „JA, präzisiert: Die KI nutzt NIE den Account oder die Zugangsdaten der Person. Sie darf Aufträge der Person ausführen, „im Auftrag“, als verlängerter Arm, handelt dabei aber immer als sie selbst und behauptet nie, die Person habe es getan.“
+3. **Token nie sichtbar (23.3).** Nutzer: „JA fest: Token nie sichtbar; Ausnahmen nur nach Gespräch mit dem Nutzer.“
+
+Quelle der drei Zitate: Antworten des Nutzers vom 2026-11-18, weitergegeben durch die Strategie (via Strategie c0), im Wortlaut wie übergeben.
+
+**Ausgestaltung (Strategie, kein Nutzerwort)**
+1. **Modell:** `actor` = die KI (eigener, gekennzeichneter Akteur, ADR 0091), `on_behalf_of` = die Person, die den Auftrag gegeben hat. Die Person ist **nie** der `actor`.
+2. **Rechte der KI ⊆ Rechte der Person** (Delegation ohne Erweiterung): ein Auftrag kann der KI nur Rechte geben, die die Person selbst hat (Rechte-Modell fs-access, ADR 0097 Nachtrag fs-access). Fehlt ein Recht der Person, wird der Auftrag abgelehnt, nicht gekürzt ausgeführt.
+3. **Kein Konto, kein Token der Person:** die KI nutzt nie Konto oder Zugangsdaten der Person; ein Token der Person ist für die KI und in jeder Ausgabe nie sichtbar (Tresor-Verweis statt Wert, ADR 0071). Ausnahmen gibt es nur nach einem Gespräch mit dem Nutzer; bis dahin keine.
+4. **Verhältnis zur Frage-Regel (Nachtrag 2026-11-16 und 2026-11-17 (2)):** der Auftrag ändert nichts an „KI nur per Einladung + STOP KI“. Ein Auftrag lädt keine KI in eine Runde ein und schaltet den Schalter „KI erlaubt“ nicht; eine KI hält nie `can_lock` und kann daher auch im Auftrag keine Sperre setzen oder lösen (ADR 0100, Schloss nur über fs-access).
+5. **Verhältnis zu den Schutzregeln (Nutzer 20.1, Rechte statt Rollen, Schutzregeln als Empfehlungen mit Stufe):** Protokoll vor der Aktion, „KI nur als eigener Akteur“ und „Token nie sichtbar“ sind **keine** einstellbaren Schutzregeln, sondern feste Entscheidungen (Nutzer 23.1/23.2/23.3). Sie stehen nicht zur Stufe aus/warnen/sperren; Ausnahmen nur nach Gespräch mit dem Nutzer.
+6. **Kennzeichnung nach außen** (Namen noch Vorschlag, nicht belegt): AS2 kennt in der Hülle `actor` und `attributedTo` (ADR 0020, 0085); für `on_behalf_of` gibt es in den Entscheidungen kein bestehendes Muster. Vorschlag: Feld mit dem Präfix `freesynergy.net:` (Muster wie `freesynergy.net:createdBy` im Aufgaben-Export von fs-tasks), Name offen. In Commits und Tags die Trailer `FS-Actor:` und `FS-On-Behalf-Of:`.
+
+**Pflichttests:** Aufruf mit Konto oder Token der Person → abgelehnt; Auftrag mit Recht, das die Person nicht hat → abgelehnt; Aktion ohne vorher geschriebenes Protokoll → wird nicht ausgeführt; Token der Person in Ausgabe oder Protokoll → Fehler; Eintrag ohne `on_behalf_of` bei erteiltem Auftrag → abgelehnt.
+
+**Offen**
+- Name und Ort des Feldes `on_behalf_of` in AS2/JSON (siehe Ausgestaltung 6).
+- Der Nutzerentscheid 20.1 (Rechte statt Rollen) steht in ADR 0100 noch nicht; die Bezüge in Ausgestaltung 4 und 5 sind bis zu dessen Einarbeitung Entwurf.
+- Was „Gespräch mit dem Nutzer“ technisch heißt (Freigabe je Fall, Ablauf): nicht festgelegt.
