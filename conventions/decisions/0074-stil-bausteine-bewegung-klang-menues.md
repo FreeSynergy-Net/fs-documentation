@@ -134,7 +134,7 @@ Das Manifest ist Teil des Pakets und wird im Katalog als Fähigkeit geführt (AD
 
 ## Nachtrag 2026-11-17 (Einstellungen): Darstellung als Einstellung, System-Schicht
 
-Status: **Entwurf** (ADR 0100 Entwurf) · **ergänzt** Z. 35 (Systemeinstellungen immer gelesen) und das Pflichtmenü Darstellung (ADR 0097)
+Status: **Entwurf** (ADR 0100 angenommen) · **ergänzt** Z. 35 (Systemeinstellungen immer gelesen) und das Pflichtmenü Darstellung (ADR 0097)
 
 **Entscheidung**
 1. Stil, hell/dunkel, Schrift, Bewegung, Klang und die Frontend-Wahl sind **Einstellungen** von `fs-setting` (Besitzer-Art Gerüst bzw. Theme), mit Schichten, Profilen und Sperre; Umschalten live über die Hülle.

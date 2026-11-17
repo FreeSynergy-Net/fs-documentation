@@ -224,6 +224,6 @@ Status: **Entwurf** (Nutzer, Gespräch 4, Antworten 18/19, Z. 59, 62; Ausgestalt
 **Entscheidung**
 1. **Entscheider:** im geschlossenen Kreis die Teilnehmer (wie bisher); **in offenen Runden (z. B. offene Umfragen) die Organisatoren**, nicht die Antwortenden (Nutzer Z. 59: „bei offenen Umfragen sind es die Organisatoren“).
 2. **Nach dem Eintritt der KI** können die, die nicht mit KI arbeiten wollen, nicht mehr mitmachen (Z. 59); das entspricht der Bestätigung Spätkommender (Z. 151).
-3. **Ein Mechanismus für alle Programme:** Modus „KI-Einladung“ in fs-admission, aufgerufen über einen Gerüst-Haken; der Schalter „KI erlaubt“ bleibt in fs-access (Nachtrag 2, Offen 1). STOP KI ist im Modus Pflicht, für jeden Teilnehmer sichtbar, sofort, ohne Abstimmung (Nachtrag 16.11. Z. 149).
+3. **Ein Mechanismus für alle Programme:** Modus „KI-Einladung“ in fs-admission, aufgerufen über einen Gerüst-Haken; der Schalter „KI erlaubt“ bleibt in fs-access (Nachtrag 2, Offen 1). STOP KI ist im Modus Pflicht, für jeden Teilnehmer sichtbar, sofort, ohne Abstimmung (Nachtrag 16.11. Z. 149); die Pflicht betrifft das Zeigen, der Ort bleibt bei `fs-delegate` (ADR 0087 Nachtrag (3) Punkt 8).
 4. **Teilnehmer-Arten** in Auswertungen: bekannte Personen, KIs, anonyme, **betreute Konten** (Antwort 19, Z. 62: „Ja, betreute Konten.“); betreut ≠ Eigentümer (ADR 0095).
 **ADR 0091:** kein weiterer Nachtrag nötig (Bot-Platz, STOP je Platz und Kennzeichnung stehen in 0091 Z. 129, 228–240).

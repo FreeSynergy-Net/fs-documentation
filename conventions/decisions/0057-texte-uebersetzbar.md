@@ -62,7 +62,7 @@ Die Entscheidung (Nutzerentscheid 2026-11-07) bleibt unverändert. Dieser Abschn
 
 ## Nachtrag 2026-11-17 (Einstellungen): Sprache über `fs-setting`
 
-Status: **Entwurf** (ADR 0100 Entwurf „Einstellungen“; Nutzer, Gespräch 4 Z. 16: „Theme, z.B. und Sprache, die wir bisher zwar geflegt haben, aber nicht wechseln konnten. Das muss weg, es muss jetzt schon austauschbar sein“) · **ändert** Z. 39–41 (Orte und Schreiben der Sprache)
+Status: **Entwurf** (ADR 0100 angenommen, „Einstellungen“; Nutzer, Gespräch 4 Z. 16: „Theme, z.B. und Sprache, die wir bisher zwar geflegt haben, aber nicht wechseln konnten. Das muss weg, es muss jetzt schon austauschbar sein“) · **ändert** Z. 39–41 (Orte und Schreiben der Sprache)
 
 **Entscheidung**
 1. Die Sprache ist die Einstellung **`fs.shell.language`** der Bibliothek `fs-setting` (ADR 0100), mit allen Schichten (Instanz, System, allgemeines Profil, Programm-Profil) und Sperre; atomar geschrieben, live umgeschaltet über die Hülle.
