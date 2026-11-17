@@ -41,7 +41,7 @@ Status: **akzeptiert** (Nutzer, Gespräche 1 und 2 vom 2026-11-17; Entscheid 121
 4. Prozesskosten der Agenten-Module (Speicher je Prozess): messen. [offen]
 5. Umsetzungsfragen aus der Planung: Reihenfolge und Zeitpunkt der Umstellung, nicht Ende-zu-Ende verschlüsselte Wege, Schutz-KI in betreuten Konten und Bildschirmleser sind **entschieden** (Nachtrag Gespräch 2, Punkte 6, 7, 9; Bildschirmleser: Blinc-Issue beobachten). Offen bleibt nur das **Limit, ab dem alle Baupläne anlegen dürfen** (ADR 0099 Offen 1). [teilweise offen]
 6. Live-Rechenmodule im Fenster (Filter, Effekte beim Ziehen): ein Prozess je Bild ist zu langsam; WASM (wasmi, Plugin-ABI von VectorCraft) erst nach Messung, Nachtrag ADR 0045. Nutzer: VectorCraft „stückeln … viele kleine Module … ab dem Zeitpunkt können wir die Komplexität nachladen“. Weg entschieden (nah = WebAssembly, Nachtrag Gespräch 2), Host und Plugin-ABI nach Messung. [teilweise offen]
-7. Name der Workflow-Bibliothek: `fs-workflow` neben dem Programm `fs-workflows` ist verwechselbar; Vorschlag `fs-flow` oder `fs-steps` (Namensregel prüfen). [offen]
+7. Name der Workflow-Bibliothek: `fs-workflow` neben dem Programm `fs-workflows` ist verwechselbar; Vorschlag `fs-flow` oder `fs-steps` (Namensregel prüfen). [entschieden: `fs-flow`, siehe ADR 0087 Nachtrag 17.11. (3)]
 8. Ort der Ausnahme-Gesprächsprotokolle (Vorschlag `conventions/talks/`). [offen]
 
 ## Nachtrag 2026-11-17 (Gespräch 2): Außen-Protokolle, Modul-Kommunikation, MCP, TLS, Sicherung, KI-Regeln, Start
@@ -62,7 +62,7 @@ Status: **akzeptiert** (Nutzerentscheidungen aus Gespräch 2 vom 2026-11-17 und 
 **Pflichttests** (je ohne Umsetzung rot): Außen-Aufruf ohne TLS → abgelehnt außer markierter Ausnahme; MCP nach Installation aus; KI-Aufruf als die Person → abgelehnt; KI-Nachricht ohne Kennzeichnung → nicht zustellbar; Nicht-E2E ohne Markierung → rot; zweiter Modulprozess derselben Person und Vertragsversion → nicht gestartet.
 
 **Offen**
-- Offen 4 (Prozesskosten der Agenten-Module): messen. Offen 5: siehe die Offen-Liste oben (nur das Limit für Baupläne bleibt, ADR 0099 Offen 1). Offen 6: Weg entschieden (nah = WebAssembly), Host und ABI nach Messung. Offen 7 (Name `fs-workflow`, Vorschlag `fs-flow`), Offen 8 (Ablage der Gesprächsprotokolle): offen.
+- Offen 4 (Prozesskosten der Agenten-Module): messen. Offen 5: siehe die Offen-Liste oben (nur das Limit für Baupläne bleibt, ADR 0099 Offen 1). Offen 6: Weg entschieden (nah = WebAssembly), Host und ABI nach Messung. Offen 7 (Name `fs-workflow`, Vorschlag `fs-flow`) [entschieden: `fs-flow`, siehe ADR 0087 Nachtrag 17.11. (3)], Offen 8 (Ablage der Gesprächsprotokolle): offen.
 
 ## Nachtrag 2026-11-17: fs-access ist ein eigenes Repo unter fs-rpc (Angleichung der Aussagen)
 
