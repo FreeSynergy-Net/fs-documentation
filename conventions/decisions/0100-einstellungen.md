@@ -128,3 +128,8 @@ bleibt byte-gleich; Sperre scheitert geschlossen; Index der Profile unter Dateis
 1. **DAG-Platz des Trait `SettingsStore`** [entschieden c0, 2026-11-17: siehe Entscheidung 2 dieses Nachtrags]
 2. Aufbau der typisierten Settings-Tabellen (Spalten je Einstellungsart) und Zusammenspiel mit `ProfileSet<V>`: mit v5 „grundlegend richtig“, Spalten additiv (ADR 0086 Nachtrag 2026-11-17). [offen]
 3. Gerät-Ebene: eigene DB je Gerät oder Zeilen mit Geräte-Id in der gemeinsamen DB. [offen]
+
+## Nachtrag 2026-11-17: Einstellungen des forms-Hosts [Entwurf]
+- Neue Schlüssel (ADR 0096 Punkt 20): `fs.forms.records.page-max`, `fs.forms.records.conditions-max`, `fs.forms.records.call-ms`, `fs.forms.layout.*` (Grenzen der Beschreibungen), `fs.forms.search.kind`, `fs.forms.live.poll-ms`. Grenzen sind Einstellungen mit Instanz-Vorgabe und Schloss (O7); fest nur technisch Erzwungenes mit Beleg.
+- `fs.shell.style` (Wahl der Person) gewinnt über den Stilnamen der Beschreibung (`forms_layout.style`).
+- **Abgrenzung:** gespeicherte Ansichten und Filter einer Person sind Daten der Beschreibung (`forms_view`, `forms_filter_node` in fs-forms), keine Einstellungen; fs-settings hält nur Skalare. Das Instanz-Schloss für Beschreibungen (ADR 0096 Punkt 10) folgt dem Muster dieses ADR (Grund Pflicht für Sperren und Entsperren, Protokoll, Instanz-Dienst später), liegt aber in der forms-DB.

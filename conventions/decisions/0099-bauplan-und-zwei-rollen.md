@@ -40,4 +40,4 @@ Status: **akzeptiert** (Nutzer, Gespräch 1 vom 2026-11-17: Antworten 123, 127, 
 **Offen**
 1. Limit, ab dem alle Baupläne anlegen dürfen (Empfehlung: sobald der Laufzeit-Host stabil ist und die Prüfung automatisch läuft). [offen]
 2. Endgültiger Name des Bau-Werkzeugs (`fs-blueprint` ist Arbeitsname). [offen]
-3. Format des Laufzeit-Hosts für Baupläne und sein Verhältnis zu `fs-forms-run` (ADR 0096 „Format und Host“ reserviert). [offen]
+3. Format des Laufzeit-Hosts für Baupläne und sein Verhältnis zu `fs-forms-run` (siehe ADR 0096 „Format, Speicher und Host“). [offen]
