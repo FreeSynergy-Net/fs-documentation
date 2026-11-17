@@ -224,3 +224,17 @@ Ebenfalls überholt, soweit sie eine Bot-Karte in fs-people voraussetzen: Punkt 
 - Antwortform von fs-identity für „Bot existiert + Halter“ (Operation, Form von `BotRef`), wie im Nachtrag „Bot-Schlüssel stellt das Programm aus“ unter Offen; hier nicht festgelegt.
 - Zwischenspeicher der Abfrage und Änderungsmeldung bei Halterwechsel (Nachtrag „Bot-Schlüssel“, Offen: „Schnittstelle „Bot existiert + Halter““).
 - Ob `Recipient` und `Asker` als eigene Summen-Typen oder anders geformt werden, ist [nicht belegt] (Vorschlag der Trait-Runde, nicht entschieden).
+
+## Nachtrag 2026-11-17 (Baukasten): KI als eigener, gekennzeichneter Akteur; Bot-Platz ist der Wrapper; MCP-Modul = Gerüst-Baustein
+
+Status: **Entwurf** (Nutzer, 2026-11-17: Präzisierung nach Gespräch 2 und Antwort 2.1; Ausgestaltung Strategie) · **präzisiert** Z. 23, 42, 50, 75 (Handeln per Mandat) · **ändert** die Bedeutung von „MCP-Modul“ in Z. 90 und 146 · Einzelplatz (Z. 71) **bleibt**
+
+**Entscheidung**
+1. **Handeln per Mandat bleibt erlaubt, aber nie als die Person:** „eine KI darf arbeiten, aber sie darf nicht den User übernehmen.“ Der Bot handelt als **eigener, gekennzeichneter Akteur** (Bot-Platz, eigene Identität); was er schreibt oder auslöst, trägt seine Kennzeichnung und den Halter, nie die Identität der Person. Z. 23/42/50/75 gelten in diesem Sinn.
+2. **Keine Userbots:** „Wir haben keine "Userbots". Wir arbeiten nur mit ihnen, wir werden nicht zu denen.“ (Gespräch 2, Antwort 5).
+3. **Wrapper:** Der Nutzer meint „ein "Wrapper", der der KI einhalt gebietet“ und nennt die Umsetzung „eine technische Sache“ (Antwort 2.1). **Entscheidung der Strategie:** der Bot-Platz (`fs-delegate`: Mandat, Rechte ⊆ Halter, STOP, Protokoll) ist dieser Wrapper; im Einzelplatz der MCP-Schalter mit STOP KI (Z. 71).
+4. **„MCP-Modul“** in Z. 90 und 146 meint künftig den **MCP-Gerüst-Baustein** jedes Programms (ADR 0054 Nachtrag 2026-11-17, ADR 0097).
+5. **Schutz-KI in betreuten Konten:** nur mitlesen, nie ausführen (Antwort 5).
+6. **Kennzeichnung:** jede vom Bot geschriebene Nachricht ist als KI-geschrieben gekennzeichnet (Antwort 5).
+
+**Pflichttests:** Bot-Aufruf mit der Identität der Person → abgelehnt; Bot-Nachricht ohne Kennzeichnung → nicht zustellbar; Schutz-KI ausführend → abgelehnt.

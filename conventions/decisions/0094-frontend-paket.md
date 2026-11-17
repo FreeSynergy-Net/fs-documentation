@@ -17,7 +17,7 @@ Status: **Entwurf** (Strategie, 2026-11-16; Entscheidungen b7: O1 XML, O2 Englis
    - `<component type="addon">`, `<id>` = `net.freesynergy.<prog>.<frontend>` [Präfix nicht belegt; an bestehende IDs angleichen], `<name>` und `<summary>` (übersetzbar), `<extends>` (Pflicht für `addon`, genau eins; siehe unten).
    - `<requires>`: `<id version="X.Y.Z" compare="ge">` Programm-ID (Mindestversion der Engine). Fähigkeiten stehen nicht in `<requires>`, sondern als `<custom><value key="fs:requires">` wie im Katalog (`schema_xml.py`, `custom_values`), z. B. `texts 1.0`: Hauptstufe gleich, Nebenstufe ≥ (übertragen von der Nutzerentscheidung zum Theme-Vertrag; für Frontends neu zu bestätigen).
    - `<extends>` = Katalog-ID des Programms (z. B. `fs-texts`, `catalog.xml`; Ziel nach ADR 0087, `catalog.xml` führt heute noch `fs-wiki`); das Präfix der Frontend-`<id>` wird daran angeglichen.
-   - `<custom>`: alle `fs:`-Felder als `<value key="fs:…">` (zulässig: Schlüssel frei, eindeutig, Vendor-Präfix empfohlen): `fs:kind=frontend`, `fs:frontend-id` (englisch, ASCII klein, stabil, = Teil des Binärnamens; O2), `fs:exec` (Programmname ohne Pfad, Argumente als Liste, keine Shell), `fs:contract` (Vertragsname + Version, gegen die gebaut wurde), `fs:style`, `fs:icons` u. a. nach ADR 0074 §8 (optional), `fs:admin=true` nur beim Admin-Frontend.
+   - `<custom>`: alle `fs:`-Felder als `<value key="fs:…">` (zulässig: Schlüssel frei, eindeutig, Vendor-Präfix empfohlen): `fs:kind=frontend`, `fs:frontend-id` (englisch, ASCII klein, stabil, = Teil des Binärnamens; O2), `fs:exec` (Programmname ohne Pfad, Argumente als Liste, keine Shell), `fs:contract` (Vertragsname + Version, gegen die gebaut wurde), `fs:style`, `fs:icons` u. a. nach ADR 0074 §8 (optional), `fs:admin=true` nur beim Admin-Frontend; `fs:covers` = Vertrag + Version + abgedeckte Felder/Befehle oder `all` (**Admin-Frontend = `all`**, geprüft von fs-conformance gegen den `TypeCatalog`; normale Frontends zeigen beim Start, was fehlt).
    - `<releases>` mit der Version. Mehr nicht; alles andere (Bilder, Beschreibung) steht im Katalog.
 3. **Fundort.** Das Programm liest Manifeste aus genau zwei Ebenen, Nutzer vor System:
    - Nutzer: `$XDG_DATA_HOME/freesynergy/frontends/<prog>/<frontend-id>.metainfo.xml` (tar.gz-Installationen durch fs-packages; von Hand abgelegte Manifeste ebenfalls).
@@ -57,9 +57,10 @@ Status: **Entwurf** (Strategie, 2026-11-16; Entscheidungen b7: O1 XML, O2 Englis
 - **0077:** §2 wird umgesetzt (`frontend` → `addon` + `<extends>`); Folge für Catalog: AppStream-Typ und Feld `extends`.
 - **0087:** Namen nach der Namensregel; Frontend-IDs englisch (O2, entschieden). **0066/0038:** vier Frontends je Programm bleiben; ab jetzt sind sie Pakete.
 - **0092:** Frontend-Crate hängt nur am Client (gerichteter Graph).
+- **0097:** Agenten-Module werden auf demselben Weg gefunden, geprüft, gestartet und aktualisiert wie Frontend-Pakete.
 
 ## Folgen
-- fs-components: Starter-Baustein (Fundort lesen, beobachten, `set_frontends` füllen, Prozess starten, Fallback) einmal für alle Programme.
+- fs-rpc: Bibliothek `fs-starter` (ohne Blinc; fs-components liegt nach ADR 0093 unter fs-rpc, der Starter braucht `fs_rpc::ServerStarter`): Starter-Baustein (Fundort lesen, beobachten, `set_frontends` füllen, Prozess starten, Fallback) einmal für alle Programme.
 - Catalog: `frontend` → AppStream `addon`, Feld `extends` (Pflicht für `frontend`), Prüfung im Generator.
 - fs-packages: Prüfung `extends`/`requires` vor dem Installieren und vor Programm-Updates; Manifest ablegen/zurückrollen; Store-Gruppe „Frontends“ zeigt den Bezug.
 - Programme: Client-Crate für alle Programme mit Server (fehlt nach den Funden unter Kontext in den meisten [nicht belegt: genaue Zahl]); fs-packages selbst stellt `Face` auf Frontend-Pakete um (Stufe 1).
