@@ -226,3 +226,25 @@ Status: Entscheidung des Nutzers über b7 (2026-11-17); Ausgestaltung Strategie 
   - Ein Pflichtfeld wird als `PersonRef` übergeben; ein Abzug nur bei ausgestellter Anmeldung (ADR 0085); nach Widerruf folgt der Verweis nicht mehr.
   - Wer ein Pflichtfeld nicht gibt, bekommt nur diesen Vertrag nicht; in keinem anderen Programm ändert sich etwas.
   - `fs-schedules` speichert keine Kopie von Terminen, Räumen, Personen oder Anmeldungen.
+
+## Nachtrag 2026-11-17 (3): Workflows mit Bedingungen, Schleifen und Funktionen schon in v1; Umfrage = Workflow über Bildschirme
+
+Status: Strategie-Entscheid nach Nutzerantwort 17 (Gespräch 4 vom 2026-11-17); Entscheide laut b7 (JA) · **ändert** den Nachtrag „forms = Frontend-Baukasten …“ Punkt 12 (Z. 165: „In v1 gibt es kein bedingtes Anzeigen. Später kommt eine **geschlossene Liste** fester Bedingungen …“; dieser Punkt FÄLLT, der Text dort bleibt als Stand der Zeit stehen) · **präzisiert** denselben Nachtrag, Punkt 5 (Z. 138: „Logik ist ein Workflow“) · **entscheidet** ADR 0097 Offen 7 (Name der Workflow-Bibliothek) · baut auf ADR 0076 (Serverless Workflow 1.0), ADR 0087 Nachtrag Punkt 2 (alle Fragen gehören zu fs-decisions), ADR 0097 Punkt 4 (kein Ausdruck, kein freier Code)
+
+**Kontext**
+- Nutzer (Antwort 17, wörtlich): „Workflows sollten if, loop/repeat/while - also Schleifen, und Gruppierungen (also funktionen) können. Das sollte man bei Umfragen auch machen können. Umfragen sind nichts anderes als Workflows über mehrere "Bildschirme", die gemacht werden können. Und das muss schon in der 1. Version. Warum nicht?“
+- Nutzer (Antwort 18, wörtlich, zur Auswertung): „… wir werden die Daten, die wir haben, nutzen können und wir werden sie auswerten - das auswerten kann man machen, wie man möchte.“ Und zur KI: „… die Teilnahme von Bots sollte immer nach dem gleichen Muster passieren: Alle stimmen zu, wenn einer nicht, dann keiner.“
+- Vorhanden (Strategie-Befund, fs-release `main` 7212762b, `workflows/*.yaml`, Serverless Workflow 1.0): Weichen `switch` mit `when` (37 Workflow-Dateien, z. B. `grundfassung.yaml:48-50`), Wiederhol-Runden (`-again`, `runde >= 3`, z. B. `anbieter-neuinstallation.yaml:148, 191`), Schleifen `for` (`stil-neu.yaml:134`, `koordinator-runde.yaml:151`), Aufruf von Teil-Workflows `call: <name>:<version>@fs` (z. B. `adr-write.yaml:10, 32, 40`). Dieses Modell ist die Grundlage; nichts wird neu erfunden.
+
+**Entscheidung** (Strategie-Entscheid; b7 = laut b7 entschieden)
+1. **Punkt 12 fällt:** Bedingungen gibt es **schon in v1**. Workflows (und damit Formulare, Umfragen und Abläufe in jedem Programm) können **Bedingungen** (`switch`/`if`), **Schleifen** (`for`, wiederholen, solange) und **Funktionen** (benannte, wiederverwendbare Teil-Workflows über `call`).
+2. **Umfrage = Workflow über mehrere Bildschirme:** jeder Bildschirm ist ein Schritt (eine Anordnung nach Punkt 6); Bedingungen wählen den nächsten Bildschirm; die Fragen und Antworten gehören fs-decisions (Punkt 2).
+3. **Bedingungen aus der festen Liste (laut b7):** eine Bedingung wird aus einer **festen Liste typisierter Vergleiche** gebaut (Feld, Vergleich, Wert; und/oder/nicht), als Text oder bildlich; gespeichert typisiert, ausgeführt als Serverless-Workflow-Ausdruck, den nur das Werkzeug erzeugt, nie ein Mensch von Hand. **Kein freier Ausdruck**, kein freier Code (ADR 0097 Punkt 4, Punkt 5 dieses Nachtrags „forms = …“).
+4. **Schleifen mit Obergrenze und Abbruch (laut b7):** jede Schleife hat eine **Obergrenze** der Durchläufe und eine **Abbruch-Bedingung** (ebenfalls aus der festen Liste); ohne Obergrenze wird sie abgelehnt.
+5. **Bibliothek `fs-flow` (laut b7):** die Bibliothek für Workflows in jedem Programm heißt `fs-flow` (Repo `fs-rpc`, statt `fs-workflow`; keine Verwechslung mit dem Programm `fs-workflows`) und setzt das Modell der fs-release-Workflows um (Weichen `switch`, `for`-Schleifen, `call`). Das Programm `fs-workflows` (Bild-Editor, Besitzer der Workflow-Daten nach ADR 0076) bleibt unverändert.
+6. **Auswertung (laut b7):** `fs-pivot` ist das **gemeinsame Auswertungs-Modul** (Einzahl nach der Namensregel); Umfragen, Zähler und weitere Programme werten damit aus, nicht je Programm eigen.
+7. **KI-Einladung (laut b7):** die Einladung einer KI ist ein **Modus in `fs-admission`** (Türsteher), nach dem Muster aus Antwort 18 (alle stimmen zu, sonst keine KI).
+
+**Folgen**
+- **Doku:** der Nachtrag „forms = Frontend-Baukasten …“ bleibt unverändert; Punkt 12 gilt durch diesen Nachtrag als gefallen. ADR 0097 nennt weiter `fs-workflow`; dort gilt ab jetzt `fs-flow` (Offen 7 entschieden).
+- **Pflichttests** (je ohne Umsetzung rot): Bedingung wählt den richtigen Bildschirm; Schleife endet an der Obergrenze und am Abbruch; Schleife ohne Obergrenze wird abgelehnt; Funktion (Teil-Workflow) wird mit Parametern aufgerufen; eine Bedingung mit freiem Ausdruck wird abgelehnt.
