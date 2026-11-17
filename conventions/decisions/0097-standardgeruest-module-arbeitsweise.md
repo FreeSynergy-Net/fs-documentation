@@ -75,3 +75,16 @@ Status: **akzeptiert** (Strategie; Angleichung ohne neue Entscheidung) · **prä
 
 **Offen**
 - Repo-Ort von `fs-conformance` (Vorschlag aus dem Trait-Entwurf: Workspace des Repos fs-types, damit Suiten in jeder Crate hinter dem Feature `conformance` liegen können, ohne Kante nach oben) und Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht aus.
+
+## Nachtrag 2026-11-17 (3): Ort von fs-conformance entschieden, Vorhandenes zuerst als Regel
+
+Status: **akzeptiert** (Strategie-Entscheid O1 vom 2026-11-17 zum Ort; Nutzerwort zu Vorhandenes zuerst aus Gespräch 2, Ausgestaltung Strategie) · **ersetzt** in Entscheidung 1 (Z. 11) die Zuordnung von `fs-conformance` zum Repo fs-rpc · **schließt** den ersten Punkt der Offen-Liste des Nachtrags zu fs-access (Repo-Ort von `fs-conformance`) · baut auf ADR 0093 Regel 1, ADR 0099
+
+**Entscheidung**
+1. **`fs-conformance` liegt im Cargo-Workspace des Repos fs-types** (Schicht 0, unterste Schicht, keine Kante nach oben), nicht im Repo fs-rpc. Grund: `fs-session` liegt auf Schicht 1 (Repo fs-components); mit seiner Suite bekäme es sonst eine Kante nach oben zu fs-rpc (ADR 0093 Regel 1). Entscheid O1 der Strategie, im Trait-Entwurf zu `fs-conformance` begründet. Die Reihenfolge der Schichten im fs-access-Nachtrag bleibt: `fs-conformance` steht damit in der untersten Schicht vor allen Verbrauchern.
+2. **Bedingung:** `fs-conformance` hängt selbst nur an Standard-Crates (und nach dem Tag an fs-types) und steht nie im Normal-Graphen eines ausgelieferten Programms. Erlaubt sind `[dev-dependencies]`, die Normal-Abhängigkeit eines `*-testdata`-Crates und `optional = true` hinter einem Feature `conformance`, das in keinem `default` steht. Belegt wird das in der Probe durch `cargo tree` und den Test `tests/placement.rs`; dieselbe Prüfung je Programm-Repo ist als Gate vorgesehen.
+3. **fs-access:** der Selbstwiderspruch zwischen Statuszeile und Entscheidung 1 (Z. 3, Z. 11: „Schicht 2 … hängt nicht am Repo fs-rpc“) und den Folgen (Z. 34: „fs-access in fs-connect“) ist durch den vorhergehenden Nachtrag „fs-access ist ein eigenes Repo unter fs-rpc“ bereits vollständig aufgelöst (Z. 3, Z. 11, Z. 34 und Absatz 2 werden dort genannt). Hier keine Ergänzung; siehe Nachtrag fs-access.
+4. **Vorhandenes zuerst (Regel für alle Workflows und Aufträge).** Nutzer, Gespräch 2 (Zusatz): „Bevor etwas gebaut wird, wird geschaut, ob es schon existiert und ob es "nur" erweitert wird.“ Ausgestaltung (kein Nutzerwort): jeder Schritt `vorhandenes-zuerst` (Entscheidung 9) und jeder Bau-Auftrag beginnt mit einer Suche in allen Repos, Zweigen und Plänen; Ergebnis ist entweder „vorhanden: X erweitern“ oder „neu, weil …“, jeweils **mit Beleg (Datei:Zeile)**; ein Befund ohne Beleg gilt als rot. Das ist Anforderung N18 der Anforderungsliste Baukasten und schärft N10. Der Workflow `vorhanden-pruefen` in fs-release ist geplant und noch in Prüfung; er ist noch nicht übernommen.
+
+**Offen**
+- Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht weiter aus. [offen]
