@@ -27,5 +27,5 @@ Jedes Fenster jedes Programms (und jeder Facette) erfüllt dieselbe **Mindest-H�
 Status: **Entwurf** (ADR 0100 angenommen; Nutzer, Gespräch 4 Z. 16: „Settings sollte es überall geben … es muss aber irgendwo integriert werden.“) · **ändert** Z. 10 („Einstellungen (öffnet das Admin-Frontend, ADR 0061)“)
 
 **Entscheidung**
-1. *Programm › Einstellungen* öffnet die Einstellungen **dieses Programms** (Komponenten aus fs-components, Daten aus `fs-setting`), mit den Knöpfen „für dieses Programm“ und „für alle“ und dem Schloss; von dort führt ein Weg ins Programm **fs-settings** für alle Einstellungen.
+1. *Programm › Einstellungen* öffnet die Einstellungen **dieses Programms** (Komponenten aus fs-components, Daten aus `fs-settings`), mit den Knöpfen „für dieses Programm“ und „für alle“ und dem Schloss; von dort führt ein Weg ins Programm **fs-settings** für alle Einstellungen.
 2. Das Admin-Frontend (ADR 0061) bleibt für Admin-Aufgaben; Einstellungen sind keine Admin-Aufgabe mehr.

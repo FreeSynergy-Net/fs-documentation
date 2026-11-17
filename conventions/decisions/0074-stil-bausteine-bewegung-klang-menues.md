@@ -137,5 +137,5 @@ Das Manifest ist Teil des Pakets und wird im Katalog als Fähigkeit geführt (AD
 Status: **Entwurf** (ADR 0100 angenommen) · **ergänzt** Z. 35 (Systemeinstellungen immer gelesen) und das Pflichtmenü Darstellung (ADR 0097)
 
 **Entscheidung**
-1. Stil, hell/dunkel, Schrift, Bewegung, Klang und die Frontend-Wahl sind **Einstellungen** von `fs-setting` (Besitzer-Art Gerüst bzw. Theme), mit Schichten, Profilen und Sperre; Umschalten live über die Hülle.
+1. Stil, hell/dunkel, Schrift, Bewegung, Klang und die Frontend-Wahl sind **Einstellungen** von `fs-settings` (Besitzer-Art Gerüst bzw. Theme), mit Schichten, Profilen und Sperre; Umschalten live über die Hülle.
 2. Die Systemeinstellungen aus Z. 35 (`color-scheme`, `accent-color`, `contrast`, reduzierte Bewegung) sind die **System-Schicht** (XDG Desktop Portal `org.freedesktop.portal.Settings`, Adapter später; bis dahin Umgebungsvariablen); sie schlagen die Instanz-Vorgabe, nicht das Profil der Person; erzwingen geht nur per Sperre.

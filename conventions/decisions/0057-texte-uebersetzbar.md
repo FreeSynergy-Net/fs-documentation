@@ -60,11 +60,11 @@ Die Entscheidung (Nutzerentscheid 2026-11-07) bleibt unverändert. Dieser Abschn
 ### Migration
 826 einsprachige Tabellen (Stand des Gates). Umstellung je Crate zusammen mit der Umbau-Gruppe (erst Texte, dann Tokens), Programme einzeln.
 
-## Nachtrag 2026-11-17 (Einstellungen): Sprache über `fs-setting`
+## Nachtrag 2026-11-17 (Einstellungen): Sprache über `fs-settings`
 
 Status: **Entwurf** (ADR 0100 angenommen, „Einstellungen“; Nutzer, Gespräch 4 Z. 16: „Theme, z.B. und Sprache, die wir bisher zwar geflegt haben, aber nicht wechseln konnten. Das muss weg, es muss jetzt schon austauschbar sein“) · **ändert** Z. 39–41 (Orte und Schreiben der Sprache)
 
 **Entscheidung**
-1. Die Sprache ist die Einstellung **`fs.shell.language`** der Bibliothek `fs-setting` (ADR 0100), mit allen Schichten (Instanz, System, allgemeines Profil, Programm-Profil) und Sperre; atomar geschrieben, live umgeschaltet über die Hülle.
+1. Die Sprache ist die Einstellung **`fs.shell.language`** der Bibliothek `fs-settings` (ADR 0100), mit allen Schichten (Instanz, System, allgemeines Profil, Programm-Profil) und Sperre; atomar geschrieben, live umgeschaltet über die Hülle.
 2. Die bisherigen Dateien `$XDG_CONFIG_HOME/freesynergy/language` und `…/<programm>/language` (Z. 39) werden **nur noch gelesen** (Übergang); ihre Löschung macht die Person per Skript nach einem Release.
-3. Die Kette aus Z. 40 (Umgebungsvariablen) wird die **System-Schicht**; die Wahl „im Programm-Menü und in den Einstellungen“ (Z. 41) geht über fs-setting bzw. das Programm fs-settings.
+3. Die Kette aus Z. 40 (Umgebungsvariablen) wird die **System-Schicht**; die Wahl „im Programm-Menü und in den Einstellungen“ (Z. 41) geht über fs-settings bzw. das Programm fs-settings.
