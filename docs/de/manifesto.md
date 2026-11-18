@@ -58,7 +58,7 @@ Du teilst eine Sicht auf dich, nicht lose Felder: ein Profil zeigt, was du dafü
 
 Wie weit etwas reicht, hängt davon ab, wie gut man sich kennt. Es gibt kein Netz ohne Menschen, die einander kennen. Wer dich kaum kennt, bekommt wenig von dir, wer dir nah ist, mehr. Wenn etwas von Hand zu Hand weitergeht, soll es höchstens gleich bleiben oder weniger werden; unsere Programme halten sich daran. Wer etwas sehen darf, kann es trotzdem abfotografieren oder abschreiben: Wir sagen die Regel an und versprechen keine Sicherheit, die es nicht gibt. Wer Daten nicht geteilt haben will, darf sie nicht teilen. Selbst besonders sensible Angaben darfst du bewusst zum Zwischenspeichern freigeben, etwa für Behandlung oder Pflege; dann warnen wir dich. Nur Stellen, die zum Veröffentlichen da sind, etwa Behörden, drehen das mit Absicht um. Sie sind sonst nicht anders als jeder andere Server: Man erreicht sie unter ihrer Webadresse, besondere Rechte haben sie nicht, und ob man ihnen folgt, entscheidest du.
 
-Vertrauen bleibt etwas zwischen Menschen. Wir bauen dafür keine Sterne und keine Anzeige. Man merkt es daran, dass sich Türen öffnen. Soziale Probleme löst man sozial, technische Probleme technisch. Wer das vermischt, macht sehr viel kaputt.
+Vertrauen bleibt etwas zwischen Menschen. Wir bewerten keine Menschen: keine Sterne, keine Stufen, keine Zahlen, keine Anzeige. Wer Vertrauen in eine Zahl fasst, nimmt die Möglichkeit, jemanden neu kennenzulernen; er macht die Vergangenheit zur Zukunft und hilft Masken. Man merkt es daran, dass sich Türen öffnen. Soziale Probleme löst man sozial, technische Probleme technisch. Wer das vermischt, macht sehr viel kaputt.
 
 ## Wenn du nichts einstellst
 

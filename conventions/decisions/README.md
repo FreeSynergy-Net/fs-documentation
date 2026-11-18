@@ -30,18 +30,18 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0021 | Schnittstelle: ein Vertrag (Cap'n Proto), viele Zugänge | akzeptiert; Nachtrag 17.11. |
 | 0022 | Zwei Referenz-Frontends je Programm | superseded by 0038 |
 | 0023 | Darstellungs-Register; Code- und Block-Editor | Punkt 4 ersetzt durch 0039 |
-| 0024 | Programm ohne Hub, Verschlüsselung, Schlüsseltresor, SCIM | akzeptiert |
+| 0024 | Programm ohne Hub, Verschlüsselung, Schlüsseltresor, SCIM | akzeptiert (Nachtrag 18.11. (0102, Entscheid 46): keine Web-of-Trust-Stufen) |
 | 0025 | Abschauen nur im äußersten Notfall, nie bei Closed Source | akzeptiert |
 | 0026 | Immer die neueste Technik | akzeptiert |
 | 0027 | IDs: UUIDv7 (RFC 9562) | akzeptiert |
 | 0028 | Namen, Domains, Erreichbarkeit über den Hub (`freesynergy.net`) | akzeptiert (Technik: Vorschlag) |
-| 0029 | Schutzbedürftige Daten müssen gekennzeichnet werden | akzeptiert (Form: Vorschlag) |
+| 0029 | Schutzbedürftige Daten müssen gekennzeichnet werden | akzeptiert (Form: Vorschlag; Nachtrag 18.11. (0102, Entscheid 46): kein Web of Trust) |
 | 0030 | Original + Hülle: Empfangenes unverändert aufbewahren | akzeptiert |
 | 0031 | Jeder Text ist ein Wiki-Eintrag; Bibliothek; Hilfe dort, wo man ist | akzeptiert (Standards offen) |
 | 0032 | name-Regel; Beschlossenes bleibt | akzeptiert |
 | 0033 | Markieren: ein Mechanismus (Punkt = einsetzen, Bereich = ersetzen/benennen) | akzeptiert |
 | 0034 | Textstruktur technisch: Absatz, Seite, Kollektion, Regal | akzeptiert |
-| 0035 | Föderation zwischen Instanzen: OpenID Federation 1.0 | akzeptiert |
+| 0035 | Föderation zwischen Instanzen: OpenID Federation 1.0 | akzeptiert (Nachtrag 18.11. (0102, Entscheid 46): keine Web-of-Trust-Stufen) |
 | 0036 | Git als dezentrale Verteilung (gix): Pakete, Themes, Programme, Medien | akzeptiert |
 | 0037 | Jedes Programm ist mindestens eine Workbench; Programme zeigen sich gegenseitig an | akzeptiert |
 | 0038 | Referenz-Frontends: vier Arten, am besten ganze Suiten | akzeptiert |
@@ -60,7 +60,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0051 | Releases: `fs-release`, nur kostenlose Wege, offene Signatur | akzeptiert |
 | 0052 | Eine Person mit Rollen; Rollen standardisiert oder selbst definiert; Vertrauen sichtbar machen | akzeptiert |
 | 0053 | LLM-Chat als Component und Programm; Übersetzung vorerst nicht; Projektadresse | akzeptiert |
-| 0054 | KIs sind markierte Teilnehmer; der Assistent ist ein Messenger-Frontend | akzeptiert (Aussperren: vorerst bestätigt; Identität offen; Nachtrag 16.11.; Nachtrag 17.11.; Nachtrag 17.11. (2) KI-Einladung, Entwurf; Nachtrag 17.11. (3) im Auftrag, Entwurf; Nachtrag 17.11. (4) Pause und Entfernen (jede Person), Auftrag widerrufen (Ersteller), Prüfung des Auftrags, Entwurf) |
+| 0054 | KIs sind markierte Teilnehmer; der Assistent ist ein Messenger-Frontend | akzeptiert (Aussperren: vorerst bestätigt; Identität offen; Nachtrag 16.11.; Nachtrag 17.11.; Nachtrag 17.11. (2) KI-Einladung, Entwurf; Nachtrag 17.11. (3) im Auftrag, Entwurf; Nachtrag 17.11. (4) Pause und Entfernen (jede Person), Auftrag widerrufen (Ersteller), Prüfung des Auftrags, Entwurf; Nachtrag 18.11. (0102, Entscheid 46): keine Vertrauensstufen) |
 | 0055 | Sprechende Namen statt IDs; `fs-groups` ist die Quelle der Wahrheit für Gruppen | akzeptiert |
 | 0056 | Oberster Admin; Agenten werden nie Admin; Workbench gibt Kontext; Kanidm flach | akzeptiert |
 | 0057 | Was ein Mensch liest, ist übersetzbar; Bibliothek `mf2` | akzeptiert; Nachtrag 17.11. Einstellungen (Entwurf) |
@@ -108,4 +108,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0099 | Bauplan (`scaffold.toml`) und zwei Rollen: Bau-Werkzeug für das Projekt, fs-scaffold für Instanzen | akzeptiert (2026-11-17); Nachtrag 18.11. Bauplan-Schema 2 (`kind`, `[[bundle]]`, `paths`, Ort/Name `fs-blueprint`) [Entwurf] |
 | 0100 | Einstellungen als eigene Schnittstelle: Vertrag `settings`, Bibliothek `fs-settings`, Programm `fs-settings` | akzeptiert (2026-11-17; nach Fixpunkt `setting_v1`, Probe fs-settings; Nachtrag 17.11. [Entwurf]: Speicher ist die Datenbank (Domäne `settings`, Port in fs-settings), L5/L6/L7 entfallen; noch nicht gebaut: L1 coded_stub, L2 Windows-CI, L3 KI-Satz in lib.rs, L8 Texte, `profile_v1`, Programm fs-settings; Nachtrag 17.11. (2): Einstellungen des forms-Hosts [Entwurf]) |
 | 0101 | Vier Arten von Objekten: Standard-Modul, Modul-Bausatz, Anzeige-Component, Programm = Bauplan | Entwurf (Strategie, 2026-11-18; Nutzer 36 = JA; Offen 5 entschieden; ändert 0097 E3 und das Schema von 0099, ergänzt 0098) |
-| 0102 | Grundprinzip „Person zuerst“: Rechte vorab per Freigabe-Regel (SCIM + OAuth Pflicht je Programm), Teilen als Objekt bzw. Sicht (sharen/schenken), Reichweite = menschliches Kennen (monoton), Ausnahme öffentliche Stellen | Entwurf (Strategie, 2026-11-18; Nutzer 37 = JA, 38; überarbeitet nach Widerspruchsprüfung, Nutzerfragen 39–43 und 47 entschieden; ändert 0024 Satz 9: SCIM/OAuth Pflicht; Widerspruch Vertrauensstufen zu 0024/0029/0035/0054 (Nutzerfrage 46 zurückgestellt); präzisiert 0014 E1 und 0101 E5; löst 0024:17/0035:6-7 auf; ordnet 0020 „Leihen“ ein) |
+| 0102 | Grundprinzip „Person zuerst“: Rechte vorab per Freigabe-Regel (SCIM + OAuth Pflicht je Programm), Teilen als Objekt bzw. Sicht (sharen/schenken), Reichweite = menschliches Kennen (monoton), Ausnahme öffentliche Stellen | Entwurf (Strategie, 2026-11-18; Nutzer 37 = JA, 38; überarbeitet nach Widerspruchsprüfung, Nutzerfragen 39–43, 46 und 47 entschieden; ändert 0024 Satz 9: SCIM/OAuth Pflicht; Entscheid 46: keine Vertrauensstufen, Nachträge zu 0024/0029/0035/0054; präzisiert 0014 E1 und 0101 E5; löst 0024:17/0035:6-7 auf; ordnet 0020 „Leihen“ ein) |
