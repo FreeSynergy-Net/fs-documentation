@@ -3,11 +3,11 @@
 - **Id:** `2026-11-18-people-sensibel-markierung`
 - **Datum:** 2026-11-18 (Entscheid des Nutzers)
 - **Teilnehmer (Rollen):** Nutzer (entscheidet); Strategie (protokolliert)
-- **Bezug:** Ausnahme `[[exception]]` in fs-people `scaffold.toml` (Karte `card/vendor.rs`; sensible Markierung; Vorschlag W3C DPV als Kategorien); ADR 0029 (gekennzeichnete Daten verlassen das Gerät nur mit Freigabe je Empfänger); ADR 0102 (Freigabe-Regeln vorab); ADR 0103 Punkt 14 (Nummer 58)
+- **Bezug:** Ausnahme `[[exception]]` in fs-people `scaffold.toml` (Karte `card/vendor.rs`; sensible Markierung; Vorschlag DPV-Kategorien (W3C Community Group DPVCG, keine W3C-Empfehlung)); ADR 0029 (gekennzeichnete Daten verlassen das Gerät nur mit Freigabe je Empfänger); ADR 0102 (Freigabe-Regeln vorab); ADR 0103 Punkt 14 (Nummer 58)
 - **Frage (Nummer 58):** Wie werden sensible Angaben über Personen gekennzeichnet, und wer entscheidet, wer sie sieht?
 
 **Entscheid des Nutzers (Nutzerwort 18.11.2026):**
-- Ein **Schutz-Baustein** mit den **W3C-DPV-Kategorien** (Data Privacy Vocabulary) kennzeichnet sensible Angaben.
+- Ein **Schutz-Baustein** mit den **DPV-Kategorien** (W3C Community Group DPVCG, keine W3C-Empfehlung) (Data Privacy Vocabulary) kennzeichnet sensible Angaben.
 - **Die Freigabe je Empfänger bleibt unsere Regel** (ADR 0029, ADR 0102). Der Standard beschreibt die Kategorie, nicht die Freigabe.
 
 **Folge:**

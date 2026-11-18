@@ -16,4 +16,4 @@
 - In fs-tasks entfallen die Felder aus `exec.rs`.
 - Die Ausnahme bleibt im Bauplan, mit Verweis auf dieses Gespräch, bis fs-flow existiert.
 
-**Verweis:** ADR 0103 Punkt 13 (Nummer 56); ADR 0103 Abschnitt „Standards“ (PROV-O als Abbildung beim Export, nicht als Speicherform).
+**Verweis:** ADR 0103 Punkt 13 (Nummer 56); ADR 0103, Folgen, Punkt Standards (PROV-O als Abbildung beim Export, nicht als Speicherform).

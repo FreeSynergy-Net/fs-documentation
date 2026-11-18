@@ -3,7 +3,7 @@
 - **Id:** `2026-11-18-tasks-geheimnis-sperre`
 - **Datum:** 2026-11-18 (Entscheid des Nutzers)
 - **Teilnehmer (Rollen):** Nutzer (entscheidet); Strategie (protokolliert)
-- **Bezug:** Ausnahme `[[exception]]` in fs-tasks `scaffold.toml` (Geheimnis-Sperre, C11; `secrets.rs:6-30 im fs-tasks-Kern`); ADR 0067 (Tresor); ADR 0100 (Einstellungen); ADR 0103 Punkt 11 (Nummer 53)
+- **Bezug:** Ausnahme `[[exception]]` in fs-tasks `scaffold.toml` (Geheimnis-Sperre, C11; `crates/fs-tasks-cli/src/secrets.rs:6-30` (Pfad laut scaffold.toml Z. 76)); ADR 0067 (Tresor); ADR 0100 (Einstellungen); ADR 0103 Punkt 11 (Nummer 53)
 - **Frage (Nummer 53):** Wie wird verhindert, dass Geheimnisse (Tokens, Schlüssel) in Texteingaben landen, und wer besitzt die Regel?
 
 **Entscheid des Nutzers (Nutzerwort 18.11.2026):**
