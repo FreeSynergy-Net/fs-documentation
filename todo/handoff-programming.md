@@ -49,7 +49,7 @@ Für eine neue Sitzung, die programmiert. Zuerst lesen: `conventions/CONVENTIONS
   Rollen-Definitionen sind Objekte (id, Namen, Standard, Felder, Besitzer, Geltung), als Konfiguration ladbar —
   **keine feste Rollenliste** im Code.
 - Video: Codecs ausgelagert wie bei GStreamer (eine Codec-Schnittstelle, jeder Codec ein Anbieter), offene zuerst;
-  kein H.264 von uns, Dritte dürfen. Neuer Katalogeintrag `Trust` (Web of Trust) — später.
+  kein H.264 von uns, Dritte dürfen. Neuer Katalogeintrag `Trust` (Web of Trust) — später. **Entfällt (Entscheid 46, ADR 0102: kein Web of Trust, keine Vertrauensstufen).**
 - **`fs-jscalendar`:** nur gemeinsame Typen (kein Programm, keine Daten); fs-calendar/fs-tasks entdoppeln; Aufgaben aus
   **jedem** Import-Format an fs-tasks weitergeben. Zweiter Nutzer für `TaskItems`: erstes Aufgaben-Frontend oder CLI
   (Kanban ist eine Ansicht von fs-tasks, ADR 0049).

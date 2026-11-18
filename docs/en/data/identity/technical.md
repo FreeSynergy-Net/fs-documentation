@@ -13,7 +13,7 @@ The object corresponds to the attestation object in Anton's model (✅ reviewed 
 - *Content*: the attestation as **W3C VC 2.0 credential** with an `eddsa-jcs-2022` proof (as RLTP, ✅ 2026-11-05).
 - *Envelope*: AS2 **`Relationship`** (`subject` = attesting actor, `object` = attested actor/key, `relationship` = claim type), addressed with `to`/`audience`.
 - Extracted columns: `id`, `subject`, `object`, `claim_type` (our enum: `person_key`/`identity_encounter`/`vouching`), `key_ref` (`Multikey` ID or `did:key`), `method` (`qr-in-person`/`remote`/…), `attested_at`, `place` (optional, [geodata/](../geodata/index.md)).
-- **No trust values, no scores:** neither stored nor computed (ADR 0102, decision 46). The table holds only confirmations ("key belongs to person"); `vouching` means a third person confirms a key, not a rating.
+- **No trust values, no scores:** neither stored nor computed (ADR 0102, decision 46). The table holds only confirmations ("key belongs to person"); `vouching` means a third person confirms a key, not a rating, without any count or threshold.
 
 ## Flow in the envelope (decision 2)
 

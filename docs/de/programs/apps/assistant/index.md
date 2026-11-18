@@ -259,29 +259,28 @@ und um Geschwindigkeit: Ein Modell kann einen Computer sofort lahmlegen, was fas
 
 ### Drei getrennte Dinge
 
-**1. Die Markierung sagt, wer verantwortlich ist.** Wir können eine KI von außen nicht von einem Menschen unterscheiden. Entscheidend sind also die Personen, die eine KI **hosten**: Eine KI ist ein Teilnehmender, der seinen Betreiber nennt, und Menschen bürgen für diesen Betreiber.
+**1. Die Markierung sagt, wer verantwortlich ist.** Wir können eine KI von außen nicht von einem Menschen unterscheiden. Entscheidend sind also die Personen, die eine KI **hosten**: Eine KI ist ein Teilnehmender, der seinen Betreiber nennt, und ich bestätige den Schlüssel dieses Betreibers selbst, zum Beispiel bei einem Treffen.
 
 **Nichts verborgen.** Wir machen keine Benutzer-Bots, denn das wäre nicht transparent. Wir wollen nur Menschen oder Intelligenzen, bei denen man weiß, wer sie ist. Ein echter Name ist nicht nötig. Es muss aber eine Person sein, nicht mehrere Konten. Wie man das feststellt, ohne Anonymität abzuschaffen, ist eine **offene Frage**.
 
-**Eine KI kommt durch Einladung.** Ich lege ein Profil für sie an, und dieses Profil ist die Einladung. Dann kann ich ihr sagen, was ich möchte. Damit sie überhaupt etwas tut, muss ich das freigeben. Die Bewertung ist die Art, wie ich weiß, wer sie ist.
+**Eine KI kommt durch Einladung.** Ich lege ein Profil für sie an, und dieses Profil ist die Einladung. Dann kann ich ihr sagen, was ich möchte. Damit sie überhaupt etwas tut, muss ich das freigeben. Die Schlüsselbestätigung ist die Art, wie ich weiß, wer sie ist (keine Bewertung).
 
 **2. Jeder gibt Freigaben je Person.** Jede Person sagt ihrem eigenen Programm, wem es etwas öffnet (Freigabe je Person, keine berechnete Vertrauensstufe; ADR 0102, Entscheid 46).
 
-| Stufe | Wer durchkommt |
-|-------|----------------|
-| 0 | Alle |
-| 1 | Betreiber, für die eine gewählte Anzahl meiner eigenen Kontakte bürgt |
-| 2 | Betreiber, die ich selbst geprüft habe |
-| 3 | Nur die, die ich benannt habe |
+Mögliche Freigaben (ich wähle, ohne Anzahl und ohne Berechnung):
 
-- **Es gibt keine globale Bewertung.** Die Stufe wird nur aus meinen eigenen Kontakten berechnet, und nichts wird weitergegeben.
+- **Alle** kommen durch.
+- **Betreiber mit einem von mir bestätigten Schlüssel** kommen durch.
+- **Nur die, die ich benannt habe**, kommen durch.
+
+- **Es gibt keine Bewertung und keine Zahl.** Freigaben sind meine eigene Entscheidung je Person, nichts wird berechnet und nichts weitergegeben.
 - **Markierungen zählen nur dort, wo sie vergeben wurden.** Keine Markierung heißt, dass nichts bekannt ist. Ein schwarzer Punkt gilt nur für das Programm, bei dem jemand gehostet wird, wie ein Bann heute: Er gilt dort, wo man ist, nicht überall. Ein Bann über alles wäre weder fair noch möglich, und wir machen ihn nicht.
 - **Pro Aktion, nicht eine einzige Zahl:** Mit einer KI zu chatten und einer KI zu erlauben, auf meine Daten zu wirken, sind verschiedene Entscheidungen.
 
 **3. Der Notstopp braucht niemandes Vertrauen.**
 
 - **Stopp:** Eine Aktion beendet alle laufenden KI-Arbeiten und nimmt alle Werkzeugrechte auf einmal weg.
-- **Ausschließen:** Das Programm lehnt dann jeden KI-Teilnehmenden ab und alles unterhalb meiner Stufe.
+- **Ausschließen:** Das Programm lehnt dann jeden KI-Teilnehmenden ab und alles, was ich nicht freigegeben habe.
 - **Außerhalb der Reichweite der KI:** Er lebt im Engine, unter jedem Frontend. Kein Werkzeug und kein MCP-Aufruf kann ihn abschalten, und nur eine Person kann ihn wieder öffnen, mit ihrem eigenen Schlüssel auf ihrem eigenen Gerät.
 - **Er funktioniert immer:** ohne Netzwerk, ohne Modell, und im Zweifel bleibt er geschlossen.
 - **Danach:** Das Protokoll zeigt, was geschehen ist, und die Datenablage ([fs-objects](https://github.com/FreeSynergy/fs-objects)) macht rückgängig, was sie kann.
@@ -294,8 +293,8 @@ eigenen Daten geschieht.
 ### Was das nicht leisten kann
 
 - **Nichts beweist, dass jemand ein Mensch ist.** Das [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol)
-  sagt das über sich selbst: Keine Prüfung sagt „das ist ein Mensch“. Sie zeigt nur, dass Menschen, die ich kenne, für diesen Schlüssel einstehen. Eine verifizierte
-  Person kann trotzdem eine unmarkierte KI dahinter laufen lassen. Was dann hilft, sind Konsequenzen: die Bürgschaft zurückziehen, sperren, stoppen.
+  sagt das über sich selbst: Keine Prüfung sagt „das ist ein Mensch“. Sie zeigt nur, dass ich diesen Schlüssel bestätigt habe (etwa bei einem Treffen). Eine verifizierte
+  Person kann trotzdem eine unmarkierte KI dahinter laufen lassen. Was dann hilft, sind Konsequenzen: die Freigabe zurückziehen, sperren, stoppen.
 - **Der Stopp erreicht nur, was über unsere Programme läuft.** Deshalb laufen Agenten immer unter ihrem eigenen Systembenutzer, in einer Sandbox, damit das System sie von außen beenden kann (ADR 0056). Ein Agent kann nie Administrator werden.
 - **Eine hohe Stufe hält auch neue Menschen fern**, die noch keine Kontakte haben. Es ist also immer eine persönliche Wahl, nie unser Standard.
 

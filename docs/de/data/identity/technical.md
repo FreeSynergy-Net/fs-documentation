@@ -11,7 +11,7 @@ Das Objekt entspricht dem Attestation-Objekt in Antons Modell (✅ gesichtet 202
 ## Speicherperspektive
 
 - **Tabelle `attestation`**: `id` (ULID), `subject` (wer bestätigt, IRI), `object` (wen/was, IRI), `claim_type` (Enum, eigene Festlegung: `person_key`/`identity_encounter`/`vouching`), `key_ref` (`publicKey`-ID des Objects oder `did:key`), `method` (`qr-in-person`/`remote`/…), `attested_at`, `place` (optional, Referenz auf [geodata/](../geodata/index.md)), `signature_ref`.
-- **Keine Vertrauenswerte, keine Scores:** weder gespeichert noch berechnet (ADR 0102, Entscheid 46). Die Tabelle hält nur Bestätigungen („Schlüssel gehört zu Person“); `vouching` heißt: eine dritte Person bestätigt einen Schlüssel, keine Bewertung.
+- **Keine Vertrauenswerte, keine Scores:** weder gespeichert noch berechnet (ADR 0102, Entscheid 46). Die Tabelle hält nur Bestätigungen („Schlüssel gehört zu Person“); `vouching` heißt: eine dritte Person bestätigt einen Schlüssel, keine Bewertung, ohne Anzahl und ohne Schwelle.
 
 ## Fluss im Envelope (Beschluss 2)
 

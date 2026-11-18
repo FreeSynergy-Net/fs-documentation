@@ -270,25 +270,24 @@ and about speed: a model can wreck a computer at once, which almost no person ca
 ### Three separate things
 
 **1. The mark says who is responsible.** We cannot tell an AI from a person by looking. So the people who **host** an AI are
-what counts: an AI is a participant that names its operator, and people vouch for that operator.
+what counts: an AI is a participant that names its operator, and I confirm that operator's key myself, for instance at a meeting.
 
 **Nothing hidden.** We do not do user bots, as that would not be transparent. We want only people, or intelligences where you
 know who it is. A real name is not needed. But it must be one person, not several accounts. How to establish that without
 removing anonymity is an **open question**.
 
 **An AI comes by invitation.** I create a profile for it, and that profile is the invitation. Then I can tell it what I want.
-For it to do anything at all, I must release that. The rating is how I know who it is.
+For it to do anything at all, I must release that. Key confirmation is how I know who it is (not a rating).
 
 **2. Everyone gives permissions per person.** Each person tells their own program for whom it opens up (permission per person, no computed trust level; ADR 0102, decision 46).
 
-| Level | Who gets through |
-|-------|------------------|
-| 0 | Everyone |
-| 1 | Operators that a chosen number of my own contacts vouch for |
-| 2 | Operators I have verified myself |
-| 3 | Only those I named |
+Possible permissions (I choose, without any count and without any computation):
 
-- **There is no global score.** The level is computed from my own contacts only, and nothing is passed along further.
+- **Everyone** gets through.
+- **Operators with a key I have confirmed** get through.
+- **Only those I named** get through.
+
+- **There is no rating and no number.** Permissions are my own decision per person, nothing is computed and nothing is passed along.
 - **Marks count only where they were given.** Having no mark means nothing is known. A black mark exists only for the program
   where someone is hosted, like a ban today: it applies where you are, not everywhere. A ban across everything would be neither
   fair nor possible, and we do not do it.
@@ -297,7 +296,7 @@ For it to do anything at all, I must release that. The rating is how I know who 
 **3. The emergency stop needs nobody's trust.**
 
 - **Stop:** one action ends all running AI work and takes away all tool rights at once.
-- **Lock out:** the program then refuses every AI participant, and everything below my level.
+- **Lock out:** the program then refuses every AI participant, and everything I have not released.
 - **Out of the AI's reach:** it lives in the engine, below every frontend. No tool or MCP call can switch it off, and only a
   person can open it again, with their own key on their own device.
 - **It always works:** without network, without a model, and when in doubt it stays shut.
@@ -311,8 +310,8 @@ own data.
 ### What this cannot do
 
 - **Nothing proves that someone is human.** The [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol)
-  says this about itself: no check says "this is a human". It only shows that people I know stand behind this key. A verified
-  person can still run an unmarked AI behind it. What helps then is consequences: withdraw the vouching, block, stop.
+  says this about itself: no check says "this is a human". It only shows that I have confirmed this key (at a meeting, for instance). A verified
+  person can still run an unmarked AI behind it. What helps then is consequences: withdraw the permission, block, stop.
 - **The stop only reaches what runs through our programs.** That is why agents always run under their own system user, in a sandbox, so the system can end them from outside (ADR 0056). An agent can never become an admin.
 - **A high level also keeps out new people** who have no contacts yet. So it is always a personal choice, never our default.
 

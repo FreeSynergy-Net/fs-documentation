@@ -70,7 +70,7 @@ Grundsätze: `conventions/CONVENTIONS.md` §0, ADRs 0011–0018.
 - [ ] Gespräch mit Nutzer: Datenhaltung (zentral / pro Programm, Abgleich, Turso) — Protokoll §3/§4
 - [ ] Gespräch mit Nutzer: Messenger-Backend (tuwunel/Matrix vs. SMTP/JMAP), unverschlüsselte
       Eingänge (ADR 0018)
-- [ ] Einordnung Web of Trust ↔ Kanidm (Identität vs. Vertrauen) · Opus, Recherche Leo
+- [ ] Einordnung Web of Trust ↔ Kanidm (Identität vs. Vertrauen) · Opus, Recherche Leo — **entfällt (Entscheid 46, ADR 0102: kein Web of Trust)**
 
 ## Phase 3 – Funktionen je Kategorie → Schnittstelle
 
@@ -167,7 +167,7 @@ Compiler fertig (Umbau ADR 0043 + Orakel 14/14), pedantic überall, fmt korrigie
 - [ ] Doku `programs/apps/people/`, `data/people/` an `fs-people` anpassen · Sonnet
 - [ ] SignPath: Nutzer am 2026-11-13 erneut fragen (ADR 0051) · Opus
 - [ ] Rollen: SKOS lesen, Kunde/Lieferant/Mitarbeiter recherchieren, Format für eigene Rollen (ADR 0052) · Opus
-- [ ] Schnittstelle Vertrauen über Web of Trust (ADR 0052) · Opus
+- [ ] Schnittstelle Vertrauen über Web of Trust (ADR 0052) · Opus — **entfällt (Entscheid 46, ADR 0102; Nachtrag in ADR 0052)**
 - [ ] Manifest ausführlicher und schöner schreiben, immer wieder ergänzen · später
 - [x] Strata und CodeAF analysiert (2026-11-06, Seite `assistant`)
 - [ ] `fs-assistant`: Zed analysieren; ACP und MCP lesen; Component `llm-chat` (ADR 0053) · Opus, Recherche

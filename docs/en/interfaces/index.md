@@ -64,7 +64,7 @@ Keeping these apart prevents much confusion:
 
 | Interface | What it is for | Standard base |
 |-----------|----------------|---------------|
-| Trust | Showing when a person is safe, also against scammers and bots; each person gives [permissions per person](../programs/apps/assistant/index.md#locking-ais-out); no level, no number about people | key confirmation at meetings (model: [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), only for that); decision 46 (ADR 0102, addenda in ADR 0052, 0054) |
+| Key confirmation | Confirming that a key belongs to a person (yes/no); against bots, AI labelling and the bot seat help (ADR 0054, 0091); each person gives [permissions per person](../programs/apps/assistant/index.md#locking-ais-out); no level, no number about people | key confirmation at meetings (model: [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), only for that); decision 46 (ADR 0102, addenda in ADR 0052, 0054) |
 | Sharing and permissions | Who may see what; shares go to groups | Gap, one specification for all. Open: [role privacy](roles.md#open) |
 | Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-objects` (ADR 0050) |
 | Sync | Bringing devices and programs together | Activity log (ADR 0019) |
