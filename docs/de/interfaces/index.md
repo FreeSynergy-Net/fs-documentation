@@ -61,7 +61,7 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 | Hülle und Aktivitätsprotokoll | Die äußere Form und der Verlauf jedes Objekts | AS2, vorgeschlagener Besitzer `fs-objects` (ADR 0050) |
 | Synchronisation | Geräte und Programme zusammenbringen | Aktivitätsprotokoll (ADR 0019) |
 | Präsenz | Sehen, was andere gerade tun | Lücke; wird nie gespeichert |
-| Suche | Programmübergreifend finden | Lücke |
+| Suche | Programmübergreifend finden | Lücke, siehe [Suche](search.md) |
 | Benachrichtigungen | Im richtigen Moment Bescheid bekommen | Lücke |
 | Metadaten-Extraktoren | Lesen, was eine Datei enthält, je nach Typ | Exif, XMP, IPTC und andere je Typ |
 | Export und Import | Daten hinein- und hinausbringen | das Standardformat jedes Themas |

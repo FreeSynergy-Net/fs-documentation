@@ -69,7 +69,7 @@ Keeping these apart prevents much confusion:
 | Envelope and activity log | Every object's outer form and history | AS2, proposed owner `fs-objects` (ADR 0050) |
 | Sync | Bringing devices and programs together | Activity log (ADR 0019) |
 | Presence | Seeing what others do, as it happens | Gap; never stored |
-| Search | Finding across programs | Gap |
+| Search | Finding across programs | Gap, see [Search](search.md) |
 | Notifications | Being told at the right moment | Gap |
 | Metadata extractors | Reading what a file contains, by type | Exif, XMP, IPTC and others per type |
 | Export and import | Bringing data in and out | Each topic's standard format |
