@@ -50,6 +50,18 @@ Du arbeitest an deiner Kopie, und sie wird jederzeit für dich aufbewahrt. **Spe
 
 Nachrichten werden verschlüsselt, und das Programm sucht immer nach einem Weg, sie zu verschlüsseln, denn wir wollen, dass Menschen das lernen. Gelingt es nicht, sagt es, warum.
 
+## Von der Person aus
+
+Wir gehen immer von der Person aus, nie von dem, was ein Programm kann. Was du von dir zeigst, legst du vorher fest, nicht erst im Moment, in dem jemand fragt. Und niemand wird bei jeder Kleinigkeit neu um Erlaubnis gebeten: Was erlaubt ist, ist erlaubt, was nicht erlaubt ist, bleibt bei dir.
+
+Du teilst ein Ganzes, nicht Feld für Feld: ein Profil ist eine Sicht auf dich, bei der du weglässt, was andere nicht sehen sollen. Dabei gibt es zwei Dinge. Teilst du etwas, dürfen andere es sehen, und es bleibt bei dir. Schenkst du etwas, gibst du es weg.
+
+Wie weit etwas reicht, hängt davon ab, wie gut man sich kennt. Es gibt kein Netz ohne Menschen, die einander kennen. Wer dich kaum kennt, bekommt wenig von dir, wer dir nah ist, mehr. Wenn etwas von Hand zu Hand weitergeht, bleibt es höchstens gleich oder wird weniger, nie mehr. Nur Stellen, die zum Veröffentlichen da sind, etwa Behörden, drehen das mit Absicht um.
+
+## Wenn du nichts einstellst
+
+Wer etwas neu installiert, ist erst einmal mit niemandem verbunden. Du suchst dir einen Server und bittest darum, dazuzugehören; das muss angenommen werden. Du meldest dich in einer Gruppe. Kennt sie dich nicht, darf sie dich trotzdem aufnehmen. Die Gruppe weiß dann nur eines: Du nimmst Daten und gibst nichts ab, weil du nichts hast oder nichts willst. Was du der Gruppe gibst, entscheidest du. Schreibst du etwas in ihren Diensten, etwa eine Nachricht, gibst du es damit her, sogar als Geschenk. Dein Profil auf dem Server zu zeigen, ist freiwillig. Jeder kann, keiner muss, ausgenommen Verträge.
+
 ## Niemand kann es abschalten
 
 FreeSynergy darf nicht von uns abhängen. Wenn unsere Server verschwinden oder ein Land die Leitung zu ihnen kappt, müssen sich Menschen trotzdem erreichen können. Deshalb kann jedes Gerät ein eigener Knoten sein: In einer Halle ohne Internet finden Telefone einander, und das Treffen geht weiter. Programme kommen aus Git-Repositories, die jeder spiegeln kann, signiert, damit niemand etwas Falsches einschmuggeln kann. Menschen, die wegen dessen gejagt werden, was sie denken, und nicht wegen dessen, was sie getan haben, müssen ebenfalls miteinander reden können. Wo es dafür noch nichts Freies gibt, bauen wir es und geben es weg.

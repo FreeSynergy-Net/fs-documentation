@@ -50,6 +50,18 @@ You work on your copy, and it is kept for you at all times. **Saving is not expo
 
 Messages are encrypted, and the program always looks for a way to encrypt them, because we want people to learn this. When it cannot, it says why.
 
+## Starting from the person
+
+We always start from the person, never from what a program can do. What you show of yourself is decided beforehand, not at the moment someone asks. And nobody is asked for permission again for every small thing: what is allowed is allowed, and what is not allowed stays with you.
+
+You share a whole, not field by field: a profile is a view of you, with whatever others should not see left out. There are two different things. If you share something, others may see it, and it stays with you. If you give something away, it is gone from you.
+
+How far something reaches depends on how well people know each other. There is no network without people who know each other. Whoever hardly knows you gets little of you, whoever is close to you gets more. When something passes from hand to hand, it can only stay the same or shrink, never grow. Only bodies that exist to publish, such as public authorities, turn this around on purpose.
+
+## When you set nothing up
+
+Whoever newly installs something is connected to nobody at first. You look for a server and ask to belong; that has to be accepted. You join a group. If it does not know you, it may still take you in. All the group then knows is this: you take data and give nothing, because you have nothing or want nothing. What you give the group is up to you. If you write something in its services, a message for example, you give it away, even as a gift. Showing your profile on the server is voluntary. Everyone can, no one must, except contracts.
+
 ## No one can switch it off
 
 FreeSynergy must not depend on us. If our servers go away, or a country cuts the line to them, people must still reach each other. So every device can be a node of its own: in a hall without internet, phones find each other and the meeting goes on. Programs come from Git repositories that anyone can mirror, signed so that nobody can slip in something false. People who are hunted for what they think, not for what they did, must be able to talk too. Where nothing free exists for that yet, we build it and give it away.

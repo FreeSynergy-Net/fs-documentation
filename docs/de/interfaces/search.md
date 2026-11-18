@@ -25,7 +25,7 @@ Dieses Prinzip gilt überall, nicht nur für die Suche (Nutzer, 2026-11-18). Die
 
 **Offen:**
 
-- **Kein ADR formuliert die Grundregel.** Ein ADR wird mit dem Nutzer besprochen; ein Entwurf entsteht erst nach seinem Wort. Dieses Kapitel erfindet ihn nicht.
+- **Die Grundregel steht als Entwurf in ADR 0102** (Status Entwurf, 2026-11-18). Dieses Kapitel erfindet sie nicht.
 - Nicht in einem ADR gesagt: Person als Ausgangspunkt jeder Funktion (nur Manifest); Berechtigung **vorab** (ADR 0070 prüft je Aufruf); SCIM und OAuth als Pflicht jedes Moduls (0024 sagt „kann“); „sharen“ und „schenken“ als getrennte Stufen; Profil als Sicht mit ausgelassenen Feldern; „je weiter hinaus, desto weniger Daten“.
 - **Klärungsbedarf:** ADR 0024 Zeile 17 und ADR 0035 Zeilen 6-7 sagen „je mehr Vertrauen, desto mehr Freigabe“; das Prinzip sagt „je weiter hinaus, desto weniger Daten“. Beides kann nebeneinander gelten (Vertrauen zwischen Instanzen gegen Abstand nach außen); das ist **nicht geklärt**.
 
@@ -145,7 +145,7 @@ Die PLAN-Dateien, die JMAP und Suche nennen (`PLAN-angleichung-teil2/3`, `PLAN-i
 3. Prüfen, ob `cancel` und Zeitlimit zum Erweiterungsmechanismus von RFC 8620 Abschnitt 11 passen [nicht geprüft].
 4. Ungefähre Zählung: Quelle für `track_total_hits` bei Bedarf nachreichen.
 5. Der ADR zu Vertragsfeld und Fan-out: erst nachdem der Nutzer dieses Kapitel gelesen hat.
-6. Der ADR zum Grundprinzip „Person zuerst“: **Offen**, wird mit dem Nutzer besprochen; Entwurf erst nach seinem Wort. Dazu der Klärungsbedarf „Vertrauen“ gegen „weniger Daten nach außen“.
+6. Der ADR zum Grundprinzip „Person zuerst“: Entwurf liegt vor (ADR 0102); Annahme **offen**. Dazu der Klärungsbedarf „Vertrauen“ gegen „weniger Daten nach außen“.
 7. Operatoren: Default-AND in JMAP-Implementierungen (Serverpraxis) und CQL-`prox` nicht geprüft; ECMA-262, PCRE, RE2 und POSIX nicht geprüft.
 
 Im Lauf nicht belegt: Elasticsearch `track_total_hits`, Status von Soundex/Metaphone, ActivityPub-Details, offizielle OpenSearch-Seite (nur Entwürfe auf GitHub).

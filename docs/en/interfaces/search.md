@@ -25,7 +25,7 @@ This principle applies everywhere, not only to search (user, 2026-11-18). Search
 
 **Open:**
 
-- **No ADR states the basic rule.** An ADR will be discussed with the user; a draft follows only after his word. This chapter does not invent it.
+- **The basic rule stands as a draft in ADR 0102** (status draft, 2026-11-18). This chapter does not invent it.
 - Not stated in any ADR: the person as the starting point of every function (manifesto only); permission **in advance** (ADR 0070 checks per call); SCIM and OAuth as an obligation of every module (0024 says "can"); "share" and "give" as separate levels; a profile as a view with fields left out; "the further out, the less data".
 - **Needs clarification:** ADR 0024 line 17 and ADR 0035 lines 6-7 say "the more trust, the more release"; the principle says "the further out, the less data". Both may hold side by side (trust between instances versus distance outwards); this is **not clarified**.
 
@@ -145,7 +145,7 @@ The PLAN files mentioning JMAP and search (`PLAN-angleichung-teil2/3`, `PLAN-ins
 3. Check whether `cancel` and the time limit fit the extension mechanism of RFC 8620 section 11 [not checked].
 4. Approximate counting: `track_total_hits` source to be added if needed.
 5. The ADR for the contract field and the fan-out: only after the user has read this chapter.
-6. The ADR for the basic principle "the person first": **open**, to be discussed with the user; a draft only after his word. Also the clarification "trust" versus "less data outwards".
+6. The ADR for the basic principle "the person first": a draft exists (ADR 0102); acceptance **open**. Also the clarification "trust" versus "less data outwards".
 7. Operators: default AND in JMAP implementations (server practice) and CQL `prox` not checked; ECMA-262, PCRE, RE2 and POSIX not checked.
 
 Not documented in the research: Elasticsearch `track_total_hits`, status of Soundex/Metaphone, ActivityPub details, official OpenSearch page (only drafts on GitHub).
