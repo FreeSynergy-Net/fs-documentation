@@ -18,7 +18,7 @@
 - `--cost` (USD) entfällt in fs-tasks.
 - API-Kosten eines Agenten: Geld als Festbetrag je Zeile in USD, oder Menge mit der Einheit „USD laut Konsole“, wenn jemand die Zahl abliest; Rechnung über fs-invoices.
 - Die Ausnahme 55 bleibt im Bauplan, bis Lauf und fs-invoices existieren (ADR 0103, Folgen, fs-flow und fs-invoices).
-- fs-invoices darf je Akteur summieren, nur auf ausdrücklichen Aufruf und mit Rechten vorab per Vertrag; Formel und Rohwerte bleiben sichtbar. Präzisierung von ADR 0102 E4 (c), bestätigt 19.11.2026; ADR 0102 wird beim nächsten Doku-Lauf nachgetragen.
+- fs-invoices darf je Akteur summieren, nur auf ausdrücklichen Aufruf und mit Rechten vorab per Vertrag; Formel und Rohwerte bleiben sichtbar. Präzisierung von ADR 0102 E4 (c), bestätigt 19.11.2026. Bewertet wird die Arbeit eines Vorgangs, nie der Mensch; Ranglisten oder Dauerwerte über Personen hinweg (Score, Stufe) bleiben ausgeschlossen.; ADR 0102 wird beim nächsten Doku-Lauf nachgetragen.
 - Offen: Offen-Notiz (ADR 0103 Offen 6).
 
 **Verweis:** ADR 0103 Punkt 8 (Buchungszeilen, fs-invoices) und Punkt 9 (keine Summe je Person ohne Aufruf, Entscheid 46); ADR 0103 Punkt 11 (Nummer 55).
