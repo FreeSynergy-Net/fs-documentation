@@ -21,7 +21,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0012 | `masks/` wird `frontends/`, mit Versionsordner | akzeptiert |
 | 0013 | Funktionen analysieren, nichts kopieren; Programme nach Ideen | akzeptiert |
 | 0014 | Standards zuerst, ActivityStreams 2.0 als Basis | akzeptiert |
-| 0015 | Fremdprojekte, die wir nutzen und unterstützen; Crate-Regel | akzeptiert |
+| 0015 | Fremdprojekte, die wir nutzen und unterstützen; Crate-Regel | akzeptiert (Nachtrag 18.11. (0102, Entscheid 46): Web of Trust nicht für Vertrauen zwischen Menschen) |
 | 0016 | Lizenz: MIT OR Apache-2.0, für immer kostenlos | akzeptiert |
 | 0017 | Programme heißen nach Kategorie, ein Repo pro Programm | akzeptiert |
 | 0018 | Messenger umfasst E-Mail und Chats; nur verschlüsselt; Backend-Stufenplan | akzeptiert; Nachtrag 17.11. |
@@ -58,7 +58,7 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0049 | Gesamtplan: Programme nach Zweck, Workbench und Suite | akzeptiert |
 | 0050 | Ein Standard, ein Programm, eine Schnittstelle; `fs-contacts` heißt `fs-people` | akzeptiert (Abgrenzung: Vorschlag) |
 | 0051 | Releases: `fs-release`, nur kostenlose Wege, offene Signatur | akzeptiert |
-| 0052 | Eine Person mit Rollen; Rollen standardisiert oder selbst definiert; Vertrauen sichtbar machen | akzeptiert |
+| 0052 | Eine Person mit Rollen; Rollen standardisiert oder selbst definiert; Vertrauen sichtbar machen | akzeptiert (Nachtrag 18.11. (0102, Entscheid 46): kein Web of Trust, keine Zahl) |
 | 0053 | LLM-Chat als Component und Programm; Übersetzung vorerst nicht; Projektadresse | akzeptiert |
 | 0054 | KIs sind markierte Teilnehmer; der Assistent ist ein Messenger-Frontend | akzeptiert (Aussperren: vorerst bestätigt; Identität offen; Nachtrag 16.11.; Nachtrag 17.11.; Nachtrag 17.11. (2) KI-Einladung, Entwurf; Nachtrag 17.11. (3) im Auftrag, Entwurf; Nachtrag 17.11. (4) Pause und Entfernen (jede Person), Auftrag widerrufen (Ersteller), Prüfung des Auftrags, Entwurf; Nachtrag 18.11. (0102, Entscheid 46): keine Vertrauensstufen) |
 | 0055 | Sprechende Namen statt IDs; `fs-groups` ist die Quelle der Wahrheit für Gruppen | akzeptiert |
@@ -108,4 +108,4 @@ Format: **Kontext → Entscheidung → Folgen**, plus Verweis auf betroffene Dok
 | 0099 | Bauplan (`scaffold.toml`) und zwei Rollen: Bau-Werkzeug für das Projekt, fs-scaffold für Instanzen | akzeptiert (2026-11-17); Nachtrag 18.11. Bauplan-Schema 2 (`kind`, `[[bundle]]`, `paths`, Ort/Name `fs-blueprint`) [Entwurf] |
 | 0100 | Einstellungen als eigene Schnittstelle: Vertrag `settings`, Bibliothek `fs-settings`, Programm `fs-settings` | akzeptiert (2026-11-17; nach Fixpunkt `setting_v1`, Probe fs-settings; Nachtrag 17.11. [Entwurf]: Speicher ist die Datenbank (Domäne `settings`, Port in fs-settings), L5/L6/L7 entfallen; noch nicht gebaut: L1 coded_stub, L2 Windows-CI, L3 KI-Satz in lib.rs, L8 Texte, `profile_v1`, Programm fs-settings; Nachtrag 17.11. (2): Einstellungen des forms-Hosts [Entwurf]) |
 | 0101 | Vier Arten von Objekten: Standard-Modul, Modul-Bausatz, Anzeige-Component, Programm = Bauplan | Entwurf (Strategie, 2026-11-18; Nutzer 36 = JA; Offen 5 entschieden; ändert 0097 E3 und das Schema von 0099, ergänzt 0098) |
-| 0102 | Grundprinzip „Person zuerst“: Rechte vorab per Freigabe-Regel (SCIM + OAuth Pflicht je Programm), Teilen als Objekt bzw. Sicht (sharen/schenken), Reichweite = menschliches Kennen (monoton), Ausnahme öffentliche Stellen | Entwurf (Strategie, 2026-11-18; Nutzer 37 = JA, 38; überarbeitet nach Widerspruchsprüfung, Nutzerfragen 39–43, 46 und 47 entschieden; ändert 0024 Satz 9: SCIM/OAuth Pflicht; Entscheid 46: keine Vertrauensstufen, Nachträge zu 0024/0029/0035/0054; präzisiert 0014 E1 und 0101 E5; löst 0024:17/0035:6-7 auf; ordnet 0020 „Leihen“ ein) |
+| 0102 | Grundprinzip „Person zuerst“: Rechte vorab per Freigabe-Regel (SCIM + OAuth Pflicht je Programm), Teilen als Objekt bzw. Sicht (sharen/schenken), Reichweite = menschliches Kennen (monoton), Ausnahme öffentliche Stellen | Entwurf (Strategie, 2026-11-18; Nutzer 37 = JA, 38; überarbeitet nach Widerspruchsprüfung, Nutzerfragen 39–43, 46 und 47 entschieden; ändert 0024 Satz 9: SCIM/OAuth Pflicht; Entscheid 46: keine Vertrauensstufen, Nachträge zu 0015/0024/0029/0035/0052/0054; präzisiert 0014 E1 und 0101 E5; löst 0024:17/0035:6-7 auf; ordnet 0020 „Leihen“ ein) |
