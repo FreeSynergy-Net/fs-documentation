@@ -9,7 +9,7 @@
 **Entscheid (Strategie, nach dem Nutzerwort 18.11.2026 „der Bot/Wrapper trägt die Kennzeichnung in sich“):**
 - Das KI-Zeichen kommt aus dem **Akteurstyp**: ein Bot ist `BotRef` (fs-identity, ADR 0091). Der Akteurstyp selbst ist die Kennzeichnung.
 - Die Anzeige leitet das Zeichen daraus ab. **Kein Feld je Aufgabe**, kein Vendor-Feld.
-- Die frühere Form über JSContact `kind: application` in einer Personenkarte ist **zurückgenommen**. `kind: application` allein heißt nicht „KI“ (auch ein CI-Runner ist eine Anwendung).
+- Die KI-Karte in fs-people bleibt (JSContact `kind: application` mit dem KI-Merkmal `PersonView.ai`; ADR 0091 Nachtrag „Folgen für die Traits (BotRef)“). `kind: application` allein heißt nicht „KI“ (auch ein CI-Runner ist eine Anwendung); das Zeichen der Anzeige für einen Bot kommt aus dem Akteurstyp `BotRef`, nicht aus `kind`.
 - Läufe und Aufgaben verweisen auf den Akteur: Person (`PersonRef`) oder Bot (`BotRef`) gemäß ADR 0091.
 
 **Folge:**

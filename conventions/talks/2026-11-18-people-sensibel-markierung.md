@@ -7,7 +7,7 @@
 - **Frage (Nummer 58):** Wie werden sensible Angaben über Personen gekennzeichnet, und wer entscheidet, wer sie sieht?
 
 **Entscheid des Nutzers (Nutzerwort 18.11.2026):**
-- Ein **Schutz-Baustein** mit den **DPV-Kategorien** (W3C Community Group DPVCG, keine W3C-Empfehlung) (Data Privacy Vocabulary) kennzeichnet sensible Angaben.
+- Ein **Schutz-Baustein** mit den **DPV-Kategorien** (Data Privacy Vocabulary, W3C Community Group DPVCG, keine W3C-Empfehlung) kennzeichnet sensible Angaben.
 - **Die Freigabe je Empfänger bleibt unsere Regel** (ADR 0029, ADR 0102). Der Standard beschreibt die Kategorie, nicht die Freigabe.
 
 **Folge:**
