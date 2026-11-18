@@ -52,15 +52,17 @@ Messages are encrypted, and the program always looks for a way to encrypt them, 
 
 ## Starting from the person
 
-We always start from the person, never from what a program can do. What you show of yourself is decided beforehand, not at the moment someone asks. And nobody is asked for permission again for every small thing: what is allowed is allowed, and what is not allowed stays with you.
+We always start from the person, never from what a program can do. What you show of yourself is decided beforehand, not at the moment someone asks. Whoever looks for you is not asked for permission again with every search: what you allowed is allowed, and what you did not allow nobody gets. An AI is different: it keeps asking where it matters.
 
-You share a whole, not field by field: a profile is a view of you, with whatever others should not see left out. There are two different things. If you share something, others may see it, and it stays with you. If you give something away, it is gone from you.
+You share a view of yourself, not loose fields: a profile shows what you release for it, and leaves out whatever others should not see. There are two different things. If you share something, others may see it, and it is still yours. If you give something away, it is gone from you.
 
-How far something reaches depends on how well people know each other. There is no network without people who know each other. Whoever hardly knows you gets little of you, whoever is close to you gets more. When something passes from hand to hand, it can only stay the same or shrink, never grow. Only bodies that exist to publish, such as public authorities, turn this around on purpose.
+How far something reaches depends on how well people know each other. There is no network without people who know each other. Whoever hardly knows you gets little of you, whoever is close to you gets more. When something passes from hand to hand, it should only stay the same or shrink; our programs keep to that. Whoever may see something can still copy it by hand: we announce the rule, we cannot enforce it. Only bodies that exist to publish, such as public authorities, turn this around on purpose.
+
+Trust stays something between people. We build no stars and no display for it. You notice it because doors open. Social problems are solved socially, technical problems technically. Whoever mixes the two breaks a great deal.
 
 ## When you set nothing up
 
-Whoever newly installs something is connected to nobody at first. You look for a server and ask to belong; that has to be accepted. You join a group. If it does not know you, it may still take you in. All the group then knows is this: you take data and give nothing, because you have nothing or want nothing. What you give the group is up to you. If you write something in its services, a message for example, you give it away, even as a gift. Showing your profile on the server is voluntary. Everyone can, no one must, except contracts.
+Whoever newly installs something is connected to nobody at first. You look for a server or for people directly, for instance through an invitation or a QR code, and ask to belong; that has to be accepted, or a server admits everyone. You join a group. If it does not know you, it may still take you in. All the group then sees is this: this identifier is here and gives nothing yet, because you have nothing or want nothing. What you give the group is up to you. If you write something in its services, a message for example, you give it away, even as a gift. Showing your profile on the server is voluntary. Everyone can, no one must, except agreements (such as a sign-up where it is clear beforehand what you are asked to give). Reach is not our goal: whoever wants to publish does so on purpose.
 
 ## No one can switch it off
 

@@ -26,8 +26,8 @@ This principle applies everywhere, not only to search (user, 2026-11-18). Search
 **Open:**
 
 - **The basic rule stands as a draft in ADR 0102** (status draft, 2026-11-18). This chapter does not invent it.
-- Not stated in any ADR: the person as the starting point of every function (manifesto only); permission **in advance** (ADR 0070 checks per call); SCIM and OAuth as an obligation of every module (0024 says "can"); "share" and "give" as separate levels; a profile as a view with fields left out; "the further out, the less data".
-- **Needs clarification:** ADR 0024 line 17 and ADR 0035 lines 6-7 say "the more trust, the more release"; the principle says "the further out, the less data". Both may hold side by side (trust between instances versus distance outwards); this is **not clarified**.
+- Before ADR 0102 not stated in any ADR (now draft ADR 0102, E1-E3): the person as the starting point of every function (manifesto only); permission **in advance** (ADR 0070 checks per call); SCIM and OAuth as an obligation of every program (0024 says "can"); "share" and "give" as separate levels; a profile as a view with fields left out; "the further out, the less data".
+- **Needs clarification:** ADR 0024 line 17 and ADR 0035 lines 6-7 say "the more trust, the more release"; the principle says "the further out, the less data". Both may hold side by side (trust between instances versus distance outwards); proposed clarification: ADR 0102 E4 (trust = knowing); acceptance open.
 
 ## The seven kinds of search
 

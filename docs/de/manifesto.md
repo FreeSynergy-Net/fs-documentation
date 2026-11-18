@@ -52,15 +52,17 @@ Nachrichten werden verschlüsselt, und das Programm sucht immer nach einem Weg, 
 
 ## Von der Person aus
 
-Wir gehen immer von der Person aus, nie von dem, was ein Programm kann. Was du von dir zeigst, legst du vorher fest, nicht erst im Moment, in dem jemand fragt. Und niemand wird bei jeder Kleinigkeit neu um Erlaubnis gebeten: Was erlaubt ist, ist erlaubt, was nicht erlaubt ist, bleibt bei dir.
+Wir gehen immer von der Person aus, nie von dem, was ein Programm kann. Was du von dir zeigst, legst du vorher fest, nicht erst im Moment, in dem jemand fragt. Wer nach dir sucht, wird nicht bei jeder Suche neu um Erlaubnis gebeten: Was du erlaubt hast, ist erlaubt, was nicht, bekommt niemand. Bei einer KI ist das anders: Sie fragt weiterhin nach, wo es zählt.
 
-Du teilst ein Ganzes, nicht Feld für Feld: ein Profil ist eine Sicht auf dich, bei der du weglässt, was andere nicht sehen sollen. Dabei gibt es zwei Dinge. Teilst du etwas, dürfen andere es sehen, und es bleibt bei dir. Schenkst du etwas, gibst du es weg.
+Du teilst eine Sicht auf dich, nicht lose Felder: ein Profil zeigt, was du dafür freigibst, und lässt weg, was andere nicht sehen sollen. Dabei gibt es zwei Dinge. Teilst du etwas, dürfen andere es sehen, und es gehört weiter dir. Schenkst du etwas, gibst du es weg.
 
-Wie weit etwas reicht, hängt davon ab, wie gut man sich kennt. Es gibt kein Netz ohne Menschen, die einander kennen. Wer dich kaum kennt, bekommt wenig von dir, wer dir nah ist, mehr. Wenn etwas von Hand zu Hand weitergeht, bleibt es höchstens gleich oder wird weniger, nie mehr. Nur Stellen, die zum Veröffentlichen da sind, etwa Behörden, drehen das mit Absicht um.
+Wie weit etwas reicht, hängt davon ab, wie gut man sich kennt. Es gibt kein Netz ohne Menschen, die einander kennen. Wer dich kaum kennt, bekommt wenig von dir, wer dir nah ist, mehr. Wenn etwas von Hand zu Hand weitergeht, soll es höchstens gleich bleiben oder weniger werden; unsere Programme halten sich daran. Wer etwas sehen darf, kann es trotzdem abschreiben: Wir sagen die Regel an, erzwingen können wir sie nicht. Nur Stellen, die zum Veröffentlichen da sind, etwa Behörden, drehen das mit Absicht um.
+
+Vertrauen bleibt etwas zwischen Menschen. Wir bauen dafür keine Sterne und keine Anzeige. Man merkt es daran, dass sich Türen öffnen. Soziale Probleme löst man sozial, technische Probleme technisch. Wer das vermischt, macht sehr viel kaputt.
 
 ## Wenn du nichts einstellst
 
-Wer etwas neu installiert, ist erst einmal mit niemandem verbunden. Du suchst dir einen Server und bittest darum, dazuzugehören; das muss angenommen werden. Du meldest dich in einer Gruppe. Kennt sie dich nicht, darf sie dich trotzdem aufnehmen. Die Gruppe weiß dann nur eines: Du nimmst Daten und gibst nichts ab, weil du nichts hast oder nichts willst. Was du der Gruppe gibst, entscheidest du. Schreibst du etwas in ihren Diensten, etwa eine Nachricht, gibst du es damit her, sogar als Geschenk. Dein Profil auf dem Server zu zeigen, ist freiwillig. Jeder kann, keiner muss, ausgenommen Verträge.
+Wer etwas neu installiert, ist erst einmal mit niemandem verbunden. Du suchst dir einen Server oder Menschen direkt, etwa über eine Einladung oder einen QR-Code, und bittest darum, dazuzugehören; das muss angenommen werden, oder ein Server nimmt jeden auf. Du meldest dich in einer Gruppe. Kennt sie dich nicht, darf sie dich trotzdem aufnehmen. Die Gruppe sieht dann nur: Diese Kennung ist dabei und gibt bisher nichts ab, weil du nichts hast oder nichts willst. Was du der Gruppe gibst, entscheidest du. Schreibst du etwas in ihren Diensten, etwa eine Nachricht, gibst du es damit her, sogar als Geschenk. Dein Profil auf dem Server zu zeigen, ist freiwillig. Jeder kann, keiner muss, ausgenommen Vereinbarungen (etwa eine Anmeldung, bei der vorher sichtbar ist, was du angeben sollst). Reichweite ist nicht unser Ziel: Wer veröffentlichen will, tut es bewusst.
 
 ## Niemand kann es abschalten
 

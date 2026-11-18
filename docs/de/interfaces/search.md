@@ -26,8 +26,8 @@ Dieses Prinzip gilt überall, nicht nur für die Suche (Nutzer, 2026-11-18). Die
 **Offen:**
 
 - **Die Grundregel steht als Entwurf in ADR 0102** (Status Entwurf, 2026-11-18). Dieses Kapitel erfindet sie nicht.
-- Nicht in einem ADR gesagt: Person als Ausgangspunkt jeder Funktion (nur Manifest); Berechtigung **vorab** (ADR 0070 prüft je Aufruf); SCIM und OAuth als Pflicht jedes Moduls (0024 sagt „kann“); „sharen“ und „schenken“ als getrennte Stufen; Profil als Sicht mit ausgelassenen Feldern; „je weiter hinaus, desto weniger Daten“.
-- **Klärungsbedarf:** ADR 0024 Zeile 17 und ADR 0035 Zeilen 6-7 sagen „je mehr Vertrauen, desto mehr Freigabe“; das Prinzip sagt „je weiter hinaus, desto weniger Daten“. Beides kann nebeneinander gelten (Vertrauen zwischen Instanzen gegen Abstand nach außen); das ist **nicht geklärt**.
+- Vor ADR 0102 in keinem ADR gesagt (jetzt Entwurf ADR 0102, E1–E3): Person als Ausgangspunkt jeder Funktion (nur Manifest); Berechtigung **vorab** (ADR 0070 prüft je Aufruf); SCIM und OAuth als Pflicht jedes Programms (0024 sagt „kann“); „sharen“ und „schenken“ als getrennte Stufen; Profil als Sicht mit ausgelassenen Feldern; „je weiter hinaus, desto weniger Daten“.
+- **Klärungsbedarf:** ADR 0024 Zeile 17 und ADR 0035 Zeilen 6-7 sagen „je mehr Vertrauen, desto mehr Freigabe“; das Prinzip sagt „je weiter hinaus, desto weniger Daten“. Beides kann nebeneinander gelten (Vertrauen zwischen Instanzen gegen Abstand nach außen); Vorschlag zur Klärung: ADR 0102 E4 (Vertrauen = Kennen); Annahme offen.
 
 ## Die sieben Sucharten
 
