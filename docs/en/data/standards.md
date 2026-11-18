@@ -86,7 +86,7 @@ schema.org uses `name`, AS2 uses `name`. That cannot be resolved by choosing
 | **WebFinger, RFC 7033** | ✅ | discovering actors via `acct:` / e-mail |
 | **W3C Web Annotation Model** | ✅ | motifs incl. `classifying`, `tagging`, `commenting`, `describing`, `editing`, `bookmarking`; selectors `TextQuoteSelector`, `TextPositionSelector`, `RangeSelector`; structure `body` / `target`. **This is the right standard for "giving a part of a text a tag" without rewriting the text** |
 | **AS2 `Profile` + `describes`** | ✅ 2026-11-05 | "describes another object, usually an actor" — **envelope type for contact cards** (ADR 0020): a card is *my description* of someone, `describes` points to that person's actor/DID |
-| **AS2 `Relationship` (`subject`, `object`, `relationship`)** | ✅ 2026-11-05 | envelope for attestations and for confirmed "same person" links. AS2 itself has **no** "same as" property (✅ checked) |
+| **AS2 `Relationship` (`subject`, `object`, `relationship`)** | ✅ 2026-11-05 | envelope for key confirmations and for confirmed "same person" links. AS2 itself has **no** "same as" property (✅ checked) |
 | **JMAP, RFC 8620 (basis) and RFC 8621 (mail)** | ✅ | reference for how to address, patch and synchronise JSON resources cleanly |
 
 ### Places, files, API cross-section
@@ -185,7 +185,7 @@ Every stored object = **AS2 envelope** (`id`, `type`, `attributedTo`, `to`/`cc`/
 |--------|------------------|-------------------|-------|
 | contacts | JSContact `Card` (RFC 9553) | `Profile` (`describes` → person's actor/DID) | ✅ 2026-11-05 |
 | identity — own person | DID document / Controlled Identifier (W3C) | `Person` (actor) with `Multikey` (FEP-521a) | ✅ 2026-11-05 |
-| identity — attestation | VC 2.0 + `eddsa-jcs-2022` (as RLTP) | `Relationship` | ✅ 2026-11-05 |
+| identity — confirmation | VC 2.0 + `eddsa-jcs-2022` (as RLTP) | `Relationship` | ✅ 2026-11-05 |
 | identity — same person (hub matching, ADR 0019) | — | `Relationship`, relation `owl:sameAs` | decided 2026-11-05 (ADR 0029) |
 | messages | chat: MIMI content (draft -10); e-mail: original MIME + JMAP `Email` fields; Matrix events | `Note` (`context` = conversation) | ✅ 2026-11-05, see [messages/](messages/standards.md) |
 | events | **JSCalendar 2.0** (`draft-ietf-calext-jscalendarbis-22`) `Event`/`Task` | `Event`; log `Invite`/`Accept`/`TentativeAccept`/`Reject` | ✅ 2026-11-05, see [events/](events/standards.md) |
@@ -203,7 +203,7 @@ Every stored object = **AS2 envelope** (`id`, `type`, `attributedTo`, `to`/`cc`/
 | `Contact.lifecycle` | ❌ in vCard/JSContact; extension mechanism ✅ (RFC 9553 §1.8.1) | vendor property `freesynergy.net:lifecycle` (ADR 0028), later CRM spec |
 | marking of sensitive data (GDPR Art. 9 categories) | ⚠️ W3C DPV candidate, unchecked | ADR 0029 |
 | board/project structure | ❌ | spec candidate no. 3 |
-| Web of Trust | ❌ in standards bodies | co-author with RLTP; trust-mark profile for OpenID Federation |
+| Key confirmation (Web of Trust project) | ❌ in standards bodies | co-author with RLTP, for key confirmation only; **no trust-mark profile for web-of-trust levels** (decision 46); trust marks only for instances |
 | task relations "blocks"/"duplicates" in JSCalendar | ❌ | relation vocabulary (OpenProject set as reference) |
 | profile field → DPV category table, consent record | ❌ | ADR 0029 |
 | WebFinger link profile (actor, OIDC issuer, DID) | ❌ | discovery spec |
@@ -223,7 +223,7 @@ components):
 | Appointments | [events/](events/index.md) |
 | Geodata | [geodata/](geodata/index.md) |
 | Login / accounts | [login/](login/index.md) |
-| Identity (Web of Trust) | [identity/](identity/index.md) |
+| Identity and key confirmation | [identity/](identity/index.md) |
 | Profile | [profile/](profile/index.md) |
 | Documents | [documents/](documents/index.md) |
 | Projects | [projects/](projects/index.md) |
@@ -244,7 +244,7 @@ components):
 | **Web Authentication: An API for accessing Public Key Credentials – Level 2 (WebAuthn)** | ✅ retrieved 2026-11-02 at `w3.org/TR/webauthn-2/` | W3C Recommendation **2021-04-08**. Quote from the abstract: "This specification defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, for the purpose of strongly authenticating users." Credentials are scoped per relying party. **Newly added to our login register.** |
 | **SCIM, RFC 7643 (core schema) / RFC 7644 (protocol)** | ✅ 2026-11-05 | September 2015, Proposed Standard. Newer: **RFC 9865** (cursor pagination, Oct 2025), **RFC 9944** (device schema, May 2026), **RFC 9967** (SCIM events as Security Event Tokens, May 2026). Every program speaks SCIM (ADR 0024) |
 
-### Identity / Web of Trust: Anton's repo reviewed (retrieved 2026-11-02, `github.com/real-life-org/web-of-trust`)
+### Identity / key confirmation (Web of Trust project): Anton's repo reviewed (retrieved 2026-11-02, `github.com/real-life-org/web-of-trust`)
 
 State of facts (written down in full, **do not download again**):
 

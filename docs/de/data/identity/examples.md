@@ -1,4 +1,4 @@
-# Identität (Web of Trust) – Beispiele
+# Identität und Schlüsselbestätigung – Beispiele
 
 Die AS2-Felder (`Relationship`, `subject`, `relationship`, `object`, `publicKey`) sind ✅ im Vokabular geprüft. Die Ergänzungen (`claim_type`, `method`, `attestedAt`) sind **unsere eigene Entscheidung (zur Diskussion offen)** und sollen als Erweiterung des Umschlags gelten.
 
@@ -41,7 +41,7 @@ Die AS2-Felder (`Relationship`, `subject`, `relationship`, `object`, `publicKey`
 
 (Der Schlüsselwert selbst folgt dem Signaturverfahren, das noch zu belegen ist — deshalb fehlt hier `publicKeyPem`.)
 
-## 3. Vertrauensfrage als API, nicht als Feld (Regel: kein Wert im Speicher)
+## 3. Schlüsselfrage als API: Ja/Nein, keine Zahl (Regel: kein Wert im Speicher)
 
 ```json
 {
@@ -51,13 +51,13 @@ Die AS2-Felder (`Relationship`, `subject`, `relationship`, `object`, `publicKey`
     "claim": "person_key"
   },
   "answer": {
-    "paths": 3,
-    "strongestChain": ["<instance>/profile/01HTZK5C8R...", "partner.example/profile/01HTZS9..."],
-    "note": "Computed — not stored."
+    "confirmed": true,
+    "confirmedBy": ["<instance>/profile/01HTZK5C8R...", "partner.example/profile/01HTZS9..."],
+    "note": "Ja/Nein, keine Stärke und keine Zahl (ADR 0102, Entscheid 46)."
   }
 }
 ```
 
 ## 4. Abgrenzung: was hier **falsch** wäre
 
-❌ Ein Feld `trustworthy: true` am Profil — verletzt Regel 1: Vertrauen ist eine **Aussage eines anderen Akteurs**, kein Attribut der Person.
+❌ Ein Feld `trustworthy: true` am Profil — verletzt Regel 1: Vertrauen ist eine **Aussage eines anderen Akteurs**, kein Attribut der Person, und wird nicht als Zahl oder Stufe festgehalten (ADR 0102, Entscheid 46).

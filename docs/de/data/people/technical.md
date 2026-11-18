@@ -40,4 +40,4 @@
 
 ## Löschen
 
-- Löschen ist ein `Delete` im Protokoll; Beglaubigungen aus [identity/](../identity/index.md) auf die gelöschte Karte bleiben als gebrochene Referenzen sichtbar (bewusst: Vertrauen verschwindet nicht still).
+- Löschen ist ein `Delete` im Protokoll; Bestätigungen aus [identity/](../identity/index.md) auf die gelöschte Karte bleiben als gebrochene Referenzen sichtbar (bewusst: Fehlendes verschwindet nicht still).

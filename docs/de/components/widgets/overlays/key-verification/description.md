@@ -19,7 +19,7 @@ Eine Schlüsselprüfung lässt eine Person den Schlüssel oder das Gerät eines 
 
 - Einen OpenPGP-Fingerabdruck oder ein MLS-Credential prüfen
 - Ein neues Gerät eines Kontakts bestätigen
-- Vertrauen festhalten (Bestätigung im Web of Trust)
+- Schlüsselbestätigung festhalten (Bestätigung beim Treffen, keine Bewertung)
 
 ## Varianten
 
@@ -38,7 +38,7 @@ Eine Schlüsselprüfung lässt eine Person den Schlüssel oder das Gerät eines 
 
 ## Datenbindung
 
-Bindet OpenPGP-Fingerabdruck, MLS-Credential und die Web-of-Trust-Bestätigung (`data/identity`). Darstellungsregister (ADR 0023): `Key → key-verification | text`. Messenger-Anforderungen `key.verify`, `device.list`.
+Bindet OpenPGP-Fingerabdruck, MLS-Credential und die Schlüsselbestätigung (`data/identity`). Darstellungsregister (ADR 0023): `Key → key-verification | text`. Messenger-Anforderungen `key.verify`, `device.list`.
 
 ## Abgrenzung
 

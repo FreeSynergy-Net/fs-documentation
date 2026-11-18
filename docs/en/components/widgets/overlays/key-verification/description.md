@@ -19,7 +19,7 @@ A key verification lets a person check the key or device of a counterpart and co
 
 - Verify an OpenPGP fingerprint or MLS credential
 - Confirm a new device of a contact
-- Record trust (Web of Trust confirmation)
+- Record key confirmation (confirmed at a meeting, no rating)
 
 ## Variants
 
@@ -38,7 +38,7 @@ A key verification lets a person check the key or device of a counterpart and co
 
 ## Data binding
 
-Binds OpenPGP fingerprint, MLS credential and Web-of-Trust confirmation (`data/identity`). Register (ADR 0023): `Key → key-verification | text`. Messenger requirements `key.verify`, `device.list`.
+Binds OpenPGP fingerprint, MLS credential and key confirmation (`data/identity`). Register (ADR 0023): `Key → key-verification | text`. Messenger requirements `key.verify`, `device.list`.
 
 ## Distinction
 

@@ -21,7 +21,7 @@ Every domain has a directory with its own `index.md`; every standard inside it a
 | Appointments | [events/](events/index.md) | JSCalendar 2.0 (jscalendarbis) ✅ | iCalendar, CalDAV, iTIP |
 | Geodata | [geodata/](geodata/index.md) | GeoJSON (RFC 7946) ✅ | geo: URI, ISO 19160 |
 | Login / accounts | [login/](login/index.md) | OIDC ✅ (2026-11-02), OAuth 6749 ✅, WebAuthn ✅ | SCIM (⚠️), WebFinger, kanidm |
-| Identity / Web of Trust | [identity/](identity/index.md) | WoT Spec v0.1.0-draft (VC, DIDComm, did:key) ✅ reviewed | Docking points: AS2 `Relationship`, `publicKey` |
+| Identity and key confirmation | [identity/](identity/index.md) | VC, DIDComm, did:key (from the Web of Trust project, ✅ reviewed; no web of trust) | Docking points: AS2 `Relationship`, `publicKey` |
 | Profile | [profile/](profile/index.md) | AS2 `Actor` projection onto JSContact ✅ | schema.org `Person` (⚠️) |
 | Documents | [documents/](documents/index.md) | own FS Block Document; CommonMark/GFM; Web Annotation ✅ | AS2 `Article`/`Collection`, schema.org `Book`, EPUB 3.3 |
 | Projects | [projects/](projects/index.md) | ❌ no open data spec – our own work | ISO 21502 (process) ✅, MSPDI (de facto) ✅, JSCalendar `Task` |

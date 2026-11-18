@@ -265,7 +265,7 @@ und um Geschwindigkeit: Ein Modell kann einen Computer sofort lahmlegen, was fas
 
 **Eine KI kommt durch Einladung.** Ich lege ein Profil für sie an, und dieses Profil ist die Einladung. Dann kann ich ihr sagen, was ich möchte. Damit sie überhaupt etwas tut, muss ich das freigeben. Die Bewertung ist die Art, wie ich weiß, wer sie ist.
 
-**2. Jeder legt seine eigene Stufe fest.** Jede Person sagt ihrem eigenen Programm, ab welcher Vertrauensstufe es ihr etwas öffnet.
+**2. Jeder gibt Freigaben je Person.** Jede Person sagt ihrem eigenen Programm, wem es etwas öffnet (Freigabe je Person, keine berechnete Vertrauensstufe; ADR 0102, Entscheid 46).
 
 | Stufe | Wer durchkommt |
 |-------|----------------|

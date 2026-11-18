@@ -26,7 +26,7 @@ Fremdprojekte, Lizenz, Repos, Messenger)
   ausdrücklich — nie stilles Abweichen (ADR 0032).
 - **Standards zuerst**, ActivityStreams 2.0 als Basis; fehlt ein Standard → eigener Entwurf
   → IETF/W3C (ADR 0014).
-- **100 % Rust**, keine doppelten Crates; Blinc, Turso, Web of Trust, Kanidm, Zentinel werden
+- **100 % Rust**, keine doppelten Crates; Blinc, Turso, Kanidm, Zentinel werden
   genutzt und unterstützt (ADR 0015).
 - **`MIT OR Apache-2.0`, für immer kostenlos**, keine Armutsdiskriminierung (ADR 0016).
 - **Programm = Kategorie**: `FreeSynergy.Messenger`, Repo `fs-messages`; jedes Programm läuft

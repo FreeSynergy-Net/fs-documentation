@@ -1,4 +1,4 @@
-# Identity (Web of Trust) – examples
+# Identity and key confirmation – examples
 
 The AS2 fields (`Relationship`, `subject`, `relationship`, `object`, `publicKey`) are ✅ vocabulary-verified. The additions (`claim_type`, `method`, `attestedAt`) are **our own decision (open for discussion)** and are meant as an extension to the envelope.
 
@@ -41,7 +41,7 @@ The AS2 fields (`Relationship`, `subject`, `relationship`, `object`, `publicKey`
 
 (The key value itself follows the signature mechanism that is still to be evidenced — which is why `publicKeyPem` is missing here.)
 
-## 3. Trust question as an API, not as a field (rule: no score in storage)
+## 3. Key question as an API: yes/no, no number (rule: no score in storage)
 
 ```json
 {
@@ -51,13 +51,13 @@ The AS2 fields (`Relationship`, `subject`, `relationship`, `object`, `publicKey`
     "claim": "person_key"
   },
   "answer": {
-    "paths": 3,
-    "strongestChain": ["<instance>/profile/01HTZK5C8R...", "partner.example/profile/01HTZS9..."],
-    "note": "Computed — not stored."
+    "confirmed": true,
+    "confirmedBy": ["<instance>/profile/01HTZK5C8R...", "partner.example/profile/01HTZS9..."],
+    "note": "Yes/no, no strength and no number (ADR 0102, decision 46)."
   }
 }
 ```
 
 ## 4. Differentiation: what would be **wrong** here
 
-❌ A field `trustworthy: true` on the profile — violates rule 1: trust is a **statement of another actor**, not an attribute of the person.
+❌ A field `trustworthy: true` on the profile — violates rule 1: trust is a **statement of another actor**, not an attribute of the person, and is not recorded as a number or level (ADR 0102, decision 46).

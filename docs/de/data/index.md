@@ -21,7 +21,7 @@ Jede Domäne hat ein Verzeichnis mit eigener `index.md`; jeder Standard darin ei
 | Termine | [events/](events/index.md) | JSCalendar 2.0 (jscalendarbis) ✅ | iCalendar, CalDAV, iTIP |
 | Geodaten | [geodata/](geodata/index.md) | GeoJSON (RFC 7946) ✅ | geo:-URI, ISO 19160 |
 | Login / Konten | [login/](login/index.md) | OIDC ✅ (2026-11-02), OAuth 6749 ✅, WebAuthn ✅ | SCIM (⚠️), WebFinger, kanidm |
-| Identität / Web of Trust | [identity/](identity/index.md) | WoT Spec v0.1.0-draft (VC, DIDComm, did:key) ✅ gesichtet | Andockpunkte: AS2 `Relationship`, `publicKey` |
+| Identität und Schlüsselbestätigung | [identity/](identity/index.md) | VC, DIDComm, did:key (aus dem Projekt Web of Trust, ✅ gesichtet; kein Vertrauensnetz) | Andockpunkte: AS2 `Relationship`, `publicKey` |
 | Profil | [profile/](profile/index.md) | AS2-`Actor`-Projektion auf JSContact ✅ | schema.org `Person` (⚠️) |
 | Dokumente | [documents/](documents/index.md) | eigenes FS-Block-Dokument; CommonMark/GFM; Web Annotation ✅ | AS2 `Article`/`Collection`, schema.org `Book`, EPUB 3.3 |
 | Projekte | [projects/](projects/index.md) | ❌ keine offene Daten-Spec – eigene Arbeit | ISO 21502 (Prozess) ✅, MSPDI (De-facto) ✅, JSCalendar-`Task` |

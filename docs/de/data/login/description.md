@@ -18,6 +18,6 @@
 |-------|-------------|
 | Personen**daten** | [people/](../people/index.md) (JSContact-Card, verknüpft mit dem Konto) |
 | Soziale Identität, Profil | [profile/](../profile/index.md) |
-| Glaube/Schlüsselbeglaubigung | [identity/](../identity/index.md) — **ein Login beweist keine Identität** |
+| Schlüsselbestätigung | [identity/](../identity/index.md) — **ein Login beweist keine Identität** |
 
 **Merksatz:** Ein Login ist kein Datenmodell, sondern der Zugang zu einem. Die Login-Ebene kennt nur Konto-Identifikatoren.

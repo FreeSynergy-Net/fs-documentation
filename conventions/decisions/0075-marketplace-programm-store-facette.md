@@ -51,3 +51,6 @@ Jede Datei, die über einen Marktplatz kommt, bekommt in ihrer AS2-Aktivität (A
 ## Offen
 - Schema des Themas `marketplace` (Angebot, Gesuch, Moderation, `stock`/`stats`).
 - Wie ein Laden-Dienst sich ausweist und ob Zahlen signiert werden.
+
+## Nachtrag (Nutzer, 2026-11-18): Signatur ohne Web of Trust
+In Zeile 27 („signiert (ADR 0068, Web of Trust)“) meint die Signatur des Besitzers eine **technische Schlüsselbestätigung**, kein Web of Trust und keine Vertrauensstufe; **Web of Trust entfällt** (ADR 0102, Entscheid 46). Es bleiben die Bestätigung, dass der Schlüssel zum Besitzer gehört (a), Paket-Signaturstufen in `fs-packages` (b) und sachliche Vorgangsdaten ohne Personen-Zahl (c). Der Altext bleibt unverändert.

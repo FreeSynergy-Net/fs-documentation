@@ -10,7 +10,7 @@ Beleg: `research/geodata-projects-profile-login.md` (2026-11-05).
 |----------|-------|-------|
 | **WebAuthn Level 3** (W3C Rec 2026-08-25), Passkeys | ✅ | Anmeldung |
 | OAuth 2.1 (Entwurf -17, 2026-10-31); RFC 9700 = BCP 240 | ✅ | 2.1 folgen, BCP anwenden |
-| **OpenID Federation 1.0** (final 2026-02-17): Trust-Anker, Trust-Ketten, **Trust-Marken**, Metadaten-Policy, automatische Registrierung | ✅ | **Föderation zwischen Instanzen (ADR 0035)** — unsere Vertrauenstabellen als Trust-Anker, Web-of-Trust-Stufen als Trust-Marken |
+| **OpenID Federation 1.0** (final 2026-02-17): Trust-Anker, Trust-Ketten, **Trust-Marken**, Metadaten-Policy, automatische Registrierung | ✅ | **Föderation zwischen Instanzen (ADR 0035)** — unsere Vertrauenstabellen (Instanzen) als Trust-Anker; Trust-Marken nur für Instanzen, **keine** Web-of-Trust-Stufen für Menschen (ADR 0102, Entscheid 46) |
 | FedCM | ✅ nur First Public WD (2024-08) | beobachten |
 | WebFinger RFC 7033 JRD: `subject`, `aliases`, `properties`, `links` (`rel`, `type`, `href`, `titles`, `properties`) | ✅ | Auffinden: Verknüpfung zu AS2-Schauspieler, OIDC-Issuer, DID |
 | SCIM RFC 7643 `User`/`Group`/Enterprise-Attribute | ✅ im Recherche-File aufgelistet | Mapping auf `account` + JSContact |
@@ -32,7 +32,7 @@ Beleg: `research/geodata-projects-profile-login.md` (2026-11-05).
 
 - Login-Ebene = **Konto-Identitäten** (`sub`, SPN). Keine Personenfelder hier.
 - Externe Handles: `https://<instanz>/...`-IRIs (Beschluss 3); WebFinger verbindet E-Mail/`acct:` mit diesen Handles.
-- **Trennung:** Login ≠ Identität. Beglaubigung von Schlüsseln und Personen-Vertrauen ist [identity/](../identity/index.md).
+- **Trennung:** Login ≠ Identität. Die Bestätigung von Schlüsseln (kein Personen-Vertrauen, ADR 0102 Entscheid 46) ist [identity/](../identity/index.md).
 
 ## Offene Standard-Punkte
 

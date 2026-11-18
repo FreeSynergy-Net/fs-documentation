@@ -42,7 +42,7 @@ Jedes Thema hat eine Schnittstelle: Nachrichten, Dateien, Personen, Gruppen, Ort
 
 Wir analysieren, was Programme tun, und bauen es selbst. Wo es einen offenen Standard gibt, nutzen wir ihn, und deshalb kannst du jederzeit alle deine Daten zu einem anderen Programm mitnehmen, auch zu einem, das nicht unseres ist. Wo kein Standard existiert, schreiben wir einen und geben ihn allen. Besonders suchen wir nach dem, was der Open-Source-Welt noch fehlt, und bringen dann alles zusammen.
 
-Wir unterstützen lieber Menschen mit guten neuen Ideen, als uns mit dem Alten und Langsamen zufriedenzugeben. Wir nutzen und unterstützen Projekte wie Blinc, Turso, Kanidm, Zentinel, Web of Trust und RustFS, und wenn wir einen Fehler in der Arbeit anderer finden, schicken wir die Korrektur zurück.
+Wir unterstützen lieber Menschen mit guten neuen Ideen, als uns mit dem Alten und Langsamen zufriedenzugeben. Wir nutzen und unterstützen Projekte wie Blinc, Turso, Kanidm, Zentinel und RustFS, und wenn wir einen Fehler in der Arbeit anderer finden, schicken wir die Korrektur zurück. Wir bestätigen Schlüssel beim Treffen, nicht Menschen: Das Werkzeug prüft Identität und bewertet nicht.
 
 ## Deine Daten, und du entscheidest, wann sie gehen
 
@@ -58,7 +58,7 @@ Du teilst eine Sicht auf dich, nicht lose Felder: ein Profil zeigt, was du dafü
 
 Wie weit etwas reicht, hängt davon ab, wie gut man sich kennt. Es gibt kein Netz ohne Menschen, die einander kennen. Wer dich kaum kennt, bekommt wenig von dir, wer dir nah ist, mehr. Wenn etwas von Hand zu Hand weitergeht, soll es höchstens gleich bleiben oder weniger werden; unsere Programme halten sich daran. Wer etwas sehen darf, kann es trotzdem abfotografieren oder abschreiben: Wir sagen die Regel an und versprechen keine Sicherheit, die es nicht gibt. Wer Daten nicht geteilt haben will, darf sie nicht teilen. Selbst besonders sensible Angaben darfst du bewusst zum Zwischenspeichern freigeben, etwa für Behandlung oder Pflege; dann warnen wir dich. Nur Stellen, die zum Veröffentlichen da sind, etwa Behörden, drehen das mit Absicht um. Sie sind sonst nicht anders als jeder andere Server: Man erreicht sie unter ihrer Webadresse, besondere Rechte haben sie nicht, und ob man ihnen folgt, entscheidest du.
 
-Vertrauen bleibt etwas zwischen Menschen. Wir bewerten keine Menschen: keine Sterne, keine Stufen, keine Zahlen, keine Anzeige. Wer Vertrauen in eine Zahl fasst, nimmt die Möglichkeit, jemanden neu kennenzulernen; er macht die Vergangenheit zur Zukunft und hilft Masken. Man merkt es daran, dass sich Türen öffnen. Soziale Probleme löst man sozial, technische Probleme technisch. Wer das vermischt, macht sehr viel kaputt.
+Vertrauen bleibt etwas zwischen Menschen. Wir bewerten keine Menschen: keine Sterne, keine Stufen, keine Zahlen, keine Anzeige. Wer Vertrauen in eine Zahl fasst, nimmt die Möglichkeit, jemanden neu kennenzulernen; er macht die Vergangenheit zur Zukunft und macht es leichter, sich hinter einer Maske zu verstecken. Man merkt es daran, dass sich Türen öffnen. Soziale Probleme löst man sozial, technische Probleme technisch. Wer das vermischt, macht sehr viel kaputt.
 
 ## Wenn du nichts einstellst
 

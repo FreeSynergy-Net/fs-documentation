@@ -56,7 +56,7 @@ Wenn man diese beiden auseinanderhält, vermeidet man viel Verwirrung:
 
 | Schnittstelle | Wofür | Standardbasis |
 |-----------|----------------|---------------|
-| Vertrauen | Zeigen, wann eine Person sicher ist, auch gegen Betrüger und Bots; jede Person legt ihre [eigene Stufe](../programs/apps/assistant/index.md#kis-ausschlieen) fest | Web of Trust; sein Nachfolger, das [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), ist das vorgeschlagene Ziel (ADR 0052, 0054) |
+| Vertrauen | Zeigen, wann eine Person sicher ist, auch gegen Betrüger und Bots; jede Person gibt [Freigaben je Person](../programs/apps/assistant/index.md#kis-ausschlieen); keine Stufe, keine Zahl über Menschen | Schlüsselbestätigung beim Treffen (Vorbild: [Real Life Trust Protocol](https://github.com/real-life-org/trust-protocol), nur dafür); Entscheid 46 (ADR 0102, Nachträge in ADR 0052, 0054) |
 | Teilen und Berechtigungen | Wer was sehen darf; Freigaben gehen an Gruppen | Lücke, eine Spezifikation für alle. Offen: [Rollen-Privatsphäre](roles.md#offen) |
 | Hülle und Aktivitätsprotokoll | Die äußere Form und der Verlauf jedes Objekts | AS2, vorgeschlagener Besitzer `fs-objects` (ADR 0050) |
 | Synchronisation | Geräte und Programme zusammenbringen | Aktivitätsprotokoll (ADR 0019) |

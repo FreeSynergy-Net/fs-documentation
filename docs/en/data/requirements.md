@@ -15,14 +15,14 @@ This file preserves **what was decided in the conversation** — so the state su
 
 | Domain (English directory) | What was said about it |
 |----------------------------|------------------------|
-| `login/` | logins — e.g. **OAuth**, **SCIM** — and **Anton's Web of Trust**, for which he runs a real-life project: <https://github.com/real-life-org/web-of-trust> |
+| `login/` | logins — e.g. **OAuth**, **SCIM** — and **key confirmation at meetings** (model: Anton's Web of Trust project, which we use only for that, not for trust levels, ADR 0102 decision 46): <https://github.com/real-life-org/web-of-trust> |
 | `person/` | **The human who signs in.** (probably vCard — or something like that) |
 | `profile/` | Every person can have **profiles**, so that one **shows the sides of oneself one wants to show**. Example: with dating it can become **dangerous** if one's sexuality becomes known. → visibility is a core problem of this domain. |
 | `events/` | The appointments one enters in a calendar and the like. |
 | `projects/` | For PMs (project management) — open question: **is there a standard for that?** → research needed. |
 | `messages/` | messages — not yet elaborated; derive it from the apps. |
 
-Plus the domains that already existed: `contacts/` (contact models), `identity/` (Web of Trust), `geodata/` (places/addresses).
+Plus the domains that already existed: `contacts/` (contact models), `identity/` (key confirmation), `geodata/` (places/addresses).
 
 ## 3. Order: derive it from the apps
 
@@ -66,7 +66,7 @@ All retrieved facts stand **in full** in [standards.md → "follow-up research 2
 - **OAuth 2.0 RFC 6749** ✅ evidenced (updates: RFC 8252, 8996, 9700) — ⚠️→✅
 - **WebAuthn Level 2 (W3C Rec. 2021-04-08)** ✅ evidenced — new in the register
 - **SCIM RFC 7643/7644** ⚠️ still unverified (retrieval aborted, not repeated on instruction)
-- **Anton's WoT repo reviewed:** WoT Spec v0.1.0-draft = W3C Verifiable Credentials + DIDComm v2.1 + Ed25519 + ECIES; `did:key`; principle "Verification ≠ Trust"; successor RLTP (gen 3) in `real-life-org/trust-protocol`. All details in standards.md.
+- **Anton's WoT repo reviewed (used only for key confirmation, no web of trust):** WoT Spec v0.1.0-draft = W3C Verifiable Credentials + DIDComm v2.1 + Ed25519 + ECIES; `did:key`; principle "Verification ≠ Trust"; successor RLTP (gen 3) in `real-life-org/trust-protocol`. All details in standards.md.
 - **Projects:** ISO 21502:2020 ✅ (process guide, **not a data format**); MSPDI/`mspdi_pj12.xsd` ✅ (de-facto export format); W6C ⚠️ unevidenced; **no open RFC/W3C data spec for boards/tasks** → own spec stays spec candidate no. 3.
 
 ## 6. Open questions from the conversation
@@ -75,7 +75,7 @@ All retrieved facts stand **in full** in [standards.md → "follow-up research 2
 2. **messages:** what exactly — chat, comments, mail? → derive from the app inventory
 3. **profile:** implement field groups / purpose binding (dating example: sensitive fields like `sexualOrientation` belong **not** in the work/calendar context; BDSG/GDPR special categories ⚠️ to evidence)
 4. **person:** **open — decision candidate no. 6.** The agent's proposal: **no `person/` directory of its own.** Reasoning: the person data of the human is already covered — a JSContact `Card` with role "individual" in `contacts/`, linked to the account (`sub` from `login/`) and the social actor (`profile/`). What remains are genuinely **two** domains as said in the conversation: `identity/` (whom does one trust — WoT, DIDs, Verifiable Credentials) and `profile/` (what does one show to whom). `person/` would only be a projection without data of its own. → **please confirm or reject.**
-5. **identity:** Anton's repo `real-life-org/web-of-trust` **reviewed 2026-11-02** — facts in standards.md → follow-up research; `mapping.md` (AS2 `Relationship`/`publicKey`) still outstanding
+5. **identity (key confirmation):** Anton's repo `real-life-org/web-of-trust` **reviewed 2026-11-02** — facts in standards.md → follow-up research; `mapping.md` (AS2 `Relationship`/`publicKey`) still outstanding
 
 ## 7. Next steps (tick the boxes so one can see where we stand)
 

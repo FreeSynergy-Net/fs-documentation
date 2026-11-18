@@ -18,6 +18,6 @@
 |-------|----------------|
 | Person **data** | [people/](../people/index.md) (JSContact card, linked to the account) |
 | Social identity, profile | [profile/](../profile/index.md) |
-| Belief/key attestation | [identity/](../identity/index.md) — **a login proves no identity** |
+| Key confirmation | [identity/](../identity/index.md) — **a login proves no identity** |
 
 **Mnemonic:** a login is not a data model but the access to one. The login layer only knows account identifiers.

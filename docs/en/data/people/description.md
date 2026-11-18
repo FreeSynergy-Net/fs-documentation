@@ -17,7 +17,7 @@
 |--------|------------------|--------------|
 | [login/](../login/index.md) | Account, sign-in, `sub` claim | A login is an access route, not a data model |
 | [profile/](../profile/index.md) | What one **shows about oneself** (audience control) | The profile is a **projection** of the card, not a second copy |
-| [identity/](../identity/index.md) | Whom one **trusts** (attestations, keys) | Mistrust cannot delete a card |
+| [identity/](../identity/index.md) | Whether a key **belongs** to the person (attestations, keys; no rating) | A card cannot be deleted by distrusting it |
 | [events/](../events/index.md) | Participants **at appointments** | The person is linked here (`sendTo`/`email`), not stored |
 | [geodata/](../geodata/index.md) | Places as map features | The postal address **of a person** belongs to the card |
 

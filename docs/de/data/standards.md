@@ -69,7 +69,7 @@ Achtung Namenskonflikt, den **die Standards selbst** haben: JSCalendar benutzt `
 | **WebFinger, RFC 7033** | ✅ | Auffinden von Akteuren über `acct:` / E-Mail |
 | **W3C Web Annotation Model** | ✅ | Motive u. a. `classifying`, `tagging`, `commenting`, `describing`, `editing`, `bookmarking`; Selektoren `TextQuoteSelector`, `TextPositionSelector`, `RangeSelector`; Struktur `body` / `target`. **Das ist der richtige Standard für „einem Textteil ein Tag geben“, ohne den Text umzuschreiben** |
 | **AS2 `Profile` + `describes`** | ✅ 2026-11-05 | „describes another object, usually an actor“ — **Envelope-Typ für Kontakt-Cards** (ADR 0020): eine Karte ist *meine Beschreibung* jemandes, `describes` zeigt auf den Schauspieler/DID dieser Person |
-| **AS2 `Relationship` (`subject`, `object`, `relationship`)** | ✅ 2026-11-05 | Envelope für Beglaubigungen und für bestätigte „dieselbe Person“-Verknüpfungen. AS2 selbst hat **keine** „same as“-Eigenschaft (✅ geprüft) |
+| **AS2 `Relationship` (`subject`, `object`, `relationship`)** | ✅ 2026-11-05 | Envelope für Bestätigungen und für bestätigte „dieselbe Person“-Verknüpfungen. AS2 selbst hat **keine** „same as“-Eigenschaft (✅ geprüft) |
 | **JMAP, RFC 8620 (Grundlage) und RFC 8621 (Mail)** | ✅ | Referenz dafür, wie man JSON-Ressourcen sauber adressiert, patcht und synchronisiert |
 
 ### Orte, Dateien, API-Querschnitt
@@ -161,7 +161,7 @@ Jedes gespeicherte Objekt = **AS2-Envelope** (`id`, `type`, `attributedTo`, `to`
 |--------|-----------------|-------------------|-------|
 | contacts | JSContact `Card` (RFC 9553) | `Profile` (`describes` → Schauspieler/DID der Person) | ✅ 2026-11-05 |
 | identity — eigene Person | DID-Dokument / Controlled Identifier (W3C) | `Person` (Akteur) mit `Multikey` (FEP-521a) | ✅ 2026-11-05 |
-| identity — Beglaubigung | VC 2.0 + `eddsa-jcs-2022` (wie RLTP) | `Relationship` | ✅ 2026-11-05 |
+| identity — Bestätigung | VC 2.0 + `eddsa-jcs-2022` (wie RLTP) | `Relationship` | ✅ 2026-11-05 |
 | identity — dieselbe Person (Hub-Zuordnung, ADR 0019) | — | `Relationship`, Relation `owl:sameAs` | beschlossen 2026-11-05 (ADR 0029) |
 | messages | Chat: MIMI-Inhalt (Entwurf -10); E-Mail: Original-MIME + JMAP-`Email`-Felder; Matrix-Events | `Note` (`context` = Unterhaltung) | ✅ 2026-11-05, siehe [messages/](messages/standards.md) |
 | events | **JSCalendar 2.0** (`draft-ietf-calext-jscalendarbis-22`) `Event`/`Task` | `Event`; Protokoll `Invite`/`Accept`/`TentativeAccept`/`Reject` | ✅ 2026-11-05, siehe [events/](events/standards.md) |
@@ -179,7 +179,7 @@ Jedes gespeicherte Objekt = **AS2-Envelope** (`id`, `type`, `attributedTo`, `to`
 | `Contact.lifecycle` | ❌ in vCard/JSContact; Mechanismus ✅ (RFC 9553 §1.8.1) | Anbieter-Eigenschaft `freesynergy.net:lifecycle` (ADR 0028), später CRM-Spec |
 | Markierung sensibler Daten (DSGVO Art. 9) | ⚠️ W3C DPV-Kandidat, ungeprüft | ADR 0029 |
 | Board-/Projektstruktur | ❌ | Spec-Kandidat Nr. 3 |
-| Web of Trust | ❌ in Standardisierungsgremien | mit RLTP mitgestalten; Trust-Mark-Profil für OpenID Federation |
+| Schlüsselbestätigung (Projekt Web of Trust) | ❌ in Standardisierungsgremien | mit RLTP mitgestalten, nur für Schlüsselbestätigung; **kein Trust-Mark-Profil für Web-of-Trust-Stufen** (Entscheid 46); Trust Marks nur für Instanzen |
 | Task-Relationen „blocks"/„duplicates" in JSCalendar | ❌ | Relations-Vokabular (OpenProject-Set als Referenz) |
 | Profilfeld → DPV-Kategorietabelle, Einwilligungs-Nachweis | ❌ | ADR 0029 |
 | WebFinger-Link-Profil (Akteur, OIDC-Issuer, DID) | ❌ | Discovery-Spec |
@@ -195,7 +195,7 @@ Jede Datendomäne hat ein Verzeichnis mit `index.md`, `description.md`, `technic
 | Termine | [events/](events/index.md) |
 | Geodaten | [geodata/](geodata/index.md) |
 | Login / Konten | [login/](login/index.md) |
-| Identität (Web of Trust) | [identity/](identity/index.md) |
+| Identität und Schlüsselbestätigung | [identity/](identity/index.md) |
 | Profil | [profile/](profile/index.md) |
 | Dokumente | [documents/](documents/index.md) |
 | Projekte | [projects/](projects/index.md) |
@@ -213,12 +213,12 @@ Jede Datendomäne hat ein Verzeichnis mit `index.md`, `description.md`, `technic
 | **Web Authentication: An API for accessing Public Key Credentials – Level 2 (WebAuthn)** | ✅ abgerufen 2026-11-02 bei `w3.org/TR/webauthn-2/` | W3C Recommendation **08.04.2021**. Zitat Abstract: „This specification defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, for the purpose of strongly authenticating users.“ Credentials sind pro Relying Party scoped. **Neu in unser Login-Register aufgenommen.** |
 | **SCIM, RFC 7643/7644** | ⚠️ **weiterhin ungeprüft** (Abruf am 2026-11-02 zeitlich abgebrochen) | Nicht nachgeladen auf Anweisung. Vor Verwendung belegen. |
 
-### Identität / Web of Trust: Antons Repo gesichtet (abgerufen 2026-11-02, `github.com/real-life-org/web-of-trust`)
+### Identität / Schlüsselbestätigung (Projekt Web of Trust): Antons Repo gesichtet (abgerufen 2026-11-02, `github.com/real-life-org/web-of-trust`)
 
 Faktenstand (vollständig aufgeschrieben, **nicht erneut herunterladen**):
 
 - Selbstbeschreibung: „A decentralized trust infrastructure for real-life communities. People meet in person, verify each other's identity via QR code, and build reputation through attestations over time. No central server sees your data. Everything is end-to-end encrypted and stored locally.“
-- **Grundsatz: Verification ≠ Trust.** Verifikation bestätigt nur „das ist wirklich diese Person“ (persönliches Treffen + QR-Scan). Vertrauen entsteht erst durch **Attestations über die Zeit**. Das deckt exakt unsere vorläufige Regel 1 in [identity/index.md](identity/index.md) (Beglaubigungen sind eigene Objekte).
+- **Grundsatz: Verification ≠ Trust.** Verifikation bestätigt nur „das ist wirklich diese Person“ (persönliches Treffen + QR-Scan). Vertrauen bewerten wir **nicht** (keine Stufe, keine Zahl, kein Vertrauensnetz; ADR 0102, Entscheid 46); wir nutzen nur die Verifikation. Das deckt exakt unsere vorläufige Regel 1 in [identity/index.md](identity/index.md) (Bestätigungen sind eigene Objekte).
 - **Protokoll: „WoT Spec“ v0.1.0-draft** — kombiniert **W3C Verifiable Credentials**, **DIDComm v2.1**, **Ed25519** und **ECIES**.
 - Identitätsschlüssel: **BIP39-Mnemonic** (12 Wörter) → HKDF-Master-Key → **Ed25519** (Signatur) + **X25519** (Key Agreement); DID-Methode **`did:key`** (W3C DIDs).
 - Verschlüsselung: AES-256-GCM (CRDT-Updates, Gruppeninhalte), X25519-ECIES asymmetrisch, GroupKeys; Relays sehen nur Chiffretext.

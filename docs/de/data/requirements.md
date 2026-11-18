@@ -15,14 +15,14 @@ Diese Datei hält fest, **was im Gespräch entschieden wurde**, damit der Stand 
 
 | Domäne (englisches Verzeichnis) | Was dazu gesagt wurde |
 |----------------------------|------------------------|
-| `login/` | Anmeldungen — z. B. **OAuth**, **SCIM** — und **Antons Web of Trust**, für das er ein reales Projekt betreibt: <https://github.com/real-life-org/web-of-trust> |
+| `login/` | Anmeldungen — z. B. **OAuth**, **SCIM** — und die **Schlüsselbestätigung beim Treffen** (Vorbild: Antons Projekt Web of Trust, das wir nur dafür nutzen, nicht für Vertrauensstufen, ADR 0102 Entscheid 46): <https://github.com/real-life-org/web-of-trust> |
 | `person/` | **Der Mensch, der sich anmeldet.** (wahrscheinlich vCard — oder etwas Ähnliches) |
 | `profile/` | Jede Person kann **Profile** haben, damit man **die Seiten von sich zeigt, die man zeigen will**. Beispiel: Beim Dating kann es **gefährlich** werden, wenn die Sexualität bekannt wird. → Sichtbarkeit ist ein Kernproblem dieser Domäne. |
 | `events/` | Die Termine, die man in einem Kalender einträgt, und ähnliches. |
 | `projects/` | Für PM (Projektmanagement) — offene Frage: **Gibt es dafür einen Standard?** → Recherche nötig. |
 | `messages/` | Nachrichten — noch nicht ausgearbeitet; aus den Apps ableiten. |
 
-Dazu kommen die bereits bestehenden Domänen: `contacts/` (Kontaktmodelle), `identity/` (Web of Trust), `geodata/` (Orte/Adressen).
+Dazu kommen die bereits bestehenden Domänen: `contacts/` (Kontaktmodelle), `identity/` (Schlüsselbestätigung), `geodata/` (Orte/Adressen).
 
 ## 3. Reihenfolge: aus den Apps ableiten
 
@@ -66,7 +66,7 @@ Alle abgerufenen Fakten stehen **vollständig** in [standards.md → „Folgerec
 - **OAuth 2.0 RFC 6749** ✅ belegt (Aktualisierungen: RFC 8252, 8996, 9700) — ⚠️→✅
 - **WebAuthn Level 2 (W3C Rec. 2021-04-08)** ✅ belegt — neu im Register
 - **SCIM RFC 7643/7644** ⚠️ noch ungeprüft (Abruf abgebrochen, auf Anweisung nicht wiederholt)
-- **Antons WoT-Repo geprüft:** WoT Spec v0.1.0-draft = W3C Verifiable Credentials + DIDComm v2.1 + Ed25519 + ECIES; `did:key`; Prinzip „Verifikation ≠ Vertrauen“; Nachfolger RLTP (Generation 3) in `real-life-org/trust-protocol`. Alle Details in standards.md.
+- **Antons WoT-Repo geprüft (genutzt nur für Schlüsselbestätigung, kein Vertrauensnetz):** WoT Spec v0.1.0-draft = W3C Verifiable Credentials + DIDComm v2.1 + Ed25519 + ECIES; `did:key`; Prinzip „Verifikation ≠ Vertrauen“; Nachfolger RLTP (Generation 3) in `real-life-org/trust-protocol`. Alle Details in standards.md.
 - **Projekte:** ISO 21502:2020 ✅ (Prozessleitfaden, **kein Datenformat**); MSPDI/`mspdi_pj12.xsd` ✅ (de-facto-Exportformat); W6C ⚠️ nicht belegt; **keine offene RFC-/W3C-Datenspezifikation für Boards/Aufgaben** → eigene Spezifikation bleibt Kandidat Nr. 3.
 
 ## 6. Offene Fragen aus dem Gespräch
@@ -75,7 +75,7 @@ Alle abgerufenen Fakten stehen **vollständig** in [standards.md → „Folgerec
 2. **messages:** Was genau — Chat, Kommentare, Mail? → aus dem App-Bestand ableiten
 3. **profile:** Feldgruppen und Zweckbindung umsetzen (Dating-Beispiel: sensible Felder wie `sexualOrientation` gehören **nicht** in den Arbeits- oder Kalenderkontext; BDSG/DSGVO-Sonderkategorien ⚠️ zu belegen)
 4. **person:** **offen — Entscheidungskandidat Nr. 6.** Der Vorschlag des Agenten: **kein eigenes Verzeichnis `person/`.** Begründung: Die Personendaten des Menschen sind schon abgedeckt — eine JSContact-`Card` mit der Rolle „individual“ in `contacts/`, verknüpft mit dem Konto (`sub` aus `login/`) und dem sozialen Akteur (`profile/`). Übrig bleiben tatsächlich **zwei** Domänen, wie im Gespräch genannt: `identity/` (wem man vertraut — WoT, DIDs, Verifiable Credentials) und `profile/` (was man wem zeigt). `person/` wäre nur eine Projektion ohne eigene Daten. → **bitte bestätigen oder ablehnen.**
-5. **identity:** Antons Repo `real-life-org/web-of-trust` **geprüft 2026-11-02** — Fakten in standards.md → Folgerecherche; `mapping.md` (AS2 `Relationship`/`publicKey`) steht noch aus
+5. **identity (Schlüsselbestätigung):** Antons Repo `real-life-org/web-of-trust` **geprüft 2026-11-02** — Fakten in standards.md → Folgerecherche; `mapping.md` (AS2 `Relationship`/`publicKey`) steht noch aus
 
 ## 7. Nächste Schritte (Kästchen abhaken, damit man den Stand sieht)
 

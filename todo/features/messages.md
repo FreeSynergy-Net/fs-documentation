@@ -74,7 +74,7 @@ Format je Zeile: Feature — Vorbilder — Stand bei uns — Priorität — Nutz
 
 - [x] Verschlüsselungszustand an jeder Nachricht, nie „sicher“ ohne Beleg — Element, Telegram — Kern — hoch — Ehrlichkeit — Stufe: heute (Kern).
 - [ ] Signaturen, Schlüssel und Geräte prüfen, Fingerabdrücke vergleichen — Thunderbird, Element, Signal, Delta Chat — fehlt (`signature` im Modell, `notVerified`) — hoch — Echtheit — Stufe: als Nächstes.
-- [ ] Schlüssel finden und Gegenstelle auffinden (Autocrypt, Web of Trust) — Thunderbird, Delta Chat — teilweise im Mail-Anschluss — mittel — Verschlüsseln ohne Mühe — Stufe: später.
+- [ ] Schlüssel finden und Gegenstelle auffinden (Autocrypt, Schlüsselbestätigung beim Treffen; kein Web of Trust, ADR 0102 Entscheid 46) — Thunderbird, Delta Chat — teilweise im Mail-Anschluss — mittel — Verschlüsseln ohne Mühe — Stufe: später.
 - [ ] Hinweis bei Empfängern außerhalb des vertrauten Kreises — Apple Mail — fehlt — niedrig — Fehlversand vermeiden — Stufe: später.
 
 ## Menschen und Kontakte

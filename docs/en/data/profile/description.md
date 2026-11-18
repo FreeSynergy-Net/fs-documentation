@@ -15,7 +15,7 @@
 |-------|----------------|
 | The data at rest from which the profile is projected | [people/](../people/index.md) |
 | The login that belongs to the account | [login/](../login/index.md) |
-| Attestations about whether one may trust the handle | [identity/](../identity/index.md) |
+| Attestations that a key belongs to the handle | [identity/](../identity/index.md) |
 | Follower relations, ActivityPub delivery mechanics | envelope (cross-cutting, not a domain) |
 
 **Why this is a domain of its own:** the only real question of this domain is **visibility** ("which field, for whom, for what purpose"). These rules belong in a central definition so that not every app filters on its own.

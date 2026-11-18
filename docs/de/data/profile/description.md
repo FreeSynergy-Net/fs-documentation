@@ -15,7 +15,7 @@
 |-------|-------------|
 | Die speicherechten Daten, aus denen das Profil projiziert wird | [people/](../people/index.md) |
 | Der Login, der zum Konto gehört | [login/](../login/index.md) |
-| Beglaubigungen, ob man dem Handle glauben darf | [identity/](../identity/index.md) |
+| Bestätigungen, dass ein Schlüssel zum Handle gehört | [identity/](../identity/index.md) |
 | Follower-Beziehungen, ActivityPub-Zustellungsmechanik | Envelope (querschnittlich, keine Domäne) |
 
 **Warum das eine eigene Domäne ist:** Die einzige echte Frage dieser Domäne ist **Sichtbarkeit** („welches Feld, für wen, zu welchem Zweck“). Diese Regeln gehören zentral definiert, damit nicht jede App selbst filtert.

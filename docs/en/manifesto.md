@@ -42,7 +42,7 @@ Every topic has one interface: messages, files, people, groups, places, tasks. I
 
 We analyse what programs do, and then build it ourselves. Where an open standard exists, we use it, and that is why you can take all your data to another program at any time, even one that is not ours. Where no standard exists, we write one and give it to everyone. We look especially for what the open-source world does not have yet, and then bring it all together.
 
-We would rather support people with good new ideas than settle for what is old and slow. We use and support projects such as Blinc, Turso, Kanidm, Zentinel, Web of Trust and RustFS, and when we find a mistake in someone else's work, we send the fix back.
+We would rather support people with good new ideas than settle for what is old and slow. We use and support projects such as Blinc, Turso, Kanidm, Zentinel and RustFS, and when we find a mistake in someone else's work, we send the fix back. We confirm keys when we meet, not people: the tool checks identity and does not rate.
 
 ## Your data, and you choose when it leaves
 

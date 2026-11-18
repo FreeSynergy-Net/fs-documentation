@@ -11,7 +11,7 @@ Evidence: `research/geodata-projects-profile-login.md` (2026-11-05).
 |----------|----------|------|
 | **WebAuthn Level 3** (W3C Rec 2026-08-25), passkeys | ✅ | sign-in |
 | OAuth 2.1 (draft -17, 2026-10-31); RFC 9700 = BCP 240 | ✅ | follow 2.1, apply BCP |
-| **OpenID Federation 1.0** (final 2026-02-17): trust anchors, trust chains, **trust marks**, metadata policy, automatic registration | ✅ | **federation between instances (ADR 0035)** — our trust lists as trust anchors, Web-of-Trust levels as trust marks |
+| **OpenID Federation 1.0** (final 2026-02-17): trust anchors, trust chains, **trust marks**, metadata policy, automatic registration | ✅ | **federation between instances (ADR 0035)** — our trust lists (instances) as trust anchors; trust marks only for instances, **no** web-of-trust levels for people (ADR 0102, decision 46) |
 | FedCM | ✅ First Public WD (2024-08) only | watch |
 | WebFinger RFC 7033 JRD: `subject`, `aliases`, `properties`, `links` (`rel`, `type`, `href`, `titles`, `properties`) | ✅ | discovery: link to AS2 actor, OIDC issuer, DID |
 | SCIM RFC 7643 `User`/`Group`/enterprise attributes | ✅ listed in the research file | mapping to `account` + JSContact |
@@ -33,7 +33,7 @@ Evidence: `research/geodata-projects-profile-login.md` (2026-11-05).
 
 - Login layer = **account identities** (`sub`, SPN). No person fields here.
 - External handles: `https://<instance>/...` IRIs (decision 3); WebFinger connects email/`acct:` to these handles.
-- **Separation:** login ≠ identity. Attesting keys and person trust is [identity/](../identity/index.md).
+- **Separation:** login ≠ identity. Confirming keys (no person trust, ADR 0102 decision 46) is [identity/](../identity/index.md).
 
 ## Open standard points
 

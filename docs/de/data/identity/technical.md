@@ -1,22 +1,22 @@
-# Identität (Web of Trust) – Technische Erklärung
+# Identität und Schlüsselbestätigung – Technische Erklärung
 
 ## Grundsatz (Regel 1, vorläufig)
 
-Beglaubigungen sind **eigene Objekte**, keine Felder am Profil:
+Bestätigungen sind **eigene Objekte**, keine Felder am Profil:
 
 `Attestation = { attestierender Akteur, bezogener Akteur, Aussage (z. B. „hat Key K“, „ist Person P“), Schlüssel, Zeit, Treffens-Methode/-Ort (optional) }`
 
-Das deckt sich mit Antons Modell („build reputation through attestations over time“, ✅ gesichtet 2026-11-02).
+Das Objekt entspricht dem Attestation-Objekt in Antons Modell (✅ gesichtet 2026-11-02); dessen Ziel „reputation“ (Ruf) übernehmen wir **nicht** (ADR 0102, Entscheid 46). Eine Attestation sagt nur: dieser Schlüssel gehört zu dieser Person.
 
 ## Speicherperspektive
 
-- **Tabelle `attestation`**: `id` (ULID), `subject` (wer beglaubigt, IRI), `object` (wen/was, IRI), `claim_type` (Enum, eigene Festlegung: `person_key`/`identity_encounter`/`vouching`), `key_ref` (`publicKey`-ID des Objects oder `did:key`), `method` (`qr-in-person`/`remote`/…), `attested_at`, `place` (optional, Referenz auf [geodata/](../geodata/index.md)), `signature_ref`.
-- **Keine Vertrauenswerte in der Tabelle:** ein Score ist eine **Berechnung** über die Kette, nicht gespeichert (sonst veraltet er stumm).
+- **Tabelle `attestation`**: `id` (ULID), `subject` (wer bestätigt, IRI), `object` (wen/was, IRI), `claim_type` (Enum, eigene Festlegung: `person_key`/`identity_encounter`/`vouching`), `key_ref` (`publicKey`-ID des Objects oder `did:key`), `method` (`qr-in-person`/`remote`/…), `attested_at`, `place` (optional, Referenz auf [geodata/](../geodata/index.md)), `signature_ref`.
+- **Keine Vertrauenswerte, keine Scores:** weder gespeichert noch berechnet (ADR 0102, Entscheid 46). Die Tabelle hält nur Bestätigungen („Schlüssel gehört zu Person“); `vouching` heißt: eine dritte Person bestätigt einen Schlüssel, keine Bewertung.
 
 ## Fluss im Envelope (Beschluss 2)
 
 1. Zwei Personen treffen sich, scannen QR (Muster aus Antons Projekt).
-2. Client erzeugt Attestation → `Create` auf einem **AS2-`Relationship`**-Objekt (✅ Vokabular gelesen): `subject` = Beglaubigender, `relationship` = Aussage-Typ, `object` = Beglaubigter.
+2. Client erzeugt Attestation → `Create` auf einem **AS2-`Relationship`**-Objekt (✅ Vokabular gelesen): `subject` = Bestätigender, `relationship` = Aussage-Typ, `object` = Bestätigter.
 3. Empfänger-Instanzen speichern die Attestation unverändert; Signaturprüfung nach Schlüsselrecherche (⚠️/❌ — Signatur-Mechanismen für ActivityPub sind bei uns noch **nicht belegt**, alte Referenz war 404; Antons Stack nutzt Ed25519/JWS als Indiz).
 
 ## Mapping-Skizze auf Antons WoT Spec (✅-Fakten aus standards.md; `mapping.md` noch offen)
@@ -33,4 +33,4 @@ Das deckt sich mit Antons Modell („build reputation through attestations over 
 
 - `identity/mapping.md` als eigene Datei erstellen (Auftrag aus [requirements.md §7](../requirements.md))
 - Signatur-Mechanismus-Recherche (welcher ist real belegt?) — vor jeder Implementierung
-- Vertrauensketten-Fragen (Tiefe, Verfallsfristen) als API, nicht als Schema
+- Verfallsfristen für Schlüsselbestätigungen (Schlüssel gewechselt, abgelaufen) als API, nicht als Schema; **keine Vertrauensketten als Wert**

@@ -279,7 +279,7 @@ removing anonymity is an **open question**.
 **An AI comes by invitation.** I create a profile for it, and that profile is the invitation. Then I can tell it what I want.
 For it to do anything at all, I must release that. The rating is how I know who it is.
 
-**2. Everyone sets their own level.** Each person tells their own program from which level of trust it opens up for them.
+**2. Everyone gives permissions per person.** Each person tells their own program for whom it opens up (permission per person, no computed trust level; ADR 0102, decision 46).
 
 | Level | Who gets through |
 |-------|------------------|

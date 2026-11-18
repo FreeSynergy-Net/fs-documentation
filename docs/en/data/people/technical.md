@@ -40,4 +40,4 @@
 
 ## Deleting
 
-- Deleting is a `Delete` in the log; attestations from [identity/](../identity/index.md) on the deleted card stay visible as broken references (deliberately: trust does not silently disappear).
+- Deleting is a `Delete` in the log; attestations from [identity/](../identity/index.md) on the deleted card stay visible as broken references (deliberately: what is missing does not silently disappear).

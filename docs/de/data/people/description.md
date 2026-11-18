@@ -17,7 +17,7 @@
 |--------|----------------|------------------|
 | [login/](../login/index.md) | Konto, Anmeldung, `sub`-Claim | Ein Login ist ein Zugang, kein Datenmodell |
 | [profile/](../profile/index.md) | Was man **von sich zeigt** (Publikumssteuerung) | Profil ist eine **Projektion** der Card, keine zweite Kopie |
-| [identity/](../identity/index.md) | Wem man **glaubt** (Beglaubigungen, Schlüssel) | Misstrauen kann eine Card nicht löschen |
+| [identity/](../identity/index.md) | Ob ein Schlüssel zur Person **gehört** (Bestätigungen, Schlüssel; keine Bewertung) | Eine Card kann nicht gelöscht werden, indem man ihr misstraut |
 | [events/](../events/index.md) | Teilnehmer **an Terminen** | Die Person ist hier verknüpft (`sendTo`/`email`), nicht gespeichert |
 | [geodata/](../geodata/index.md) | Orte als Karten-Features | Die Postadresse **einer Person** gehört zur Card |
 

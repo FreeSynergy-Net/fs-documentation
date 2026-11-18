@@ -35,7 +35,7 @@ Data references: [messages standards](../../../data/messages/standards.md) ·
 | Send encrypted only; find an encrypted path (keys, counterpart) and explain when none exists (`message.send` precondition, `key.discover`) | El (default E2EE), Te (secret chats), Ko, Ou, Th (OpenPGP/S/MIME); *arch.* ADR 0018 | MLS RFC 9420; OpenPGP RFC 9580 + Header Protection RFC 9788; Autocrypt (v2 draft) | proposed |
 | Show the encryption state of every message; mark unencrypted incoming, with a link to the library guide (`message.encryption`) | El, Te (security hints); *arch.* ADR 0018/0031 | `freesynergy.net:encryption` = `mls` · `openpgp` · `megolm` · `transport-only` · `none` | proposed |
 | Let an AI into a conversation only if everyone agrees beforehand; anyone joining later accepts it too or stays out; if someone withdraws, it leaves; no exception, also not for a local AI; no history from before it entered (`participant.consent`) | *arch.* ADR 0054 | Marked participant (JSContact `kind` `application`); MLS Add; Matrix: no `shared_history` keys for an AI | proposed |
-| Verify signatures, keys and devices; trust a contact's key (`key.verify`, `device.list`) | Ko, Th (verify GPG signature); El, Te (device management) | OpenPGP RFC 9580; MLS credentials; Web of Trust ([identity](../../../data/identity/index.md)) | proposed |
+| Verify signatures, keys and devices; confirm a contact's key (`key.verify`, `device.list`) | Ko, Th (verify GPG signature); El, Te (device management) | OpenPGP RFC 9580; MLS credentials; key confirmation ([identity](../../../data/identity/index.md)) | proposed |
 | Reply to a message — to the sender or to all (`message.reply`) | Di, El, Ko, Ou, Te, Th; Ma (reply ⚠️) | `Create` with `inReplyTo`; `In-Reply-To` header; Matrix `m.in_reply_to`; MIMI reply | proposed |
 | Forward a message (`message.forward`) | Di, El, Ko, Ou, Te, Th | new `Create`, original as `attachment` (e-mail: `message/rfc822`) ⚠️ no MIMI forward type | proposed |
 | Quote a part of a message (`message.quote`) | Di, El, Ma, Te; Ko, Th (paste as quote) | W3C Web Annotation `TextQuoteSelector` on the source (ADR 0033); in mail additionally quoted text | proposed |
@@ -100,7 +100,7 @@ Data references: [messages standards](../../../data/messages/standards.md) ·
 | Recall a sent message (`message.recall`) | Ou | only where both sides are ours / MIMI delete; mail: best effort ⚠️ | proposed |
 | VIP senders (`contact.vip`) | Ap | contacts: JSContact vendor property `freesynergy.net:vip` | proposed |
 | Protect privacy when opening mail: remote content via proxy, hide IP (`privacy.proxy`) | Ap (Protect Mail Activity) | fits ADR 0018/0029; hub as proxy | proposed |
-| Warn about recipients outside a trusted set (`recipient.warn`) | Ap (Mark Addresses) | contacts + trust (Web of Trust) | proposed |
+| Warn about recipients outside a trusted set (`recipient.warn`) | Ap (Mark Addresses) | contacts + permission per person | proposed |
 | One-click unsubscribe from mailing lists (`list.unsubscribe`) | Ap | RFC 2369 `List-Unsubscribe`, RFC 8058 one-click ⚠️ verify | proposed |
 | Automatic replies / out of office (`autoreply.set`) | Ou | Sieve vacation (RFC 5230) ⚠️ verify | proposed |
 | Mute / ignore a conversation (`conversation.ignore`) | Ou (ignore), Ap (mute) | JMAP keyword | proposed |
