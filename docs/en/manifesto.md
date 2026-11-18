@@ -54,7 +54,7 @@ Messages are encrypted, and the program always looks for a way to encrypt them, 
 
 We always start from the person, never from what a program can do. What you show of yourself is decided beforehand, not at the moment someone asks. Whoever looks for you is not asked for permission again with every search: what you allowed is allowed, and what you did not allow nobody gets. An AI is different: it keeps asking where it matters.
 
-You share a view of yourself, not loose fields: a profile shows what you release for it, and leaves out whatever others should not see. There are two different things. If you share something, others may see it, and it is still yours. If you give something away, it is gone from you.
+You share a view of yourself, not loose fields: a profile shows what you release for it, and leaves out whatever others should not see. There are two different things. If you share something, others may see it, and it is still yours. If you give something away, you hand it over.
 
 How far something reaches depends on how well people know each other. There is no network without people who know each other. Whoever hardly knows you gets little of you, whoever is close to you gets more. When something passes from hand to hand, it should only stay the same or shrink; our programs keep to that. Whoever may see something can still photograph or copy it by hand: we announce the rule and promise no security that does not exist. Whoever does not want data shared must not share it. Even especially sensitive details you may deliberately release for caching, for treatment or care for instance; we then warn you. Only bodies that exist to publish, such as public authorities, turn this around on purpose.
 
