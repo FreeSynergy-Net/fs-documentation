@@ -22,10 +22,9 @@ Notiz zu ADR 0105 (E1a). Ersetzt die Erstfassung `.scratch/recherche-workflow-eb
 | `listen.to.all` | release-flow.yaml:211-213 | Warten auf mehrere Ereignisse (WDP38) |
 | `schedule.on.any` | catalog-bump.yaml:11-15 | WCP23 Transient Trigger (Auslöser des ganzen Ablaufs) |
 | `try`/`catch`/`timeout` | testlauf.yaml:192-209; upstream-update.yaml:215-233 | Ausnahme: Work Item Failure, Deadline Expiry |
-| `retry` | anbieter-neuinstallation.yaml:150 | Ausnahme: restart SRS |
 | `emit` | catalog-bump.yaml:40, 62; release-flow.yaml:183 | WDP15 Task to Environment - Push |
 
-**Nicht genutzt:** `raise`, `while`, `listen.to.any`, `fork.compete: true`. `wait: all` (koordinator-runde.yaml:181, 366) ist ein Argument unter `with` eines `call` (collect-agent-reports), kein DSL-Konstrukt. `schedule` in server-einrichtung.yaml:240 ist ein Schrittname.
+**Nicht genutzt:** `retry` (kein `retry:`-Schlüssel in `workflows/*.yaml`; anbieter-neuinstallation.yaml:150 ist ein `switch`-Fall namens „retry“, Z. 142-152, Rücksprung = WCP10/WRP34-artig), `raise`, `while`, `listen.to.any`, `fork.compete: true`. `wait: all` (koordinator-runde.yaml:181, 366) ist ein Argument unter `with` eines `call` (collect-agent-reports), kein DSL-Konstrukt. `schedule` in server-einrichtung.yaml:240 ist ein Schrittname.
 
 FS-Metadaten (`freesynergy.net:*`, README.md:3-12): `actor`, `actor-type`, `gate`, `kind`, `summary`, `adr`, `phase`. Kein Feld für Rolle, Fähigkeit, Zeit, Ressource, Kosten.
 
