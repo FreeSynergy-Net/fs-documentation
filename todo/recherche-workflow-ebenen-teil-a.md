@@ -1,10 +1,10 @@
 # Recherche Workflow-Ebenen, Teil A (berichtigt): Workflow Patterns gegen unsere DSL
 
-Notiz zu ADR 0105 (E1a). Ersetzt die Erstfassung `.scratch/recherche-workflow-ebenen/teil-A.md` vom 2026-11-20, deren Musternamen aus dem Gedächtnis stammten. Stand: 2026-11-20, Prüflauf gegen die abgerufenen Quellen.
+Notiz zu ADR 0105 (E1a). Ersetzt die Erstfassung der Erstfassung des Koordinators (interner Arbeitsordner, nicht veröffentlicht) vom 2026-11-20, deren Musternamen aus dem Gedächtnis stammten. Stand: 2026-11-20, Prüflauf gegen die abgerufenen Quellen.
 
 **Quellen:**
-- Workflow Patterns Initiative, http://workflowpatterns.com/ (nur http; das https-Zertifikat schlägt fehl). Vollständige Liste (129 Einzelseiten: 43 Ablauf WCP, 40 Daten WDP, 43 Ressourcen WRP, 3 Ausnahme-Seiten): `.scratch/recherche-workflow-ebenen/wp-pattern-liste-vollstaendig.tsv`, Seiten in `wp-pages/`. Adresse einer Seite: `http://workflowpatterns.com/patterns/<familie>/<gruppe>/<id>.php`, z. B. `…/patterns/control/basic/wcp1.php`; Ausnahmen: `…/patterns/exception/exceptiontypes.php`, `exception_workitemlevel.php`, `exception_caselevel.php`.
-- Serverless Workflow DSL Reference (`dsl-reference.md`, GitHub `serverlessworkflow/specification`), Text `.scratch/recherche-workflow-ebenen/sw-dsl-reference.md` (= DSL:Zeile). Aufgabenarten: Call, Do, Emit, For, Fork, Listen, Raise, Run, Set, Switch, Try, Wait (DSL:265-278). Beispiele tragen `dsl: '1.1.0'`, unsere Dateien `1.0.3`: ob jedes Feld schon in 1.0.3 steht, ist **[nicht belegt]**.
+- Workflow Patterns Initiative, http://workflowpatterns.com/ (nur http; das https-Zertifikat schlägt fehl). Vollständige Liste (129 Einzelseiten: 43 Ablauf WCP, 40 Daten WDP, 43 Ressourcen WRP, 3 Ausnahme-Seiten): interne Mustertabelle des Koordinators (nicht veröffentlicht), Seiten wie unten adressierbar. Adresse einer Seite: `http://workflowpatterns.com/patterns/<familie>/<gruppe>/<id>.php`, z. B. `…/patterns/control/basic/wcp1.php`; Ausnahmen: `…/patterns/exception/exceptiontypes.php`, `exception_workitemlevel.php`, `exception_caselevel.php`.
+- Serverless Workflow DSL Reference (`dsl-reference.md`, GitHub `serverlessworkflow/specification`), Text interner Textabzug des Koordinators (nicht veröffentlicht) (= DSL:Zeile). Aufgabenarten: Call, Do, Emit, For, Fork, Listen, Raise, Run, Set, Switch, Try, Wait (DSL:265-278). Beispiele tragen `dsl: '1.1.0'`, unsere Dateien `1.0.3`: ob jedes Feld schon in 1.0.3 steht, ist **[nicht belegt]**.
 - Unsere DSL: `fs-release/workflows/*.yaml`.
 
 ## 1. Was unsere Dateien tatsächlich nutzen (nachgeprüft)
