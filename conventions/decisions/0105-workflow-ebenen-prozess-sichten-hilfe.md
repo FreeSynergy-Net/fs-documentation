@@ -1,6 +1,6 @@
 # 0105 – Workflow-Ebenen, Prozess-Sichten, Hilfe anfordern: vier Ebenen je Schritt, eine Quelle mit mehreren Sichten, Hilfe als Pflichtteil des Gerüsts
 
-Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Frage 90 in der verschärften Fassung vom 20.11. (Bot-Rechte nur durch Menschen, keine Bots durch Bots), Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Prüfung durch Opus und Entscheide des Nutzers stehen aus) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
+Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Frage 90 in der verschärften Fassung vom 20.11. (Bot-Rechte nur durch Menschen, keine Bots durch Bots), Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Entscheide des Nutzers zu den offenen Punkten 1–9 sowie die Gerüst-Folgen für fs-blueprint/fs-starter am 2026-11-20 eingetragen, Workflow `entscheidung`, Schritt `record`; offen bleibt die Stufe „Gemeinschaft“) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
 
 **Nummer:** **0105**. Herleitung: `conventions/decisions/` auf dem Zweigstand (aus main, Kopf d1d7315d) endet bei `0104-moduldaten-gehoeren-dem-modul.md`.
 
@@ -14,7 +14,7 @@ Weiter **[nicht belegt]** (keine Quelle im Lauf): RFC 9253 in JSCalendar, ValueF
 
 **Verweise auf ADR 0103:** „0103 E2 … E7“ in diesem Text heißt **Punkt 2 … 7 der Entscheidung von ADR 0103** (dort sind die Punkte nummeriert, nicht mit „E“ benannt; z. B. Punkt 2 Zustand × Station, Punkt 5 Lauf-Typ, Punkt 6 Board, Punkt 7 Ziehen).
 
-Echte Wahlmöglichkeiten für den Nutzer sind als **ENTSCHEIDUNG (Nutzer):** markiert, mit Optionen und Empfehlung.
+Die Wahlmöglichkeiten für den Nutzer sind als **ENTSCHEIDUNG (Nutzer):** markiert. Stand 20.11.: alle sind beantwortet (Nutzerentscheide, von der Strategie am 20.11. übermittelt, bzw. Nutzerantworten 88–90), mit gewählter Option und Grund in einer Zeile; offen ist als ENTSCHEIDUNG nur noch die Stufe „Gemeinschaft“ der Hilfe (ENTSCHEIDUNG 9 Nr. 5). Unter „Offen“ steht daneben die Rückfrage 2a (Beitrittsanfragen in fs-groups), die von den Entscheiden vom 20.11. nicht erfasst ist.
 
 ---
 
@@ -56,7 +56,7 @@ Regeln:
    - `freesynergy.net:role` – Rolle statt Person (Zuteilung über fs-groups-Rollen; ADR 0103 E7 `ClaimRule`).
    - `freesynergy.net:needs` – benötigte Fähigkeiten/Ressourcen als Verweise auf fs-resources (ValueFlows `EconomicResource`).
    - `freesynergy.net:effort` – geschätzter Aufwand im **Maß** aus ADR 0103 (nicht USD, nicht Stunden fest).
-   - `freesynergy.net:bot-seat` – Pflicht, wenn `actor: ai`: Verweis auf den Bot-Platz (ADR 0091 E1/E2). Ein `ai`-Schritt ohne Bot-Platz ist ein **Prüffehler** in `check_workflows.py`, kein Hinweis. Grund: ADR 0091 erlaubt der KI keinen anderen Weg; eine Lücke dort ist eine Sicherheitslücke (Teil A, Lücke 2).
+   - `freesynergy.net:bot-seat` – Pflicht, wenn `actor: ai`: Verweis auf den Bot-Platz (ADR 0091 E1/E2). Ein `ai`-Schritt ohne Bot-Platz ist ein **Prüffehler** in `check_workflows.py`, kein Hinweis; bis zum nächsten Workflow-Release eine Warnung (ENTSCHEIDUNG 2 = B). Grund: ADR 0091 erlaubt der KI keinen anderen Weg; eine Lücke dort ist eine Sicherheitslücke (Teil A, Lücke 2).
    - `freesynergy.net:separate-from` – Trennung der Pflichten: dieser Schritt darf nicht vom Akteur eines genannten Schritts erledigt werden (z. B. Bauer ≠ Prüfer).
 3. **Ausnahme-Ebene (Vorschlag):**
    - **Abbruch eines Falls** heißt im Lauf `abgebrochen` (ADR 0103 E2); der Workflow braucht dafür kein neues Konstrukt, nur eine Regel „wer darf abbrechen“.
@@ -66,15 +66,9 @@ Regeln:
 4. **Ablauf-Lücken werden nur nach Bedarf geschlossen.** Structured Discriminator (WCP9), Partial Join (WCP30-32), Deferred Choice (WCP16) und Milestone (WCP18) (Namen und Nummern: wp-control.txt:101-139, 188-193): sie kommen erst, wenn ein echter Ablauf sie braucht, und dann zuerst mit Mitteln der DSL: `fork.compete: true` (ein Gewinner, DSL:754) bzw. `listen.to.any` (DSL:2153) mit anschließendem `switch`. Vollständige Liste: E1a.
 5. **Ereignisse**: jeder abgeschlossene Schritt eines Laufs erzeugt ein `EconomicEvent` bzw. eine AS2-Aktivität in fs-history (ADR 0076 Z. 24, 0103 E7 `Move`); nach außen als CloudEvent (ADR 0081). Der Workflow schreibt dafür nichts selbst; das macht der Lauf (`fs-flow`).
 
-**ENTSCHEIDUNG (Nutzer) 1: Drei oder vier Ebenen?**
-- A: drei Ebenen wie in der Checkliste; Ausnahmen gehören zur Ablauf-Ebene.
-- B: vier Ebenen, Ausnahme eigenständig (wie oben).
-- **Empfehlung: B**, weil Abbruch, Rückbau und Eskalation in jedem Zweig gleich gelten und sonst je Zweig kopiert würden.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 1 (drei oder vier Ebenen?): **B, vier Ebenen** (Ablauf, Daten, Ressourcen, Ausnahme eigenständig, wie oben). Grund: Abbruch, Rückbau und Eskalation gelten in jedem Zweig gleich und würden als Teil der Ablauf-Ebene je Zweig kopiert. (Verworfen: A, drei Ebenen wie in der Checkliste.)
 
-**ENTSCHEIDUNG (Nutzer) 2: Wie streng ist `bot-seat`?**
-- A: Prüffehler (rot) in `check_workflows.py`, sobald `actor: ai` ohne `bot-seat`.
-- B: zuerst Warnung, rot ab dem nächsten Workflow-Release.
-- **Empfehlung: B** mit festem Datum, weil heute alle `ai`-Schritte (u. a. entscheidung.yaml:30-31) das Feld nicht haben und sonst alle Flows auf einmal rot würden.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 2 (wie streng ist `bot-seat`?): **B, zuerst Warnung, rot ab dem nächsten Workflow-Release, Datum beim Release festzulegen.** `check_workflows.py` meldet `actor: ai` ohne `bot-seat` bis dahin als Warnung, ab diesem Release als Prüffehler (rot); E1 Regel 2 („Prüffehler“) gilt ab diesem Release. Grund: heute haben alle `ai`-Schritte (u. a. entscheidung.yaml:30-31) das Feld nicht; sofort rot würde alle Flows auf einmal rot machen. (Verworfen: A, sofort rot.)
 
 ### E1a. Muster-Lückenliste (neu gegen die Quellen, ersetzt die Liste aus dem Gedächtnis)
 
@@ -142,21 +136,11 @@ Für Prozesse und Pläne gibt es **je Frage eine Datenquelle** und daraus abgele
 5. **CMMN-Sicht (Fallbearbeitung)**; Grund (Logik): ein Lauf mit Menschen-Schritten ist kein Fließband, sondern eine Liste offener Aufgaben mit Wartegründen; die Ablauf-Sicht zeigt Reihenfolge, nicht „was fehlt noch und von wem“, und ADR 0103 hält Wartegrund und Zustand ohnehin beim Lauf. Die Sicht kostet keine eigenen Daten. Ein Lauf mit offenen Menschen-Schritten (`gate: human`, `kind: subjective`, Wartegrund aus ADR 0103 E3) wird als **Fall** gezeigt: was ist offen, was ist erfüllt, was wartet worauf. CMMN 1.1 (OMG, 2016) ist als Standard belegt; die Begriffe Stage, Sentry, Milestone sind **[nicht belegt]** aus der abgerufenen Seite. Kein CMMN-Import/-Export in diesem Schritt.
 6. **Bahn = Achse Y** (ADR 0103 E6) ist dieselbe Idee wie die BPMN-Lane: im Ablauf-Graph und im Board wird nach `actor`/`role` gruppiert. Damit gibt es **ein** Wort („Bahn“) in allen Sichten.
 
-**ENTSCHEIDUNG (Nutzer) 3: BPMN nur als Sicht oder auch als Speicher?**
-- A: nur Sicht + Import/Export (wie oben).
-- B: ein Prozesseditor speichert BPMN nativ, die DSL wird daraus erzeugt.
-- **Empfehlung: A**, weil die ausführbare Wahrheit die DSL ist (ADR 0076 Z. 23) und B zwei Speicherformate mit Abgleich erzwingt.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 3 (BPMN als Sicht oder Speicher?): **A, BPMN nur als Sicht + Import/Export** (wie oben), kein Speicherformat. Grund: die ausführbare Wahrheit ist die DSL (ADR 0076 Z. 23); BPMN als Speicher erzwänge zwei Formate mit Abgleich. (Verworfen: B, nativer BPMN-Speicher.)
 
-**ENTSCHEIDUNG (Nutzer) 4: Netzplan jetzt oder später?**
-- A: Gantt und Netzplan bleiben „später“ (ADR 0073 Nr. 8, todo/features/tasks.md:55).
-- B: jetzt das **Datenmodell** (Relationstypen, Aufwand) festlegen, die Anzeige später.
-- C: Datenmodell und Rechenkern (kritischer Pfad) jetzt, Anzeige über `blinc_node_editor` (Netzplan, E4) bzw. `fs-components-timeline` (Gantt).
-- **Empfehlung: B**, weil das Datenmodell billig ist und später Migration spart (Daten dürfen heute noch weg); Rechenkern und Anzeige sind eigene Aufträge.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 4 (Netzplan jetzt oder später?): **B, Datenmodell jetzt** (Relationstypen, Aufwand); Rechenkern (kritischer Pfad) und Anzeige sind **eigene, getrennte Aufträge**. Grund: das Datenmodell ist billig und spart später Migration (Daten dürfen heute noch weg). (Verworfen: A, alles später; C, Rechenkern gleich mit.)
 
-**ENTSCHEIDUNG (Nutzer) 5: Welche RFC-9253-Typen?**
-- A: alle vier Abhängigkeitsarten + `GAP` + Eltern/Kind.
-- B: nur `FINISHTOSTART` und `STARTTOSTART` + `GAP` zuerst.
-- **Empfehlung: A im Datenmodell, B in der ersten Anzeige**, weil ein Typ, den das Modell nicht kennt, beim Import verloren ginge; die Anzeige kann schrittweise wachsen (heute nur Ende→Anfang, Teil C).
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 5 (welche RFC-9253-Typen?): **A im Datenmodell, B in der ersten Anzeige.** Das Datenmodell kennt alle vier Abhängigkeitsarten + `GAP` + Eltern/Kind; die erste Anzeige zeigt nur `FINISHTOSTART` und `STARTTOSTART` + `GAP`. Grund: ein Typ, den das Modell nicht kennt, ginge beim Import verloren; die Anzeige wächst schrittweise (heute nur Ende→Anfang, Teil C).
 
 ### E3. Hilfe anfordern ist Pflichtteil des Gerüsts
 
@@ -169,16 +153,16 @@ Regeln (aus den Nutzerideen vom 20.11., Teil D, D1; Konflikte mit ADRs aufgelös
 3. **Herkunft ist fest an der Frage** (Programm, Version) und nicht änderbar. fs-messages filtert danach.
 4. **Hilfe erscheint nie in broadcast.** broadcast abonniert nur seinen eigenen Ordner. Die Trennung ist ein Pflichttest, kein Filter-Standard.
 5. **Kontext-Paket** (Programm, Version, Ansicht, Fehler, Bild nur geschwärzt) wird **vor dem Senden gezeigt und ist änderbar**. Geheimes oder Sensibles kommt nie hinein; Prüfung über einen Kanarien-Test (eingesetzter Prüfwert darf im Paket nie auftauchen).
-6. **Stufen**: eigene Gruppe → Gemeinschaft → Entwickler (Issue; später Helpdesk). Die nächste Stufe wählt der Mensch; Senden an Entwickler/Upstream erst nach Freigabe (`gate: human`, wie `upstream-anfrage`).
+6. **Stufen**: eigene Gruppe → Gemeinschaft (wer das ist, ist die offene Frage in ENTSCHEIDUNG 9 Nr. 5) → Entwickler (Issue; später Helpdesk). Die nächste Stufe wählt der Mensch; Senden an Entwickler/Upstream erst nach Freigabe (`gate: human`, wie `upstream-anfrage`).
 7. **Innen AS2, außen Adapter** (fs-messages, Matrix, XMPP, E-Mail). Ein Adapter ohne Ende-zu-Ende-Verschlüsselung wird sichtbar markiert (ADR 0018 Z. 56: Brücken ohne E2E sind erlaubt, aber immer markiert).
 8. **Zustände** `offen`, `beantwortet`, `gelöst` sind **Lauf-Zustände/Stationen eines Workflows** `hilfe-anfrage` (ADR 0103: Zustände gehören dem Lauf), keine eigene Zustandsliste im Programm.
-9. **Gelöst + Zustimmung → Hilfetext** in fs-texts (ADR 0097 N6 „Hilfe als Wiki“; Helpdesk-Suite ADR 0087 Nr. 5).
+9. **Gelöst + Zustimmung (je Antwort, mit „Merken“) → Hilfetext** in fs-texts (ADR 0097 N6 „Hilfe als Wiki“; Helpdesk-Suite ADR 0087 Nr. 5).
 
-Bauplan-Eintrag (Vorschlag, ergänzt `[[help]]` aus dem Zweig `scaffold-e5`, der dort nur `topic` und Text de/en hat; Zweig im Lauf nicht abrufbar, Offen 7): `origin` (fest), `channel`, `exclude_broadcast = true` (fest, nicht einstellbar), `protocols`, `context_fields`, `escalation` (`group` | `community` | `developer`, Standard `group`), `adapters` mit `e2e` je Adapter, `ki_answer` (nur mit Bot-Platz), `publish_text` (Zustimmung Pflicht), `workflow = "hilfe-anfrage"`, `fallback` (sichtbarer Rückfall nach ADR 0097).
+Bauplan-Eintrag (Vorschlag, ergänzt `[[help]]` aus dem Zweig `scaffold-e5`, der dort nur `topic` und Text de/en hat; Zweig im Lauf nicht abrufbar, Offen 7): `origin` (fest), `channel`, `exclude_broadcast = true` (fest, nicht einstellbar), `protocols`, `context_fields`, `escalation` (`group` | `community` | `developer`, Standard `group`), `adapters` mit `e2e` je Adapter (E-Mail/XMPP zugelassen, `e2e = false` sichtbar markiert, ENTSCHEIDUNG 9 Nr. 1), `ki_answer` (nur mit Bot-Platz), `publish_text` (Zustimmung je Antwort mit „Merken“, ENTSCHEIDUNG 9 Nr. 2), `retention` (Einstellung, Standard „behalten“, ENTSCHEIDUNG 9 Nr. 3), `consent_purpose` (`hilfe`, bei KI-Antwort zusätzlich `ki_hilfe`, ENTSCHEIDUNG 9 Nr. 4), `workflow = "hilfe-anfrage"`, `fallback` (sichtbarer Rückfall nach ADR 0097).
 
 Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellbar; Kanarien-Wert nie im Paket; KI-Antwort ohne Kennzeichen unzustellbar (ADR 0054 Z. 214); KI-Antwort ohne Einladung oder ohne Recht abgelehnt; Herkunft nach dem Senden unveränderbar; **Bot ändert eine eigene Einstellung oder ein eigenes Recht → abgelehnt** (E3a Regel 4, ohne Ausnahme); Bot liest eigene Rechte/Einstellungen → abgelehnt (E3a Regel 3); **Bot ändert Rechte eines anderen Bots → abgelehnt** (E3a Regel 5, auch auf ausdrückliche Anweisung eines Menschen oder Admins); **Bot lädt einen Bot ein → abgelehnt** (E3a Regel 6, ebenso ohne Übersteuerung); Bot mit Recht lässt einen Menschen herein → erlaubt und protokolliert, ohne Recht → abgelehnt (E3a Regel 7).
 
-**ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90** (ersetzt die frühere offene ENTSCHEIDUNG 6 „Darf die KI in der Hilfe schreiben?“ und löst den Konflikt K1 aus Teil D, teil-D.md:39: Schreiben in fs-messages ist ein Programm-Recht des Bots, nicht ein fs-groups-Recht; die Grenze „in fs-groups höchstens `Read`“ aus ADR 0091 Z. 50 betrifft nur fs-groups und bleibt unverändert (die frühere Lockerung durch E3a Regel 5 ist mit der Verschärfung vom 20.11. entfallen). K13, teil-D.md:51, Akteurstyp, bleibt ENTSCHEIDUNG 8; die Antwort stützt dort Option A, weil der Bot der Handelnde ist): Bots dürfen teilnehmen und schreiben bzw. antworten (fast immer), wenn sie eingeladen sind (z. B. in fs-messages) **und** die Rechte dafür haben. Ausgestaltung in E3a.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90** (ersetzt die frühere offene ENTSCHEIDUNG 6 „Darf die KI in der Hilfe schreiben?“; die Strategie hat ENTSCHEIDUNG 6 am 20.11. als „A, ersetzt durch Antwort 90“ bestätigt, es gilt der Wortlaut von Antwort 90; die Antwort löst den Konflikt K1 aus Teil D, teil-D.md:39: Schreiben in fs-messages ist ein Programm-Recht des Bots, nicht ein fs-groups-Recht; die Grenze „in fs-groups höchstens `Read`“ aus ADR 0091 Z. 50 betrifft nur fs-groups und bleibt unverändert (die frühere Lockerung durch E3a Regel 5 ist mit der Verschärfung vom 20.11. entfallen). K13, teil-D.md:51, Akteurstyp, ist ENTSCHEIDUNG 8, am 20.11. mit A beantwortet; die Antwort 90 stützt das, weil der Bot der Handelnde ist): Bots dürfen teilnehmen und schreiben bzw. antworten (fast immer), wenn sie eingeladen sind (z. B. in fs-messages) **und** die Rechte dafür haben. Ausgestaltung in E3a.
 
 #### E3a. Rechte von Bots (Nutzerantwort 90, verschärft 20.11.)
 
@@ -204,14 +188,16 @@ Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellb
 > 5. **Lockerung:** Das Verbot „einladen, Einladungen annehmen“ (Nr. 5) gilt nicht mehr für **Menschen**: ein Bot mit dem von einem Menschen vergebenen Recht darf Menschen hereinlassen, protokolliert wie Nr. 12. Für Bots gilt Punkt 4. Die übrigen Verbote aus Nr. 5 (Admin/`Manage`, zustimmen, abstimmen, Türsteher, MCP-Schalter und „KI erlaubt“, Geheimnisse, Einwilligungen, STOP/Notaus, `MessageAction.decide`) bleiben unverändert.
 > 6. Pflichttests (je ohne Umsetzung rot): (1) Bot ändert eigene Einstellung → abgelehnt; (2) Bot ändert Rechte eines anderen Bots → abgelehnt; (3) Bot lädt einen Bot ein → abgelehnt. Alle drei auch auf ausdrückliche Anweisung eines Menschen oder Admins abgelehnt.
 
-**Einzelplatz ohne Bot – folgt aus ADR 0091 Nr. 11 (keine offene Nutzerfrage).** Auf dem Einzelplatz gibt es keinen Bot; KI-Hilfe dort „läuft allein über den MCP-Schalter mit STOP KI“ (0091 Z. 31 und Z. 71, Entscheidung 11; 0054 Nachtrag 2). Die Antwort wird gekennzeichnet (0054 Z. 214). Der MCP-Schalter ist schon Pflicht und für die KI unveränderbar (ADR 0097 Z. 26). Die frühere Option A („keine KI-Hilfe auf dem Einzelplatz“) widerspräche 0091 und entfällt. Die Nummer 7 bleibt frei, damit die Verweise auf ENTSCHEIDUNG 8 und 9 gelten.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 7 (KI-Hilfe auf dem Einzelplatz): **B, wie durch ADR 0091 Nr. 11 entschieden; Einzelplatz ohne Bot.** Grund: 0091 Nr. 11 legt das schon fest; eine eigene Wahl hier gäbe es nur als Widerspruch. Auf dem Einzelplatz gibt es keinen Bot; KI-Hilfe dort „läuft allein über den MCP-Schalter mit STOP KI“ (0091 Z. 31 und Z. 71, Entscheidung 11; 0054 Nachtrag 2). Die Antwort wird gekennzeichnet (0054 Z. 214). Der MCP-Schalter ist schon Pflicht und für die KI unveränderbar (ADR 0097 Z. 26). Die frühere Option A („keine KI-Hilfe auf dem Einzelplatz“) widerspräche 0091 und entfällt.
 
-**ENTSCHEIDUNG (Nutzer) 8: Akteurstyp einer KI-Antwort im Workflow.** Im Bot-Modell ist die KI ein `Service` (0091 Z. 33), das FS-Profil nutzt für `ai` bisher `Application`.
-- A: `actor: ai`, `actor-type: Service` + `bot-seat`.
-- B: `Application` beibehalten.
-- **Empfehlung: A**, weil der Bot-Platz der handelnde Akteur ist, nicht das Programm der KI.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 8 (Akteurstyp einer KI-Antwort im Workflow): **A, `actor: ai`, `actor-type: Service` + `bot-seat`.** Grund: im Bot-Modell ist die KI ein `Service` (0091 Z. 33) und der Bot-Platz der handelnde Akteur, nicht das Programm der KI; das FS-Profil nutzt für `ai` bisher `Application` und wird umgestellt. (Verworfen: B, `Application` beibehalten.)
 
-**ENTSCHEIDUNG (Nutzer) 9: weitere offene Punkte der Hilfe** (aus Teil D, D4; je ohne Empfehlung, weil Fakten fehlen): Wer ist die Stufe „Gemeinschaft“ (Forum, Matrix-Raum, Liste)? E-Mail/XMPP als Außen-Adapter mit Ausnahme-Markierung zulassen? Zustimmung zum Hilfetext je Antwort oder dauerhaft? Speicherdauer der Hilfe-Fragen (ADR 0054 Z. 166)? Eigener Einwilligungszweck oder `ki_hilfe` aus fs-people mitnutzen (0054 Z. 156)?
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 9 (weitere Punkte der Hilfe, aus Teil D, D4), **bis auf die Stufe „Gemeinschaft“** (Nr. 9.5, offen):
+1. **E-Mail/XMPP als Außen-Adapter: zugelassen**, mit sichtbarer Markierung „nicht Ende-zu-Ende“ (Regel wie E3 Regel 7; die Strategie nennt dafür die Markierungslinie aus ADR 0054). Grund: Erreichbarkeit geht vor, die Markierung macht das Risiko sichtbar.
+2. **Zustimmung zum Hilfetext: je Antwort**, mit der Option „Merken“ (dasselbe Muster wie Ja/Nein/Für alle/Merken). Grund: jede Antwort kann anderes enthalten; „Merken“ erspart Wiederholung, wo der Mensch es will.
+3. **Speicherdauer der Hilfe-Fragen: eine Einstellung, Standard = behalten** (kein automatisches Löschen; KI-Liste Nr. 14; ADR 0054 Z. 166). Grund: gelöste Fragen sind der Stoff für Hilfetexte.
+4. **Einwilligungszweck: eigener Zweck `hilfe`** für Menschen; antwortet eine KI, gilt **zusätzlich** der vorhandene Zweck `ki_hilfe` aus fs-people (0054 Z. 156). Grund: Hilfe unter Menschen braucht keine KI-Einwilligung, eine KI-Antwort braucht sie.
+5. **Noch offen (einzige offene Nutzerfrage dieses ADR): Wer ist die Stufe „Gemeinschaft“** (Forum, Matrix-Raum, Liste, …)? Bis zur Antwort ist das Ziel der Stufe `community` im Bauplan nicht festgelegt.
 
 ### E4. Planungs-Components (fs-components) und Blinc
 
@@ -262,9 +248,13 @@ Daraus:
   - Wortlaut des Nachtrags: Abschnitt „Nachtrag-Text zu ADR 0091“ in E3.
 - **Keine Abweichung durch Nutzerantwort 88/89:** Blinc-Nutzung per Pin + Wrapper folgt der Frontend-Regel; Gantt-Bearbeiten speichert weiter beim Besitzer (ADR 0073 Nr. 8 unverändert: Planungsdaten berechnet). Abweichung nur gegenüber der Absicht in timeline DESIGN.md:47 (E4).
 - Weitere Erweiterungen:
-  - ADR 0076 Z. 15: der Akteurstyp der KI wird im Workflow `Service` (Bot-Platz) statt `Application` – nur wenn ENTSCHEIDUNG 8 = A; 0076 nennt beide, also keine Änderung von 0076, nur des FS-Profils (README.md:4-5).
-  - Checkliste „drei Ebenen“ → vier Ebenen (ENTSCHEIDUNG 1).
-  - ADR 0073 Nr. 8 (Gantt „später“): unverändert; ENTSCHEIDUNG 4 B zieht nur das Datenmodell vor.
+  - ADR 0076 Z. 15: der Akteurstyp der KI wird im Workflow `Service` (Bot-Platz) statt `Application` (ENTSCHEIDUNG 8 = A, beantwortet 20.11.); 0076 nennt beide, also keine Änderung von 0076, nur des FS-Profils (README.md:4-5).
+  - Checkliste „drei Ebenen“ → vier Ebenen (ENTSCHEIDUNG 1 = B, beantwortet 20.11.).
+  - ADR 0073 Nr. 8 (Gantt „später“): unverändert; ENTSCHEIDUNG 4 = B zieht nur das Datenmodell vor, Rechenkern und Anzeige bleiben eigene Aufträge.
+  - BPMN: keine Abweichung (ENTSCHEIDUNG 3 = A, nur Sicht + Import/Export; ADR 0076 Z. 23 unverändert).
+  - ADR 0091 Nr. 11 (Einzelplatz ohne Bot): unverändert übernommen (ENTSCHEIDUNG 7 = B).
+  - Hilfe (ENTSCHEIDUNG 9): E-Mail/XMPP-Adapter folgen der bestehenden Markierungsregel (E3 Regel 7), Einwilligung nutzt `ki_hilfe` (ADR 0054 Z. 156) unverändert und ergänzt nur einen eigenen Zweck `hilfe`; Speicherdauer „behalten“ als Standard einer Einstellung (ADR 0054 Z. 166) **[nicht belegt]**, ob 0054 dort eine Frist vorgibt: vor dem Bau nachlesen.
+- **Gerüst-Folgen (Abschnitt „Folgen für fs-blueprint/fs-starter“):** Abweichung nur gegenüber dem heutigen Generator in fs-blueprint, der aus `provides` ein `interface` im Programm erzeugt; das wird durch einen Verweis auf fs-interfaces ersetzt (dort Punkt c).
 - **Namen:** ADR 0076 Z. 25 schreibt „fs-messenger“, ADR 0087 Z. 23 „fs-text“; nach der Namensregel heißen die Programme fs-messages und fs-texts. Dieser ADR nutzt die gültigen Namen und ändert die alten ADRs nicht (Nachzieh-Liste).
 
 ## Folgen
@@ -275,7 +265,17 @@ Daraus:
 - fs-components: Wrapper um `blinc_node_editor` (Pin auf Commit) für Ablauf-Graph und Netzplan, Bahnen im Board, timeline-Erweiterung erst Ansicht, dann Bearbeiten (je eigener Auftrag, Bahn 1).
 - Blinc: kurze Issue-Anfrage nach einem Tag für `blinc_node_editor`, falls der Pin auf einen Commit nicht reicht.
 - ADR 0091: Nachtrag „Bot-Rechte = Rollen-Rechte, nur Menschen verwalten sie; keine Bots durch Bots“ (Wortlaut in E3) in einem eigenen Doku-Lauf übernehmen.
-- fs-tasks / fs-jscalendar: Relationstypen nach RFC 9253 im Datenmodell (nach ENTSCHEIDUNG 4/5).
+- fs-tasks / fs-jscalendar: Relationstypen nach RFC 9253 (alle vier Abhängigkeitsarten + `GAP` + Eltern/Kind) und Aufwand im Datenmodell jetzt (ENTSCHEIDUNG 4 = B, 5 = A); Rechenkern und Anzeige (zuerst nur `FINISHTOSTART`, `STARTTOSTART`, `GAP`) je eigener Auftrag.
+- `check_workflows.py`: `actor: ai` ohne `bot-seat` zuerst Warnung, rot ab dem nächsten Workflow-Release (Datum beim Release festzulegen, ENTSCHEIDUNG 2 = B); FS-Profil `actor-type: Service` für `ai` (ENTSCHEIDUNG 8 = A).
+- Nutzerfrage: Wer ist die Stufe „Gemeinschaft“ der Hilfe (ENTSCHEIDUNG 9 Nr. 5)?
+
+### Folgen für fs-blueprint/fs-starter
+
+Gerüst-Entscheide, von der Strategie am 2026-11-20 als Nutzerentscheide übermittelt:
+
+- **(a) fs-starter ist der eine ausführbare Host.** Er wird mit dem Pfad zum Datenpaket des Programms gestartet und ruft für das Frontend selbst fs-forms-run (als Bibliothek) auf. Es gibt **keine** erzeugte Hook-Binary, und **kein** Programm ruft fs-starter auf. fs-forms hängt **nie** von fs-starter ab (kein Zyklus; Entscheid (d)). Grund: ein Host statt je Programm erzeugter Starter hält die Startlogik an einer Stelle.
+- **(b) Das Typmodell von fs-blueprint bekommt jetzt verschachtelte Typen und Verweislisten**; gespeichert wird weiter in getypten Spalten: verschachtelter Typ = eigene Kind-Tabelle mit Elternschlüssel, Verweisliste = Verknüpfungstabelle; in capnp verschachteltes `struct` bzw. `List(...)`. **Kein** JSON-Speicher, **keine** Migration. Grund: jetzt einführen ist billig, später kostet es Migration; getypte Spalten bleiben prüfbar.
+- **(c) Der Vertrag lebt in fs-interfaces (eine Quelle).** Der Katalog hält nur fest „Programm X stellt Vertrag Y@Version bereit“; das Programmpaket **nennt** den Vertrag nur, nichts vom Vertrag liegt im Programm. Folge: das heute aus `provides` im Programm erzeugte `interface` wird durch einen **Verweis** auf fs-interfaces ersetzt. Grund: eine Quelle, nichts kopieren (ADR 0013).
 
 ## Offen
 
@@ -291,7 +291,7 @@ Daraus:
 
 ## Pflichttests (Vorschlag; nichts davon ist gebaut)
 
-- `check_workflows.py`: `actor: ai` ohne `bot-seat` → Befund (Warnung/rot nach ENTSCHEIDUNG 2).
+- `check_workflows.py`: `actor: ai` ohne `bot-seat` → Warnung, ab dem nächsten Workflow-Release Prüffehler (ENTSCHEIDUNG 2 = B).
 - `separate-from`: gleicher Akteur an beiden Schritten → Lauf verweigert den Übergang.
 - BPMN-Import: nicht abbildbares Element → sichtbare Meldung, kein stilles Weglassen.
 - Planungsdaten: kritischer Pfad wird nie gespeichert (nur berechnet).
@@ -310,7 +310,7 @@ Daraus:
 - Serverless Workflow DSL Reference (GitHub `serverlessworkflow/specification`, `dsl-reference.md`), Text (abgerufen 2026-11-20, Kopie im internen Arbeitsordner, nicht veröffentlicht).
 - Workflow Patterns Initiative (workflowpatterns.com), Seiten der Familien Ablauf, Daten, Ressourcen, Ausnahme als Text (abgerufen 2026-11-20, interner Arbeitsordner, nicht veröffentlicht), mit den Papieren BPM-06-22, FIT-TR-2004-01, BETA WP 127, BPM-06-04 (Einzelangaben in E1); vollständige Musterliste und Einzelseiten (129 Seiten, abgerufen 2026-11-20 vom Koordinator). Adresse: http://workflowpatterns.com/ (nur http).
 - `project-blinc/blinc_node_editor`, github.com/project-blinc/blinc_node_editor (README.md; Lese-Klon im internen Arbeitsordner); Lizenz, Kopf und Push-Datum laut Nutzerantwort 88.
-- Nutzerantworten 88, 89, 90 vom 2026-11-20.
+- Nutzerantworten 88, 89, 90 vom 2026-11-20; Nutzerentscheide zu ENTSCHEIDUNG 1–9 und zu den Gerüst-Folgen, übermittelt von der Strategie am 2026-11-20.
 - ADR 0013, 0037, 0054, 0073, 0076, 0081, 0087, 0091, 0097, 0103, 0104.
 
 ## Quellen zum Nachprüfen (vor Annahme)
