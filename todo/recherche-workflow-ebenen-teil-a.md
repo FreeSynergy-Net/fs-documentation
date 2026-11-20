@@ -1,6 +1,6 @@
 # Recherche Workflow-Ebenen, Teil A (berichtigt): Workflow Patterns gegen unsere DSL
 
-Notiz zu ADR 0105 (E1a). Ersetzt die Erstfassung der Erstfassung des Koordinators (interner Arbeitsordner, nicht veröffentlicht) vom 2026-11-20, deren Musternamen aus dem Gedächtnis stammten. Stand: 2026-11-20, Prüflauf gegen die abgerufenen Quellen.
+Notiz zu ADR 0105 (E1a). Ersetzt die Erstfassung des Koordinators (interner Arbeitsordner, nicht veröffentlicht) vom 2026-11-20, deren Musternamen aus dem Gedächtnis stammten. Stand: 2026-11-20, Prüflauf gegen die abgerufenen Quellen.
 
 **Quellen:**
 - Workflow Patterns Initiative, http://workflowpatterns.com/ (nur http; das https-Zertifikat schlägt fehl). Vollständige Liste (129 Einzelseiten: 43 Ablauf WCP, 40 Daten WDP, 43 Ressourcen WRP, 3 Ausnahme-Seiten): interne Mustertabelle des Koordinators (nicht veröffentlicht), Seiten wie unten adressierbar. Adresse einer Seite: `http://workflowpatterns.com/patterns/<familie>/<gruppe>/<id>.php`, z. B. `…/patterns/control/basic/wcp1.php`; Ausnahmen: `…/patterns/exception/exceptiontypes.php`, `exception_workitemlevel.php`, `exception_caselevel.php`.
