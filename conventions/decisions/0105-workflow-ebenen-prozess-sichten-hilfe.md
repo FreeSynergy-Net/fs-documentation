@@ -1,6 +1,6 @@
 # 0105 – Workflow-Ebenen, Prozess-Sichten, Hilfe anfordern: vier Ebenen je Schritt, eine Quelle mit mehreren Sichten, Hilfe als Pflichtteil des Gerüsts
 
-Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Prüfung durch Opus und Entscheide des Nutzers stehen aus) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
+Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Frage 90 in der verschärften Fassung vom 20.11. (Bot-Rechte nur durch Menschen, keine Bots durch Bots), Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Prüfung durch Opus und Entscheide des Nutzers stehen aus) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
 
 **Nummer:** **0105**. Herleitung: `conventions/decisions/` auf dem Zweigstand (aus main, Kopf d1d7315d) endet bei `0104-moduldaten-gehoeren-dem-modul.md`.
 
@@ -174,26 +174,32 @@ Regeln (aus den Nutzerideen vom 20.11., Teil D, D1; Konflikte mit ADRs aufgelös
 
 Bauplan-Eintrag (Vorschlag, ergänzt `[[help]]` aus dem Zweig `scaffold-e5`, der dort nur `topic` und Text de/en hat; Zweig **nicht geprüft**): `origin` (fest), `channel`, `exclude_broadcast = true` (fest, nicht einstellbar), `protocols`, `context_fields`, `escalation` (`group` | `community` | `developer`, Standard `group`), `adapters` mit `e2e` je Adapter, `ki_answer` (nur mit Bot-Platz), `publish_text` (Zustimmung Pflicht), `workflow = "hilfe-anfrage"`, `fallback` (sichtbarer Rückfall nach ADR 0097).
 
-Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellbar; Kanarien-Wert nie im Paket; KI-Antwort ohne Kennzeichen unzustellbar (ADR 0054 Z. 57, 62); KI-Antwort ohne Einladung oder ohne Recht abgelehnt; Herkunft nach dem Senden unveränderbar; **Bot ändert eine eigene Einstellung oder ein eigenes Recht → abgelehnt** (E3a Regel 4, ohne Ausnahme); Bot liest eigene Rechte/Einstellungen → abgelehnt (E3a Regel 3); Bot verwaltet fremde Rechte ohne ausdrückliche Freigabe eines Menschen → abgelehnt, mit Freigabe → Warnung sichtbar und protokolliert (E3a Regel 5).
+Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellbar; Kanarien-Wert nie im Paket; KI-Antwort ohne Kennzeichen unzustellbar (ADR 0054 Z. 57, 62); KI-Antwort ohne Einladung oder ohne Recht abgelehnt; Herkunft nach dem Senden unveränderbar; **Bot ändert eine eigene Einstellung oder ein eigenes Recht → abgelehnt** (E3a Regel 4, ohne Ausnahme); Bot liest eigene Rechte/Einstellungen → abgelehnt (E3a Regel 3); **Bot ändert Rechte eines anderen Bots → abgelehnt** (E3a Regel 5, auch auf ausdrückliche Anweisung eines Menschen oder Admins); **Bot lädt einen Bot ein → abgelehnt** (E3a Regel 6, ebenso ohne Übersteuerung); Bot mit Recht lässt einen Menschen herein → erlaubt und protokolliert, ohne Recht → abgelehnt (E3a Regel 7).
 
-**ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90** (ersetzt die frühere offene ENTSCHEIDUNG 6 „Darf die KI in der Hilfe schreiben?“ und löst den Konflikt K1 aus Teil D, teil-D.md:39: Schreiben in fs-messages ist ein Programm-Recht des Bots, nicht ein fs-groups-Recht; die Grenze „in fs-groups höchstens `Read`“ aus ADR 0091 Z. 50 betrifft nur fs-groups und wird nur durch E3a Regel 5 berührt. K13, teil-D.md:51, Akteurstyp, bleibt ENTSCHEIDUNG 8; die Antwort stützt dort Option A, weil der Bot der Handelnde ist): Bots dürfen teilnehmen und schreiben bzw. antworten (fast immer), wenn sie eingeladen sind (z. B. in fs-messages) **und** die Rechte dafür haben. Ausgestaltung in E3a.
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90** (ersetzt die frühere offene ENTSCHEIDUNG 6 „Darf die KI in der Hilfe schreiben?“ und löst den Konflikt K1 aus Teil D, teil-D.md:39: Schreiben in fs-messages ist ein Programm-Recht des Bots, nicht ein fs-groups-Recht; die Grenze „in fs-groups höchstens `Read`“ aus ADR 0091 Z. 50 betrifft nur fs-groups und bleibt unverändert (die frühere Lockerung durch E3a Regel 5 ist mit der Verschärfung vom 20.11. entfallen). K13, teil-D.md:51, Akteurstyp, bleibt ENTSCHEIDUNG 8; die Antwort stützt dort Option A, weil der Bot der Handelnde ist): Bots dürfen teilnehmen und schreiben bzw. antworten (fast immer), wenn sie eingeladen sind (z. B. in fs-messages) **und** die Rechte dafür haben. Ausgestaltung in E3a.
 
-#### E3a. Rechte von Bots (Nutzerantwort 90)
+#### E3a. Rechte von Bots (Nutzerantwort 90, verschärft 20.11.)
+
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90, verschärft 20.11.** Wortlaut sinngemäß: Bots ändern **nie** Bot-Rechte, gar keine, nicht nur die eigenen. Bots laden **nie** andere Bots ein und starten oder laden keine (eine Fehlfunktion könnte sonst 1000 Bots erzeugen). Ein Bot mit dem Recht dazu darf **Menschen** hereinlassen, nie Bots. Das ersetzt die frühere Fassung von Regel 5 („Bot darf auf ausdrücklichen Wunsch eines Menschen Rechte verwalten, mit Warnung“): die Verwaltung von Bot-Rechten ist **nur Menschen** vorbehalten.
 
 1. **Teilnahme:** Ein Bot schreibt und antwortet in einer Situation (Unterhaltung, Hilfe-Kanal, Gruppe), wenn er dort **eingeladen** ist **und** das Recht dazu hat. Das ist der Normalfall, keine Ausnahme.
-2. **Bot-Rechte sind Rollen-Rechte:** Rechte eines Bots werden **je Programm wie Rechte einer Rolle** vergeben und entzogen, von Menschen mit dem Recht dazu, mit denselben Mitteln wie für Rollen. Es gibt keinen eigenen Rechte-Weg für Bots.
+2. **Bot-Rechte sind Rollen-Rechte:** Rechte eines Bots werden **je Programm wie Rechte einer Rolle** vergeben und entzogen, **nur von Menschen** mit dem Recht dazu, mit denselben Mitteln wie für Rollen. Es gibt keinen eigenen Rechte-Weg für Bots.
 3. **Kein Blick auf sich selbst:** Ein Bot darf seine **eigenen** Rechte und Einstellungen weder sehen noch ändern.
 4. **Absolut:** Ein Bot ändert **nie seine eigenen** Einstellungen oder Rechte. Diese Sperre hat **keinen Schalter und keine Übersteuerung**, auch nicht durch einen Menschen oder Admin.
-5. **Rechte verwalten nur auf ausdrücklichen Wunsch:** Will ein Mensch ausdrücklich, dass ein Bot Rechte (anderer) verwaltet, ist das erlaubt, mit einer **deutlichen Warnung** vor der Freigabe; die Freigabe wird protokolliert (AS2-Aktivität wie ADR 0091 Nr. 12). Regel 4 gilt trotzdem: auch ein verwaltender Bot ändert nie sich selbst.
-6. Unverändert aus ADR 0091: KI nur über einen Bot, markiert, Protokoll „Bot X, gesteuert von KI Y, beauftragt von Z“ (0091 Nr. 12), STOP KI/Notaus, kein Bot auf dem Einzelplatz (0091 Nr. 11).
+5. **Bot-Rechte verwaltet nur ein Mensch:** Ein Bot vergibt, ändert oder entzieht **nie Rechte eines Bots**, weder eigene noch fremde. Diese Sperre hat wie Regel 4 **keinen Schalter, keine Freigabe und keine Übersteuerung**, auch nicht auf ausdrücklichen Wunsch eines Menschen oder Admins. Die frühere Freigabe mit Warnung entfällt ersatzlos.
+6. **Keine Bots durch Bots:** Ein Bot lädt **nie** einen anderen Bot ein, startet oder lädt keinen, eröffnet keinen Bot-Platz und nimmt keine Einladung für einen Bot an. Ohne Schalter und ohne Übersteuerung. Grund: eine Fehlfunktion darf sich nicht vervielfältigen (Kettenreaktion).
+7. **Menschen hereinlassen:** Ein Bot mit dem Recht dazu darf **Menschen** in eine Situation hereinlassen (einladen bzw. eine Beitrittsanfrage eines Menschen annehmen). Das Recht wird nach Regel 2 von einem Menschen vergeben; jedes Hereinlassen wird protokolliert („Bot X, gesteuert von KI Y, beauftragt von Z, ließ Person P herein“, AS2 wie 0091 Nr. 12). Ist das Gegenüber ein Bot, gilt Regel 6 (abgelehnt). Rechte, die der hereingelassene Mensch bekommt, vergibt der Bot nicht (ADR 0091 Nr. 5 „Rechte vergeben“ bleibt).
+8. Unverändert aus ADR 0091: KI nur über einen Bot, markiert, Protokoll „Bot X, gesteuert von KI Y, beauftragt von Z“ (0091 Nr. 12), STOP KI/Notaus, kein Bot auf dem Einzelplatz (0091 Nr. 11), nie Admin/`Manage`, nie Rechte von Menschen vergeben oder ändern (0091 Nr. 5).
 
 #### Nachtrag-Text zu ADR 0091 (zur Übernahme in einem eigenen Doku-Lauf; hier nur der Wortlaut)
 
-> **Nachtrag (2026-11-20, aus ADR 0105 E3a, Nutzerantwort 90): Bot-Rechte = Rollen-Rechte; Selbständerung hart gesperrt.**
-> 1. Rechte eines Bots werden je Programm wie Rechte einer Rolle vergeben und entzogen. Das ersetzt die Herleitung der Bot-Rechte allein aus dem Mandat einer Situation (Nr. 4) als einzigen Weg: die Rollen-Rechte des Bots sind ein weiteres Glied der Schnittmenge; Einladung (Mandat) und Recht müssen beide da sein.
-> 2. Nr. 5 „Rechte, Rollen oder Mandate vergeben oder ändern“ sowie die Grenze „in fs-groups höchstens `Read`, nie Rechteänderung“ (Z. 50, 96, 118, 135): bleiben der Normalfall, **außer** ein Mensch gibt einem Bot ausdrücklich die Verwaltung von Rechten frei; dann mit deutlicher Warnung und Protokoll. Die übrigen Verbote aus Nr. 5 (zustimmen, abstimmen, einladen, Türsteher, MCP-Schalter und „KI erlaubt“, Geheimnisse, STOP/Notaus, zweiter Bot) bleiben unverändert. Ob die Freigabe `Manage` bzw. Admin einschließt („nie Admin“, Nutzerentscheidung 39), ist **offen** (Frage an den Nutzer, siehe „Offen“).
-> 3. **Ohne Ausnahme:** Ein Bot sieht und ändert nie seine eigenen Rechte oder Einstellungen. Keine Übersteuerung, auch nicht durch Regel 2 oder einen Admin.
-> 4. Pflichttest: „Bot ändert eigene Einstellung → abgelehnt“ (auch mit erteilter Verwaltungsfreigabe).
+> **Nachtrag (2026-11-20, aus ADR 0105 E3a, Nutzerantwort 90, verschärft 20.11.): Bot-Rechte = Rollen-Rechte, nur Menschen verwalten sie; keine Bots durch Bots.**
+> 1. Rechte eines Bots werden je Programm wie Rechte einer Rolle vergeben und entzogen, **nur von Menschen**. Das ersetzt die Herleitung der Bot-Rechte allein aus dem Mandat einer Situation (Nr. 4) als einzigen Weg: die Rollen-Rechte des Bots sind ein weiteres Glied der Schnittmenge; Einladung (Mandat) und Recht müssen beide da sein.
+> 2. Nr. 5 „Rechte, Rollen oder Mandate vergeben oder ändern“ und die Grenze „in fs-groups höchstens `Read`, nie Rechteänderung“ (Z. 50, 96, 118, 135) bleiben **unverändert**. Verschärfung: Ein Bot ändert **nie Rechte eines Bots**, weder eigene noch fremde, ohne Schalter, Freigabe oder Übersteuerung, auch nicht auf ausdrücklichen Wunsch eines Menschen oder Admins.
+> 3. **Ohne Ausnahme:** Ein Bot sieht und ändert nie seine eigenen Rechte oder Einstellungen. Keine Übersteuerung, auch nicht durch einen Admin.
+> 4. **Keine Bots durch Bots:** Das Verbot „einen zweiten Bot starten“ (Nr. 5) und „Weitere Plätze eröffnet nur ein Mensch“ (Z. 134) werden erweitert: ein Bot lädt nie einen Bot ein, startet oder lädt keinen und nimmt keine Einladung für einen Bot an. Ohne Übersteuerung.
+> 5. **Lockerung:** Das Verbot „einladen, Einladungen annehmen“ (Nr. 5) gilt nicht mehr für **Menschen**: ein Bot mit dem von einem Menschen vergebenen Recht darf Menschen hereinlassen, protokolliert wie Nr. 12. Für Bots gilt Punkt 4. Die übrigen Verbote aus Nr. 5 (Admin/`Manage`, zustimmen, abstimmen, Türsteher, MCP-Schalter und „KI erlaubt“, Geheimnisse, Einwilligungen, STOP/Notaus, `MessageAction.decide`) bleiben unverändert.
+> 6. Pflichttests (je ohne Umsetzung rot): (1) Bot ändert eigene Einstellung → abgelehnt; (2) Bot ändert Rechte eines anderen Bots → abgelehnt; (3) Bot lädt einen Bot ein → abgelehnt. Alle drei auch auf ausdrückliche Anweisung eines Menschen oder Admins abgelehnt.
 
 **ENTSCHEIDUNG (Nutzer) 7: Einzelplatz ohne Bot.** Auf dem Einzelplatz gibt es keinen Bot (0091 Z. 31, 71).
 - A: keine KI-Hilfe auf dem Einzelplatz.
@@ -245,8 +251,12 @@ Daraus:
 - **Abweichungen durch Nutzerantwort 90 (ausdrücklich):**
   - **ADR 0091 Nr. 4** (Z. 41-49, Bot-Rechte = Mandat ∩ Halter ∩ …): Bot-Rechte werden zusätzlich **je Programm wie Rollen-Rechte** vergeben/entzogen (E3a Regel 2). Die Schnittmenge bleibt, das Rollen-Recht kommt als Glied dazu; Einladung allein reicht nicht.
   - **ADR 0091 Nr. 13** (Z. 76, „KI-Rolle entfällt“): es kommt **keine** KI-Rolle zurück und keine KI-Gruppe; vergeben werden Rechte an den Bot *wie* an eine Rolle (gleiches Mittel), der Bot wird nicht Mitglied.
-  - **ADR 0091 Nr. 5** (Z. 51) und die Grenze „in fs-groups höchstens `Read`, nie Rechteänderung“ (Z. 50, 96, 118, 135; dort „2.6.10 entschieden“): **gelockert** für den einen Fall, dass ein Mensch ausdrücklich einem Bot die Verwaltung von Rechten freigibt, mit Warnung (E3a Regel 5). Ob das auch Admin/`Manage` heißt: offen.
+  - **ADR 0091 Nr. 5** (Z. 51), „einladen, Einladungen annehmen“: **gelockert nur für Menschen**. Ein Bot mit dem von einem Menschen vergebenen Recht darf Menschen hereinlassen (E3a Regel 7). Für Bots bleibt das Verbot und wird verschärft (nächster Punkt).
+  - **ADR 0054** Z. 146 (Nachtrag 2026-11-16, „nie einladen“ als Grenze aus 0082/0056): dieselbe Lockerung, nur für Menschen; alle anderen dort genannten Grenzen (nie Admin, nie zustimmen, nie Türsteher, nie in Admin-/sensible Gruppen) bleiben. Die Zustimmung aller beim Eintritt einer **KI** (0054 Pkt 4, Z. 71) ist nicht berührt: sie regelt, wer die KI hereinlässt, nicht, wen der Bot hereinlässt.
+  - **Verschärfung** gegenüber 0091 Nr. 5 „einen zweiten Bot starten“ und Nachtrag Z. 134 „Weitere Plätze eröffnet nur ein Mensch“: ein Bot lädt auch keinen **vorhandenen** Bot ein und nimmt keine Einladung für einen Bot an, ohne Übersteuerung (E3a Regel 6).
+  - **Verschärfung** gegenüber 0091 Nr. 5 „Rechte … vergeben oder ändern“: bisher ein Verbot unter vielen; jetzt für Bot-Rechte ausdrücklich **ohne Schalter, Freigabe oder Übersteuerung**, eigene und fremde (E3a Regel 5). Die Grenze „in fs-groups höchstens `Read`, nie Rechteänderung“ (Z. 50, 96, 118, 135) bleibt unverändert; die Lockerung der früheren Fassung (Freigabe mit Warnung) ist **zurückgenommen**.
   - **Verschärfung** gegenüber 0091: „Bot sieht und ändert nie eigene Rechte/Einstellungen, ohne Übersteuerung“ (E3a Regel 3-4); 0091 Nr. 5 nannte nur „KI erlaubt“ und den MCP-Schalter.
+  - **ADR 0097** Z. 26 (MCP-Schalter für KI unsichtbar und unveränderbar): kein Widerspruch, E3a Regel 3-5 verallgemeinern dieselbe Linie.
   - Wortlaut des Nachtrags: Abschnitt „Nachtrag-Text zu ADR 0091“ in E3.
 - **Keine Abweichung durch Nutzerantwort 88/89:** Blinc-Nutzung per Pin + Wrapper folgt der Frontend-Regel; Gantt-Bearbeiten speichert weiter beim Besitzer (ADR 0073 Nr. 8 unverändert: Planungsdaten berechnet). Abweichung nur gegenüber der Absicht in timeline DESIGN.md:47 (E4).
 - Weitere Erweiterungen:
@@ -262,14 +272,14 @@ Daraus:
 - fs-blueprint: `[[help]]` erweitern (nach Prüfung von `scaffold-e5`).
 - fs-components: Wrapper um `blinc_node_editor` (Pin auf Commit) für Ablauf-Graph und Netzplan, Bahnen im Board, timeline-Erweiterung erst Ansicht, dann Bearbeiten (je eigener Auftrag, Bahn 1).
 - Blinc: kurze Issue-Anfrage nach einem Tag für `blinc_node_editor`, falls der Pin auf einen Commit nicht reicht.
-- ADR 0091: Nachtrag „Bot-Rechte = Rollen-Rechte; Selbständerung hart gesperrt“ (Wortlaut in E3) in einem eigenen Doku-Lauf übernehmen.
+- ADR 0091: Nachtrag „Bot-Rechte = Rollen-Rechte, nur Menschen verwalten sie; keine Bots durch Bots“ (Wortlaut in E3) in einem eigenen Doku-Lauf übernehmen.
 - fs-tasks / fs-jscalendar: Relationstypen nach RFC 9253 im Datenmodell (nach ENTSCHEIDUNG 4/5).
 
 ## Offen
 
 1. Ablauf-, Daten-, Ressourcen- und Ausnahme-Muster sind mit Nummer, Name und Adresse gegen die WP-Liste geprüft (E1a). Offen: Begriffe der Wiederherstellung (`recoveryaction.php`, nicht abgerufen) **[nicht belegt]**.
 2. DSL-Konstrukte geprüft (E1 Regel 3, E1a): keine Kompensation, Abbruch nur als Ereignis, Wahl zwischen Ereignissen teilweise über `listen.to.any`. Offen: ob `fork.compete` und die übrigen zitierten Felder schon in **1.0.3** stehen (Quelle zeigt 1.1.0-Beispiele) **[nicht belegt]**.
-2a. Bot mit Freigabe zur Rechteverwaltung (E3a Regel 5): schließt das Admin/`Manage` ein, trotz „nie Admin“ (Nutzerentscheidung 39, ADR 0091 Z. 14)? Frage an den Nutzer.
+2a. ~~Bot mit Freigabe zur Rechteverwaltung: schließt das Admin/`Manage` ein?~~ entfallen: die Freigabe gibt es nicht mehr (E3a Regel 5, Nutzerantwort 90 verschärft 20.11.). Offen bleibt nur: ob „Menschen hereinlassen“ (E3a Regel 7) auch das Annehmen von Beitrittsanfragen in fs-groups umfasst, wo der Bot sonst höchstens `Read` hat (0091 Z. 50); bis zur Antwort gilt dort `Read` unverändert. Frage an den Nutzer.
 2b. `blinc_node_editor`, `blinc_canvas_kit`, `blinc_portal_ui`: Verträglichkeit mit unserem Blinc-Pin und Freigabeweg für Zusatz-Repos **[nicht belegt]**.
 3. ~~`raise`, `while`, `schedule` in unseren Flows~~ geklärt (E1a „Nutzung in unseren Dateien“): `raise`/`while` werden nicht genutzt, `schedule` nur als Auslöser (catalog-bump.yaml:11-15).
 4. Abbildung RFC 9253 → JSCalendar `relatedTo` **[nicht belegt]**.
@@ -283,7 +293,10 @@ Daraus:
 - `separate-from`: gleicher Akteur an beiden Schritten → Lauf verweigert den Übergang.
 - BPMN-Import: nicht abbildbares Element → sichtbare Meldung, kein stilles Weglassen.
 - Planungsdaten: kritischer Pfad wird nie gespeichert (nur berechnet).
-- Hilfe: die Tests aus E3, darunter **„Bot ändert eigene Einstellung → abgelehnt“** (Pflicht, auch mit Verwaltungsfreigabe und auch auf Anweisung eines Admins).
+- Hilfe: die Tests aus E3, darunter die drei Pflichttests aus E3a (Nutzerantwort 90, verschärft 20.11.), je auch auf ausdrückliche Anweisung eines Menschen oder Admins:
+  1. **Bot ändert eigene Einstellung → abgelehnt.**
+  2. **Bot ändert Rechte eines anderen Bots → abgelehnt.**
+  3. **Bot lädt einen Bot ein → abgelehnt.**
 - `blinc_node_editor`-Wrapper: Pin zeigt auf genau einen Commit (kein Zweig), Prüfung wie beim Blinc-Pin.
 
 ## Quellen
@@ -311,6 +324,6 @@ Daraus:
 - ADR 0076: Nachtrag „Ebenen je Schritt“ (Verweis auf 0105 E1); Namen fs-messages/fs-texts (nur Hinweis, Agenten benennen nicht um).
 - ADR 0097: Nachtrag zu N6 und M2 „Hilfe anfordern“ (Verweis auf 0105 E3).
 - ADR 0103: Verweis „Bahn = BPMN-Lane“ (0105 E2 Nr. 6).
-- ADR 0091: Nachtrag aus E3 („Bot-Rechte = Rollen-Rechte; Selbständerung hart gesperrt“), dazu Verweis in 0054.
+- ADR 0091: Nachtrag aus E3 („Bot-Rechte = Rollen-Rechte, nur Menschen verwalten sie; keine Bots durch Bots“), dazu Verweis in 0054 (Z. 146 „nie einladen“: gilt nur noch für Bots, Menschen darf ein Bot mit Recht hereinlassen).
 - fs-components-timeline DESIGN.md:47: Absicht „nur lesen“ auf „Ansicht, dann Bearbeiten über den Host“ anpassen (beim Bau-Auftrag).
 - fs-release `workflows/README.md`: neue Felder (nach Annahme).
