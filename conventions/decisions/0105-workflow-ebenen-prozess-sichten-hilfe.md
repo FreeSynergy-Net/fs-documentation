@@ -8,9 +8,9 @@ Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarb
 
 **Lesehinweis:** Jede Aussage, die nicht aus einer abgerufenen Quelle oder einer Datei mit Zeilennummer stammt, ist mit **[nicht belegt]** markiert. Seit dem Schritt `work-in` liegen zwei Quellen als Text vor und sind hier mit Zeilen zitiert:
 - **DSL** = `.scratch/recherche-workflow-ebenen/sw-dsl-reference.md` (Volltext `dsl-reference.md` aus GitHub `serverlessworkflow/specification`). **Achtung:** die Beispiele dort tragen `dsl: '1.1.0'` (z. B. DSL:760), unsere Dateien `dsl: 1.0.3`. Ob jedes zitierte Feld schon in 1.0.3 steht (vor allem `fork.compete`, DSL:754), ist **[nicht belegt]**.
-- **WP** = `.scratch/recherche-workflow-ebenen/wp-control.txt`, `wp-data.txt`, `wp-resource.txt`, `wp-exception.txt` (Seiten von workflowpatterns.com als Text, mit den Papier-Verweisen).
+- **WP** = `.scratch/recherche-workflow-ebenen/wp-control.txt`, `wp-data.txt`, `wp-resource.txt`, `wp-exception.txt` (Seiten von workflowpatterns.com als Text, mit den Papier-Verweisen); dazu **WP-Liste** = `.scratch/recherche-workflow-ebenen/wp-pattern-liste-vollstaendig.tsv` (alle 129 Einzelseiten mit Nummer und Name: 43 Ablauf WCP, 40 Daten WDP, 43 Ressourcen WRP, 3 Ausnahme-Seiten) und die Einzelseiten in `wp-pages/`. Adresse einer Einzelseite: `http://workflowpatterns.com/patterns/<familie>/<gruppe>/<id>.php` (nur **http**; das https-Zertifikat schlägt fehl), z. B. `http://workflowpatterns.com/patterns/control/basic/wcp1.php`; die Gruppen stehen in E1a je Tabellenzeile.
 
-Weiter **[nicht belegt]** (keine Quelle im Lauf): RFC 9253 in JSCalendar, ValueFlows `inputOf`/`outputOf`, BPMN-Lanes, CMMN-Begriffe, die einzelnen Namen der Ausnahme-Muster. Die Liste „Quellen zum Nachprüfen“ am Ende nennt, was vor der Annahme noch zu prüfen ist.
+Weiter **[nicht belegt]** (keine Quelle im Lauf): RFC 9253 in JSCalendar, ValueFlows `inputOf`/`outputOf`, BPMN-Lanes, CMMN-Begriffe, die Wiederherstellungs-Seite der Ausnahme-Muster (`recoveryaction.php`, nicht abgerufen). Die Liste „Quellen zum Nachprüfen“ am Ende nennt, was vor der Annahme noch zu prüfen ist.
 
 Echte Wahlmöglichkeiten für den Nutzer sind als **ENTSCHEIDUNG (Nutzer):** markiert, mit Optionen und Empfehlung.
 
@@ -80,38 +80,46 @@ Bewertung je Musterfamilie gegen die DSL (Datei:Zeile) und unsere `freesynergy.n
 
 **Ablauf (wp-control.txt):**
 
-| Familie | gedeckt | teilweise | fehlt |
+Namen und Nummern genau wie in der WP-Liste (WCP = Ablauf, WDP = Daten, WRP = Ressourcen; die Nummern zählen je Familie getrennt). Spalte „Gruppe“ = Pfadteil der Adresse, z. B. WCP29 = `http://workflowpatterns.com/patterns/control/new/wcp29.php`.
+
+| Familie (Gruppe) | gedeckt | teilweise | fehlt |
 |---|---|---|---|
-| Basis (WCP1-5, Z. 74-83) | Sequence (`do`, DSL:268), Parallel Split + Synchronization (`fork`, Ergebnis aller Zweige, DSL:754), Exclusive Choice (`switch`, DSL:275), Simple Merge (gemeinsames `then`-Ziel, DSL:1323) | – | – |
-| Verzweigen/Zusammenführen (Z. 122-149) | – | Multi-Choice WCP6 (`fork` + `if` je Zweig, DSL:284), Structured Synchronizing Merge WCP7 (übersprungene Zweige gelten als erledigt, DSL:284), Cancelling Discriminator WCP29 (`fork.compete`, ein Gewinner, DSL:754; ob die Verlierer abgebrochen werden, sagt die Stelle nicht) | Multi-Merge WCP8, Structured/Blocking Discriminator WCP9/28, Partial Joins WCP30-32, Generalised AND-Join WCP33, Local/General Synchronizing Merge WCP37/38, Thread Merge/Split WCP41/42 |
-| Mehrfach-Instanzen (Z. 171-184) | – | WCP13/14 (`for` über eine Sammlung, DSL:705-717; nacheinander, keine Gleichzeitigkeit genannt) | WCP12, WCP15, WCP34-36 |
-| Zustandsbasiert (Z. 205-214) | – | Deferred Choice WCP16 (`listen.to.any`, DSL:2153, danach `switch`) | Interleaved Parallel Routing WCP17, Milestone WCP18 (Kandidat: Lauf-Zustand aus ADR 0103), Critical Section WCP39, Interleaved Routing WCP40 |
-| Abbruch (Z. 232-241) | – | Cancel Task WCP19 / Cancel Case WCP20 (nur Lebenszyklus-Ereignisse DSL:1433, 1616; Lauf `abgebrochen`, ADR 0103 E2) | Cancel Region WCP25, Cancel/Complete MI Activity WCP26/27 |
-| Wiederholung (Z. 244-249) | Structured Loop WCP21 (`for` + `while`, DSL:716), Recursion WCP22 (`run.workflow`, DSL:274) | Arbitrary Cycles WCP10 (`then: <name>`, nur im eigenen Bereich, DSL:1326) | – |
-| Ende (Z. 252-255) | Implicit WCP11 (`continue` am Ende, DSL:1320), Explicit WCP43 (`end`/`exit`, DSL:1321-1322) | – | – |
-| Auslöser (Z. 258-261) | – | Transient/Persistent Trigger WCP23/24 (`listen`; Warteschlange nur bei `foreach`, DSL:803) | – |
+| Basis (`control/basic`) | WCP1 Sequence (`do`, DSL:268), WCP2 Parallel Split + WCP3 Synchronization (`fork`, Ergebnis aller Zweige, DSL:754), WCP4 Exclusive Choice (`switch`, DSL:275), WCP5 Simple Merge (gemeinsames `then`-Ziel, DSL:1323) | – | – |
+| Verzweigen (`control/advanced_branching`, WCP6-9; dazu `control/new`) | – | WCP6 Multi-Choice (`fork` + `if` je Zweig, DSL:284), WCP7 Structured Synchronizing Merge (übersprungene Zweige gelten als erledigt, DSL:284), WCP29 Cancelling Discriminator (`fork.compete`, ein Gewinner, DSL:754; ob die Verlierer abgebrochen werden, sagt die Stelle nicht) | WCP8 Multi-Merge, WCP9 Structured Discriminator, WCP28 Blocking Discriminator, WCP30 Structured / WCP31 Blocking / WCP32 Cancelling Partial Join, WCP33 Generalized AND-Join, WCP37 Local / WCP38 General Synchronizing Merge, WCP41 Thread Merge, WCP42 Thread Split |
+| Mehrfach-Instanzen (`control/multiple_instance`, WCP12-15; dazu `control/new`) | – | WCP13 … with a priori Design-Time Knowledge, WCP14 … with a priori Run-Time Knowledge (`for` über eine Sammlung, DSL:705-717; nacheinander, keine Gleichzeitigkeit genannt) | WCP12 Multiple Instances without Synchronization, WCP15 … without a priori Run-Time Knowledge, WCP34 Static / WCP35 Cancelling / WCP36 Dynamic Partial Join for Multiple Instances |
+| Zustandsbasiert (`control/state`, WCP16-18; dazu `control/new`) | – | WCP16 Deferred Choice (`listen.to.any`, DSL:2153, danach `switch`) | WCP17 Interleaved Parallel Routing, WCP18 Milestone (Kandidat: Lauf-Zustand aus ADR 0103), WCP39 Critical Section, WCP40 Interleaved Routing |
+| Abbruch (`control/cancellation`, WCP19-20; dazu `control/new`) | – | WCP19 Cancel Task / WCP20 Cancel Case (nur Lebenszyklus-Ereignisse DSL:1433, 1616; Lauf `abgebrochen`, ADR 0103 E2) | WCP25 Cancel Region, WCP26 Cancel Multiple Instance Task, WCP27 Complete Multiple Instance Task |
+| Wiederholung (`control/new`, `control/structural`) | WCP21 Structured Loop (`for` + `while`, DSL:716), WCP22 Recursion (`run.workflow`, DSL:274) | WCP10 Arbitrary Cycles (`then: <name>`, nur im eigenen Bereich, DSL:1326) | – |
+| Ende (`control/structural`, `control/new`) | WCP11 Implicit Termination (`continue` am Ende, DSL:1320), WCP43 Explicit Termination (`end`/`exit`, DSL:1321-1322) | – | – |
+| Auslöser (`control/new`) | – | WCP23 Transient / WCP24 Persistent Trigger (`listen`; Warteschlange nur bei `foreach`, DSL:803) | – |
 
-**Daten (wp-data.txt; die Seite nennt keine Nummern):**
+**Daten (wp-data.txt; Nummern aus der WP-Liste):**
 
-| Familie | gedeckt | teilweise | fehlt |
+| Familie (Gruppe) | gedeckt | teilweise | fehlt |
 |---|---|---|---|
-| Sichtbarkeit (Z. 61-68) | Task Data (`input`/`output`, DSL:285-286), Case Data (`export` → `$context`, DSL:287, 2318) | Block Data, Multiple Instance Data (`for.each`/`for.at`, DSL:713-715), Workflow/Environment Data **[nicht belegt]** (Felder nicht gelesen) | Scope Data, Folder Data |
-| Interaktion innen (Z. 72-77) | Task to Task, Block Task ↔ Sub-Workflow (`run.workflow`) | to/from Multiple Instance Task (`for`) | Case to Case |
-| Interaktion außen (Z. 79-90) | Task ↔ Environment push/pull (`call`, DSL:267; `emit`/`listen`, DSL:270-272) | Case/Workflow ↔ Environment (nur über Ereignisse) | – |
-| Übergabe (Z. 94-100) | by Value in/out, Copy In/Copy Out, Transformation Input/Output (`input`/`output`, DSL:2251, 2287) | – | **by Reference unlocked / with lock** (ADR 0013 „nichts kopieren“ verlangt Verweise: Lücke für uns wichtig) |
-| Datenbasiertes Routing (Z. 103-109) | Precondition Data Value (`if`, DSL:284), Event-based Task Trigger (`listen`), Data-based Routing (`switch`) | Precondition Data Existence, Postconditions (`output`-Schema, DSL:2345) | Data-based Task Trigger |
+| Sichtbarkeit (`data/visibility`, WDP1-8) | WDP1 Task Data (`input`/`output`, DSL:285-286), WDP5 Case Data (`export` → `$context`, DSL:287, 2318) | WDP2 Block Data, WDP4 Multiple Instance Data (`for.each`/`for.at`, DSL:713-715), WDP8 Environment Data (nur über `call`, DSL:267) | WDP3 Scope Data, WDP6 Folder Data, WDP7 Workflow Data (Daten für **alle** Fälle eines Ablaufs, wp-pages/…wdp7.php:185; `$workflow` gilt nur je Lauf, DSL:380) |
+| Interaktion innen (`data/internal`, WDP9-14) | WDP9 Task to Task, WDP10 Block Task to Sub-Workflow Decomposition, WDP11 Sub-Workflow Decomposition to Block Task (`run.workflow`) | WDP12 To / WDP13 From Multiple Instance Task (`for`) | WDP14 Case to Case |
+| Interaktion außen (`data/external`, WDP15-26) | WDP15 Task to Environment - Push, WDP16 Environment to Task - Pull, WDP17 Environment to Task - Push, WDP18 Task to Environment - Pull (`call`, DSL:267; `emit`/`listen`, DSL:270-272) | WDP19-22 Case ↔ Environment, WDP23-26 Workflow ↔ Environment (nur über Ereignisse) | – |
+| Übergabe (`data/mechanisms`, WDP27-33) | WDP27/28 Data Transfer by Value - Incoming/Outgoing, WDP29 Copy In/Copy Out, WDP32/33 Data Transformation - Input/Output (`input`/`output`, DSL:2251, 2287) | – | **WDP30 Data Transfer by Reference - Unlocked, WDP31 … - With Lock** (ADR 0013 „nichts kopieren“ verlangt Verweise: Lücke für uns wichtig) |
+| Datenbasiertes Routing (`data/routing`, WDP34-40) | WDP35 Task Precondition - Data Value (`if`, DSL:284), WDP38 Event-Based Task Trigger (`listen`), WDP40 Data-Based Routing (`switch`) | WDP34 Task Precondition - Data Existence, WDP36/37 Task Postcondition - Data Existence/Value (`output`-Schema, DSL:2345) | WDP39 Data-Based Task Trigger |
 
-**Ressourcen (wp-resource.txt; keine Nummern auf der Seite):**
+**Ressourcen (wp-resource.txt; Nummern aus der WP-Liste):**
 
-| Familie | gedeckt | teilweise | fehlt → Vorschlag |
+| Familie (Gruppe) | gedeckt | teilweise | fehlt → Vorschlag |
 |---|---|---|---|
-| Erzeugen (Z. 64-74) | Automatic Execution (`actor: machine`) | Direct Distribution (`actor` nennt nur die Art, keine Person) | Role-Based → *`role`*; Capability-Based → *`needs`*; Separation of Duties → *`separate-from`*; Authorization → Rechte je Programm (ADR 0103 E7 `ClaimRule`); Deferred, Case Handling, Retain Familiar, History-Based, Organisational: offen |
-| Push / Pull (Z. 97-102, 124-129) | – | – | alle; gehören zum Lauf und zum Board (`fs-flow`, fs-tasks), nicht zur Ablauf-Datei |
-| Umleiten (Z. 158-166) | – | Escalation (`switch` → `gate: human`, README.md:52-55), Suspension-Resumption (nur Ereignisse DSL:1357, 1556), Skip (`if`, DSL:284), Redo (nur `retry` nach Fehler, DSL:2201) | Delegation, Deallocation, Stateful/Stateless Reallocation, Pre-Do |
-| Selbststart / Sichtbarkeit (Z. 172-180) | – | – | alle (Lauf/Board) |
-| Mehrere Ressourcen (Z. 186-188) | – | – | Simultaneous Execution, Additional Resources → *`needs`* mit mehreren Einträgen |
+| Erzeugen (`resource/creation`, WRP1-11) | WRP11 Automatic Execution (`actor: machine`) | WRP1 Direct Distribution (`actor` nennt nur die Art, keine Person) | WRP2 Role-Based Distribution → *`role`*; WRP8 Capability-Based Distribution → *`needs`*; WRP5 Separation of Duties → *`separate-from`*; WRP4 Authorization → Rechte je Programm (ADR 0103 E7 `ClaimRule`); WRP3 Deferred Distribution, WRP6 Case Handling, WRP7 Retain Familiar, WRP9 History-Based, WRP10 Organisational Distribution: offen |
+| Push (`resource/push`, WRP12-20) / Pull (`resource/pull`, WRP21-26) | – | – | alle (u. a. WRP12-14 Distribution by Offer/Allocation, WRP15 Random, WRP16 Round Robin Allocation, WRP17 Shortest Queue, WRP21 Resource-Initiated Allocation, WRP26 Selection Autonomy); gehören zum Lauf und zum Board (`fs-flow`, fs-tasks), nicht zur Ablauf-Datei |
+| Umleiten (`resource/detour`, WRP27-35) | – | WRP28 Escalation (`switch` → `gate: human`, README.md:52-55), WRP32 Suspension/Resumption (nur Ereignisse DSL:1357, 1556), WRP33 Skip (`if`, DSL:284), WRP34 Redo (nur `retry` nach Fehler, DSL:2201) | WRP27 Delegation, WRP29 Deallocation, WRP30 Stateful / WRP31 Stateless Reallocation, WRP35 Pre-Do |
+| Selbststart (`resource/autostart`, WRP36-39) / Sichtbarkeit (`resource/visibility`, WRP40-41) | – | – | alle: WRP36 Commencement on Creation, WRP37 … on Allocation, WRP38 Piled, WRP39 Chained Execution, WRP40/41 Configurable Unallocated/Allocated Work Item Visibility (Lauf/Board) |
+| Mehrere Ressourcen (`resource/multiple_resources`, WRP42-43) | – | – | WRP42 Simultaneous Execution, WRP43 Additional Resources → *`needs`* mit mehreren Einträgen |
 
-**Ausnahmen (wp-exception.txt):** Die abgerufene Seite enthält nur das Gerüst des Papiers: Ausnahmearten, Behandlung auf Ebene Arbeitsschritt und Fall, Wiederherstellung (Z. 46-57); die einzelnen Musternamen stehen dort nicht und bleiben **[nicht belegt]**. Gegen dieses Gerüst: Fehler (`raise` DSL:830, `try`/`catch` DSL:1231) und Zeitgrenze (`timeout` DSL:2381) **gedeckt**; Behandlung am Schritt (`retry` DSL:2201, `catch.do`/`catch.then` DSL:1287-1288) **gedeckt**; Behandlung am Fall nur über `exit`/`end` und Lauf **teilweise**; Wiederherstellung/Kompensation **fehlt** (E1 Regel 3); „Ressource nicht verfügbar“ als Ausnahmeart **fehlt** (braucht die Ressourcen-Ebene).
+**Ausnahmen (wp-exception.txt + Einzelseiten unter `http://workflowpatterns.com/patterns/exception/`):** Das Kapitel ist kein Nummern-Katalog, sondern drei Seiten mit benannten Arten und Übergängen:
+- **Arten** (`exceptiontypes.php`, wp-pages/exception_exceptiontypes.html:185-193): Work Item Failure (`raise` DSL:830, `try`/`catch` DSL:1231) **gedeckt**; Deadline Expiry (`timeout` DSL:2381) **gedeckt**; External Trigger (`listen` als Abbruchgrund nur über Lebenszyklus-Ereignisse) **teilweise**; Constraint Violation (`output`-Schema DSL:2345) **teilweise**; Resource Unavailability **fehlt** (braucht die Ressourcen-Ebene).
+- **Am Arbeitsschritt** (`exception_workitemlevel.php`, …workitemlevel.html:190-232, 15 Übergänge): continue-execution SCE (`catch` und weiter, DSL:1287-1288), restart SRS (`retry`, DSL:2201), force-fail SFF (Fehler nicht gefangen / `raise`), force-complete SFC (`catch.then` auf den Nachfolger) **gedeckt**; die Übergänge aus „angeboten“/„zugeteilt“ (OCO, ORO, OFF, OFC, ACA, ARA, ARO, AFF, AFC) und reallocate-s SRA / reoffer-s SRO **fehlen** (kein Angebot/keine Zuteilung in der Ablauf-Datei; gehören zu `fs-flow`).
+- **Am Fall** (`exception_caselevel.php`, …caselevel.html:186-188): continue with case CWC **gedeckt** (`catch`); remove current case RCC **teilweise** (`exit`/`end` beendet den ganzen Lauf, keine Auswahl einzelner Schritte); remove all cases RAC **fehlt**.
+- **Wiederherstellung/Kompensation** **fehlt** (E1 Regel 3); die Seite `recoveryaction.php` wurde nicht abgerufen, ihre Begriffe bleiben **[nicht belegt]**.
+
+**Nutzung in unseren Dateien (`fs-release/workflows/*.yaml`, gegen die Familien geprüft):** `fork` mit `compete: false` (programm-grundgeruest.yaml:23-24, 187-188) = WCP2/WCP3; `listen.to.all` (release-flow.yaml:211-213) = Warten auf mehrere Ereignisse; `for` mit `each`/`in` (koordinator-runde.yaml:152-153, stil-neu.yaml:135-136) = WCP13/14; `schedule.on.any` als Auslöser des ganzen Ablaufs (catalog-bump.yaml:11-15) = WCP23; `retry` (anbieter-neuinstallation.yaml:150), `try`/`catch`/`timeout`, `emit`, `run.workflow`, `switch`/`then`. **Nicht** genutzt: `raise`, `while`, `listen.to.any` (WCP16), `fork.compete: true` (WCP29). `wait: all` (koordinator-runde.yaml:181, 366) ist ein Argument unter `with` eines `call` (collect-agent-reports), **kein** DSL-Konstrukt; `schedule` in server-einrichtung.yaml:240 ist ein Schrittname.
 
 Folge: Die Lücken mit Vorrang sind Rolle, Fähigkeit, Trennung der Pflichten, Verweis statt Kopie und Kompensation; alles andere wartet auf einen echten Ablauf (E1 Regel 4).
 
@@ -259,11 +267,11 @@ Daraus:
 
 ## Offen
 
-1. Ablauf-, Daten- und Ressourcen-Muster sind gegen WP geprüft (E1a). Offen: die einzelnen Namen der Ausnahme-Muster (die Seite enthält nur das Gerüst, wp-exception.txt:46-57) **[nicht belegt]**.
+1. Ablauf-, Daten-, Ressourcen- und Ausnahme-Muster sind mit Nummer, Name und Adresse gegen die WP-Liste geprüft (E1a). Offen: Begriffe der Wiederherstellung (`recoveryaction.php`, nicht abgerufen) **[nicht belegt]**.
 2. DSL-Konstrukte geprüft (E1 Regel 3, E1a): keine Kompensation, Abbruch nur als Ereignis, Wahl zwischen Ereignissen teilweise über `listen.to.any`. Offen: ob `fork.compete` und die übrigen zitierten Felder schon in **1.0.3** stehen (Quelle zeigt 1.1.0-Beispiele) **[nicht belegt]**.
 2a. Bot mit Freigabe zur Rechteverwaltung (E3a Regel 5): schließt das Admin/`Manage` ein, trotz „nie Admin“ (Nutzerentscheidung 39, ADR 0091 Z. 14)? Frage an den Nutzer.
 2b. `blinc_node_editor`, `blinc_canvas_kit`, `blinc_portal_ui`: Verträglichkeit mit unserem Blinc-Pin und Freigabeweg für Zusatz-Repos **[nicht belegt]**.
-3. `raise`, `while`, `schedule` in unseren Flows: Treffer gezählt, nicht gelesen (Teil A).
+3. ~~`raise`, `while`, `schedule` in unseren Flows~~ geklärt (E1a „Nutzung in unseren Dateien“): `raise`/`while` werden nicht genutzt, `schedule` nur als Auslöser (catalog-bump.yaml:11-15).
 4. Abbildung RFC 9253 → JSCalendar `relatedTo` **[nicht belegt]**.
 5. BPMN Pools/Lanes und CMMN Stage/Sentry/Milestone: aus den abgerufenen Übersichtsseiten nicht bestätigt.
 6. Stand `fs-modules-planning` (Checkliste: v0.0.2, 4152a94) nicht per `git ls-remote` belegt; vor jedem Planungs-Bau `vorhanden-pruefen`.
@@ -280,19 +288,19 @@ Daraus:
 
 ## Quellen
 
-- Recherche-Berichte 2026-11-20: `.scratch/recherche-workflow-ebenen/teil-A.md` (DSL gegen Muster, ValueFlows), `teil-B.md` (Ebenen, Sichten, RFC 9253, BPMN, CMMN), `teil-C.md` (Planungs-Components, Blinc-Inventur), `teil-D.md` (Hilfe anfordern).
+- Recherche-Berichte 2026-11-20: `.scratch/recherche-workflow-ebenen/teil-A.md` (DSL gegen Muster, ValueFlows; Musternamen dort aus dem Gedächtnis, berichtigt in `todo/recherche-workflow-ebenen-teil-a.md`), `teil-B.md` (Ebenen, Sichten, RFC 9253, BPMN, CMMN), `teil-C.md` (Planungs-Components, Blinc-Inventur), `teil-D.md` (Hilfe anfordern).
 - RFC 9253, Support for iCalendar Relationships: https://www.rfc-editor.org/rfc/rfc9253.html (abgerufen in Teil B).
 - BPMN 2.0.2: https://www.omg.org/spec/BPMN/2.0.2/About-BPMN (abgerufen in Teil B, Übersicht).
 - CMMN 1.1: https://www.omg.org/spec/CMMN/About-CMMN (abgerufen in Teil B, Übersicht).
 - Serverless Workflow DSL Reference (GitHub `serverlessworkflow/specification`, `dsl-reference.md`), Text: `.scratch/recherche-workflow-ebenen/sw-dsl-reference.md` (abgerufen 2026-11-20).
-- Workflow Patterns Initiative (workflowpatterns.com), Seiten als Text: `.scratch/recherche-workflow-ebenen/wp-control.txt`, `wp-data.txt`, `wp-resource.txt`, `wp-exception.txt` (abgerufen 2026-11-20), mit den Papieren BPM-06-22, FIT-TR-2004-01, BETA WP 127, BPM-06-04 (Einzelangaben in E1).
+- Workflow Patterns Initiative (workflowpatterns.com), Seiten als Text: `.scratch/recherche-workflow-ebenen/wp-control.txt`, `wp-data.txt`, `wp-resource.txt`, `wp-exception.txt` (abgerufen 2026-11-20), mit den Papieren BPM-06-22, FIT-TR-2004-01, BETA WP 127, BPM-06-04 (Einzelangaben in E1); vollständige Musterliste `wp-pattern-liste-vollstaendig.tsv` und Einzelseiten `wp-pages/` (129 Seiten, abgerufen 2026-11-20 vom Koordinator). Adresse: http://workflowpatterns.com/ (nur http).
 - `project-blinc/blinc_node_editor`, Lese-Klon `.scratch/blinc-org/blinc_node_editor/README.md`; Lizenz, Kopf und Push-Datum laut Nutzerantwort 88.
 - Nutzerantworten 88, 89, 90 vom 2026-11-20.
 - ADR 0013, 0037, 0054, 0073, 0076, 0081, 0087, 0091, 0097, 0103, 0104.
 
 ## Quellen zum Nachprüfen (vor Annahme)
 
-1. Workflow Patterns: Papier BPM-06-04 (Ausnahme-Muster) für die einzelnen Musternamen; die Seite nennt nur das Gerüst.
+1. Workflow Patterns: nur noch die Wiederherstellungs-Seite http://workflowpatterns.com/patterns/exception/recoveryaction.php (Arten, Schritt- und Fall-Ebene sind belegt).
 2. Serverless Workflow: Stand der Felder in Version 1.0.3 (unsere Dateien) gegenüber der abgerufenen Referenz mit 1.1.0-Beispielen.
 3. ValueFlows-Vokabular (valueflo.ws): `Process`, `Recipe`, `EconomicResource`, `Commitment`, `inputOf`/`outputOf` – in keinem Bericht abgerufen.
 4. RFC 8984 (JSCalendar), Abschnitt zu `relatedTo` – für die Abbildung von RFC 9253.
