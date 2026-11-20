@@ -1,6 +1,6 @@
 # 0105 – Workflow-Ebenen, Prozess-Sichten, Hilfe anfordern: vier Ebenen je Schritt, eine Quelle mit mehreren Sichten, Hilfe als Pflichtteil des Gerüsts
 
-Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Frage 90 in der verschärften Fassung vom 20.11. (Bot-Rechte nur durch Menschen, keine Bots durch Bots), Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Entscheide des Nutzers zu den offenen Punkten 1–9 sowie die Gerüst-Folgen für fs-blueprint/fs-starter am 2026-11-20 eingetragen, Workflow `entscheidung`, Schritt `record`; offen bleibt die Stufe „Gemeinschaft“) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
+Status: **Entwurf** (2026-11-20; Workflow `adr-write`, Schritt `draft`; überarbeitet im Schritt `work-in` am 2026-11-20: Antworten des Nutzers zu Frage 88–90 eingearbeitet, Frage 90 in der verschärften Fassung vom 20.11. (Bot-Rechte nur durch Menschen, keine Bots durch Bots), Muster- und DSL-Aussagen gegen die abgerufenen Quellen geprüft; Grundlage: vier Recherche-Berichte vom 2026-11-20, siehe „Quellen“; Entscheide des Nutzers zu den offenen Punkten 1–9 sowie die Gerüst-Folgen für fs-blueprint/fs-starter am 2026-11-20 eingetragen, Workflow `entscheidung`, Schritt `record`; Nutzerantwort 91 vom 20.11. eingearbeitet: Empfänger einer Hilfe-Anfrage folgen dem Gruppenmodell, eine eigene Stufe „Gemeinschaft“ gibt es nicht; damit ist keine ENTSCHEIDUNG mehr offen) · **konkretisiert** ADR 0076 Zeile 18, 21–24 und Regel 1 (ValueFlows-Begriffe als Felder je Schritt) · **baut auf** ADR 0103 (Lauf, Station, Bahn = Achse Y) und ADR 0104 E9 (Befehlsketten sind Workflows) · **konkretisiert** ADR 0097 N6 („Hilfe als Wiki“) und den Pflicht-Hilfe-Eintrag (0097 Z. 26, Meilenstein M2) · **verwendet** ADR 0054 (KI markiert), 0091 (KI nur über Bot-Platz), 0087 Nr. 5 (Helpdesk ist eine Suite), 0037 (Ordner = Gruppe), 0095 (Gruppen, Eigentümer, KI-Sperre), 0073 Nr. 8 (Planungsdaten berechnet, nicht gespeichert), 0013 (nichts kopieren), 0081 (CloudEvents)
 
 **Nummer:** **0105**. Herleitung: `conventions/decisions/` auf dem Zweigstand (aus main, Kopf d1d7315d) endet bei `0104-moduldaten-gehoeren-dem-modul.md`.
 
@@ -14,7 +14,7 @@ Weiter **[nicht belegt]** (keine Quelle im Lauf): RFC 9253 in JSCalendar, ValueF
 
 **Verweise auf ADR 0103:** „0103 E2 … E7“ in diesem Text heißt **Punkt 2 … 7 der Entscheidung von ADR 0103** (dort sind die Punkte nummeriert, nicht mit „E“ benannt; z. B. Punkt 2 Zustand × Station, Punkt 5 Lauf-Typ, Punkt 6 Board, Punkt 7 Ziehen).
 
-Die Wahlmöglichkeiten für den Nutzer sind als **ENTSCHEIDUNG (Nutzer):** markiert. Stand 20.11.: alle sind beantwortet (Nutzerentscheide, von der Strategie am 20.11. übermittelt, bzw. Nutzerantworten 88–90), mit gewählter Option und Grund in einer Zeile; offen ist als ENTSCHEIDUNG nur noch die Stufe „Gemeinschaft“ der Hilfe (ENTSCHEIDUNG 9 Nr. 5). Unter „Offen“ steht daneben die Rückfrage 2a (Beitrittsanfragen in fs-groups), die von den Entscheiden vom 20.11. nicht erfasst ist.
+Die Wahlmöglichkeiten für den Nutzer sind als **ENTSCHEIDUNG (Nutzer):** markiert. Stand 20.11.: alle sind beantwortet (Nutzerentscheide, von der Strategie am 20.11. übermittelt, bzw. Nutzerantworten 88–91), mit gewählter Option und Grund in einer Zeile; keine ENTSCHEIDUNG ist mehr offen (die letzte, ENTSCHEIDUNG 9 Nr. 5, ist mit Nutzerantwort 91 beantwortet). Unter „Offen“ steht daneben die Rückfrage 2a (Beitrittsanfragen in fs-groups), die von den Entscheiden vom 20.11. nicht erfasst ist.
 
 ---
 
@@ -153,14 +153,20 @@ Regeln (aus den Nutzerideen vom 20.11., Teil D, D1; Konflikte mit ADRs aufgelös
 3. **Herkunft ist fest an der Frage** (Programm, Version) und nicht änderbar. fs-messages filtert danach.
 4. **Hilfe erscheint nie in broadcast.** broadcast abonniert nur seinen eigenen Ordner. Die Trennung ist ein Pflichttest, kein Filter-Standard.
 5. **Kontext-Paket** (Programm, Version, Ansicht, Fehler, Bild nur geschwärzt) wird **vor dem Senden gezeigt und ist änderbar**. Geheimes oder Sensibles kommt nie hinein; Prüfung über einen Kanarien-Test (eingesetzter Prüfwert darf im Paket nie auftauchen).
-6. **Stufen**: eigene Gruppe → Gemeinschaft (wer das ist, ist die offene Frage in ENTSCHEIDUNG 9 Nr. 5) → Entwickler (Issue; später Helpdesk). Die nächste Stufe wählt der Mensch; Senden an Entwickler/Upstream erst nach Freigabe (`gate: human`, wie `upstream-anfrage`).
+6. **Empfänger folgen dem Gruppenmodell** (fs-groups, ADR 0095; Nutzerantwort 91, ENTSCHEIDUNG 9 Nr. 5): es gibt **kein eigenes Konstrukt** für eine „Gemeinschaft“. Empfänger einer Hilfe-Anfrage sind
+   - (a) **Support-Gruppen** = Helpdesk: gewöhnliche Gruppen, denen beitritt, wer helfen will; Menschen und KIs werden gleich behandelt, eine KI aber **nur über den Bot-Platz** (ADR 0091) und nie als Mitglied, Verwalter oder Eigentümer (0095 Pkt 13, 0091 „Bot nie Mitglied“); Bots laden nie Bots ein (E3a Regel 6);
+   - (b) **eigene Gruppen**, in denen der fragende Mensch Mitglied ist;
+   - (c) **einzelne Personen**.
+   In der Unterhaltung können Personen oder ganze Gruppen dazu eingeladen werden (Einladen durch einen Bot: nur Menschen, E3a Regel 7).
+   **Stufen**: eigene Gruppen → Support-Gruppen des Programms → Entwickler-Support-Gruppe (Issue). Die nächste Stufe wählt der Mensch; Senden an Entwickler/Upstream erst nach Freigabe (`gate: human`, wie `upstream-anfrage`).
+   **Standard-Support-Gruppe je Programm:** jedes Programmpaket darf seine Standard-Support-Gruppe(n) **nennen** (Verweis auf die Gruppe, kein Inhalt; ADR 0013), im Bauplan-Feld `support_groups` (unten).
 7. **Innen AS2, außen Adapter** (fs-messages, Matrix, XMPP, E-Mail). Ein Adapter ohne Ende-zu-Ende-Verschlüsselung wird sichtbar markiert (ADR 0018 Z. 56: Brücken ohne E2E sind erlaubt, aber immer markiert).
 8. **Zustände** `offen`, `beantwortet`, `gelöst` sind **Lauf-Zustände/Stationen eines Workflows** `hilfe-anfrage` (ADR 0103: Zustände gehören dem Lauf), keine eigene Zustandsliste im Programm.
 9. **Gelöst + Zustimmung (je Antwort, mit „Merken“) → Hilfetext** in fs-texts (ADR 0097 N6 „Hilfe als Wiki“; Helpdesk-Suite ADR 0087 Nr. 5).
 
-Bauplan-Eintrag (Vorschlag, ergänzt `[[help]]` aus dem Zweig `scaffold-e5`, der dort nur `topic` und Text de/en hat; Zweig im Lauf nicht abrufbar, Offen 7): `origin` (fest), `channel`, `exclude_broadcast = true` (fest, nicht einstellbar), `protocols`, `context_fields`, `escalation` (`group` | `community` | `developer`, Standard `group`), `adapters` mit `e2e` je Adapter (E-Mail/XMPP zugelassen, `e2e = false` sichtbar markiert, ENTSCHEIDUNG 9 Nr. 1), `ki_answer` (nur mit Bot-Platz), `publish_text` (Zustimmung je Antwort mit „Merken“, ENTSCHEIDUNG 9 Nr. 2), `retention` (Einstellung, Standard „behalten“, ENTSCHEIDUNG 9 Nr. 3), `consent_purpose` (`hilfe`, bei KI-Antwort zusätzlich `ki_hilfe`, ENTSCHEIDUNG 9 Nr. 4), `workflow = "hilfe-anfrage"`, `fallback` (sichtbarer Rückfall nach ADR 0097).
+Bauplan-Eintrag (Vorschlag, ergänzt `[[help]]` aus dem Zweig `scaffold-e5`, der dort nur `topic` und Text de/en hat; Zweig im Lauf nicht abrufbar, Offen 7): `origin` (fest), `channel`, `exclude_broadcast = true` (fest, nicht einstellbar), `protocols`, `context_fields`, `escalation` (`own_groups` | `support_groups` | `developer`, Standard `own_groups`; Nutzerantwort 91), `support_groups` (Liste von Verweisen auf die Standard-Support-Gruppe(n) des Programms in fs-groups, nur Verweis, kein Inhalt; leer erlaubt; Nutzerantwort 91), `adapters` mit `e2e` je Adapter (E-Mail/XMPP zugelassen, `e2e = false` sichtbar markiert, ENTSCHEIDUNG 9 Nr. 1), `ki_answer` (nur mit Bot-Platz), `publish_text` (Zustimmung je Antwort mit „Merken“, ENTSCHEIDUNG 9 Nr. 2), `retention` (Einstellung, Standard „behalten“, ENTSCHEIDUNG 9 Nr. 3), `consent_purpose` (`hilfe`, bei KI-Antwort zusätzlich `ki_hilfe`, ENTSCHEIDUNG 9 Nr. 4), `workflow = "hilfe-anfrage"`, `fallback` (sichtbarer Rückfall nach ADR 0097).
 
-Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellbar; Kanarien-Wert nie im Paket; KI-Antwort ohne Kennzeichen unzustellbar (ADR 0054 Z. 214); KI-Antwort ohne Einladung oder ohne Recht abgelehnt; Herkunft nach dem Senden unveränderbar; **Bot ändert eine eigene Einstellung oder ein eigenes Recht → abgelehnt** (E3a Regel 4, ohne Ausnahme); Bot liest eigene Rechte/Einstellungen → abgelehnt (E3a Regel 3); **Bot ändert Rechte eines anderen Bots → abgelehnt** (E3a Regel 5, auch auf ausdrückliche Anweisung eines Menschen oder Admins); **Bot lädt einen Bot ein → abgelehnt** (E3a Regel 6, ebenso ohne Übersteuerung); Bot mit Recht lässt einen Menschen herein → erlaubt und protokolliert, ohne Recht → abgelehnt (E3a Regel 7).
+Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellbar; Kanarien-Wert nie im Paket; KI-Antwort ohne Kennzeichen unzustellbar (ADR 0054 Z. 214); KI-Antwort ohne Einladung oder ohne Recht abgelehnt; Herkunft nach dem Senden unveränderbar; **Bot ändert eine eigene Einstellung oder ein eigenes Recht → abgelehnt** (E3a Regel 4, ohne Ausnahme); Bot liest eigene Rechte/Einstellungen → abgelehnt (E3a Regel 3); **Bot ändert Rechte eines anderen Bots → abgelehnt** (E3a Regel 5, auch auf ausdrückliche Anweisung eines Menschen oder Admins); **Bot lädt einen Bot ein → abgelehnt** (E3a Regel 6, ebenso ohne Übersteuerung); **Bot lädt einen Bot in eine Support-Gruppe ein → abgelehnt** (E3 Regel 6 (a), E3a Regel 6, Nutzerantwort 91); Bot mit Recht lässt einen Menschen herein → erlaubt und protokolliert, ohne Recht → abgelehnt (E3a Regel 7).
 
 **ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 90** (ersetzt die frühere offene ENTSCHEIDUNG 6 „Darf die KI in der Hilfe schreiben?“; die Strategie hat ENTSCHEIDUNG 6 am 20.11. als „A, ersetzt durch Antwort 90“ bestätigt, es gilt der Wortlaut von Antwort 90; die Antwort löst den Konflikt K1 aus Teil D, teil-D.md:39: Schreiben in fs-messages ist ein Programm-Recht des Bots, nicht ein fs-groups-Recht; die Grenze „in fs-groups höchstens `Read`“ aus ADR 0091 Z. 50 betrifft nur fs-groups und bleibt unverändert (die frühere Lockerung durch E3a Regel 5 ist mit der Verschärfung vom 20.11. entfallen). K13, teil-D.md:51, Akteurstyp, ist ENTSCHEIDUNG 8, am 20.11. mit A beantwortet; die Antwort 90 stützt das, weil der Bot der Handelnde ist): Bots dürfen teilnehmen und schreiben bzw. antworten (fast immer), wenn sie eingeladen sind (z. B. in fs-messages) **und** die Rechte dafür haben. Ausgestaltung in E3a.
 
@@ -192,12 +198,12 @@ Pflichttests (Vorschlag, nichts gebaut): Hilfe-Nachricht in broadcast unzustellb
 
 **ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 8 (Akteurstyp einer KI-Antwort im Workflow): **A, `actor: ai`, `actor-type: Service` + `bot-seat`.** Grund: im Bot-Modell ist die KI ein `Service` (0091 Z. 33) und der Bot-Platz der handelnde Akteur, nicht das Programm der KI; das FS-Profil nutzt für `ai` bisher `Application` und wird umgestellt. (Verworfen: B, `Application` beibehalten.)
 
-**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 9 (weitere Punkte der Hilfe, aus Teil D, D4), **bis auf die Stufe „Gemeinschaft“** (Nr. 9.5, offen):
+**ENTSCHEIDUNG (Nutzer): beantwortet 20.11.** – Nr. 9 (weitere Punkte der Hilfe, aus Teil D, D4); Nr. 9.5 **beantwortet 20.11., Frage 91**:
 1. **E-Mail/XMPP als Außen-Adapter: zugelassen**, mit sichtbarer Markierung „nicht Ende-zu-Ende“ (Regel wie E3 Regel 7; die Strategie nennt dafür die Markierungslinie aus ADR 0054). Grund: Erreichbarkeit geht vor, die Markierung macht das Risiko sichtbar.
 2. **Zustimmung zum Hilfetext: je Antwort**, mit der Option „Merken“ (dasselbe Muster wie Ja/Nein/Für alle/Merken). Grund: jede Antwort kann anderes enthalten; „Merken“ erspart Wiederholung, wo der Mensch es will.
 3. **Speicherdauer der Hilfe-Fragen: eine Einstellung, Standard = behalten** (kein automatisches Löschen; KI-Liste Nr. 14; ADR 0054 Z. 166). Grund: gelöste Fragen sind der Stoff für Hilfetexte.
 4. **Einwilligungszweck: eigener Zweck `hilfe`** für Menschen; antwortet eine KI, gilt **zusätzlich** der vorhandene Zweck `ki_hilfe` aus fs-people (0054 Z. 156). Grund: Hilfe unter Menschen braucht keine KI-Einwilligung, eine KI-Antwort braucht sie.
-5. **Noch offen (einzige offene Nutzerfrage dieses ADR): Wer ist die Stufe „Gemeinschaft“** (Forum, Matrix-Raum, Liste, …)? Bis zur Antwort ist das Ziel der Stufe `community` im Bauplan nicht festgelegt.
+5. **Empfänger der Hilfe = Gruppenmodell, keine eigene Stufe** (ENTSCHEIDUNG (Nutzer): beantwortet 20.11., Frage 91): Empfänger sind Support-Gruppen (Helpdesk; beitreten darf, wer helfen will; KI nur über den Bot-Platz; keine Bots durch Bots), eigene Gruppen und einzelne Personen; in die Unterhaltung können Personen oder ganze Gruppen eingeladen werden. Die Stufen heißen eigene Gruppen → Support-Gruppen des Programms → Entwickler-Support-Gruppe (Issue). Jedes Programmpaket darf seine Standard-Support-Gruppe(n) per Verweis nennen (Bauplan `support_groups`). Ausgestaltung: E3 Regel 6. Grund: ein eigenes Konstrukt „Gemeinschaft“ hätte eine zweite Art Empfängerkreis neben den Gruppen geschaffen; Gruppen haben schon Beitritt, Rechte, Eigentümer und Protokoll (ADR 0095).
 
 ### E4. Planungs-Components (fs-components) und Blinc
 
@@ -254,6 +260,7 @@ Daraus:
   - BPMN: keine Abweichung (ENTSCHEIDUNG 3 = A, nur Sicht + Import/Export; ADR 0076 Z. 23 unverändert).
   - ADR 0091 Nr. 11 (Einzelplatz ohne Bot): unverändert übernommen (ENTSCHEIDUNG 7 = B).
   - Hilfe (ENTSCHEIDUNG 9): E-Mail/XMPP-Adapter folgen der bestehenden Markierungsregel (E3 Regel 7), Einwilligung nutzt `ki_hilfe` (ADR 0054 Z. 156) unverändert und ergänzt nur einen eigenen Zweck `hilfe`; Speicherdauer „behalten“ als Standard einer Einstellung (ADR 0054 Z. 166) **[nicht belegt]**, ob 0054 dort eine Frist vorgibt: vor dem Bau nachlesen.
+  - Hilfe-Empfänger (ENTSCHEIDUNG 9 Nr. 5, Nutzerantwort 91): **keine Abweichung**. Die frühere Entwurfsstufe „Gemeinschaft“ (eigenes Ziel `community`) entfällt; Empfänger sind Gruppen nach ADR 0095 (unverändert, auch Pkt 13 KI-Sperre) und einzelne Personen. Die Support-Gruppen sind der Helpdesk im Sinn von ADR 0087 Nr. 5 (Suite, kein Programm), unverändert. KI in einer Support-Gruppe nur über den Bot-Platz und nie als Mitglied (ADR 0091, unverändert); Bots laden keine Bots ein (E3a Regel 6, oben unter Nutzerantwort 90).
 - **Gerüst-Folgen (Abschnitt „Folgen für fs-blueprint/fs-starter“):** Abweichung nur gegenüber dem heutigen Generator in fs-blueprint, der aus `provides` ein `interface` im Programm erzeugt; das wird durch einen Verweis auf fs-interfaces ersetzt (dort Punkt c).
 - **Namen:** ADR 0076 Z. 25 schreibt „fs-messenger“, ADR 0087 Z. 23 „fs-text“; nach der Namensregel heißen die Programme fs-messages und fs-texts. Dieser ADR nutzt die gültigen Namen und ändert die alten ADRs nicht (Nachzieh-Liste).
 
@@ -267,7 +274,8 @@ Daraus:
 - ADR 0091: Nachtrag „Bot-Rechte = Rollen-Rechte, nur Menschen verwalten sie; keine Bots durch Bots“ (Wortlaut in E3) in einem eigenen Doku-Lauf übernehmen.
 - fs-tasks / fs-jscalendar: Relationstypen nach RFC 9253 (alle vier Abhängigkeitsarten + `GAP` + Eltern/Kind) und Aufwand im Datenmodell jetzt (ENTSCHEIDUNG 4 = B, 5 = A); Rechenkern und Anzeige (zuerst nur `FINISHTOSTART`, `STARTTOSTART`, `GAP`) je eigener Auftrag.
 - `check_workflows.py`: `actor: ai` ohne `bot-seat` zuerst Warnung, rot ab dem nächsten Workflow-Release (Datum beim Release festzulegen, ENTSCHEIDUNG 2 = B); FS-Profil `actor-type: Service` für `ai` (ENTSCHEIDUNG 8 = A).
-- Nutzerfrage: Wer ist die Stufe „Gemeinschaft“ der Hilfe (ENTSCHEIDUNG 9 Nr. 5)?
+- fs-blueprint `[[help]]`: Feld `support_groups` (Verweise auf Standard-Support-Gruppen des Programms) und `escalation` mit den Stufen `own_groups` | `support_groups` | `developer` (Nutzerantwort 91).
+- fs-groups: Support-Gruppen sind gewöhnliche Gruppen, kein neues Konstrukt. „Beitreten darf, wer helfen will“ braucht eine offene Aufnahme (Beitritt ohne Prüfung); die steht in `todo/features/groups.md:24` als geplant, ein ADR dazu ist **[nicht belegt]**. Bis dahin tritt man über die vorhandenen Wege bei (Einladung, Beitrittsanfrage).
 
 ### Folgen für fs-blueprint/fs-starter
 
@@ -295,10 +303,11 @@ Gerüst-Entscheide, von der Strategie am 2026-11-20 als Nutzerentscheide übermi
 - `separate-from`: gleicher Akteur an beiden Schritten → Lauf verweigert den Übergang.
 - BPMN-Import: nicht abbildbares Element → sichtbare Meldung, kein stilles Weglassen.
 - Planungsdaten: kritischer Pfad wird nie gespeichert (nur berechnet).
-- Hilfe: die Tests aus E3, darunter die drei Pflichttests aus E3a (Nutzerantwort 90, verschärft 20.11.), je auch auf ausdrückliche Anweisung eines Menschen oder Admins:
+- Hilfe: die Tests aus E3, darunter die drei Pflichttests aus E3a (Nutzerantwort 90, verschärft 20.11.) und der Support-Gruppen-Test (Nutzerantwort 91), je auch auf ausdrückliche Anweisung eines Menschen oder Admins:
   1. **Bot ändert eigene Einstellung → abgelehnt.**
   2. **Bot ändert Rechte eines anderen Bots → abgelehnt.**
   3. **Bot lädt einen Bot ein → abgelehnt.**
+  4. **Bot lädt einen Bot in eine Support-Gruppe ein → abgelehnt** (Nutzerantwort 91; Empfänger nach dem Gruppenmodell, E3 Regel 6).
 - `blinc_node_editor`-Wrapper: Pin zeigt auf genau einen Commit (kein Zweig), Prüfung wie beim Blinc-Pin.
 
 ## Quellen
@@ -310,8 +319,8 @@ Gerüst-Entscheide, von der Strategie am 2026-11-20 als Nutzerentscheide übermi
 - Serverless Workflow DSL Reference (GitHub `serverlessworkflow/specification`, `dsl-reference.md`), Text (abgerufen 2026-11-20, Kopie im internen Arbeitsordner, nicht veröffentlicht).
 - Workflow Patterns Initiative (workflowpatterns.com), Seiten der Familien Ablauf, Daten, Ressourcen, Ausnahme als Text (abgerufen 2026-11-20, interner Arbeitsordner, nicht veröffentlicht), mit den Papieren BPM-06-22, FIT-TR-2004-01, BETA WP 127, BPM-06-04 (Einzelangaben in E1); vollständige Musterliste und Einzelseiten (129 Seiten, abgerufen 2026-11-20 vom Koordinator). Adresse: http://workflowpatterns.com/ (nur http).
 - `project-blinc/blinc_node_editor`, github.com/project-blinc/blinc_node_editor (README.md; Lese-Klon im internen Arbeitsordner); Lizenz, Kopf und Push-Datum laut Nutzerantwort 88.
-- Nutzerantworten 88, 89, 90 vom 2026-11-20; Nutzerentscheide zu ENTSCHEIDUNG 1–9 und zu den Gerüst-Folgen, übermittelt von der Strategie am 2026-11-20.
-- ADR 0013, 0037, 0054, 0073, 0076, 0081, 0087, 0091, 0097, 0103, 0104.
+- Nutzerantworten 88, 89, 90, 91 vom 2026-11-20; Nutzerentscheide zu ENTSCHEIDUNG 1–9 und zu den Gerüst-Folgen, übermittelt von der Strategie am 2026-11-20.
+- ADR 0013, 0037, 0054, 0073, 0076, 0081, 0087, 0091, 0095, 0097, 0103, 0104.
 
 ## Quellen zum Nachprüfen (vor Annahme)
 
