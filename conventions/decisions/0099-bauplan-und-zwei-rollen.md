@@ -2,6 +2,8 @@
 
 Status: **akzeptiert** (Nutzer, Gespräch 1 vom 2026-11-17: Antworten 123, 127, 128, 133, 134; Gespräch 2: Start jetzt; Grundidee „Wir programmieren keine Programme mehr, wir stecken sie nur noch zusammen“, 17.11.) · **ändert** ADR 0087 Nachtrag 17.11. [Entw.] Punkt 10: fs-scaffold „nutzt“ den Workflow `scaffold-ai` nicht mehr, das Gerüst entsteht deterministisch (Rolle 1); Punkt 10 bleibt als Rolle 2 · **ersetzt** im Workflow `grundfassung` den Schritt `geruest` (`call: scaffold-ai`, fs-release `workflows/grundfassung.yaml:79-80`), sobald das Bau-Werkzeug gleichwertig ist (Antwort 127) · baut auf ADR 0021, 0045, 0063, 0066, 0068, 0076, 0086, 0092, 0093, 0094 [Entw.], 0098 [Entw.] · Grundlage: Plan Baukasten (Fassung 5) §c
 
+**Hinweis (2026-11-21, Entwurf ADR 0105):** ADR 0105 (Folge (a): ein gemeinsamer Host) lässt Nr. 15 (Zwischenschritt: erzeugte minimale `main`) aus; Nr. 11 (`release.yml` mit Windows-Zielen) und Nr. 12 (Admin-Layout `covers = "all"`) sind im Code von `fs-blueprint` nicht umgesetzt. Alle drei stehen in ADR 0105 unter „Abweichungen von bestehenden ADRs“. Solange ADR 0105 Entwurf ist, gelten die Regeln hier weiter.
+
 **Kontext**
 - Heute schreibt eine KI das Gerüst jedes Programms neu (`scaffold-ai`). Ergebnis: **fünf fast gleiche Kopien** der Programmhülle (activities, decisions, forms, messages, resources: `starter.rs` 183 Z., Diff nach Namensersatz 0; `main.rs` 54 Z., Diff 2; Inventur 17.11.).
 - Handcode-Anteil der Programme heute: Untergrenze 34 % (76 782 von 228 465 Z.), Obergrenze 46 % (113 036 von 243 576 Z. mit Werkbänken); Rest ist Gerüst, Modul, Bausatz, Komponente oder Test (Plan §a3).
