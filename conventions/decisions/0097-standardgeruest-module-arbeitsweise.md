@@ -91,3 +91,12 @@ Status: **akzeptiert** (Strategie-Entscheid O1 vom 2026-11-17 zum Ort; Nutzerwor
 **Offen**
 - Ort der Modul-Bibliothek (Vorschlag: fs-interfaces): Bestätigung durch die Strategie steht weiter aus. [überholt, siehe unten]
 - fs-module: **entschieden** (Strategie-Entscheid 2026-11-17): Trait/Vertrag „Module“ in fs-interfaces; Laufzeit-Host im fs-rpc-Workspace. [entschieden]
+
+
+## Nachtrag 2026-11-21: Ausnahme zur Schichtregel (fs-starter-host) und Override-Datei
+
+Status: **Entwurf** (Entscheid Strategie + Opus-Rat, Offen 9 in ADR 0105; Nutzerentscheid F10) · ergänzt Entscheidung 1 (Schichten) · ändert Hinweis oben (Z. 5): Offen 9 ist entschieden.
+
+- Die Ausnahme zu ADR 0093 Regel 1: Das Binary-Crate **fs-starter-host** ist die Kompositionswurzel über Schicht 3. Die Bibliothek fs-starter bleibt Schicht 2 und kennt fs-update nie (ADR 0105 Offen 9).
+- Die Override-Datei von fs-update (ADR 0100 Nachtrag 2026-11-21, Entscheidung 15) ist die einzige Datei, die der Host im Startpfad liest; nie die Datenbank. Sie ist Notfall und Überschreibung des Update-Zustands, nicht Speicher.
+- Die Bauplan-Ausnahme für `update_state.toml` entfällt.

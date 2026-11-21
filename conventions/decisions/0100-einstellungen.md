@@ -133,3 +133,18 @@ bleibt byte-gleich; Sperre scheitert geschlossen; Index der Profile unter Dateis
 - Neue Schlüssel (ADR 0096 Punkt 20): `fs.forms.records.page-max`, `fs.forms.records.conditions-max`, `fs.forms.records.call-ms`, `fs.forms.layout.*` (Grenzen der Beschreibungen), `fs.forms.search.kind`, `fs.forms.live.poll-ms`. Grenzen sind Einstellungen mit Instanz-Vorgabe und Schloss (O7); fest nur technisch Erzwungenes mit Beleg.
 - `fs.shell.style` (Wahl der Person) gewinnt über den Stilnamen der Beschreibung (`forms_layout.style`).
 - **Abgrenzung:** gespeicherte Ansichten und Filter einer Person sind Daten der Beschreibung (`forms_view`, `forms_filter_node` in fs-forms), keine Einstellungen; fs-settings hält nur Skalare. Das Instanz-Schloss für Beschreibungen (ADR 0096 Punkt 10) folgt dem Muster dieses ADR (Grund Pflicht für Sperren und Entsperren, Protokoll, Instanz-Dienst später), liegt aber in der forms-DB.
+
+
+## Nachtrag 2026-11-21 (F10): Override-Datei für den Update-Zustand [Entw.]
+
+Status: **Entwurf** (Nutzerentscheid F10, 2026-11-21) · ersetzt die Ausnahme für `update_state.toml` im Bauplan · konkretisiert ADR 0069 (Nachtrag 2026-11-17, Entscheidung 6) · baut auf Entscheidung 4 (kaputte DB), 5 (Schloss), 8 (ein Prozess besitzt die DB)
+
+15. **Override-Datei (Nutzer 2026-11-21, F10):**
+   - Speicher ist immer die DB. Ein Modul darf zusätzlich **eine** Override-Datei `<besitzer>.override.toml` im State-Verzeichnis führen, nur für einen laufenden Vorgang, der vor dem Öffnen oder bei kaputter DB entschieden werden muss (Beispiel: Update-Probezeit und Rückfall).
+   - Die Datei ist **kein Speicher und keine Konfiguration**, sondern ein noch nicht übernommener Import. Sie entsteht nur vor einem Update oder bei einem erkannten Defekt. Nach einem guten Start werden ihre Werte in einer Transaktion in die DB übernommen, danach wird sie gelöscht.
+   - Solange sie existiert, überschreibt sie die DB, aber nur für die im Bauplan deklarierten Schlüssel. **Einstellungen und Sperren sind nie überschreibbar.**
+   - Eine kaputte Datei wird nicht befolgt, sondern beiseitegelegt und offen gemeldet. Eine liegen gebliebene Datei wird nach einer einstellbaren Frist sichtbar gemeldet.
+   - **Rangfolge (allgemein):** Wirklichkeit (laufende Version aus dem Programmabbild bzw. `current/<name>`) > Override-Datei > DB > eingebaute Voreinstellung. Die Datei überschreibt nur den Update-Zustand (Version, Vorversion, Startzähler, Phase), nie Einstellungen und nie Sperren.
+   - **Grund:** Eine vom Nutzerkonto beschreibbare Datei dürfte sonst das Admin-Schloss aus Entscheidung 5 aushebeln.
+
+Folgen: Der Startpfad braucht die DB nicht (fehlt die Datei, läuft kein Vorgang). Löschen erst nach DB-Abgleich, idempotent über `override_id`; Kriterium „Start in Ordnung“ wie ADR 0069 (Healthy plus ein weiterer erfolgreicher Start). Ort: State-Verzeichnis, nicht `$XDG_RUNTIME_DIR` (tmpfs).
