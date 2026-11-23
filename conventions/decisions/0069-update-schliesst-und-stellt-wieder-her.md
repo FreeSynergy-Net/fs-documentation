@@ -188,12 +188,10 @@ Status: **Entwurf** (Strategie, 23.11.2026, ENTSCHEID-schnitt E4; Urheber: Nutze
 
 **Lage:** Entscheidung 5 (Z. 137) verlangt für Ask eine Statuszeile. Die Nutzerentscheidung vom 21.11. und die Nutzerregel vom 23.11. verlangen Modal oder Toast. Z. 137 ist damit zweimal überholt und wurde im ADR nicht nachgezogen.
 
-**Entschieden (Vorschlag der Strategie, angenommen):**
-- (a) Die Update-Frage ist `notification.ask` (ADR 0106) mit drei Aktionen: „Jetzt neu starten“, „Später“, „Immer automatisch“.
+**Vorschlag (Strategie, angenommen 23.11.; Annahme im ADR offen):**
+- (a) Die Update-Frage ist `notification.ask` (ADR 0106) mit drei Aktionen: „Jetzt“, „Später“, „Immer automatisch“ (Texte als MF2-Codes, nicht festgeschrieben). Die Frage kommt vor `UpdatePackages`, nicht erst vor dem Neustart (Ablauf wie im Nachtrag „rpm ist der Hauptweg“).
 - (b) Sie erscheint **als Modal nur bei Ruhe** im Sinn der Ruhe-Regel von Entscheidung 5 (kein Fokus in einem Eingabefeld, kein Modal, kein `BusyGuard`).
 - (c) Ist keine Ruhe, erscheint sie als **stehender Toast mit denselben Aktionen**. Er bleibt bis zur Antwort und unterbricht nicht. Das Modal folgt bei der nächsten Ruhe.
 - (d) Die Statuszeile zeigt nur noch die Erinnerung nach 24 h als Zustand.
 
 **Begründung:** Der Schutzzweck von Z. 137 bleibt erhalten (nie ein Dialog über Eingaben, nie mitten im Tippen). Die Nutzerregel (Toast oder Modal) und F4 (Modal) gelten trotzdem. Es gibt keinen dritten Weg „Statuszeile“ neben dem Modul.
-
-**Vermerk zum Datum (keine Änderung):** Die Checkliste nennt „Components seit 19.11.“. Git zeigt die Toast-Commits 3c1bbd7 (16.11.), aeaf003 und 6bf16c8 (18.11.). 19.11. ist das Landedatum auf main; die Arbeit lief 16.–18.11.

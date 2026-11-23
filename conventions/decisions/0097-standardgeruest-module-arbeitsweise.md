@@ -94,10 +94,10 @@ Status: **akzeptiert** (Strategie-Entscheid O1 vom 2026-11-17 zum Ort; Nutzerwor
 
 ## Nachtrag 2026-11-23: Richtigstellung Z. 13 (fs-starter ist ein eigenes Repo)
 
-Status: **Richtigstellung** (Strategie, 23.11.2026, ENTSCHEID-schnitt, Korrektur der Inventur) · **berichtigt** Entscheidung 1, Schicht 2 (Z. 13)
+Status: **Entwurf** (Richtigstellung; Strategie, 23.11.2026, ENTSCHEID-schnitt, Korrektur der Inventur) · **berichtigt** Entscheidung 1, Schicht 2 (Z. 13)
 
 **Lage:** Z. 13 führt `fs-starter` als Crate im Repo **fs-rpc** („Schicht 2 **fs-rpc** (`fs-rpc`, `fs-starter`, `fs-connect`, …)“). Das ist falsch.
 
-**Richtig:** `fs-starter` ist ein eigenes Repo `FreeSynergy-Net/fs-starter` mit den Crates `fs-starter` und `fs-starter-host` (Tag v0.0.4). Es ist kein Teil von fs-components oder fs-rpc. Die Schichtzuordnung des Repos fs-starter ist mit diesem Nachtrag **nicht** entschieden. Unverändert gilt: `fs-starter` hängt nicht von `fs-update` ab; das erzeugte `-bin` jedes Programms verbindet beide.
+**Richtig:** `fs-starter` ist ein eigenes Repo `FreeSynergy-Net/fs-starter` mit den Crates `fs-starter` und `fs-starter-host` (Tag v0.0.4). Es ist kein Teil von fs-components oder fs-rpc. Die Schichtzuordnung des Repos fs-starter ist mit diesem Nachtrag **nicht** entschieden. Unverändert gilt: `fs-starter` hängt nicht von `fs-update` ab; das erzeugte `-bin` jedes Programms verbindet beide (Vorbehalt ADR 0105 Offen 9).
 
 **Folge:** Der Meldeweg `Tell` (`crates/fs-starter/src/tell.rs`) bleibt im Repo fs-starter und wird Adapter auf `fs-notification` (ADR 0106).
