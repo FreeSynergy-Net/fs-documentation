@@ -36,8 +36,12 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check documentation (check-docs.sh, rc != 0 is red)
+        shell: bash
         run: |
+          set -eo pipefail
           command -v mkdocs
           bash scripts/check-docs.sh 2>&1 | tee check-docs.log
-          test "${PIPESTATUS[0]}" -eq 0
-          ! grep -q '^SKIPPED' check-docs.log
+          if grep -q '^SKIPPED' check-docs.log; then
+            echo "mkdocs build --strict was skipped" >&2
+            exit 1
+          fi

@@ -286,3 +286,10 @@ Status: **Entwurf** (Nutzerwort 2026-11-17 (D) und Nutzerentscheid 25 (bindend, 
 
 ### Offen
 - Siehe ADR 0054 Nachtrag 2026-11-17 (4), Offen 3–8 und 10 (Weitermachen, Trailer, Signatur, Mehrfach-Aufträge, Auftraggeber außer Halter, Aufträge im Einzelplatz, Fehlercodes). Offen 1, 2 (Nutzerentscheid 25, Frage 33) sowie 9 und 11–22 (Entscheide c0 nach Nutzerregeln, 18.11.) sind entschieden.
+
+## Nachtrag 23.11.2026 (Entwurf): „abstimmen“ in Punkt 5 meint bindende Abstimmungen und Aufnahmen
+
+Status: **Entwurf** (Nutzerentscheid 23.11.2026: Unterscheidung bindender Beschluss, Umfrage, Aufnahme; Auslegung der Strategie, nicht Wortlaut des Nutzers) · **schränkt** Punkt 5 („zustimmen, abstimmen, einladen, Einladungen annehmen“) für nicht bindende Umfragen **ein**, hebt ihn nicht auf · Querverweis zu ADR 0087, Nachtrag 23.11.2026, und ADR 0095, Nachtrag 23.11.2026
+
+- **„Abstimmen“ in Punkt 5 meint bindende Abstimmungen** (Gruppenbeschlüsse) **und Aufnahmen/Eintritte**. Dort bleibt das Verbot unverändert.
+- **Nicht bindende Umfragen** (Meinungsbild, Fragebogen): Die Teilnahme einer KI ist möglich, **wenn sie eingeschaltet ist** (Regel aus ADR 0087, Nachtrag 2026-11-17 (3), Punkt 7: im geschlossenen Kreis stimmen alle Teilnehmer zu, bei einer offenen Umfrage entscheiden die Organisatoren). Im Ergebnis bildet sie eine eigene Kategorie. Das schränkt Punkt 5 für diesen Fall ein.
