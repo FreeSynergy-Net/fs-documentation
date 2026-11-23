@@ -181,3 +181,19 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **ändert** Regel 7 (Ehr
 - **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` ist Auslöser und Neustarter und installiert nicht selbst; es **prüft, fragt und stößt an**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
 - Crate: `packagekit-zbus` 0.2.0 (D-Bus-Proxys auf zbus 6).
 - **Nutzervorgabe 23.11.2026: systemweit, nicht lokal.** Unter Linux ist ein Weg ohne Admin-Rechte (`~/.local`) derzeit nicht vorgesehen; wer installiert, braucht `wheel` bzw. das Passwort.
+
+## Nachtrag 23.11.2026: Update-Frage = `notification.ask` (E5, Widerspruch zu Entscheidung 5)
+
+Status: **Entwurf** (Strategie, 23.11.2026, ENTSCHEID-schnitt E4; Urheber: Nutzerentscheid 21.11. (fs-update F4: Standard „Fragen“ als Modal, „jetzt oder später – oder immer automatisch?“) und Nutzerregel 23.11. (Toast oder Modal, nie Text oben)) · **ändert** Entscheidung 5 (Z. 137), Satz „Ask: Statuszeile mit ‚Jetzt neu starten‘ / ‚Später‘, nie ein Dialog über Eingaben.“ · baut auf ADR 0106 (`fs-notification`)
+
+**Lage:** Entscheidung 5 (Z. 137) verlangt für Ask eine Statuszeile. Die Nutzerentscheidung vom 21.11. und die Nutzerregel vom 23.11. verlangen Modal oder Toast. Z. 137 ist damit zweimal überholt und wurde im ADR nicht nachgezogen.
+
+**Entschieden (Vorschlag der Strategie, angenommen):**
+- (a) Die Update-Frage ist `notification.ask` (ADR 0106) mit drei Aktionen: „Jetzt neu starten“, „Später“, „Immer automatisch“.
+- (b) Sie erscheint **als Modal nur bei Ruhe** im Sinn der Ruhe-Regel von Entscheidung 5 (kein Fokus in einem Eingabefeld, kein Modal, kein `BusyGuard`).
+- (c) Ist keine Ruhe, erscheint sie als **stehender Toast mit denselben Aktionen**. Er bleibt bis zur Antwort und unterbricht nicht. Das Modal folgt bei der nächsten Ruhe.
+- (d) Die Statuszeile zeigt nur noch die Erinnerung nach 24 h als Zustand.
+
+**Begründung:** Der Schutzzweck von Z. 137 bleibt erhalten (nie ein Dialog über Eingaben, nie mitten im Tippen). Die Nutzerregel (Toast oder Modal) und F4 (Modal) gelten trotzdem. Es gibt keinen dritten Weg „Statuszeile“ neben dem Modul.
+
+**Vermerk zum Datum (keine Änderung):** Die Checkliste nennt „Components seit 19.11.“. Git zeigt die Toast-Commits 3c1bbd7 (16.11.), aeaf003 und 6bf16c8 (18.11.). 19.11. ist das Landedatum auf main; die Arbeit lief 16.–18.11.
