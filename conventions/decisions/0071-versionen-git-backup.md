@@ -172,4 +172,4 @@ Status: **akzeptiert** (Nutzer Gespräch 1: „Außerdem, Git schreiben und lese
 Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **hebt auf** „Code erst nach 3b grün und nach Wiki/Groups“ (Kopfzeile und Abschnitt „Kein Code vor Runde 3b grün“) · Fundstelle: `woche-11-23/files/ENTSCHEID-schnitt.md` (Verdict 4, „Widersprüche“)
 
 - Der Stand von Runde 3b war im Entscheid `unbelegt`; die Strategie hat die Vorbedingung am 23.11.2026 aufgehoben. Code zum Vertrag `storage` darf entstehen (Besitzer jetzt das Modul `fs-modules-file`, siehe ADR 0070, Nachtrag 23.11.2026); Versionen, Git und Backup bleiben Erweiterungen dieses Vertrags.
-- **Offen (Frage):** Der Versions-Speicher in diesem ADR (V1) nennt BLAKE3; der Vertrag nutzt für Verweise sha256 (`FileRef`). Ob der interne Versions-Speicher bei BLAKE3 bleibt oder ebenfalls sha256 nimmt, steht in den Quellen nicht.
+- **Prüfsumme (Strategie-Entscheid 23.11.2026):** nur sha256 (`fs_types::FileRef`), auch intern; BLAKE3 im Versions-Speicher (V1) entfällt (`digest.rs` fällt laut FILES-G2 weg).

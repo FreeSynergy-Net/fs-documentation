@@ -131,4 +131,4 @@ Status: **Entwurf** (Nutzer-Entscheid 23.11.2026, Lauflisten-Eintrag 05:36) · *
 
 - **Der Modus gilt je Kante**; die Gruppe hat nur die Voreinstellung `default_mode` für neue Kinder, keinen Modus „je Gruppe“.
 - **Hierarchie in beide Richtungen ist gleich wichtig:** von unten (Helfa-Netzwerk, `BottomUp`) und von oben (Vereine, Unternehmen, `TopDown`); eine Kante im Modus `Single` ist nur Ordnung und wird nicht nach Kanidm gespiegelt. Die Conformance prüft beide Richtungen mit je einem Beispielbaum (Zusatz GR2c).
-- **Ein Vertrag ohne Versionen nebeneinander:** siehe Nachtrag in ADR 0045 (Regel „kein `_vN` bis zu echten Nutzern“). Für groups heißt das: ein Vertrag `groups`.
+- **Keine Versionen im Namen:** gilt die Regel aus ADR 0045, Nachtrag 23.11.2026. Für groups heißt das: ein Vertrag `groups`.
