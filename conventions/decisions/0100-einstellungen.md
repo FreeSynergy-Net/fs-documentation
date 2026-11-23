@@ -135,5 +135,5 @@ bleibt byte-gleich; Sperre scheitert geschlossen; Index der Profile unter Dateis
 - **Abgrenzung:** gespeicherte Ansichten und Filter einer Person sind Daten der Beschreibung (`forms_view`, `forms_filter_node` in fs-forms), keine Einstellungen; fs-settings hält nur Skalare. Das Instanz-Schloss für Beschreibungen (ADR 0096 Punkt 10) folgt dem Muster dieses ADR (Grund Pflicht für Sperren und Entsperren, Protokoll, Instanz-Dienst später), liegt aber in der forms-DB.
 
 ## Nachtrag 2026-11-23 (ADR 0108, Entwurf): keine Sperre über Fristen eigener Daten
-- Die Fristen des digitalen Vergessens liegen als Einstellungen in fs-settings (`fs.vault.retention.<datenart>` [Name Vorschlag]; ADR 0108 E1).
+- Die Fristen des digitalen Vergessens liegen als Einstellungen in fs-settings (`fs.vault.retention.<datenart>` [Name Vorschlag, wird in VG-3 entschieden]; ADR 0108 E1).
 - **Ausnahme zu E5 (Schloss):** Die Fristen der **eigenen** Daten einer Person kann kein Instanz-Admin sperren (ADR 0108 E7). Fristen von **Gruppen-Daten** setzt die Gruppe nach ihrer eigenen Entscheidungsregel (ADR 0095).
