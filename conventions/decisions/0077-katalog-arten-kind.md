@@ -92,7 +92,7 @@ Felder (Vorschlag, Schema `kind = "font"`):
 **Offen:** Windows- und macOS-Pendants der Installationsziele sind nicht recherchiert **[nicht belegt]**. Die Vorschau-Form ist nicht entschieden. Die Darstellung im Store ist offen (wie bei `module`). Die Dokumentationsseite zum Store ist `docs/en/programs/platform/packages.md` und `docs/de/programs/platform/packages.md`; sie wird hier nur verlinkt, nicht umgebaut.
 
 ## Nachtrag 2026-11-23: Paketarten (Arten-Abgleich, `avatar`, Selbsterklärung, Schrift-Ziel)
-Status: **Entwurf** (Workflow `adr-write`, Schritt `draft`). Grundlage: Strategie-Entscheid `ENTSCHEID-schnitt` (23.11.2026, angenommen). Die Abschnitte oben bleiben unverändert stehen. Wo dieser Nachtrag einen Punkt oben anders ordnet, steht das bei dem Punkt (§6 Nr. 1–11).
+Status: **Entwurf** · **ändert** §3 oben (nur noch OCI und Systembenutzer, Vorschlag) und das Feld `install` des Nachtrags 2026-11-16 (Vorschlag). Grundlage: Strategie-Entscheid Paketarten (23.11.2026, angenommen). Die Abschnitte oben bleiben unverändert stehen. Wo dieser Nachtrag einen Punkt oben anders ordnet, steht das bei dem Punkt (§5 Nr. 1–11).
 
 ### 1. Arten-Abgleich
 Je Art: der AppStream-Typ, der trägt; der Punkt, an dem der Standard endet und ein `fs:`-Feld ergänzt; wo die Art geregelt ist.
@@ -100,33 +100,33 @@ Je Art: der AppStream-Typ, der trägt; der Punkt, an dem der Standard endet und 
 | Art | AppStream-Typ (trägt) | Endet bei → `fs:`-Ergänzung | Geregelt in |
 |---|---|---|---|
 | `program` | `desktop-application` (`console-application` ohne GUI) | Bedarf an Modulen/Formen → `fs:needs` | §2 oben |
-| `frontend` | `addon` + `extends` (0094) | Abdeckung, Admin, Vorbild → `fs:covers`, `fs:admin`, `fs:reference` | §2 oben; Schema siehe §6 Nr. 2 |
+| `frontend` | `addon` + `extends` (0094) | Abdeckung, Admin, Vorbild → `fs:covers`, `fs:admin`, `fs:reference` | §2 oben; Schema siehe §5 Nr. 2 |
 | `module` | `addon` + `extends` | Befehlssatz `modul@H.N`, Formen → `fs:provides` | Nachtrag 2026-11-14 |
-| `theme` | DTCG 2025.10 (Tokens) + `addon` | keine Component-Regeln; Plätze `theme@1.0` | §6 Nr. 9 |
+| `theme` | DTCG 2025.10 (Tokens) + `addon` | keine Component-Regeln; Plätze `theme@1.0` | §5 Nr. 9 |
 | `icon-theme` | freedesktop Icon Theme 0.13 (`index.theme`) + `icon-theme` | Pflichtnamen → Plätze `icons@1.0` | §2 oben; §4 dieses Nachtrags |
 | `font` | `font` + OpenType + fontconfig | Rollen und Lizenz-Gate → Plätze `font@1.0`, SPDX-Pflicht | Nachtrag 2026-11-16; §4 dieses Nachtrags |
 | `avatar` | glTF 2.0 + VRM 1.0; AppStream `addon` + `extends` `people` | Personenbezug und Katalog → Plätze `avatar@1.0` | §2 dieses Nachtrags |
 | `server` | `service` + rpm/deb/OCI | Registry und Signatur offen | §3 oben |
 
-Die Arten `motion`, `sound-theme`, `haptics`, `shortcuts`, `language` und `workflow` bleiben nach derselben Regel offen (später). `component` ist verworfen (§6 Nr. 1).
-Die Paketart-Schnittstelle `fs-interfaces/schema/packagekinds.txt` (Welle PA-1) legt sechs Arten an. Welche sechs, entscheidet PA-1; die Beispiele im Entscheid sind `theme@1.0`, `icons@1.0`, `font@1.0`, `avatar@1.0`, `frontend@1.0`, `program@1.0` [nicht entschieden: Auswahl PA-1].
+Die Arten `motion`, `sound-theme`, `haptics`, `shortcuts`, `language` und `workflow` bleiben nach derselben Regel offen (später). `component` ist verworfen (§5 Nr. 1).
+Die Paketart-Schnittstelle `fs-interfaces/schema/packagekinds.txt` (Schritt PA-1) legt sechs Arten an. Welche sechs, entscheidet PA-1; die Beispiele im Entscheid sind `theme@1.0`, `icons@1.0`, `font@1.0`, `avatar@1.0`, `frontend@1.0`, `program@1.0` [nicht entschieden: Auswahl PA-1].
 
 ### 2. `avatar` als eigene Paketart
 - **Entscheid (Strategie, 23.11.2026):** Avatar-Sammlungen sind eine eigene Paketart `avatar`. AppStream `addon`, `<extends>` `people`. Eine Sammlung wird im Katalog angeboten.
-- **Der eigene Avatar ist kein Paket.** Er sind Profildaten der einen Person (Grundsatz „Beispiel Person“, CLAUDE.md §8). AS2 `icon`/`image` mit `mediaType` `model/gltf-binary` und Profil `vrm@1.0` (RFC 6906, wie bei Formen). Die Datei liegt als FileRef in storage. Medientypen `model/gltf-binary` und `model/gltf+json` kommen in die Medientyp-Liste. Galerie „Avatare“ = Modul-Galerie (FILES-N).
+- **Der eigene Avatar ist kein Paket.** Er gehört zu den Profildaten der einen Person (Grundsatz „Beispiel Person“, CLAUDE.md §8). AS2 `icon`/`image` mit `mediaType` `model/gltf-binary` und Profil `vrm@1.0` (RFC 6906, wie bei Formen). Die Datei liegt als FileRef in storage. Medientypen `model/gltf-binary` und `model/gltf+json` kommen in die Medientyp-Liste. Galerie „Avatare“ = Modul-Galerie.
 - **Plätze `avatar@1.0`:** `model!`, `thumbnail!`, `license!` (Pflicht).
 - **Regeln:** `avatar-not-gltf`, `avatar-vrm-meta-missing`, `avatar-too-large` (rot). `avatar-license-forbids` (rot für ein Katalog-Angebot): VRM-Meta verbietet Weitergabe oder Nutzung durch andere (`avatarPermission`, `allowRedistribution`). Ein solcher Avatar wird im Katalog nie angeboten.
-- **Vorschau:** 2D aus `thumbnailImage` sofort. 3D-Drehbild erst nach dem Blinc-scene3d-Spike (fs-3d E11), Welle PA-7.
+- **Vorschau:** 2D aus `thumbnailImage` sofort. 3D-Drehbild erst nach dem Blinc-scene3d-Spike (fs-3d E11), Schritt PA-7.
 - **Sicherheit:** Fremde Binärdateien von Personen. Grenzen für Bytes, Dreiecke, Texturgröße; voller Test und Opus-Review (PA-4d).
 
 ### 3. Selbsterklärung: `fs:provides` und `fs:needs`
-1. **Träger bleibt AppStream-Metainfo**, eine Datei je Paket (ADR 0068, 0077 §2, 0094 E2). Sie ist zugleich Katalogquelle, Starter-Manifest und Quelle der RPM-Abhängigkeiten. Daneben gibt es nichts.
-2. **`fs:provides` und `fs:needs`** stehen in `<custom>` als Liste `<schnittstelle>@H.N`. Versionsregel wie bei Formen: Haupt gleich, Neben ≥ (ENTSCHEID-form §3).
+1. **Träger bleibt AppStream-Metainfo**, eine Datei je Paket (ADR 0068, §2 oben, 0094 Entscheidung 2). Sie ist zugleich Katalogquelle, Starter-Manifest und Quelle der RPM-Abhängigkeiten. Daneben gibt es nichts.
+2. **`fs:provides` und `fs:needs`** stehen in `<custom>` als Liste `<schnittstelle>@H.N`. Versionsregel wie bei Formen: Haupt gleich, Neben ≥.
 3. **Eine Schnittstelle ist eins von drei**, alle im Zeilenformat `key | name | status | description`: ein **Vertrag** (`capabilities.txt`), eine **Form** (`forms.txt`), eine **Paketart-Schnittstelle** (neu: `fs-interfaces/schema/packagekinds.txt`, Liste benannter Plätze mit Art, Pflicht `!` und Anzahl).
-4. **Ein Leser `fs-metainfo`** (Bibliothek, Repo fs-interfaces, Schicht 1). Er ersetzt die zwei eigenen Leser (fs-store `fs-packages-catalog` mit roxmltree; fs-starter `manifest_xml.rs`) und den Python-Erzeuger `fs-catalog/scripts/schema_base.py` als Leser.
+4. **Ein Leser `fs-metainfo`** (Bibliothek, Repo fs-interfaces, Schicht 1). Er ersetzt die zwei eigenen Leser (fs-store `fs-packages-catalog` mit roxmltree; fs-starter `manifest_xml.rs`). Der Python-Erzeuger `fs-catalog/scripts/schema_base.py` wird nicht erweitert (§5 Nr. 6).
    - **Crate `appstream` 0.2.2 wird genutzt** (Strategie, 23.11.2026; MIT, crates.io 2022-01-16, letzter Commit 2023-06-17). Auf master liest er `requires`, `recommends`, `supports`, aber `<id>` nur ohne `version`/`compare`. Er liest kein `<custom>` und keine Komponentenart `service`.
    - Bis zum Release trägt ein Port `Metainfo` in `fs-metainfo` den **vorhandenen** roxmltree-Leser (verschoben, nicht neu geschrieben). Nach dem Release wird gegen `appstream` getauscht; die Schnittstelle bleibt.
-   - Vier kleine PRs an `appstream` (`<custom>`, `<id version compare>`, Art `service`/`operating-system`, Bitte um Release): **offen, Frage 1 an den Nutzer** (mit offenem KI-Vermerk).
+   - Vier kleine PRs an `appstream` (`<custom>`, `<id version compare>`, Art `service`/`operating-system`, Bitte um Release): **offen** (PRs an upstream; mit offenem KI-Vermerk).
 5. **Abhängigkeiten aus einer Wahrheit**, abgeleitet:
 
    | AppStream | RPM | winget |
@@ -140,27 +140,27 @@ Die Paketart-Schnittstelle `fs-interfaces/schema/packagekinds.txt` (Welle PA-1) 
 6. **Konformitätsregeln** (fs-conformance, Repo fs-types, Gruppe `package-kind`, gemeinsamer Matcher mit den Form-Regeln G7). Jede Regel hat eine Mutante, die rot wird: `package-kind-unknown`, `package-need-unmet` (gelb im Katalog, rot bei der Installation), `package-version-mismatch`, `package-slot-missing`, `frontend.admin-present`, `frontend.admin-covers-all`, `frontend.normal-present`, `frontend.normal-has-reference`, `theme-overlay-undecorated`, `theme-contrast-low` (WCAG 2.x AA 4.5:1, berechnet), `icon-theme-index-missing`, `icon-name-missing` (gelb), `program-icon-unresolved`, `font-license-unfree`, `font-face-checksum`, `avatar-*` (§2), `sample-as-real`, `rpm-requires-drift`, `metainfo-reader-duplicate`.
 
 ### 4. Schrift- und Icon-Ziel (Standard-Orte gehen vor)
-- **Schriften:** `/usr/share/fonts/<familie>/` mit fontconfig-conf und Metainfo, über RPM (noarch). Beleg auf dieser Maschine: Fedora-Schrift-RPMs liefern Metainfo unter `/usr/share/metainfo/` und eine fontconfig-conf. Lesen über `fontdb`.
+- **Schriften:** `/usr/share/fonts/<familie>/` mit fontconfig-conf und Metainfo, über RPM (noarch). Beleg: Fedora (geprüft 23.11.2026), Schrift-RPMs liefern Metainfo unter `/usr/share/metainfo/` und eine fontconfig-conf. Lesen über `fontdb`.
 - **Icons:** `/usr/share/icons/<theme>/`.
 - **Themes:** bleiben unter `/usr/share/freesynergy/themes/`. Das ist der einzige Teil unter `/usr/share/freesynergy/`.
-- Wo ein Text `/usr/share/freesynergy` für Schriften oder Icons nennt, wird er angepasst. FEATURES Z. 209 („…/fonts/ im fs-starter-RPM“) wird geändert.
-- Das Ziel `~/.local/share/fonts` (Nachtrag 2026-11-16, Feld `install`) entfällt für das Release. Es widerspricht PKG-G2 (alles systemweit über dnf, kein `~/.local`). Gleicher Widerspruch in ADR 0089, Punkt 5.
+- Wo ein Text `/usr/share/freesynergy` für Schriften oder Icons nennt, wird er angepasst. Die bisherige Planung „Schriften im fs-starter-RPM unter `/usr/share/freesynergy/fonts`“ entfällt.
+- Das Ziel `~/.local/share/fonts` (Nachtrag 2026-11-16, Feld `install`) entfällt für das Release. Es widerspricht der Nutzervorgabe „systemweit, nicht lokal“ (ADR 0069, Nachtrag 23.11.2026 „rpm ist der Hauptweg“). Gleicher Widerspruch in ADR 0089, Punkt 5.
 
 ### 5. Die 11 Widersprüche zu ADR 0077 (und Nachbarn)
-1. **Schema ≠ ADR.** §1 nennt zehn Werte. fs-catalog `main` kennt `program, frontend, component, theme, server, icon-theme` (Nachtrag 2026-11-16, Z. 74–76). `component` ist dabei, obwohl §1 es verwirft. Es fehlen `motion`, `sound-theme`, `haptics`, `shortcuts`, `language`, `module`, `workflow`, `font`; **`avatar` fehlt überall.** *Auflösung:* Arten-Abgleich §1 und `avatar` §2. `component` bleibt verworfen. Schema-Änderungen für Arten erst nach Welle P8.
-2. **`frontend` → `desktop-application`** im Schema statt `addon` (0094, Kontext Z. 9). Das Feld `extends` fehlt. *Auflösung:* `addon` + `extends` (0094). Schema-Angleichung nach P8.
+1. **Schema ≠ ADR.** §1 nennt zehn Werte. fs-catalog `main` kennt `program, frontend, component, theme, server, icon-theme` (Nachtrag 2026-11-16, Z. 74–76). `component` ist dabei, obwohl §1 es verwirft. Es fehlen `motion`, `sound-theme`, `haptics`, `shortcuts`, `language`, `module`, `workflow`, `font`; **`avatar` fehlt überall.** *Auflösung:* Arten-Abgleich §1 und `avatar` §2. `component` bleibt verworfen. Schema-Änderungen für Arten erst nach Schritt P8.
+2. **`frontend` → `desktop-application`** im Schema statt `addon` (0094, Kontext Z. 9). Das Feld `extends` fehlt. *Auflösung:* `addon` + `extends` (0094). Schema-Angleichung nach Schritt P8.
 3. **`store.capnp` `PackageKind`** = `program, frontend, component, theme, server` (fs-interfaces 1ce2e44, Z. 33–39). 0077 Folge 1 ist nicht umgesetzt; `component` steht drin. *Auflösung:* Nur neue Werte anhängen; bestehende capnp-IDs bleiben.
 4. **Kein Bedarf je Art.** 0077 regelt nur den Typ. `fs:provides`/`fs:needs` und Plätze je Art fehlen. *Auflösung:* §3 und `packagekinds.txt`.
-5. **Schrift-Ziel.** Nachtrag 2026-11-16 (Z. 86) nennt `~/.local/share/fonts`; PKG-G2 sagt systemweit über dnf. *Auflösung:* §4 (`/usr/share/fonts`). Gleicher Widerspruch in ADR 0089, Punkt 5 (Nachbar, nicht in diesem Nachtrag geändert).
+5. **Schrift-Ziel.** Nachtrag 2026-11-16 (Z. 86) nennt `~/.local/share/fonts`; ADR 0069 (Nachtrag 23.11.2026) verlangt systemweite Installation über dnf. *Auflösung:* §4 (`/usr/share/fonts`). Gleicher Widerspruch in ADR 0089, Punkt 5 (Nachbar, nicht in diesem Nachtrag geändert).
 6. **Katalog-Werkzeug Python.** Folge 3/5 (`gen_catalog.py`) widerspricht CLAUDE.md §7 für neue Regeln. *Auflösung:* Neue Regeln in Rust (fs-conformance). Der Python-Erzeuger wird nicht erweitert; bestehende Skripte bleiben bis zur Inventur und zur Entscheidung über den Umzug.
-7. **Server-Sonderweg.** §3 „rpm/deb Pflicht“ gilt nach PKG-G2 faktisch für jedes Programm. *Auflösung:* §3 bleibt nur für OCI und den Systembenutzer.
+7. **Server-Sonderweg.** §3 „rpm/deb Pflicht“ gilt nach ADR 0069 (Nutzervorgabe systemweit) faktisch für jedes Programm. *Auflösung:* §3 bleibt nur für OCI und den Systembenutzer.
 8. **fs-icons** führt ein eigenes `manifest.toml` und `package.toml type="artifact"` statt `index.theme` und Metainfo `icon-theme`. *Auflösung:* Umstellung in PA-4b.
 9. **0074 ↔ 0077, „theme“.** Die sechs Stil-Arten sind noch nicht vereinheitlicht (INVENTUR, Offen). *Vorschlag:* `theme` = DTCG-Tokens; die übrigen Arten bleiben eigene Arten mit eigenen Plätzen.
-10. **0094 ist Entwurf.** Ohne Annahme fehlt der Grund für „Frontend als Paket“ (meldungen E3.2). *Auflösung:* offen, wird im Bündel mit A0 (Nachtrag 0094 Mindestausstattung) geschlossen.
+10. **0094 ist Entwurf.** Ohne Annahme fehlt der Grund für „Frontend als Paket“. *Auflösung:* offen, wird im Bündel mit A0 (Nachtrag 0094 Mindestausstattung) geschlossen.
 11. **0023 Darstellungs-Register** (Folge „Format und Ort“ offen). *Auflösung:* Für Pakete beantwortet durch `packagekinds.txt` und `forms.txt`: Ort fs-interfaces, Format Zeilenliste.
 
 ### 6. Offen
-- **Frage 1** (vier PRs an `appstream`, bilelmoussaoui/appstream): nicht entschieden.
-- **Frage 2** (Avatar-Sammlungen): entschieden, ja (§2).
-- Paketart-Auswahl für `packagekinds.txt` (PA-1) und die Schema-Angleichung (nach P8).
+- **Vier PRs an `appstream`** (bilelmoussaoui/appstream): offen, nicht entschieden (§3 Nr. 4).
+- **Avatar-Sammlungen** (Strategie, 23.11.2026): entschieden, ja (§2).
+- Paketart-Auswahl für `packagekinds.txt` (PA-1) und die Schema-Angleichung (nach Schritt P8).
 - 3D-Avatar (PA-7) nach Spike E11.
