@@ -101,3 +101,9 @@ Status: **Entwurf** (Richtigstellung; Strategie, 23.11.2026, ENTSCHEID-schnitt, 
 **Richtig:** `fs-starter` ist ein eigenes Repo `FreeSynergy-Net/fs-starter` mit den Crates `fs-starter` und `fs-starter-host` (Tag v0.0.4). Es ist kein Teil von fs-components oder fs-rpc. Die Schichtzuordnung des Repos fs-starter ist mit diesem Nachtrag **nicht** entschieden. Unverändert gilt: `fs-starter` hängt nicht von `fs-update` ab; das erzeugte `-bin` jedes Programms verbindet beide (Vorbehalt ADR 0105 Offen 9).
 
 **Folge:** Der Meldeweg `Tell` (`crates/fs-starter/src/tell.rs`) bleibt im Repo fs-starter und wird Adapter auf `fs-notification` (ADR 0106).
+
+## Nachtrag 2026-11-23 (2): Schreibweg, der Host ist Transport
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert; Grundlage ENTSCHEID-Schnitt Schreibweg, Grundentscheid 4, siehe ADR 0077 Nachtrag 2026-11-23 (3)).
+
+Der Host (fs-starter) transportiert Befehle nur, die Übersetzung von Kanälen in Argumente geschieht einmal in fs-forms-run, und die Fachlogik bleibt im Modul.

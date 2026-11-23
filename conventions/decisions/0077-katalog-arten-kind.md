@@ -171,3 +171,43 @@ Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ände
 - `H.N` wird `x.y.z` (SemVer): Befehlssatz `modul@x.y.z`, Plätze `theme@1.0.0`, `icons@1.0.0`, `font@1.0.0`, `avatar@1.0.0`. Die Schreibweise mit `@` bleibt.
 - **§3 Nr. 2:** `fs:provides` nennt Versionen (`<schnittstelle>@x.y.z`), `fs:needs` nennt Bereiche (`<schnittstelle>@^x.y.z`, für `0.0.x` nach der Voreinstellung `<schnittstelle>@~0.0.N`), je Listeneintrag genau ein Vergleich (ADR 0045, Nachtrag 2026-11-23, Nr. 5). Die Regel „Haupt gleich, Neben ≥“ wird durch Cargo-Caret ersetzt. Ab 1.0.0 ist das dasselbe; für 0.x gilt Neben gleich.
 - Das Profil `vrm@1.0` (§2) bezeichnet den fremden Standard VRM 1.0 und behält dessen Nummer (ADR 0045, Nachtrag, Nr. 8).
+
+## Nachtrag 2026-11-23 (3): Schreibweg – Befehlskanal `writes`, args über `map`, Sperre `can`, Meldungen
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · **ergänzt** §3.3 des Nachtrags 2026-11-23 „Paketarten“ (dort: Vertrag und Form sind zwei von drei Schnittstellen) · **ändert** keinen Punkt oben. Grundlage: Strategie-Entscheid Schreibweg (ENTSCHEID-Schnitt, 23.11.2026, Grundentscheide 1–8); Entscheid 9f (23.11.): Fragen 1 und 2 JA.
+
+### 1. Ein Name je Befehl
+1. **Der Vertragsschlüssel ist die einzige Form eines Befehlsnamens.** Er steht in `fs-interfaces/schema/capabilities.txt` (ADR 0068, „ONE list“), z. B. `card.move`, `board.create`, `column.limit`. Die `task.*`-Schlüssel, die bisher nur im Kommentar von `tasks.capnp` stehen (`task.create`, `task.delete` u. a.), werden angehängt, dazu neu `task.claim`.
+2. **Der gebundene Name bildet der Host:** `<modul>.<schlüssel>`, z. B. `planning.card.move`. `commands.json` vergibt keine Namen mehr. Jeder Eintrag nennt `capability` (den Vertragsschlüssel), `call`, `access`, `params` und `help`; das Feld `id` entfällt.
+3. **Der Dienst meldet Schlüssel ohne Präfix.** In `Tasks.capabilities` und `may` stehen die Vertragsschlüssel ohne Präfix; über `FormSource.invoke` geht der Vertragsschlüssel. Der Präfix lebt nur im Befehlssatz des Hosts (Menü, Workflow-Bausteine, MCP) und in der Grenzprüfung.
+
+### 2. Der Schreibweg läuft über die Form
+4. **Befehlskanal mit `writes`.** Ein Befehlskanal in `forms.txt` nennt in einer fünften Spalte, welche Kanäle derselben Form er schreibt. `!` = muss die Geste liefern. Folge für `cards-in-columns`: die fünfte Spalte erweitert die Form, sie wird damit Nebenstufe (`@1.1.0`, ADR 0045, Nachtrag 2026-11-23, Nr. 9); Lesern der Stufe `@1.0.0` bleibt sie lesbar.
+   ```
+   > move   | command | - | 0..1 | column! order lane
+   > create | command | - | 0..1 | title! column! lane
+   > remove | command | - | 0..1 |
+   ```
+   Der Leser prüft: `writes` nennt nur vorhandene Nicht-Befehlskanäle. Ein Kanal mit Anzahl > 1 darf in der ersten Welle nicht geschrieben werden (Leserfehler).
+5. **Eine Abbildung, kein Sonderfall.** Die `map` in `forms.json` des Moduls bindet Datenkanäle an Feldpfade und Befehlskanäle an Vertragsschlüssel, z. B. `"column": "column"`, `"order": "index"`, `"move": "card.move"`. Einen dritten Ort für diese Bindung gibt es nicht. Die Frontend-Beschreibung (`[[action]]`) bindet nur Auslöser an einen Vertragsschlüssel und darf nur einen vom Modul gebundenen Befehl wählen oder weglassen.
+6. **Die Übersetzung geschieht einmal in fs-forms-run.** Für jeden Kanal in `writes`: liefert die Geste einen Wert, wird er genommen; sonst der aktuelle Wert des Datensatzes (Kontext, z. B. `lane` aus `board`); gibt es keinen, entfällt der Kanal. Ein `!`-Kanal ohne Wert lehnt fs-forms-run vor dem Senden ab (`form-write-missing`). Der Name wird über `map` zum Feldpfad; ein Kanal ohne `map`-Eintrag ist gesperrt, er wird nicht still weggelassen.
+7. **Jede Component übersetzt ihre Gesten in ihrem eigenen Crate** in Kanäle ihrer Form, über einen Port `FormWrite` (fs-components-core). Beispiele: Kanban-Drop → `move`, Schnelleingabe → `create`, Löschen → `remove`, Formularfeld → `submit`.
+8. **Prüfregeln** (fs-starter `--check`): die Feldpfade aus `writes` und `map` müssen in `params` des Befehls stehen, alle `required` abgedeckt sein (sonst `form-command-args-mismatch`, rot). Ein Auslöser ohne passenden Befehlskanal ist `action-channel-mismatch` (Warnung; das Bedienelement bleibt gesperrt).
+
+### 3. Sperre: `can` ist nur wahr, wenn alle vier Bedingungen gelten
+9. `can(kanal, datensatz)` ist wahr nur, wenn: (i) die Beschreibung eine `[[action]]` mit genau diesem Vertragsschlüssel hat, (ii) die `map` des Moduls den Kanal an diesen Schlüssel bindet, (iii) der Schlüssel im Befehlssatz des Moduls steht (`commands.json`, vom Host gelesen), (iv) die Rechte des Dienstes für die fragende Person es erlauben. Fehlt eine Bedingung, ist die Antwort `false`. Der Standard der Schnittstelle bleibt `false`.
+10. **Rechte-Angaben:** je Datensatz `RecordView.may`; für Befehle ohne Datensatz (Anlegen) neu `RecordPage.may` als Anhang `@5` an `formsource.capnp`.
+11. **Grenzen für Argumente:** der Host lehnt Argumente ab, deren Name nicht in `params` des Befehls steht oder doppelt ist (`host-notice-invoke-args`). Das Modul lehnt überzählige oder doppelte Argumente ebenfalls ab (`form-source-bad-arguments`, Status 400). Maßgeblich bleibt das Modul.
+
+### 4. Der Host transportiert, das Modul entscheidet
+12. Der Host (fs-starter) prüft Präfix und Befehlsmenge, reicht `FormSource.invoke(schlüssel, datensatz, args)` weiter und liest die Form nach einer Antwort neu (`page`). Im Host bleibt keine Fachlogik.
+13. **`Accepted`:** fs-forms-run liest neu und zeichnet über `Live` nur die betroffene Fläche. Eine Schreibantwort trägt keine Daten zurück.
+14. **Ablehnung** (Rechte, Konflikt, fachlich): Meldung `host-notice-invoke-refused` mit `{module, command, problem}`, Dringlichkeit `normal` (ADR 0106 §1.2 und §1.4). Die Component schreibt keinen eigenen Ablehnungstext mehr; „locked“ bleibt nur als Zustand am Bedienelement.
+15. **Bruch** eines Moduls (Form, Befehl, Antwort passen nicht zueinander): Meldung `host-notice-module-break` mit `{module, version, what}`, Dringlichkeit `critical` (ADR 0106 §1.4). Erkannt wird ein Bruch an festen Stellen: beim Binden (`form`, `command`, `args`), bei `hello`, bei `page` (`answer`), bei `invoke` (`form-source-unknown-command` oder `form-source-bad-arguments` → `command`, `args`) und bei der Registry (`version`). Ein Bruch wird nie still gesperrt und nie nur auf stderr geschrieben. Ob ein Bereich noch passt, entscheidet die Versionsregel aus ADR 0045, Nachtrag 2026-11-23, Nr. 3 und 4.
+16. **Fremder Text** aus `problem.detail` wird nicht angezeigt, nur ins Protokoll geschrieben. Antworten eines Moduls sind fremde Daten.
+
+### Offen (nicht entschieden)
+- Ob der Kanban-Baustein beim Ziehen die Kartenpositionen kennt (Einfügestelle per Zeiger). Ohne sie kommt der Index nur über Tasten.
+- Ob ein Kommentar-Modul `FormSource` bedienen wird (der Knopf „Notiz“ hängt daran).
+- Ob fs-notification vor dem Schreibweg-Erfolgsweg da ist (ADR 0106 ist Entwurf; die Meldung braucht den Meldeweg).
+- Ob `fs-tasks-core` eine Abfrage „darf X Befehl Y“ ohne Schreiben anbietet; sonst wird `may` aus der Rolle abgeleitet.
