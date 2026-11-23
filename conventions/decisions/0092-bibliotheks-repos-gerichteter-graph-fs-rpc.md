@@ -42,8 +42,8 @@ Status: **akzeptiert** (Strategie, 2026-11-16; Variante V2, Opus-Review 28ca3165
 
 ## Nachtrag 2026-11-23: Regel 2 bei Registry-Quellen
 
-Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert; Schnitt „ENTSCHEID-kaskade“, Empfehlung B2) · **ergänzt** Regel 2 (Fix-Weg, Registry-Quellen), Wortlaut der Regel bleibt · Grund: ADR 0093, Nachtrag 2026-11-23
-1. **Regel 2 bleibt wörtlich.** „Eine Quelle“ heißt im Lock: genau ein `[[package]]`-Eintrag je Bibliothek. Zwei 0.0.x-Versionen von fs-types aus demselben Registry sind zwei Einträge und damit rot. Das passiert, wenn ein Verbraucher seine Untergrenze hebt und der Lock noch die alte Version hält (Probe der Strategie, 23.11.).
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer wird informiert, Kurzvorlage vor K-5; Schnitt „ENTSCHEID-kaskade“, Empfehlung B2) · **ergänzt** Regel 2 (Fix-Weg, Registry-Quellen), Wortlaut der Regel bleibt · Grund: ADR 0093, Nachtrag 2026-11-23
+1. **Regel 2 bleibt wörtlich.** „Eine Quelle“ ist hier eine **Auslegung** (zwei Versionen aus demselben Registry haben dieselbe Quell-URL) und heißt im Lock: genau ein `[[package]]`-Eintrag je Bibliothek. Zwei 0.0.x-Versionen von fs-types aus demselben Registry sind zwei Einträge und damit rot. Das passiert, wenn ein Verbraucher seine Untergrenze hebt und der Lock noch die alte Version hält (Probe der Strategie, 23.11.).
 2. **Fix-Weg bei einer Registry-Quelle:** `cargo update -p fs-types` im Programm. Das ist eine reine Lock-Änderung. Neue Pins oder neue Tags der Bibliotheken dazwischen braucht es dafür nicht mehr. Die Fix-Meldung der Prüfung nennt diesen Befehl. Bei Git-Quellen bleibt der bisherige Weg („alle Abhängigen auf denselben Tag“).
 3. **Änderung an der Prüfung in fs-release (K-3):**
    - Registry-Quellen (`registry+…`, `sparse+…`) werden normalisiert wie Git-Quellen.

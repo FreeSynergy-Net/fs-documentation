@@ -94,20 +94,23 @@ Rust hygiene (ADR 0041).
   `cargo test --config 'patch."https://github.com/FreeSynergy/fs-objects".fs-objects.path="../fs-objects/crates/fs-objects"'`
   — never commit such paths (a fresh clone must build; check with a clone into `/tmp`).
 
+### Addendum 2026-11-23: lowest libraries from the registry `freesynergy` (ADR 0093, addendum 2026-11-23)
+Status: decided (strategy decision 23.11.; user will be informed, short template before K-5) · amends the first bullet of §8 for the crates named here; everything else stays git + tag.
+- **`fs-types`, `fs-conformance`, `fs-records`** come from our Git-index registry `freesynergy` (repo `FreeSynergy-Net/fs-crates`):
+  `fs-types = { version = "~0.0.N", registry = "freesynergy" }` (`~0.0.N` = `>=0.0.N, <0.1.0`, ADR 0045 addendum rule 4/5, transferred by analogy from contracts to Cargo dependencies).
+  Each repo names the registry in `.cargo/config.toml` under `[registries.freesynergy]`.
+  Raise `N` only when you use what the new version adds.
+- **Only the release CI writes the index**, from a tag run. Never by hand. Crate version = tag (ADR 0064 addendum 2026-11-23); a gate checks it.
+- **Baseline 0.0.7 (strategy decision 23.11.):** 0.0.7 is the first registry version. From 0.0.7 on, only additive changes in these crates; the 15 `#[non_exhaustive]` conversions and everything else breaking go bundled into 0.0.7 (setting the attribute later is itself a break). After that no exception: a break = new range + wave. Compare always against the previous registry version, never against earlier git tags.
+- Public `enum`s are `#[non_exhaustive]`. **Gate:** `cargo-semver-checks --release-type minor` before the index entry (without it, `0.0.z → 0.0.(z+1)` counts as major and every break passes: `src/check_release.rs:79-81`). Baseline: `--baseline-root` on the unpacked last `.crate` (preferred; custom registries are unsupported, issue #160), fallback `--baseline-rev` previous tag. Mandatory mutant in K-2: a new variant in an exhaustive enum turns the gate red. The range `~0.0.N` has upper bound `<0.1.0` always and cannot fence a deliberate break; only the complete wave and the lock gate protect.
+- capnpc-generated enums (`BasicType`, `CommandKind`) cannot be `#[non_exhaustive]`: a `match` on them outside the generator needs a catch-all arm (ast-grep check in fs-conformance); the gate has a narrowly named allowance for "enum variant added" on exactly these types, justified in the file. A `match` on such an enum outside the crate (including generated code) has a catch-all arm that reports visibly. Never swallow an unknown value silently.
+- **After a new version:** programs run `cargo update -p fs-types` (lock change only). The lock gate (ADR 0092 rule 2) turns red on two entries.
+- **Working on one machine:** `[patch.freesynergy] fs-types = { path = "../fs-types/crates/fs-types" }` or the same via `--config`. Never commit it, as above.
+- **Status:** until branch protection is on for `fs-crates`, the registry is "initial phase, not protected" (ADR 0093 addendum, threat model).
+
+
 ## 9. Trait folders (locked interfaces) — binding (b7, 2026-11-16)
 - The folder `<trait>_v<n>/` lives in the **program repo, in the crate that carries the trait as its public API**
   (example: `fs-people-directory/src/person_directory_v1`).
 - `draft/` in the `testdata` crate holds the trait **only while it is a draft**; when the trait is locked, it moves to its fixed place (above).
 - The Cap'n Proto contract always lives in `fs-interfaces/schema`, never next to the trait folder (plus its line in `fs-interfaces/schema/capabilities.txt`).
-
-### Addendum 2026-11-23: lowest libraries from the registry `freesynergy` (ADR 0093, addendum 2026-11-23)
-Status: decided (strategy decision 23.11., user informed) · amends the first bullet of §8 for the crates named here; everything else stays git + tag.
-- **`fs-types`, `fs-conformance`, `fs-records`** come from our Git-index registry `freesynergy` (repo `FreeSynergy-Net/fs-crates`):
-  `fs-types = { version = "~0.0.N", registry = "freesynergy" }` (`~0.0.N` = `>=0.0.N, <0.1.0`, ADR 0045 addendum rule 4/5).
-  Each repo names the registry in `.cargo/config.toml` under `[registries.freesynergy]`.
-  Raise `N` only when you use what the new version adds.
-- **Only the release CI writes the index**, from a tag run. Never by hand. Crate version = tag (ADR 0064 addendum 2026-11-23); a gate checks it.
-- **Within 0.0.x only additive changes** in these crates. Public `enum`s are `#[non_exhaustive]`. `cargo-semver-checks` runs as a gate before the index entry. A `match` on such an enum outside the crate (including generated code) has a catch-all arm that reports visibly. Never swallow an unknown value silently.
-- **After a new version:** programs run `cargo update -p fs-types` (lock change only). The lock gate (ADR 0092 rule 2) turns red on two entries.
-- **Working on one machine:** `[patch.freesynergy] fs-types = { path = "../fs-types/crates/fs-types" }` or the same via `--config`. Never commit it, as above.
-- **Status:** until branch protection is on for `fs-crates`, the registry is "initial phase, not protected" (ADR 0093 addendum, threat model).
