@@ -274,3 +274,13 @@ Status: **Entwurf** (Nutzerentscheid 23.11.2026: Terminfindung gehört zum Umfra
 - **Ergebnis-Charts sind Formen und Components, kein Programm-Code.** Vor dem Eigenbau werden zuerst Blinc und vorhandene Crates geprüft (Quorum, Parlament, Rangwahl fehlen in `fs-components-charts`).
 - **Wahlvolk:** braucht eine Abfrage im Gruppen-Vertrag, siehe ADR 0095, Nachtrag 23.11.2026.
 - **Offen:** Nutzerfragen 104 und 105 (ob `fs-decisions`, `fs-tally`, `fs-ballot` als Repos bleiben) sind laut Inventur offen; `fs-decisions` hat noch keinen `main`.
+
+## Nachtrag 23.11.2026 (Entwurf): Wahlvolk, KI und andere Kategorien dürfen mitstimmen
+
+Status: **Entwurf** (Nutzerentscheid 23.11.2026, Frage 17) · **hebt auf** im Nachtrag 2026-11-16 „fs-decisions“, Punkt 7, den ersten Satz („Eine KI ist nie im Wahlvolk und hat nie Stimme, Token oder Einwand“) · **ergänzt** den Nachtrag „forms = Frontend-Baukasten …“ (Punkt 6 `fs-pivot`, Punkt 7 KI-Einladung) · Wahlvolk im Gruppen-Vertrag: ADR 0095, Nachtrag 23.11.2026
+
+- **Nutzerentscheid 23.11.2026:** **KI, betreute Konten und andere Kategorien dürfen mitstimmen, wenn es eingeschaltet ist; im Ergebnis bilden sie eine eigene Kategorie.** Die Regel „Eine KI ist nie im Wahlvolk und hat nie Stimme, Token oder Einwand“ aus Punkt 7 Satz 1 gilt nicht mehr.
+- **Wahlvolk (Nutzerentscheid 23.11.2026):** Beschlüsse fasst jede Gruppe für sich; ab einer festlegbaren Anzahl kann die Frage auf die anderen Gruppen erweitert werden (was gezählt wird: **offen, Frage 19**); zusätzlich gibt es eine Art Umfrage, die automatisch alle einschließt; es gibt mehrere Arten von Umfragen. Einzelheiten: ADR 0095, Nachtrag 23.11.2026.
+- **Auswertung (Nutzerentscheid 23.11.2026):** detailliert, Gruppen und Kategorien frei zusammenfügbar oder getrennt. Das leistet das gemeinsame Auswertungs-Modul `fs-pivot` mit der Mindestgruppe (siehe Nachtrag „forms = Frontend-Baukasten …“, Punkt 6 und Punkt 2); hier nicht wiederholt.
+- **Wer einschaltet (Strategie-Auslegung, vom Nutzer zu bestätigen, Frage 20):** Es folgt der Regel aus dem Nachtrag „forms = Frontend-Baukasten …“, Punkt 7 (Antwort 18): im geschlossenen Kreis stimmen alle Teilnehmer zu, bei einer offenen Umfrage entscheiden die Organisatoren. Das ist eine Auslegung, kein Wortlaut des Nutzers.
+- **Offen, nicht freigegeben:** `decide` als MCP-Werkzeug für eine KI und das Einwand-Recht einer KI. Punkt 7 verbietet beides bisher; dieser Nachtrag hebt nur den ersten Satz auf (Stimme und Wahlvolk), nicht diese beiden.
