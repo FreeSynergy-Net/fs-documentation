@@ -28,3 +28,11 @@ Vier technische Bausteine:
 ## Nachtrag (2026-11-14)
 - **Wortwahl Regal:** im Code `shelf`; in der Oberfläche de „Projekt“, en „Project“ (Nutzerwort).
 - **Struktur:** Absatz → Seite → Kollektion (Buch) → Regal (Shelf; eigene Instanz, eigene Rechte).
+
+## Nachtrag 2026-11-23 (Entwurf, Workflow `adr-write`; nicht vom Nutzer akzeptiert): Absatz = eigenes Objekt, Profil statt Spezifikation
+Anlass: Opus-Review des Dokument-Baums (`documents`, technical.md v4) und Nutzer-Entscheid vom 23.11.2026 (HTML wird nicht Speicherform; Baum aus Blöcken als AS2, daraus alle Ausgaben). Die Entscheidungen oben bleiben im Wortlaut stehen.
+- **Absatz/Block = eigenes AS2-Objekt** im Baum (Eltern + Reihenfolge, typisierte Spalten nach ADR 0086), **nicht** „benannte Marke im `Article`“. Die Zeile „Absatz = benannte Marke (ADR 0033) bzw. eigener Typ in der Block-Spezifikation“ gilt damit im Sinn des zweiten Teils. Die **benannte Marke** (ADR 0033) bleibt für Platzhalter, Variablen und benannte Bereiche (Punkt oder Bereich).
+- **Profil statt eigener Spezifikation:** Für Blockbäume gibt es keinen Standard (`research/documents-standards.md` §3 laut ENTSCHEID-baum). Wir definieren nur ein **Profil** `fsd:` auf AS2/JSON-LD; Marken folgen W3C Web Annotation (ADR 0033), „abgeleitet aus“ folgt W3C PROV-O. Die „Folgen“-Zeile „eigene Spezifikation für den Blockinhalt“ ist damit durch das Profil erfüllt (Fundstelle: `data/documents/technical.md` v4, §2, §4).
+- Markdown und HTML bleiben Import/Export, nie Speicherformat (unverändert; HTML ausdrücklich bestätigt).
+- **Offen:** ob der Name `fsd:` und der Kontext `https://freesynergy.net/ns/document#` so bleiben (Entwurf, Dereferenzierbarkeit nicht geprüft).
+**English summary.** Draft addendum: a paragraph/block is its own AS2 object in a tree with typed columns, not a named mark inside the `Article`; the named mark of ADR 0033 stays for placeholders and named ranges. We define only a profile (`fsd:`) on AS2/JSON-LD instead of a new specification; marks follow W3C Web Annotation. Not accepted by the user yet.
