@@ -36,3 +36,12 @@ Status: **akzeptiert** (Nutzer, Gespräch 1 und 2 vom 2026-11-17; Strategie) · 
 2. **Kommunikation nach Nähe** (Vorschlag des Nutzers mit Rückfrage, von der Strategie bestätigt): „die Sachen, die "Nah" an dem Modul sind, sind alle WebAssably, die, die ohne das Programm auskommen, sind capnproto - die, die ganz weit weg sind, sind capnproto, json, grpc - das klingt doch nach einem Plan, oder?“ Also: nah = **WebAssembly** (Host und Plugin-ABI nach Messung); ohne Programm lauffähig = eigener Prozess über **Cap'n Proto**; ganz weit weg = **Cap'n Proto, JSON, gRPC**.
 3. **Prozess-Modell** (Entscheidung der Strategie, Gegenwort des Nutzers steht aus): einmal je Person und Vertragsversion, Start bei Bedarf, Ende nach Frist, eigene Rechte je Aufrufer (ADR 0097).
 4. „Plugins sind immer Hot-Plugins“ (Z. 12) bleibt.
+
+## Nachtrag 23.11.2026 (Entwurf): bis zu echten Nutzern kein `_vN` nebeneinander
+
+Status: **Entwurf** (Nutzer-Entscheid A vom 23.11.2026, Lauflisten-Eintrag 05:31) · Fundstelle: `LAUFLISTE-strategie-2026-11-22.md` (05:31) und `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Abschnitt „Widersprüche“)
+
+- **Regel:** Bis es echte Nutzer gibt, liegt von einem Vertrag nur **eine** Fassung vor, **ohne `_vN` im Namen und ohne `_v1` und `_v2` nebeneinander**. Eine Änderung ersetzt den Vertrag, statt einen zweiten daneben zu legen; Sperren wie die Hash-Sperre von `groups_v1` gelten dafür nicht und sind durch Nutzerwort aufgehoben. Erst mit echten Nutzern wird neu entschieden, wie Versionen koexistieren.
+- **Begründung des Ortes:** ADR 0045 legt fest, dass jedes Thema eine Schnittstelle ist und die Verträge in `fs-interfaces` liegen; die Regel betrifft genau diese Verträge. Sie gilt gleichlautend wie bei ADR 0064 (frühe Phase: Versionen springen), betrifft aber Vertragsnamen, nicht Paketversionen.
+- **Folgen:** `groups` wird ein Vertrag (ADR 0095, Nachtrag), `events` entsteht ohne `_v1` (ADR 0050, Nachtrag). `person_directory_v1` wird **jetzt nicht** angefasst; eine Angleichung der Namen in einer Welle steht als Checklistenzeile für später.
+- **Offen (Frage):** Gilt die Regel auch für Datenbankschemata und das Bauplan-Schema (ADR 0099 hat bereits `schema = 2` ohne Lesepfad für 1)? Die Quellen nennen nur Verträge. Ob dieser ADR oder ein eigener der richtige Ort ist, entscheidet der Nutzer.

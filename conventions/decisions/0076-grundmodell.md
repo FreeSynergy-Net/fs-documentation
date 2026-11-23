@@ -103,3 +103,13 @@ Fremde, freie Pakete (Icon-Sets, Farbpaletten, Klang-Themes) stehen im Store **a
 1. **Jetzt:** dieses ADR; Repositories der sechs neuen Programme mit README, DESIGN (Einordnung nach diesem ADR) und Lizenz, noch ohne Code; alle Programme mit Katalogeintrag (installierbar oder „in Arbeit“); Server in den Katalog; freie Icon-Sets, Themes, Klang-Themes als Pakete.
 2. **Meilenstein „Wir benutzen es selbst“** läuft weiter; nichts davon hält ihn auf.
 3. **Danach:** Umbenennungen (fs-wiki → Kern von fs-text, fs-whiteboard → Kern von fs-draw, fs-store → Facette auf fs-marketplace) als eigene, geprüfte Schritte, mit Weiterleitung, Katalog und Paketnamen; fs-workflows mit Programm-Manifest und Workflow-Ansicht; Frontends je Programm auf vier.
+
+## Nachtrag 23.11.2026 (Entwurf): groups ist Modul und Daten-Paket, nicht Programm
+
+Status: **Entwurf** (Nutzer-Entscheide 7 und 8 vom 23.11.2026; Ausgestaltung Opus) · **ändert** die Zeilen „Groups ist ein Programm“ (Abschnitt Einordnung, Zeilen mit „fs-groups | Programm“) · Fundstelle: `woche-11-23/groups/ENTSCHEID-schnitt.md` (Korrektur 2, Abschnitt c) und `LAUFLISTE-strategie-2026-11-22.md` (Einträge 05:01, 05:02)
+
+- **groups ist ein Modul** (Fachkern und Dienst, Repo `fs-modules-group` laut Entscheid) mit einem **Vertrag** `groups` im Crate `fs-group-directory` in `fs-interfaces`. Die Verschachtelungslogik liegt im eigenständigen Crate `fs-group-nesting`.
+- Sichtbar wird groups als **Programm „Gruppen“, das nur ein Daten-Paket ist** (Beschreibung ohne eigenen Code), wie people; Gruppen erscheinen zusätzlich in „Personen“ (Entscheid 7).
+- **Zusätze per Komposition:** Eine Gruppe trägt beliebig viele Zusätze (je ein IRI, einmal je Gruppe). **Eine juristische Person (Verein, Firma) ist eine Gruppe plus der Zusatz „Organisation“** (`org:FormalOrganization`), mit denselben Regeln für Mitglieder, Eigentümer und Vererbung; sie hat keinen eigenen Typ. Weitere Zusätze kommen später (Entscheid 8).
+- Gruppen verwalten sich selbst (Selbstverwaltung, ADR 0095).
+- **Offen:** Der Entscheid nennt den Zielort `fs-modules-group` als Empfehlung; ob das Repo so heißt und wann es angelegt wird, ist nicht entschieden.

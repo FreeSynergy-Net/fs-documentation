@@ -14,3 +14,11 @@ Status: akzeptiert (2026-11-06) · ergänzt und schränkt ADR 0024 ein · Befund
 - **SCIM vorerst nicht**, entgegen ADR 0024: ausdrücklich instabil, allgemeines Anlegen wirkt defekt.
 - Hierarchie, Art, Rollen, Einladungen liegen in `fs-groups` (Schlüssel: Gruppen-ID). Zyklen verhindern wir selbst.
 - Ohne Kanidm laufen die Programme weiter (ADR 0024).
+
+## Nachtrag 23.11.2026 (Entwurf): REST gilt nur für die Client-Richtung; Client ist `kanidm_client`
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu ENTSCHEID groups, Abschnitt d; Nutzer: `kanidm_client` nutzen und erweitern, keine KI-Beiträge an Kanidm) · **präzisiert** Abschnitt „Umsetzung“ (eigener schlanker Client; SCIM vorerst nicht) und löst den scheinbaren Widerspruch zu ADR 0024 · Fundstelle: `woche-11-23/groups/ENTSCHEID-schnitt.md` (Abschnitt d) und `LAUFLISTE-strategie-2026-11-22.md` (Eintrag 05:02)
+
+- **Zwei Richtungen, kein Widerspruch.** ADR 0024: **wir sind SCIM-Anbieter** (jedes Programm über `fs-access`). ADR 0047: **REST v1 gilt nur für uns als Client zu Kanidm**, weil Kanidms SCIM nicht als stabil erklärt ist (Issue kanidm#4638 offen; Maintainer 28.10.2026). Umschalten auf SCIM geschieht nur im Adapter, sobald Kanidm es stabil erklärt.
+- **Client = Crate `kanidm_client`** (1.12.1 laut Entscheid, MPL-2.0, an die Serverversion gebunden) statt Eigenbau. Der heutige eigene Client in `fs-identity-kanidm` (reqwest, „no Kanidm crates“) wird im Transport ersetzt; Adapter, Bericht und Befunde bleiben unsere. Der Pin wird im selben Schritt wie die mitgelieferte Kanidm-Version nachgezogen. Fehlt dem Crate etwas, wird dort mitgearbeitet (Grundsatz Kooperation).
+- **Offen:** Der Tausch ist als Folgeauftrag K2 vorgemerkt, noch nicht ausgeführt. Ob der Pin an die Server-Version dauerhaft akzeptabel ist, hat der Entscheid nur empfohlen (Frage).

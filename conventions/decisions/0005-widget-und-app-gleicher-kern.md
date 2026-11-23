@@ -39,3 +39,11 @@ Adresse, eine Datei oder eine Einstellung braucht, ist App.
   etwas anzeigt, verweist sie auf das Widget, statt die Ansicht neu zu erklären.
 - Betroffene Doku: `components/fields/date-picker/`, `components/data/calendar-view/`,
   `programs/apps/calendars/`. Zuordnung der Bausteine bleibt `conventions/CONVENTIONS.md` §3.
+
+## Nachtrag 23.11.2026 (Entwurf): `calendar-view` entfällt
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu KAL-G2) · **wendet** die Entscheidung dieses ADR (eine Darstellung, kein zweiter Kern) auf den Kalender an · Fundstelle: `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Abschnitt d) und `LAUFLISTE-strategie-2026-11-22.md` (Eintrag 05:46)
+
+- Der ältere Block `calendar-view` (rund 1 559 Zeilen) ist eine zweite Kalenderdarstellung neben `calendar-grid`. Die Agenda-Ansicht wird als Modus in `calendar-grid` übernommen, danach wird `calendar-view` gestrichen. Betroffene Doku (`components/data/calendar-view/`) wird nachgezogen.
+- Beide Kalender-Components stellen dieselbe Form `bars-in-time@1.0` dar (Details: ADR 0050, Nachtrag 23.11.2026).
+- **Offen:** Reihenfolge (Agenda-Modus zuerst, dann Streichen) ist im Entscheid nur unter „Danach“ genannt, ohne Termin.

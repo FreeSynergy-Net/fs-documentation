@@ -34,3 +34,14 @@ Kunde und User sein kann, was Vererbung nicht abbildet. Jede Rolle hat ihren Sta
 - `fs-calendar` hat sein Task-Modell an `fs-tasks` abgegeben (erledigt: fs-tasks 0.1.0, fs-calendar 0.2.0). Die Verträge liegen in `fs-interfaces` (ADR 0045).
 - Die gemeinsame Basis `fs-jscalendar` v0.1.0 ist umgesetzt, fs-tasks und fs-calendar nutzen sie (beide v0.3.0). Importe geben Aufgaben in jedem Format weiter, auch aus JSCalendar-JSON; ohne Aufgabenprogramm steht ein Hinweis im Bericht, nichts geht still verloren.
 - Doku-Verzeichnisse sind umbenannt (2026-11-06): `programs/apps/people/`, `data/people/`.
+
+## Nachtrag 23.11.2026 (Entwurf): Vertrag `events`, calcard, eine Form
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu KAL-G2; Nutzer: Frage 12 = JA) · **präzisiert** Punkt 2 und „Folgen“ für `fs-calendars` · Fundstelle: `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Verdict, a, d, e) und `LAUFLISTE-strategie-2026-11-22.md` (05:45, 05:46, 05:48/05:49)
+
+- **Vertrag `events` (Crate `fs-events` in `fs-interfaces`), ohne `_v1`:** aus dem Entwurf `appointments_v1` (Eigentümer `PersonRef`, auch Gruppe; Teilnehmer `Attendee` ohne Namensfeld) und **ersetzt** `events.capnp`. Task-Verweis nur über JSCalendar `relatedTo`, keine Task-Felder und keine Crate-Kante.
+- **Wiederholung und iCalendar über `calcard`** (0.3.14, JSCalendar 2.0, RRULE-Expansion) in `fs-jscalendar` (hinter Feature `ical`); eigene Engine und Crate `rrule` entfallen. Vertrag folgt JSCalendar 2.0 (ein `recurrenceRule`).
+- **Eine Form `bars-in-time@1.0`** für Kalender, tasks-Gantt und Workflow-Gantt; Woche, Tag, Monat, Agenda und Gantt sind Sichten (Components). **`calendar-view` entfällt** (zweite Kalenderdarstellung neben `calendar-grid`, gegen ADR 0005); der Agenda-Teil wandert als Modus in `calendar-grid`.
+- **Gruppe als Gast (Nutzer 23.11.): eine eingeladene Gruppe ist EIN Gast im Termin**; späterer Beitritt sieht den Termin, jedes Mitglied sagt selbst zu oder ab.
+- **Ersetzen statt umbauen** (Nutzer): Der alte Kalender (rund 24 000 Zeilen) wird nicht umgebaut; bis zum ersten neuen Bild gibt es keinen lauffähigen Kalender.
+- **Offen:** Zonenumrechnung im Block (wer macht sie) und ob `fs-components-workbenches/calendar` noch gebraucht wird: laut Entscheid `unbelegt`.

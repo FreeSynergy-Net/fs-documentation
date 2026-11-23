@@ -264,3 +264,13 @@ Status: **Entwurf** (Entscheid der Strategie, b7 17.11.; Nutzer, Gespräch 4 Z. 
 Status: **Entwurf** (Verweis; Inhalt entscheidet ADR 0096) · **ergänzt** Nachtrag „forms = Frontend-Baukasten …“ Punkt 6 und 7
 
 Format und Host-Vertrag, die Punkt 7 „ein eigener ADR in E4“ überließ, legt ADR 0096 „Format, Speicher und Host“ fest: Die Beschreibung (Punkt 6) liegt als Daten in der Datenbank von fs-forms, die Datei (TOML/JSON) ist nur Austausch; der Host `fs-forms-run` (Punkt 7) liest sie über den Vertrag `layouts`.
+
+## Nachtrag 23.11.2026 (Entwurf): decisions = Vertrag + Dienst + Daten-Paket; Terminfindung; Charts als Formen
+
+Status: **Entwurf** (Nutzer 23.11.2026, Lauflisten-Einträge 05:43, 05:46, 05:49; Ausgestaltung Strategie) · **schärft** den Nachtrag 2026-11-16 „fs-decisions“ (Punkt 1 „fs-decisions ist Programm“, Terminfindung = Facette) · Fundstelle: `woche-11-23/decisions/INVENTUR.md` und `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Abschnitt „Schnittstelle Kalender ↔ decisions“)
+
+- **decisions besteht aus Vertrag, Dienst und Daten-Paket** (nach dem Muster Modul + Daten-Paket, siehe ADR 0076, Nachtrag 23.11.2026), ohne eigenen Programm-Code. `fs-tally` (Zählverfahren) und `fs-ballot` (Urne) bleiben eigenständige Bibliotheken; die eigene Auszählung in `fs-decisions-simple` entfällt. Reihenfolge: nach den ersten Bildern von groups und Kalender.
+- **Terminfindung bleibt Facette** (Nutzer: „Umfrage-Modul: Konsens, anonym, mehrseitig, Terminfindung“). decisions besitzt Umfrage, Vorschläge, Stimmen und Gäste (als `PersonRef`); der Kalender liefert nur freie Zeiten (`free_busy`) und nimmt das Ergebnis als Termin (`create`, `invite`) zurück. Termin und Umfrage verweisen nur über `links` aufeinander, keine Kopie. Der Kalender-Entwurf, der `fs-forms` als Besitzer der Umfrage nennt, wird korrigiert: Besitzer ist decisions.
+- **Ergebnis-Charts sind Formen und Components, kein Programm-Code.** Vor dem Eigenbau werden zuerst Blinc und vorhandene Crates geprüft (Quorum, Parlament, Rangwahl fehlen in `fs-components-charts`).
+- **Wahlvolk:** braucht eine Abfrage im Gruppen-Vertrag, siehe ADR 0095, Nachtrag 23.11.2026.
+- **Offen:** Nutzerfragen 104 und 105 (ob `fs-decisions`, `fs-tally`, `fs-ballot` als Repos bleiben) sind laut Inventur offen; `fs-decisions` hat noch keinen `main`.

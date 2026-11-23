@@ -124,3 +124,11 @@ Kanidm rechnet `memberof` als Hülle über alle `member`-Bögen, ohne Tiefengren
 5. ADR 0056 Punkt 2 (wo Weitergabe nicht gewollt ist, gibt es in Kanidm eine flache Liste) gilt für fs-groups nur noch für `Single`; der Doku-Lauf ergänzt dort einen Verweis auf diesen Nachtrag.
 
 Nicht Teil dieses Nachtrags: Auswirkung auf die Gruppen-Doku (`docs/*/programs/apps/groups/`). Die Programmseite beschreibt den Stand nach dieser Entscheidung nur als Entwurf.
+
+## Nachtrag 23.11.2026 (Entwurf): Modus je Kante, Hierarchie in beide Richtungen
+
+Status: **Entwurf** (Nutzer-Entscheid 23.11.2026, Lauflisten-Eintrag 05:36) · **bestätigt und schärft** den Nachtrag 2026-11-16 „Verschachtelung, Modi und KI-Regel“ · Fundstelle: `woche-11-23/groups/ENTSCHEID-schnitt.md` (Verdict, Korrektur 1) und `LAUFLISTE-strategie-2026-11-22.md` (05:36, 05:31)
+
+- **Der Modus gilt je Kante**; die Gruppe hat nur die Voreinstellung `default_mode` für neue Kinder, keinen Modus „je Gruppe“.
+- **Hierarchie in beide Richtungen ist gleich wichtig:** von unten (Helfa-Netzwerk, `BottomUp`) und von oben (Vereine, Unternehmen, `TopDown`); eine Kante im Modus `Single` ist nur Ordnung und wird nicht nach Kanidm gespiegelt. Die Conformance prüft beide Richtungen mit je einem Beispielbaum (Zusatz GR2c).
+- **Ein Vertrag ohne Versionen nebeneinander:** siehe Nachtrag in ADR 0045 (Regel „kein `_vN` bis zu echten Nutzern“). Für groups heißt das: ein Vertrag `groups`.

@@ -166,3 +166,10 @@ Status: **akzeptiert** (Nutzer Gespräch 1: „Außerdem, Git schreiben und lese
 4. **Den Notfall-Schlüssel legt die Person an**, nie ein Agent; Abschnitt 2 (Z. 47: „Ein Notfall-Schlüssel wird immer angelegt“) gilt weiter. **Die Person wählt die Form** (Nutzer, Gespräch 2, Antwort 11: „Der User soll entscheiden. Wir erklären das, aber der User soll entscheiden.“): `fs-backup` bietet **alle** Formen an (Wortliste zum Aufschreiben; aufgeteilt auf Vertrauenspersonen, k von n; im Tresor) und erklärt jede in Alltagssprache mit Vor- und Nachteilen (auch: „nur im Tresor“ ist weg, wenn der Tresor weg ist); **keine Voreinstellung**, die die Wahl abnimmt (passt zu ADR 0097: Regelwerke mit Voreinstellungen nur, wo der Mensch ändern kann; hier gibt es bewusst keine).
 
 **Pflichttests:** Auswahl-Dialog zeigt alle Formen mit Erklärung und hat keine vorausgewählte Form; Programm sichert nur seine Domain; Wiederherstellung ergibt gleiche Daten; Agent kann keinen Notfall-Schlüssel anlegen.
+
+## Nachtrag 23.11.2026 (Entwurf): Vorbedingung „Code erst nach 3b“ aufgehoben
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **hebt auf** „Code erst nach 3b grün und nach Wiki/Groups“ (Kopfzeile und Abschnitt „Kein Code vor Runde 3b grün“) · Fundstelle: `woche-11-23/files/ENTSCHEID-schnitt.md` (Verdict 4, „Widersprüche“)
+
+- Der Stand von Runde 3b war im Entscheid `unbelegt`; die Strategie hat die Vorbedingung am 23.11.2026 aufgehoben. Code zum Vertrag `storage` darf entstehen (Besitzer jetzt das Modul `fs-modules-file`, siehe ADR 0070, Nachtrag 23.11.2026); Versionen, Git und Backup bleiben Erweiterungen dieses Vertrags.
+- **Offen (Frage):** Der Versions-Speicher in diesem ADR (V1) nennt BLAKE3; der Vertrag nutzt für Verweise sha256 (`FileRef`). Ob der interne Versions-Speicher bei BLAKE3 bleibt oder ebenfalls sha256 nimmt, steht in den Quellen nicht.
