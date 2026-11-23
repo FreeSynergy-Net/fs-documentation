@@ -1,6 +1,6 @@
 # 0103 – Board, Spaltenquelle, Lauf, Maß: Spalten kommen aus Quellen, Zustände gehören dem Lauf, Aufwand von Hand, Zeit automatisch
 
-> **Nachtrag 23.11.2026 (Workflow `adr-write`, W-0):** Der Arbeitsname des Lauf-Moduls ist `fs-modules-workflow` (vorher `fs-flow`). Die Festlegung steht in ADR 0107 (Workflow-Modul, Serverless Workflow 1.0.3, Lauf als AS2-Objekt in fs-objects, Bahn aus `role`, Akteur nur aus der Verbindung). Alle Stellen in diesem ADR, die `fs-flow` nennen, meinen jetzt `fs-modules-workflow`. Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt; Opus-Prüfung offen.
+> **Nachtrag 23.11.2026 (Workflow `adr-write`, W-0):** Der Arbeitsname des Lauf-Moduls ist `fs-modules-workflow` (vorher `fs-flow`). Die Festlegung steht in ADR 0107 (Workflow-Modul, Serverless Workflow 1.0.3, Lauf als AS2-Objekt in fs-objects, Bahn aus `role`, Akteur nur aus der Verbindung). Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt; Opus-Prüfung offen.
 
 Status: **Entwurf** (2026-11-18; Nutzer: Entscheid 6e vom 18.11.2026 mit den Korrekturen zum Maß und den Entscheiden zu den Ausnahmen 52–58; Ausgestaltung Strategie; Prüfung durch Opus steht aus) · **präzisiert** ADR 0097 E4 („Fachregeln sind einstellbare Regelwerke“) für Zustände und Übergänge · **konkretisiert** ADR 0076 Zeile 21–24 (der Lauf ist die Instanz eines Ablaufs) und **ändert** die Besitzfrage aus dem Workflow-Standard (Entwurf: fs-tasks besitzt Vorlage und Lauf) · **ersetzt** den USD-Kostenwert in fs-tasks (`--cost`) durch das Maß · **behandelt** die Ausnahmen 52–56 der fs-tasks-Liste (Gespräche unter `conventions/talks/`) · baut auf ADR 0076, 0085, 0086, 0087, 0097, 0098, 0100, 0101, 0102
 
@@ -44,7 +44,7 @@ Bestand (belegt): ADR 0076 (Ablauf = fs-workflows, Ereignis = AS2, Ziel = fs-tas
 
 **4. Durchlauf im Lauf statt Iterations-Tasks.** Eine Schleife erzeugt keine neuen Aufgaben mehr. Aufgaben entstehen nur für Stationen, an denen ein Mensch arbeitet (Fassung 3 der Entwürfe, N7, wird ersetzt).
 
-**5. Der Lauf-Typ steht in einem eigenen Modul.** Arbeitsname **`fs-modules-workflow`** (Art 2 nach ADR 0101: Modul-Bausatz, wenn mindestens zwei Programme ihn brauchen: fs-tasks und fs-workflows). Der endgültige Name kommt mit der nächsten Namenswelle; bis dahin gilt `fs-modules-workflow` in Plan und Bauplan. Gespeichert wird der Lauf beim startenden Programm, bis fs-workflows existiert. Das ändert die frühere Besitzregel „fs-tasks besitzt den Lauf“.
+**5. Der Lauf-Typ steht in einem eigenen Modul.** Arbeitsname **`fs-modules-workflow`** (Art 2 nach ADR 0101: Modul-Bausatz, wenn mindestens zwei Programme ihn brauchen: fs-tasks und fs-workflows). Der endgültige Name kommt mit der nächsten Namenswelle; bis dahin gilt `fs-modules-workflow` in Plan und Bauplan. ~~Gespeichert wird der Lauf beim startenden Programm, bis fs-workflows existiert.~~ *(Nachtrag 23.11.: gilt nicht mehr; der Lauf liegt als AS2-Objekt `fs:Run` in fs-objects und wird über das Modul `fs-modules-workflow` geschrieben, ADR 0107 E4, E7. Ein Speicher beim startenden Programm entfällt.)* Das ändert die frühere Besitzregel „fs-tasks besitzt den Lauf“.
 
 **6. Das Board ist Anzeige, die Spalten kommen aus Quellen.**
 - **Board** = Component `board` (Art 3 nach ADR 0101) mit einer Achse X (Spalten), optional Achse Y (Bahnen = Swimlanes), Sortierung, Filter und eingeklappten Spalten.

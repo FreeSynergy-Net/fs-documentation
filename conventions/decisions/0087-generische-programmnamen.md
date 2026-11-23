@@ -2,6 +2,8 @@
 
 Status: akzeptiert (Nutzer, 2026-11-15) · ersetzt in ADR 0076 Punkt 3 „fs-store → Facette auf fs-marketplace“ (jetzt fs-software, Marktplatz ist Facette; Platzhalter fs-marketplace gelöscht) · erweitert ADR 0055 (sprechende Namen), 0080 (Umzug fs-wiki → fs-text) · Grundlage: Namensinventar der Strategie (Arbeitsstand, 2026-11-15)
 
+> **Nachtrag 2026-11-23 (Workflow `adr-write`, W-0, Korrektur nach Review):** Der in Nachtrag (3) Nr. 5 als „laut b7“ entschiedene Bibliotheksname `fs-flow` wird durch den Arbeitsnamen `fs-modules-workflow` ersetzt (ein Modul für Beschreibung und Lauf; ADR 0107 E7). Die Bibliothek heißt dort nicht mehr `fs-flow`; das Repo `fs-rpc` als Ort ist von 0107 nicht geändert. Nr. 3 und 4 (typisierte Bedingungen, Obergrenze je Schleife) stehen im Widerspruch zu gespeicherten SW-Ausdrücken, offen in ADR 0107 Offen 14 und 15. Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt; Opus-Prüfung offen.
+
 ## Entscheidung
 1. **Ein Programmname nennt die Fähigkeit oder die Daten**, die das Programm besitzt (z. B. tasks, files, people, calendar, maps). Er nennt keine App-Gattung und keine Bauform wie „wiki“ oder „whiteboard“. Die konkrete Ausprägung (Wiki, Buchungen, Marktplatz …) ist eine **Facette**.
 2. **Umbenennungen, jetzt statt später:**

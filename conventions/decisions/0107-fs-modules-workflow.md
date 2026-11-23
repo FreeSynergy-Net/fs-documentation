@@ -1,6 +1,6 @@
 # 0107 – Workflow-Modul `fs-modules-workflow`: Serverless Workflow 1.0.3 als eine Sprache, FS-Profil, Mensch-Warten als Katalogfunktion, Lauf als AS2-Objekt
 
-Status: **Entwurf** (2026-11-23; Workflow `adr-write`, Schritt `schreiben`, W-0). **Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt.** Die Einzelheiten sind noch nicht vom Nutzer angenommen; eine Opus-Prüfung steht aus, bis dahin keine Annahme. Der Entwurf ersetzt den Arbeitsnamen `fs-flow` aus ADR 0103 Punkt 5 und ergänzt ADR 0105 (Lauf-Ebene und Sicht „Lauf als Fall“). Die Verweise stehen in 0103 und 0105.
+Status: **Entwurf** (2026-11-23; Workflow `adr-write`, Schritt `schreiben`, W-0). **Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt.** Die Einzelheiten sind noch nicht vom Nutzer angenommen; eine Opus-Prüfung steht aus, bis dahin keine Annahme. Der Entwurf ersetzt den Arbeitsnamen `fs-flow` aus ADR 0103 Punkt 5 und den in ADR 0087 Nachtrag 17.11. (3) Nr. 5 und ADR 0097 Offen 7 als entschieden eingetragenen Namen `fs-flow` (siehe Abweichungen; ob der Nutzer das ausdrücklich so sehen will, entscheidet die Strategie, Offen 10) und ergänzt ADR 0105 (Lauf-Ebene und Sicht „Lauf als Fall“). Die Verweise stehen in 0103 und 0105.
 
 Quellen: Schnitt-Papier „ENTSCHEID-Schnitt“ (Workflow `entscheidung`, Schritt `cut`, 23.11.) und Inventur „INVENTUR“ (Workflow `entscheidung`, Schritt `recherche`, 23.11.). Beide liegen im internen Arbeitsordner und sind nicht veröffentlicht. Dort stehen die Belege mit Datei- und Zeilenangaben; sie werden hier nur in Kurzform genannt.
 
@@ -40,7 +40,7 @@ Das Profil erweitert den Standard nicht. Es nutzt nur die Haken, die der Standar
 
 Pflicht je Datei: `use.catalogs.fs` mit dem Endpunkt des Katalogs. **Heute fehlt dieser Eintrag in allen 60 Dateien** (`grep '^use:'` leer). Das ist eine echte Abweichung vom Standard (dsl-reference.md:1985-2021). Sie wird mit W-2 behoben, nicht mit diesem ADR.
 
-Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_workflows.py`, später der Profil-Leser im Modul) meldet das als Fehler.
+Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_workflows.py`, später der Profil-Leser im Modul) soll das melden. Das ist eine Folge von W-2, heute prüft `check_workflows.py` das nicht. Übergang wie bei `bot-seat` (ADR 0105 Entscheidung 2 = B): erst Warnung, dann Fehler.
 
 ### E3. Mensch-Warten ist eine Katalogfunktion `ask`
 
@@ -49,12 +49,14 @@ Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_
   2. `listen` auf ein Antwort-Ereignis (CloudEvent, Filter auf Lauf und Schritt) mit `timeout`.
 - Der Wartegrund steht in `metadata: freesynergy.net:wait-reason` (Werte aus ADR 0103 E3: `auf-entscheidung`, `auf-anfrage`, `in-prüfung`).
 - Die Antwort ist eine AS2-Aktivität `Accept` oder `Reject` auf die Frage (AS2-Vokabular, Activity `Question`).
-- `gate: human` bleibt als Angabe. Der Prüfer verlangt: ein Schritt mit `gate: human` nutzt `ask`. Ein Menschen-Schritt ohne `ask` ist ein Fehler.
+- `gate: human` bleibt als Angabe. Der Prüfer soll verlangen: ein Schritt mit `gate: human` nutzt `ask`. Das ist eine Folge von W-2, nicht heutiger Stand: heute prüft `check_workflows.py` das nicht, und es würde alle 60 Dateien (143 `human`-Angaben) rot machen. Übergang wie bei `bot-seat` (ADR 0105 Entscheidung 2 = B): erst Warnung, dann Fehler.
 
 ### E4. Der Lauf ist ein AS2-Objekt in fs-objects
 
 - Typ `fs:Run` per JSON-LD-Erweiterung (AS2-Erweiterungsregel). Speicher: fs-objects, typisierte Spalten (ADR 0086), nicht JSON oder Blob.
-- Spalten: `workflow` und `version`; Zustand × Station × Wartegrund; `loop.iteration`; Akteur und Starter; `$context` als Liste von Verweisen.
+- Spalten: `workflow` und `version`; Zustand × Station × Wartegrund; `loop.iteration`; `loop.limit`; Akteur und Starter; `$context` als Liste von Verweisen.
+- `loop.limit` ist die Obergrenze der Durchläufe **je Lauf** (Schnitt §2 Nr. 4, gegen A→B→A). Sie ist die Lauf-Seite von ADR 0087 Nachtrag (3) Nr. 4 („jede Schleife mit Obergrenze und Abbruch“). Der Läufer lehnt eine Schleife ohne Obergrenze ab. **Nicht geklärt:** ob die Obergrenze zusätzlich im SW-Dokument an jeder `for`-Schleife steht und wie der Prüfer das für die 60 Bestandsdateien verlangt (Offen 15).
+- **Bedingungen und Ausdrücke, ehrlich:** ADR 0087 Nachtrag (3) Nr. 3 verlangt typisierte Bedingungen aus einer festen Liste; gespeichert und gezeigt wird nie der Ausdruck, ein freier Ausdruck ist ausgeschlossen. Das SW-Dokument, das dieser ADR als Inhalt speichert (nächster Punkt) und mit `jaq-core` ausführt (E7), trägt dagegen `jq`-Ausdrücke (`${ … }` in `switch`/`when`, `for`, `set`). Das ist heute ein **Widerspruch**, den dieser ADR nicht auflöst. Gelesen, nicht erfunden: 0087 Nr. 3 erlaubt „ausgeführt als Serverless-Workflow-Ausdruck, den nur das Werkzeug erzeugt“; die Bestandsdateien in `fs-release` sind aber von Hand geschrieben. Ob typisierte Bedingung gespeichert und der SW-Ausdruck nur abgeleitet wird, ob für Werkzeug-YAML eine Ausnahme gilt, oder ob 0087 Nr. 3 angepasst wird, entscheidet die Strategie (Offen 14). Bis zur Entscheidung ist hier nichts festgelegt.
 - Zustände aus `fs-release/workflows/run/rules.yaml` (acht Stück: offen, läuft, wartet, pausiert, fehlgeschlagen, abgebrochen, erledigt, archiviert).
 - Activities je Schritt: Stationswechsel `Move` (origin → target, ADR 0103 Punkt 7); Antwort `Accept`/`Reject`; ein Modulbefehl protokolliert seine eigene Änderung selbst (`Create`/`Update`). Der Lauf hält davon nur den Verweis und einen Kurztext (ADR 0086).
 - Nach außen als CloudEvent (ADR 0081). fs-activity indiziert die Activities.
@@ -72,11 +74,11 @@ Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_
 - Wer zur Laufzeit handelt, kommt **nur aus der Verbindung** des Laufs, nie aus der Datei.
 - Ein Bot hat höchstens die Rechte des Starters (ADR 0091, ADR 0105 E3a).
 - Eine KI handelt nur als `ai:<name>` über den Bot-Platz und nur mit Freigabe (ADR 0091 E1/E2). In der Datei heißt sie `actor: ai`, `actor-type: Service` mit `bot-seat` (ADR 0105, Entscheidung 8).
-- Ein Schritt ohne `gate: human` darf nicht `destructive` oder mit Außenwirkung (`actsInName`) sein. Das ist Pflicht im Läufer (Schnitt Teil 4).
+- Ein Schritt ohne `gate: human` darf nicht `destructive` oder mit Außenwirkung (`actsInName`) sein. Das ist Pflicht im Läufer (Schnitt §2 Nr. 4).
 
 ### E7. Ein Modul `fs-modules-workflow` (Arbeitsname) für Beschreibung und Lauf
 
-- **Ein** Modul für Standard, Beschreibung und Lauf. Beschreibung und Lauf teilen Modell und Stationen; zwei Module müssten das Modell doppelt kennen (CLAUDE.md §8: Standard → Modul → eine Quelle). Es ersetzt den Arbeitsnamen `fs-flow`.
+- **Ein** Modul für Standard, Beschreibung und Lauf. Beschreibung und Lauf teilen Modell und Stationen; zwei Module müssten das Modell doppelt kennen (CLAUDE.md §8: Standard → Modul → eine Quelle). Es ersetzt den Arbeitsnamen `fs-flow` aus ADR 0103 Punkt 5 **und den in ADR 0087 Nachtrag 17.11. (3) Nr. 5 und ADR 0097 Offen 7 als „entschieden“ eingetragenen Namen `fs-flow`** (dort: Bibliothek im Repo `fs-rpc`, laut b7). Der endgültige Name kommt mit der nächsten Namenswelle (ADR 0103 Punkt 5).
 - `fs-workflows` bleibt das Programm mit reinen Daten (Forms, Frontend, Hilfe). Dort liegt kein Code (Regel „Kein Extra-Code“).
 - Crate: **`swf-core = "=1.0.0-alpha14"`**, exakter Pin, eigener Adapter, kein Fork. Der Pin ist exakt, weil `^1.0.0-alpha14` nach dem Text-Vergleich der Pre-Release-Kennung auch `alpha9` zöge (Schnitt §0, Befund vom 23.11.). Das Crate ist pre-1.0 und hat einen Betreuer; das zählt nicht gegen es (CLAUDE.md §8).
 - **swf-runtime nutzen wir vorerst nicht.** Es hält den Lauf nur im Speicher, bringt Shell und Container mit und hat keinen Resolver-Trait. Unser Läufer führt genau einen Schritt aus dem gespeicherten Lauf-Datensatz aus und schreibt das Ergebnis zurück. Er nutzt swf-core und `jaq-core` (dieselbe jq-Engine wie swf-runtime). **Richtung zugestimmt, Feinentscheid offen** (Offen 2).
@@ -92,8 +94,8 @@ Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_
 ### E9. Darstellung
 
 - Lauf als Spalten (Station × Zustand) mit Bahnen: Form `cards-in-columns@1.1` mit Kanal `lane`. Die Component ist da; eine Bahn-Achse im Kanban ist **nicht belegt** (Offen 8).
-- Lauf als Zeitbalken: Form `bars-in-time@1.0`, Component da (ADR 0105 E4).
-- Beschreibung als Graph: neue Form `steps-graph@1.0` aus dem Graph von swf-core. Die Component fehlt; Vorbilder sind zu prüfen. Das folgt in ADR 0105 E4 und W-8.
+- Lauf als Zeitbalken: Form `bars-in-time@1.0`, Component da (ADR 0105 Kontext 6).
+- Beschreibung als Graph: neue Form `steps-graph@1.0` aus dem Graph von swf-core. Die Component fehlt; Vorbilder sind zu prüfen. Das folgt in ADR 0105 E4 und W-8 (Graph); die Bahn-Achse braucht Kanban Stationen × Bahn in W-3/W-6.
 - Die Sicht „Lauf als Fall“ (ADR 0105, Punkt 5) zeigt offene Menschen-Schritte mit Wartegrund. Sie kostet keine eigenen Daten.
 
 ## Folgen
@@ -106,26 +108,32 @@ Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_
 ## Abweichungen von bestehenden ADRs
 
 - **ADR 0103 Punkt 5:** Arbeitsname `fs-flow` wird `fs-modules-workflow` (E7). Die Begründung dort (Art 2, Modul-Bausatz) gilt für das neue Modul. Nachtrag in 0103 gesetzt.
-- **ADR 0105:** Die Lauf-Zeile (`fs-flow`, ADR 0103 E5) heißt jetzt `fs-modules-workflow` (E7). Die Fassung in 0105 zu Lauf und Ablauf bleibt; die Entscheidung über den Lauf-Speicher liegt hier (E4). Nachtrag in 0105 gesetzt.
-- **ADR 0087 Punkt 5 und 0097 Punkt 7** nennen `fs-flow` als Bibliotheksnamen. Sie bleiben unverändert; ein Nachtrag ist nötig (Offen 10).
+- **ADR 0105:** Die Lauf-Zeile (`fs-flow`, ADR 0103 E5) heißt jetzt `fs-modules-workflow` (E7). Die Sichten und Ebenen in 0105 bleiben; Besitz von Ablauf und Lauf-Speicher liegen hier (E4, E7), siehe unten. Nachtrag in 0105 gesetzt.
+- **ADR 0087 Nachtrag 17.11. (3) Nr. 5 und ADR 0097 Offen 7** tragen `fs-flow` als entschiedenen Namen (laut b7). Dieser ADR ersetzt ihn durch `fs-modules-workflow`. Nachträge in 0087 und 0097 im selben Zweig gesetzt. Ob die Umbenennung eines laut b7 entschiedenen Namens dem Nutzer ausdrücklich gesagt werden muss, entscheidet die Strategie (Offen 10).
+- **ADR 0087 Nachtrag (3) Nr. 3 und 4** (typisierte Bedingungen, Obergrenze je Schleife) stehen im Widerspruch zu E4/E7, soweit das SW-Dokument `jq`-Ausdrücke trägt und mit `jaq-core` läuft. `loop.limit` (E4) erfüllt Nr. 4 je Lauf. Nr. 3 ist offen (Offen 14, 15).
+- **ADR 0087 Nachtrag (3) Nr. 5** („Besitzer der Workflow-Daten nach ADR 0076“ für `fs-workflows`) bleibt für die Daten, nicht für den Code: `fs:Workflow` und `fs:Run` gehören dem Modul `fs-modules-workflow` (E4, E7); `fs-workflows` ist nur Daten-Programm. Das passt zu ADR 0104.
+- **ADR 0103 Punkt 5, letzte Sätze („Gespeichert wird der Lauf beim startenden Programm, bis fs-workflows existiert“):** widerspricht E4/E7. Der Lauf liegt in fs-objects, geschrieben über das Modul, nicht beim startenden Programm. Nachtrag in 0103 gesetzt.
+- **ADR 0105 Tabelle „Quelle“:** Besitzer des Ablaufs „fs-workflows (bis dahin fs-release)“ widerspricht E4/E7 (`fs:Workflow` gehört dem Modul; `fs-workflows` hält nur Forms, Frontend, Hilfe). Nachtrag in 0105 gesetzt. Der Satz oben „Die Fassung in 0105 zu Lauf und Ablauf bleibt“ gilt daher nur für Sichten und Ebenen, nicht für den Besitz.
 - Talks `2026-11-18-tasks-*` nennen `fs-flow` als Ort der Ausnahmen. Die Gespräche sind Verlauf und bleiben unverändert.
 
 ## Offen
 
 1. **Schritt `cut` in `fs-release/workflows/entscheidung.yaml` fehlt.** Der Schritt ist als Karte bei `workflow-pflege` offen (Schnitt §0, Hinweis zu CLAUDE.md §2). Dieser Entwurf ist die Vorlage dafür. Der Schritt ist nicht gebaut.
-2. **Läufer:** eigener Ein-Schritt-Läufer über swf-core und jaq (E7) oder vorerst swf-runtime. Empfehlung der Strategie: eigener Läufer. Nicht entschieden.
-3. **Inhalt von `fs:Workflow` und `fs:Run`:** Das SW-Dokument als Inhalt eines AS2-Objekts (E4). Empfehlung: ja. Die Tabellen-Spalten und das Schema von `fs:Run` sind **nicht belegt** und noch nicht festgelegt.
-4. **Ein Modul für alles** (E7). Empfehlung: ja. Nicht geprüft gegen eine zweite Lösung mit Vertrag.
+2. **Läufer:** eigener Ein-Schritt-Läufer über swf-core und jaq (E7) oder vorerst swf-runtime. Empfehlung der Strategie: eigener Läufer. Richtung zugestimmt (Strategie), Feinschnitt offen.
+3. **Inhalt von `fs:Workflow` und `fs:Run`:** Das SW-Dokument als Inhalt eines AS2-Objekts (E4). Richtung zugestimmt, Feinschnitt offen. Die Tabellen-Spalten und das Schema von `fs:Run` sind **nicht belegt** und noch nicht festgelegt.
+4. **Ein Modul für alles** (E7). Richtung zugestimmt, Feinschnitt offen. Nicht geprüft gegen eine zweite Lösung mit Vertrag.
 5. **swf-core 1.1:** Liest das Crate Serverless Workflow 1.1? **[U]**. Außerdem die Reihenfolge der Pre-Release-Versionen (`alpha9` vor `alpha14` im Text-Vergleich): belegt in der crates.io-API, Konsequenz nur über den exakten Pin (E7).
 6. **Katalog `fs` ohne abrufbaren Endpunkt:** Erfüllt er die Spec? Die Spec verlangt eine Dateistruktur am Endpunkt (dsl-reference.md:1989). **[U]**. Der Katalog wird über den Host aufgelöst, nicht über HTTP (Schnitt §2.6 iii).
 7. **Agenten:** Gibt es einen A2A-Endpunkt für unsere Agenten (`call: a2a`)? **[U]**. Bis dahin ist der KI-Schritt `ask`-artig (Bericht-Antwort) und kein Modulbefehl.
-8. **Bahn-Achse im Kanban:** Die Komponente hat keine Bahn-Achse (grep `lane`/`swim` leer). **[U]**, prüfen bei W-8.
+8. **Bahn-Achse im Kanban:** Die Komponente hat keine Bahn-Achse (grep `lane`/`swim` leer). **[U]**, prüfen bei W-3 (Bahn-Achse: Stationen × Bahn in `cards-in-columns`, W-3/W-6; W-8 ist nur der Graph).
 9. **`run.workflow` im FS-Profil:** Ist die Unter-Workflow-Art Teil des Profils? Auslegung hier: ja, weil sie in Gebrauch ist. Vom Nutzer nicht bestätigt.
-10. **Nachträge zu 0087 Punkt 5 und 0097 Punkt 7** (Bibliotheksname `fs-flow`). Nicht gesetzt.
-11. **Zählung der Dateien:** Der Schnitt zählt 60 Dateien mit `dsl: 1.0.3`; ADR 0105 zählt 59. Vor W-2 mit `grep -l` nachzählen. **[U]**.
+10. **Umbenennung von `fs-flow`:** Nachträge in 0087 und 0097 sind gesetzt. Offen für die Strategie: ob der Nutzer die Umbenennung eines laut b7 entschiedenen Namens ausdrücklich bestätigen muss oder ob die Zustimmung zur Richtung „ein Modul statt `fs-flow`“ sie deckt.
+11. **Zählung der Dateien (geschlossen):** `grep -l "dsl: 1.0.3" fs-release/workflows/*.yaml` ergibt lokal am 23.11. 60 Treffer. Die Zahl 59 in ADR 0105 ist der ältere Stand.
 12. **Gate-Regel:** Die Pflicht `gate: human` für `unmarked`/`destructive`/`actsInName` stammt aus der Bewertung vom 19.11. (intern). Ob sie im Profil steht oder nur im Läufer, ist nicht entschieden.
 13. **Nummer 0107:** Zum Zeitpunkt des Entwurfs ist 0107 frei (ls-remote der Zweige geprüft). Vor dem Zusammenführen erneut prüfen.
-14. **Opus-Prüfung** des Entwurfs steht aus.
+14. **Typisierte Bedingungen gegen SW-Ausdrücke (Widerspruch zu ADR 0087 Nachtrag (3) Nr. 3, Frage an die Strategie):** Das gespeicherte SW-Dokument trägt `jq`-Ausdrücke, 0087 verlangt „nie der Ausdruck, nur die typisierte Bedingung“. Zur Wahl stehen, ohne Empfehlung hier: (a) typisierte Bedingung ist die Quelle, der SW-Ausdruck wird nur abgeleitet (so liest sich 0087 Nr. 3 „den nur das Werkzeug erzeugt“); (b) Ausnahme für importierte Werkzeug-YAML; (c) 0087 Nr. 3 ändern. Nicht entschieden.
+15. **Obergrenze je Schleife im Dokument:** `loop.limit` je Lauf ist in E4 genannt. Ob zusätzlich jede `for`-Schleife im SW-Dokument eine Obergrenze und einen Abbruch tragen muss (0087 Nr. 4) und wie der Prüfer das für die 60 Bestandsdateien einführt (Warnung vor Fehler, wie bei `bot-seat`), ist nicht entschieden.
+16. **Opus-Prüfung** des Entwurfs steht aus (Nachblick am neuen Kopf).
 
 ## Pflichttests (Vorschlag; nichts davon ist gebaut)
 
