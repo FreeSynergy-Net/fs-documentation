@@ -18,7 +18,7 @@ Daten und Kommunikation dürfen nicht vom Geld abhängen. FreeSynergy ist für i
 
 ## Warum jetzt
 
-Kommunikation muss frei sein. Im Moment wird es enger: In der EU wird seit Jahren über die Chatkontrolle gestritten, also darüber, private Nachrichten automatisch durchsuchen zu lassen, und Polizei und Geheimdienste bekommen in vielen Ländern Schritt für Schritt mehr Befugnisse. Wir halten das für den falschen Weg. Wir bauen Werkzeuge, mit denen Menschen frei miteinander reden können. Wir können niemanden vor allem schützen, aber wir können helfen, Gefahren zu erkennen und bewusster zu reagieren, wenn sie kommen.
+Kommunikation muss frei sein. Im Moment wird es enger: In der EU wird seit Jahren über die Chatkontrolle gestritten, also darüber, private Nachrichten automatisch durchsuchen zu lassen, und Polizei und Geheimdienste bekommen in vielen Ländern Schritt für Schritt mehr Befugnisse. Wir halten das für den falschen Weg. Wir bauen gerade Werkzeuge, mit denen Menschen frei miteinander reden können. Vor allem schützen können wir niemanden. Wir wollen aber helfen, Gefahren zu erkennen und bewusster zu reagieren, wenn sie kommen.
 
 Freie Software hat den Ruf, sperrig zu sein. Das muss nicht so sein. Freiheit darf schön sein, angenehm und leicht zu bedienen. Wir brauchen endlich Werkzeuge, mit denen man einfach als Mensch leben kann.
 

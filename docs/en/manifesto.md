@@ -18,11 +18,11 @@ Data and communication must not depend on money. FreeSynergy is free forever and
 
 ## Why now
 
-Communication must be free. Right now it is getting narrower: in the EU, there has been a dispute for years over chat control, that is, over having private messages scanned automatically, and in many countries police and intelligence services gain more powers step by step. We think that is the wrong way. We build tools with which people can talk to each other freely. We cannot protect anyone from everything, but we can help people recognise dangers and react more consciously when they come.
+Communication must be free. Right now the room for it is shrinking: in the EU, there has been a dispute for years over chat control, that is, over having private messages scanned automatically, and in many countries police and intelligence services gain more powers step by step. We think that is the wrong way. We are building tools with which people can talk to each other freely. We cannot protect anyone from everything. But we want to help people recognise dangers and react more consciously when they come.
 
-Free software has a reputation for being awkward. It does not have to be. Freedom may be beautiful, pleasant and easy to use. We finally need tools with which you can simply live as a person.
+Free software has a reputation for being awkward. It does not have to be. Freedom is allowed to be beautiful, pleasant and easy to use. It is high time for tools with which you can simply live as a person.
 
-We want people to be better off. That works when we work together decently. If the business world does not think it possible, we will show people ourselves.
+We want people to be better off. That works when we work together decently. If the business world does not think it possible, we will show it to people ourselves.
 
 ## What belongs together stays together
 
