@@ -289,7 +289,7 @@ Status: **Entwurf** (Nutzerwort 2026-11-17 (D) und Nutzerentscheid 25 (bindend, 
 
 ## Nachtrag 23.11.2026 (Entwurf): „abstimmen“ in Punkt 5 meint bindende Abstimmungen und Aufnahmen
 
-Status: **Entwurf** (Nutzerentscheid 23.11.2026: Unterscheidung bindender Beschluss, Umfrage, Aufnahme; Auslegung der Strategie, nicht Wortlaut des Nutzers) · **schränkt** Punkt 5 („zustimmen, abstimmen, einladen, Einladungen annehmen“) für nicht bindende Umfragen **ein**, hebt ihn nicht auf · Querverweis zu ADR 0087, Nachtrag 23.11.2026, und ADR 0095, Nachtrag 23.11.2026
+Status: **Entwurf** (Nutzerentscheid 23.11.2026: Unterscheidung bindender Beschluss, Umfrage, Aufnahme; Auslegung der Strategie, nicht Wortlaut des Nutzers) · **schränkt** Punkt 5 („zustimmen, abstimmen, einladen, Einladungen annehmen“) **nur beim Wort „abstimmen“** und nur für nicht bindende Umfragen **ein**; „zustimmen“, „einladen“, „Einladungen annehmen“ und „den Türsteher auslösen“ **bleiben unverändert verboten** · Querverweis zu ADR 0087, Nachtrag 23.11.2026, und ADR 0095, Nachtrag 23.11.2026
 
-- **„Abstimmen“ in Punkt 5 meint bindende Abstimmungen** (Gruppenbeschlüsse) **und Aufnahmen/Eintritte**. Dort bleibt das Verbot unverändert.
+- **„Abstimmen“ in Punkt 5 meint bindende Abstimmungen** jeder Art in `fs-decisions` (Beschluss, Wahl, Konsent, Rangwahl …) **und Aufnahmen/Eintritte**. Dort bleibt das Verbot unverändert.
 - **Nicht bindende Umfragen** (Meinungsbild, Fragebogen): Die Teilnahme einer KI ist möglich, **wenn sie eingeschaltet ist** (Regel aus ADR 0087, Nachtrag 2026-11-17 (3), Punkt 7: im geschlossenen Kreis stimmen alle Teilnehmer zu, bei einer offenen Umfrage entscheiden die Organisatoren). Im Ergebnis bildet sie eine eigene Kategorie. Das schränkt Punkt 5 für diesen Fall ein.
