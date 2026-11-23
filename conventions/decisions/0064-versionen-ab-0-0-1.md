@@ -25,8 +25,8 @@ Eine hohe Nullversion (0.9) verspricht Reife, die nicht belegt ist. Der Nutzer w
 ## Nachtrag 2026-11-23: Registry-Version aus dem Tag zählt als Tag (Nr. 5)
 
 Status: **entschieden** (Entscheid Strategie 23.11., Nutzer wird informiert, Kurzvorlage vor K-5; Schnitt „ENTSCHEID-kaskade“, Empfehlung B2) · **ergänzt** Nr. 5 · Nr. 1 bis 4 gelten unverändert · Grund und Umfang: ADR 0093, Nachtrag 2026-11-23 · Bereichsregel: ADR 0045, Nachtrag 2026-11-23 Nr. 4 und 5
-1. **Eine Version im Registry `freesynergy` zählt als Tag im Sinne von Nr. 5**, wenn sie die Release-CI aus genau diesem Tag-Lauf veröffentlicht hat. Von Hand gibt es keinen Eintrag. Ein Kopf, ein Branch oder eine `rev` wird nie veröffentlicht.
-2. **Crate-Version = Tag.** Die Version in `Cargo.toml` muss gleich dem Tag sein (Tag `v0.0.7` → Crate `0.0.7`). Ein Gate im Tag-Lauf prüft das vor dem Paketieren und ist bei Abweichung rot. Heute steht in fs-types noch `0.0.5` gegen Tag `v0.0.6`, und das ist ein Fehler.
+1. **Eine Version im Registry `freesynergy` zählt als Tag im Sinne von Nr. 5**, wenn sie ein Lauf der Release-CI zu genau diesem Tag veröffentlicht hat. Von Hand gibt es keinen Eintrag. Ein Kopf, ein Branch oder eine `rev` wird nie veröffentlicht.
+2. **Crate-Version = Tag.** Die Version in `Cargo.toml` muss gleich dem Tag sein (Tag `v0.0.7` → Crate `0.0.7`). Ein Gate im Lauf der Release-CI zu diesem Tag prüft das vor dem Paketieren und ist bei Abweichung rot. Heute steht in fs-types noch `0.0.5` gegen Tag `v0.0.6`, und das ist ein Fehler.
 3. Für Abhängigkeiten aus dem Registry ist statt eines exakten Tags ein **Bereich** `~0.0.N` erlaubt. Das gilt nur für die in ADR 0093 (Nachtrag 2026-11-23) genannten Crates. Für alles andere bleibt der Git-Tag.
 4. **„Eine Version je Crate im Abhängigkeitsgraphen“ bleibt.** Liegen zwei 0.0.x-Versionen aus dem Registry im Lock, ist das ein Verstoß (ADR 0092, Nachtrag 2026-11-23).
 5. Kein Sprung auf 0.1.x: Nr. 2 gilt auch für fs-types. Mit dem ersten 0.1.0 gilt das normale Caret (ADR 0045, Nachtrag Nr. 4).
