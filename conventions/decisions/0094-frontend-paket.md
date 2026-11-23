@@ -105,14 +105,14 @@ Kein Frontend gibt ein Bereitschaftszeichen; die Probezeit nach einem Update (AD
 
 ## Nachtrag 2026-11-23: Mindestausstattung eines Programmpakets (E3)
 
-Status: **Entwurf** (Strategie, 23.11.2026, ENTSCHEID-schnitt E3; Annahme zusammen mit 0094 offen, Opus-Review) · **ergänzt** Entscheidung 1–5 (ändert nichts davon) · verwendet ADR 0066 §5, ADR 0074 §2 und §8, ADR 0097 E5/E6, ADR 0099 Nr. 12
+Status: **Entwurf** (Strategie, 23.11.2026, ENTSCHEID-schnitt E3; Annahme zusammen mit 0094 offen, Opus-Review) · **ergänzt** Entscheidung 1–5 (ändert nichts davon) · verwendet ADR 0066 §5, ADR 0074 §4 und §8, ADR 0097 E6, ADR 0099 Nr. 12
 
 **Lage:** Die Regel „Standard- und Admin-Frontend kommen immer mit dem Programmpaket“ steht verstreut in ADR 0066 §5, 0094 (Z. 31) und 0074 §8. Es fehlt die Regel als prüfbare Pflicht und die Angabe „nach Vorbild“ im Manifest.
 
 **Vorschlag (Gate „1+1“):**
 1. Ein Programmpaket ist nur dann konform, wenn es
    - **mindestens ein** Frontend-Manifest mit `fs:admin=true` und `fs:covers=all` hat (vorhanden: ADR 0094 Entscheidung 2, ADR 0097 E6), **und**
-   - **mindestens ein** normales Frontend-Manifest (ohne `fs:admin`) mit dem neuen Schlüssel `fs:reference` hat, dessen Wert die id des Vorbild-Dossiers ist (Workflow `dossier`; Bilder bleiben lokal, ADR 0074 §2).
-2. Die vier Frontends aus ADR 0066 §5 bleiben das **Ziel**; das Gate ist 1+1 (Frage 2).
+   - **mindestens ein** normales Frontend-Manifest (ohne `fs:admin`) mit dem neuen Schlüssel `fs:reference` hat, dessen Wert die id des Vorbild-Dossiers ist (Workflow `dossier`; Bilder bleiben lokal, ADR 0074 §4).
+2. Die vier Frontends aus ADR 0066 §5 bleiben das **Ziel**; das Gate ist 1+1.
 3. **Paket-Erklärung:** das Frontend-Manifest nennt `extends`, `requires`, `fs:covers`, `fs:admin`, `fs:reference`. Der Katalog braucht dafür das Feld `extends` (ADR 0094 §5; `Catalog/docs/format.md` hat es noch nicht). fs-blueprint erzeugt das Admin-Layout mit `covers="all"` (ADR 0099 Nr. 12; im Code noch nicht umgesetzt).
 4. **conformance-Regeln** (heute alle rot, bis sie umgesetzt sind): `frontend.admin-present`, `frontend.admin-covers-all` (laut ADR 0097 Pflichttests vorhanden), `frontend.normal-present`, `frontend.normal-has-reference`.

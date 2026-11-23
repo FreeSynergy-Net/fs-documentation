@@ -1,14 +1,14 @@
 # 0106 – Meldungen (fs-notification): ein Modul für Meldung, Fehler und Nachfrage
 
-Status: **Entwurf** (2026-11-23; Workflow `adr-write`, Schritt `draft`; Grundlage `.scratch/woche-11-23/meldungen/ENTSCHEID-schnitt.md` Punkt E1, von der Strategie angenommen; Urheber: Nutzerentscheid 21.11. (fs-update F4: Standard „Fragen“ als Modal) und Nutzerregel 23.11. (Toast oder Modal, nie Text oben); Opus-Prüfung ausstehend) · **setzt um** ADR 0065 §4 und §5 (Meldung gehört zum Anlass, Fehler bleibt sichtbar, Observer mit Lebensdauer) · **ergänzt** ADR 0069 Nachtrag 23.11. (E5, Update-Frage als `notification.ask`) · **verwendet** ADR 0057 (Code mit Parametern, MF2), ADR 0092 Z. 17 (Namensregel Einzahl), ADR 0100 (Einstellungen `fs.notification.*`), ADR 0069 E2 (Parameter schwärzen)
+Status: **Entwurf** (2026-11-23; Workflow `adr-write`, Schritt `draft`; Grundlage Strategie-Entscheid 23.11.2026 (ENTSCHEID-schnitt E1), von der Strategie angenommen; Urheber: Nutzerentscheid 21.11. (fs-update F4: Standard „Fragen“ als Modal) und Nutzerregel 23.11. (Toast oder Modal, nie Text oben); Opus-Prüfung ausstehend) · **setzt um** ADR 0065 §4 und §5 (Meldung gehört zum Anlass, Fehler bleibt sichtbar, Observer mit Lebensdauer) · **ergänzt** ADR 0069 Nachtrag 23.11. (E5, Update-Frage als `notification.ask`) · **verwendet** ADR 0057 (Code mit Parametern, MF2), ADR 0092 Z. 17 (Namensregel Einzahl), ADR 0100 (Einstellungen `fs.notification.*`), ADR 0069 E2 (Parameter schwärzen)
 
-**Lesehinweis:** Jede Aussage stammt aus `ENTSCHEID-schnitt.md` E1. Was dort nur als Vorschlag oder später steht, ist so markiert.
+**Lesehinweis:** Jede Aussage stammt aus dem Strategie-Entscheid vom 23.11.2026, Punkt E1. Was dort nur als Vorschlag oder später steht, ist so markiert.
 
 ---
 
 ## Kontext
 
-Heute melden Programme Fehler und Ergebnisse uneinheitlich: Text in der Statuszeile, Text oben im Fenster, stderr ohne Fenster. Der Trait `Tell` in `fs-starter` (`crates/fs-starter/src/tell.rs`, Typen `Note{level: Error|Hint, code: Code}`, Standard `StderrTell`) ist ein Meldeweg, hängt aber an keinem Fenster und an keinem Betriebssystem.
+Heute melden Programme Fehler und Ergebnisse uneinheitlich: Text in der Statuszeile, Text oben im Fenster, stderr ohne Fenster. Der Trait `Tell` in `fs-starter` (`crates/fs-starter/src/tell.rs`, Typen `Note{level: Error|Hint, code: Code}`, Standard `StderrTell`) ist der bestehende Meldeweg.
 
 Bestand (belegt):
 - Die Komponenten für Toast und Modal liegen auf main vor: `fs-components-overlays` (`toast/`, `dialogs/`, `popover/`, `tooltip/`); der Banner liegt in `fs-components-widgets/src/banner/`. (Stand fs-components main 0ac9af0f, 23.11.)
@@ -32,7 +32,7 @@ Bestand (belegt):
 5. **Adapter je Betriebssystem hinter eigener Schnittstelle.** Port `Outlet` im Kern; Adapter-Crate `fs-notification-system`. Der Kern kommt ohne Blinc, ohne zbus und ohne windows aus.
    - **Linux/BSD:** `notify-rust =4.19.0` (MIT OR Apache-2.0, crates.io 2026-11-08) mit Feature `z` (zbus 6, reines Rust, ohne libdbus). Liefert Notify, CloseNotification, Aktionen und `replaces_id`. Beleg: crates.io-Abhängigkeiten 4.19.0.
    - **Flatpak/Sandbox:** `ashpd` Feature `notification` (Portal `AddNotification`, `RemoveNotification`, `ActionInvoked`). Belegt: crates.io 0.14.3, Feature-Liste. Gewählt wird die Version, die schon im Lock ist (`ashpd =0.14.0`, wie `fs-components-filepicker`, ADR 0100 Offen 1); keine zweite Version.
-   - **Windows:** ebenfalls `notify-rust`. Es zieht unter `cfg(target_os="windows")` `tauri-winrt-notification ^0.8` (0.8.1, 2026-07-17, MIT OR Apache-2.0) mit; kein eigenes Crate nötig. Die API ist belegt: `title`, `text1`, `icon`, `sound`, `scenario`, `add_button`, `on_activated`, `on_dismissed`, `show`. **Wichtig:** Ein nicht verpacktes Programm braucht eine **AppUserModelID**, und die setzt eine Startmenü-Verknüpfung voraus. Das ist Sache des MSI (ADR 0069 Nachtrag 23.11.: Windows per MSI). Ohne sie gibt es nur `Toast::POWERSHELL_APP_ID`; dann erscheint als Absender „Windows PowerShell“. Das ist nur für den CI-Beweis ehrlich verwendbar (Frage 3). Die älteren Alternativen `winrt-notification` 0.5.1 (Stand 2022) und `win-toast-notify` 0.1.6 werden nicht genommen.
+   - **Windows:** ebenfalls `notify-rust`. Es zieht unter `cfg(target_os="windows")` `tauri-winrt-notification ^0.8` (0.8.1, 2026-07-17, MIT OR Apache-2.0) mit; kein eigenes Crate nötig. Die API ist belegt: `title`, `text1`, `icon`, `sound`, `scenario`, `add_button`, `on_activated`, `on_dismissed`, `show`. **Wichtig:** Ein nicht verpacktes Programm braucht eine **AppUserModelID**, und die setzt eine Startmenü-Verknüpfung voraus. Das ist Sache des MSI (ADR 0069 Nachtrag 23.11.: Windows per MSI). Ohne sie gibt es nur `Toast::POWERSHELL_APP_ID`; dann erscheint als Absender „Windows PowerShell“. Das ist nur für den CI-Beweis ehrlich verwendbar. Die älteren Alternativen `winrt-notification` 0.5.1 (Stand 2022) und `win-toast-notify` 0.1.6 werden nicht genommen.
    - **macOS:** kommt über `notify-rust` mit (`mac-notification-sys`), ist aber jetzt kein Ziel.
    - **Android:** kein eigenständiges Rust-Crate. `tauri-plugin-notifications` 0.4.6 hängt an Tauri und passt nicht. Weg: kleiner eigener Adapter über `jni` 0.22.4 und `ndk-context` auf `NotificationManager` (Kanal-ID Pflicht ab API 26, `POST_NOTIFICATIONS` ab API 33). Erst sinnvoll, wenn ein Blinc-Android-Bau läuft. Blinc `android.rs` hat keine Meldungen (geprüft). **Später, nicht im ersten Bild.**
 
@@ -56,7 +56,7 @@ Stehen in den Nachträgen der jeweiligen ADRs (dort als Nachtrag 23.11.2026 eing
 - `fs-starter::Tell` wird Adapter; die Statuszeile zeigt nur Zustand.
 
 ## Offen
-1. Windows: die AppUserModelID braucht das MSI; bis dahin nur der CI-Beweis über PowerShell (Frage 3).
+1. Windows: die AppUserModelID braucht das MSI; bis dahin nur der CI-Beweis über PowerShell.
 2. Verlauf (Punkt 7): erst, wenn der Kern von fs-activities angeschlossen ist.
 3. Android (Punkt 5): erst nach einem Blinc-Android-Bau.
 4. Blinc-PR für `icon` (Punkt 6): optional.
