@@ -193,4 +193,4 @@ Status: **Entscheid Strategie 23.11., Nutzer informiert** · ändert in E3 (Z. 5
 ## Nachtrag 2026-11-23 (ADR 0108, Entwurf): Vergessen
 - **Offen 6** (Verschlüsselung je Person auf dem Server „beim Thema Vergessen“) ist in der Richtung entschieden: Abschnittsschlüssel je Person bzw. Gruppe für Server-Kopien, Fristablauf vernichtet den Schlüssel und löscht das Chiffrat (ADR 0108 E3, E7).
 - **E6** bekommt einen vierten Konformitätstest je Treiber: **„vergessen vollständig“** (ADR 0108 E9).
-- Auf dem Gerät (Datei je Modul und Person, E7) schreibt der Vergessens-Lauf die Moduldatei mit neuem Schlüssel neu (ADR 0108 E3).
+- Auf dem Gerät (Datei je Modul und Person, E7) löscht der tägliche Löschlauf Abgelaufenes, der wöchentliche Schlüssellauf schreibt die Moduldatei mit neuem Schlüssel neu (ADR 0108 E3).
