@@ -294,5 +294,4 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu ENTSCHEID-form) · **änd
 
 - **`skeleton` ist ein Versionsbereich, keine exakte Version.** Eine exakte Version friert das Gemeinsame je Programm ein und widerspricht dem Grundsatz „Scaffold erweitert, Programm bekommt es automatisch mit“. Die Abnahme `skeleton-carries-along` (Gruppe in `fs-conformance`) prüft das; Mutante M6 „Programm pinnt `skeleton` exakt, der Host verweigert es“ wird rot erwartet.
 - Pflichtteile des Gerüsts bleiben nicht abwählbar (Nr. 10 unverändert).
-- **Offen (Frage):** Der Entscheid nennt als Vorschlag den Bereich `>=0.1 <0.2` (Haupt = Bruch); die genaue Schreibweise und das Schicksal der Tabelle in `fs-blueprint` sind nicht entschieden.
-- **Keine Versionen im Namen:** Für Schema-Namen gilt die Regel aus ADR 0045, Nachtrag 23.11.2026; die Schema-Version ist ein Datenfeld (`schema = 2`), nie Teil des Namens.
+- **Version als Feld (Strategie-Entscheid 23.11.2026):** `skeleton` ist ein Versionsbereich als Feldwert, z. B. `>=0.1 <0.2` (Haupt = Bruch). Die Tabelle in `fs-blueprint` bleibt für die Zuordnung zu den Tags. Für Schema-Namen gilt die Regel aus ADR 0045, Nachtrag 23.11.2026; die Schema-Version ist ein Datenfeld (`schema = 2`), nie Teil des Namens.

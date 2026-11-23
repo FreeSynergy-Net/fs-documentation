@@ -173,3 +173,11 @@ Status: **akzeptiert** (Namensregel Bibliothek Einzahl, ADR 0092 Z. 17, 0093 Z. 
 1. **Namen:** `fs-sessions` → **`fs-session`**, `fs-updates` → **`fs-update`**. Repos bleiben: `fs-session` im Repo fs-components, `fs-update` im Repo fs-packages.
 2. **Reihenfolge:** Z. 135 („fs-types, fs-rpc, fs-sessions, fs-components, fs-packages mit fs-updates, Programme“) wird ersetzt durch ADR 0093 Regel 1 mit Nachtrag: fs-types → {fs-interfaces, fs-jscalendar, fs-objects, fs-components (mit fs-session)} → fs-access → fs-rpc → fs-packages (mit fs-update) → Programme.
 3. `fs-update` aktualisiert Programme **und Module** (Nutzer 17.11.: Selbst-Update für Programme und Module).
+
+## Nachtrag 23.11.2026 (Entwurf): rpm ist der Hauptweg (Regel 7)
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu PKG) · **ändert** Regel 7 (Ehrlichkeit nach Installationsart: dort tar.gz im Nutzerordner Hauptweg, rpm/deb „meldet nur“) · Fundstelle: `woche-11-23/packages/ENTSCHEID-schnitt.md` (Verdict, Abschnitt zu fs-update)
+
+- **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` installiert nicht selbst, sondern **prüft nur und fragt**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
+- Crate: `packagekit-zbus` 0.2.0 (D-Bus-Proxys auf zbus 6).
+- **Offen (Nutzerfrage, nicht angenommen):** Der Weg ohne Admin-Rechte in den eigenen Nutzerordner (`~/.local`) entfällt unter Linux; wer installiert, braucht `wheel` bzw. das Passwort. Empfehlung des Entscheids: so.

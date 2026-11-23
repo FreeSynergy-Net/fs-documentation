@@ -44,4 +44,5 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu KAL-G2; Nutzer: Frage 12 
 - **Eine Form `bars-in-time@1.0`** für Kalender, tasks-Gantt und Workflow-Gantt; Woche, Tag, Monat, Agenda und Gantt sind Sichten (Components). **`calendar-view` entfällt** (zweite Kalenderdarstellung neben `calendar-grid`, gegen ADR 0005); der Agenda-Teil wandert als Modus in `calendar-grid`.
 - **Gruppe als Gast (Nutzer 23.11.): eine eingeladene Gruppe ist EIN Gast im Termin**; späterer Beitritt sieht den Termin, jedes Mitglied sagt selbst zu oder ab.
 - **Ersetzen statt umbauen** (Nutzer): Der alte Kalender (rund 24 000 Zeilen) wird nicht umgebaut; bis zum ersten neuen Bild gibt es keinen lauffähigen Kalender.
-- **Offen:** Zonenumrechnung im Block (wer macht sie) und ob `fs-components-workbenches/calendar` noch gebraucht wird: laut Entscheid `unbelegt`.
+- **Zone (Entscheid 23.11.2026):** Der Aufrufer bzw. das Modul rechnet die Zeitzone um, der Block nie.
+- **Entscheid 23.11.2026: `calendar-workbench` (`fs-components-workbenches/calendar`) wird gestrichen.** Das Streichen ist ein eigener Auftrag im Zweig 5d und nicht Teil dieser Doku-Änderung.

@@ -30,3 +30,13 @@ ADR 0062 legt den Katalog fest (AppStream + TUF, Pakete als Git-Tags). Kein ADR 
 - Verhalten von `apt` bei abgelaufenem Unterschlüssel und Optionen von `apt-ftparchive` (`Valid-Until`, `Acquire-By-Hash`) **[nicht belegt]**, Testfall im Smoke-Test.
 - `repo_gpgcheck`/`gpgcheck` gegen `dnf.conf(5)` und EL9-Test auf `almalinux:9` **[nicht belegt]**.
 - Verzeichnisaufbau des Lookaside **[nicht belegt]**; EL9 im FIPS-Modus **[nicht belegt]**.
+
+## Nachtrag 23.11.2026 (Entwurf): dnf vor apt, createrepo_rs, Kanal nightly
+
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu PKG) · Fundstelle: `woche-11-23/packages/ENTSCHEID-schnitt.md` (Verdict, Abschnitte c und d, „Widersprüche“)
+
+- **dnf kommt vor apt.** Die Adresse des Repositories wird **FreeSynergy-Net**.
+- **`createrepo_rs`** (0.1.9, reines Rust, GPL-2.0-or-later) ersetzt `createrepo_c` als **reines CI-Werkzeug** (nicht gelinkt). Gate: Einmalige Gleichheitsprüfung gegen `createrepo_c` im Fedora-Container; bleibt sie aus, Rückfall auf `createrepo_c`.
+- **Kanal `nightly`:** eine eigene dnf-Quelle, **ab Werk ausgeschaltet** (`stable` an), **nur von der CI gebaut und signiert** (workflow `nightly.yml`, Version `<nächste>~nightly.<UTC-Stempel>.g<sha7>`); lokal Gebautes kommt nie in eine Quelle. `fs-update` bietet `nightly` nie an (Eintrag F6 vom 21.11. bleibt für fs-update gültig).
+- **Offen:** Die RPMs verlangen `GLIBC_2.39`; ADR 0078 nennt EL9 (glibc höchstens 2.34) als Ziel. **Fedora zuerst, EL9 bleibt offen.**
+- **Offen (Nutzerfrage 15, nicht angenommen):** Heißt das Programm sichtbar „Pakete“ statt „Installer“ (Empfehlung: ja; „Installieren“ und „Aktualisieren“ sind Befehle in jedem Programm)?

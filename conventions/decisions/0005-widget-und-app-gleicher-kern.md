@@ -46,4 +46,4 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu KAL-G2) · **wendet** die
 
 - Der ältere Block `calendar-view` (rund 1 559 Zeilen) ist eine zweite Kalenderdarstellung neben `calendar-grid`. Die Agenda-Ansicht wird als Modus in `calendar-grid` übernommen, danach wird `calendar-view` gestrichen. Betroffene Doku (`components/data/calendar-view/`) wird nachgezogen.
 - Beide Kalender-Components stellen dieselbe Form `bars-in-time@1.0` dar (Details: ADR 0050, Nachtrag 23.11.2026).
-- **Offen:** Reihenfolge (Agenda-Modus zuerst, dann Streichen) ist im Entscheid nur unter „Danach“ genannt, ohne Termin.
+- `calendar-view` wird **direkt nach Übernahme des Agenda-Modus in `calendar-grid` gestrichen** (Beleg = Bild), ohne festes Datum (Strategie-Entscheid 23.11.2026).
