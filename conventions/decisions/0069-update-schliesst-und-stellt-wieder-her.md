@@ -180,4 +180,4 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu PKG) · **ändert** Regel
 
 - **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` installiert nicht selbst, sondern **prüft nur und fragt**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
 - Crate: `packagekit-zbus` 0.2.0 (D-Bus-Proxys auf zbus 6).
-- **Offen (Nutzerfrage, nicht angenommen):** Der Weg ohne Admin-Rechte in den eigenen Nutzerordner (`~/.local`) entfällt unter Linux; wer installiert, braucht `wheel` bzw. das Passwort. Empfehlung des Entscheids: so.
+- **Nutzervorgabe 23.11.2026: systemweit, nicht lokal.** Ein Weg ohne Admin-Rechte (`~/.local`) ist derzeit nicht vorgesehen; wer installiert, braucht `wheel` bzw. das Passwort.
