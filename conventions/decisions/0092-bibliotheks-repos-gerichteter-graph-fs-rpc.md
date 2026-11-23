@@ -48,8 +48,8 @@ Status: **entschieden** (Entscheid Strategie 23.11., Nutzer wird informiert, Kur
 3. **Änderung an der Prüfung in fs-release (K-3):**
    - Registry-Quellen (`registry+…`, `sparse+…`) werden normalisiert wie Git-Quellen.
    - Für fs-types ist die einzige erlaubte Quelle die Index-URL von `freesynergy`.
-   - Prüffälle: Registry-Doppel rot, Registry einzeln grün, Git-fs-types unter der Quellenregel rot.
+   - Prüffälle: Registry-Doppel rot, Registry einzeln grün, Git-fs-types unter der Quellenregel rot (mit der Ein-Eintrag-Regel ab K-5).
    - **Übergang ehrlich:** Bis K-5 sind für fs-types **zwei Quellen erlaubt** (die Index-URL von `freesynergy` und die Git-Quelle `FreeSynergy-Net/fs-types`, zwei `only_from`-Einträge in `scripts/lock-sources.toml`), und die Prüfung ist dabei **grün**. Das ist keine Warnung und kein Schutz vor der Git-Quelle.
-   - **K-5 löscht den zweiten `only_from`-Eintrag** (die Git-Quelle) in `scripts/lock-sources.toml`. Danach gibt es genau einen Eintrag, und eine Git-Quelle von fs-types ist rot. Der Selbsttest der Prüfung liest die **ausgelieferte** Datei und verlangt genau einen Eintrag; ein Rest des Übergangs wird damit rot.
+   - **K-5 löscht den zweiten `only_from`-Eintrag** (die Git-Quelle) in `scripts/lock-sources.toml`. Danach gibt es genau einen Eintrag, und eine Git-Quelle von fs-types ist rot. Ab K-5 (im selben Commit wie das Löschen; bis dahin zwei Einträge und der Selbsttest heute nicht rot) liest der Selbsttest der Prüfung die **ausgelieferte** Datei und verlangt genau einen Eintrag; ein Rest des Übergangs wird damit rot.
    - Die Prüfung ist heute ein Python-Skript. Die Änderung ist ein Auftrag nach CLAUDE.md §7, kein neues Python. Der Umzug nach Rust folgt der Inventur.
 4. Das Rest-Risiko aus „Folgen“ (jeder `fs-interfaces`-Tag zieht nach) gilt weiter für alle Bibliotheken, die per Git-Tag gepinnt sind.
