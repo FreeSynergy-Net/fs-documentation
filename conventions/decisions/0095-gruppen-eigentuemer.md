@@ -86,9 +86,9 @@ Solange es im System keine betreuten Konten gibt, meldet fs-people für jede Per
 
 **Limits (English):** As long as the system has no supervised accounts, fs-people reports "not supervised" (`Some(false)`) for every person; this is true, not fail-open. A compile and test gate (`supervision_gate`) forces this place to be switched when supervision is built in. Unknown or unreadable stays `None` and is rejected (rules 9 and 14 unchanged).
 
-## Nachtrag 23.11.2026 (Entwurf): ein Vertrag, Wahlvolk-Abfrage
+## Nachtrag 23.11.2026 (Entwurf): ein Vertrag, Wahlvolk-Abfrage, Betreiber getrennt
 
-Status: **Entwurf** · **ändert** den Verweis „Umsetzung: Vertrag `groups_v2`“ in der Kopfzeile: Es gibt **einen** Vertrag `groups` (Nutzerentscheid 23.11.2026; Regel aus ADR 0045, Nachtrag 23.11.2026); `groups_v1` und `groups_v2` werden zusammengeführt, KI-Gruppen entfallen
+Status: **Entwurf** · **ändert** Punkt 5(a) („Projekt, Server“ wird getrennt) und **schränkt** Punkt 7 („kein stiller Weg“) für das Lesen des Betreibers **ein** (siehe letzten Punkt dieses Nachtrags); **ändert** außerdem den Verweis „Umsetzung: Vertrag `groups_v2`“ in der Kopfzeile: Es gibt **einen** Vertrag `groups` (Nutzerentscheid 23.11.2026; Regel aus ADR 0045, Nachtrag 23.11.2026); `groups_v1` und `groups_v2` werden zusammengeführt, KI-Gruppen entfallen
 
 - **Modus je Kante, Hierarchie in beide Richtungen:** siehe ADR 0082, Nachtrag 23.11.2026. Eigentum und Geltungsbereich fließen weiterhin über keine Kante (Punkt oben unter „Verhältnis“).
 - **Wahlvolk-Abfrage (Lücke, nur als SOLL vermerkt):** `decisions` braucht vom Gruppen-Vertrag die Antwort „wer gehört zum Wahlvolk dieser Gruppe“. Der Vertrag bietet sie heute nicht; der Strategie-Entscheid vom 23.11.2026 nimmt sie als SOLL ins Review auf und als Checklistenzeile. **Bleibt offen, Nutzerfrage 17; nichts angenommen:** Form der Abfrage (nur direkte menschliche Mitglieder oder wirksame Mitglieder über Kanten, je nach Modus?) und ob das Wahlvolk durch die Gruppe oder je Beschluss bestimmt wird; Vorschlag aus dem Review (nicht entschieden): Vererbung in beiden Richtungen, eingefrorene Liste, nach Rolle filterbar, nur echte Personen. KI ist nie im Wahlvolk (ADR 0087, Nachtrag 16.11.).
