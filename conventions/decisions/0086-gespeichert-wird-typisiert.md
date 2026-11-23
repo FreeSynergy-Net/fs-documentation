@@ -135,3 +135,10 @@ Der Workflow-Prüfschritt „keine JSON- oder Blob-Spalte außer `original`“ k
 - forms-Beschreibungen fallen unter Entscheidung 3 und den Nachtrag „Frage 18“: Speicher = Domäne `forms` (20 typisierte `STRICT`-Tabellen im Programm fs-forms, eigene Datei `forms.db`); TOML/JSON nur als Austausch im Crate `fs-forms-exchange` (ADR 0096 Punkte 3–6). Versionsbereiche als vier `INT`, Werte von Overlay-Ops typisiert (`value_text`/`value_int`/`value_bool`), nie JSON.
 - **Klarstellung zum Nachtrag „Wortlisten als Wort-Tabellen“:** Block-, Slot-, Befehls-, Typ- und Capability-Namen in `forms_*` sind **freie Bezeichner aus fremden Katalogen** (fs-components-Katalog, `TypeCatalog` der Programme), keine eigene Wortmenge; sie bleiben `TEXT` und werden im Code gegen den Katalog geprüft. Das ist **keine Ausnahme** von der Wort-Tabellen-Regel, sondern nicht deren Fall (c0, 2026-11-17). `CHECK IN` nur für geschlossene Formatwörter (Entscheidung 7 jenes Nachtrags).
 - Frage 19 gilt hier wörtlich: `contract/blocks/*.toml` bleibt vorläufig Datei; der Katalog wird nicht in die forms-DB kopiert.
+
+## Nachtrag 23.11.2026: Versionsbereiche als sechs `INT`
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert im Nachtrag 2026-11-17 „forms-Beschreibungen“ nur „Versionsbereiche als vier `INT`“ · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+- Versionen sind dreiteilig. Ein Versionsbereich wird daher als **sechs `INT`** gespeichert: Untergrenze und Obergrenze je mit Haupt, Neben und Patch (`min_major`, `min_minor`, `min_patch`, `below_major`, `below_minor`, `below_patch`). Nie als Text.
+- Die Spalten kommen dazu, die DDL wird einfach geändert: bis zu echten Nutzern werden keine Daten gerettet (Nachtrag „Frage 18“).
+- Ein Bereich in der Tabelle hat weiter genau ein `>=` und ein `<`. Andere Formen lehnt der Leser ab, er speichert nie einen Teil davon.

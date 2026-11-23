@@ -296,3 +296,11 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **ändert** in Nr. 10 nu
 - Pflichtteile des Gerüsts bleiben nicht abwählbar (übrige Nr. 10 unverändert).
 - **Beispiele überholt:** `skeleton = "0.1.0"` (Beispiel und Prüftabelle weiter oben) ist durch einen Bereich wie `>=0.1 <0.2` zu ersetzen.
 - **Version als Feld (Strategie-Entscheid 23.11.2026):** `skeleton` ist ein Versionsbereich als Feldwert, z. B. `>=0.1 <0.2` (Haupt = Bruch). Die Tabelle in `fs-blueprint` bleibt für die Zuordnung zu den Tags. Für Schema-Namen gilt die Regel aus ADR 0045, Nachtrag 23.11.2026; die Schema-Version ist ein Datenfeld (`schema = 2`), nie Teil des Namens.
+
+## Nachtrag 23.11.2026 (2): Vertragsversion dreiteilig, Bereiche in Cargo-Schreibweise
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert die Tabellenzeile `[contract] version` (Z. 74) und die Schreibweise im Nachtrag „`skeleton` als Versionsbereich“ · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+- **`[contract] version`** ist Text, SemVer (`x.y.z`), Beispiel `"0.1.0"`. Ein zweiteiliger Wert (`"0.1"`) ist ein Fehler mit Code. Das gilt auch für das Beispiel (Z. 150) und die Prüftabelle (Z. 235).
+- **`skeleton`** als Bereich in Cargo-Schreibweise: `>=0.1.0, <0.2.0` statt `>=0.1 <0.2`.
+- **Versionen in `provides`** (z. B. `{ contract = "people.persons", version = "0.1.0" }`) sind dreiteilig.
+- **Erzeuger (fs-blueprint):** Bereiche schreibt er immer voll als `name@>=a.b.c, <d.e.f` nach Cargo-Caret. Für `0.0.x`-Verträge ist die Voreinstellung `>=0.0.N, <0.1.0` (Entscheid 9f, 23.11.2026; ADR 0045, Nachtrag, Nr. 4). Sie ist einstellbar und wird mit dem ersten `0.1.0` des Vertrags auf Caret umgestellt.

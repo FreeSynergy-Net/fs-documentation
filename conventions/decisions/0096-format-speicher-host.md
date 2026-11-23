@@ -91,3 +91,10 @@ Status: **Entwurf** (Opus, 2026-11-17; Nutzerentscheide 18, 19, 20.3, 32.4, 32.5
 
 ## Quellen (Entwürfe der Strategie, liegen nicht im Repo)
 Host-Plan (`PLAN-forms-host.md`), F1-Entwurf §16 (`trait-runde/forms-f1/ENTWURF.md`), F1b-Entwurf (`trait-runde/forms-f1b/ENTWURF.md`), nach-welle-1 (`nach-welle-1.md`, Entscheide c0), PLAN-grundtyp-felder (`PLAN-grundtyp-felder.md`).
+
+## Nachtrag 23.11.2026: Versionsbereich als sechs `INT`, Schreibweise `name@…`
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert in Nr. 4 nur „Versionsbereich als vier `INT`“ · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+- Nr. 4: `forms_requires` und `forms_source` speichern den Versionsbereich als **sechs `INT`** (Patch dazu), wie ADR 0086, Nachtrag 23.11.2026.
+- Quellen mit Versionsbereich stehen in der Austauschdatei als `name@>=a.b.c, <d.e.f` (Cargo-Schreibweise). Die Leerzeichen-Form `tasks >=0.2 <0.3` ist ein Lesefehler mit Code und Zeile (Nr. 6: alle Probleme melden).
+- Ein Bereich, dessen Patch beim Speichern verloren ginge, ist ein Fehler und wird nie still gekürzt.

@@ -164,3 +164,10 @@ Die Paketart-Schnittstelle `fs-interfaces/schema/packagekinds.txt` (Schritt PA-1
 - **Avatar-Sammlungen** (Strategie, 23.11.2026): entschieden, ja (§2).
 - Paketart-Auswahl für `packagekinds.txt` (PA-1) und die Schema-Angleichung (nach Schritt P8).
 - 3D-Avatar (PA-7) nach Spike E11.
+
+## Nachtrag 23.11.2026 (2): Versionsformat der Schnittstellen
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert im Nachtrag 2026-11-23 „Paketarten“ nur das Zahlenformat (§1 Tabelle, §2, §3 Nr. 2) · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+- `H.N` wird `x.y.z` (SemVer): Befehlssatz `modul@x.y.z`, Plätze `theme@1.0.0`, `icons@1.0.0`, `font@1.0.0`, `avatar@1.0.0`. Die Schreibweise mit `@` bleibt.
+- **§3 Nr. 2:** `fs:provides` nennt Versionen (`<schnittstelle>@x.y.z`), `fs:needs` nennt Bereiche (`<schnittstelle>@^x.y.z`), je Listeneintrag genau ein Vergleich. Die Regel „Haupt gleich, Neben ≥“ wird durch Cargo-Caret ersetzt. Ab 1.0.0 ist das dasselbe; für 0.x gilt Neben gleich.
+- Das Profil `vrm@1.0` (§2) bezeichnet den fremden Standard VRM 1.0 und behält dessen Nummer (ADR 0045, Nachtrag, Nr. 8).

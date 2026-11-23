@@ -67,6 +67,7 @@ Translation itself comes later (ADR 0053), but text must be translatable from no
 ## 4. Reuse before writing
 - Look first: existing FreeSynergy crate? existing permissive crate (ADR 0015)? Only then write.
 - Shared code moves into a shared crate instead of being copied between repos.
+- **Versions (ADR 0045, addendum 2026-11-23):** read versions and ranges only with the crate `semver`, package versions only with `rpm-version` (RPM EVR), name + version only with `fs_types::interface::{InterfaceVersion, InterfaceReq}`; no repo writes its own version reader (gate V-9 in fs-release).
 
 ## 5. Refactoring is part of the work
 - Every change leaves the code at least as clean as before. When a file passes the limit or a
