@@ -127,13 +127,28 @@ Eine Datei mit `call`, dessen Katalog fehlt, ist ungültig. Der Prüfer (`check_
 7. **Agenten:** Gibt es einen A2A-Endpunkt für unsere Agenten (`call: a2a`)? **[U]**. Bis dahin ist der KI-Schritt `ask`-artig (Bericht-Antwort) und kein Modulbefehl.
 8. **Bahn-Achse im Kanban:** Die Komponente hat keine Bahn-Achse (grep `lane`/`swim` leer). **[U]**, prüfen bei W-3 (Bahn-Achse: Stationen × Bahn in `cards-in-columns`, W-3/W-6; W-8 ist nur der Graph).
 9. **`run.workflow` im FS-Profil:** Ist die Unter-Workflow-Art Teil des Profils? Auslegung hier: ja, weil sie in Gebrauch ist. Vom Nutzer nicht bestätigt.
-10. **Umbenennung von `fs-flow`:** Nachträge in 0087 und 0097 sind gesetzt. Offen für die Strategie: ob der Nutzer die Umbenennung eines laut b7 entschiedenen Namens ausdrücklich bestätigen muss oder ob die Zustimmung zur Richtung „ein Modul statt `fs-flow`“ sie deckt.
+10. **Umbenennung von `fs-flow`:** Nachträge in 0087 und 0097 sind gesetzt. **Entschieden 23.11.:** Der Nutzer hat die Umbenennung `fs-flow` → `fs-modules-workflow` bestätigt (Frage 33, 23.11.2026). Nach der neuen Konvention braucht die Umbenennung eines Moduls nach Namensregel künftig keine Einzelfrage. Siehe Nachtrag 2026-11-23, Punkt (c).
 11. **Zählung der Dateien (geschlossen):** `grep -l "dsl: 1.0.3" fs-release/workflows/*.yaml` ergibt lokal am 23.11. 60 Treffer. Die Zahl 59 in ADR 0105 ist der ältere Stand.
 12. **Gate-Regel:** Die Pflicht `gate: human` für `unmarked`/`destructive`/`actsInName` stammt aus der Bewertung vom 19.11. (intern). Ob sie im Profil steht oder nur im Läufer, ist nicht entschieden.
 13. **Nummer 0107:** Zum Zeitpunkt des Entwurfs ist 0107 frei (ls-remote der Zweige geprüft). Vor dem Zusammenführen erneut prüfen.
-14. **Typisierte Bedingungen gegen SW-Ausdrücke (Widerspruch zu ADR 0087 Nachtrag (3) Nr. 3, Frage an die Strategie):** Das gespeicherte SW-Dokument trägt `jq`-Ausdrücke, 0087 verlangt „nie der Ausdruck, nur die typisierte Bedingung“. Zur Wahl stehen, ohne Empfehlung hier: (a) typisierte Bedingung ist die Quelle, der SW-Ausdruck wird nur abgeleitet (so liest sich 0087 Nr. 3 „den nur das Werkzeug erzeugt“); (b) Ausnahme für importierte Werkzeug-YAML; (c) 0087 Nr. 3 ändern. Nicht entschieden.
-15. **Obergrenze je Schleife im Dokument:** `loop.limit` je Lauf ist in E4 genannt. Ob zusätzlich jede `for`-Schleife im SW-Dokument eine Obergrenze und einen Abbruch tragen muss (0087 Nr. 4) und wie der Prüfer das für die 60 Bestandsdateien einführt (Warnung vor Fehler, wie bei `bot-seat`), ist nicht entschieden.
+14. **Typisierte Bedingungen gegen SW-Ausdrücke (Widerspruch zu ADR 0087 Nachtrag (3) Nr. 3, Frage an die Strategie):** Das gespeicherte SW-Dokument trägt `jq`-Ausdrücke, 0087 verlangt „nie der Ausdruck, nur die typisierte Bedingung“. **Entschieden 23.11. mit Option (a)**, siehe Nachtrag 2026-11-23, Punkt (a). Keine Ausnahme (b); 0087 Nr. 3 bleibt unverändert (c entfällt).
+15. **Obergrenze je Schleife im Dokument:** `loop.limit` je Lauf ist in E4 genannt. Ob zusätzlich jede `for`-Schleife im SW-Dokument eine Obergrenze und einen Abbruch tragen muss (0087 Nr. 4) und wie der Prüfer das für die 60 Bestandsdateien einführt (Warnung vor Fehler, wie bei `bot-seat`), ist **entschieden 23.11.: ja**, siehe Nachtrag 2026-11-23, Punkt (b).
 16. **Opus-Prüfung** des Entwurfs steht aus (Nachblick am neuen Kopf).
+
+## Nachtrag 2026-11-23
+
+Entscheide der Strategie vom 23.11.2026 zu den Offen-Punkten 10, 14 und 15. Die Einträge oben in „Offen“ verweisen hierher.
+
+**(a) Offen 14: typisierte Bedingung ist die Quelle.** Die typisierte Bedingung ist die Quelle. Der SW-/jq-Ausdruck wird nur vom Werkzeug daraus abgeleitet. ADR 0087 Nachtrag (3) Nr. 3 bleibt unverändert.
+- Import von Bestands-YAML: Der Ausdruck wird beim Import in die typisierte Bedingung übersetzt. Was sich nicht übersetzen lässt, wird mit sichtbarer Meldung abgelehnt.
+- Für die 60 Bestandsdateien gilt zuerst eine Warnung, danach ein Fehler.
+- Keine Ausnahme (b).
+
+**(b) Offen 15: ja.** Jede `for`-Schleife im Dokument trägt eine Obergrenze und einen Abbruch (ADR 0087 Nr. 4).
+- Der Prüfer führt es wie `bot-seat` ein: zuerst Warnung, dann Fehler.
+- Die Voreinstellung ist einstellbar.
+
+**(c) Offen 10 geschlossen.** Die Umbenennung `fs-flow` → `fs-modules-workflow` ist vom Nutzer bestätigt (Frage 33, 23.11.2026). Die neue Konvention erlaubt das bei jedem Modul: Eine Umbenennung nach Namensregel braucht künftig keine Einzelfrage.
 
 ## Pflichttests (Vorschlag; nichts davon ist gebaut)
 
