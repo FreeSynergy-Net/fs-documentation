@@ -45,24 +45,24 @@ Status: **Entwurf** (Nutzerentscheid 23.11.2026: keine Versionen nebeneinander; 
 - **Begründung des Ortes:** ADR 0045 legt fest, dass jedes Thema eine Schnittstelle ist und die Verträge in `fs-interfaces` liegen; die Regel gilt für alle Namen, am deutlichsten für diese Verträge. Sie entspricht ADR 0064 (frühe Phase: Versionen springen); Paketversionen (Tags) bleiben Versionen, sie stehen nie im Namen.
 - **Folgen:** `groups` wird ein Vertrag (ADR 0095, Nachtrag), `events` entsteht ohne `_v1` (ADR 0050, Nachtrag). `person_directory_v1` wird **jetzt nicht** angefasst; eine Angleichung der Namen in einer Welle steht als Checklistenzeile für später.
 
-## Nachtrag 23.11.2026: eine Versionsregel (SemVer, `name@…`, Paketversionen nach RPM-EVR)
+## Nachtrag 2026-11-23: eine Versionsregel (SemVer, `name@…`, Paketversionen nach RPM-EVR)
 
-Status: **entschieden** (Entscheid Strategie 23.11.2026, Technik; Schnitt „VERSION-EINE-QUELLE“ mit den Antworten 9f zu den Fragen 1–3; Nutzer informiert) · **ändert** im Nachtrag 23.11.2026 oben nur das Beispiel: aus Form `tree@1.0` wird `tree@1.0.0` (die Regel „Version ist ein Datenfeld“ bleibt) · **gilt für** ADR 0068, 0077, 0086, 0094, 0096, 0099, 0104; diese verweisen hierher, statt die Regel zu wiederholen · stützt sich auf ADR 0051 (SemVer für Releases) und ADR 0064 (0.0.N, keine Vorabversionen)
+Status: **entschieden** (Entscheid Strategie 23.11.2026, Technik; Schnitt „VERSION-EINE-QUELLE“ mit den Antworten 9f zu den Fragen 1–3; Nutzer informiert) · **ändert** im Nachtrag 2026-11-23 oben nur das Beispiel: aus Form `tree@1.0` wird `tree@1.0.0` (die Regel „Version ist ein Datenfeld“ bleibt) · **gilt für** ADR 0068, 0077, 0086, 0094, 0096, 0099, 0104; diese verweisen hierher, statt die Regel zu wiederholen · stützt sich auf ADR 0051 (SemVer für Releases) und ADR 0064 (0.0.N, keine Vorabversionen)
 
 **Regel (ein Ort, gilt für alle Repos)**
 1. **Eine Version ist immer dreiteilig `x.y.z` nach [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html).** Version heißt: was etwas **ist**, also Vertrag, Form, Befehlssatz, Modul, Gerüst, Tag. `0.1` ist keine Version. Ein Leser lehnt sie mit Meldung ab und ergänzt nie still eine `.0`.
-2. **Ein Bedarf ist ein Versionsbereich in Cargo-Schreibweise** (`semver::VersionReq`, Vergleiche durch Komma getrennt). Bedarf heißt: was etwas **braucht**, also Range in Beschreibungen, `fs:requires`/`fs:needs`, die Formen einer Component, `skeleton`, der Vertragseintrag im Bauplan. Der Erzeuger schreibt immer die volle Form `>=a.b.c, <d.e.f`.
+2. **Ein Bedarf ist ein Versionsbereich in Cargo-Schreibweise** (`semver::VersionReq`, Vergleiche durch Komma getrennt). Bedarf heißt: was etwas **braucht**, also Range in Beschreibungen, `fs:requires`/`fs:needs`, die Formen einer Component, `skeleton`, der Vertragseintrag im Bauplan. Der Erzeuger schreibt außerhalb von Listen immer die volle Form `>=a.b.c, <d.e.f` (in Listen siehe Nr. 5).
 3. **Verträglich heißt Cargo-Caret (`^`).** Ab Hauptversion 1 ist das genau die bisherige Regel „Haupt gleich, Neben ≥“. Für `0.y.z` ist es strenger: 0.2 → 0.3 ist ein Bruch ([SemVer §4](https://semver.org/spec/v2.0.0.html#spec-item-4), ADR 0064). Wo ältere ADRs für 0.x „Haupt gleich, Neben ≥“ schreiben, gilt diese Regel.
 4. **Voreinstellung des Erzeugers für `0.0.x`-Verträge (Entscheid 9f, 23.11.2026):** `>=0.0.N, <0.1.0`, nicht das Caret `<0.0.(N+1)`.
    - Das ist eine bewusste Voreinstellung der Anfangsphase: Sonst würde jeder Schritt jedes Programm aussperren.
    - Ehrlich gesagt: **`0.0.x` darf brechen** (ADR 0064). Der weite Bereich verspricht keine Verträglichkeit.
-   - Bricht etwas, muss das als **sichtbare Meldung im Fenster** ankommen (ADR 0065 §5, ADR 0104 E3 „bitte aktualisieren“), nie als stiller Fehler.
+   - Bricht etwas, muss das als **sichtbare Meldung im Fenster** ankommen (ADR 0065 Pflichtteil Nr. 5, ADR 0104 E3 „bitte aktualisieren“), nie als stiller Fehler.
    - Mit dem ersten `0.1.0` eines Vertrags gilt für diesen Vertrag das normale Caret. Dann wird die Voreinstellung umgestellt.
    - Die Voreinstellung ist **im Erzeuger einstellbar** (fs-blueprint), nicht fest im Code.
 5. **Eine Schreibweise für Name und Version: `name@…`.** Beispiele: Version `tree@1.0.0`, Bedarf `tasks@>=0.2.0, <0.3.0` oder `tree@^1.0.0`.
    - So machen es Cargo (`cargo add serde@>=1.0, <2`, `cargo install x@1.2.3`), fs-release (`name@x.y.z`) und ADR 0077 §3.
    - Die Leerzeichen-Form (`tasks >=0.2 <0.3`, `texts 1.0`) entfällt. Ein Leser meldet sie als unlesbar.
-   - **Listen** (`fs:provides`, `fs:requires`, `fs:needs`) bleiben kommagetrennt. Damit das Komma eindeutig bleibt, steht in einer Liste je Eintrag nur **ein** Vergleich (`name@^x.y.z`). Ein Bruchstück ohne `@` ist unlesbar und wird gemeldet, nie still übergangen.
+   - **Listen** (`fs:provides`, `fs:requires`, `fs:needs`) bleiben kommagetrennt. Damit das Komma eindeutig bleibt, steht in einer Liste je Eintrag nur **ein** Vergleich: `name@^x.y.z`, für Verträge der Voreinstellung `0.0.x` aber `name@~0.0.N` (Cargo-Tilde, gleich `>=0.0.N, <0.1.0`; `^0.0.N` hieße `<0.0.(N+1)` und wäre falsch). Die volle Form mit zwei Vergleichen steht nur außerhalb von Listen. Ein Bruchstück ohne `@` ist unlesbar und wird gemeldet, nie still übergangen.
 6. **Gelesen wird nur mit dem Crate [`semver`](https://crates.io/crates/semver)** (1.0.x). Was `semver` nicht kennt, ist nur „Name + Version“ und „Name + Bedarf“.
    - Dafür gibt es genau einen gemeinsamen Typ: `fs_types::interface::{InterfaceVersion, InterfaceReq}` (Pattern: Value Object). Der Name folgt der Schlüsselregel von `capabilities.txt` (`[a-z][a-z0-9.-]*`).
    - Wo Name und Version schon getrennte Felder sind, wird `semver::Version` direkt genutzt, ohne Adapter.

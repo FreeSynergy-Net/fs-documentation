@@ -183,9 +183,9 @@ Je Punkt: ADR und Fundstelle, Änderung.
 - Nutzerregel vom 2026-11-19 zu E9 (sinngemäß): (1) kein Zwischenmodul für Regeln über mehrere Module; ein Modul fragt ein anderes direkt über dessen Vertrag; (2) Befehlsketten über Module sind Workflows, fest programmiert wird nur die Logik mit eigenen Daten; (3) Idee capnp-Workflow-Schritte als offener Punkt (Offen 9); Zusatz: fehlendes Modul wird erfragt, nie still installiert; bei Nein gilt `required` oder `fallback = "manual"` (Offen 7, E9 Punkt 5)
 - [Cap'n Proto, RPC-Protokoll (Capabilities)](https://capnproto.org/rpc.html)
 
-## Nachtrag 23.11.2026: Zahlenformat der Vertragsversion
+## Nachtrag 2026-11-23: Zahlenformat der Vertragsversion
 
-Status: **Entscheid Strategie 23.11., Nutzer informiert** · ändert in E3 (Z. 50–52), in den Pflichttests (Z. 117), in den Folgen (Z. 129), in der Nachzieh-Liste (Z. 146) und in Offen 3 (Z. 161) **nur das Zahlenformat**. Der Inhalt bleibt: verträglich heißt gleiche Datei-ID und Vertrag nur angehängt. · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+Status: **Entscheid Strategie 23.11., Nutzer informiert** · ändert in E3 (Z. 50–52), in den Pflichttests (Z. 117), in den Folgen (Z. 129), in der Nachzieh-Liste (Z. 146) und in Offen 3 (Z. 161) **nur das Zahlenformat**. Der Inhalt bleibt: verträglich heißt gleiche Datei-ID und Vertrag nur angehängt. · Regel: ADR 0045, Nachtrag 2026-11-23 „eine Versionsregel“
 - Die Vertragsversion ist SemVer `x.y.z` statt `major.minor`. Der Bereich im Bauplan ist ein Bereich in Cargo-Schreibweise.
 - „Gleiche Hauptversion“ wird als Cargo-Caret gelesen. Ab 1.0.0 heißt das gleiche Hauptversion. Für `0.y.z` (y ≥ 1) heißt es gleiche Nebenversion.
 - Für `0.0.x`-Verträge setzt der Erzeuger `>=0.0.N, <0.1.0` voreingestellt (ADR 0045, Nachtrag, Nr. 4). `0.0.x` darf brechen. Ein Bruch zeigt sich als die sichtbare Meldung „bitte aktualisieren“ aus E3, nie als stiller Fehler.

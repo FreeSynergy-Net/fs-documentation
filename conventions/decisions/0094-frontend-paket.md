@@ -117,10 +117,10 @@ Status: **Entwurf** (Strategie, 23.11.2026, ENTSCHEID-schnitt E3; Annahme zusamm
 3. **Paket-Erklärung:** das Frontend-Manifest nennt `extends`, `requires`, `fs:covers`, `fs:admin`, `fs:reference`. Der Katalog braucht dafür das Feld `extends` (ADR 0094 §5; `Catalog/docs/format.md` hat es noch nicht). fs-blueprint erzeugt das Admin-Layout mit `covers="all"` (ADR 0099 Nr. 12; im Code noch nicht umgesetzt).
 4. **conformance-Regeln** (heute alle rot, bis sie umgesetzt sind): `frontend.admin-present`, `frontend.admin-covers-all` (laut ADR 0097 Pflichttests vorhanden), `frontend.normal-present`, `frontend.normal-has-reference`.
 
-## Nachtrag 23.11.2026 (2): Versionsformat im Manifest
+## Nachtrag 2026-11-23 (2): Versionsformat im Manifest
 
-Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert Entscheidung 2 (`fs:requires`, Z. 18) und den Handshake (Entscheidung 4, Z. 29) nur im Zahlenformat und in der Verträglichkeitsregel · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
-- **`fs:requires`** nennt Bereiche: aus `texts 1.0` wird `texts@^1.0.0`, je Listeneintrag ein Vergleich. Der Zusatz „für Frontends neu zu bestätigen“ ist damit erledigt: Es gilt die Regel aus ADR 0045 (Cargo-Caret).
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert Entscheidung 2 (`fs:requires`, Z. 18) und den Handshake (Entscheidung 4, Z. 29) nur im Zahlenformat und in der Verträglichkeitsregel · Regel: ADR 0045, Nachtrag 2026-11-23 „eine Versionsregel“
+- **`fs:requires`** nennt Bereiche: aus `texts 1.0` wird `texts@^1.0.0` (für `0.0.x`-Verträge `name@~0.0.N`, ADR 0045 Nr. 5), je Listeneintrag ein Vergleich. Der Zusatz „für Frontends neu zu bestätigen“ ist damit erledigt: Es gilt die Regel aus ADR 0045 (Cargo-Caret).
 - **`fs:contract`** nennt die Version, gegen die gebaut wurde: `name@x.y.z`.
 - **Handshake:** „Hauptstufe ungleich oder Nebenstufe des Servers zu alt“ wird „die Vertragsversion des Servers liegt nicht im Bereich des Frontends“. Für `0.0.x`-Verträge ist der Bereich nach der Voreinstellung des Erzeugers `>=0.0.N, <0.1.0`, und `0.0.x` darf brechen. Deshalb muss ein Bruch als **sichtbare Meldung** ankommen. Fallback und „nie still“ bleiben unverändert.
 - `<id version="X.Y.Z" compare="ge">` in `<requires>` ist AppStream und bleibt, wie es ist.

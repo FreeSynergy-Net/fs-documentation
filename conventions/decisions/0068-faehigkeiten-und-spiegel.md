@@ -36,9 +36,9 @@
 - Als `planned` geführt (Stand: `fs-interfaces` v0.0.21): `storage.provider` (seit v0.0.19), `identity.oauth2`, `identity.ssh-keys`, `identity.passkeys` (seit v0.0.20), **neu in v0.0.21** `gateway.reverse-proxy` (Zentinel), `messages.matrix` und `messages.matrix.oidc-server` (Tuwunel; Anmeldeserver nur für Matrix-Clients, kein Anmeldedienst für andere Programme). Der Schlüssel heißt `messages.*` passend zum künftigen `fs-messages` (ADR 0087); das bestehende Thema `messenger` wird später zu `messages` umbenannt.
 - Nur Namen und Kurzbeschreibung; die vollen Schnittstellen (Cap'n Proto) kommen später, Namen werden nie umbenannt oder entfernt.
 
-## Nachtrag 23.11.2026: Versionen dreiteilig
+## Nachtrag 2026-11-23: Versionen dreiteilig
 
-Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert in §1 nur das Zahlenformat · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert in §1 nur das Zahlenformat · Regel: ADR 0045, Nachtrag 2026-11-23 „eine Versionsregel“
 - Schnittstellen-Versionen sind dreiteilig nach SemVer und werden `name@x.y.z` geschrieben. Aus `people.persons 1.2` (§1, Z. 7) wird `people.persons@1.2.0`; ein Bedarf ist ein Bereich wie `people.persons@^1.2.0`.
 - Das virtuelle rpm/deb-Paket (§1, Z. 11) trägt ebenfalls drei Teile: `Provides: freesynergy-iface(people.persons) = 1.2.0`. rpmvercmp ordnet `1.2` vor `1.2.0`. Gemischte Formen würden also falsch verglichen; einheitlich dreiteilig ist sicher.
 - Wie ein Caret-Bereich als rpm-Abhängigkeit geschrieben wird (z. B. mit `with` zwischen `>=` und `<`), ist [nicht belegt] und wird erst mit dem Paketbau entschieden.

@@ -165,9 +165,9 @@ Die Paketart-Schnittstelle `fs-interfaces/schema/packagekinds.txt` (Schritt PA-1
 - Paketart-Auswahl für `packagekinds.txt` (PA-1) und die Schema-Angleichung (nach Schritt P8).
 - 3D-Avatar (PA-7) nach Spike E11.
 
-## Nachtrag 23.11.2026 (2): Versionsformat der Schnittstellen
+## Nachtrag 2026-11-23 (2): Versionsformat der Schnittstellen
 
-Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert im Nachtrag 2026-11-23 „Paketarten“ nur das Zahlenformat (§1 Tabelle, §2, §3 Nr. 2) · Regel: ADR 0045, Nachtrag 23.11.2026 „eine Versionsregel“
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert) · ändert im Nachtrag 2026-11-23 „Paketarten“ nur das Zahlenformat (§1 Tabelle einschließlich der Zeilen `frontend@1.0`, `program@1.0` u. a., §2, §3 Nr. 2) · Regel: ADR 0045, Nachtrag 2026-11-23 „eine Versionsregel“
 - `H.N` wird `x.y.z` (SemVer): Befehlssatz `modul@x.y.z`, Plätze `theme@1.0.0`, `icons@1.0.0`, `font@1.0.0`, `avatar@1.0.0`. Die Schreibweise mit `@` bleibt.
-- **§3 Nr. 2:** `fs:provides` nennt Versionen (`<schnittstelle>@x.y.z`), `fs:needs` nennt Bereiche (`<schnittstelle>@^x.y.z`), je Listeneintrag genau ein Vergleich. Die Regel „Haupt gleich, Neben ≥“ wird durch Cargo-Caret ersetzt. Ab 1.0.0 ist das dasselbe; für 0.x gilt Neben gleich.
+- **§3 Nr. 2:** `fs:provides` nennt Versionen (`<schnittstelle>@x.y.z`), `fs:needs` nennt Bereiche (`<schnittstelle>@^x.y.z`, für `0.0.x` nach der Voreinstellung `<schnittstelle>@~0.0.N`), je Listeneintrag genau ein Vergleich (ADR 0045, Nachtrag 2026-11-23, Nr. 5). Die Regel „Haupt gleich, Neben ≥“ wird durch Cargo-Caret ersetzt. Ab 1.0.0 ist das dasselbe; für 0.x gilt Neben gleich.
 - Das Profil `vrm@1.0` (§2) bezeichnet den fremden Standard VRM 1.0 und behält dessen Nummer (ADR 0045, Nachtrag, Nr. 8).
