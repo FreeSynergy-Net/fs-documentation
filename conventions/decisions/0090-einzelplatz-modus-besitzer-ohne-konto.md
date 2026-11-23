@@ -60,3 +60,7 @@ Geprüft am 2026-11-16 gegen den Stand von `origin/main` sowie gegen die Nachtr�
 - Verschlüsselung der lokalen Daten; der Schlüsseltresor (ADR 0067) ist noch nicht gebaut.
 - Wiederherstellung, wenn das Gerät verloren geht. Ohne Konto gibt es keinen Anmeldeweg; Sicherung nach ADR 0071.
 - Admin-Übergabe beim Teilen: ADR 0056 Punkt 1 nennt den Installierenden als obersten Admin; wie der Wechsel aussieht, ist offen.
+
+## Nachtrag 2026-11-23 (ADR 0108, Entwurf): Schlüssel von Anfang an
+- **E4, letzter Satz** („Schlüssel entstehen nur, wenn die Person die Verschlüsselung einschaltet (0024)“; Widerspruch W1) gilt nicht mehr: der Dateischlüssel entsteht bei der Installation, die Datenbankdatei ist immer verschlüsselt (ADR 0067 Z. 25, ADR 0108 E2). Er liegt per Voreinstellung im Schlüsselbund des Betriebssystems; deshalb bleibt „Die Installation verlangt kein Passwort“ (E4) gültig.
+- **Offen „Verschlüsselung der lokalen Daten“** ist in der Richtung entschieden (ADR 0108); gebaut wird sie mit `fs-vault` (ADR 0108 Folgen).

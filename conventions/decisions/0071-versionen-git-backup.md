@@ -174,3 +174,8 @@ Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **hebt nur die 3b-Beding
 - Der Stand von Runde 3b war im Entscheid `unbelegt`; die Strategie hat die Vorbedingung am 23.11.2026 aufgehoben. Code zum Vertrag `storage` darf entstehen (Besitzer jetzt das Modul `fs-modules-file`, siehe ADR 0070, Nachtrag 23.11.2026); Versionen, Git und Backup bleiben Erweiterungen dieses Vertrags.
 - **Prüfsumme (Strategie-Entscheid 23.11.2026):** nur sha256 (`fs_types::FileRef`), auch intern; BLAKE3 im Versions-Speicher (V1) entfällt (`digest.rs` fällt weg).
 - **Neue Schranke (Strategie 23.11.2026):** Code erst nach den Aufträgen SQ 1 bis 4 und mit Opus-Review für Rechte und Sockets; die Aufträge 5e-3 bis 5e-5 erst nach gelandetem groups-Vertrag.
+
+## Nachtrag 2026-11-23 (ADR 0108, Entwurf): eigene Ablage verschlüsselt, Backup ist bewusstes Behalten
+- **Ausgangslage Z. 11 und Schicht 1 (Z. 21):** Inhalte der **eigenen** fs-files-Ablage und ihre Versionen werden mit Abschnittsschlüsseln des Tresors verschlüsselt (`age`; ADR 0108 E3, Widerspruch W6). So greift Vergessen auch dort. Dateien in normalen Ordnern der Person (Home …) verschlüsselt Files **nicht**; das sagt Files offen. Wie die verschlüsselte Ablage anderen Programmen gezeigt wird, ist offen (ADR 0108 Offen 8).
+- **Backup** ist erlaubt und ist **bewusstes Behalten**: es hebt das Vergessen für die Kopie auf. Das wird einmal beim Einrichten eines Sicherungsziels erklärt; danach steht sachlich „in Sicherungen bis …“ (Risiko 2) in der Übersicht des Vergessens (ADR 0108 E6).
+- §2 (Backup-Schlüssel über den System-Schlüsselbund hinter einer kleinen Schnittstelle) ist dieselbe Schnittstelle, die ADR 0108 E2 als Voreinstellung für den Dateischlüssel nutzt; sie geht später an `fs-vault`.

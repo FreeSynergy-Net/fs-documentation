@@ -42,3 +42,8 @@ Vorbild ist **CryptPad** (Office mit Ende-zu-Ende-Verschlüsselung: der Server s
 - Typbeschreibungen bekommen je Feld eine Markierung „verschlüsselt“ und „blinder Index“ (Thread T, nächste Runde).
 - Suche über verschlüsselte Daten ist Aufgabe des Geräts; Frontends zeigen das, statt still weniger zu finden.
 - Offen zu prüfen (Haiku): Stand CXF/CXP, Passkey-Anbieter unter Linux, Rust-Umsetzungen von MLS (z. B. OpenMLS) und Lizenz.
+
+## Nachtrag 2026-11-23 (ADR 0108, Entwurf): Vergessen gehört dem Tresor
+- Der Tresor ist **Besitzer des digitalen Vergessens**: Schlüsselbaum (Root, optional Hardware-Anker, Dateischlüssel je Moduldatei, Abschnittsschlüssel für Bytes außerhalb der DB), Fristen-Plan, Lauf und Schnellsperre. Einzelheiten, Datenarten, Voreinstellungen und Bedrohungsmodell: ADR 0108.
+- Zeile 25 („Datenbankdatei immer verschlüsselt“) ist der Boden und gilt ohne Ausnahme, auch im Einzelplatz (ADR 0108 E2). Voreinstellung für den Ort des Schlüssels: der Schlüsselbund des Betriebssystems (passt zu §1 Punkt 2).
+- MLS (§2) signiert jede Nachricht; unsere Programme prüfen die Signatur und speichern sie nicht (ADR 0108 E8).

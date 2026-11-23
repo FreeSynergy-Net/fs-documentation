@@ -189,3 +189,8 @@ Status: **Entscheid Strategie 23.11., Nutzer informiert** · ändert in E3 (Z. 5
 - Die Vertragsversion ist SemVer `x.y.z` statt `major.minor`. Der Bereich im Bauplan ist ein Bereich in Cargo-Schreibweise.
 - „Gleiche Hauptversion“ wird als Cargo-Caret gelesen. Ab 1.0.0 heißt das gleiche Hauptversion. Für `0.y.z` (y ≥ 1) heißt es gleiche Nebenversion.
 - Für `0.0.x`-Verträge setzt der Erzeuger `>=0.0.N, <0.1.0` voreingestellt (ADR 0045, Nachtrag, Nr. 4). `0.0.x` darf brechen. Ein Bruch zeigt sich als die sichtbare Meldung „bitte aktualisieren“ aus E3, nie als stiller Fehler.
+
+## Nachtrag 2026-11-23 (ADR 0108, Entwurf): Vergessen
+- **Offen 6** (Verschlüsselung je Person auf dem Server „beim Thema Vergessen“) ist in der Richtung entschieden: Abschnittsschlüssel je Person bzw. Gruppe für Server-Kopien, Fristablauf vernichtet den Schlüssel und löscht das Chiffrat (ADR 0108 E3, E7).
+- **E6** bekommt einen vierten Konformitätstest je Treiber: **„vergessen vollständig“** (ADR 0108 E9).
+- Auf dem Gerät (Datei je Modul und Person, E7) schreibt der Vergessens-Lauf die Moduldatei mit neuem Schlüssel neu (ADR 0108 E3).
