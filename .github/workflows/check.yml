@@ -45,3 +45,6 @@ jobs:
             echo "mkdocs build --strict was skipped" >&2
             exit 1
           fi
+
+      - name: Self test of the temp folder of a gates run
+        run: bash scripts/test_gates_tmp.sh

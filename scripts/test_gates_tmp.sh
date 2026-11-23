@@ -18,6 +18,7 @@ cat > "$tmp/bin/cargo" <<'S'
 #!/usr/bin/env bash
 if [ "$1" = test ]; then
   mkdir "$TMPDIR/.tmpLEAK"; echo x > "$TMPDIR/fs-leak.png"; echo "$TMPDIR" > "$STUB_SEEN"
+  [ -n "${STUB_RO:-}" ] && { mkdir -p "$TMPDIR/ro/sub"; chmod 500 "$TMPDIR/ro"; }
   [ -n "${STUB_SLEEP:-}" ] && sleep "$STUB_SLEEP"
   exit "${STUB_TEST:-0}"
 fi
@@ -47,10 +48,32 @@ kill "$live" 2>/dev/null; wait "$live" 2>/dev/null
 { [ "$rc" -eq 0 ] && [ ! -e "$base/gates-run.$dead.AAAAAA" ] && [ -d "$base/gates-run.$live.BBBBBB" ] && [ -d "$base/gates-run.abc.CCC" ] && [ -d "$base/other" ]; } \
   && ok "sweep: dead PID folder removed, live and foreign kept" || bad "sweep (rc $rc): $(ls -A "$base")"
 rm -rf "$base"; mkdir -p "$base"
+# a leftover that cannot be removed is a warning, not a red gate: in the EXIT trap and in the sweep
+sleep 0.1 & dead=$!; wait "$dead"
+mkdir -p "$base/gates-run.$dead.RO/ro/sub"; chmod 500 "$base/gates-run.$dead.RO/ro"
+run "$tmp/real"; rc=$?
+{ [ "$rc" -eq 0 ] && grep -q 'warning: could not remove' "$tmp/out"; } && ok "unremovable rest of a dead run in the sweep: rc 0 and a warning" || bad "unremovable (sweep): rc $rc: $(tail -3 "$tmp/out")"
+chmod -R u+rwX "$base"; rm -rf "$base"; mkdir -p "$base"
+# unremovable rest in the run folder of this run (the stub test makes a read-only folder)
+STUB_RO=1 run "$tmp/real"; rc=$?
+{ [ "$rc" -eq 0 ] && grep -q 'warning: could not remove' "$tmp/out"; } && ok "unremovable rest in the run folder: rc 0 and a warning" || bad "unremovable (trap): rc $rc: $(tail -3 "$tmp/out")"
+chmod -R u+rwX "$base"; rm -rf "$base"; mkdir -p "$base"
+# a relative TMPDIR_GATES is refused, rc 2
+PATH="$tmp/bin:$PATH" TMPDIR_GATES="rel" bash "$tmp/real/scripts/gates.sh" "$R" > "$tmp/out" 2>&1; rc=$?
+{ [ "$rc" -eq 2 ] && [ ! -e "$R/rel" ] && grep -q 'must be an absolute path' "$tmp/out"; } && ok "relative TMPDIR_GATES: rc 2" || bad "relative base: rc $rc"
 mkscripts "$tmp/m"
 sed -i '/^trap /d' "$tmp/m/scripts/gates.sh"
 if cmp -s "$tmp/m/scripts/gates.sh" "$here/gates.sh"; then bad "mutant: the sed expression changed nothing"; else
   run "$tmp/m"
   [ -n "$(ls -A "$base")" ] && ok "mutant (no trap): a leftover stays (test would be red)" || bad "mutant not caught"
 fi
+rm -rf "$base"; mkdir -p "$base"
+# mutant: a failing removal is fatal
+mkscripts "$tmp/m3"
+sed -i 's#rm -rf "\$1" 2>/dev/null || echo "gates: warning: could not remove \$1" >&2; return 0;#rm -rf "$1";#' "$tmp/m3/scripts/gates.sh"
+if cmp -s "$tmp/m3/scripts/gates.sh" "$here/gates.sh"; then bad "mutant c: the sed expression changed nothing"; else
+  STUB_RO=1 run "$tmp/m3"; rc=$?
+  [ "$rc" -ne 0 ] && ok "mutant (failing removal is fatal): rc $rc (test would be red)" || bad "mutant c not caught"
+fi
+chmod -R u+rwX "$base"; rm -rf "$base"
 [ "$fails" -eq 0 ] && echo "test_gates_tmp: all ok" || { echo "test_gates_tmp: $fails failed"; exit 1; }

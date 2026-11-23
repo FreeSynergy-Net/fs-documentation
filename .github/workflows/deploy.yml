@@ -46,7 +46,6 @@ jobs:
           python scripts/gen_frontend_indexes.py --check
           python scripts/gen_folder_indexes.py --check
           bash scripts/test_folder_indexes.sh
-          bash scripts/test_gates_tmp.sh
 
       - name: Publish the decision records (copied from conventions/decisions)
         run: python scripts/gen_decisions.py
