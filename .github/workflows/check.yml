@@ -1,0 +1,43 @@
+# Branch check for the documentation: the same checks as scripts/check-docs.sh
+# (component standard, indexes, public paths, mkdocs build --strict).
+# Runs on unreviewed/** branches and on pull requests. It never deploys and never touches Pages
+# (that is deploy.yml, main only).
+name: check-docs
+
+on:
+  push:
+    branches:
+      - 'unreviewed/**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install MkDocs and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check documentation (check-docs.sh, rc != 0 is red)
+        run: |
+          command -v mkdocs
+          bash scripts/check-docs.sh 2>&1 | tee check-docs.log
+          test "${PIPESTATUS[0]}" -eq 0
+          ! grep -q '^SKIPPED' check-docs.log
