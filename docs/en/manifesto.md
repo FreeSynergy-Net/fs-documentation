@@ -14,7 +14,15 @@ And we want to be human. Small things matter. An animation that makes someone sm
 
 ## Free, for good
 
-Data and communication must not depend on money. FreeSynergy is free forever and open to everyone. It does **not discriminate against the poor**: someone with nothing gets exactly what a company gets. There will never be a paywall. Spending time and energy on keeping people away from code makes no sense to us.
+Data and communication must not depend on money. FreeSynergy is free forever and open to everyone. It does **not discriminate against the poor**: someone with nothing gets exactly what a company gets. There will never be a paywall. There is no enterprise edition for those who can pay, and no advertising as the price for everyone else. Whoever gets the lesser version because they have less money is made a second-class person. That is discrimination against the poor, even when it is called a business model. Spending time and energy on keeping people away from code makes no sense to us.
+
+## Why now
+
+Communication must be free. Right now it is getting narrower: in the EU, there has been a dispute for years over chat control, that is, over having private messages scanned automatically, and in many countries police and intelligence services gain more powers step by step. We think that is the wrong way. We build tools with which people can talk to each other freely. We cannot protect anyone from everything, but we can help people recognise dangers and react more consciously when they come.
+
+Free software has a reputation for being awkward. It does not have to be. Freedom may be beautiful, pleasant and easy to use. We finally need tools with which you can simply live as a person.
+
+We want people to be better off. That works when we work together decently. If the business world does not think it possible, we will show people ourselves.
 
 ## What belongs together stays together
 

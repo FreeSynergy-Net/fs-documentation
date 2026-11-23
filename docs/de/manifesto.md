@@ -14,7 +14,15 @@ Und wir wollen menschlich sein. Kleine Dinge zählen. Eine Animation, die jemand
 
 ## Frei, für immer
 
-Daten und Kommunikation dürfen nicht vom Geld abhängen. FreeSynergy ist für immer frei und allen offen. Es **diskriminiert nicht die Armen**: Wer nichts hat, bekommt genau das, was ein Unternehmen bekommt. Eine Bezahlschranke wird es nie geben. Zeit und Energie darauf zu verwenden, Menschen von Code fernzuhalten, ergibt für uns keinen Sinn.
+Daten und Kommunikation dürfen nicht vom Geld abhängen. FreeSynergy ist für immer frei und allen offen. Es **diskriminiert nicht die Armen**: Wer nichts hat, bekommt genau das, was ein Unternehmen bekommt. Eine Bezahlschranke wird es nie geben. Es gibt keine Enterprise-Version für die, die zahlen können, und keine Werbung als Preis für alle anderen. Wer die schlechtere Fassung bekommt, weil er weniger Geld hat, wird zum Menschen zweiter Klasse gemacht. Das ist Armutsdiskriminierung, auch wenn es Geschäftsmodell heißt. Zeit und Energie darauf zu verwenden, Menschen von Code fernzuhalten, ergibt für uns keinen Sinn.
+
+## Warum jetzt
+
+Kommunikation muss frei sein. Im Moment wird es enger: In der EU wird seit Jahren über die Chatkontrolle gestritten, also darüber, private Nachrichten automatisch durchsuchen zu lassen, und Polizei und Geheimdienste bekommen in vielen Ländern Schritt für Schritt mehr Befugnisse. Wir halten das für den falschen Weg. Wir bauen Werkzeuge, mit denen Menschen frei miteinander reden können. Wir können niemanden vor allem schützen, aber wir können helfen, Gefahren zu erkennen und bewusster zu reagieren, wenn sie kommen.
+
+Freie Software hat den Ruf, sperrig zu sein. Das muss nicht so sein. Freiheit darf schön sein, angenehm und leicht zu bedienen. Wir brauchen endlich Werkzeuge, mit denen man einfach als Mensch leben kann.
+
+Wir wollen, dass es den Menschen besser geht. Das geht, wenn wir anständig miteinander arbeiten. Wenn die Wirtschaft das nicht für möglich hält, zeigen wir es den Menschen selbst.
 
 ## Was zusammengehört, bleibt zusammen
 
