@@ -33,10 +33,10 @@ ADR 0062 legt den Katalog fest (AppStream + TUF, Pakete als Git-Tags). Kein ADR 
 
 ## Nachtrag 23.11.2026 (Entwurf): dnf vor apt, createrepo_rs, Kanal nightly
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu PKG) · Fundstelle: `woche-11-23/packages/ENTSCHEID-schnitt.md` (Verdict, Abschnitte c und d, „Widersprüche“)
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026; Frage 15 vom Nutzer entschieden) · **ändert** Punkt 1 (Adresse `github.io`) und Punkt 2 (Reihenfolge apt/dnf)
 
-- **dnf kommt vor apt.** Das Repository liegt künftig in der GitHub-Organisation **FreeSynergy-Net** (Repo-Adresse). Eine Pages-Adresse folgt erst, wenn Pages wirklich eingeschaltet ist (das schaltet der Nutzer ein).
+- **dnf kommt vor apt.** Das Daten-Repository (im Haupttext Punkt 1 `fs-packages` genannt; der Name wird `FreeSynergy-Net/Repository`) liegt in der GitHub-Organisation **FreeSynergy-Net** (Repo-Adresse). Eine Pages-Adresse folgt erst, wenn Pages wirklich eingeschaltet ist (das schaltet der Nutzer ein).
 - **`createrepo_rs`** (0.1.9, reines Rust, GPL-2.0-or-later) ersetzt `createrepo_c` als **reines CI-Werkzeug** (nicht gelinkt). Gate: Einmalige Gleichheitsprüfung gegen `createrepo_c` im Fedora-Container; bleibt sie aus, Rückfall auf `createrepo_c`.
 - **Kanal `nightly`:** eine eigene dnf-Quelle, **ab Werk ausgeschaltet** (`stable` an), **nur von der CI gebaut und signiert** (workflow `nightly.yml`, Version `<nächste>~nightly.<UTC-Stempel>.g<sha7>`); lokal Gebautes kommt nie in eine Quelle. `fs-update` bietet `nightly` nie an (Eintrag F6 vom 21.11. bleibt für fs-update gültig).
 - **Offen:** Die RPMs verlangen `GLIBC_2.39`; ADR 0078 nennt EL9 (glibc höchstens 2.34) als Ziel. **Fedora zuerst, EL9 bleibt offen.**
-- **Offen (Nutzerfrage 15, nicht angenommen):** Heißt das Programm sichtbar „Pakete“ statt „Installer“ (Empfehlung: ja; „Installieren“ und „Aktualisieren“ sind Befehle in jedem Programm)?
+- **Entschieden (Nutzerentscheid 23.11.2026, Frage 15):** Das sichtbare Programm heißt **„Installer“**. Der Einwand aus ADR 0087 („Installer“ wäre wieder eine Gattung wie „Store“) bleibt als Einwand stehen. „Installieren“ und „Aktualisieren“ sind Befehle in jedem Programm. Das Modul-Repo heißt nach der Namensregel `fs-modules-<Datentyp, Einzahl>` (Frage 14) **`fs-modules-package`**; die behaltenen rund 2 440 Zeilen aus `fs-packages` (Katalog, PGP, Kernregeln, TUF) ziehen später dorthin um, jetzt kein Repo und kein Umzug.

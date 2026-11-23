@@ -127,7 +127,7 @@ Nicht Teil dieses Nachtrags: Auswirkung auf die Gruppen-Doku (`docs/*/programs/a
 
 ## Nachtrag 23.11.2026 (Entwurf): Modus je Kante, Hierarchie in beide Richtungen
 
-Status: **Entwurf** (Nutzerentscheid 23.11.2026, festgehalten in der Laufliste der Strategie, Einträge 05:36 und 05:31) · **bestätigt und schärft** den Nachtrag 2026-11-16 „Verschachtelung, Modi und KI-Regel“ · Fundstelle: `LAUFLISTE-strategie-2026-11-22.md` (05:36, 05:31); der Modus je Kante steht schon im Nachtrag 2026-11-16 (O1, `default_mode`)
+Status: **Entwurf** (Nutzerentscheid 23.11.2026) · **bestätigt und schärft** den Nachtrag 2026-11-16 „Verschachtelung, Modi und KI-Regel“; der Modus je Kante steht schon im Nachtrag 2026-11-16 (O1, `default_mode`)
 
 - **Der Modus gilt je Kante**; die Gruppe hat nur die Voreinstellung `default_mode` für neue Kinder, keinen Modus „je Gruppe“.
 - **Hierarchie in beide Richtungen ist gleich wichtig (Nutzerentscheid 23.11.2026):** von unten (Helfa-Netzwerk, `BottomUp`) und von oben (Vereine, Unternehmen, `TopDown`); eine Kante im Modus `Single` ist nur Ordnung und wird nicht nach Kanidm gespiegelt. Die Conformance prüft beide Richtungen mit je einem Beispielbaum (Zusatz GR2c).

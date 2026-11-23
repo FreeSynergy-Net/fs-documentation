@@ -176,8 +176,8 @@ Status: **akzeptiert** (Namensregel Bibliothek Einzahl, ADR 0092 Z. 17, 0093 Z. 
 
 ## Nachtrag 23.11.2026 (Entwurf): rpm ist der Hauptweg (Regel 7)
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu PKG) · **ändert** Regel 7 (Ehrlichkeit nach Installationsart: dort tar.gz im Nutzerordner Hauptweg, rpm/deb „meldet nur“) · Fundstelle: `woche-11-23/packages/ENTSCHEID-schnitt.md` (Verdict, Abschnitt zu fs-update)
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **ändert** Regel 7 (Ehrlichkeit nach Installationsart: dort tar.gz im Nutzerordner Hauptweg, rpm/deb „meldet nur“) sowie Weg A und Regel 5 (`current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen unter Linux; Windows installiert je Rechner per MSI)
 
-- **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` installiert nicht selbst, sondern **prüft nur und fragt**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
+- **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` ist Auslöser und Neustarter und installiert nicht selbst; es **prüft, fragt und stößt an**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
 - Crate: `packagekit-zbus` 0.2.0 (D-Bus-Proxys auf zbus 6).
-- **Nutzervorgabe 23.11.2026: systemweit, nicht lokal.** Ein Weg ohne Admin-Rechte (`~/.local`) ist derzeit nicht vorgesehen; wer installiert, braucht `wheel` bzw. das Passwort.
+- **Nutzervorgabe 23.11.2026: systemweit, nicht lokal.** Unter Linux ist ein Weg ohne Admin-Rechte (`~/.local`) derzeit nicht vorgesehen; wer installiert, braucht `wheel` bzw. das Passwort.

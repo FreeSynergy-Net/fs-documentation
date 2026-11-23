@@ -290,8 +290,9 @@ Until every program is only a blueprint plus a forms description started by one 
 
 ## Nachtrag 23.11.2026 (Entwurf): `skeleton` als Versionsbereich
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu ENTSCHEID-form) · **ändert** Nr. 10 und die Tabellenzeile `[program] skeleton` (dort: exakte SemVer, über eine Tabelle auf Tags gemappt) · Fundstelle: `woche-11-23/ENTSCHEID-form.md` (Abschnitt „Widersprüche“, Punkt 0099 Nr. 10; Abnahme `skeleton-carries-along`) und `LAUFLISTE-strategie-2026-11-22.md` (Eintrag 04:36, Entscheid b)
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **ändert** in Nr. 10 nur die Art von `skeleton` (Bereich statt exakter Version) und die Tabellenzeile `[program] skeleton` (dort: exakte SemVer, über eine Tabelle auf Tags gemappt)
 
 - **`skeleton` ist ein Versionsbereich, keine exakte Version.** Eine exakte Version friert das Gemeinsame je Programm ein und widerspricht dem Grundsatz „Scaffold erweitert, Programm bekommt es automatisch mit“. Die Abnahme `skeleton-carries-along` (Gruppe in `fs-conformance`) prüft das; Mutante M6 „Programm pinnt `skeleton` exakt, der Host verweigert es“ wird rot erwartet.
-- Pflichtteile des Gerüsts bleiben nicht abwählbar (Nr. 10 unverändert).
+- Pflichtteile des Gerüsts bleiben nicht abwählbar (übrige Nr. 10 unverändert).
+- **Beispiele überholt:** `skeleton = "0.1.0"` (Beispiel und Prüftabelle weiter oben) ist durch einen Bereich wie `>=0.1 <0.2` zu ersetzen.
 - **Version als Feld (Strategie-Entscheid 23.11.2026):** `skeleton` ist ein Versionsbereich als Feldwert, z. B. `>=0.1 <0.2` (Haupt = Bruch). Die Tabelle in `fs-blueprint` bleibt für die Zuordnung zu den Tags. Für Schema-Namen gilt die Regel aus ADR 0045, Nachtrag 23.11.2026; die Schema-Version ist ein Datenfeld (`schema = 2`), nie Teil des Namens.

@@ -37,12 +37,12 @@ Kunde und User sein kann, was Vererbung nicht abbildet. Jede Rolle hat ihren Sta
 
 ## Nachtrag 23.11.2026 (Entwurf): Vertrag `events`, calcard, eine Form
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026 zu KAL-G2; Nutzer: Frage 12 = JA) · **präzisiert** Punkt 2 und „Folgen“ für `fs-calendars` · Fundstelle: `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Verdict, a, d, e) und `LAUFLISTE-strategie-2026-11-22.md` (05:45, 05:46, 05:48/05:49)
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026; Nutzerentscheid Frage 12 = ja) · **präzisiert** Punkt 2 und „Folgen“ für `fs-calendars`
 
 - **Vertrag `events` (Crate `fs-events` in `fs-interfaces`), ohne `_v1`:** aus dem Entwurf `appointments_v1` (Eigentümer `PersonRef`, auch Gruppe; Teilnehmer `Attendee` ohne Namensfeld) und **ersetzt** `events.capnp`. Task-Verweis nur über JSCalendar `relatedTo`, keine Task-Felder und keine Crate-Kante.
 - **Wiederholung und iCalendar über `calcard`** (0.3.14, JSCalendar 2.0, RRULE-Expansion) in `fs-jscalendar` (hinter Feature `ical`); eigene Engine und Crate `rrule` entfallen. Vertrag folgt JSCalendar 2.0 (ein `recurrenceRule`).
 - **Eine Form `bars-in-time@1.0`** für Kalender, tasks-Gantt und Workflow-Gantt; Woche, Tag, Monat, Agenda und Gantt sind Sichten (Components). **`calendar-view` entfällt** (zweite Kalenderdarstellung neben `calendar-grid`, gegen ADR 0005); der Agenda-Teil wandert als Modus in `calendar-grid`.
 - **Gruppe als Gast (Nutzer 23.11.): eine eingeladene Gruppe ist EIN Gast im Termin**; späterer Beitritt sieht den Termin, jedes Mitglied sagt selbst zu oder ab.
-- **Ersetzen statt umbauen** (Nutzer): Der alte Kalender (rund 24 000 Zeilen) wird nicht umgebaut; bis zum ersten neuen Bild gibt es keinen lauffähigen Kalender.
+- **Ersetzen statt umbauen** (Strategie-Entscheid 23.11.2026): Der alte Kalender (rund 24 000 Zeilen) wird nicht umgebaut; bis zum ersten neuen Bild gibt es keinen lauffähigen Kalender.
 - **Zone (Entscheid 23.11.2026):** Der Aufrufer bzw. das Modul rechnet die Zeitzone um, der Block nie.
 - **Entscheid 23.11.2026: `calendar-workbench` (`fs-components-workbenches/calendar`) wird gestrichen.** Das Streichen ist ein eigener Auftrag im Zweig 5d und nicht Teil dieser Doku-Änderung.

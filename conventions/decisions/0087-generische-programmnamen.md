@@ -267,7 +267,7 @@ Format und Host-Vertrag, die Punkt 7 „ein eigener ADR in E4“ überließ, leg
 
 ## Nachtrag 23.11.2026 (Entwurf): decisions = Vertrag + Dienst + Daten-Paket; Terminfindung; Charts als Formen
 
-Status: **Entwurf** (Nutzer 23.11.2026, Lauflisten-Einträge 05:43, 05:46, 05:49; Ausgestaltung Strategie) · **schärft** den Nachtrag 2026-11-16 „fs-decisions“ (Punkt 1 „fs-decisions ist Programm“, Terminfindung = Facette) · Fundstelle: `woche-11-23/decisions/INVENTUR.md` und `woche-11-23/kalender/ENTSCHEID-schnitt.md` (Abschnitt „Schnittstelle Kalender ↔ decisions“)
+Status: **Entwurf** (Nutzerentscheid 23.11.2026: Terminfindung gehört zum Umfrage-Modul decisions; Strategie-Entscheid 23.11.2026: decisions = Vertrag + Dienst + Daten-Paket) · **schärft** den Nachtrag 2026-11-16 „fs-decisions“ (Punkt 1 „fs-decisions ist Programm“, Terminfindung = Facette)
 
 - **decisions besteht aus Vertrag, Dienst und Daten-Paket** (nach dem Muster Modul + Daten-Paket, siehe ADR 0076, Nachtrag 23.11.2026), ohne eigenen Programm-Code. `fs-tally` (Zählverfahren) und `fs-ballot` (Urne) bleiben eigenständige Bibliotheken; die eigene Auszählung in `fs-decisions-simple` entfällt. Reihenfolge: nach den ersten Bildern von groups und Kalender.
 - **Terminfindung bleibt Facette** (Nutzer: „Umfrage-Modul: Konsens, anonym, mehrseitig, Terminfindung“). decisions besitzt Umfrage, Vorschläge, Stimmen und Gäste (als `PersonRef`); der Kalender liefert nur freie Zeiten (`free_busy`) und nimmt das Ergebnis als Termin (`create`, `invite`) zurück. Termin und Umfrage verweisen nur über `links` aufeinander, keine Kopie. Der Kalender-Entwurf, der `fs-forms` als Besitzer der Umfrage nennt, wird korrigiert: Besitzer ist decisions.

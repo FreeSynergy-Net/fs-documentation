@@ -169,7 +169,8 @@ Status: **akzeptiert** (Nutzer Gespräch 1: „Außerdem, Git schreiben und lese
 
 ## Nachtrag 23.11.2026 (Entwurf): Vorbedingung „Code erst nach 3b“ aufgehoben
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **hebt auf** „Code erst nach 3b grün und nach Wiki/Groups“ (Kopfzeile und Abschnitt „Kein Code vor Runde 3b grün“) · Fundstelle: `woche-11-23/files/ENTSCHEID-schnitt.md` (Verdict 4, „Widersprüche“)
+Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **hebt nur die 3b-Bedingung auf** („Code erst nach 3b grün“ in Kopfzeile und Abschnitt „Voraussetzung (Regel)“); zu „nach Wiki/Groups“ gibt es keinen Entscheid, die Bedingung bleibt unverändert; **neue Schranke** siehe unten
 
 - Der Stand von Runde 3b war im Entscheid `unbelegt`; die Strategie hat die Vorbedingung am 23.11.2026 aufgehoben. Code zum Vertrag `storage` darf entstehen (Besitzer jetzt das Modul `fs-modules-file`, siehe ADR 0070, Nachtrag 23.11.2026); Versionen, Git und Backup bleiben Erweiterungen dieses Vertrags.
-- **Prüfsumme (Strategie-Entscheid 23.11.2026):** nur sha256 (`fs_types::FileRef`), auch intern; BLAKE3 im Versions-Speicher (V1) entfällt (`digest.rs` fällt laut FILES-G2 weg).
+- **Prüfsumme (Strategie-Entscheid 23.11.2026):** nur sha256 (`fs_types::FileRef`), auch intern; BLAKE3 im Versions-Speicher (V1) entfällt (`digest.rs` fällt weg).
+- **Neue Schranke (Strategie 23.11.2026):** Code erst nach den Aufträgen SQ 1 bis 4 und mit Opus-Review für Rechte und Sockets; die Aufträge 5e-3 bis 5e-5 erst nach gelandetem groups-Vertrag.
