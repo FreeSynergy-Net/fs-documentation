@@ -99,3 +99,15 @@ Rust hygiene (ADR 0041).
   (example: `fs-people-directory/src/person_directory_v1`).
 - `draft/` in the `testdata` crate holds the trait **only while it is a draft**; when the trait is locked, it moves to its fixed place (above).
 - The Cap'n Proto contract always lives in `fs-interfaces/schema`, never next to the trait folder (plus its line in `fs-interfaces/schema/capabilities.txt`).
+
+### Addendum 2026-11-23: lowest libraries from the registry `freesynergy` (ADR 0093, addendum 2026-11-23)
+Status: decided (strategy decision 23.11., user informed) · amends the first bullet of §8 for the crates named here; everything else stays git + tag.
+- **`fs-types`, `fs-conformance`, `fs-records`** come from our Git-index registry `freesynergy` (repo `FreeSynergy-Net/fs-crates`):
+  `fs-types = { version = "~0.0.N", registry = "freesynergy" }` (`~0.0.N` = `>=0.0.N, <0.1.0`, ADR 0045 addendum rule 4/5).
+  Each repo names the registry in `.cargo/config.toml` under `[registries.freesynergy]`.
+  Raise `N` only when you use what the new version adds.
+- **Only the release CI writes the index**, from a tag run. Never by hand. Crate version = tag (ADR 0064 addendum 2026-11-23); a gate checks it.
+- **Within 0.0.x only additive changes** in these crates. Public `enum`s are `#[non_exhaustive]`. `cargo-semver-checks` runs as a gate before the index entry. A `match` on such an enum outside the crate (including generated code) has a catch-all arm that reports visibly. Never swallow an unknown value silently.
+- **After a new version:** programs run `cargo update -p fs-types` (lock change only). The lock gate (ADR 0092 rule 2) turns red on two entries.
+- **Working on one machine:** `[patch.freesynergy] fs-types = { path = "../fs-types/crates/fs-types" }` or the same via `--config`. Never commit it, as above.
+- **Status:** until branch protection is on for `fs-crates`, the registry is "initial phase, not protected" (ADR 0093 addendum, threat model).

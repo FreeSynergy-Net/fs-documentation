@@ -73,3 +73,49 @@ Status: **akzeptiert** (ADR 0097) · **ergänzt** Regel 1 (Z. 21)
 ## Nachtrag 2026-11-17 (2): Ort von fs-conformance
 
 Status: **akzeptiert** (ADR 0097 Nachtrag 3) · **ändert** Nachtrag Entscheidung 1 (Z. 67): `fs-conformance` liegt im Repo fs-types (unterste Schicht) und nicht in der fs-rpc-Liste; Begründung und Bedingung stehen in ADR 0097 Nachtrag 3.
+
+## Nachtrag 2026-11-23: fs-types kommt aus dem Registry `freesynergy`
+
+Status: **entschieden** (Entscheid Strategie 23.11., Nutzer informiert; Schnitt „ENTSCHEID-kaskade“, Empfehlung B2) · **ergänzt** Entscheidung 6 (Quelle von fs-types) und Folgen 2 (Version = Tag) · Bereichsregel: ADR 0045, Nachtrag 2026-11-23 „eine Versionsregel“ Nr. 4 und 5 · Tag-Regel: ADR 0064, Nachtrag 2026-11-23 · Lock-Prüfung: ADR 0092, Nachtrag 2026-11-23 · Umsetzung (Schritte K-1 bis K-7) steht aus
+
+**Kontext**
+- Eine Git-Abhängigkeit ist in Cargo genau ein Commit. `version` ist dort nur eine Prüfung und wählt keinen Tag aus (Cargo-Buch, „specifying-dependencies“, Abschnitt „The role of the `version` key“). Jeder fs-types-Tag ist deshalb eine neue Quelle, und rund 25 Repos pinnen um und taggen neu.
+- Ein `[patch]` auf denselben Git-URL mit anderem Tag lehnt Cargo ab („patches must point to different sources“). Ein Meta-Crate beseitigt die Kaskade also nicht.
+- Echte Versionsbereiche gibt es in Cargo nur über ein Registry. Ein Git-Repo mit Index und abgelegten `.crate`-Dateien reicht dafür (Cargo-Buch, „running-a-registry“, „registry-index“).
+- Belege: Proben der Strategie am 23.11. mit cargo 1.100.0, nur mit lokalen Wegwerf-Repos, Arbeitsstand, nicht veröffentlicht.
+
+**Entscheidung**
+1. **Registry `freesynergy`:** ein Git-Index-Registry im Repo `FreeSynergy-Net/fs-crates`. Es enthält den Index und die `.crate`-Dateien, ohne Server-Dienst, ohne `api` und ohne `cargo publish`. Es gilt zunächst nur für die Crates des Repos fs-types: `fs-types`, `fs-conformance`, `fs-records`.
+2. **Verbraucher schreiben** `fs-types = { version = "~0.0.N", registry = "freesynergy" }`. `~0.0.N` ist die Cargo-Tilde, gleich `>=0.0.N, <0.1.0` (ADR 0045, Nachtrag „eine Versionsregel“ Nr. 4 und 5). Der Name `freesynergy` wird je Repo in `.cargo/config.toml` unter `[registries.freesynergy]` aufgelöst. Seine Untergrenze hebt ein Verbraucher nur, wenn er die neue Version wirklich nutzt. Programme ziehen mit `cargo update -p fs-types` nach. Das ist eine reine Lock-Änderung ohne neuen Tag.
+3. **Nur die Release-CI schreibt in fs-crates**, und zwar nur aus einem Tag-Lauf (`cargo package --locked`, danach Indexzeile und `.crate`). Von Hand wird nie ein Eintrag gemacht. Alte Tags werden nicht nachveröffentlicht. Die erste Registry-Version ist der nächste fs-types-Tag.
+4. **Innerhalb von 0.0.x nur additive Änderungen** in fs-types, fs-conformance und fs-records:
+   - Öffentliche `enum`s tragen `#[non_exhaustive]`.
+   - Anlass: Der Bruch in fs-mcp durch die neuen Varianten `BasicType::Time` und `BasicType::Color` war genau so eine nicht additive Änderung.
+   - **Gate:** `cargo-semver-checks` gegen die letzte Registry-Version läuft im Tag-Lauf **vor** dem Index-Eintrag. Ist es rot, entsteht kein Eintrag.
+   - Ehrlich gesagt: Bei 0.0.x schützt der Bereich `~0.0.N` nicht vor einem Bruch (ADR 0064, ADR 0045 Nachtrag Nr. 4). Schutz gibt nur dieses Gate.
+   - Ein Bruch geschieht nur **bewusst**: als eigener Schritt mit neuem Bereich (alle Verbraucher heben ihre Untergrenze und passen den Code an) und einer Welle in der Reihenfolge des Repo-DAG. Wie das Gate dafür mit sichtbarer Begründung übergangen wird, ist offen (K-2).
+   - **Erzeuger:** Wo ein Erzeuger (zum Beispiel der generierte Code in fs-mcp) über ein `#[non_exhaustive]`-enum verzweigt, erzeugt er einen Auffang-Zweig mit sichtbarer Meldung (ADR 0065 Pflichtteil Nr. 5). Ein unbekannter Wert wird nie still verschluckt.
+5. **Lieferkette = Sicherheitsmodul** (CLAUDE.md §4, harte Grenze 2: voller Test und Opus-Review vor dem Release). Bedrohungsmodell:
+   - **Wer in fs-crates schreiben kann, kann ein Crate tauschen.** Die Prüfsumme (`cksum` der Indexzeile) liegt im selben Repo. Sie schützt gegen einen Fehler beim Herunterladen und gegen eine getauschte `.crate` bei unveränderter Indexzeile, aber nicht gegen jemanden, der beides ändert.
+   - Ein schon gelockter Verbraucher hält die Prüfsumme in seinem `Cargo.lock` fest. Ein späterer Tausch derselben Version fällt dann bei `--locked` auf **[nicht belegt]**.
+   - **Gegenprobe als Pflichttest (K-2):** Eine geänderte `.crate` bei unveränderter Indexzeile muss Cargo ablehnen. Eine geänderte Indexzeile gegen einen bestehenden Lock muss ebenfalls abgelehnt werden **[beides nicht belegt, bis die Probe läuft]**.
+   - **Download über `raw.githubusercontent.com`** (`dl` in `config.json`): Das ist ein fremder Dienst ohne Zusage, mit Ratenlimits. Ob er unter Windows-CI und hinter Proxies funktioniert, ist ungeprüft. Die Abhängigkeit von GitHub besteht heute mit Git-Tags schon. Sie wird damit nicht kleiner, sie liegt nur an einer anderen Adresse. Rückfall: Release-Assets von fs-crates (Cargo folgt Umleitungen).
+   - **Bis zum Branch-Schutz** von fs-crates (nur der Bot der Release-CI schreibt, kein Force-Push) gilt das Registry als **„Anfangsphase, nicht geschützt“**. So steht es auch in der README von fs-crates. Es wird nirgends als gesichert beschrieben.
+6. **Crate-Version = Tag:** Die Version in `Cargo.toml` muss gleich dem Tag sein. Ein Gate im Tag-Lauf prüft das vor `cargo package` und ist bei Abweichung rot. Heute steht noch `0.0.5` gegen Tag `v0.0.6`, das ist ein Fehler und zieht vor der ersten Registry-Version gleich (ADR 0064, Nachtrag 2026-11-23).
+7. **Entscheidung 6 bleibt:** je Bibliothek genau eine Quelle im Lock. Nach der Umstellungswelle (K-5) ist die Quelle von fs-types das Registry `freesynergy`, und eine Git-Quelle von fs-types ist dann ein Verstoß.
+8. **Lokale Entwicklung** (CLAUDE.md §4b): `[patch.freesynergy]` mit Pfad auf den lokalen Kopf, solange dessen Version in `~0.0.N` liegt. Das wird nie committet (`conventions/coding.md` §8). Die CI baut immer gegen veröffentlichte Registry-Versionen.
+9. **Alles oberhalb bleibt bei Git-Tags:** fs-interfaces, fs-objects, fs-jscalendar, fs-components, fs-rpc, fs-starter, Programme, Blinc-Fork. fs-jscalendar, fs-objects und fs-interfaces können später denselben Weg gehen, jeweils mit eigenem Nachtrag. fs-components und fs-rpc gehen nicht ins Registry, weil fs-components per Git-Tag am Blinc-Fork hängt und ein Registry-Crate das nicht darf.
+10. Ob fs-types später auf crates.io geht, ist eine eigene, spätere Frage an den Nutzer. Der Wechsel wäre dann eine Zeile je Abhängigkeit.
+
+**Verworfen**
+- **Exakte Tag-Pins wie bisher:** Jeder fs-types-Tag löst die Kaskade aus.
+- **Registry mit 0.1.x und Caret:** bricht ADR 0064 Nr. 2 (0.1.0 erst nach dem Handtest).
+- **crates.io jetzt:** Jede Veröffentlichung braucht eine Freigabe des Nutzers, und die Namen sind weltweit und für immer vergeben.
+- **Meta-Crate oder Pins an einer Stelle:** Die Bibliotheken dazwischen pinnen fs-types weiter selbst, die Kaskade bleibt.
+- **Git-Branch `release` mit `version`-Prüfung:** Das ist eine eigene Konvention gegen ADR 0064 Nr. 5 und eine Zwischenlösung. Sie bleibt nur als Rückfallweg, falls K-2 blockiert.
+
+**Offen**
+- Wer legt `FreeSynergy-Net/fs-crates` an, der Nutzer oder der Bot (K-1)?
+- Taugt `cargo-index` 0.2.7 zum Schreiben des Index? **[nicht belegt]** Rückfall: ein kleiner Rust-Unterbefehl in fs-release.
+- Verifiziert `cargo package` für fs-types mit `schema/**` sauber? **[nicht belegt]**
+- Form des bewussten Übergehens des semver-Gates bei einem Bruch (Nr. 4).
