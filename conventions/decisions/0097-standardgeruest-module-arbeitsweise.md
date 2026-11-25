@@ -4,7 +4,7 @@ Status: **akzeptiert** (Nutzer, Gespräche 1 und 2 vom 2026-11-17; Entscheid 121
 
 > **Nachtrag 2026-11-23 (Workflow `adr-write`, W-0, Korrektur nach Review):** Offen 7 (Name der Workflow-Bibliothek, „entschieden: `fs-flow`“) ist durch ADR 0107 E7 überholt: Arbeitsname `fs-modules-workflow` (ein Modul für Beschreibung und Lauf). Siehe auch den Nachtrag in ADR 0087. Entscheid Strategie 23.11., Nutzer hat der Richtung zugestimmt; Opus-Prüfung offen.
 
-**Hinweis (2026-11-21, Entwurf ADR 0105):** ADR 0105 (Folge (a): ein gemeinsamer Host) löst Entscheidung 1 Absatz 12 ab, wonach das erzeugte `-bin` jedes Programms `fs-starter` und `fs-update` verbindet; der Host muss `fs-update` anders anbinden (ADR 0105 Offen 9, noch nicht entschieden). Solange ADR 0105 Entwurf ist, gilt diese Regel hier weiter.
+**Hinweis (2026-11-21, Entwurf ADR 0105):** ADR 0105 (Folge (a): ein gemeinsamer Host) löst Entscheidung 1 Absatz 12 ab, wonach das erzeugte `-bin` jedes Programms `fs-starter` und `fs-update` verbindet; der Host bindet `fs-update` über den Adapter `UpdateHook` an (ADR 0105 Offen 9, entschieden 21.11.; ADR 0069 Nachtrag „rpm ist der Hauptweg“, akzeptiert 25.11.2026), statt über das `-bin`. Solange ADR 0105 Entwurf ist, gilt Entscheidung 1 Absatz 12 (und Z. 16) hier weiter.
 
 **Kontext**
 - Inventur 17.11. (228 465 Z. Programmcode, 18 Repos): Handcode 34–46 %; die Programmhülle liegt fünfmal fast gleich vor (Ursache `scaffold-ai`); Datenordner, Einzelinstanz, Erinnerungen, Personen-Verweise mehrfach von Hand (Plan §a).

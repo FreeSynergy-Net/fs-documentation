@@ -174,11 +174,16 @@ Status: **akzeptiert** (Namensregel Bibliothek Einzahl, ADR 0092 Z. 17, 0093 Z. 
 2. **Reihenfolge:** Z. 135 („fs-types, fs-rpc, fs-sessions, fs-components, fs-packages mit fs-updates, Programme“) wird ersetzt durch ADR 0093 Regel 1 mit Nachtrag: fs-types → {fs-interfaces, fs-jscalendar, fs-objects, fs-components (mit fs-session)} → fs-access → fs-rpc → fs-packages (mit fs-update) → Programme.
 3. `fs-update` aktualisiert Programme **und Module** (Nutzer 17.11.: Selbst-Update für Programme und Module).
 
-## Nachtrag 23.11.2026 (Entwurf): rpm ist der Hauptweg (Regel 7)
+## Nachtrag 23.11.2026: rpm ist der Hauptweg (Regel 7)
 
-Status: **Entwurf** (Strategie-Entscheid 23.11.2026) · **ändert** Regel 7 (Ehrlichkeit nach Installationsart: dort tar.gz im Nutzerordner Hauptweg, rpm/deb „meldet nur“) sowie Weg A und Regel 5 (`current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen unter Linux; Windows installiert je Rechner per MSI)
+Status: **akzeptiert** (Entscheid C1, 25.11.2026, ENTSCHEID-update; Entwurf seit 23.11.2026, Strategie-Entscheid) · **ändert** Regel 7 (Ehrlichkeit nach Installationsart: dort tar.gz im Nutzerordner Hauptweg, rpm/deb „meldet nur“) sowie Weg A und Regel 5 (`current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen unter Linux; Windows installiert je Rechner per MSI)
 
 - **rpm ist der Hauptweg**; **dnf bzw. PackageKit installiert und aktualisiert**. `fs-update` ist Auslöser und Neustarter und installiert nicht selbst; es **prüft, fragt und stößt an**: (1) PackageKit `GetUpdates`, gefiltert auf unsere Pakete, (2) die Frage aus F4 („jetzt / später / immer automatisch“) bleibt, (3) `UpdatePackages`, (4) danach greift Weg A (Sitzung sichern, nach der Ruhe-Regel neu starten). Das deckt auch `dnf upgrade` von Hand und Discover ab. `current/`-Symlinks, Probezeit und Rollback der tar.gz-Welt entfallen; ein Rückfall läuft später über `dnf downgrade`.
+- **Ergänzungen bei der Annahme (25.11.2026, ENTSCHEID-update Kernaussage 1–5):**
+  - **Windows:** `fs-packages` prüft die MSI gegen den signierten Katalog, danach läuft `msiexec`; Datei, Rückfall bei Fehlern und Rechte übernimmt das System. Zum Neustart laufender Dienste hilft zusätzlich der Restart Manager.
+  - **Plan v3 ersetzt, nicht umgebaut:** `current/`-Symlinks, Probezeit-Rückfall, Override-Datei, `OverrideGuard`, L1/L2/L3 und fsync entfallen. Den automatischen Rückfall bei Absturz binnen 120 s gibt es im Paketweg nicht; er wird ersetzt durch CI-Endtest vor jedem Tag, 3 Versionen im Kanal (ADR 0078), einen sichtbaren Absturz-Marker und später den Knopf „Vorversion“.
+  - **`fs-update`** bleibt Crate im Repo fs-packages (Nachtrag „Baukasten“) und wird als **ein** Befehl `packages.update` mit `check | offer | run` im Scaffold-Modul `packages` angeboten (kein eigenes Modul „update“).
+  - **Neustart:** Den Neustart übernimmt der Host über den Adapter `UpdateHook` (ADR 0105 Offen 9): Er erkennt die ersetzte Datei (Weg A), sichert die Sitzung und startet nach der Ruhe-Regel neu; das deckt auch `dnf upgrade` von Hand und Discover ab. Ob PackageKit einen Downgrade über ein Transaktions-Flag erlaubt: nicht belegt.
 - Crate: `packagekit-zbus` 0.2.0 (D-Bus-Proxys auf zbus 6).
 - **Nutzervorgabe 23.11.2026: systemweit, nicht lokal.** Unter Linux ist ein Weg ohne Admin-Rechte (`~/.local`) derzeit nicht vorgesehen; wer installiert, braucht `wheel` bzw. das Passwort.
 
