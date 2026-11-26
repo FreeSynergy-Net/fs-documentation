@@ -71,7 +71,7 @@ Status: **Entwurf** (ADR 0100 angenommen, „Einstellungen“; Nutzer, Gespräch
 
 ## Nachtrag 2026-11-26 (Kalenderwörter): Datumsnamen und Wochenbeginn über `DateNames`
 
-Status: **akzeptiert** (Nutzer-Vertreter 8a, 2026-11-26; Ausgestaltung und Text: KI-Mitarbeit Claude Sonnet 5.5, Strategie-Entscheid `ENTSCHEID-kalenderwoerter`) · **erledigt** den Satz „OFFEN … `:date` nicht registriert“ aus „ICU4X: in V1 nicht für Plural und Zahlen“ (Umsetzung 2026-11-13) für die Kalenderwörter
+Status: **akzeptiert** (vom Nutzer eingesetzte Ansprechsitzung 8a, 2026-11-26; Ausgestaltung: KI-Mitarbeit Claude Opus (Strategie-Entscheid `ENTSCHEID-kalenderwoerter`), Text: Claude Sonnet 5.5) · **erledigt** den Satz „OFFEN … `:date` nicht registriert“ aus „ICU4X: in V1 nicht für Plural und Zahlen“ (Umsetzung 2026-11-13) für die Kalenderwörter
 
 **Entscheidung**
 1. Namen von Kalenderfeldern (Wochentag, Monat, Monatstitel, Tagestitel) und der Wochenbeginn kommen aus CLDR über ICU4X hinter dem Trait `DateNames` (`fs-components-words`). Umgesetzt wird er einmal in `fs-components-mf2` aus dem Sprachpaket (`dates/<tag>/names.blob`).
