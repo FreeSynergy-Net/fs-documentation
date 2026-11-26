@@ -68,3 +68,14 @@ Status: **Entwurf** (ADR 0100 angenommen, „Einstellungen“; Nutzer, Gespräch
 1. Die Sprache ist die Einstellung **`fs.shell.language`** der Bibliothek `fs-settings` (ADR 0100), mit allen Schichten (Instanz, System, allgemeines Profil, Programm-Profil) und Sperre; atomar geschrieben, live umgeschaltet über die Hülle.
 2. Die bisherigen Dateien `$XDG_CONFIG_HOME/freesynergy/language` und `…/<programm>/language` (Z. 39) werden **nur noch gelesen** (Übergang); ihre Löschung macht die Person per Skript nach einem Release.
 3. Die Kette aus Z. 40 (Umgebungsvariablen) wird die **System-Schicht**; die Wahl „im Programm-Menü und in den Einstellungen“ (Z. 41) geht über fs-settings bzw. das Programm fs-settings.
+
+## Nachtrag 2026-11-26 (Kalenderwörter): Datumsnamen und Wochenbeginn über `DateNames`
+
+Status: **akzeptiert** (Nutzer-Vertreter 8a, 2026-11-26; Ausgestaltung und Text: KI-Mitarbeit Claude Sonnet 5.5, Strategie-Entscheid `ENTSCHEID-kalenderwoerter`) · **erledigt** den Satz „OFFEN … `:date` nicht registriert“ aus „ICU4X: in V1 nicht für Plural und Zahlen“ (Umsetzung 2026-11-13) für die Kalenderwörter
+
+**Entscheidung**
+1. Namen von Kalenderfeldern (Wochentag, Monat, Monatstitel, Tagestitel) und der Wochenbeginn kommen aus CLDR über ICU4X hinter dem Trait `DateNames` (`fs-components-words`). Umgesetzt wird er einmal in `fs-components-mf2` aus dem Sprachpaket (`dates/<tag>/names.blob`).
+2. Grund: MF2 `:date` kennt (Entwurf) keinen Monat allein und keinen Jahr-Monat.
+3. Keine Programm- oder Component-Tabellen mit diesen Namen.
+4. Der Wochenbeginn ist einstellbar (BCP 47 `-u-fw`); Voreinstellung ist der CLDR-Wert der Region.
+5. Der Satz „OFFEN … `:date` nicht registriert“ ist für die Kalenderwörter erledigt.
